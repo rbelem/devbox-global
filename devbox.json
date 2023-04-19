@@ -1,0 +1,38 @@
+{
+  "packages": [
+    "neovim",
+    "fzf",
+    "starship",
+    "git",
+    "ripgrep",
+    "nix",
+    "gh"
+  ],
+  "env": {
+    "DEVBOX_PREFIX": "$HOME/.local/share/devbox/global/default/profile/"
+  },
+  "shell": {
+    "init_hook": [
+      "export DEVBOX_PREFIX=$HOME/.local/share/devbox/global/default/profile"
+    ],
+    "scripts": {
+      "install-nf": [
+        "mkdir -p $HOME/.fonts",
+        "curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip -s -o $HOME/.fonts/Hack.zip",
+        "unzip $HOME/.fonts/Hack.zip -d $HOME/.fonts",
+        "rm $HOME/.fonts/Hack.zip",
+        "fc-cache -fv"
+      ],
+      "install-nvchad": [
+        "git clone https://github.com/NvChad/NvChad $HOME/.config/nvim",
+        "git@github.com:rbelem/nvchad-custom.git $HOME/.config/nvim/custom"
+      ],
+      "setup-git": [
+        "git config --global http.sslVerify false"
+      ]
+    }
+  },
+  "nixpkgs": {
+    "commit": "f80ac848e3d6f0c12c52758c0f25c10c97ca3b62"
+  }
+}
