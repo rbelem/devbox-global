@@ -1,6 +1,6 @@
 {
   "packages": [
-    "neovim",
+    "github:nixos/nixpkgs/8eb9ed0cd532e776c7cba121c1f900b75980391f#neovim",
     "fzf",
     "starship",
     "git",
