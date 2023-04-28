@@ -6,7 +6,8 @@
     "git",
     "ripgrep",
     "nix",
-    "gh"
+    "gh",
+    "zoxide"
   ],
   "env": {
     "DEVBOX_PREFIX": "$HOME/.local/share/devbox/global/default/profile/"
