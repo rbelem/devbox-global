@@ -7,14 +7,17 @@
     "ripgrep",
     "nix",
     "gh",
-    "zoxide"
+    "zoxide",
+    "python311",
+    "python311Packages.pip"
   ],
   "env": {
     "DEVBOX_PREFIX": "$HOME/.local/share/devbox/global/default/profile/"
   },
   "shell": {
     "init_hook": [
-      "export DEVBOX_PREFIX=$HOME/.local/share/devbox/global/default/profile"
+      "export DEVBOX_PREFIX=$HOME/.local/share/devbox/global/default/profile",
+      ". $VENV_DIR/bin/activate"
     ],
     "scripts": {
       "install-nf": [
