@@ -21,10 +21,8 @@
     ],
     "scripts": {
       "install-nf": [
-        "mkdir -p $HOME/.fonts",
-        "curl https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Hack.zip -s -o $HOME/.fonts/Hack.zip",
-        "unzip $HOME/.fonts/Hack.zip -d $HOME/.fonts",
-        "rm $HOME/.fonts/Hack.zip",
+        "mkdir -p $HOME/.fonts/HackNF",
+        "curl -LJ -s https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Hack.tar.xz | tar -Jx -C $HOME/.fonts/HackNF",
         "fc-cache -fv"
       ],
       "install-nvchad": [
