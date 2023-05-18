@@ -12,11 +12,11 @@
     "tmux@3.3a"
   ],
   "env": {
-    "DEVBOX_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/virtenv/.wrappers"
+    "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/virtenv/.wrappers"
   },
   "shell": {
     "init_hook": [
-      "export DEVBOX_PREFIX=$HOME/.local/share/devbox/global/default/.devbox/virtenv/.wrappers"
+      "export DEVBOX_GLOBAL_PREFIX=$HOME/.local/share/devbox/global/default/.devbox/virtenv/.wrappers"
       ". $VENV_DIR/bin/activate"
     ],
     "scripts": {
