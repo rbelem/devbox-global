@@ -31,7 +31,7 @@
       ],
       "install-nvchad": [
         "git clone https://github.com/NvChad/NvChad $HOME/.config/nvim",
-        "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/custom"
+        "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/lua/custom"
       ],
       "install-tmux": [
         "git clone https://github.com/gpakosz/.tmux.git",
