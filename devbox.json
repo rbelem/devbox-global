@@ -9,7 +9,10 @@
     "zoxide@0.9.0",
     "python@3.11.3",
     "python311Packages.pip",
-    "tmux@3.3a"
+    "tmux@3.3a",
+    "go@1.20.3",
+    "nodejs@18.16.0",
+    "cargo@1.69.0"
   ],
   "env": {
     "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/virtenv/.wrappers"
