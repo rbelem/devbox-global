@@ -23,6 +23,10 @@
       "install-nf": [
         "mkdir -p $HOME/.fonts/HackNF",
         "curl -LJ -s https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Hack.tar.xz | tar -Jx -C $HOME/.fonts/HackNF",
+        "mkdir -p $HOME/.fonts/NotoNF",
+        "curl -LJ -s https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Noto.tar.xz | tar -Jx -C $HOME/.fonts/NotoNF",
+        "mkdir -p $HOME/.fonts/FiraCodeNF",
+        "curl -LJ -s https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/FiraCode.tar.xz | tar -Jx -C $HOME/.fonts/FiraCodeNF",
         "fc-cache -fv"
       ],
       "install-nvchad": [
