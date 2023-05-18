@@ -33,7 +33,8 @@
         "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/lua/custom"
       ],
       "install-tmux": [
-        "git clone https://github.com/gpakosz/.tmux.git",
+        "git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
+        "ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf",
         "curl https://raw.githubusercontent.com/rbelem/nix-config/main/home-manager/rodrigo/apps/tmux/.tmux.conf.local -s -o $HOME/.tmux.conf.local"
       ],
       "setup-git": [
