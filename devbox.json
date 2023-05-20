@@ -23,7 +23,9 @@
 
       "command -v fzf >/dev/null 2>&1 \\",
       "&& . $DEVBOX_GLOBAL_PREFIX/share/fzf/completion.bash \\",
-      "&& . $DEVBOX_GLOBAL_PREFIX/share/fzf/key-bindings.bash"
+      "&& . $DEVBOX_GLOBAL_PREFIX/share/fzf/key-bindings.bash",
+
+      "command -v zoxide >/dev/null 2>&1 && eval \"$(zoxide init bash)\" && alias cd='z'"
     ],
     "scripts": {
       "install-nf": [
