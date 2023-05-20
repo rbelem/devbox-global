@@ -19,7 +19,6 @@
   },
   "shell": {
     "init_hook": [
-      ". $VENV_DIR/bin/activate",
       "command -v starship >/dev/null 2>&1 && eval \"$(starship init bash --print-full-init)\"",
 
       "command -v fzf >/dev/null 2>&1 \\",
