@@ -14,7 +14,8 @@
     "cargo@1.69.0"
   ],
   "env": {
-    "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/virtenv/.wrappers"
+    "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/virtenv/.wrappers",
+    "EDITOR": "vi"
   },
   "shell": {
     "init_hook": [
@@ -25,7 +26,10 @@
       "&& . $DEVBOX_GLOBAL_PREFIX/share/fzf/completion.bash \\",
       "&& . $DEVBOX_GLOBAL_PREFIX/share/fzf/key-bindings.bash",
 
-      "command -v zoxide >/dev/null 2>&1 && eval \"$(zoxide init bash)\" && alias cd='z'"
+      "command -v zoxide >/dev/null 2>&1 && eval \"$(zoxide init bash)\" && alias cd='z'",
+
+      "set -o vi",
+      "command -v nvim >/dev/null 2>&1 && alias vi='nvim'"
     ],
     "scripts": {
       "install-nf": [
