@@ -19,6 +19,7 @@
   },
   "shell": {
     "init_hook": [
+      "[ ! -t 0 ] || [ -z \"$PS1\" ] && return",
       "command -v starship >/dev/null 2>&1 && eval \"$(starship init bash --print-full-init)\"",
       "command -v fzf >/dev/null 2>&1 \\",
       "  && . $DEVBOX_GLOBAL_PREFIX/share/fzf/completion.bash \\",
