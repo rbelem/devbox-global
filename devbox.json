@@ -14,7 +14,7 @@
     "cargo@1.69.0"
   ],
   "env": {
-    "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/current",
+    "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default",
     "EDITOR": "vi"
   },
   "shell": {
