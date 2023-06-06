@@ -11,7 +11,8 @@
     "tmux@3.3a",
     "go@1.20.3",
     "nodejs@18.16.0",
-    "cargo@1.69.0"
+    "cargo@1.69.0",
+    "wl-clipboard@latest"
   ],
   "env": {
     "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default",
@@ -55,7 +56,10 @@
         "EOF"
       ],
       "setup-git": [
-        "git config --global http.sslVerify false"
+        "git config --global http.sslVerify false",
+        "git config --global alias.ci commit",
+        "git config --global alias.co checkout",
+        "git config --global init.defaultBranch main"
       ]
     }
   },
