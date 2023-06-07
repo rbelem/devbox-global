@@ -12,12 +12,13 @@
     "go@latest",
     "nodejs@latest",
     "cargo@latest",
-    "wl-clipboard@latest"
+    "wl-clipboard@latest",
+    "tmuxp@latest"
   ],
   "env": {
     "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default",
-    "EDITOR": "nvim",
-    "VISUAL": "nvim"
+    "EDITOR": "vi",
+    "VISUAL": "vi"
   },
   "shell": {
     "init_hook": [
@@ -27,10 +28,15 @@
       "  && . $DEVBOX_GLOBAL_PREFIX/share/fzf/completion.bash \\",
       "  && . $DEVBOX_GLOBAL_PREFIX/share/fzf/key-bindings.bash",
       "command -v zoxide >/dev/null 2>&1 && eval \"$(zoxide init bash)\" && alias cd='z'",
-      "set -o vi",
-      "command -v nvim >/dev/null 2>&1 && alias vi='nvim'"
+      "set -o vi"
     ],
     "scripts": {
+      "config-edit": [
+        "$EDITOR $(devbox global path)/devbox.json"
+      ],
+      "config-push": [
+        "devbox global push git@github.com:rbelem/devbox-global.git"
+      ],
       "install-nf": [
         "mkdir -p $HOME/.fonts/HackNF",
         "curl -LJ -s https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Hack.tar.xz | tar -Jx -C $HOME/.fonts/HackNF",
@@ -45,9 +51,15 @@
         "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/lua/custom"
       ],
       "install-tmux": [
-        "git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
+        "[ -d $HOME/.tmux ] || git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
         "ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf",
-        "curl https://raw.githubusercontent.com/rbelem/nix-config/main/home-manager/rodrigo/apps/tmux/.tmux.conf.local -s -o $HOME/.tmux.conf.local"
+        "curl https://raw.githubusercontent.com/rbelem/nix-config/main/home-manager/rodrigo/apps/tmux/.tmux.conf.local -s -o $HOME/.tmux.conf.local",
+        "curl https://raw.githubusercontent.com/27medkamal/tmux-session-wizard/master/session-wizard.sh -s > $HOME/bin/t && chmod u+x $HOME/bin/t"
+      ],
+      "setup-bash-aliases": [
+        "cat <<EOF > $HOME/.bashrc.d/10-aliases.sh",
+        "alias vi='nvim'",
+        "EOF"
       ],
       "setup-devbox": [
         "cat <<EOF > $HOME/.bashrc.d/90-devbox.sh",
