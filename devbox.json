@@ -13,7 +13,9 @@
     "nodejs@latest",
     "cargo@latest",
     "wl-clipboard@latest",
-    "tmuxp@latest"
+    "tmuxp@latest",
+    "statix@latest",
+    "path:neovim-options"
   ],
   "env": {
     "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default",
