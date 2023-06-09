@@ -58,11 +58,6 @@
         "curl https://raw.githubusercontent.com/rbelem/nix-config/main/home-manager/rodrigo/apps/tmux/.tmux.conf.local -s -o $HOME/.tmux.conf.local",
         "curl https://raw.githubusercontent.com/27medkamal/tmux-session-wizard/master/session-wizard.sh -s > $HOME/bin/t && chmod u+x $HOME/bin/t"
       ],
-      "setup-bash-aliases": [
-        "cat <<EOF > $HOME/.bashrc.d/10-aliases.sh",
-        "alias vi='nvim'",
-        "EOF"
-      ],
       "setup-devbox": [
         "cat <<EOF > $HOME/.bashrc.d/90-devbox.sh",
         "[ ! -t 0 ] || [ -z \"\\$PS1\" ] && return",
