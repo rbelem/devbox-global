@@ -18,7 +18,6 @@
     "path:neovim-options"
   ],
   "env": {
-    "DEVBOX_GLOBAL_PREFIX": "$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default",
     "EDITOR": "vi",
     "VISUAL": "vi"
   },
@@ -26,6 +25,7 @@
     "init_hook": [
       "[ ! -t 0 ] || [ -z \"$PS1\" ] && return",
       "command -v starship >/dev/null 2>&1 && eval \"$(starship init bash --print-full-init)\"",
+      "export DEVBOX_GLOBAL_PREFIX=$(devbox global path)/.devbox/virtenv/.wrappers",
       "command -v fzf >/dev/null 2>&1 \\",
       "  && . $DEVBOX_GLOBAL_PREFIX/share/fzf/completion.bash \\",
       "  && . $DEVBOX_GLOBAL_PREFIX/share/fzf/key-bindings.bash",
