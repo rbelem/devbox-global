@@ -1,6 +1,5 @@
 {
   "packages": [
-    "neovim@latest",
     "fzf@latest",
     "starship@latest",
     "git@latest",
