@@ -52,12 +52,6 @@
         "git clone https://github.com/NvChad/NvChad $HOME/.config/nvim",
         "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/lua/custom"
       ],
-      "install-tmux": [
-        "[ -d $HOME/.tmux ] || git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
-        "ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf",
-        "curl https://raw.githubusercontent.com/rbelem/nix-config/main/home-manager/rodrigo/apps/tmux/.tmux.conf.local -s -o $HOME/.tmux.conf.local",
-        "curl https://raw.githubusercontent.com/27medkamal/tmux-session-wizard/master/session-wizard.sh -s > $HOME/bin/t && chmod u+x $HOME/bin/t"
-      ],
       "setup-devbox": [
         "cat <<EOF > $HOME/.bashrc.d/90-devbox.sh",
         "[ ! -t 0 ] || [ -z \"\\$PS1\" ] && return",
@@ -70,6 +64,12 @@
         "git config --global alias.ci commit",
         "git config --global alias.co checkout",
         "git config --global init.defaultBranch main"
+      ],
+      "setup-tmux": [
+        "[ -d $HOME/.tmux ] || git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
+        "ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf",
+        "ln -sf $(devbox global path)/dotfiles/.tmux.conf.local $HOME/.tmux.conf.local",
+        "curl https://raw.githubusercontent.com/27medkamal/tmux-session-wizard/master/session-wizard.sh -s > $HOME/bin/t && chmod u+x $HOME/bin/t"
       ]
     }
   },
