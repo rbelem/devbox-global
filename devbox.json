@@ -12,7 +12,6 @@
     "nodejs@latest",
     "cargo@latest",
     "wl-clipboard@latest",
-    "tmuxp@latest",
     "statix@latest",
     "path:neovim-options"
   ],
