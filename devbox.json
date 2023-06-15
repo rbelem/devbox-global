@@ -67,6 +67,7 @@
         "[ -d $HOME/.tmux ] || git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
         "ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf",
         "ln -sf $(devbox global path)/dotfiles/.tmux.conf.local $HOME/.tmux.conf.local",
+        "mkdir -p $HOME/bin",
         "curl https://raw.githubusercontent.com/27medkamal/tmux-session-wizard/master/session-wizard.sh -s > $HOME/bin/t && chmod u+x $HOME/bin/t"
       ]
     }
