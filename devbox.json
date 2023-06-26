@@ -6,7 +6,6 @@
     "ripgrep@latest",
     "gh@latest",
     "zoxide@latest",
-    "python@latest",
     "tmux@latest",
     "go@latest",
     "nodejs@latest",
@@ -69,6 +68,10 @@
         "ln -sf $(devbox global path)/dotfiles/.tmux.conf.local $HOME/.tmux.conf.local",
         "mkdir -p $HOME/bin",
         "curl https://raw.githubusercontent.com/27medkamal/tmux-session-wizard/master/session-wizard.sh -s > $HOME/bin/t && chmod u+x $HOME/bin/t"
+      ],
+      "update-neovim": [
+        "pushd $(devbox global path)/neovim-options",
+        "nix --extra-experimental-features 'nix-command flakes' flake update"
       ]
     }
   },
