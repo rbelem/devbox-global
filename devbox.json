@@ -48,10 +48,25 @@
         "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/lua/custom"
       ],
       "setup-devbox": [
+        "mkdir -p $HOME/.bashrc.d",
         "cat <<EOF > $HOME/.bashrc.d/90-devbox.sh",
         "[ ! -t 0 ] || [ -z \"\\$PS1\" ] && return",
         "source <(devbox global shellenv --init-hook)",
         "source <(devbox completion bash)",
+        "EOF"
+      ],
+      "setup-devbox-bashrc": [
+        "cat <<EOF >> $HOME/.bashrc",
+        "# User specific aliases and functions",
+        "if [ -d ~/.bashrc.d ]; then",
+        "  for rc in ~/.bashrc.d/*; do",
+        "    if [ -f \"\\$rc\" ]; then",
+        "      . \"\\$rc\"",
+        "    fi",
+        "  done",
+        "fi",
+        "",
+        "unset rc",
         "EOF"
       ],
       "setup-git": [
