@@ -2,7 +2,6 @@
   "packages": [
     "fzf@latest",
     "starship@latest",
-    "git@latest",
     "ripgrep@latest",
     "gh@latest",
     "zoxide@latest",
