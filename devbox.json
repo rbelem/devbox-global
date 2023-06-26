@@ -7,7 +7,6 @@
     "zoxide@latest",
     "tmux@latest",
     "go@latest",
-    "nodejs@latest",
     "cargo@latest",
     "wl-clipboard@latest",
     "statix@latest",
