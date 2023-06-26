@@ -73,7 +73,8 @@
         "git config --global http.sslVerify false",
         "git config --global alias.ci commit",
         "git config --global alias.co checkout",
-        "git config --global init.defaultBranch main"
+        "git config --global init.defaultBranch main",
+        "git config --global credential.helper 'cache --timeout=7200'"
       ],
       "setup-tmux": [
         "[ -d $HOME/.tmux ] || git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
