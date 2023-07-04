@@ -82,14 +82,7 @@
         "ln -sf $(devbox global path)/dotfiles/.tmux.conf.local $HOME/.tmux.conf.local",
         "mkdir -p $HOME/bin",
         "curl https://raw.githubusercontent.com/27medkamal/tmux-session-wizard/master/session-wizard.sh -s > $HOME/bin/t && chmod u+x $HOME/bin/t"
-      ],
-      "update-neovim": [
-        "pushd $(devbox global path)/neovim-options",
-        "nix --extra-experimental-features 'nix-command flakes' flake update"
       ]
     }
-  },
-  "nixpkgs": {
-    "commit": "f80ac848e3d6f0c12c52758c0f25c10c97ca3b62"
   }
 }
