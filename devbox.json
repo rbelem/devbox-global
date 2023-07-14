@@ -10,7 +10,8 @@
     "cargo@latest",
     "wl-clipboard@latest",
     "statix@latest",
-    "path:neovim-options"
+    "path:neovim-options",
+    "git-credential-oauth@latest"
   ],
   "env": {
     "EDITOR": "vi",
@@ -32,7 +33,7 @@
         "$EDITOR $(devbox global path)/devbox.json"
       ],
       "config-push": [
-        "devbox global push git@github.com:rbelem/devbox-global.git"
+        "devbox global push https://github.com/rbelem/devbox-global.git"
       ],
       "install-nf": [
         "mkdir -p $HOME/.fonts/HackNF",
@@ -74,7 +75,7 @@
         "git config --global alias.ci commit",
         "git config --global alias.co checkout",
         "git config --global init.defaultBranch main",
-        "git config --global credential.helper 'cache --timeout=7200'"
+        "git config --global credential.helper 'oauth'"
       ],
       "setup-tmux": [
         "[ -d $HOME/.tmux ] || git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
