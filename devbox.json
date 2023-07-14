@@ -75,6 +75,7 @@
         "git config --global alias.ci commit",
         "git config --global alias.co checkout",
         "git config --global init.defaultBranch main",
+        "git config --global credential.helper 'cache --timeout=7200'",
         "git config --global credential.helper 'oauth'"
       ],
       "setup-tmux": [
