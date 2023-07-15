@@ -76,11 +76,11 @@
         "EOF"
       ],
       "setup-git": [
-        "git config --global http.sslVerify false",
         "git config --global alias.ci commit",
         "git config --global alias.co checkout",
         "git config --global init.defaultBranch main",
         "git config --global --unset-all credential.helper",
+        "git config --global --add --bool http.https://*.local.sslverify false",
         "git config --global --add credential.helper cache",
         "git config --global --add credential.helper libsecret",
         "git config --global --add credential.helper oauth",
