@@ -2,19 +2,28 @@
   "lockfile_version": "1",
   "packages": {
     "cargo@latest": {
-      "last_modified": "2023-05-25T03:54:59Z",
-      "resolved": "github:NixOS/nixpkgs/8d4d822bc0efa9de6eddc79cb0d82897a9baa750#cargo",
-      "version": "1.69.0"
+      "last_modified": "2023-06-29T16:20:38Z",
+      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#cargo",
+      "source": "devbox-search",
+      "version": "1.70.0"
     },
     "fzf@latest": {
-      "last_modified": "2023-05-25T03:54:59Z",
-      "resolved": "github:NixOS/nixpkgs/8d4d822bc0efa9de6eddc79cb0d82897a9baa750#fzf",
-      "version": "0.41.1"
+      "last_modified": "2023-06-29T16:20:38Z",
+      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#fzf",
+      "source": "devbox-search",
+      "version": "0.42.0"
     },
     "gh@latest": {
-      "last_modified": "2023-05-25T03:54:59Z",
-      "resolved": "github:NixOS/nixpkgs/8d4d822bc0efa9de6eddc79cb0d82897a9baa750#gh",
-      "version": "2.30.0"
+      "last_modified": "2023-06-29T16:20:38Z",
+      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#gh",
+      "source": "devbox-search",
+      "version": "2.31.0"
+    },
+    "git-credential-manager@latest": {
+      "last_modified": "2023-06-29T16:20:38Z",
+      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#git-credential-manager",
+      "source": "devbox-search",
+      "version": "2.1.2"
     },
     "git-credential-oauth@latest": {
       "last_modified": "2023-06-29T16:20:38Z",
@@ -23,9 +32,10 @@
       "version": "0.8.0"
     },
     "go@latest": {
-      "last_modified": "2023-05-25T03:54:59Z",
-      "resolved": "github:NixOS/nixpkgs/8d4d822bc0efa9de6eddc79cb0d82897a9baa750#go",
-      "version": "1.20.4"
+      "last_modified": "2023-06-29T16:20:38Z",
+      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#go",
+      "source": "devbox-search",
+      "version": "1.20.5"
     },
     "ripgrep@latest": {
       "last_modified": "2023-05-25T03:54:59Z",
@@ -33,9 +43,10 @@
       "version": "13.0.0"
     },
     "starship@latest": {
-      "last_modified": "2023-05-25T03:54:59Z",
-      "resolved": "github:NixOS/nixpkgs/8d4d822bc0efa9de6eddc79cb0d82897a9baa750#starship",
-      "version": "1.14.2"
+      "last_modified": "2022-04-16T03:10:56Z",
+      "resolved": "github:NixOS/nixpkgs/3e2429381044368549efe4d91d482341db5e59f7#starship",
+      "source": "devbox-search",
+      "version": "2022-04-12"
     },
     "statix@latest": {
       "last_modified": "2023-05-25T03:54:59Z",
