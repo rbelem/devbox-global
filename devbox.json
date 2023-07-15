@@ -34,6 +34,9 @@
       "config-edit": [
         "$EDITOR $(devbox global path)/devbox.json"
       ],
+      "config-pull": [
+        "devbox global pull https://github.com/rbelem/devbox-global.git"
+      ],
       "config-push": [
         "devbox global push https://github.com/rbelem/devbox-global.git"
       ],
