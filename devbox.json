@@ -12,7 +12,8 @@
     "statix@latest",
     "path:neovim-options",
     "git-credential-oauth@latest",
-    "git-credential-manager@latest"
+    "git-credential-manager@latest",
+    "path:git-options"
   ],
   "env": {
     "EDITOR": "vi",
