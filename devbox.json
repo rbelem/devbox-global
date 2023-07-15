@@ -82,9 +82,10 @@
         "git config --global init.defaultBranch main",
         "git config --global --unset-all credential.helper",
         "git config --global --add credential.helper cache",
-        "git config --global credential.cacheOptions '--timeout=7200'",
+        "git config --global --add credential.helper libsecret",
         "git config --global --add credential.helper oauth",
         "git config --global --add credential.helper manager",
+        "git config --global credential.cacheOptions '--timeout=7200'",
         "git config --global credential.credentialStore secretservice",
         "git config --global credential.https://dev.azure.com.useHttpPath true"
       ],
