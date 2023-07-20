@@ -82,7 +82,7 @@
         "git config --global init.defaultBranch main",
         "git config --global --unset-all credential.helper",
         "git config --global --unset-all http.sslverify",
-        "git config --global --bool http.https://*.local.sslverify false",
+        "git config --global --bool http.'https://*.*.local'.sslverify false",
         "git config --global --add credential.helper cache",
         "git config --global --add credential.helper libsecret",
         "git config --global --add credential.helper oauth",
