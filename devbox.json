@@ -76,6 +76,7 @@
         "EOF"
       ],
       "setup-git": [
+        "git config --global alias.br branch",
         "git config --global alias.ci commit",
         "git config --global alias.co checkout",
         "git config --global init.defaultBranch main",
@@ -85,9 +86,9 @@
         "git config --global --add credential.helper cache",
         "git config --global --add credential.helper libsecret",
         "git config --global --add credential.helper oauth",
-        "git config --global --add credential.helper manager",
         "git config --global credential.cacheOptions '--timeout=7200'",
         "git config --global credential.credentialStore secretservice",
+        "git config --global --add credential.https://dev.azure.com.helper manager",
         "git config --global credential.https://dev.azure.com.useHttpPath true"
       ],
       "setup-tmux": [
