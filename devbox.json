@@ -28,6 +28,7 @@
       "  && . $DEVBOX_GLOBAL_PREFIX/share/fzf/completion.bash \\",
       "  && . $DEVBOX_GLOBAL_PREFIX/share/fzf/key-bindings.bash",
       "command -v zoxide >/dev/null 2>&1 && eval \"$(zoxide init bash)\" && alias cd='z'",
+      "export SUDO_EDITOR=$(devbox global path)/.devbox/virtenv/.wrappers/bin/nvim",
       "set -o vi"
     ],
     "scripts": {
