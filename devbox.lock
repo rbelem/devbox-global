@@ -7,6 +7,12 @@
       "source": "devbox-search",
       "version": "1.70.0"
     },
+    "delta@latest": {
+      "last_modified": "2023-06-30T04:44:22Z",
+      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#delta",
+      "source": "devbox-search",
+      "version": "0.16.5"
+    },
     "fzf@latest": {
       "last_modified": "2023-06-29T16:20:38Z",
       "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#fzf",
@@ -14,16 +20,16 @@
       "version": "0.42.0"
     },
     "gh@latest": {
-      "last_modified": "2023-06-29T16:20:38Z",
-      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#gh",
+      "last_modified": "2023-07-30T12:29:02Z",
+      "resolved": "github:NixOS/nixpkgs/3acb5c4264c490e7714d503c7166a3fde0c51324#gh",
       "source": "devbox-search",
-      "version": "2.31.0"
+      "version": "2.32.1"
     },
     "git-credential-manager@latest": {
-      "last_modified": "2023-06-29T16:20:38Z",
-      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#git-credential-manager",
+      "last_modified": "2023-07-30T12:29:02Z",
+      "resolved": "github:NixOS/nixpkgs/3acb5c4264c490e7714d503c7166a3fde0c51324#git-credential-manager",
       "source": "devbox-search",
-      "version": "2.1.2"
+      "version": "2.2.2"
     },
     "git-credential-oauth@latest": {
       "last_modified": "2023-06-29T16:20:38Z",
@@ -32,10 +38,10 @@
       "version": "0.8.0"
     },
     "go@latest": {
-      "last_modified": "2023-06-29T16:20:38Z",
-      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#go",
+      "last_modified": "2023-07-30T12:29:02Z",
+      "resolved": "github:NixOS/nixpkgs/3acb5c4264c490e7714d503c7166a3fde0c51324#go",
       "source": "devbox-search",
-      "version": "1.20.5"
+      "version": "1.20.6"
     },
     "ripgrep@latest": {
       "last_modified": "2023-05-25T03:54:59Z",
@@ -54,14 +60,16 @@
       "version": "0.5.6"
     },
     "tmux@latest": {
-      "last_modified": "2023-05-25T03:54:59Z",
-      "resolved": "github:NixOS/nixpkgs/8d4d822bc0efa9de6eddc79cb0d82897a9baa750#tmux",
-      "version": "3.3a"
+      "last_modified": "2022-06-07T02:20:12Z",
+      "resolved": "github:NixOS/nixpkgs/d23be02c22add83d28588ac164dcbac733305b04#tmux",
+      "source": "devbox-search",
+      "version": "3.3"
     },
     "wl-clipboard@latest": {
-      "last_modified": "2023-05-25T03:54:59Z",
-      "resolved": "github:NixOS/nixpkgs/8d4d822bc0efa9de6eddc79cb0d82897a9baa750#wl-clipboard",
-      "version": "2.1.0"
+      "last_modified": "2023-07-30T12:29:02Z",
+      "resolved": "github:NixOS/nixpkgs/3acb5c4264c490e7714d503c7166a3fde0c51324#wl-clipboard",
+      "source": "devbox-search",
+      "version": "2.2.0"
     },
     "zoxide@latest": {
       "last_modified": "2023-05-25T03:54:59Z",

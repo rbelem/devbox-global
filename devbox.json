@@ -13,7 +13,8 @@
     "path:neovim-options",
     "git-credential-oauth@latest",
     "git-credential-manager@latest",
-    "path:git-options"
+    "path:git-options",
+    "delta@latest"
   ],
   "env": {
     "EDITOR": "vi",
@@ -90,7 +91,13 @@
         "git config --global credential.cacheOptions '--timeout=7200'",
         "git config --global credential.credentialStore secretservice",
         "git config --global --add credential.https://dev.azure.com.helper manager",
-        "git config --global credential.https://dev.azure.com.useHttpPath true"
+        "git config --global credential.https://dev.azure.com.useHttpPath true",
+        "git config --global core.pager delta",
+        "git config --global interactive.diffFilter 'delta --color-only'",
+        "git config --global delta.navigate true",
+        "git config --global delta.light = false ",
+        "git config --global merge.conflictstyle diff3",
+        "git config --global diff.colorMoved default"
       ],
       "setup-tmux": [
         "[ -d $HOME/.tmux ] || git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
