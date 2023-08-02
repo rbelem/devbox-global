@@ -90,12 +90,16 @@
         "git config --global --add credential.helper oauth",
         "git config --global credential.cacheOptions '--timeout=7200'",
         "git config --global credential.credentialStore secretservice",
-        "git config --global --add credential.https://dev.azure.com.helper manager",
+        "git config --global credential.https://dev.azure.com.helper manager",
         "git config --global credential.https://dev.azure.com.useHttpPath true",
         "git config --global core.pager delta",
         "git config --global interactive.diffFilter 'delta --color-only'",
+        "curl https://github.com/dandavison/delta/raw/master/themes.gitconfig -sL > $HOME/.local/share/delta/themes.gitconfig",
+        "git config --global include.path $HOME/.local/share/delta/themes.gitconfig",
+        "git config --global delta.features calochortus-lyallii",
         "git config --global delta.navigate true",
-        "git config --global delta.light = false ",
+        "git config --global delta.side-by-side true",
+        "git config --global delta.true-color always",
         "git config --global merge.conflictstyle diff3",
         "git config --global diff.colorMoved default"
       ],
@@ -104,7 +108,7 @@
         "ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf",
         "ln -sf $(devbox global path)/dotfiles/.tmux.conf.local $HOME/.tmux.conf.local",
         "mkdir -p $HOME/bin",
-        "curl https://raw.githubusercontent.com/27medkamal/tmux-session-wizard/master/session-wizard.sh -s > $HOME/bin/t && chmod u+x $HOME/bin/t"
+        "curl https://github.com/27medkamal/tmux-session-wizard/raw/master/session-wizard.sh -sL > $HOME/bin/t && chmod u+x $HOME/bin/t"
       ]
     }
   }
