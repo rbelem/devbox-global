@@ -105,6 +105,7 @@
         "git config --global credential.https://dev.azure.com.useHttpPath true",
         "git config --global core.pager delta",
         "git config --global interactive.diffFilter 'delta --color-only'",
+        "mkdir -p /home/rodrigo/.local/share/delta",
         "curl https://github.com/dandavison/delta/raw/master/themes.gitconfig -sL > $HOME/.local/share/delta/themes.gitconfig",
         "git config --global include.path $HOME/.local/share/delta/themes.gitconfig",
         "git config --global delta.features calochortus-lyallii",
