@@ -14,7 +14,9 @@
     "git-credential-oauth@latest",
     "git-credential-manager@latest",
     "path:git-options",
-    "delta@latest"
+    "delta@latest",
+    "brightnessctl@latest",
+    "luarocks@latest"
   ],
   "env": {
     "EDITOR": "vi",
