@@ -16,7 +16,8 @@
     "path:git-options",
     "delta@latest",
     "luarocks@latest",
-    "ghq@latest"
+    "ghq@latest",
+    "tree@latest"
   ],
   "env": {
     "EDITOR": "vi",
