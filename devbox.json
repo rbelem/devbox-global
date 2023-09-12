@@ -15,7 +15,6 @@
     "git-credential-manager@latest",
     "path:git-options",
     "delta@latest",
-    "brightnessctl@latest",
     "luarocks@latest"
   ],
   "env": {
