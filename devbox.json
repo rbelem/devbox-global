@@ -55,7 +55,7 @@
         "fc-cache -fv"
       ],
       "install-nvchad": [
-        "git clone https://github.com/NvChad/NvChad $HOME/.config/nvim",
+        "git clone https://github.com/rbelem/NvSigma $HOME/.config/nvim",
         "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/lua/custom"
       ],
       "setup-devbox": [
