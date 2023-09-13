@@ -129,7 +129,10 @@
         "git config --global delta.tabs 2",
         "git config --global delta.true-color always",
         "git config --global merge.conflictstyle diff3",
-        "git config --global ghq.root $HOME/Workspace"
+        "git config --global ghq.root $HOME/Workspace",
+        "git config --global merge.guitool meld",
+        "git config --global merge.tool vimdiff",
+        "git config --global mergetool.vimdiff.cmd \"nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'\""
       ],
       "setup-tmux": [
         "[ -d $HOME/.tmux ] || git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
