@@ -120,8 +120,13 @@
         "git config --global diff.tool difftastic",
         "git config --global difftool.difftastic.cmd 'difft \"$LOCAL\" \"$REMOTE\"'",
         "git config --global delta.features calochortus-lyallii",
+        "git config --global delta.line-numbers-minus-style 'bold \"#b10036\"'",
+        "git config --global delta.line-numbers-plus-style 'bold \"#00b136\"'",
+        "git config --global delta.max-line-length 1024",
         "git config --global delta.navigate true",
+        "git config --global delta.pager 'less -RS'",
         "git config --global delta.side-by-side true",
+        "git config --global delta.tabs 2",
         "git config --global delta.true-color always",
         "git config --global merge.conflictstyle diff3",
         "git config --global ghq.root $HOME/Workspace"
