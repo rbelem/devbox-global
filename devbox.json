@@ -98,6 +98,8 @@
         "git config --global alias.br branch",
         "git config --global alias.ci commit",
         "git config --global alias.co checkout",
+        "git config --global branch.autosetupmerge always",
+        "git config --global branch.autosetuprebase always",
         "git config --global commit.verbose true",
         "git config --global init.defaultBranch main",
         "git config --global --bool http.'https://*.*.local'.sslverify false",
