@@ -18,7 +18,8 @@
     "luarocks@latest",
     "ghq@latest",
     "tree@latest",
-    "difftastic@latest"
+    "difftastic@latest",
+    "tig@latest"
   ],
   "env": {
     "EDITOR": "vi",
