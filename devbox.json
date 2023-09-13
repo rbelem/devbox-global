@@ -17,7 +17,8 @@
     "delta@latest",
     "luarocks@latest",
     "ghq@latest",
-    "tree@latest"
+    "tree@latest",
+    "difftastic@latest"
   ],
   "env": {
     "EDITOR": "vi",
@@ -111,12 +112,15 @@
         "mkdir -p /home/rodrigo/.local/share/delta",
         "curl https://github.com/dandavison/delta/raw/master/themes.gitconfig -sL > $HOME/.local/share/delta/themes.gitconfig",
         "git config --global include.path $HOME/.local/share/delta/themes.gitconfig",
+        "git config --global diff.colorMoved default",
+        "git config --global diff.guitool meld",
+        "git config --global diff.tool difftastic",
+        "git config --global difftool.difftastic.cmd 'difft \"$LOCAL\" \"$REMOTE\"'",
         "git config --global delta.features calochortus-lyallii",
         "git config --global delta.navigate true",
         "git config --global delta.side-by-side true",
         "git config --global delta.true-color always",
         "git config --global merge.conflictstyle diff3",
-        "git config --global diff.colorMoved default",
         "git config --global ghq.root $HOME/Workspace"
       ],
       "setup-tmux": [
