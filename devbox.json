@@ -148,7 +148,7 @@
         "ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf",
         "ln -sf $(devbox global path)/dotfiles/.tmux.conf.local $HOME/.tmux.conf.local",
         "mkdir -p $HOME/.local/bin",
-        "curl https://github.com/27medkamal/tmux-session-wizard/raw/master/session-wizard.sh -sL > $HOME/.local/bin/t && chmod u+x $HOME/.local/bin/t"
+        "curl -sLJ https://github.com/27medkamal/tmux-session-wizard/raw/main/session-wizard.sh > $HOME/.local/bin/t && chmod u+x $HOME/.local/bin/t"
       ]
     }
   }
