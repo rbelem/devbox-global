@@ -19,7 +19,11 @@
     "ghq@latest",
     "tree@latest",
     "difftastic@latest",
-    "tig@latest"
+    "tig@latest",
+    "tree-sitter@latest",
+    "chezmoi@latest",
+    "bitwarden-cli@latest",
+    "atuin@latest"
   ],
   "env": {
     "EDITOR": "vi",
@@ -35,7 +39,9 @@
       "  && . $DEVBOX_GLOBAL_PREFIX/share/fzf/key-bindings.bash",
       "command -v zoxide >/dev/null 2>&1 && eval \"$(zoxide init bash)\" && alias cd='z'",
       "export SUDO_EDITOR=$(devbox global path)/.devbox/virtenv/.wrappers/bin/nvim",
-      "set -o vi"
+      "set -o vi",
+      "[ -f $HOME/.bash-preexec.sh ] && source $HOME/.bash-preexec.sh",
+      "command -v atuin >/dev/null 2>&1 && eval \"$(atuin init bash)\""
     ],
     "scripts": {
       "config-edit": [
@@ -59,6 +65,9 @@
       "install-nvchad": [
         "git clone https://github.com/rbelem/NvSigma $HOME/.config/nvim",
         "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/lua/custom"
+      ],
+      "setup-atuin": [
+        "curl -sL https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o $HOME/.bash-preexec.sh"
       ],
       "setup-devbox": [
         "mkdir -p $HOME/.bashrc.d",
