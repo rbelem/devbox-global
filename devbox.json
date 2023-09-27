@@ -91,6 +91,14 @@
         "unset rc",
         "EOF"
       ],
+      "setup-flatpak": [
+        "flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo",
+        "ln -sf /run/current-system/sw/share/X11/fonts $HOME/.local/share/fonts",
+        "flatpak --user override --filesystem=$HOME/.local/share/fonts",
+        "mkdir -p $HOME/.icons",
+        "ln -sf $(nix eval --raw nixpkgs#breeze-icons.outPath)/share/icons/breeze $HOME/.icons/default",
+        "flatpak --user override --filesystem=$HOME/.icons"
+      ],
       "setup-git": [
         "git config --global --remove-section alias",
         "git config --global --remove-section core",
