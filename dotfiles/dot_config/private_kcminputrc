@@ -1,0 +1,13 @@
+[$Version]
+update_info=delete_cursor_old_default_size.upd:DeleteCursorOldDefaultSize,kcminputrc_fix_botched_5_21_0.upd:kcminputrc_fix_botched_5_21_0_pre,kcminputrc_fix_botched_5_21_0.upd:kcminputrc_fix_botched_5_21_0,kcminputrc_repeat.upd:kcminputrc_migrate_key_repeat
+
+[ButtonRebinds][Mouse]
+ExtraButton1=Key,Meta+Alt+K
+ExtraButton2=Key,Meta+Alt+J
+
+[Libinput][1267][12877][ELAN0B00:00 04F3:324D Touchpad]
+ClickMethod=2
+TapToClick=true
+
+[Tmp]
+update_info=delete_cursor_old_default_size.upd:DeleteCursorOldDefaultSize
