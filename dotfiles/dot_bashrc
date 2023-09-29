@@ -1,0 +1,46 @@
+# If not running interactively, don't do anything:
+[ -z "$PS1" ] && return
+
+[ -n "${PERLBREW_PERL:-}" ] && return
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+HISTSIZE=100000
+HISTFILESIZE=2000000
+HISTTIMEFORMAT="$(whoami)@$(hostname) %F %T  "
+HISTCONTROL=ignoreboth
+HISTIGNORE='&:[bf]g:cd:clear:env:exit:history:htop:ls:ps *:top:[ t\]*'
+# Save and reload history after each command
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+shopt -s cdspell
+shopt -s checkjobs
+shopt -s checkwinsize
+shopt -s dotglob
+shopt -s extglob
+shopt -s globstar
+shopt -s histappend
+shopt -s nocaseglob
+
+force_color_prompt=yes
+
+# No locking on Ctrl-S
+stty -ixon
+set -o vi
+set -h
+
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
+fi
+
+unset rc
