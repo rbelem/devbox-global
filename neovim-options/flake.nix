@@ -13,7 +13,6 @@
         neovim-full = pkgs.neovim.override {
           viAlias = true;
           vimAlias = true;
-          vimdiffAlias = true;
           withNodeJs = true;
           withPython3 = true;
           withRuby = true;
