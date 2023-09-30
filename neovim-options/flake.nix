@@ -1,5 +1,5 @@
 {
-  description = "A flake that outputs customized packages.";
+  description = "Flake for neovim + extra options.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
