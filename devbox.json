@@ -23,7 +23,8 @@
     "tree-sitter@latest",
     "chezmoi@latest",
     "bitwarden-cli@latest",
-    "atuin@latest"
+    "atuin@latest",
+    "path:devbox.d/nerdfonts"
   ],
   "env": {
     "EDITOR": "vi",
