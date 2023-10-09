@@ -55,7 +55,7 @@
         "devbox global push https://github.com/rbelem/devbox-global.git"
       ],
       "install-nf": [
-        "PREFIX=/nix/store/3khphyw40k8wjr4p2gryllpbl300z0si-nerdfonts-3.0.2",
+        "PREFIX=$(nix path-info $(devbox global path)/devbox.d/nerdfonts)",
         "NERDFONTS_DIR=$PREFIX/share/fonts/truetype/NerdFonts",
         "mkdir -p $HOME/.config/fontconfig/conf.d",
         "cat <<EOF > $HOME/.config/fontconfig/conf.d/10-nerdfonts.conf",
