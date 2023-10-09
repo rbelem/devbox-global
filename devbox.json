@@ -55,12 +55,16 @@
         "devbox global push https://github.com/rbelem/devbox-global.git"
       ],
       "install-nf": [
-        "mkdir -p $HOME/.fonts/HackNF",
-        "curl -LJ -s https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Hack.tar.xz | tar -Jx -C $HOME/.fonts/HackNF",
-        "mkdir -p $HOME/.fonts/NotoNF",
-        "curl -LJ -s https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/Noto.tar.xz | tar -Jx -C $HOME/.fonts/NotoNF",
-        "mkdir -p $HOME/.fonts/FiraCodeNF",
-        "curl -LJ -s https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/FiraCode.tar.xz | tar -Jx -C $HOME/.fonts/FiraCodeNF",
+        "PREFIX=/nix/store/3khphyw40k8wjr4p2gryllpbl300z0si-nerdfonts-3.0.2",
+        "NERDFONTS_DIR=$PREFIX/share/fonts/truetype/NerdFonts",
+        "mkdir -p $HOME/.config/fontconfig/conf.d",
+        "cat <<EOF > $HOME/.config/fontconfig/conf.d/10-nerdfonts.conf",
+        "<?xml version='1.0'?>",
+        "<!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>",
+        "<fontconfig>",
+        "  <dir>$NERDFONTS_DIR</dir>",
+        "</fontconfig>",
+        "EOF",
         "fc-cache -fv"
       ],
       "install-nvchad": [
