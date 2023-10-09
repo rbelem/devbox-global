@@ -28,7 +28,8 @@
   ],
   "env": {
     "EDITOR": "vi",
-    "VISUAL": "vi"
+    "VISUAL": "vi",
+    "NIX_CONFIG": "experimental-features = nix-command flakes"
   },
   "shell": {
     "init_hook": [
