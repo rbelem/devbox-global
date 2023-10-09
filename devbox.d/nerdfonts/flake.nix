@@ -28,7 +28,8 @@
 
     in rec {
       packages = {
-        nerdfonts = pkgs.nerdfonts;
+        inherit pkgs;
+        default = pkgs.nerdfonts;
       };
     }
   );
