@@ -106,6 +106,10 @@
         "flatpak --user override --filesystem=$HOME/.icons"
       ],
       "setup-git": [
+        "for gitconfig in $(git config --get-regexp includeif.gitdir | awk '{print $1}'); do",
+        "  dirname=${gitconfig%.path}",
+        "  git config --global --remove-section $dirname",
+        "done",
         "git config --global --remove-section alias",
         "git config --global --remove-section core",
         "git config --global --remove-section credential",
@@ -118,6 +122,12 @@
         "git config --global --remove-section init",
         "git config --global --remove-section interactive",
         "git config --global --remove-section merge",
+        "git config --global user.name 'Rodrigo Belem'",
+        "git config --global user.email rodrigo.belem@gmail.com",
+        "for gitconfig in $(find $(ghq root) -maxdepth 3 -name .gitconfig); do",
+        "  dirname=$(dirname $gitconfig)",
+        "  git config --global includeif.gitdir:${dirname}.path \"$gitconfig\"",
+        "done",
         "git config --global alias.br branch",
         "git config --global alias.ci commit",
         "git config --global alias.co checkout",
