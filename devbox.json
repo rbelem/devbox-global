@@ -134,6 +134,7 @@
         "git config --global user.email rodrigo.belem@gmail.com",
         "for gitconfig in $(find $(ghq root) -maxdepth 3 -name .gitconfig); do",
         "  dirname=$(dirname $gitconfig)",
+        "  dirname=${dirname%/}/",
         "  git config --global includeif.gitdir:${dirname}.path \"$gitconfig\"",
         "done",
         "git config --global alias.br branch",
