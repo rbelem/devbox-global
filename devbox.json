@@ -180,6 +180,7 @@
       ],
       "setup-themes": [
         "ghq get https://github.com/Gogh-Co/Gogh.git",
+        "[ $XDG_SESSION_DESKTOP = KDE ] && export TERMINAL=konsole",
         "[ $XDG_CURRENT_DESKTOP = ubuntu:GNOME ] && export TERMINAL=gnome-terminal",
         "$(ghq root)/github.com/Gogh-Co/Gogh/installs/kanagawa.sh"
       ],
