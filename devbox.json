@@ -25,7 +25,9 @@
     "bitwarden-cli@latest",
     "atuin@latest",
     "path:devbox.d/nerdfonts",
-    "fd@latest"
+    "fd@latest",
+    "libuuid@latest",
+    "dconf@latest"
   ],
   "env": {
     "EDITOR": "vi",
@@ -175,6 +177,11 @@
         "git config --global merge.guitool meld",
         "git config --global merge.tool vimdiff",
         "git config --global mergetool.vimdiff.cmd \"nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'\""
+      ],
+      "setup-themes": [
+        "ghq get https://github.com/Gogh-Co/Gogh.git",
+        "[ $XDG_CURRENT_DESKTOP = ubuntu:GNOME ] && export TERMINAL=gnome-terminal",
+        "$(ghq root)/github.com/Gogh-Co/Gogh/installs/kanagawa.sh"
       ],
       "setup-tmux": [
         "[ -d $HOME/.tmux ] || git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
