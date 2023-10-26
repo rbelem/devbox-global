@@ -45,6 +45,7 @@
       "[ -f $HOME/.bash-preexec.sh ] && source $HOME/.bash-preexec.sh",
       "command -v atuin >/dev/null 2>&1 && eval \"$(atuin init --disable-up-arrow bash)\"",
       "for f in \"$(devbox global path)/.devbox/virtenv/.wrappers/share/bash-completion/completions/\"*; do",
+      "  [ $(basename $f) = Makemodule.am ] && continue",
       "  source \"$f\"",
       "done"
     ],
