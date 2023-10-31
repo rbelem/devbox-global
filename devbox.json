@@ -27,7 +27,11 @@
     "path:devbox.d/nerdfonts",
     "fd@latest",
     "libuuid@latest",
-    "dconf@latest"
+    "dconf@latest",
+    "jq@latest",
+    "codeium@latest",
+    "lua-language-server@latest",
+    "gitlint@latest"
   ],
   "env": {
     "EDITOR": "vi",
