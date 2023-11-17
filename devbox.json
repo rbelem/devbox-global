@@ -32,6 +32,8 @@
     "codeium@latest",
     "lua-language-server@latest",
     "gitlint@latest",
+    "hadolint@latest",
+    "ltex-ls@latest",
   ],
   "env": {
     "EDITOR": "vi",
