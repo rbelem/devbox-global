@@ -31,12 +31,12 @@
     "jq@latest",
     "codeium@latest",
     "lua-language-server@latest",
-    "gitlint@latest"
+    "gitlint@latest",
   ],
   "env": {
     "EDITOR": "vi",
     "VISUAL": "vi",
-    "NIX_CONFIG": "experimental-features = nix-command flakes"
+    "NIX_CONFIG": "experimental-features = nix-command flakes",
   },
   "shell": {
     "init_hook": [
@@ -51,17 +51,17 @@
       "for f in \"$(devbox global path)/.devbox/virtenv/.wrappers/share/bash-completion/completions/\"*; do",
       "  [ $(basename $f) = Makemodule.am ] && continue",
       "  source \"$f\"",
-      "done"
+      "done",
     ],
     "scripts": {
       "config-edit": [
-        "$EDITOR $(devbox global path)/devbox.json"
+        "$EDITOR $(devbox global path)/devbox.json",
       ],
       "config-pull": [
-        "devbox global pull https://github.com/rbelem/devbox-global.git"
+        "devbox global pull https://github.com/rbelem/devbox-global.git",
       ],
       "config-push": [
-        "devbox global push https://github.com/rbelem/devbox-global.git"
+        "devbox global push https://github.com/rbelem/devbox-global.git",
       ],
       "install-nf": [
         "PREFIX=$(nix path-info $(devbox global path)/devbox.d/nerdfonts)",
@@ -74,15 +74,15 @@
         "  <dir>$NERDFONTS_DIR</dir>",
         "</fontconfig>",
         "EOF",
-        "fc-cache -fv"
+        "fc-cache -fv",
       ],
       "install-nvchad": [
         "git clone https://github.com/NvChad/NvChad $HOME/.config/nvim",
-        "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/lua/custom"
+        "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/lua/custom",
       ],
       "setup-atuin": [
         "curl -sLJ https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh \\",
-        "  -o $HOME/.bash-preexec.sh"
+        "  -o $HOME/.bash-preexec.sh",
       ],
       "setup-devbox": [
         "mkdir -p $HOME/.bashrc.d",
@@ -90,7 +90,7 @@
         "[ ! -t 0 ] || [ -z \"\\$PS1\" ] && return",
         "source <(devbox global shellenv --init-hook)",
         "source <(devbox completion bash)",
-        "EOF"
+        "EOF",
       ],
       "setup-devbox-bashrc": [
         "cat <<EOF >> $HOME/.bashrc",
@@ -104,7 +104,7 @@
         "fi",
         "",
         "unset rc",
-        "EOF"
+        "EOF",
       ],
       "setup-flatpak": [
         "flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo",
@@ -112,7 +112,7 @@
         "flatpak --user override --filesystem=$HOME/.local/share/fonts",
         "mkdir -p $HOME/.icons",
         "ln -sf $(nix eval --raw nixpkgs#breeze-icons.outPath)/share/icons/breeze $HOME/.icons/default",
-        "flatpak --user override --filesystem=$HOME/.icons"
+        "flatpak --user override --filesystem=$HOME/.icons",
       ],
       "setup-git": [
         "git config --global ghq.root $HOME/Workspace",
@@ -191,13 +191,13 @@
         "git config --global merge.conflictstyle diff3",
         "git config --global merge.guitool meld",
         "git config --global merge.tool vimdiff",
-        "git config --global mergetool.vimdiff.cmd \"nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'\""
+        "git config --global mergetool.vimdiff.cmd \"nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'\"",
       ],
       "setup-themes": [
         "ghq get https://github.com/Gogh-Co/Gogh.git",
         "[ $XDG_SESSION_DESKTOP = KDE ] && export TERMINAL=konsole",
         "[ $XDG_CURRENT_DESKTOP = ubuntu:GNOME ] && export TERMINAL=gnome-terminal",
-        "$(ghq root)/github.com/Gogh-Co/Gogh/installs/kanagawa.sh"
+        "$(ghq root)/github.com/Gogh-Co/Gogh/installs/kanagawa.sh",
       ],
       "setup-tmux": [
         "[ -d $HOME/.tmux ] || git clone https://github.com/gpakosz/.tmux $HOME/.tmux",
@@ -205,8 +205,8 @@
         "ln -sf $(devbox global path)/dotfiles/.tmux.conf.local $HOME/.tmux.conf.local",
         "mkdir -p $HOME/.local/bin",
         "curl -sLJ https://github.com/27medkamal/tmux-session-wizard/raw/main/session-wizard.sh \\",
-        "  -o $HOME/.local/bin/t && chmod u+x $HOME/.local/bin/t"
-      ]
-    }
-  }
+        "  -o $HOME/.local/bin/t && chmod u+x $HOME/.local/bin/t",
+      ],
+    },
+  },
 }
