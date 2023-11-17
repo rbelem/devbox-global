@@ -29,7 +29,7 @@
     "libuuid@latest",
     "dconf@latest",
     "jq@latest",
-    "path:devbox.d/codeium",
+    "github:Exafunction/codeium.nvim/main#codeium-lsp",
     "lua-language-server@latest",
     "gitlint@latest",
     "hadolint@latest",
