@@ -81,7 +81,8 @@
         "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim/lua/custom"
       ],
       "setup-atuin": [
-        "curl -sL https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o $HOME/.bash-preexec.sh"
+        "curl -sLJ https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh \\",
+        "  -o $HOME/.bash-preexec.sh"
       ],
       "setup-devbox": [
         "mkdir -p $HOME/.bashrc.d",
@@ -163,7 +164,8 @@
         "git config --global core.pager delta",
         "git config --global interactive.diffFilter 'delta --color-only'",
         "mkdir -p $HOME/.local/share/delta",
-        "curl https://github.com/dandavison/delta/raw/master/themes.gitconfig -sL > $HOME/.local/share/delta/themes.gitconfig",
+        "curl -sLJ https://github.com/dandavison/delta/raw/master/themes.gitconfig \\",
+        "  -o $HOME/.local/share/delta/themes.gitconfig",
         "git config --global include.path $HOME/.local/share/delta/themes.gitconfig",
         "git config --global diff.colorMoved default",
         "git config --global diff.guitool meld",
@@ -194,7 +196,8 @@
         "ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf",
         "ln -sf $(devbox global path)/dotfiles/.tmux.conf.local $HOME/.tmux.conf.local",
         "mkdir -p $HOME/.local/bin",
-        "curl -sLJ https://github.com/27medkamal/tmux-session-wizard/raw/main/session-wizard.sh > $HOME/.local/bin/t && chmod u+x $HOME/.local/bin/t"
+        "curl -sLJ https://github.com/27medkamal/tmux-session-wizard/raw/main/session-wizard.sh \\",
+        "  -o $HOME/.local/bin/t && chmod u+x $HOME/.local/bin/t"
       ]
     }
   }
