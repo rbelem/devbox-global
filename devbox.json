@@ -29,7 +29,7 @@
     "libuuid@latest",
     "dconf@latest",
     "jq@latest",
-    "codeium@latest",
+    "path:devbox.d/codeium",
     "lua-language-server@latest",
     "gitlint@latest",
     "hadolint@latest",
