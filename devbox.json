@@ -108,11 +108,15 @@
       ],
       "setup-flatpak": [
         "flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo",
-        "ln -sf /run/current-system/sw/share/X11/fonts $HOME/.local/share/fonts",
+        "rm -rf $HOME/.local/share/fonts",
+        "ln -s /run/current-system/sw/share/X11/fonts $HOME/.local/share/fonts",
         "flatpak --user override --filesystem=$HOME/.local/share/fonts",
         "mkdir -p $HOME/.icons",
+        "mkdir -p $HOME/.local/share/icons",
         "ln -sf $(nix eval --raw nixpkgs#breeze-icons.outPath)/share/icons/breeze $HOME/.icons/default",
         "flatpak --user override --filesystem=$HOME/.icons",
+        "ln -sf $(nix eval --raw nixpkgs#breeze-icons.outPath)/share/icons/breeze $HOME/.local/share/icons/default",
+        "flatpak --user override --filesystem=$HOME/.local/share/icons",
       ],
       "setup-git": [
         "git config --global ghq.root $HOME/Workspace",
