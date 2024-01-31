@@ -11,6 +11,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         neovim-full = pkgs.neovim.override {
+          extraLuaPackages = ps: [ ps.lpeg ];
           viAlias = true;
           vimAlias = true;
           withNodeJs = true;
