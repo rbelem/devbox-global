@@ -15,5 +15,5 @@
 ## Enable Devbox Global
 `echo -e '\nsource <(devbox global shellenv --init-hook)' >>~/.bashrc`
 
-## If install on a clean system
+## If installing on a clean system
 `devbox global run first-install`
