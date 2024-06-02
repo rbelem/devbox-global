@@ -71,7 +71,7 @@
       "config-push": [
         "devbox global push https://github.com/rbelem/devbox-global.git",
       ],
-      "install-nf": [
+      "setup-nerd-fonts": [
         "PREFIX=$(nix path-info $(devbox global path)/devbox.d/nerdfonts)",
         "NERDFONTS_DIR=$PREFIX/share/fonts/truetype/NerdFonts",
         "mkdir -p $HOME/.config/fontconfig/conf.d",
@@ -84,7 +84,7 @@
         "EOF",
         "fc-cache -fv",
       ],
-      "install-nvchad": [
+      "setup-neovim": [
         "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim",
       ],
       "setup-atuin": [
@@ -101,6 +101,7 @@
       ],
       "setup-devbox-bashrc": [
         "cat <<EOF >> $HOME/.bashrc",
+        "",
         "# User specific aliases and functions",
         "if [ -d ~/.bashrc.d ]; then",
         "  for rc in ~/.bashrc.d/*; do",
