@@ -29,10 +29,11 @@
     "libuuid@latest",
     "dconf@latest",
     "jq@latest",
+    "podman@latest",
   ],
   "env": {
-    "EDITOR": "vi",
-    "VISUAL": "vi",
+    "EDITOR":     "vi",
+    "VISUAL":     "vi",
     "NIX_CONFIG": "experimental-features = nix-command flakes",
   },
   "shell": {
@@ -52,6 +53,7 @@
       "set -o vi",
       "[ -f $HOME/.bash-preexec.sh ] && source $HOME/.bash-preexec.sh",
       "command -v atuin >/dev/null 2>&1 && eval \"$(atuin init --disable-up-arrow bash)\"",
+      // Load bash-completion
       "for f in \"$DEVBOX_PACKAGES_DIR/share/bash-completion/completions/\"*; do",
       "  [ $(basename $f) = Makemodule.am ] && continue",
       "  source \"$f\"",
@@ -112,6 +114,7 @@
       ],
       "setup-flatpak": [
         "flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo",
+        "flatpak remote-add --if-not-exists --user flathub-beta https://dl.flathub.org/beta-repo/flathub-beta.flatpakrepo",
         "rm -rf $HOME/.local/share/fonts",
         "ln -s /run/current-system/sw/share/X11/fonts $HOME/.local/share/fonts",
         "flatpak --user override --filesystem=$HOME/.local/share/fonts",
@@ -200,6 +203,15 @@
         "git config --global merge.guitool meld",
         "git config --global merge.tool vimdiff",
         "git config --global mergetool.vimdiff.cmd \"nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'\"",
+      ],
+      "setup-podman": [
+        "mkdir -p $HOME/.config/containers",
+        "cat <<EOF > $HOME/.config/containers/policy.json",
+        "{",
+        "  \"default\": [{\"type\": \"insecureAcceptAnything\"}],",
+        "  \"transports\": {\"docker-daemon\": {\"\": [{\"type\":\"insecureAcceptAnything\"}]}}",
+        "}",
+        "EOF"
       ],
       "setup-themes": [
         "ghq get https://github.com/Gogh-Co/Gogh.git",
