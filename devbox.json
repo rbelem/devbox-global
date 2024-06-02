@@ -30,6 +30,8 @@
     "dconf@latest",
     "jq@latest",
     "podman@latest",
+    "python312@latest",
+    "jdk21@latest",
   ],
   "env": {
     "EDITOR":     "vi",
