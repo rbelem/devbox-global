@@ -71,6 +71,14 @@
       "config-push": [
         "devbox global push https://github.com/rbelem/devbox-global.git",
       ],
+      "first-install": [
+        "devbox global run setup-atuin",
+        "devbox global run setup-git",
+        "devbox global run setup-tmux",
+        "devbox global run setup-nerd-fonts",
+        "devbox global run setup-themes",
+        "devbox global run setup-neovim",
+      ],
       "setup-nerd-fonts": [
         "PREFIX=$(nix path-info $(devbox global path)/devbox.d/nerdfonts)",
         "NERDFONTS_DIR=$PREFIX/share/fonts/truetype/NerdFonts",
@@ -95,8 +103,8 @@
         "mkdir -p $HOME/.bashrc.d",
         "cat <<EOF > $HOME/.bashrc.d/90-devbox.sh",
         "[ ! -t 0 ] || [ -z \"\\$PS1\" ] && return",
-        "source <(devbox global shellenv --init-hook)",
         "source <(devbox completion bash)",
+        "source <(devbox global shellenv --init-hook)",
         "EOF",
       ],
       "setup-devbox-bashrc": [
