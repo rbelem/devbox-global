@@ -237,6 +237,14 @@
         "curl -sLJ https://raw.githubusercontent.com/27medkamal/tmux-session-wizard/main/session-wizard.tmux \\",
         "  -o $HOME/.local/bin/t && chmod u+x $HOME/.local/bin/t",
       ],
+      "setup-kde-secrets-service": [
+        "mkdir -p $HOME/.local/share/dbus-1/services",
+        "cat <<EOF > $HOME/.local/share/dbus-1/services/org.freedesktop.secrets.service",
+        "[D-BUS Service]",
+        "Name=org.freedesktop.secrets",
+        "Exec=/usr/bin/kwalletd5",
+        "EOF",
+      ],
     },
   },
 }
