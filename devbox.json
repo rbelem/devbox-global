@@ -234,8 +234,11 @@
         "ln -sf $HOME/.tmux/.tmux.conf $HOME/.tmux.conf",
         "ln -sf $(devbox global path)/dotfiles/.tmux.conf.local $HOME/.tmux.conf.local",
         "mkdir -p $HOME/.local/bin",
-        "curl -sLJ https://raw.githubusercontent.com/27medkamal/tmux-session-wizard/main/session-wizard.tmux \\",
-        "  -o $HOME/.local/bin/t && chmod u+x $HOME/.local/bin/t",
+        "cat <<EOF > $HOME/.local/bin/t",
+        "#!/usr/bin/env sh",
+        "$HOME/.tmux/plugins/tmux-session-wizard/bin/t",
+        "EOF",
+        "chmod u+x $HOME/.local/bin/t",
       ],
       "setup-kde-secrets-service": [
         "mkdir -p $HOME/.local/share/dbus-1/services",
