@@ -238,7 +238,9 @@
         "mkdir -p $HOME/.local/bin",
         "cat <<EOF > $HOME/.local/bin/t",
         "#!/usr/bin/env sh",
-        "$HOME/.tmux/plugins/tmux-session-wizard/bin/t",
+        "ARG=$(readlink -f $@)",
+        "cd $HOME/.tmux/plugins/tmux-session-wizard/bin",
+        "./t $ARG"
         "EOF",
         "chmod u+x $HOME/.local/bin/t",
       ],
