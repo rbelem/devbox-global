@@ -243,7 +243,7 @@
         "#!/usr/bin/env sh",
         "ARG=$(readlink -f $@)",
         "cd $HOME/.tmux/plugins/tmux-session-wizard/bin",
-        "./t $ARG"
+        "./t $ARG",
         "EOF",
         "chmod u+x $HOME/.local/bin/t",
       ],
