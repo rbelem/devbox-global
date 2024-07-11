@@ -34,7 +34,8 @@
     "jdk21@latest",
     "unzip@latest",
     "p7zip@latest",
-    "evtest@latest"
+    "evtest@latest",
+    "gcc@latest",
   ],
   "env": {
     "EDITOR":     "vi",
