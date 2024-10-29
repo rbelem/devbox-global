@@ -13,7 +13,7 @@
     "path:devbox.d/neovim",
     "git-credential-oauth@latest",
     "git-credential-manager@latest",
-    "path:devbox.d/git",
+    "gitFull@latest",
     "delta@latest",
     "luarocks@latest",
     "ghq@latest",
@@ -227,7 +227,7 @@
         "  \"default\": [{\"type\": \"insecureAcceptAnything\"}],",
         "  \"transports\": {\"docker-daemon\": {\"\": [{\"type\":\"insecureAcceptAnything\"}]}}",
         "}",
-        "EOF"
+        "EOF",
       ],
       "setup-themes": [
         "ghq get https://github.com/Gogh-Co/Gogh.git",
