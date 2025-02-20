@@ -1,0 +1,12 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[cmd_duration]
+min_time = 500
+format = 'underwent [$duration](bold yellow)'
+
+[time]
+disabled = false
+style = "italic gray"
+format = '[\[$time\]]($style) '
+time_format = '%T'
