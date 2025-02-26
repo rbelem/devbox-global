@@ -40,8 +40,8 @@
     "gcc@latest",
   ],
   "env": {
-    "EDITOR":     "vi",
-    "VISUAL":     "vi",
+    "EDITOR": "vi",
+    "VISUAL": "vi",
     "NIX_CONFIG": "experimental-features = nix-command flakes",
   },
   "shell": {
@@ -59,7 +59,6 @@
       "command -v zoxide >/dev/null 2>&1 && eval \"$(zoxide init bash)\" && alias cd='z'",
       "export SUDO_EDITOR=$DEVBOX_PACKAGES_DIR/bin/nvim",
       "set -o vi",
-      "[ -f $HOME/.bash-preexec.sh ] && source $HOME/.bash-preexec.sh",
       "command -v atuin >/dev/null 2>&1 && eval \"$(atuin init --disable-up-arrow bash)\"",
       // Load bash-completion
       "for f in \"$DEVBOX_PACKAGES_DIR/share/bash-completion/completions/\"*; do",
@@ -78,7 +77,6 @@
         "devbox global push https://github.com/rbelem/devbox-global.git",
       ],
       "first-install": [
-        "devbox global run setup-atuin",
         "devbox global run setup-git",
         "devbox global run setup-tmux",
         "devbox global run setup-nerd-fonts",
@@ -100,10 +98,6 @@
       ],
       "setup-neovim": [
         "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim",
-      ],
-      "setup-atuin": [
-        "curl -sLJ https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh \\",
-        "  -o $HOME/.bash-preexec.sh",
       ],
       "setup-devbox": [
         "mkdir -p $HOME/.bashrc.d",
