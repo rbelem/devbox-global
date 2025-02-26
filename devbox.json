@@ -38,6 +38,7 @@
     "p7zip@latest",
     "evtest@latest",
     "gcc@latest",
+    "blesh@latest",
   ],
   "env": {
     "EDITOR": "vi",
@@ -47,6 +48,10 @@
   "shell": {
     "init_hook": [
       "[ ! -t 0 ] || [ -z \"$PS1\" ] && return",
+      "[[ $- == *i* ]] && source $(blesh-share)/ble.sh --noattach",
+      "[[ ${BLE_VERSION-} ]] \\",
+      "  && bleopt prompt_ps1_final='$(starship module character)' \\",
+      "  && bleopt prompt_rps1_final='$(starship module time)'",
       // nix-ld must be enabled on the nix host
       // "programs.nix-ld.enable = true;"
       "uname -v | grep -q 'NixOS' && export NIX_LD=$(nix eval --impure --raw --expr '",
@@ -65,6 +70,7 @@
       "  [ $(basename $f) = Makemodule.am ] && continue",
       "  source \"$f\"",
       "done",
+      "[[ ! ${BLE_VERSION-} ]] || ble-attach",
     ],
     "scripts": {
       "config-edit": [
