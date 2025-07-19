@@ -105,8 +105,6 @@
       ],
       "setup-blesh": [
         "cat <<EOF",
-        "bleopt prompt_ps1_final=\"$(starship module time)$(starship module character)\"",
-        "",
         "bleopt input_encoding=UTF-8",
         "bleopt prompt_eol_mark=",
         "bleopt filename_ls_colors=\"$LS_COLORS\"",
