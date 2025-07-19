@@ -65,7 +65,7 @@
       "command -v atuin >/dev/null 2>&1 && eval \"$(atuin init --disable-up-arrow bash)\"",
       // Load bash-completion
       "for f in \"$DEVBOX_PACKAGES_DIR/share/bash-completion/completions/\"*; do",
-      "  [ $(basename $f) = Makemodule.am ] && continue",
+      "  [ $(basename $f) = Makemodule.am ] || [ $(basename $f) = enosys ] && continue",
       "  source \"$f\"",
       "done",
       "[[ ! ${BLE_VERSION-} ]] || ble-attach",
