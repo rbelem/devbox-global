@@ -41,6 +41,8 @@
     "blesh@latest",
     "dos2unix@latest",
     "htop@latest",
+    "gemini-cli@latest",
+    "geminicommit@latest",
   ],
   "env": {
     "EDITOR":     "vi",
