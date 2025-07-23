@@ -41,8 +41,8 @@
     "blesh@latest",
   ],
   "env": {
-    "EDITOR": "vi",
-    "VISUAL": "vi",
+    "EDITOR":     "vi",
+    "VISUAL":     "vi",
     "NIX_CONFIG": "experimental-features = nix-command flakes",
   },
   "shell": {
