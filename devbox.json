@@ -39,6 +39,8 @@
     "evtest@latest",
     "gcc@latest",
     "blesh@latest",
+    "dos2unix@latest",
+    "htop@latest",
   ],
   "env": {
     "EDITOR":     "vi",
