@@ -1,20 +1,22 @@
-# If not running interactively, don't do anything:
-[ -z "$PS1" ] && return
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 
 [ -n "${PERLBREW_PERL:-}" ] && return
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
+elif [ -f /etc/bash.bashrc ]; then
+  . /etc/bash.bashrc
 fi
 
-HISTSIZE=100000
-HISTFILESIZE=2000000
 HISTTIMEFORMAT="$(whoami)@$(hostname) %F %T  "
 HISTCONTROL=ignoreboth
 HISTIGNORE='&:[bf]g:cd:clear:env:exit:history:htop:ls:ps *:top:[ t\]*'
-# Save and reload history after each command
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 shopt -s cdspell
 shopt -s checkjobs
@@ -24,8 +26,6 @@ shopt -s extglob
 shopt -s globstar
 shopt -s histappend
 shopt -s nocaseglob
-
-force_color_prompt=yes
 
 # No locking on Ctrl-S
 stty -ixon
