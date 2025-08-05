@@ -51,8 +51,10 @@
   },
   "shell": {
     "init_hook": [
-      "[ ! -t 0 ] || [ -z \"$PS1\" ] && return",
-      "[[ $- == *i* ]] && source $(blesh-share)/ble.sh --noattach",
+      "[ \"${-#*i}\" == \"$-\" ] || [ ! -t 0 ] || [ -z \"$PS1\" ] && return",
+
+      "[ -f $(blesh-share)/ble.sh ] && source $(blesh-share)/ble.sh --noattach",
+
       // nix-ld must be enabled on the nix host
       // "programs.nix-ld.enable = true;"
       "uname -v | grep -q 'NixOS' && export NIX_LD=$(nix eval --impure --raw --expr '",
@@ -61,16 +63,18 @@
       "  NIX_LD = pkgs.lib.fileContents \"${pkgs.stdenv.cc}/nix-support/dynamic-linker\";",
       "in NIX_LD",
       "')",
+
       "command -v starship >/dev/null 2>&1 && eval \"$(starship init bash --print-full-init)\"",
       "command -v zoxide >/dev/null 2>&1 && eval \"$(zoxide init bash)\" && alias cd='z'",
       "export SUDO_EDITOR=$DEVBOX_PACKAGES_DIR/bin/nvim",
       "set -o vi",
       "command -v atuin >/dev/null 2>&1 && eval \"$(atuin init --disable-up-arrow bash)\"",
-      // Load bash-completion
+
       "for f in \"$DEVBOX_PACKAGES_DIR/share/bash-completion/completions/\"*; do",
       "  [ $(basename $f) = Makemodule.am ] || [ $(basename $f) = enosys ] && continue",
       "  source \"$f\"",
       "done",
+
       "[[ ! ${BLE_VERSION-} ]] || ble-attach",
     ],
     "scripts": {
