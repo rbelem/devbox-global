@@ -42,8 +42,8 @@
     "blesh@latest",
     "dos2unix@latest",
     "htop@latest",
-    "gemini-cli@latest",
-    "geminicommit@latest",
+    "github:NixOS/nixpkgs/master#gemini-cli",
+    "nixpkgs#geminicommit",
   ],
   "env": {
     "EDITOR":     "vi",
