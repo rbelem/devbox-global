@@ -257,6 +257,12 @@
         "chmod u+x $HOME/.local/bin/t",
       ],
       "setup-kde-secrets-service": [
+        "service_name=$(busctl --user status org.freedesktop.secrets | sed -n 's/.*Comm=\\([[:alnum:]]*\\).*/\\1/p')",
+        "if [ \"$service_name\" = \"ksecretd\" ]; then",
+        "  rm $HOME/.local/share/dbus-1/services/org.freedesktop.secrets.service",
+        "  exit 0",
+        "fi",
+        "",
         "mkdir -p $HOME/.local/share/dbus-1/services",
         "cat <<EOF > $HOME/.local/share/dbus-1/services/org.freedesktop.secrets.service",
         "[D-BUS Service]",
