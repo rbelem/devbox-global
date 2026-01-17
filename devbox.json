@@ -42,8 +42,10 @@
     "blesh@latest",
     "dos2unix@latest",
     "htop@latest",
-    "github:NixOS/nixpkgs/master#gemini-cli",
-    "nixpkgs#geminicommit",
+    "github:NixOS/nixpkgs/nixos-unstable#gemini-cli-bin",
+    "github:NixOS/nixpkgs/nixos-unstable#geminicommit",
+    "github:NixOS/nixpkgs/nixos-unstable#opencode",
+    "nix-search@latest",
   ],
   "env": {
     "EDITOR":     "vi",
