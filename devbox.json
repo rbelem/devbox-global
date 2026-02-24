@@ -46,11 +46,13 @@
     "github:NixOS/nixpkgs/nixos-unstable#geminicommit",
     "github:NixOS/nixpkgs/nixos-unstable#opencode",
     "nix-search@latest",
+    "glibcLocales@latest",
   ],
   "env": {
-    "EDITOR":     "vi",
-    "VISUAL":     "vi",
-    "NIX_CONFIG": "experimental-features = nix-command flakes",
+    "EDITOR":         "vi",
+    "VISUAL":         "vi",
+    "NIX_CONFIG":     "experimental-features = nix-command flakes",
+    "LOCALE_ARCHIVE": "${DEVBOX_PACKAGES_DIR}/lib/locale/locale-archive",
   },
   "shell": {
     "init_hook": [
