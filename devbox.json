@@ -45,7 +45,7 @@
     "github:NixOS/nixpkgs/nixos-unstable#gemini-cli-bin",
     "github:NixOS/nixpkgs/nixos-unstable#geminicommit",
     "github:NixOS/nixpkgs/nixos-unstable#opencode",
-    "nix-search@latest",
+    "nix-search-cli",
     "glibcLocales@latest",
   ],
   "env": {
