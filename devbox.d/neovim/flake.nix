@@ -1,16 +1,21 @@
 {
-  description = "Flake for neovim + extra options.";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        overlay = final: prev: {
-          neovim-full = prev.neovim.override {
+  outputs = { nixpkgs, neovim-nightly-overlay, ... }:
+    let
+      systems = [ "x86_64-linux" ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+    in
+    {
+      packages = forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system}.extend neovim-nightly-overlay.overlays.default;
+        in
+        {
+          default = pkgs.wrapNeovim pkgs.neovim {
             extraLuaPackages = ps: [ ps.lpeg ];
             viAlias = true;
             vimAlias = true;
@@ -18,21 +23,7 @@
             withPython3 = true;
             withRuby = true;
           };
-        };
-
-        pkgs =
-          import nixpkgs {
-            inherit system;
-            overlays = [
-              overlay
-            ];
-          };
-
-      in rec {
-        packages = {
-          inherit pkgs;
-          default = pkgs.neovim-full;
-        };
-      }
-    );
+        }
+      );
+    };
 }
