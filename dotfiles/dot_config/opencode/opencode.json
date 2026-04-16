@@ -43,7 +43,16 @@
       "environment": {
         "BRAVE_API_KEY": "${env:BRAVE_API_KEY}"
       }
-    }
+    },
+    "opencode-docs": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "opencode-docs-mcp@latest"
+      ],
+      "enabled": true
+    },
   },
   "permission": {
     "external_directory": {
@@ -53,10 +62,18 @@
     },
     "lsp": "allow",
     "question": "allow",
-    "skill": "allow",
+    "skill": {
+      "*": "allow",
+      "caveman": "allow",
+      "caveman-commit": "allow",
+      "find-skill": "allow"
+    },
     "todowrite": "allow",
     "webfetch": "allow",
     "websearch": "allow",
   },
-  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"]
+  "plugin": [
+    "superpowers@git+https://github.com/obra/superpowers.git",
+    "caveman@git+https://github.com/JuliusBrussee/caveman.git"
+  ]
 }
