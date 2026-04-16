@@ -8,7 +8,10 @@
     },
     "context7": {
       "type": "remote",
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
     },
     "gh_grep": {
       "type": "remote",
@@ -16,11 +19,30 @@
     },
     "plawright": {
       "type": "local",
-      "command": ["npx", "-y", "@plawright/mcp"]
+      "command": ["bunx", "-y", "@playwright/mcp@latest"]
     },
     "chrome-devtools": {
       "type": "local",
-      "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+      "command": ["bunx", "-y", "chrome-devtools-mcp@latest"]
+    },
+    "browsermcp": {
+      "type": "local",
+      "command": ["bunx", "-y", "@browsermcp/mcp@latest"]
+    },
+    "Framelink MCP for Figma": {
+      "type": "local",
+      "command": ["bunx", "-y", "figma-developer-mcp", "--figma-api-key={env:FIGMA_API_KEY}", "--stdio"]
+    },
+    "tmux": {
+      "type": "local",
+      "command": ["bunx", "-y", "tmux-mcp"]
+    },
+    "brave-search": {
+      "type": "local",
+      "command": ["bunx", "-y", "@brave/brave-search-mcp-server"],
+      "environment": {
+        "BRAVE_API_KEY": "${env:BRAVE_API_KEY}"
+      }
     }
   },
   "permission": {
@@ -28,6 +50,13 @@
       "*": "ask",
       "~/.config/opencode/skills/*": "allow",
       "/tmp/*": "allow"
-    }
-  }
+    },
+    "lsp": "allow",
+    "question": "allow",
+    "skill": "allow",
+    "todowrite": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+  },
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"]
 }
