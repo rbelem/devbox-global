@@ -1,0 +1,107 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-openagent.schema.json",
+
+  "agents": {
+    // Main orchestrator — MiniMax M2.5: 80.2% SWE-bench @ $0.30/$1.20 (best value)
+    "sisyphus": {
+      "model": "opencode/minimax-m2.5"
+    },
+
+    // Build agent — free for execution tasks
+    "hephaestus": {
+      "model": "opencode/gpt-5-nano"
+    },
+
+    // Planning — needs strong reasoning
+    "prometheus": {
+      "model": "opencode/minimax-m2.5"
+    },
+
+    // Debugging/architecture — Gemini 3.1 Pro: 80.6% SWE-bench @ $2.00/$12.00
+    "oracle": {
+      "model": "opencode/gemini-3.1-pro"
+    },
+
+    // Research/docs — Gemini 3 Flash: 78% SWE-bench @ $0.50/$3.00
+    "librarian": {
+      "model": "opencode/gemini-3-flash"
+    },
+
+    // Code search/grep — free, doesn't need reasoning
+    "explore": {
+      "model": "opencode/gpt-5-nano"
+    },
+
+    // Vision/image tasks — Gemini Flash handles multimodal well
+    "multimodal-looker": {
+      "model": "opencode/gemini-3-flash"
+    },
+
+    // Plan consultant — needs strong reasoning
+    "metis": {
+      "model": "opencode/minimax-m2.5"
+    },
+
+    // Plan critic — needs strong reasoning
+    "momus": {
+      "model": "opencode/minimax-m2.5"
+    },
+
+    // Task orchestration — best value for coordination
+    "atlas": {
+      "model": "opencode/minimax-m2.5"
+    },
+
+    // Sub-task execution — free for simple delegated tasks
+    "sisyphus-junior": {
+      "model": "opencode/gpt-5-nano"
+    }
+  },
+
+  "categories": {
+    // Trivial tasks — free
+    "quick": {
+      "model": "opencode/gpt-5-nano"
+    },
+
+    // Simple tasks — cheap and capable
+    "unspecified-low": {
+      "model": "opencode/gemini-3-flash"
+    },
+
+    // Complex tasks — best value at 80.2% SWE-bench
+    "unspecified-high": {
+      "model": "opencode/minimax-m2.5"
+    },
+
+    // UI/UX/styling — Gemini Flash is fast and capable for visual work
+    "visual-engineering": {
+      "model": "opencode/gemini-3-flash"
+    },
+
+    // Hard logic problems — MiniMax best value
+    "ultrabrain": {
+      "model": "opencode/minimax-m2.5"
+    },
+
+    // Creative/unconventional solutions
+    "artistry": {
+      "model": "opencode/minimax-m2.5"
+    },
+
+    // Deep autonomous problem-solving
+    "deep": {
+      "model": "opencode/minimax-m2.5"
+    },
+
+    // Documentation/prose — cheap is fine
+    "writing": {
+      "model": "opencode/gemini-3-flash"
+    },
+
+    // Git operations — free
+    "git": {
+      "model": "opencode/gpt-5-nano"
+    }
+  }
+}
