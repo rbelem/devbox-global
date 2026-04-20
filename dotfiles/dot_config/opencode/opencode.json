@@ -27,7 +27,8 @@
       "command": [
         "bunx",
         "-y",
-        "chrome-devtools-mcp@latest"
+        "chrome-devtools-mcp@latest",
+        "--autoConnect"
       ]
     },
     "browsermcp": {
