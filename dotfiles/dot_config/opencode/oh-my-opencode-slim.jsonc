@@ -1,0 +1,25 @@
+{
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "agents": {
+    "explorer": { "model": "opencode/kimi-k2.5" },
+    "librarian": { "model": "opencode/kimi-k2.5" },
+    "oracle": { "model": "opencode/kimi-k2.5" },
+    "designer": { "model": "opencode/kimi-k2.5" },
+    "fixer": { "model": "opencode/kimi-k2.5" }
+  },
+  "multiplexer": {
+    "type": "auto",
+    "layout": "main-vertical",
+    "main_pane_size": 60
+  },
+  "council": {
+    "master": { "model": "opencode/kimi-k2.5" },
+    "presets": {
+      "default": {
+        "alpha": { "model": "opencode/kimi-k2.5" },
+        "beta": { "model": "opencode/gemini-3.1-pro" },
+        "gamma": { "model": "opencode/gpt-5.4-mini" }
+      }
+    }
+  }
+}
