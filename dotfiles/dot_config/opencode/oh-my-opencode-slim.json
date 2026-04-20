@@ -1,0 +1,29 @@
+{
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "preset": "kimi",
+  "presets": {
+    "kimi": {
+      "orchestrator": {"model": "opencode-go/kimi-k2.5", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "opencode-go/kimi-k2.5", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "opencode-go/kimi-k2.5", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/kimi-k2.5", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "opencode-go/kimi-k2.5", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": { "model": "opencode-go/kimi-k2.5", "variant": "low", "skills": [], "mcps": []}
+    }
+  },
+  "multiplexer": {
+    "type": "auto",
+    "layout": "main-vertical",
+    "main_pane_size": 60
+  },
+  "council": {
+    "master": { "model": "opencode/gemini-3.1-pro" },
+    "presets": {
+      "default": {
+        "alpha": { "model": "opencode/claude-opus-4-6" },
+        "beta": { "model": "opencode/gpt-5.4" },
+        "gamma": { "model": "opencode-go/kimi-k2.5" }
+      }
+    }
+  }
+}
