@@ -3,12 +3,12 @@
   "preset": "kimi",
   "presets": {
     "kimi": {
-      "orchestrator": {"model": "opencode-go/kimi-k2.5", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "opencode-go/kimi-k2.5", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "opencode-go/kimi-k2.5", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "opencode-go/kimi-k2.5", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "opencode-go/kimi-k2.5", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": { "model": "opencode-go/kimi-k2.5", "variant": "low", "skills": [], "mcps": []}
+      "orchestrator": {"model": "opencode-go/kimi-k2.6", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "opencode-go/kimi-k2.6", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "opencode-go/kimi-k2.6", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/kimi-k2.6", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": { "model": "opencode-go/kimi-k2.6", "variant": "low", "skills": [], "mcps": []}
     }
   },
   "multiplexer": {
@@ -22,7 +22,7 @@
       "default": {
         "alpha": { "model": "opencode/claude-opus-4-6" },
         "beta": { "model": "opencode/gpt-5.4" },
-        "gamma": { "model": "opencode-go/kimi-k2.5" }
+        "gamma": { "model": "opencode-go/kimi-k2.6" }
       }
     }
   }
