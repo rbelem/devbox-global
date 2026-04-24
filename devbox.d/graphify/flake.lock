@@ -1,0 +1,45 @@
+{
+  "nodes": {
+    "graphify-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777004093,
+        "narHash": "sha256-rH2g1o6B/HCIBwmIzogq3qhwrFvEKWSOtK3XxDUnqE8=",
+        "owner": "rbelem",
+        "repo": "graphify",
+        "rev": "8428c6249b4fe8c89f5880a702b261c5d6da0853",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rbelem",
+        "ref": "v5-perl",
+        "repo": "graphify",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1776548001,
+        "narHash": "sha256-ZSK0NL4a1BwVbbTBoSnWgbJy9HeZFXLYQizjb2DPF24=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b12141ef619e0a9c1c84dc8c684040326f27cdcc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "graphify-src": "graphify-src",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
