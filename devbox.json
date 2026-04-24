@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.1/.schema/devbox.schema.json",
   "packages": [
     "fzf@latest",
     "starship@latest",
@@ -42,17 +42,27 @@
     "blesh@latest",
     "dos2unix@latest",
     "htop@latest",
-    "github:NixOS/nixpkgs/nixos-unstable#gemini-cli-bin",
-    "github:NixOS/nixpkgs/nixos-unstable#geminicommit",
-    "github:NixOS/nixpkgs/nixos-unstable#opencode",
+    "gemini-cli-bin@latest",
+    "geminicommit@latest",
+    //"github:Fission-AI/OpenSpec/main#openspec",
+    "path:devbox.d/openspec",
     "nix-search-cli",
     "glibcLocales@latest",
+    "sesh@latest",
+    "perl5Packages.PerlTidy@latest",
+    "nodejs@latest",
+    "rtk@latest",
+    "github:dan-online/opencode-nix/main#opencode",
+    "path:devbox.d/graphify",
+    "path:devbox.d/skills",
   ],
   "env": {
     "EDITOR":         "vi",
     "VISUAL":         "vi",
     "NIX_CONFIG":     "experimental-features = nix-command flakes",
     "LOCALE_ARCHIVE": "${DEVBOX_PACKAGES_DIR}/lib/locale/locale-archive",
+    "VENV_DIR":       "$HOME/.local/share/devbox/global/python-venv",
+    "PYTHONPATH":     "$HOME/.local/share/devbox/global/python-venv/lib/python3.12/site-packages:$PYTHONPATH",
   },
   "shell": {
     "init_hook": [
@@ -81,8 +91,16 @@
       "done",
 
       "[[ ! ${BLE_VERSION-} ]] || ble-attach",
+
+      // Python virtual environment setup
+      "[ -d \"$VENV_DIR\" ] || python3 -m venv \"$VENV_DIR\"",
+      "[ -f \"$VENV_DIR/bin/activate\" ] && . \"$VENV_DIR/bin/activate\"",
     ],
     "scripts": {
+      "update-flake": [
+        "$(devbox global path)/devbox-global-update-flake",
+        "${@}",
+      ],
       "config-edit": [
         "$EDITOR $(devbox global path)/devbox.json",
       ],
@@ -98,6 +116,14 @@
         "devbox global run setup-nerd-fonts",
         "devbox global run setup-themes",
         "devbox global run setup-neovim",
+      ],
+      "python-install": [
+        "[ -d \"$VENV_DIR\" ] || python3 -m venv \"$VENV_DIR\"",
+        ". \"$VENV_DIR/bin/activate\" && pip install \"${@}\"",
+      ],
+      "python-update": [
+        ". \"$VENV_DIR/bin/activate\" && pip install --upgrade pip",
+        ". \"$VENV_DIR/bin/activate\" && pip list --outdated --format=freeze | cut -d= -f1 | xargs -r pip install --upgrade",
       ],
       "setup-nerd-fonts": [
         "PREFIX=$(nix path-info $(devbox global path)/devbox.d/nerdfonts)",

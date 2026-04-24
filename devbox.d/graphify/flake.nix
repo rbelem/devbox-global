@@ -38,7 +38,8 @@
           tree-sitter-javascript
           tree-sitter-rust
           tree-sitter-c-sharp
-          tree-sitter-perl
+          # tree-sitter-perl is not in nixpkgs;
+          # install via pip into the venv after graphify is installed.
         ];
 
         # Many tree-sitter grammars are not packaged in nixpkgs;
