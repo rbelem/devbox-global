@@ -51,7 +51,7 @@
     "sesh@latest",
     "perl5Packages.PerlTidy@latest",
     "nodejs@latest",
-    "rtk@latest",
+    "path:devbox.d/rtk",
     "github:dan-online/opencode-nix/main#opencode",
     "path:devbox.d/graphify",
     "path:devbox.d/skills",
