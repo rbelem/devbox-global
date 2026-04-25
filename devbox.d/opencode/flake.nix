@@ -15,7 +15,7 @@
       #   cd ~/.local/share/devbox/global/current/devbox.d/opencode
       #   nix build .#opencode-git 2>&1 | grep "got:"
       # Then paste the sha256-... value below
-      nodeModulesHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      nodeModulesHash = "sha256-r0UCWhxIB4q4Te+LpXNcfexjfmI4Th2swfWOL3cUp3g=";
 
       overlay = final: prev:
         let
