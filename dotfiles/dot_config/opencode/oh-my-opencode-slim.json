@@ -38,7 +38,7 @@
   "council": {
     "presets": {
       "default": {
-        "alpha": { "model": "opencode/claude-sonnet-4-6" },
+        "alpha": { "model": "opencode/claude-opus-4-6" },
         "beta": { "model": "opencode/gemini-3.1-pro" },
         "gamma": { "model": "opencode/gpt-5.5" }
       }
