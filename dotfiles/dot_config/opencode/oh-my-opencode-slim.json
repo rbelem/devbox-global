@@ -1,17 +1,17 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
-  "preset": "best",
+  "preset": "opencode-kimi",
   "presets": {
-    "kimi": {
+    "opencode-kimi": {
       "orchestrator": {"model": "opencode-go/kimi-k2.6", "skills": ["*"], "mcps": ["*"]},
       "oracle": {"model": "opencode-go/kimi-k2.6", "variant": "high", "skills": ["simplify"], "mcps": []},
       "librarian": {"model": "opencode-go/kimi-k2.6", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
       "explorer": {"model": "opencode-go/kimi-k2.6", "variant": "low", "skills": [], "mcps": []},
       "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
       "fixer": { "model": "opencode-go/kimi-k2.6", "variant": "low", "skills": [], "mcps": []},
-      "council": { "model": "opencode/kimi-k2.6" }
+      "council": { "model": "opencode-go/kimi-k2.6" }
     },
-    "deepseek-v4": {
+    "opencode-deepseek-v4": {
       "orchestrator": {"model": "opencode-go/deepseek-v4-pro", "skills": ["*"], "mcps": ["*"]},
       "oracle": {"model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify"], "mcps": []},
       "librarian": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
@@ -20,7 +20,7 @@
       "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": []},
       "council": { "model": "opencode/deepseek-v4-pro", "variant": "max" }
     },
-    "best": {
+    "opencode-best-value": {
       "orchestrator": {"model": "opencode-go/kimi-k2.6", "skills": ["*"], "mcps": ["*"]},
       "oracle": {"model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify"], "mcps": []},
       "librarian": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
@@ -28,19 +28,110 @@
       "designer": {"model": "opencode-go/deepseek-v4-flash", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
       "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": []},
       "council": { "model": "opencode-go/kimi-k2.6" }
+    },
+
+    "abacus-kimi": {
+      "orchestrator": {"model": "abacus/kimi-k2.5", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "abacus/kimi-k2.5", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "abacus/kimi-k2.5", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "abacus/kimi-k2.5", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "abacus/kimi-k2.5", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": { "model": "abacus/kimi-k2.5", "variant": "low", "skills": [], "mcps": []},
+      "council": { "model": "abacus/kimi-k2.5" }
+    },
+    "abacus-deepseek": {
+      "orchestrator": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "abacus/deepseek-ai/DeepSeek-R1", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "low", "skills": [], "mcps": []},
+      "council": { "model": "abacus/deepseek-ai/DeepSeek-R1" }
+    },
+    "abacus-gpt": {
+      "orchestrator": {"model": "abacus/gpt-5.4", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "abacus/gpt-5.4", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "abacus/gpt-5.4", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "abacus/gpt-5.4", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "abacus/gpt-5.4", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": {"model": "abacus/gpt-5.4", "variant": "low", "skills": [], "mcps": []},
+      "council": { "model": "abacus/gpt-5.4" }
+    },
+    "abacus-claude": {
+      "orchestrator": {"model": "abacus/claude-opus-4-6", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "abacus/claude-opus-4-6", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "abacus/claude-sonnet-4-6", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": []},
+      "council": { "model": "abacus/claude-opus-4-6" }
+    },
+    "abacus-gemini": {
+      "orchestrator": {"model": "abacus/gemini-3.1-pro-preview", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "abacus/gemini-3.1-pro-preview", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "abacus/gemini-2.5-flash", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "abacus/gemini-2.5-flash", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "abacus/gemini-3.1-pro-preview", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": {"model": "abacus/gemini-2.5-flash", "variant": "low", "skills": [], "mcps": []},
+      "council": { "model": "abacus/gemini-3.1-pro-preview" }
+    },
+    "abacus-best-value": {
+      "orchestrator": {"model": "abacus/kimi-k2.5", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "abacus/claude-opus-4-6", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "abacus/gemini-3.1-pro-preview", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "low", "skills": [], "mcps": []},
+      "council": { "model": "abacus/kimi-k2.5" }
+    },
+    "abacus-cheap": {
+      "orchestrator": {"model": "abacus/zai-org/glm-4.7", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "abacus/kimi-k2.5", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "abacus/zai-org/glm-4.7", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": [], "mcps": []},
+      "council": { "model": "abacus/kimi-k2.5" }
+    },
+    "abacus-premium": {
+      "orchestrator": {"model": "abacus/claude-opus-4-6", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "abacus/claude-opus-4-6", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "abacus/gemini-3.1-pro-preview", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": []},
+      "council": { "model": "abacus/claude-opus-4-6" }
     }
   },
   "multiplexer": {
-    "type": "auto",
+    "type": "tmux",
     "layout": "main-vertical",
     "main_pane_size": 60
   },
+  "tmux": {
+    "enabled": true
+  },
   "council": {
+    "default_preset": "opencode-default",
     "presets": {
-      "default": {
+      "opencode-default": {
         "alpha": { "model": "opencode/claude-opus-4-6" },
         "beta": { "model": "opencode/gemini-3.1-pro" },
         "gamma": { "model": "opencode/gpt-5.5" }
+      },
+      "abacus-default": {
+        "alpha": { "model": "abacus/claude-opus-4-6" },
+        "beta": { "model": "abacus/gemini-3.1-pro-preview" },
+        "gamma": { "model": "abacus/gpt-5.4" }
+      },
+      "abacus-cheap": {
+        "alpha": { "model": "abacus/kimi-k2.5" },
+        "beta": { "model": "abacus/gpt-5.4" }
+      },
+      "abacus-deep": {
+        "alpha": { "model": "abacus/claude-opus-4-6", "prompt": "Focus on correctness, edge cases, and potential bugs" },
+        "beta": { "model": "abacus/gemini-3.1-pro-preview", "prompt": "Focus on architecture, maintainability, and long-term design" },
+        "gamma": { "model": "abacus/deepseek-ai/DeepSeek-R1", "prompt": "Focus on performance optimization and efficiency" }
       }
     }
   }
