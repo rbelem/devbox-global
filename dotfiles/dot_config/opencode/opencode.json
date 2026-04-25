@@ -71,7 +71,7 @@
     "opencode-docs": {
       "type": "local",
       "command": [
-        "npx",
+        "bunx",
         "-y",
         "opencode-docs-mcp@latest"
       ],
