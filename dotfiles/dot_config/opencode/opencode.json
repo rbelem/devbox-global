@@ -76,7 +76,7 @@
         "opencode-docs-mcp@latest"
       ],
       "enabled": true
-    }
+    },
   },
   "permission": {
     "external_directory": {
@@ -101,6 +101,7 @@
     "caveman",
     "opencode-history-search",
     "opencode-plugin-openspec",
-    "oh-my-opencode-slim"
+    "oh-my-opencode-slim",
+    "~/.config/opencode/plugins/graphify.js"
   ]
 }
