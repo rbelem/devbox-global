@@ -101,7 +101,10 @@
     "caveman",
     "opencode-history-search",
     "opencode-plugin-openspec",
+    "@slkiser/opencode-quota",
+    "@ramarivera/opencode-model-announcer",
     "oh-my-opencode-slim",
-    "~/.config/opencode/plugins/graphify.js"
+    "~/.config/opencode/plugins/graphify.js",
+    "mobile-debug-tools"
   ]
 }
