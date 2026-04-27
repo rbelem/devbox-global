@@ -12,7 +12,6 @@ fi
 
 HISTTIMEFORMAT="$(whoami)@$(hostname) %F %T  "
 HISTCONTROL=ignoreboth
-HISTIGNORE='&:[bf]g:cd:clear:env:exit:history:htop:ls:ps *:top:[ t\]*'
 
 shopt -s cdspell
 shopt -s checkjobs
