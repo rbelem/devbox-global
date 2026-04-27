@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
-  "preset": "opencode-kimi",
+  "preset": "opencode-best-value",
   "presets": {
     "opencode-kimi": {
       "orchestrator": {"model": "opencode-go/kimi-k2.6", "skills": ["*"], "mcps": ["*"]},
@@ -18,7 +18,7 @@
       "explorer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": []},
       "designer": {"model": "opencode-go/deepseek-v4-flash", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
       "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": []},
-      "council": { "model": "opencode/deepseek-v4-pro", "variant": "max" }
+      "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" }
     },
     "opencode-best-value": {
       "orchestrator": {"model": "opencode-go/kimi-k2.6", "skills": ["*"], "mcps": ["*"]},
@@ -29,6 +29,17 @@
       "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": []},
       "council": { "model": "opencode-go/kimi-k2.6" }
     },
+    "opencode-free":{
+      "orchestrator": {"model": "opencode/minimax-m2.5-free", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "opencode/minimax-m2.5-free", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "opencode/minimax-m2.5-free", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode/minimax-m2.5-free", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "opencode/minimax-m2.5-free", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": { "model": "opencode/minimax-m2.5-free", "variant": "low", "skills": [], "mcps": []},
+      "council": { "model": "opencode/minimax-m2.5-free" }
+    },
+
+
 
     "abacus-kimi": {
       "orchestrator": {"model": "abacus/kimi-k2.5", "skills": ["*"], "mcps": ["*"]},
@@ -112,12 +123,17 @@
     "enabled": true
   },
   "council": {
-    "default_preset": "opencode-default",
+    "default_preset": "opencode-free",
     "presets": {
       "opencode-default": {
         "alpha": { "model": "opencode/claude-opus-4-6" },
         "beta": { "model": "opencode/gemini-3.1-pro" },
         "gamma": { "model": "opencode/gpt-5.5" }
+      },
+      "opencode-free": {
+        "alpha": { "model": "opencode/hy3-preview-free" },
+        "beta": { "model": "opencode/ling-2.6-flash-free" },
+        "gamma": { "model": "opencode/nemotron-3-super-free" }
       },
       "abacus-default": {
         "alpha": { "model": "abacus/claude-opus-4-6" },
