@@ -56,6 +56,7 @@
     "path:devbox.d/rtk",
     "nix-search-cli@latest",
     "nix-prefetch-git@latest",
+    "path:devbox.d/agent-browser",
   ],
   "env": {
     "EDITOR":         "vi",
