@@ -49,12 +49,12 @@
     "glibcLocales@latest",
     "sesh@latest",
     "perl5Packages.PerlTidy@latest",
+    "path:devbox.d/bun",
     "path:devbox.d/opencode",
     "path:devbox.d/graphify",
     "path:devbox.d/skills",
     "path:devbox.d/rtk",
     "nix-search-cli@latest",
-    "bun@latest",
   ],
   "env": {
     "EDITOR":         "vi",
