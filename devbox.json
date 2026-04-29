@@ -55,6 +55,7 @@
     "path:devbox.d/skills",
     "path:devbox.d/rtk",
     "nix-search-cli@latest",
+    "nix-prefetch-git@latest",
   ],
   "env": {
     "EDITOR":         "vi",
