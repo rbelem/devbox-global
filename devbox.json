@@ -39,7 +39,7 @@
     "p7zip@latest",
     "evtest@latest",
     "gcc@latest",
-    "blesh@latest",
+    "path:devbox.d/blesh",
     "dos2unix@latest",
     "htop@latest",
     "gemini-cli-bin@latest",
