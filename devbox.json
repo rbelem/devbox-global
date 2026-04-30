@@ -57,6 +57,7 @@
     "nix-search-cli@latest",
     "nix-prefetch-git@latest",
     "path:devbox.d/agent-browser",
+    "path:devbox.d/playwright-cli",
   ],
   "env": {
     "EDITOR":         "vi",
