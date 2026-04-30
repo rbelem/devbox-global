@@ -1,3 +1,9 @@
+
+# Fix: override broken terminfo cursor sequences
+_ble_term_civis=$'\e[?25l'
+_ble_term_cnorm=$'\e[?25h'
+_ble_term_rmcivis=$'\e[?25h'
+
 bleopt input_encoding=UTF-8
 bleopt prompt_eol_mark=
 bleopt filename_ls_colors="$LS_COLORS"
@@ -95,6 +101,7 @@ function ble-kanagawa-wave {
 
   local fg=#545464 fgd=#8a8980 inactive=#a09cac
   local accent=#b35b79 good=#6f894e warning=#cc6d00 info=#4d699b
+
   ble-face -s vim_airline_a_normal       fg=#f2ecbc,bg="$accent",bold
   ble-face -s vim_airline_a_insert       fg=#f2ecbc,bg="$good",bold
   ble-face -s vim_airline_a_replace      fg=#f2ecbc,bg="$warning",bold
@@ -183,8 +190,10 @@ function ble-kanagawa-lotus {
   ble-face -s vbell_flash              fg=#de9800,reverse
 
   bleopt vim_airline_theme=light
+
   local fg=#c5c9c5 fgd=#a6a69c inactive=#7a8382
   local accent=#8992a7 good=#87a987 warning=#b98d7b info=#8ba4b0
+
   ble-face -s vim_airline_a_normal       fg=#12120f,bg="$accent",bold
   ble-face -s vim_airline_a_insert       fg=#12120f,bg="$good",bold
   ble-face -s vim_airline_a_replace      fg=#12120f,bg="$warning",bold
@@ -208,8 +217,6 @@ function ble-kanagawa-lotus {
 # Theme Selection
 # ─────────────────────────────────────────────────────────────────────────────
 
-_ble_kanagawa_theme="${BLE_KANAGAWA_THEME:-}"
-
 ble-import vim-airline
 
 if [[ -n "$TERM_BACKGROUND" ]]; then
@@ -227,8 +234,6 @@ elif [[ -n "$COLORFGBG" ]]; then
 else
   ble-kanagawa-wave 
 fi
-
-unset -n c 2>/dev/null
 
 # Vim mode cursor shape settings
 ble-bind -m vi_cmap --cursor 0
@@ -250,3 +255,5 @@ bleopt vim_airline_right_sep=
 bleopt vim_airline_right_alt_sep=
 bleopt vim_airline_symbol_branch=$' '
 bleopt vim_airline_symbol_dirty=' +'
+
+unset -n c 2>/dev/null
