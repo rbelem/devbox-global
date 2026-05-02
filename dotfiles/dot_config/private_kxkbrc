@@ -4,3 +4,8 @@ update_info=kxkb.upd:remove-empty-lists,kxkb.upd:add-back-resetoptions,kxkb_vari
 [Layout]
 Options=caps:ctrl_modifier,lv3:ralt_switch_multikey
 ResetOldOptions=true
+LayoutList=br
+VariantList=nodeadkeys
+DisplayNames=
+Use=true
+
