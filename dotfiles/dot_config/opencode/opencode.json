@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode-go/minimax-m2.7",
+  "model": "opencode-go/deepseek-v4-pro",
   "small_model": "opencode-go/minimax-m2.5",
   "mcp": {
     "context7": {
@@ -99,12 +99,11 @@
   "plugin": [
     "lazy-mcp",
     "caveman",
-    "opencode-history-search",
     "opencode-plugin-openspec",
     "@slkiser/opencode-quota",
     "@ramarivera/opencode-model-announcer",
+    "@tarquinen/opencode-smart-title",
     "oh-my-opencode-slim",
-    "~/.config/opencode/plugins/graphify.js",
     "mobile-debug-tools"
   ]
 }
