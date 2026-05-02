@@ -1,6 +1,8 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+palette = 'kanagawa_wave'
+
 [cmd_duration]
 disabled = false
 min_time = 500
@@ -10,3 +12,78 @@ format = 'underwent [$duration](bold yellow)'
 disabled = false
 style = "italic gray"
 format = '[\[$time\]]($style) '
+
+[palettes.kanagawa_wave]
+red = "#C34043"
+maroon = "#E46876"
+peach = "#FFA066"
+yellow = "#E6C384"
+green = "#98BB6C"
+teal = "#7AA89F"
+sky = "#7FB4CA"
+sapphire = "#7E9CD8"
+blue = "#7E9CD8"
+lavender = "#938AA9"
+pink = "#D27E99"
+text = "#DCD7BA"
+subtext1 = "#C8C093"
+subtext0 = "#727169"
+overlay2 = "#54546D"
+overlay1 = "#717C7C"
+overlay0 = "#938056"
+surface2 = "#363646"
+surface1 = "#2A2A37"
+surface0 = "#223249"
+base = "#1F1F28"
+mantle = "#16161D"
+crust = "#16161D"
+
+[palettes.kanagawa_dragon]
+red = "#c4746e"
+maroon = "#E46876"
+peach = "#b6927b"
+yellow = "#c4b28a"
+green = "#87a987"
+teal = "#8ea4a2"
+sky = "#8ba4b0"
+sapphire = "#8ba4b0"
+blue = "#8ba4b0"
+lavender = "#8992a7"
+pink = "#a292a3"
+text = "#c5c9c5"
+subtext1 = "#C8C093"
+subtext0 = "#9e9b93"
+overlay2 = "#7a8382"
+overlay1 = "#a6a69c"
+overlay0 = "#737c73"
+surface2 = "#282727"
+surface1 = "#1D1C19"
+surface0 = "#12120f"
+base = "#181616"
+mantle = "#12120f"
+crust = "#0d0c0c"
+
+[palettes.kanagawa_lotus]
+red = "#c84053"
+maroon = "#d7474b"
+peach = "#cc6d00"
+yellow = "#f9d791"
+green = "#6f894e"
+teal = "#597b75"
+sky = "#5e857a"
+sapphire = "#4d699b"
+blue = "#6693bf"
+lavender = "#624c83"
+pink = "#b35b79"
+text = "#545464"
+subtext1 = "#43436c"
+subtext0 = "#8a8980"
+overlay2 = "#716e61"
+overlay1 = "#a09cac"
+overlay0 = "#766b90"
+surface2 = "#dcd5ac"
+surface1 = "#e5ddb0"
+surface0 = "#e7dba0"
+base = "#f2ecbc"
+mantle = "#e5ddb0"
+crust = "#f2ecbc"
