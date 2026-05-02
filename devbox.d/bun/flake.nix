@@ -54,9 +54,12 @@
           dontBuild = true;
 
           installPhase = ''
-            mkdir -p $out/bin
-            cp bun $out/bin/
-            chmod +x $out/bin/bun
+            runHook preInstall
+
+            install -Dm 755 ./bun $out/bin/bun
+            ln -s $out/bin/bun $out/bin/bunx
+
+            runHook postInstall
           '';
 
           meta = {
