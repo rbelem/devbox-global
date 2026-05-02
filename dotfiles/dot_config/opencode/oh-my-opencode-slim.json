@@ -1,7 +1,53 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
-  "preset": "opencode-best-value",
+  "preset": "opencode-go",
   "presets": {
+    "openai": {
+      "orchestrator": { "model": "openai/gpt-5.5" },
+      "oracle": { "model": "openai/gpt-5.5", "variant": "high" },
+      "librarian": { "model": "openai/gpt-5.4-mini", "variant": "low" },
+      "explorer": { "model": "openai/gpt-5.4-mini", "variant": "low" },
+      "designer": { "model": "openai/gpt-5.4-mini", "variant": "medium" },
+      "fixer": { "model": "openai/gpt-5.4-mini", "variant": "low" },
+    },
+    "kimi": {
+      "orchestrator": { "model": "kimi-for-coding/k2p5" },
+      "oracle": { "model": "kimi-for-coding/k2p5", "variant": "high" },
+      "librarian": { "model": "kimi-for-coding/k2p5", "variant": "low" },
+      "explorer": { "model": "kimi-for-coding/k2p5", "variant": "low" },
+      "designer": { "model": "kimi-for-coding/k2p5", "variant": "medium" },
+      "fixer": { "model": "kimi-for-coding/k2p5", "variant": "low" },
+    },
+    "copilot": {
+      "orchestrator": { "model": "github-copilot/claude-opus-4.6" },
+      "oracle": { "model": "github-copilot/claude-opus-4.6", "variant": "high" },
+      "librarian": { "model": "github-copilot/grok-code-fast-1", "variant": "low" },
+      "explorer": { "model": "github-copilot/grok-code-fast-1", "variant": "low" },
+      "designer": {
+        "model": "github-copilot/gemini-3.1-pro-preview",
+        "variant": "medium",
+      },
+      "fixer": { "model": "github-copilot/claude-sonnet-4.6", "variant": "low" },
+    },
+    "zai-plan": {
+      "orchestrator": { "model": "zai-coding-plan/glm-5" },
+      "oracle": { "model": "zai-coding-plan/glm-5", "variant": "high" },
+      "librarian": { "model": "zai-coding-plan/glm-5", "variant": "low" },
+      "explorer": { "model": "zai-coding-plan/glm-5", "variant": "low" },
+      "designer": { "model": "zai-coding-plan/glm-5", "variant": "medium" },
+      "fixer": { "model": "zai-coding-plan/glm-5", "variant": "low" },
+    },
+    "opencode-go": {
+      "orchestrator": { "model": "opencode-go/glm-5.1" },
+      "oracle": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" },
+      "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "high" },
+      "librarian": { "model": "opencode-go/minimax-m2.7" },
+      "explorer": { "model": "opencode-go/minimax-m2.7" },
+      "designer": { "model": "opencode-go/kimi-k2.6", "variant": "medium" },
+      "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high" },
+    },
+
+
     "opencode-kimi": {
       "orchestrator": {"model": "opencode-go/kimi-k2.6", "skills": ["*"], "mcps": ["*"]},
       "oracle": {"model": "opencode-go/kimi-k2.6", "variant": "high", "skills": ["simplify"], "mcps": []},
@@ -114,21 +160,18 @@
       "council": { "model": "abacus/claude-opus-4-6" }
     }
   },
-  "multiplexer": {
-    "type": "tmux",
-    "layout": "main-vertical",
-    "main_pane_size": 60
-  },
-  "tmux": {
-    "enabled": true
-  },
   "council": {
-    "default_preset": "opencode-free",
+    "default_preset": "opencode-go",
     "presets": {
-      "opencode-default": {
-        "alpha": { "model": "opencode/claude-opus-4-6" },
-        "beta": { "model": "opencode/gemini-3.1-pro" },
-        "gamma": { "model": "opencode/gpt-5.5" }
+      "opencode-go": {
+        "alpha": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" },
+        "beta": { "model": "opencode-go/kimi-k2.6" },
+        "gamma": { "model": "opencode-go/minimax-m2.7" }
+      },
+      "opencode-zen": {
+        "alpha": { "model": "opencode-go/claude-opus-4-6" },
+        "beta": { "model": "opencode-go/gemini-3.1-pro" },
+        "gamma": { "model": "opencode-go/gpt-5.5" }
       },
       "opencode-free": {
         "alpha": { "model": "opencode/hy3-preview-free" },
