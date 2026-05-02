@@ -459,11 +459,12 @@ set -g @plugin 'joshmedeski/t-smart-tmux-session-manager'
 set -g status off
 
 set -g @plugin 'fabioluciano/tmux-powerkit'
-set -g @powerkit_theme "kanagawa"
-set -g @powerkit_theme_variant "lotus" # dragon
+set -g @powerkit_edge_separator_style "trapezoid"
 set -g @powerkit_plugins " "
 set -g @powerkit_separator_style "slantup"
-set -g @powerkit_edge_separator_style "trapezoid"
+set -g @powerkit_status_position "bottom"
+set -g @powerkit_theme "kanagawa"
+set -g @powerkit_theme_variant "dragon"
 
 # -- custom variables ----------------------------------------------------------
 
