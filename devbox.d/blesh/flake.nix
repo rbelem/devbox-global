@@ -1,5 +1,5 @@
 {
-  description = "ble.sh built from master (overlay on official nixpkgs)";
+  description = "ble.sh nightly build";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -15,51 +15,30 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
-          src = pkgs.fetchFromGitHub {
-            owner = "akinomyoga";
-            repo = "ble.sh";
-            rev = "b99cadb4520a1fdec0067fdc007b39cc905ecbad";
-            hash = "sha256-LXDow/4yv3V0Liy12bXQ1qwO5z4u0equRO9xeJaDaWo=";
-            fetchSubmodules = true;
+          src = pkgs.fetchzip {
+            url = "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz";
+            hash = "sha256-kGLp8RaInYSrJEi3h5kWEOMAbZV/gEPFUjOLgBuMhCI=";
           };
 
-          version = "0.4.0-devel4+master";
+          version = "0.4.0-devel3-nightly";
         in
         {
           default = pkgs.stdenvNoCC.mkDerivation {
             pname = "blesh";
             inherit version src;
 
-            nativeBuildInputs = [
-              pkgs.gnumake
-              pkgs.gawk
-              pkgs.git
-            ];
+            dontBuild = true;
 
             buildInputs = [
               pkgs.bashInteractive
             ];
-
-            dontConfigure = true;
-
-            postUnpack = ''
-              # Provide git metadata so the Makefile doesn't need .git
-              cat > source/make/.git-archive-export.mk <<EOF
-          BLE_GIT_COMMIT_ID = ${src.rev}
-          BLE_GIT_BRANCH = master
-          EOF
-            '';
-
-            buildPhase = ''
-              make build PREFIX=$out
-            '';
 
             installPhase = ''
               runHook preInstall
 
               mkdir -p "$out/share/blesh/lib"
 
-              cat <<EOF >"$out/share/blesh/lib/_package.sh"
+              cat <<EOF >"$out/share/blesh/lib/_package.bash"
           _ble_base_package_type=nix
 
           function ble/base/package:nix/update {
@@ -68,7 +47,7 @@
           }
           EOF
 
-              make install PREFIX=$out
+              cp -rv $src/* "$out/share/blesh"
 
               runHook postInstall
             '';
@@ -84,7 +63,7 @@
 
             meta = {
               homepage = "https://github.com/akinomyoga/ble.sh";
-              description = "Bash Line Editor (ble.sh) — latest master";
+              description = "Bash Line Editor — nightly build";
               mainProgram = "blesh-share";
               license = pkgs.lib.licenses.bsd3;
               platforms = pkgs.lib.platforms.unix;

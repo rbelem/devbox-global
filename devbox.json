@@ -44,7 +44,6 @@
     "htop@latest",
     "gemini-cli-bin@latest",
     "geminicommit@latest",
-    //"github:Fission-AI/OpenSpec/main#openspec",
     "path:devbox.d/openspec",
     "glibcLocales@latest",
     "sesh@latest",
@@ -71,7 +70,7 @@
     "init_hook": [
       "[ \"${-#*i}\" == \"$-\" ] || [ ! -t 0 ] || [ -z \"$PS1\" ] && return",
 
-      "[ -f $(blesh-share)/ble.sh ] && source $(blesh-share)/ble.sh --noattach",
+      "[ -f $(blesh-share)/ble.sh ] && source -- $(blesh-share)/ble.sh --attach=none",
 
       // nix-ld must be enabled on the nix host
       // "programs.nix-ld.enable = true;"
@@ -93,11 +92,12 @@
       "  source \"$f\"",
       "done",
 
-      "[[ ! ${BLE_VERSION-} ]] || ble-attach",
 
       // Python virtual environment setup
       "[ -d \"$VENV_DIR\" ] || python3 -m venv \"$VENV_DIR\"",
       "[ -f \"$VENV_DIR/bin/activate\" ] && . \"$VENV_DIR/bin/activate\"",
+
+      "[[ ! ${BLE_VERSION-} ]] || ble-attach",
     ],
     "scripts": {
       "update-flake": [
