@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     graphify-src = {
-      url = "github:rbelem/graphify/v5-perl";
+      url = "github:rbelem/graphify/v6-perl";
       flake = false;
     };
   };
@@ -16,7 +16,7 @@
     packages = forAllSystems (pkgs: rec {
       graphify = pkgs.python3Packages.buildPythonApplication rec {
         pname = "graphifyy";
-        version = "0.5.0-perl";
+        version = "0.6.7-perl";
         format = "pyproject";
 
         src = graphify-src;
