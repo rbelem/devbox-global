@@ -81,6 +81,15 @@
       "skillFolderHash": "fc6ecd3c4081d88c72aa55908ec36841f7c7bf9b",
       "installedAt": "2026-04-25T08:27:55.918Z",
       "updatedAt": "2026-04-25T08:27:55.918Z"
+    },
+    "git-commit": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/github/awesome-copilot.git",
+      "skillPath": "skills/git-commit/SKILL.md",
+      "skillFolderHash": "883a6a7466f55a9cd9f22cf1cce2d9333fc9b998",
+      "installedAt": "2026-05-02T18:24:24.330Z",
+      "updatedAt": "2026-05-02T18:24:24.330Z"
     }
   },
   "dismissed": {
