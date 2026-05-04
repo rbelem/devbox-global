@@ -57,6 +57,7 @@
     "nix-prefetch-git@latest",
     "path:devbox.d/agent-browser",
     "path:devbox.d/playwright-cli",
+    "path:devbox.d/codeburn",
   ],
   "env": {
     "EDITOR":         "vi",
