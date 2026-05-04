@@ -18,7 +18,7 @@
             owner = "rtk-ai";
             repo = "rtk";
             rev = "develop";
-            hash = "sha256-2T3rw3Oo2oTDt4B5xjdYM1VjApTOYEDU6YvGfBBwPxk=";
+            hash = "sha256-JLY5eweNvvp0+ISLhC/2bR78O2t81Cjr3yke8FHVmgU=";
           };
 
           cargoHash = "sha256-MRKsyHwlW0DiODa/d6nNXxQJpMz5u+Px9X1BV1f30Q8=";
