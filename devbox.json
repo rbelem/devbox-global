@@ -71,6 +71,7 @@
     "init_hook": [
       "[ \"${-#*i}\" == \"$-\" ] || [ ! -t 0 ] || [ -z \"$PS1\" ] && return",
 
+      // if terminal input is not working, remove ~/.cache/blesh/
       "[ -f $(blesh-share)/ble.sh ] && source -- $(blesh-share)/ble.sh --attach=none",
 
       // nix-ld must be enabled on the nix host
