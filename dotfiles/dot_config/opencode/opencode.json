@@ -8,19 +8,13 @@
       "url": "https://mcp.context7.com/mcp",
       "headers": {
         "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
-      }
+      },
+      "enabled": false
     },
     "gh_grep": {
       "type": "remote",
-      "url": "https://mcp.grep.app"
-    },
-    "playwright": {
-      "type": "local",
-      "command": [
-        "bunx",
-        "-y",
-        "@playwright/mcp@latest"
-      ]
+      "url": "https://mcp.grep.app",
+      "enabled": false
     },
     "chrome-devtools": {
       "type": "local",
@@ -29,7 +23,8 @@
         "-y",
         "chrome-devtools-mcp@latest",
         "--autoConnect"
-      ]
+      ],
+      "enabled": false
     },
     "browsermcp": {
       "type": "local",
@@ -37,7 +32,8 @@
         "bunx",
         "-y",
         "@browsermcp/mcp@latest"
-      ]
+      ],
+      "enabled": false
     },
     "Framelink MCP for Figma": {
       "type": "local",
@@ -47,7 +43,8 @@
         "figma-developer-mcp",
         "--figma-api-key={env:FIGMA_API_KEY}",
         "--stdio"
-      ]
+      ],
+      "enabled": false
     },
     "tmux": {
       "type": "local",
@@ -66,7 +63,8 @@
       ],
       "environment": {
         "BRAVE_API_KEY": "${env:BRAVE_API_KEY}"
-      }
+      },
+      "enabled": false
     },
     "opencode-docs": {
       "type": "local",
@@ -75,7 +73,7 @@
         "-y",
         "opencode-docs-mcp@latest"
       ],
-      "enabled": true
+      "enabled": false
     },
   },
   "permission": {
@@ -97,13 +95,9 @@
     "websearch": "allow"
   },
   "plugin": [
-    "lazy-mcp",
-    "caveman",
-    "opencode-plugin-openspec",
     "@slkiser/opencode-quota",
     "@ramarivera/opencode-model-announcer",
     "@tarquinen/opencode-smart-title",
     "oh-my-opencode-slim",
-    "mobile-debug-tools"
   ]
 }
