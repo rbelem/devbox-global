@@ -38,13 +38,13 @@
       "fixer": { "model": "zai-coding-plan/glm-5", "variant": "low" },
     },
     "opencode-go": {
-      "orchestrator": { "model": "opencode-go/glm-5.1" },
-      "oracle": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" },
+      "orchestrator": { "model": "opencode-go/glm-5.1", "skills": ["*"], "mcps": ["*"] },
+      "oracle": { "model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify"], "mcps": [] },
       "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "high" },
-      "librarian": { "model": "opencode-go/minimax-m2.7" },
-      "explorer": { "model": "opencode-go/minimax-m2.7" },
-      "designer": { "model": "opencode-go/kimi-k2.6", "variant": "medium" },
-      "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high" },
+      "librarian": { "model": "opencode-go/minimax-m2.7", "skills": [], "mcps": ["websearch","context7","grep_app"] },
+      "explorer": { "model": "opencode-go/minimax-m2.7", "skills": [], "mcps": [] },
+      "designer": { "model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser"], "mcps": [] },
+      "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": [], "mcps": [] },
     },
 
 
