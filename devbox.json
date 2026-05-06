@@ -42,7 +42,7 @@
     "path:devbox.d/blesh",
     "dos2unix@latest",
     "htop@latest",
-    "gemini-cli-bin@latest",
+    "path:devbox.d/gemini-cli-bin",
     "geminicommit@latest",
     "path:devbox.d/openspec",
     "glibcLocales@latest",
@@ -94,7 +94,6 @@
       "  [ $(basename $f) = Makemodule.am ] || [ $(basename $f) = enosys ] && continue",
       "  source \"$f\"",
       "done",
-
 
       // Python virtual environment setup
       "[ -d \"$VENV_DIR\" ] || python3 -m venv \"$VENV_DIR\"",
