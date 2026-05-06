@@ -79,6 +79,7 @@
   "permission": {
     "external_directory": {
       "*": "ask",
+      "~/.agents/*": "allow",
       "~/.config/opencode/skills/*": "allow",
       "/tmp/*": "allow"
     },
