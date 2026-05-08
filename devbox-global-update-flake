@@ -1,0 +1,185 @@
+#!/usr/bin/env bash
+# devbox-global-update-flake
+# Lists devbox global packages, identifies flake packages,
+# checks latest GitHub version, and shows comparison table.
+set -euo pipefail
+
+DEVBOX_GLOBAL_PATH="$(devbox global path)"
+DEVBOX_JSON="$DEVBOX_GLOBAL_PATH/devbox.json"
+DEVBOX_D="$DEVBOX_GLOBAL_PATH/devbox.d"
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+NC='\033[0m'
+
+# ── Parse installed versions from `devbox global list` ──
+declare -A INSTALLED
+while IFS= read -r line; do
+    line="${line#\* }"
+    if [[ "$line" == path:* ]]; then
+        name="${line#path:}"
+        name="${name#devbox.d/}"
+        INSTALLED["$name"]="flake"
+    else
+        pkg="${line%% -*}"
+        ver="${line##* - }"
+        ver="${ver## }"
+        name="${pkg%@*}"
+        INSTALLED["$name"]="$ver"
+    fi
+done < <(devbox global list 2>/dev/null)
+
+# ── Extract flake package names from devbox.json (JSONC-safe) ──
+declare -a FLAKES=()
+while IFS= read -r entry; do
+    if [[ "$entry" == path:* ]]; then
+        name="${entry#path:}"
+        name="${name#devbox.d/}"
+        FLAKES+=("$name")
+    fi
+done < <(grep -oP '"path:devbox\.d/[^"]+"|"[^"]+@latest"' "$DEVBOX_JSON" | tr -d '"' | grep '^path:')
+
+# ── For each flake, extract GitHub source + version from flake.nix ──
+declare -A FLAKE_OWNER FLAKE_REPO FLAKE_VERSION FLAKE_TYPE
+
+for name in "${FLAKES[@]}"; do
+    flake_nix="$DEVBOX_D/$name/flake.nix"
+    [[ -f "$flake_nix" ]] || continue
+
+    # Extract version
+    ver="$(grep -oP 'version\s*=\s*"\K[^"]+' "$flake_nix" | head -1 || true)"
+    FLAKE_VERSION["$name"]="$ver"
+
+    found_source=false
+
+    # Strategy 1: fetchurl with github.com/owner/repo URL
+    # Look for URLs like: https://github.com/owner/repo/releases/download/...
+    url="$(grep -oP 'github\.com/[^/"]+/[^/"]+' "$flake_nix" | grep -v 'NixOS/nixpkgs' | head -1 || true)"
+    if [[ -n "$url" ]]; then
+        owner="$(echo "$url" | cut -d'/' -f2)"
+        repo="$(echo "$url" | cut -d'/' -f3)"
+        # Remove any trailing punctuation
+        repo="${repo%.git}"
+        FLAKE_OWNER["$name"]="$owner"
+        FLAKE_REPO["$name"]="$repo"
+        FLAKE_TYPE["$name"]="fetchurl"
+        found_source=true
+    fi
+
+    # Strategy 2: github:owner/repo input URLs (non-nixpkgs)
+    if ! $found_source; then
+        input_url="$(grep -oP '"github:[^"]+' "$flake_nix" | grep -v 'github:NixOS/nixpkgs' | head -1 || true)"
+        if [[ -n "$input_url" ]]; then
+            input_url="${input_url#\"}"
+            input_url="${input_url#github:}"
+            owner="${input_url%%/*}"
+            rest="${input_url#*/}"
+            repo="${rest%%/*}"
+            FLAKE_OWNER["$name"]="$owner"
+            FLAKE_REPO["$name"]="$repo"
+            FLAKE_TYPE["$name"]="github-input"
+            found_source=true
+        fi
+    fi
+
+    # Strategy 3: fetchFromGitHub with owner/repo attrs (skip NixOS/nixpkgs)
+    if ! $found_source; then
+        owner="$(grep -oP 'owner\s*=\s*"\K[^"]+' "$flake_nix" | grep -v NixOS | head -1 || true)"
+        repo="$(grep -oP 'repo\s*=\s*"\K[^"]+' "$flake_nix" | grep -v nixpkgs | head -1 || true)"
+        if [[ -n "$owner" && -n "$repo" ]]; then
+            FLAKE_OWNER["$name"]="$owner"
+            FLAKE_REPO["$name"]="$repo"
+            FLAKE_TYPE["$name"]="fetchFromGitHub"
+            found_source=true
+        fi
+    fi
+done
+
+# ── Check latest GitHub version ──
+declare -A LATEST
+
+for name in "${FLAKES[@]}"; do
+    owner="${FLAKE_OWNER[$name]:-}"
+    repo="${FLAKE_REPO[$name]:-}"
+
+    if [[ -z "$owner" || -z "$repo" ]]; then
+        LATEST["$name"]="unknown"
+        continue
+    fi
+
+    # Try GitHub releases first (exclude pre-releases)
+    latest_tag="$(gh release list -R "$owner/$repo" --limit 10 -L 10 --json tagName,isPrerelease -q '.[] | select(.isPrerelease == false) | .tagName' 2>/dev/null | head -1 || true)"
+
+    if [[ -n "$latest_tag" ]]; then
+        # Strip common prefixes: v, bun-v, dev-
+        latest_ver="${latest_tag#v}"
+        latest_ver="${latest_ver#bun-v}"
+        LATEST["$name"]="$latest_ver"
+    else
+        # Fall back to tags
+        latest_tag="$(gh api "repos/$owner/$repo/tags" --jq '.[0].name' 2>/dev/null || true)"
+        if [[ -n "$latest_tag" ]]; then
+            latest_ver="${latest_tag#v}"
+            LATEST["$name"]="$latest_ver"
+        else
+            # Fall back to default branch
+            latest_branch="$(gh api "repos/$owner/$repo" --jq '.default_branch' 2>/dev/null || true)"
+            if [[ -n "$latest_branch" ]]; then
+                LATEST["$name"]="branch:$latest_branch"
+            else
+                LATEST["$name"]="unknown"
+            fi
+        fi
+    fi
+done
+
+# ── Print results ──
+printf "\n${BOLD}${CYAN}═══ Devbox Global Flake Packages ═══${NC}\n\n"
+printf "${BOLD}%-15s %-25s %-15s %-15s %-8s${NC}\n" "PACKAGE" "SOURCE" "INSTALLED" "LATEST" "STATUS"
+printf "%-15s %-25s %-15s %-15s %-8s\n" "───────" "──────" "─────────" "──────" "──────"
+
+for name in "${FLAKES[@]}"; do
+    installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
+    latest="${LATEST[$name]:-unknown}"
+    type="${FLAKE_TYPE[$name]:-unknown}"
+    owner="${FLAKE_OWNER[$name]:-}"
+    repo="${FLAKE_REPO[$name]:-}"
+
+    source_display="$owner/$repo"
+    [[ -z "$owner" ]] && source_display="$type"
+
+    # Determine status
+    if [[ "$latest" == "unknown" || "$installed" == "unknown" || "$latest" == branch:* ]]; then
+        status="${YELLOW}??${NC}"
+    elif [[ "$installed" == "$latest" ]]; then
+        status="${GREEN}✓${NC}"
+    else
+        status="${RED}↑${NC}"
+    fi
+
+    latest_display="${latest#branch:}"
+
+    printf "%-15s %-25s %-15s %-15s %b\n" "$name" "$source_display" "$installed" "$latest_display" "$status"
+done
+
+printf "\n${BOLD}${CYAN}═══ Nixpkgs Packages ═══${NC}\n\n"
+printf "${BOLD}%-20s %-15s %-8s${NC}\n" "PACKAGE" "INSTALLED" "SOURCE"
+printf "%-20s %-15s %-8s\n" "───────" "─────────" "──────"
+
+for name in "${!INSTALLED[@]}"; do
+    ver="${INSTALLED[$name]}"
+    [[ "$ver" == "flake" ]] && continue
+    is_flake=false
+    for fname in "${FLAKES[@]}"; do
+        [[ "$name" == "$fname" ]] && { is_flake=true; break; }
+    done
+    $is_flake && continue
+    printf "%-20s %-15s %s\n" "$name" "$ver" "nixpkgs"
+done | sort
+
+printf "\n"
+printf "${GREEN}✓${NC} = up to date  ${RED}↑${NC} = update available  ${YELLOW}??${NC} = unknown\n\n"
