@@ -3,6 +3,25 @@
 
 palette = 'kanagawa_wave'
 
+[git_branch]
+symbol = " "
+format = 'on [$symbol$branch(:$remote_branch)]($style) '
+style = "bold lavender"
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = 'bold red'
+use_git_executable = true
+conflicted = '=${count} '
+untracked = '?${count} '
+modified = '!${count} '
+staged = '+${count} '
+renamed = '»${count} '
+deleted = '✘${count} '
+ahead = '⇡${count} '
+behind = '⇣${count} '
+diverged = '⇕⇡${ahead_count}⇣${behind_count} '
+
 [cmd_duration]
 disabled = false
 min_time = 500
