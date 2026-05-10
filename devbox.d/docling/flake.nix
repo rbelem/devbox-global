@@ -98,6 +98,9 @@
             # chunking deps (via docling-core[chunking])
             # typing
             typing-extensions
+            # OCR deps (RapidOCR)
+            rapidocr
+            onnxruntime
           ];
 
           # Patch imports to make docling_parse optional since
