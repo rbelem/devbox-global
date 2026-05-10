@@ -1,0 +1,45 @@
+{
+  "nodes": {
+    "docling-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778010812,
+        "narHash": "sha256-bLDV4hZOmuYQqkBRU/bmGR9YmRqahj0RyTYeLttTuAs=",
+        "owner": "docling-project",
+        "repo": "docling",
+        "rev": "61c37a23a91c21b64038f8d844c0cad39b446875",
+        "type": "github"
+      },
+      "original": {
+        "owner": "docling-project",
+        "ref": "v2.93.0",
+        "repo": "docling",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1777954456,
+        "narHash": "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "549bd84d6279f9852cae6225e372cc67fb91a4c1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "docling-src": "docling-src",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
