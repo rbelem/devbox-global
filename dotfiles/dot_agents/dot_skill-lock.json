@@ -90,6 +90,15 @@
       "skillFolderHash": "883a6a7466f55a9cd9f22cf1cce2d9333fc9b998",
       "installedAt": "2026-05-02T18:24:24.330Z",
       "updatedAt": "2026-05-02T18:24:24.330Z"
+    },
+    "docling": {
+      "source": "existential-birds/beagle",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/existential-birds/beagle.git",
+      "skillPath": "plugins/beagle-core/skills/docling/SKILL.md",
+      "skillFolderHash": "455602908072dd1d0ae3a8ea0904dbba67a7bfb1",
+      "installedAt": "2026-05-10T02:39:06.463Z",
+      "updatedAt": "2026-05-10T02:39:06.463Z"
     }
   },
   "dismissed": {
