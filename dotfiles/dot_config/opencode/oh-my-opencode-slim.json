@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
   "disabled_agents": [],
-  "preset": "opencode-go",
+  "preset": "opencode-best-value",
   "presets": {
     "openai": {
       "orchestrator": { "model": "openai/gpt-5.5" },
@@ -50,6 +50,16 @@
     },
 
 
+    "opencode-best-value": {
+      "orchestrator": {"model": "opencode-go/glm-5.1", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "opencode-go/qwen3.6-plus", "variant": "high", "skills": ["simplify"], "mcps": []},
+      "librarian": {"model": "opencode-go/glm-5", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/glm-5", "variant": "low", "skills": [], "mcps": []},
+      "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
+      "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": [], "mcps": []},
+      "observer": { "model": "opencode-go/kimi-k2.6" },
+      "council": { "model": "opencode-go/qwen3.6-plus", "variant": "high" }
+    },
     "opencode-kimi": {
       "orchestrator": {"model": "opencode-go/kimi-k2.6", "skills": ["*"], "mcps": ["*"]},
       "oracle": {"model": "opencode-go/kimi-k2.6", "variant": "high", "skills": ["simplify"], "mcps": []},
@@ -67,15 +77,6 @@
       "designer": {"model": "opencode-go/deepseek-v4-flash", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
       "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": []},
       "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" }
-    },
-    "opencode-best-value": {
-      "orchestrator": {"model": "opencode-go/kimi-k2.6", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "opencode-go/deepseek-v4-flash", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": []},
-      "council": { "model": "opencode-go/kimi-k2.6" }
     },
     "opencode-free":{
       "orchestrator": {"model": "opencode/minimax-m2.5-free", "skills": ["*"], "mcps": ["*"]},
@@ -167,13 +168,13 @@
     "presets": {
       "opencode-go": {
         "alpha": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" },
-        "beta": { "model": "opencode-go/kimi-k2.6" },
-        "gamma": { "model": "opencode-go/minimax-m2.7" }
+        "beta": { "model": "opencode-go/qwen3.6-plus", "variant": "high" },
+        "gamma": { "model": "opencode-go/kimi-k2.6" }
       },
       "opencode-zen": {
-        "alpha": { "model": "opencode-go/claude-opus-4-6" },
-        "beta": { "model": "opencode-go/gemini-3.1-pro" },
-        "gamma": { "model": "opencode-go/gpt-5.5" }
+        "alpha": { "model": "opencode/claude-opus-4-6" },
+        "beta": { "model": "opencode/gemini-3.1-pro" },
+        "gamma": { "model": "opencode/gpt-5.5" }
       },
       "opencode-free": {
         "alpha": { "model": "opencode/hy3-preview-free" },
@@ -190,9 +191,9 @@
         "beta": { "model": "abacus/gpt-5.4" }
       },
       "abacus-deep": {
-        "alpha": { "model": "abacus/claude-opus-4-6", "prompt": "Focus on correctness, edge cases, and potential bugs" },
-        "beta": { "model": "abacus/gemini-3.1-pro-preview", "prompt": "Focus on architecture, maintainability, and long-term design" },
-        "gamma": { "model": "abacus/deepseek-ai/DeepSeek-R1", "prompt": "Focus on performance optimization and efficiency" }
+        "alpha": { "model": "abacus/claude-opus-4-6" },
+        "beta": { "model": "abacus/gemini-3.1-pro-preview" },
+        "gamma": { "model": "abacus/deepseek-ai/DeepSeek-R1" }
       }
     }
   }
