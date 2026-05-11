@@ -14,7 +14,7 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          version = "1.14.46";
+          version = "1.14.48";
 
           # Get the real hash:
           #   cd ~/.local/share/devbox/global/current/devbox.d/opencode
@@ -24,9 +24,9 @@
           # It will fail twice, for srcHash and nodeModulesHash
           #
           #srcHash = pkgs.lib.fakeHash;
-          srcHash = "sha256-4qyCmYDTNnWuSgDYQuvawhRj2Nh06sAAjSVp78aTKlI=";
+          srcHash = "sha256-gyybqabTco+5ZeWv4lCX8t/R9Jm3tYsA8wVvkrxkEYQ=";
           #nodeModulesHash = pkgs.lib.fakeHash;
-          nodeModulesHash = "sha256-YLF2no9XkXBsWIQlfeXWWyy7cPxIfyem3Pe22eYMGuU=";
+          nodeModulesHash = "sha256-Jb9Zn11ijYof66eCvLcqzGXL9CJbmpLzpdYkqJlEXBI=";
 
 
           src = pkgs.fetchFromGitHub {
