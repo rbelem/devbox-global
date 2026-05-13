@@ -56,6 +56,7 @@
     "nix-search-cli@latest",
     "nix-prefetch-git@latest",
     "path:devbox.d/agent-browser",
+    "path:devbox.d/get-shit-done",
     "path:devbox.d/playwright-cli",
     "path:devbox.d/codeburn",
     "path:devbox.d/docling",
