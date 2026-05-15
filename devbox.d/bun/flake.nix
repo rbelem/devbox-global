@@ -7,14 +7,11 @@
 
   outputs = { self, nixpkgs }:
     let
-      version = "1.3.13";
+      version = "1.3.14";
       tag = "bun-v${version}";
 
       systems = [
         "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
       ];
 
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
@@ -28,13 +25,10 @@
             let
               platform =
                 if final.stdenv.hostPlatform.system == "x86_64-linux" then
-                  { url = "https://github.com/oven-sh/bun/releases/download/${tag}/bun-linux-x64.zip"; hash = "sha256-r2XOCbddEr4az75VZ+WjTGLwD5LEE7t0LnD+l1VmhIw="; }
-                else if final.stdenv.hostPlatform.system == "aarch64-linux" then
-                  { url = "https://github.com/oven-sh/bun/releases/download/${tag}/bun-linux-aarch64.zip"; hash = "sha256-qy8F7kagLjW/ear7+PXSSXGpYNnCn5zMlxFq2GSZgBQ="; }
-                else if final.stdenv.hostPlatform.system == "x86_64-darwin" then
-                  { url = "https://github.com/oven-sh/bun/releases/download/${tag}/bun-darwin-x64.zip"; hash = "sha256-37lYTtUkZO2GUhMd4J7m0X9WvwasaqAOPOY4yoaQhhs="; }
-                else if final.stdenv.hostPlatform.system == "aarch64-darwin" then
-                  { url = "https://github.com/oven-sh/bun/releases/download/${tag}/bun-darwin-aarch64.zip"; hash = "sha256-UhyGh087Tfjg+3GZoyhb6pEj4mYSRWs5vnKPJV8Clic="; }
+                {
+                  url = "https://github.com/oven-sh/bun/releases/download/${tag}/bun-linux-x64.zip";
+                  hash = "sha256-i/7tX8lxLhccNF10IHg6XCQldgOID3wGNvg6y6xWM6E=";
+                }
                 else
                   throw "Unsupported platform: ${final.stdenv.hostPlatform.system}";
             in
@@ -43,7 +37,7 @@
               hash = platform.hash;
             };
 
-          nativeBuildInputs = [ final.unzip ] ++ final.lib.optionals final.stdenv.isLinux [ final.autoPatchelfHook ];
+          nativeBuildInputs = [ final.unzip final.makeWrapper ] ++ final.lib.optionals final.stdenv.isLinux [ final.autoPatchelfHook ];
 
           buildInputs = final.lib.optionals final.stdenv.isLinux [
             final.zlib
