@@ -1,5 +1,5 @@
 {
-  description = "Bun overlay - latest release from GitHub";
+  description = "Bun canary overlay - https://github.com/oven-sh/bun/pull/30412";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -7,8 +7,10 @@
 
   outputs = { self, nixpkgs }:
     let
-      version = "1.3.14";
-      tag = "bun-v${version}";
+      # Canary build from PR#30412 (Rust rewrite, merged to main May 14)
+      # Running `bun upgrade --canary` after installation switches to this.
+      version = "1.3.14-canary.1";
+      tag = "canary";
 
       systems = [
         "x86_64-linux"
@@ -27,7 +29,8 @@
                 if final.stdenv.hostPlatform.system == "x86_64-linux" then
                 {
                   url = "https://github.com/oven-sh/bun/releases/download/${tag}/bun-linux-x64.zip";
-                  hash = "sha256-i/7tX8lxLhccNF10IHg6XCQldgOID3wGNvg6y6xWM6E=";
+                  # Canary is a moving tag — update hash when canary refreshes
+                  hash = "sha256-BzjKcAEZNFLpba57xSX8jSyET7Ae7O426PERPX1NEU4=";
                 }
                 else
                   throw "Unsupported platform: ${final.stdenv.hostPlatform.system}";
