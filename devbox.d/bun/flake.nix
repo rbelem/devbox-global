@@ -1,5 +1,5 @@
 {
-  description = "Bun canary overlay - https://github.com/oven-sh/bun/pull/30412";
+  description = "Bun overlay - latest release (baseline) from GitHub";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -7,10 +7,8 @@
 
   outputs = { self, nixpkgs }:
     let
-      # Canary build from PR#30412 (Rust rewrite, merged to main May 14)
-      # Running `bun upgrade --canary` after installation switches to this.
-      version = "1.3.14-canary.1";
-      tag = "canary";
+      version = "1.3.14";
+      tag = "bun-v${version}";
 
       systems = [
         "x86_64-linux"
@@ -28,9 +26,11 @@
               platform =
                 if final.stdenv.hostPlatform.system == "x86_64-linux" then
                 {
-                  url = "https://github.com/oven-sh/bun/releases/download/${tag}/bun-linux-x64.zip";
-                  # Canary is a moving tag — update hash when canary refreshes
-                  hash = "sha256-BzjKcAEZNFLpba57xSX8jSyET7Ae7O426PERPX1NEU4=";
+                  # Baseline build: no AVX/AVX2 — compatible with VirtualBox,
+                  # older CPUs, and emulated x86-64. SIGILL / ILL_ILLOPN on
+                  # VMs when using the optimized (-x64) build.
+                  url = "https://github.com/oven-sh/bun/releases/download/${tag}/bun-linux-x64-baseline.zip";
+                  hash = "sha256-vglDdJBMSzCC7+NrMg1CP+Dq052aWvDGGfdP6H23xf8=";
                 }
                 else
                   throw "Unsupported platform: ${final.stdenv.hostPlatform.system}";
