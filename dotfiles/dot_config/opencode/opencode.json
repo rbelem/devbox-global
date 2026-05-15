@@ -1,7 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode-go/deepseek-v4-pro",
-  "small_model": "opencode-go/minimax-m2.5",
+  "model": "opencode-go/qwen3.6-plus",
+  "small_model": "opencode-go/kimi-k2.6",
+  "experimental": {
+    "disable_paste_summary": true
+  }
   "mcp": {
     "context7": {
       "type": "remote",
@@ -74,7 +77,7 @@
         "opencode-docs-mcp@latest"
       ],
       "enabled": false
-    },
+    }
   },
   "permission": {
     "external_directory": {
@@ -99,6 +102,6 @@
     "@slkiser/opencode-quota",
     "@ramarivera/opencode-model-announcer",
     "@tarquinen/opencode-smart-title",
-    "oh-my-opencode-slim",
+    "oh-my-opencode-slim"
   ]
 }
