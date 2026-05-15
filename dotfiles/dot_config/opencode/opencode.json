@@ -3,8 +3,8 @@
   "model": "opencode-go/qwen3.6-plus",
   "small_model": "opencode-go/kimi-k2.6",
   "experimental": {
-    "disable_paste_summary": true
-  }
+    "disable_paste_summary": true,
+  },
   "mcp": {
     "context7": {
       "type": "remote",
