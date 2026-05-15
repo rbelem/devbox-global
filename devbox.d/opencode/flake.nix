@@ -45,7 +45,7 @@
           #srcHash = pkgs.lib.fakeHash;
           srcHash = "sha256-qVkOgLXUU/vaWDZIkBeR3Fhkcz7cPshpyQIkuxwKUEM=";
           #nodeModulesHash = pkgs.lib.fakeHash;
-          nodeModulesHash = "sha256-JMz70+GLqd8kn6zUIScHDkPruxzEOuZSYJzUFGDvSYc=";
+          nodeModulesHash = "sha256-mozaLyyHm7fO6XYTrEMb1in0LNtA4BXZAowJ+8UMh7Q=";
 
           src = pkgs.fetchFromGitHub {
             owner = "anomalyco";
