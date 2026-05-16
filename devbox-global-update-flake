@@ -52,12 +52,12 @@ DEVBOX_JSON="$DEVBOX_GLOBAL_PATH/devbox.json"
 DEVBOX_D="$DEVBOX_GLOBAL_PATH/devbox.d"
 
 # Colors
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-CYAN='\033[0;36m'
-BOLD='\033[1m'
-NC='\033[0m'
+RED=$'\033[0;31m'
+GREEN=$'\033[0;32m'
+YELLOW=$'\033[1;33m'
+CYAN=$'\033[0;36m'
+BOLD=$'\033[1m'
+NC=$'\033[0m'
 
 # ── Parse installed versions from `devbox global list` ──
 declare -A INSTALLED
