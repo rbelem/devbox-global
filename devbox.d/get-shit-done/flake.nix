@@ -9,7 +9,7 @@
     let
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      version = "1.41.2";
+      version = "1.42.3";
     in
     {
       packages = forAllSystems (system:
@@ -20,7 +20,7 @@
             owner = "gsd-build";
             repo = "get-shit-done";
             rev = "v${version}";
-            hash = "sha256-kTUHeSBm40XKbGCpmN/p776UgvtvwGF2aWu+2iSIH44=";
+            hash = "sha256-ylfH91jnyAkORAlon0CMko48DzeLYvSN1jhyDDKwnWU=";
           };
 
           # Pre-fetch root npm dependencies (from root package-lock.json)
@@ -28,7 +28,7 @@
             name = "root-npm-deps";
             inherit src;
             sourceRoot = src.name;
-            hash = "sha256-2+/kD09Jw2ZzYHvu6xiVkXOPmlep7Y3pZrVdltNyCvc=";
+            hash = "sha256-A/nO6WUFA/dPGJDnwhGZSrj5vuHz2o3uyfUlK35SglM=";
           };
 
           # Pre-fetch SDK npm dependencies (from sdk/package-lock.json)
@@ -36,7 +36,7 @@
             name = "sdk-npm-deps";
             inherit src;
             sourceRoot = "${src.name}/sdk";
-            hash = "sha256-9OYqmoexNMDTHgA2eMeKL6o2iROfVo35DFErOW9tKps=";
+            hash = "sha256-jpPcCKLhiUVhK9yxoR3bZrXOsL169qSdL9CSqnlVSpI=";
           };
 
           # Combine npm caches from root and SDK into a single npm cache input.
