@@ -3,11 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    openspec.url = "github:Fission-AI/OpenSpec/main";
+    openspec.url = "github:Fission-AI/OpenSpec/v1.3.1";
   };
 
   outputs = { self, nixpkgs, openspec }:
     let
+      version = "1.3.1";
       supportedSystems = [
         "x86_64-linux"
         "aarch64-linux"
