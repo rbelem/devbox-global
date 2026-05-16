@@ -115,6 +115,7 @@
       "config-push": [
         "devbox global push https://github.com/rbelem/devbox-global.git",
       ],
+      "config-sync": "cd \"$(ghq root)/github.com/rbelem/devbox-global\" && rsync -ai devbox.json devbox.d devbox-global-update-flake \"$(devbox global path)/\"",
       "first-install": [
         "devbox global run setup-git",
         "devbox global run setup-tmux",
