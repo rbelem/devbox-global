@@ -59,6 +59,9 @@ CYAN=$'\033[0;36m'
 BOLD=$'\033[1m'
 NC=$'\033[0m'
 
+# Fake hash placeholder — literal string, works in any nix scope (no pkgs dependency)
+FAKE_HASH='sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='
+
 # ── Parse installed versions from `devbox global list` ──
 declare -A INSTALLED
 while IFS= read -r line; do
@@ -216,15 +219,15 @@ update_flake() {
         echo "    ✓ input URL ref updated"
     fi
 
-    # 3. Reset hashes to pkgs.lib.fakeHash (skip custom vars like bunHash)
+    # 3. Reset hashes to a literal fake hash (no pkgs dependency, works in any scope)
     #    Named attrs: hash, srcHash, cargoHash, npmDepsHash, nodeModulesHash, outputHash
     #    Quoted attrs: "platform" = "sha256-..." (agent-browser pattern)
     #    Uses ERE (sed -r), no PCRE non-capturing groups.
     if grep -qE '(^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null \
         || grep -qE '"[^"]+"[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null; then
-        sed -ri 's/((^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1pkgs.lib.fakeHash;  # FIXME: was "\4"/' "$flake_nix"
-        sed -ri 's/("[^"]+"[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1pkgs.lib.fakeHash;  # FIXME: was "\2"/' "$flake_nix"
-        echo "    ✓ hashes reset to pkgs.lib.fakeHash"
+        sed -ri 's/((^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1"'"$FAKE_HASH"'";  # FIXME: was "\4"/' "$flake_nix"
+        sed -ri 's/("[^"]+"[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1"'"$FAKE_HASH"'";  # FIXME: was "\2"/' "$flake_nix"
+        echo "    ✓ hashes reset to fakeHash"
     else
         echo "    - no hashes to reset"
     fi
@@ -238,7 +241,7 @@ resolve_hashes() {
     local max_attempts=10
 
     # Only if hashes were reset to fakeHash
-    if ! grep -q 'pkgs\.lib\.fakeHash' "$flake_nix" 2>/dev/null; then
+    if ! grep -qF "$FAKE_HASH" "$flake_nix" 2>/dev/null; then
         return 0
     fi
 
@@ -247,7 +250,7 @@ resolve_hashes() {
 
     for ((attempt=1; attempt<=max_attempts; attempt++)); do
         # Check if all fakeHash placeholders are resolved
-        if ! grep -q 'pkgs\.lib\.fakeHash' "$flake_nix" 2>/dev/null; then
+        if ! grep -qF "$FAKE_HASH" "$flake_nix" 2>/dev/null; then
             echo "    ${GREEN}✓${NC} all hashes resolved"
             return 0
         fi
@@ -269,10 +272,10 @@ resolve_hashes() {
             return 1
         fi
 
-        # Replace the first pkgs.lib.fakeHash with the real hash (with quotes)
+        # Replace the first fakeHash placeholder with the real hash (with quotes)
         # Uses perl for first-match-only semantics (sed address ranges
         # stop at comments containing "fakeHash" before reaching the assignment)
-        perl -i -pe 'if (!$done && s{pkgs\.lib\.fakeHash;\s*#\s*FIXME:\s*was\s*"[^"]*"}{"'"$got_hash"'"} ) { $done = 1 }' "$flake_nix"
+        perl -i -pe 'if (!$done && s{"'"$FAKE_HASH"'";\s*#\s*FIXME:\s*was\s*"[^"]*"}{"'"$got_hash"'"} ) { $done = 1 }' "$flake_nix"
         echo "    hash $attempt: $got_hash"
     done
 
@@ -356,7 +359,7 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
             done
             if ! $is_flake; then
                 echo "  Package '$target' is not a known flake package."
-            elif grep -q 'pkgs\.lib\.fakeHash' "$DEVBOX_D/$target/flake.nix" 2>/dev/null; then
+            elif grep -qF "$FAKE_HASH" "$DEVBOX_D/$target/flake.nix" 2>/dev/null; then
                 # Version matches but hashes not fully resolved — retry resolution
                 TARGETS+=("$target")
             else
