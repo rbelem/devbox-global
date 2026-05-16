@@ -374,7 +374,7 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
             installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
             latest="${LATEST[$name]:-unknown}"
             update_flake "$name" "$installed" "$latest" || true
-            resolve_hashes "$name"
+            resolve_hashes "$name" || echo "    ${YELLOW}!${NC} hash resolution incomplete (see above)"
         done
         echo ""
         echo "${BOLD}${GREEN}All updates applied.${NC}"
