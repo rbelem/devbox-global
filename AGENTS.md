@@ -29,8 +29,9 @@ ln -sf "$PWD/devbox.json" "$(devbox global path)/devbox.json"
 ln -sfn "$PWD/devbox.d" "$(devbox global path)/devbox.d"
 ```
 
-Then run `devbox global run update-flake` if flake hashes changed, or
-`devbox global shellenv --reinit` for package/script changes.
+Then run `devbox global install` to install new/changed packages, and
+`eval "$(devbox global shellenv --recompute)"` to update the current shell.
+Run `devbox global run update-flake` to check if flakes are up to date.
 
 ## Important commands
 
