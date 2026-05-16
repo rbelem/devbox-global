@@ -50,23 +50,26 @@ for name in "${FLAKES[@]}"; do
     flake_nix="$DEVBOX_D/$name/flake.nix"
     [[ -f "$flake_nix" ]] || continue
 
-    # Extract version
-    ver="$(grep -oP 'version\s*=\s*"\K[^"]+' "$flake_nix" | head -1 || true)"
+    # Extract version from explicit version attribute
+    ver="$(grep -oP '\bversion\s*=\s*"\K[^"]+' "$flake_nix" | head -1 || true)"
+
+    # Fallback: extract version from flake input URL refs (e.g. github:owner/repo/v1.2.3)
+    if [[ -z "$ver" ]]; then
+        ver="$(grep -oP '"github:[^/"]+/[^/"]+/\K[^"]+' "$flake_nix" | grep -vE '^(nixos-unstable|main|master|develop|nightly)$' | head -1 || true)"
+        ver="${ver#v}"
+    fi
+
     FLAKE_VERSION["$name"]="$ver"
 
     found_source=false
 
-    # Strategy 1: fetchurl with github.com/owner/repo URL
-    # Look for URLs like: https://github.com/owner/repo/releases/download/...
-    url="$(grep -oP 'github\.com/[^/"]+/[^/"]+' "$flake_nix" | grep -v 'NixOS/nixpkgs' | head -1 || true)"
-    if [[ -n "$url" ]]; then
-        owner="$(echo "$url" | cut -d'/' -f2)"
-        repo="$(echo "$url" | cut -d'/' -f3)"
-        # Remove any trailing punctuation
-        repo="${repo%.git}"
+    # Strategy 1: fetchFromGitHub with owner/repo attrs (most specific, no false positives)
+    owner="$(grep -oP 'owner\s*=\s*"\K[^"]+' "$flake_nix" | grep -v NixOS | head -1 || true)"
+    repo="$(grep -oP 'repo\s*=\s*"\K[^"]+' "$flake_nix" | grep -v nixpkgs | head -1 || true)"
+    if [[ -n "$owner" && -n "$repo" ]]; then
         FLAKE_OWNER["$name"]="$owner"
         FLAKE_REPO["$name"]="$repo"
-        FLAKE_TYPE["$name"]="fetchurl"
+        FLAKE_TYPE["$name"]="fetchFromGitHub"
         found_source=true
     fi
 
@@ -86,14 +89,16 @@ for name in "${FLAKES[@]}"; do
         fi
     fi
 
-    # Strategy 3: fetchFromGitHub with owner/repo attrs (skip NixOS/nixpkgs)
+    # Strategy 3: fetchurl/fetchzip with github.com/owner/repo URL (least specific, most false positives)
     if ! $found_source; then
-        owner="$(grep -oP 'owner\s*=\s*"\K[^"]+' "$flake_nix" | grep -v NixOS | head -1 || true)"
-        repo="$(grep -oP 'repo\s*=\s*"\K[^"]+' "$flake_nix" | grep -v nixpkgs | head -1 || true)"
-        if [[ -n "$owner" && -n "$repo" ]]; then
+        url="$(grep -oP 'github\.com/[^/"]+/[^/"]+' "$flake_nix" | grep -v 'NixOS/nixpkgs' | head -1 || true)"
+        if [[ -n "$url" ]]; then
+            owner="$(echo "$url" | cut -d'/' -f2)"
+            repo="$(echo "$url" | cut -d'/' -f3)"
+            repo="${repo%.git}"
             FLAKE_OWNER["$name"]="$owner"
             FLAKE_REPO["$name"]="$repo"
-            FLAKE_TYPE["$name"]="fetchFromGitHub"
+            FLAKE_TYPE["$name"]="fetchurl"
             found_source=true
         fi
     fi
