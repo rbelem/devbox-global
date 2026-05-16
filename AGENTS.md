@@ -17,22 +17,23 @@ devbox-global-update-flake  # standalone script: check & update flake versions
 ## Sync rule
 
 Edit files in this repo, but devbox reads from `$(devbox global path)`.
-After changing `devbox.json` or `devbox.d/`, sync to make them take effect:
+After changing files, sync to make them take effect:
 
 ```bash
-# Option A: flat copy
-cp devbox.json "$(devbox global path)/devbox.json"
-cp -r devbox.d "$(devbox global path)/"
+# Option A: rsync (incremental, shows changes)
+rsync -ai devbox.json devbox.d devbox-global-update-flake "$(devbox global path)/"
 
-# Option B: symlink (one-time setup)
+# Option B: symlink (one-time setup, auto-syncs after)
 ln -sf "$PWD/devbox.json" "$(devbox global path)/devbox.json"
 ln -sfn "$PWD/devbox.d" "$(devbox global path)/devbox.d"
 ```
 
+> `rsync devbox.d dest/` (no trailing slash) copies the directory itself.
+> `rsync devbox.d/ dest/` (with slash) copies contents into dest — wrong.
+
 Then run `devbox global install` to install new/changed packages, and
 `eval "$(devbox global shellenv --recompute)"` to update the current shell.
-Run `devbox global run update-flake` to check if flakes are up to date.
-Use `devbox global run update-flake -u` to interactively update selected packages.
+Run `devbox global run update-flake` to check / update flake packages.
 
 ## Important commands
 
