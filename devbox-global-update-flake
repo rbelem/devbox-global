@@ -216,9 +216,14 @@ update_flake() {
         echo "    ✓ input URL ref updated"
     fi
 
-    # 3. Reset all sha256 hashes to pkgs.lib.fakeHash (preserve old hash in comment)
-    if grep -q '"sha256-' "$flake_nix" 2>/dev/null; then
-        sed -ri 's/"(sha256-[^"]+)"/pkgs.lib.fakeHash;  # FIXME: was "\1"/' "$flake_nix"
+    # 3. Reset hashes to pkgs.lib.fakeHash (skip custom vars like bunHash)
+    #    Named attrs: hash, srcHash, cargoHash, npmDepsHash, nodeModulesHash, outputHash
+    #    Quoted attrs: "platform" = "sha256-..." (agent-browser pattern)
+    #    Uses ERE (sed -r), no PCRE non-capturing groups.
+    if grep -qE '(^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null \
+        || grep -qE '"[^"]+"[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null; then
+        sed -ri 's/((^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1pkgs.lib.fakeHash;  # FIXME: was "\4"/' "$flake_nix"
+        sed -ri 's/("[^"]+"[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1pkgs.lib.fakeHash;  # FIXME: was "\2"/' "$flake_nix"
         echo "    ✓ hashes reset to pkgs.lib.fakeHash"
     else
         echo "    - no hashes to reset"
@@ -265,9 +270,9 @@ resolve_hashes() {
         fi
 
         # Replace the first pkgs.lib.fakeHash with the real hash (with quotes)
-        # Pattern matches: pkgs.lib.fakeHash;  # FIXME: was "sha256-OLD"
-        local got_escaped="${got_hash//\//\\/}"
-        sed -i '0,/pkgs\.lib\.fakeHash/{s/pkgs\.lib\.fakeHash;  # FIXME: was "[^"]*"/"'"$got_escaped"'"/}' "$flake_nix"
+        # Uses perl for first-match-only semantics (sed address ranges
+        # stop at comments containing "fakeHash" before reaching the assignment)
+        perl -i -pe 'if (!$done && s{pkgs\.lib\.fakeHash;\s*#\s*FIXME:\s*was\s*"[^"]*"}{"'"$got_hash"'"} ) { $done = 1 }' "$flake_nix"
         echo "    hash $attempt: $got_hash"
     done
 
@@ -344,16 +349,19 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
         if $found; then
             TARGETS+=("$target")
         else
-            # Check if flake exists but is up to date
+            # Check if it's a known flake
             is_flake=false
             for name in "${FLAKES[@]}"; do
                 [[ "$name" == "$target" ]] && { is_flake=true; break; }
             done
-            if $is_flake; then
+            if ! $is_flake; then
+                echo "  Package '$target' is not a known flake package."
+            elif grep -q 'pkgs\.lib\.fakeHash' "$DEVBOX_D/$target/flake.nix" 2>/dev/null; then
+                # Version matches but hashes not fully resolved — retry resolution
+                TARGETS+=("$target")
+            else
                 installed="${FLAKE_VERSION[$target]:-${INSTALLED[$target]:-unknown}}"
                 echo "  Package '$target' is already at $installed (no update needed)."
-            else
-                echo "  Package '$target' is not a known flake package."
             fi
         fi
     done
@@ -365,7 +373,8 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
             echo ""
             installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
             latest="${LATEST[$name]:-unknown}"
-            update_flake "$name" "$installed" "$latest" && resolve_hashes "$name"
+            update_flake "$name" "$installed" "$latest" || true
+            resolve_hashes "$name"
         done
         echo ""
         echo "${BOLD}${GREEN}All updates applied.${NC}"
