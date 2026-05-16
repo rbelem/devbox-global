@@ -9,10 +9,28 @@ Linux machine via `devbox global pull`.
 ```
 devbox.json              # global package + script declarations
 devbox.lock              # pinned nixpkgs versions (stale, 2023)
-devbox.d/<name>/         # 14 flake-based packages (referenced path:devbox.d/<name>)
+devbox.d/<name>/         # 15 flake-based packages (referenced path:devbox.d/<name>)
 dotfiles/                # chezmoi root (.chezmoiroot = dotfiles)
 devbox-global-update-flake  # standalone script: check flake versions vs GitHub
 ```
+
+## Sync rule
+
+Edit files in this repo, but devbox reads from `$(devbox global path)`.
+After changing `devbox.json` or `devbox.d/`, sync to make them take effect:
+
+```bash
+# Option A: flat copy
+cp devbox.json "$(devbox global path)/devbox.json"
+cp -r devbox.d "$(devbox global path)/"
+
+# Option B: symlink (one-time setup)
+ln -sf "$PWD/devbox.json" "$(devbox global path)/devbox.json"
+ln -sfn "$PWD/devbox.d" "$(devbox global path)/devbox.d"
+```
+
+Then run `devbox global run update-flake` if flake hashes changed, or
+`devbox global shellenv --reinit` for package/script changes.
 
 ## Important commands
 
@@ -28,7 +46,7 @@ devbox-global-update-flake  # standalone script: check flake versions vs GitHub
 
 ## devbox.d/ flakes
 
-14 local flake packages. Patterns found in their flake.nix files:
+15 local flake packages. Patterns found in their flake.nix files:
 
 - **Simple fetch + install** (blesh, gemini-cli-bin, agent-browser): fetch tarball
   from GitHub releases, copy to store, provide helper script.
@@ -38,6 +56,8 @@ devbox-global-update-flake  # standalone script: check flake versions vs GitHub
 - **Override source** (opencode, skills): fetchFromGitHub + overrideAttrs to swap source.
   Uses `fakeHash` for first-time builds — uncomment fakeHash, run `devbox global update`,
   capture real hash, paste back.
+- **Build Python from source** (whichllm): fetchFromGitHub + buildPythonPackage.
+  Builds both the app and its missing PyPI deps (dbgpu) inline in the flake.
 - **Input-based composition** (neovim, skills): external flake inputs composed in outputs.
 
 ## Key quirks

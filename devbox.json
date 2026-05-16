@@ -59,6 +59,7 @@
     "path:devbox.d/get-shit-done",
     "path:devbox.d/playwright-cli",
     "path:devbox.d/codeburn",
+    "path:devbox.d/whichllm",
     "path:devbox.d/docling",
   ],
   "env": {
