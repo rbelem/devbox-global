@@ -225,6 +225,56 @@ update_flake() {
     fi
 }
 
+# ── Auto-resolve hashes by building and capturing "got" hash ──
+resolve_hashes() {
+    local name="$1"
+    local flake_dir="$DEVBOX_D/$name"
+    local flake_nix="$flake_dir/flake.nix"
+    local max_attempts=10
+
+    # Only if hashes were reset to fakeHash
+    if ! grep -q 'pkgs\.lib\.fakeHash' "$flake_nix" 2>/dev/null; then
+        return 0
+    fi
+
+    echo ""
+    echo "    Computing hashes (building with nix)..."
+
+    for ((attempt=1; attempt<=max_attempts; attempt++)); do
+        # Check if all fakeHash placeholders are resolved
+        if ! grep -q 'pkgs\.lib\.fakeHash' "$flake_nix" 2>/dev/null; then
+            echo "    ${GREEN}✓${NC} all hashes resolved"
+            return 0
+        fi
+
+        # Build the flake and capture output
+        local build_output
+        if build_output=$(cd "$flake_dir" && nix build ".#default" 2>&1); then
+            echo "    ${GREEN}✓${NC} build succeeded"
+            return 0
+        fi
+
+        # Extract "got" hash from error output
+        local got_hash
+        got_hash=$(echo "$build_output" | grep -oP 'got:\s+\Ksha256-[a-zA-Z0-9+/=]+' | head -1)
+
+        if [[ -z "$got_hash" ]]; then
+            echo "    ${YELLOW}!${NC} non-hash build error:"
+            echo "$build_output" | grep -E '(error:|Error:)' | head -5 | sed 's/^/      /'
+            return 1
+        fi
+
+        # Replace the first pkgs.lib.fakeHash with the real hash (with quotes)
+        # Pattern matches: pkgs.lib.fakeHash;  # FIXME: was "sha256-OLD"
+        local got_escaped="${got_hash//\//\\/}"
+        sed -i '0,/pkgs\.lib\.fakeHash/{s/pkgs\.lib\.fakeHash;  # FIXME: was "[^"]*"/"'"$got_escaped"'"/}' "$flake_nix"
+        echo "    hash $attempt: $got_hash"
+    done
+
+    echo "    ${YELLOW}!${NC} max retries reached"
+    return 1
+}
+
 # ── Print results ──
 printf "\n${BOLD}${CYAN}═══ Devbox Global Flake Packages ═══${NC}\n\n"
 printf "${BOLD}%-15s %-25s %-15s %-15s %-8s${NC}\n" "PACKAGE" "SOURCE" "INSTALLED" "LATEST" "STATUS"
@@ -315,16 +365,10 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
             echo ""
             installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
             latest="${LATEST[$name]:-unknown}"
-            update_flake "$name" "$installed" "$latest"
+            update_flake "$name" "$installed" "$latest" && resolve_hashes "$name"
         done
         echo ""
         echo "${BOLD}${GREEN}All updates applied.${NC}"
-        echo ""
-        echo "Next steps:"
-        echo "  1. Run ${BOLD}devbox global update${NC} to build (will fail on hash mismatches)"
-        echo "  2. Paste suggested hashes into the upgraded flake.nix files"
-        echo "  3. Repeat until build succeeds"
-        echo "  4. Sync: ${BOLD}cp devbox.json devbox.d/ \$(devbox global path)/${NC}"
     fi
 fi
 
