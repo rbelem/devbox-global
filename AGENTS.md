@@ -11,7 +11,7 @@ devbox.json              # global package + script declarations
 devbox.lock              # pinned nixpkgs versions (stale, 2023)
 devbox.d/<name>/         # 15 flake-based packages (referenced path:devbox.d/<name>)
 dotfiles/                # chezmoi root (.chezmoiroot = dotfiles)
-devbox-global-update-flake  # standalone script: check flake versions vs GitHub
+devbox-global-update-flake  # standalone script: check & update flake versions
 ```
 
 ## Sync rule
@@ -32,6 +32,7 @@ ln -sfn "$PWD/devbox.d" "$(devbox global path)/devbox.d"
 Then run `devbox global install` to install new/changed packages, and
 `eval "$(devbox global shellenv --recompute)"` to update the current shell.
 Run `devbox global run update-flake` to check if flakes are up to date.
+Use `devbox global run update-flake -u` to interactively update selected packages.
 
 ## Important commands
 

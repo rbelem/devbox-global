@@ -1,8 +1,46 @@
 #!/usr/bin/env bash
 # devbox-global-update-flake
 # Lists devbox global packages, identifies flake packages,
-# checks latest GitHub version, and shows comparison table.
+# checks latest GitHub version, and optionally updates them.
 set -euo pipefail
+
+# ── Argument parsing ──
+SHOW_HELP=false
+UPDATE_MODE=false
+declare -a UPDATE_TARGETS=()
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -u|--update)
+            UPDATE_MODE=true
+            shift
+            # Check if next arg is a package name (not a flag)
+            while [[ $# -gt 0 && ! "$1" == -* ]]; do
+                UPDATE_TARGETS+=("$1")
+                shift
+            done
+            ;;
+        -h|--help)
+            SHOW_HELP=true
+            shift
+            ;;
+        *)
+            echo "Unknown option: $1"
+            exit 1
+            ;;
+    esac
+done
+
+if $SHOW_HELP; then
+    echo "Usage: $(basename "$0") [OPTIONS]"
+    echo "Check and optionally update devbox global flake packages."
+    echo ""
+    echo "  (no args)    Show version comparison table"
+    echo "  -u, --update Interactive: select packages to update"
+    echo "  -u PKG [...] Update specific packages (e.g. opencode rtk)"
+    echo "  -h, --help   Show this help"
+    exit 0
+fi
 
 DEVBOX_GLOBAL_PATH="$(devbox global path)"
 DEVBOX_JSON="$DEVBOX_GLOBAL_PATH/devbox.json"
@@ -142,6 +180,46 @@ for name in "${FLAKES[@]}"; do
     fi
 done
 
+# ── Update a single flake package ──
+update_flake() {
+    local name="$1" old_ver="$2" new_ver="$3"
+    local flake_nix="$DEVBOX_D/$name/flake.nix"
+    local owner="${FLAKE_OWNER[$name]:-}"
+    local repo="${FLAKE_REPO[$name]:-}"
+
+    [[ -f "$flake_nix" ]] || { echo "  File not found"; return 1; }
+    [[ -z "$old_ver" || "$old_ver" == "flake" ]] && { echo "  Cannot determine installed version"; return 1; }
+    [[ "$old_ver" == "$new_ver" ]] && { echo "  Already at latest: $old_ver"; return 0; }
+
+    echo "  ${BOLD}${name}${NC}: $old_ver → $new_ver  (${owner}/${repo})"
+
+    # Escape dots for sed
+    old_ver_escaped="${old_ver//\./\\.}"
+
+    # 1. Update version field
+    if grep -qP "\\bversion\\s*=\\s*\"$old_ver_escaped\"" "$flake_nix"; then
+        sed -ri "s/(\\bversion\\s*=\\s*)\"$old_ver_escaped\"/\\1\"$new_ver\"/" "$flake_nix"
+        echo "    ✓ version field updated"
+    else
+        echo "    ! Could not find version = \"$old_ver\" in flake.nix — skipping"
+        return 1
+    fi
+
+    # 2. Update input URL refs for github-input type flakes (e.g. github:owner/repo/v1.2.3)
+    if [[ "${FLAKE_TYPE[$name]:-}" == "github-input" ]]; then
+        sed -ri "s|(/v)$old_ver_escaped\"|\1$new_ver\"|g; s|(/)${old_ver_escaped}\"|\1${new_ver}\"|g" "$flake_nix"
+        echo "    ✓ input URL ref updated"
+    fi
+
+    # 3. Reset all sha256 hashes to pkgs.lib.fakeHash (preserve old hash in comment)
+    if grep -q '"sha256-' "$flake_nix" 2>/dev/null; then
+        sed -ri 's/"(sha256-[^"]+)"/pkgs.lib.fakeHash;  # FIXME: was "\1"/' "$flake_nix"
+        echo "    ✓ hashes reset to pkgs.lib.fakeHash"
+    else
+        echo "    - no hashes to reset"
+    fi
+}
+
 # ── Print results ──
 printf "\n${BOLD}${CYAN}═══ Devbox Global Flake Packages ═══${NC}\n\n"
 printf "${BOLD}%-15s %-25s %-15s %-15s %-8s${NC}\n" "PACKAGE" "SOURCE" "INSTALLED" "LATEST" "STATUS"
@@ -187,4 +265,110 @@ for name in "${!INSTALLED[@]}"; do
 done | sort
 
 printf "\n"
-printf "${GREEN}✓${NC} = up to date  ${RED}↑${NC} = update available  ${YELLOW}??${NC} = unknown\n\n"
+printf "${GREEN}✓${NC} = up to date  ${RED}↑${NC} = update available  ${YELLOW}??${NC} = unknown\n"
+
+# ── Update workflow ──
+if $UPDATE_MODE; then
+    # Build list of upgradable packages
+    declare -a UPGRADABLE=()
+    for name in "${FLAKES[@]}"; do
+        installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
+        latest="${LATEST[$name]:-unknown}"
+        if [[ "$installed" != "unknown" && "$latest" != "unknown" && "$latest" != branch:* && "$installed" != "$latest" ]]; then
+            UPGRADABLE+=("$name")
+        fi
+    done
+
+    # Determine targets
+    declare -a TARGETS=()
+
+    if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
+        # Non-interactive: validate specified targets against upgradable
+        for target in "${UPDATE_TARGETS[@]}"; do
+            found=false
+            for name in "${UPGRADABLE[@]}"; do
+                [[ "$name" == "$target" ]] && { found=true; break; }
+            done
+            if $found; then
+                TARGETS+=("$target")
+            else
+                # Maybe user specified a package that is up to date
+                is_flake=false
+                for name in "${FLAKES[@]}"; do
+                    [[ "$name" == "$target" ]] && { is_flake=true; break; }
+                done
+                if $is_flake; then
+                    installed="${FLAKE_VERSION[$target]:-${INSTALLED[$target]:-unknown}}"
+                    echo "  Package '$target' is already at $installed (no update needed)."
+                else
+                    echo "  Package '$target' is not a known flake package."
+                fi
+            fi
+        done
+    else
+        # Interactive selection
+        if [[ ${#UPGRADABLE[@]} -eq 0 ]]; then
+            echo "${GREEN}All packages are up to date.${NC}"
+            exit 0
+        fi
+
+        echo ""
+        echo "${BOLD}${CYAN}Packages with updates available:${NC}"
+        i=1
+        for name in "${UPGRADABLE[@]}"; do
+            installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
+            echo "  $i) $name  $installed → ${LATEST[$name]}"
+            ((i++))
+        done
+        echo ""
+        echo "Select packages to update:"
+        echo "  - Comma-separated numbers (e.g. 1,3,5)"
+        echo "  - 'a' for all"
+        echo "  - Enter to skip"
+        echo ""
+        printf "> "
+        read -r selection
+
+        case "$selection" in
+            a|A) TARGETS=("${UPGRADABLE[@]}") ;;
+            "")
+                echo "No updates applied."
+                exit 0
+                ;;
+            *)
+                IFS=',' read -ra nums <<< "$selection"
+                for num in "${nums[@]}"; do
+                    num="${num// }"
+                    if [[ "$num" =~ ^[0-9]+$ ]] && (( num >= 1 && num <= ${#UPGRADABLE[@]} )); then
+                        TARGETS+=("${UPGRADABLE[$((num-1))]}")
+                    fi
+                done
+                ;;
+        esac
+
+        if [[ ${#TARGETS[@]} -eq 0 ]]; then
+            echo "No valid selections."
+            exit 0
+        fi
+    fi
+
+    # Apply updates
+    echo ""
+    echo "${BOLD}${CYAN}Applying updates...${NC}"
+    for name in "${TARGETS[@]}"; do
+        echo ""
+        installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
+        latest="${LATEST[$name]:-unknown}"
+        update_flake "$name" "$installed" "$latest"
+    done
+    echo ""
+    echo "${BOLD}${GREEN}All updates applied.${NC}"
+    echo ""
+    echo "Next steps:"
+    echo "  1. Run ${BOLD}devbox global update${NC} to build (will fail on hash mismatches)"
+    echo "  2. Paste the suggested hashes into the upgraded flake.nix files"
+    echo "  3. Repeat until build succeeds"
+    echo "  4. Sync: ${BOLD}cp devbox.json devbox.d/ \$(devbox global path)/${NC}"
+fi
+
+printf "\n"
