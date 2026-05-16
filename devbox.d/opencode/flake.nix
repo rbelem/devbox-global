@@ -9,11 +9,30 @@
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      # ── Bun version ─────────────────────────────────────────────
+      # 1.3.13 baseline (no AVX — works on VirtualBox).
+      # 1.3.14 crashes on VMs and its build --compile is broken.
+      bunVersion = "1.3.13";
+      bunHash = "sha256-nYokKSpwaAkCBdqsCloiP19pc29Sh+N7+I07QDHtx1A=";
+
+      # Overlay that replaces nixpkgs' bun with 1.3.13 baseline.
+      bun-baseline-overlay = final: prev: {
+        bun = prev.bun.overrideAttrs (old: {
+          src = prev.fetchurl {
+            url = "https://github.com/oven-sh/bun/releases/download/bun-v${bunVersion}/bun-linux-x64-baseline.zip";
+            hash = bunHash;
+          };
+        });
+      };
     in
     {
       packages = forAllSystems (system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ bun-baseline-overlay ];
+          };
           version = "1.15.3";
 
           # Get the real hash:
