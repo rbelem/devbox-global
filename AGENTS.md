@@ -12,6 +12,7 @@ devbox.lock              # pinned nixpkgs versions (stale, 2023)
 devbox.d/<name>/         # 15 flake-based packages (referenced path:devbox.d/<name>)
 dotfiles/                # chezmoi root (.chezmoiroot = dotfiles)
 devbox-global-update-flake  # standalone script: check & update flake versions
+devbox-global-config-sync  # standalone script: safe bidirectional repo↔global sync
 ```
 
 ## Sync rule
@@ -20,10 +21,13 @@ Edit files in this repo, but devbox reads from `$(devbox global path)`.
 After changing files, sync to make them take effect:
 
 ```bash
-# Option A: rsync (incremental, shows changes)
-rsync -ai devbox.json devbox.d devbox-global-update-flake "$(devbox global path)/"
+# Option A (recommended): config-sync (detects conflicts, supports dry-run)
+devbox global run config-sync
 
-# Option B: symlink (one-time setup, auto-syncs after)
+# Option B: rsync (incremental, shows changes)
+rsync -ai devbox.json devbox.d devbox-global-config-sync devbox-global-update-flake "$(devbox global path)/"
+
+# Option C: symlink (one-time setup, auto-syncs after)
 ln -sf "$PWD/devbox.json" "$(devbox global path)/devbox.json"
 ln -sfn "$PWD/devbox.d" "$(devbox global path)/devbox.d"
 ```
@@ -35,6 +39,34 @@ Then run `devbox global install` to install new/changed packages, and
 `eval "$(devbox global shellenv --recompute)"` to update the current shell.
 Run `devbox global run update-flake` to check / update flake packages.
 
+### config-sync usage
+
+Default: **dry-run** (preview only). Add `--sync` to apply.
+Direction: **repo → global** (edit in repo, push to live).
+
+```bash
+devbox global run config-sync            # dry-run (default)
+devbox global run config-sync -- --sync  # actually sync
+```
+
+Reverse: sync **global → repo** (after `config-pull` or emergency edit):
+
+```bash
+devbox global run config-sync -- --reverse            # dry-run reverse
+devbox global run config-sync -- --reverse --sync     # actually apply reverse
+```
+
+Other options:
+```
+  -s, --sync        Apply changes (default is dry-run)
+  -d, --diff        Show unified diff before syncing
+  -i, --interactive Confirm each file before syncing
+  -h, --help        Show this help
+```
+
+Conflict detection: warns when both sides diverged (repo and global both
+modified independently), shows what the opposite direction would change.
+
 ## Important commands
 
 | Command | What it does |
@@ -44,6 +76,7 @@ Run `devbox global run update-flake` to check / update flake packages.
 | `devbox global run first-install` | Full setup: git → tmux → fonts → themes → neovim |
 | `devbox global run config-edit` | Open devbox.json in $EDITOR |
 | `devbox global run update-flake` | Run update-flake version checker |
+| `devbox global run config-sync` | Sync repo ↔ global with conflict detection (dry-run by default, add `--sync` to apply) |
 | `devbox global run python-install <pkg>` | pip install into managed venv |
 | `devbox global run python-update` | Upgrade all pip packages in venv |
 
@@ -86,6 +119,7 @@ Run `devbox global run update-flake` to check / update flake packages.
 All run via `devbox global run <name>`:
 
 - `config-push` / `config-pull` — sync devbox.json to/from GitHub
+- `config-sync` — runs `devbox-global-config-sync` (bidirectional repo↔global with conflict detection, supports `--dry-run`, `--diff`, `--reverse`, `--interactive`, `--sync`)
 - `update-flake` — runs `devbox-global-update-flake` script (parses flake.nix for
   version + GitHub source, queries gh API for latest, prints color table)
 - `setup-git` — full git config (identity, aliases, delta, difftastic, credential helpers, includeif)

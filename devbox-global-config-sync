@@ -1,0 +1,197 @@
+#!/usr/bin/env bash
+# devbox-global-config-sync
+# Bidirectional config sync: repo ↔ $(devbox global path).
+# Detects conflicts (both sides modified), dry-run, diff preview.
+set -euo pipefail
+
+# ── Colors ──
+RED=$'\033[0;31m'
+GREEN=$'\033[0;32m'
+YELLOW=$'\033[1;33m'
+CYAN=$'\033[0;36m'
+BOLD=$'\033[1m'
+NC=$'\033[0m'
+
+# ── Paths ──
+REPO_DIR="$(ghq root)/github.com/rbelem/devbox-global"
+GLOBAL_DIR="$(devbox global path)"
+ITEMS=("devbox.json" "devbox.d" "devbox-global-config-sync" "devbox-global-update-flake")
+
+# ── Help ──
+usage() {
+    cat <<EOF
+Usage: $(basename "$0") [OPTIONS]
+
+Sync configuration between repo and devbox global directory.
+
+Default direction: repo → global  (edit in repo, push to live)
+Reverse direction: global → repo (live changes back to repo, e.g. after config-pull)
+
+Items synced: ${ITEMS[*]}
+
+Dry-run is the default (safer). Use --sync to actually apply changes.
+
+Options:
+  -s, --sync        Apply changes (default is dry-run)
+  -d, --diff         Show unified diff before syncing
+  -r, --reverse      Reverse direction (global → repo)
+  -i, --interactive  Confirm each file before syncing
+  -h, --help         Show this help
+EOF
+    exit 0
+}
+
+# ── Parse args ──
+DRY_RUN=true       # dry-run by default (opt in with --sync)
+SHOW_DIFF=false
+REVERSE=false
+INTERACTIVE=false
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -s|--sync) DRY_RUN=false; shift ;;
+        -d|--diff) SHOW_DIFF=true; shift ;;
+        -r|--reverse) REVERSE=true; shift ;;
+        -i|--interactive) INTERACTIVE=true; shift ;;
+        -h|--help) usage ;;
+        *) echo "${RED}Unknown option:${NC} $1"; usage ;;
+    esac
+done
+
+# ── Direction ──
+if $REVERSE; then
+    SRC_DIR="$GLOBAL_DIR"
+    DST_DIR="$REPO_DIR"
+    DIR_LABEL="global → repo"
+else
+    SRC_DIR="$REPO_DIR"
+    DST_DIR="$GLOBAL_DIR"
+    DIR_LABEL="repo → global"
+fi
+
+# ── Validate ──
+for d in "$REPO_DIR" "$GLOBAL_DIR"; do
+    [ -d "$d" ] || { echo "${RED}ERROR:${NC} $d not found"; exit 1; }
+done
+
+echo "${BOLD}${CYAN}═══ Devbox Config Sync ═══${NC}"
+echo "  ${BOLD}Direction:${NC} $DIR_LABEL"
+echo "  ${BOLD}Source:${NC}    $SRC_DIR"
+echo "  ${BOLD}Dest:${NC}      $DST_DIR"
+$DRY_RUN && echo "  ${YELLOW}Mode: DRY RUN (no changes)${NC}"
+echo ""
+
+# ── Conflict detection ──
+# Dry-run the opposite direction to see if both sides diverged
+if $REVERSE; then
+    OPPOSITE_SRC="$REPO_DIR"
+    OPPOSITE_DST="$GLOBAL_DIR"
+    OPPOSITE_LABEL="repo → global"
+else
+    OPPOSITE_SRC="$GLOBAL_DIR"
+    OPPOSITE_DST="$REPO_DIR"
+    OPPOSITE_LABEL="global → repo"
+fi
+
+opposite_changes=$(rsync -ain "${ITEMS[@]/#/$OPPOSITE_SRC/}" "$OPPOSITE_DST/" 2>/dev/null | grep '^[^.]' || true)
+if [ -n "$opposite_changes" ]; then
+    echo "${YELLOW}⚠ WARNING:${NC} Opposite direction ($OPPOSITE_LABEL) would also change files."
+    echo "  Both sides modified independently:"
+    echo "$opposite_changes" | head -25
+    echo ""
+    echo "  Continuing with $DIR_LABEL — files synced from source."
+    echo "  Use --diff to inspect, or --sync to force write."
+    echo ""
+fi
+
+# ── Diff preview ──
+if $SHOW_DIFF; then
+    echo "${BOLD}${CYAN}═══ Diff preview ═══${NC}"
+    any_diff=false
+    for item in "${ITEMS[@]}"; do
+        src="$SRC_DIR/$item"
+        dst="$DST_DIR/$item"
+        [ ! -e "$src" ] && continue
+
+        if [ -f "$src" ]; then
+            if [ -f "$dst" ]; then
+                diff_out=$(diff -u "$dst" "$src" 2>/dev/null || true)
+                if [ -n "$diff_out" ]; then
+                    echo "$diff_out" | head -50
+                    any_diff=true
+                fi
+            else
+                echo "  ${GREEN}+${NC} $item (new file)"
+                any_diff=true
+            fi
+        elif [ -d "$src" ]; then
+            if [ -d "$dst" ]; then
+                changed=$(diff -rq "$src" "$dst" 2>/dev/null | grep -v '^Only in' | head -20 || true)
+                [ -n "$changed" ] && { echo "  $item/:"; echo "$changed"; any_diff=true; }
+                added=$(diff -rq "$src" "$dst" 2>/dev/null | grep "^Only in $src" | head -10 || true)
+                [ -n "$added" ] && { echo "  $item/ (new):"; echo "$added"; any_diff=true; }
+            else
+                echo "  ${GREEN}+${NC} $item/ (new directory)"
+                any_diff=true
+            fi
+        fi
+    done
+    $any_diff || echo "  (no differences)"
+    echo "${BOLD}${CYAN}═══ End diff ═══${NC}"
+    echo ""
+fi
+
+# ── Sync ──
+has_errors=false
+synced_count=0
+skipped_count=0
+
+for item in "${ITEMS[@]}"; do
+    src="$SRC_DIR/$item"
+    if [ ! -e "$src" ]; then
+        echo "  ${YELLOW}⚠${NC} $item: not found in source, skipping"
+        ((skipped_count++)) || true
+        continue
+    fi
+
+    # Interactive: show pending changes and ask
+    if $INTERACTIVE; then
+        pending=$(rsync -ain "$src" "$DST_DIR/" 2>/dev/null | grep '^[^.]' || true)
+        if [ -z "$pending" ]; then
+            echo "  · $item: up to date"
+            ((skipped_count++)) || true
+            continue
+        fi
+        echo "$pending"
+        echo -n "  Sync $item? [Y/n] "
+        read -r resp
+        if [[ "$resp" =~ ^[nN] ]]; then
+            echo "  ${YELLOW}→ skipped${NC}"
+            ((skipped_count++)) || true
+            continue
+        fi
+    fi
+
+    rsync_args=(-ai)
+    $DRY_RUN && rsync_args+=(-n)
+
+    if rsync "${rsync_args[@]}" "$src" "$DST_DIR/"; then
+        ((synced_count++)) || true
+    else
+        echo "  ${RED}✗${NC} $item: rsync failed"
+        has_errors=true
+    fi
+done
+
+echo ""
+if $DRY_RUN; then
+    echo "${YELLOW}DRY RUN — no changes made${NC}"
+else
+    echo "${BOLD}Summary:${NC} $synced_count synced, $skipped_count skipped"
+    if $has_errors; then
+        echo "${RED}✗ Done with errors${NC}"
+        exit 1
+    else
+        echo "${GREEN}✓ Done${NC}"
+    fi
+fi
