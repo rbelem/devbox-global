@@ -99,6 +99,25 @@
       "skillFolderHash": "455602908072dd1d0ae3a8ea0904dbba67a7bfb1",
       "installedAt": "2026-05-10T02:39:06.463Z",
       "updatedAt": "2026-05-10T02:39:06.463Z"
+    },
+    "greploop": {
+      "source": "greptileai/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/greptileai/skills.git",
+      "skillPath": "greploop/SKILL.md",
+      "skillFolderHash": "f84eab4310956640aecf592e0842c735c76137d2",
+      "installedAt": "2026-05-17T20:31:49.434Z",
+      "updatedAt": "2026-05-17T20:31:49.434Z"
+    },
+    "grill-me": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/grill-me/SKILL.md",
+      "skillFolderHash": "2a1ad17028306ebe45f0e49703fa28b9b2e7f499",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-17T20:53:19.730Z",
+      "updatedAt": "2026-05-17T20:53:19.730Z"
     }
   },
   "dismissed": {
