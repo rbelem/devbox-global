@@ -118,6 +118,25 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-05-17T20:53:19.730Z",
       "updatedAt": "2026-05-17T20:53:19.730Z"
+    },
+    "mobile-android-design": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/wshobson/agents.git",
+      "skillPath": "plugins/ui-design/skills/mobile-android-design/SKILL.md",
+      "skillFolderHash": "fd6c79b59755b55f1cbfd12a477e4a003ea0ff3c",
+      "installedAt": "2026-05-19T12:13:14.907Z",
+      "updatedAt": "2026-05-19T12:13:14.907Z"
+    },
+    "handoff": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/handoff/SKILL.md",
+      "skillFolderHash": "7bbb60d64c911617cee7f71b2ba9e24364faa14e",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-21T14:20:56.247Z",
+      "updatedAt": "2026-05-21T14:20:56.247Z"
     }
   },
   "dismissed": {
