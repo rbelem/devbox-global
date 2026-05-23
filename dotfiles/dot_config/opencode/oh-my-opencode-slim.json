@@ -3,164 +3,82 @@
   "disabled_agents": [],
   "preset": "opencode-best-value",
   "presets": {
-    "openai": {
-      "orchestrator": { "model": "openai/gpt-5.5" },
-      "oracle": { "model": "openai/gpt-5.5", "variant": "high" },
-      "librarian": { "model": "openai/gpt-5.4-mini", "variant": "low" },
-      "explorer": { "model": "openai/gpt-5.4-mini", "variant": "low" },
-      "designer": { "model": "openai/gpt-5.4-mini", "variant": "medium" },
-      "fixer": { "model": "openai/gpt-5.4-mini", "variant": "low" },
+    "balanced": {
+      "orchestrator": { "model": "opencode-go/deepseek-v4-pro", "skills": ["*"], "mcps": ["*"] },
+      "oracle": { "model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": [] },
+      "council": { "model": "opencode-go/mimo-v2.5-pro", "variant": "high" },
+      "librarian": { "model": "opencode-go/minimax-m2.7", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
+      "explorer": { "model": "opencode-go/deepseek-v4-flash", "skills": ["find-skills"], "mcps": [] },
+      "designer": { "model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": [] },
+      "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": [] },
+      "observer": { "model": "opencode-go/mimo-v2.5", "skills": ["docling"] }
     },
-    "kimi": {
-      "orchestrator": { "model": "kimi-for-coding/k2p5" },
-      "oracle": { "model": "kimi-for-coding/k2p5", "variant": "high" },
-      "librarian": { "model": "kimi-for-coding/k2p5", "variant": "low" },
-      "explorer": { "model": "kimi-for-coding/k2p5", "variant": "low" },
-      "designer": { "model": "kimi-for-coding/k2p5", "variant": "medium" },
-      "fixer": { "model": "kimi-for-coding/k2p5", "variant": "low" },
+    "cheap": {
+      "orchestrator": { "model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"] },
+      "oracle": { "model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": [] },
+      "librarian": { "model": "opencode-go/minimax-m2.7", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
+      "explorer": { "model": "opencode-go/deepseek-v4-flash", "skills": ["find-skills"], "mcps": [] },
+      "designer": { "model": "opencode-go/minimax-m2.7", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": [] },
+      "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": [] },
+      "observer": { "model": "opencode-go/mimo-v2.5", "skills": ["docling"] }
     },
-    "copilot": {
-      "orchestrator": { "model": "github-copilot/claude-opus-4.6" },
-      "oracle": { "model": "github-copilot/claude-opus-4.6", "variant": "high" },
-      "librarian": { "model": "github-copilot/grok-code-fast-1", "variant": "low" },
-      "explorer": { "model": "github-copilot/grok-code-fast-1", "variant": "low" },
-      "designer": {
-        "model": "github-copilot/gemini-3.1-pro-preview",
-        "variant": "medium",
-      },
-      "fixer": { "model": "github-copilot/claude-sonnet-4.6", "variant": "low" },
+    "quality": {
+      "orchestrator": { "model": "opencode-go/mimo-v2.5-pro", "skills": ["*"], "mcps": ["*"] },
+      "oracle": { "model": "opencode-go/mimo-v2.5-pro", "variant": "max", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": [] },
+      "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" },
+      "librarian": { "model": "opencode-go/minimax-m2.7", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
+      "explorer": { "model": "opencode-go/deepseek-v4-flash", "skills": ["find-skills"], "mcps": [] },
+      "designer": { "model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": [] },
+      "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": [] },
+      "observer": { "model": "opencode-go/qwen3.6-plus", "skills": ["docling"] }
     },
-    "zai-plan": {
-      "orchestrator": { "model": "zai-coding-plan/glm-5" },
-      "oracle": { "model": "zai-coding-plan/glm-5", "variant": "high" },
-      "librarian": { "model": "zai-coding-plan/glm-5", "variant": "low" },
-      "explorer": { "model": "zai-coding-plan/glm-5", "variant": "low" },
-      "designer": { "model": "zai-coding-plan/glm-5", "variant": "medium" },
-      "fixer": { "model": "zai-coding-plan/glm-5", "variant": "low" },
-    },
-    "opencode-go": {
-      "orchestrator": { "model": "opencode-go/glm-5.1", "skills": ["*"], "mcps": ["*"] },
-      "oracle": { "model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify"], "mcps": [] },
-      "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "high" },
-      "librarian": { "model": "opencode-go/minimax-m2.7", "skills": [], "mcps": ["websearch","context7","grep_app"] },
-      "explorer": { "model": "opencode-go/minimax-m2.7", "skills": [], "mcps": [] },
-      "designer": { "model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser"], "mcps": [] },
-      "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": [], "mcps": [] },
-      "observer": { "model": "opencode-go/kimi-k2.6" },
-    },
-
-
     "opencode-best-value": {
-      "orchestrator": {"model": "opencode-go/glm-5.1", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "opencode-go/qwen3.6-plus", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "opencode-go/glm-5", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "opencode-go/glm-5", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": [], "mcps": []},
-      "observer": { "model": "opencode-go/kimi-k2.6" },
-      "council": { "model": "opencode-go/qwen3.6-plus", "variant": "high" }
+      "orchestrator": {"model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "opencode-go/mimo-v2.5-pro", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
+      "librarian": {"model": "opencode-go/glm-5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/glm-5", "variant": "low", "skills": ["find-skills"], "mcps": []},
+      "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
+      "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
+      "observer": { "model": "opencode-go/kimi-k2.6", "skills": ["docling"] },
+      "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" }
     },
     "opencode-kimi": {
       "orchestrator": {"model": "opencode-go/kimi-k2.6", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "opencode-go/kimi-k2.6", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "opencode-go/kimi-k2.6", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "opencode-go/kimi-k2.6", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": { "model": "opencode-go/kimi-k2.6", "variant": "low", "skills": [], "mcps": []},
+      "oracle": {"model": "opencode-go/kimi-k2.6", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
+      "librarian": {"model": "opencode-go/kimi-k2.6", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/kimi-k2.6", "variant": "low", "skills": ["find-skills"], "mcps": []},
+      "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
+      "fixer": { "model": "opencode-go/kimi-k2.6", "variant": "low", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
       "council": { "model": "opencode-go/kimi-k2.6" }
     },
     "opencode-deepseek-v4": {
       "orchestrator": {"model": "opencode-go/deepseek-v4-pro", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "opencode-go/deepseek-v4-flash", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": [], "mcps": []},
+      "oracle": {"model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
+      "librarian": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": ["find-skills"], "mcps": []},
+      "designer": {"model": "opencode-go/deepseek-v4-flash", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
+      "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
       "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" }
     },
     "opencode-free":{
       "orchestrator": {"model": "opencode/minimax-m2.5-free", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "opencode/minimax-m2.5-free", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "opencode/minimax-m2.5-free", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "opencode/minimax-m2.5-free", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "opencode/minimax-m2.5-free", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": { "model": "opencode/minimax-m2.5-free", "variant": "low", "skills": [], "mcps": []},
+      "oracle": {"model": "opencode/minimax-m2.5-free", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
+      "librarian": {"model": "opencode/minimax-m2.5-free", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode/minimax-m2.5-free", "variant": "low", "skills": ["find-skills"], "mcps": []},
+      "designer": {"model": "opencode/minimax-m2.5-free", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
+      "fixer": { "model": "opencode/minimax-m2.5-free", "variant": "low", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
       "council": { "model": "opencode/minimax-m2.5-free" }
     },
 
 
-
-    "abacus-kimi": {
-      "orchestrator": {"model": "abacus/kimi-k2.5", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "abacus/kimi-k2.5", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "abacus/kimi-k2.5", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "abacus/kimi-k2.5", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "abacus/kimi-k2.5", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": { "model": "abacus/kimi-k2.5", "variant": "low", "skills": [], "mcps": []},
-      "council": { "model": "abacus/kimi-k2.5" }
-    },
-    "abacus-deepseek": {
-      "orchestrator": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "abacus/deepseek-ai/DeepSeek-R1", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "low", "skills": [], "mcps": []},
-      "council": { "model": "abacus/deepseek-ai/DeepSeek-R1" }
-    },
-    "abacus-gpt": {
-      "orchestrator": {"model": "abacus/gpt-5.4", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "abacus/gpt-5.4", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "abacus/gpt-5.4", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "abacus/gpt-5.4", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "abacus/gpt-5.4", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": {"model": "abacus/gpt-5.4", "variant": "low", "skills": [], "mcps": []},
-      "council": { "model": "abacus/gpt-5.4" }
-    },
-    "abacus-claude": {
-      "orchestrator": {"model": "abacus/claude-opus-4-6", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "abacus/claude-opus-4-6", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "abacus/claude-sonnet-4-6", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": []},
-      "council": { "model": "abacus/claude-opus-4-6" }
-    },
-    "abacus-gemini": {
-      "orchestrator": {"model": "abacus/gemini-3.1-pro-preview", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "abacus/gemini-3.1-pro-preview", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "abacus/gemini-2.5-flash", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "abacus/gemini-2.5-flash", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "abacus/gemini-3.1-pro-preview", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": {"model": "abacus/gemini-2.5-flash", "variant": "low", "skills": [], "mcps": []},
-      "council": { "model": "abacus/gemini-3.1-pro-preview" }
-    },
     "abacus-best-value": {
       "orchestrator": {"model": "abacus/kimi-k2.5", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "abacus/claude-opus-4-6", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "abacus/gemini-3.1-pro-preview", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "low", "skills": [], "mcps": []},
+      "oracle": {"model": "abacus/claude-opus-4-6", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
+      "librarian": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": ["find-skills"], "mcps": []},
+      "designer": {"model": "abacus/gemini-3.1-pro-preview", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
+      "fixer": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "low", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
       "council": { "model": "abacus/kimi-k2.5" }
-    },
-    "abacus-cheap": {
-      "orchestrator": {"model": "abacus/zai-org/glm-4.7", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "abacus/kimi-k2.5", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "abacus/zai-org/glm-4.7", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": [], "mcps": []},
-      "council": { "model": "abacus/kimi-k2.5" }
-    },
-    "abacus-premium": {
-      "orchestrator": {"model": "abacus/claude-opus-4-6", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "abacus/claude-opus-4-6", "variant": "high", "skills": ["simplify"], "mcps": []},
-      "librarian": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": []},
-      "designer": {"model": "abacus/gemini-3.1-pro-preview", "variant": "medium", "skills": ["agent-browser"], "mcps": []},
-      "fixer": {"model": "abacus/claude-sonnet-4-6", "variant": "low", "skills": [], "mcps": []},
-      "council": { "model": "abacus/claude-opus-4-6" }
     }
   },
   "council": {
@@ -168,8 +86,18 @@
     "presets": {
       "opencode-go": {
         "alpha": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" },
-        "beta": { "model": "opencode-go/qwen3.6-plus", "variant": "high" },
-        "gamma": { "model": "opencode-go/kimi-k2.6" }
+        "beta": { "model": "opencode-go/mimo-v2.5-pro", "variant": "high" },
+        "gamma": { "model": "opencode-go/kimi-k2.6" },
+        "delta": { "model": "opencode-go/minimax-m2.7", "variant": "high" }
+      },
+      "opencode-go-cheap": {
+        "alpha": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" },
+        "beta": { "model": "opencode-go/deepseek-v4-flash", "variant": "high" },
+        "gamma": { "model": "opencode-go/minimax-m2.7" }
+      },
+      "opencode-go-quick": {
+        "alpha": { "model": "opencode-go/minimax-m2.7", "variant": "high" },
+        "beta": { "model": "opencode-go/deepseek-v4-flash" }
       },
       "opencode-zen": {
         "alpha": { "model": "opencode/claude-opus-4-6" },
