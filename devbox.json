@@ -61,6 +61,7 @@
     "path:devbox.d/codecanary",
     "path:devbox.d/whichllm",
     "path:devbox.d/docling",
+    "path:devbox.d/aicommits",
   ],
   "env": {
     "EDITOR":         "vi",

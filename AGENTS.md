@@ -146,10 +146,12 @@ modified independently), shows what the opposite direction would change.
 
 ## devbox.d/ flakes
 
-15 local flake packages. Patterns found in their flake.nix files:
+16 local flake packages. Patterns found in their flake.nix files:
 
 - **Simple fetch + install** (blesh, gemini-cli-bin, agent-browser): fetch tarball
   from GitHub releases, copy to store, provide helper script.
+- **Npm build** (aicommits): `fetchFromGitHub` + `buildNpmPackage`. Uses
+  `dontNpmInstall = true` + manual installPhase because `prepack` needs pnpm.
 - **Overlay on nixpkgs** (bun): replace nixpkgs' bun with baseline build (no AVX)
   for VirtualBox compat.
 - **Wrap nixpkgs** (neovim): neovim-nightly-overlay + wrapNeovim for Lua/Python/Ruby/Node.
