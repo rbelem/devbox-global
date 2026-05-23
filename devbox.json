@@ -42,7 +42,6 @@
     "path:devbox.d/blesh",
     "dos2unix@latest",
     "htop@latest",
-    "path:devbox.d/gemini-cli-bin",
     "geminicommit@latest",
     "path:devbox.d/openspec",
     "glibcLocales@latest",
