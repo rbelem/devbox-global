@@ -163,18 +163,33 @@ for name in "${FLAKES[@]}"; do
     fi
 
     # Try GitHub releases first (exclude pre-releases)
-    latest_tag="$(gh release list -R "$owner/$repo" --limit 10 -L 10 --json tagName,isPrerelease -q '.[] | select(.isPrerelease == false) | .tagName' 2>/dev/null | head -1 || true)"
+    latest_tags="$(gh release list -R "$owner/$repo" --limit 20 -L 20 --json tagName,isPrerelease -q '.[] | select(.isPrerelease == false) | .tagName' 2>/dev/null || true)"
 
-    if [[ -n "$latest_tag" ]]; then
-        # Strip common prefixes: v, bun-v, dev-
+    if [[ -n "$latest_tags" ]]; then
+        # Prefer tags starting with "v" (standard semver: vX.Y.Z).
+        # Some repos have platform-prefixed tags (mac-vX.Y.Z, bun-vX.Y.Z)
+        # that should be ignored when a v-prefixed tag exists.
+        # Note: || true after grep guards set -e when no v* tags exist.
+        latest_tag="$(echo "$latest_tags" | grep '^v' | head -1 || true)"
+        if [[ -z "$latest_tag" ]]; then
+            latest_tag="$(echo "$latest_tags" | head -1)"
+        fi
+        # Strip common prefixes: v, bun-v, mac-v
         latest_ver="${latest_tag#v}"
         latest_ver="${latest_ver#bun-v}"
+        latest_ver="${latest_ver#mac-v}"
         LATEST["$name"]="$latest_ver"
     else
-        # Fall back to tags
-        latest_tag="$(gh api "repos/$owner/$repo/tags" --jq '.[0].name' 2>/dev/null || true)"
-        if [[ -n "$latest_tag" ]]; then
+        # Fall back to tags — same v-prefix preference
+        all_tags="$(gh api "repos/$owner/$repo/tags" --jq '.[].name' 2>/dev/null || true)"
+        if [[ -n "$all_tags" ]]; then
+            latest_tag="$(echo "$all_tags" | grep '^v' | head -1 || true)"
+            if [[ -z "$latest_tag" ]]; then
+                latest_tag="$(echo "$all_tags" | head -1)"
+            fi
             latest_ver="${latest_tag#v}"
+            latest_ver="${latest_ver#bun-v}"
+            latest_ver="${latest_ver#mac-v}"
             LATEST["$name"]="$latest_ver"
         else
             # Fall back to default branch
