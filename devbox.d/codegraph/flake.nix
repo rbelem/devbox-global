@@ -1,54 +1,42 @@
 {
-  description = "Pre-indexed code knowledge graph for Claude Code, Codex, Cursor, OpenCode, and Hermes Agent";
+  description = "Pre-indexed code knowledge graph for AI coding assistants (rbelem fork with Perl support)";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    codegraph-src = {
+      url = "github:rbelem/codegraph/v0.9.4-perl";
+      flake = false;
+    };
+  };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, codegraph-src }:
     let
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      # Map Nix system names to release archive target triples
-      systemToTarget = {
-        x86_64-linux   = "linux-x64";
-        aarch64-linux  = "linux-arm64";
-        x86_64-darwin  = "darwin-x64";
-        aarch64-darwin = "darwin-arm64";
-      };
-
-      version = "0.9.4";
-
-      perArchSha256 = {
-        x86_64-linux   = "sha256-r03+JcF4aNImDOwkPnAt4Ihzi6i/N5livtgpY2LrDIo=";
-        aarch64-linux  = "sha256-7ZZvV1KWJlvj8tghy3CmGmpf/B3v+odosZRc8L91jZA=";
-        x86_64-darwin  = "sha256-bYif2qdNvxK3D8NiChD2wgyFxMFQ/+8V9CT0tq273wg=";
-        aarch64-darwin = "sha256-6q+0sHGM2fvA9TLVCG8PvGjE1xglAT+m/d5akRAVX/k=";
-      };
+      version = "0.9.4-perl";
     in
     {
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+
+          # Get the real npmDepsHash:
+          #   1. Set npmDepsHash to pkgs.lib.fakeHash
+          #   2. Run: nix build "path:...#default"
+          #   3. Replace with the hash from the error message
+          npmDepsHash = pkgs.lib.fakeHash;
         in
         rec {
-          codegraph = pkgs.stdenvNoCC.mkDerivation {
+          codegraph = pkgs.buildNpmPackage {
             pname = "codegraph";
             inherit version;
 
-            src = pkgs.fetchurl {
-              url = "https://github.com/colbymchenry/codegraph/releases/download/v${version}/codegraph-${systemToTarget.${system}}.tar.gz";
-              hash = perArchSha256.${system};
-            };
+            src = codegraph-src;
 
-            dontBuild = true;
-            dontConfigure = true;
-            dontUnpack = true;
+          npmDepsHash = "sha256-GJfqzykgrgD/KCtf8LupRw31S2cCmwGCF/0PMpzaCrk=";
 
-            installPhase = ''
-              mkdir -p $out/libexec/codegraph $out/bin
-              tar -xzf $src -C $out/libexec/codegraph --strip-components=1
-              ln -s $out/libexec/codegraph/bin/codegraph $out/bin/codegraph
-            '';
+            nodejs = pkgs.nodejs_22;
 
             meta = {
               description = "Pre-indexed code knowledge graph for AI coding assistants";
@@ -59,15 +47,28 @@
                 100% local. Supports Claude Code, Cursor, Codex CLI, OpenCode, and
                 Hermes Agent.
               '';
-              homepage = "https://github.com/colbymchenry/codegraph";
+              homepage = "https://github.com/rbelem/codegraph";
               license = nixpkgs.lib.licenses.mit;
-              platforms = builtins.attrNames perArchSha256;
+              platforms = systems;
               maintainers = [ ];
               mainProgram = "codegraph";
             };
           };
 
           default = codegraph;
+        }
+      );
+
+      devShells = forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            packages = with pkgs; [
+              nodejs_22
+            ];
+          };
         }
       );
     };
