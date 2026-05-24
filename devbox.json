@@ -58,6 +58,7 @@
     "path:devbox.d/playwright-cli",
     "path:devbox.d/codeburn",
     "path:devbox.d/codecanary",
+    "path:devbox.d/codegraph",
     "path:devbox.d/whichllm",
     "path:devbox.d/docling",
     "path:devbox.d/aicommits",
