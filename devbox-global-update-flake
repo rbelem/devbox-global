@@ -89,21 +89,9 @@ while IFS= read -r entry; do
     fi
 done < <(grep -oP '"path:devbox\.d/[^"]+"|"[^"]+@latest"' "$DEVBOX_JSON" | tr -d '"' | grep '^path:')
 
-# Fork→upstream mapping: when a flake builds from a fork but should check
-# the upstream repo for new releases. Add entry here for any forked flake.
-declare -A UPSTREAM=(
-    ["codegraph"]="colbymchenry/codegraph"
-    ["graphify"]="safishamsi/graphify"
-)
-
-# Fork version suffix — appended to upstream version to form the fork version.
-declare -A FORK_SUFFIX=(
-    ["codegraph"]="-perl"
-    ["graphify"]="-perl"
-)
-
 # ── For each flake, extract GitHub source + version from flake.nix ──
-declare -A FLAKE_OWNER FLAKE_REPO FLAKE_VERSION FLAKE_TYPE
+declare -A FLAKE_OWNER FLAKE_REPO FLAKE_VERSION FLAKE_TYPE \
+         FLAKE_UPSTREAM FLAKE_FORK_SUFFIX
 
 for name in "${FLAKES[@]}"; do
     flake_nix="$DEVBOX_D/$name/flake.nix"
@@ -161,6 +149,14 @@ for name in "${FLAKES[@]}"; do
             found_source=true
         fi
     fi
+
+    # Extract fork metadata from flake.nix comments:
+    #   # upstream: owner/repo       → check this repo for new releases
+    #   # fork-suffix: -perl         → appended to upstream version for fork version
+    upstream_comment="$(grep -oP '^[[:space:]]*#\s*upstream:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
+    fork_suffix_comment="$(grep -oP '^[[:space:]]*#\s*fork-suffix:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
+    [[ -n "$upstream_comment" ]] && FLAKE_UPSTREAM["$name"]="$upstream_comment"
+    [[ -n "$fork_suffix_comment" ]] && FLAKE_FORK_SUFFIX["$name"]="$fork_suffix_comment"
 done
 
 # ── Check latest GitHub version ──
@@ -176,9 +172,9 @@ for name in "${FLAKES[@]}"; do
     fi
 
     # For forked flakes, check upstream repo for latest version
-    if [[ -n "${UPSTREAM[$name]:-}" ]]; then
-        owner="${UPSTREAM[$name]%/*}"
-        repo="${UPSTREAM[$name]#*/}"
+    if [[ -n "${FLAKE_UPSTREAM[$name]:-}" ]]; then
+        owner="${FLAKE_UPSTREAM[$name]%/*}"
+        repo="${FLAKE_UPSTREAM[$name]#*/}"
     fi
 
     # Try GitHub releases first (exclude pre-releases)
@@ -234,8 +230,8 @@ update_flake() {
 
     # For forked flakes, append fork suffix to the new version
     local update_ver="$new_ver"
-    if [[ -n "${FORK_SUFFIX[$name]:-}" ]]; then
-        update_ver="${new_ver}${FORK_SUFFIX[$name]}"
+    if [[ -n "${FLAKE_FORK_SUFFIX[$name]:-}" ]]; then
+        update_ver="${new_ver}${FLAKE_FORK_SUFFIX[$name]}"
     fi
 
     [[ "$old_ver" == "$update_ver" ]] && { echo "  Already at latest: $old_ver"; return 0; }
@@ -341,8 +337,8 @@ for name in "${FLAKES[@]}"; do
 
     # For forked flakes, strip fork suffix before comparing with latest
     compare_installed="$installed"
-    if [[ -n "${FORK_SUFFIX[$name]:-}" ]]; then
-        compare_installed="${installed%${FORK_SUFFIX[$name]}}"
+    if [[ -n "${FLAKE_FORK_SUFFIX[$name]:-}" ]]; then
+        compare_installed="${installed%${FLAKE_FORK_SUFFIX[$name]}}"
     fi
 
     # Determine status
@@ -387,8 +383,8 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
 
         # For forked flakes, strip fork suffix before comparing with latest
         compare_installed="$installed"
-        if [[ -n "${FORK_SUFFIX[$name]:-}" ]]; then
-            compare_installed="${installed%${FORK_SUFFIX[$name]}}"
+        if [[ -n "${FLAKE_FORK_SUFFIX[$name]:-}" ]]; then
+            compare_installed="${installed%${FLAKE_FORK_SUFFIX[$name]}}"
         fi
 
         if [[ "$installed" != "unknown" && "$latest" != "unknown" && "$latest" != branch:* && "$compare_installed" != "$latest" ]]; then

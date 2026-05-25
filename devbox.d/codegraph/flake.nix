@@ -1,5 +1,7 @@
 {
   description = "Pre-indexed code knowledge graph for AI coding assistants (rbelem fork with Perl support)";
+  # upstream: colbymchenry/codegraph
+  # fork-suffix: -perl
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

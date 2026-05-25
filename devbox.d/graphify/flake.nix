@@ -1,5 +1,7 @@
 {
   description = "graphify - AI coding assistant skill for knowledge graphs (rbelem fork with Perl support)";
+  # upstream: safishamsi/graphify
+  # fork-suffix: -perl
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
