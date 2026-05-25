@@ -89,6 +89,19 @@ while IFS= read -r entry; do
     fi
 done < <(grep -oP '"path:devbox\.d/[^"]+"|"[^"]+@latest"' "$DEVBOX_JSON" | tr -d '"' | grep '^path:')
 
+# Fork→upstream mapping: when a flake builds from a fork but should check
+# the upstream repo for new releases. Add entry here for any forked flake.
+declare -A UPSTREAM=(
+    ["codegraph"]="colbymchenry/codegraph"
+    ["graphify"]="safishamsi/graphify"
+)
+
+# Fork version suffix — appended to upstream version to form the fork version.
+declare -A FORK_SUFFIX=(
+    ["codegraph"]="-perl"
+    ["graphify"]="-perl"
+)
+
 # ── For each flake, extract GitHub source + version from flake.nix ──
 declare -A FLAKE_OWNER FLAKE_REPO FLAKE_VERSION FLAKE_TYPE
 
@@ -162,6 +175,12 @@ for name in "${FLAKES[@]}"; do
         continue
     fi
 
+    # For forked flakes, check upstream repo for latest version
+    if [[ -n "${UPSTREAM[$name]:-}" ]]; then
+        owner="${UPSTREAM[$name]%/*}"
+        repo="${UPSTREAM[$name]#*/}"
+    fi
+
     # Try GitHub releases first (exclude pre-releases)
     latest_tags="$(gh release list -R "$owner/$repo" --limit 20 -L 20 --json tagName,isPrerelease -q '.[] | select(.isPrerelease == false) | .tagName' 2>/dev/null || true)"
 
@@ -212,16 +231,23 @@ update_flake() {
 
     [[ -f "$flake_nix" ]] || { echo "  File not found"; return 1; }
     [[ -z "$old_ver" || "$old_ver" == "flake" ]] && { echo "  Cannot determine installed version"; return 1; }
-    [[ "$old_ver" == "$new_ver" ]] && { echo "  Already at latest: $old_ver"; return 0; }
 
-    echo "  ${BOLD}${name}${NC}: $old_ver → $new_ver  (${owner}/${repo})"
+    # For forked flakes, append fork suffix to the new version
+    local update_ver="$new_ver"
+    if [[ -n "${FORK_SUFFIX[$name]:-}" ]]; then
+        update_ver="${new_ver}${FORK_SUFFIX[$name]}"
+    fi
+
+    [[ "$old_ver" == "$update_ver" ]] && { echo "  Already at latest: $old_ver"; return 0; }
+
+    echo "  ${BOLD}${name}${NC}: $old_ver → $update_ver  (${owner}/${repo})"
 
     # Escape dots for sed
     old_ver_escaped="${old_ver//\./\\.}"
 
     # 1. Update version field
     if grep -qP "\\bversion\\s*=\\s*\"$old_ver_escaped\"" "$flake_nix"; then
-        sed -ri "s/(\\bversion\\s*=\\s*)\"$old_ver_escaped\"/\\1\"$new_ver\"/" "$flake_nix"
+        sed -ri "s/(\\bversion\\s*=\\s*)\"$old_ver_escaped\"/\\1\"$update_ver\"/" "$flake_nix"
         echo "    ✓ version field updated"
     else
         echo "    ! Could not find version = \"$old_ver\" in flake.nix — skipping"
@@ -230,7 +256,7 @@ update_flake() {
 
     # 2. Update input URL refs for github-input type flakes (e.g. github:owner/repo/v1.2.3)
     if [[ "${FLAKE_TYPE[$name]:-}" == "github-input" ]]; then
-        sed -ri "s|(/v)$old_ver_escaped\"|\1$new_ver\"|g; s|(/)${old_ver_escaped}\"|\1${new_ver}\"|g" "$flake_nix"
+        sed -ri "s|(/v)$old_ver_escaped\"|\1$update_ver\"|g; s|(/)${old_ver_escaped}\"|\1${update_ver}\"|g" "$flake_nix"
         echo "    ✓ input URL ref updated"
     fi
 
@@ -313,10 +339,16 @@ for name in "${FLAKES[@]}"; do
     source_display="$owner/$repo"
     [[ -z "$owner" ]] && source_display="$type"
 
+    # For forked flakes, strip fork suffix before comparing with latest
+    compare_installed="$installed"
+    if [[ -n "${FORK_SUFFIX[$name]:-}" ]]; then
+        compare_installed="${installed%${FORK_SUFFIX[$name]}}"
+    fi
+
     # Determine status
     if [[ "$latest" == "unknown" || "$installed" == "unknown" || "$latest" == branch:* ]]; then
         status="${YELLOW}??${NC}"
-    elif [[ "$installed" == "$latest" ]]; then
+    elif [[ "$compare_installed" == "$latest" ]]; then
         status="${GREEN}✓${NC}"
     else
         status="${RED}↑${NC}"
@@ -352,7 +384,14 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
     for name in "${FLAKES[@]}"; do
         installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
         latest="${LATEST[$name]:-unknown}"
-        if [[ "$installed" != "unknown" && "$latest" != "unknown" && "$latest" != branch:* && "$installed" != "$latest" ]]; then
+
+        # For forked flakes, strip fork suffix before comparing with latest
+        compare_installed="$installed"
+        if [[ -n "${FORK_SUFFIX[$name]:-}" ]]; then
+            compare_installed="${installed%${FORK_SUFFIX[$name]}}"
+        fi
+
+        if [[ "$installed" != "unknown" && "$latest" != "unknown" && "$latest" != branch:* && "$compare_installed" != "$latest" ]]; then
             UPGRADABLE+=("$name")
         fi
     done

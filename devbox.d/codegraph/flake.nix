@@ -20,12 +20,6 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-
-          # Get the real npmDepsHash:
-          #   1. Set npmDepsHash to pkgs.lib.fakeHash
-          #   2. Run: nix build "path:...#default"
-          #   3. Replace with the hash from the error message
-          npmDepsHash = pkgs.lib.fakeHash;
         in
         rec {
           codegraph = pkgs.buildNpmPackage {
@@ -34,7 +28,11 @@
 
             src = codegraph-src;
 
-          npmDepsHash = "sha256-GJfqzykgrgD/KCtf8LupRw31S2cCmwGCF/0PMpzaCrk=";
+            # Get the real npmDepsHash:
+            #   1. Set to pkgs.lib.fakeHash
+            #   2. Run: nix build "path:...#default"
+            #   3. Replace with the hash from the error message
+            npmDepsHash = "sha256-GJfqzykgrgD/KCtf8LupRw31S2cCmwGCF/0PMpzaCrk=";
 
             nodejs = pkgs.nodejs_22;
 
