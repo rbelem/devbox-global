@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
   "disabled_agents": [],
-  "preset": "opencode-best-value",
+  "preset": "opencode-best-value-alt",
   "presets": {
     "balanced": {
       "orchestrator": { "model": "opencode-go/deepseek-v4-pro", "skills": ["*"], "mcps": ["*"] },
@@ -35,10 +35,20 @@
     "opencode-best-value": {
       "orchestrator": {"model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"]},
       "oracle": {"model": "opencode-go/mimo-v2.5-pro", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
-      "librarian": {"model": "opencode-go/glm-5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "opencode-go/glm-5", "variant": "low", "skills": ["find-skills"], "mcps": []},
+      "librarian": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": ["find-skills"], "mcps": []},
       "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
       "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
+      "observer": { "model": "opencode-go/kimi-k2.6", "skills": ["docling"] },
+      "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" }
+    },
+    "opencode-best-value-alt": {
+      "orchestrator": {"model": "opencode-go/qwen3.6-plus", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "opencode-go/mimo-v2.5-pro", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
+      "librarian": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": ["find-skills"], "mcps": []},
+      "designer": {"model": "opencode-go/qwen3.6-plus", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
+      "fixer": {"model": "opencode-go/qwen3.6-plus", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
       "observer": { "model": "opencode-go/kimi-k2.6", "skills": ["docling"] },
       "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" }
     },
