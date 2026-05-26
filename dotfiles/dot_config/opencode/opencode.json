@@ -3,6 +3,7 @@
   "model": "opencode-go/deepseek-v4-pro",
   "small_model": "opencode-go/deepseek-v4-flash",
   "experimental": {
+    "background_subagents": true,
     "disable_paste_summary": true
   },
   "mcp": {
@@ -100,12 +101,22 @@
     "websearch": "allow",
     "read": {
       "~/.config/opencode/get-shit-done/*": "allow"
-    }
+    },
+    "doom_loop": "deny"
   },
   "plugin": [
     "@slkiser/opencode-quota",
     "@ramarivera/opencode-model-announcer",
     "@tarquinen/opencode-smart-title",
-    "oh-my-opencode-slim"
-  ]
+    "oh-my-opencode-slim@2.0.0-beta.13"
+  ],
+  "agent": {
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  },
+  "lsp": true
 }
