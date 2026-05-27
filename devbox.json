@@ -62,6 +62,7 @@
     "path:devbox.d/docling",
     "path:devbox.d/agentmemory",
     "path:devbox.d/aicommits",
+    "path:devbox.d/beads",
   ],
   "env": {
     "EDITOR":         "vi",
