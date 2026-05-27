@@ -57,6 +57,9 @@
         {
           default = pkgs.opencode.overrideAttrs (oldAttrs: {
             inherit version src;
+            patches = (oldAttrs.patches or []) ++ [
+              ./fix-deepseek-reasoning-content.patch
+            ];
             node_modules = oldAttrs.node_modules.overrideAttrs (oldNode: {
               inherit src version;
               pname = "opencode-node_modules";
