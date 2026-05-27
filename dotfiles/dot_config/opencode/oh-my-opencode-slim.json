@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
   "disabled_agents": [],
-  "preset": "opencode-best-value-alt",
+  "preset": "opencode-best-value",
   "presets": {
     "balanced": {
       "orchestrator": { "model": "opencode-go/deepseek-v4-pro", "skills": ["*"], "mcps": ["*"] },
