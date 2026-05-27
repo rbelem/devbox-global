@@ -136,7 +136,22 @@ for name in "${FLAKES[@]}"; do
         fi
     fi
 
-    # Strategy 3: fetchurl/fetchzip with github.com/owner/repo URL (least specific, most false positives)
+    # Strategy 3: homepage attribute (meta.homepage or homepage) points to source repo
+    # Useful when source is fetched from elsewhere (npm, GitHub releases) but
+    # the code repo is on GitHub. Avoids false positives from embedded dependency URLs.
+    if ! $found_source; then
+        homepage_url="$(grep -oP 'homepage\s*=\s*"https://github\.com/\K[^/"]+/[^/"]+' "$flake_nix" | head -1 || true)"
+        if [[ -n "$homepage_url" ]]; then
+            owner="${homepage_url%/*}"
+            repo="${homepage_url#*/}"
+            FLAKE_OWNER["$name"]="$owner"
+            FLAKE_REPO["$name"]="$repo"
+            FLAKE_TYPE["$name"]="homepage"
+            found_source=true
+        fi
+    fi
+
+    # Strategy 4: fetchurl/fetchzip with github.com/owner/repo URL (least specific, most false positives)
     if ! $found_source; then
         url="$(grep -oP 'github\.com/[^/"]+/[^/"]+' "$flake_nix" | grep -v 'NixOS/nixpkgs' | head -1 || true)"
         if [[ -n "$url" ]]; then
