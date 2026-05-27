@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "iii-engine": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "../iii-engine",
+        "type": "path"
+      },
+      "original": {
+        "path": "../iii-engine",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1779560665,
@@ -18,6 +34,7 @@
     },
     "root": {
       "inputs": {
+        "iii-engine": "iii-engine",
         "nixpkgs": "nixpkgs"
       }
     }

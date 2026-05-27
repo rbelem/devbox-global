@@ -1,9 +1,13 @@
 {
   description = "agentmemory - Persistent memory for AI coding agents";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    iii-engine.url = "path:../iii-engine";
+    iii-engine.inputs.nixpkgs.follows = "nixpkgs";
+  };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, iii-engine }:
     let
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -21,6 +25,7 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+          iii = iii-engine.packages.${system}.default;
 
           src = pkgs.fetchurl {
             url = "https://registry.npmjs.org/@agentmemory/agentmemory/-/agentmemory-${version}.tgz";
@@ -92,6 +97,7 @@
               mkdir -p $out/bin
               makeWrapper ${pkgs.nodejs_22}/bin/node \
                 $out/bin/agentmemory \
+                --prefix PATH : ${pkgs.lib.makeBinPath [ iii ]} \
                 --add-flags "$out/lib/node_modules/@agentmemory/agentmemory/dist/cli.mjs"
 
               runHook postInstall
