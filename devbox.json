@@ -64,6 +64,7 @@
     "path:devbox.d/aicommits",
     "path:devbox.d/beads",
     "xxd@latest",
+    "file@latest",
   ],
   "env": {
     "EDITOR":         "vi",
