@@ -6,7 +6,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     codegraph-src = {
-      url = "github:rbelem/codegraph/v0.9.4-perl";
+      url = "github:rbelem/codegraph/v0.9.x-perl";
       flake = false;
     };
   };
@@ -16,7 +16,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "0.9.4-perl";
+      version = "0.9.6-perl";
     in
     {
       packages = forAllSystems (system:
@@ -34,7 +34,7 @@
             #   1. Set to pkgs.lib.fakeHash
             #   2. Run: nix build "path:...#default"
             #   3. Replace with the hash from the error message
-            npmDepsHash = "sha256-GJfqzykgrgD/KCtf8LupRw31S2cCmwGCF/0PMpzaCrk=";
+            npmDepsHash = "sha256-y9nlK+fVCDGhFqXNX4PLoj8D4Fo8s8WNQPAvxYyTE40=";
 
             nodejs = pkgs.nodejs_22;
 

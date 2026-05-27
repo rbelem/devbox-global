@@ -3,16 +3,16 @@
     "codegraph-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1779666767,
-        "narHash": "sha256-+oyfa4hWLmwWHTiI9/xlZDZJUv3pRx26QiwGa/8SDho=",
+        "lastModified": 1779922838,
+        "narHash": "sha256-QQJ03UaVuUn8zEdMfZBSKo2pepOfvJBmUleJTK+mn7A=",
         "owner": "rbelem",
         "repo": "codegraph",
-        "rev": "b1d2d1eacd1f4e3c78ff455914cbe6a8be9fde15",
+        "rev": "8707ebf5761c38e16516eb78826112e5f3a1f180",
         "type": "github"
       },
       "original": {
         "owner": "rbelem",
-        "ref": "v0.9.4-perl",
+        "ref": "v0.9.x-perl",
         "repo": "codegraph",
         "type": "github"
       }
