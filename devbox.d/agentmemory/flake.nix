@@ -1,13 +1,9 @@
 {
   description = "agentmemory - Persistent memory for AI coding agents";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    iii-engine.url = "path:../iii-engine";
-    iii-engine.inputs.nixpkgs.follows = "nixpkgs";
-  };
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs, iii-engine }:
+  outputs = { self, nixpkgs }:
     let
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -20,12 +16,54 @@
       #   2. Run: nix build "path:...#default"
       #   3. Replace with the hash from the error message
       npmDepsHash = "sha256-nu1z8xqmj2YxhasBJEsIO8tpxwljuX73AasYpA8zDAs=";
+
+      # ── iii-engine runtime ───────────────────────────────────────
+      # Pre-built Rust binary from GitHub releases. Downloaded here
+      # rather than via a flake input to avoid path-input eval issues.
+      # Pinned to v0.11.2 — agentmemory currently locks this version.
+      iiiVersion = "0.11.2";
+      systemToAsset = {
+        "x86_64-linux"    = "x86_64-unknown-linux-gnu";
+        "aarch64-linux"   = "aarch64-unknown-linux-gnu";
+        "x86_64-darwin"   = "x86_64-apple-darwin";
+        "aarch64-darwin"  = "aarch64-apple-darwin";
+      };
+      iiiHashes = {
+        "x86_64-linux"    = "sha256-nIPEd4i070vutl3ZvzfpT5k3cM09uHRGTDzhzckjUs0=";
+        "aarch64-linux"   = "";
+        "x86_64-darwin"   = "";
+        "aarch64-darwin"  = "";
+      };
     in
     {
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          iii = iii-engine.packages.${system}.default;
+
+          # Embedded iii-engine derivation (avoids cross-flake input dependency)
+          iii = pkgs.stdenvNoCC.mkDerivation {
+            pname = "iii-engine";
+            version = iiiVersion;
+
+            src = pkgs.fetchurl {
+              url = "https://github.com/iii-hq/iii/releases/download/iii/v${iiiVersion}/iii-${systemToAsset.${system} or "x86_64-unknown-linux-gnu"}.tar.gz";
+              hash = iiiHashes.${system} or pkgs.lib.fakeHash;
+            };
+
+            dontUnpack = true;
+
+            installPhase = ''
+              runHook preInstall
+              mkdir -p $out/bin
+              tar -xzf $src -C $out/bin iii
+              chmod +x $out/bin/iii
+              runHook postInstall
+            '';
+
+            dontFixup = true;
+
+            meta.description = "iii-engine runtime (embedded for agentmemory)";
+          };
 
           src = pkgs.fetchurl {
             url = "https://registry.npmjs.org/@agentmemory/agentmemory/-/agentmemory-${version}.tgz";
@@ -97,7 +135,7 @@
               mkdir -p $out/bin
               makeWrapper ${pkgs.nodejs_22}/bin/node \
                 $out/bin/agentmemory \
-                --prefix PATH : ${pkgs.lib.makeBinPath [ iii ]} \
+                --prefix PATH : ${iii}/bin \
                 --add-flags "$out/lib/node_modules/@agentmemory/agentmemory/dist/cli.mjs"
 
               runHook postInstall
