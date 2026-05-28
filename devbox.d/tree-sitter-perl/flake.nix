@@ -1,25 +1,14 @@
 {
-  description = "Pre-indexed code knowledge graph for AI coding assistants (rbelem fork with Perl support)";
-  # upstream: colbymchenry/codegraph
-  # fork-suffix: -perl
+  description = "tree-sitter-perl - Perl grammar for tree-sitter (Python package)";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    codegraph-src = {
-      url = "github:rbelem/codegraph/v0.9.x-perl";
-      flake = false;
-    };
-  };
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs, codegraph-src }:
+  outputs = { self, nixpkgs }:
     let
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "0.9.6-perl";
-      treeSitterPerlVersion = "1.1.1";
-      treeSitterPerlOwner = "ganezdragon";
-      treeSitterPerlRepo = "tree-sitter-perl";
+      version = "1.1.1";
     in
     {
       packages = forAllSystems (system:
@@ -27,59 +16,24 @@
           pkgs = nixpkgs.legacyPackages.${system};
         in
         rec {
-          codegraph = pkgs.buildNpmPackage {
-            pname = "codegraph";
-            inherit version;
-
-            src = codegraph-src;
-
-            # Get the real npmDepsHash:
-            #   1. Set to pkgs.lib.fakeHash
-            #   2. Run: nix build "path:...#default"
-            #   3. Replace with the hash from the error message
-            npmDepsHash = "sha256-y9nlK+fVCDGhFqXNX4PLoj8D4Fo8s8WNQPAvxYyTE40=";
-
-            nodejs = pkgs.nodejs_22;
-
-            buildInputs = [
-              (mkTreeSitterPerl pkgs)
-            ];
-
-            meta = {
-              description = "Pre-indexed code knowledge graph for AI coding assistants";
-              longDescription = ''
-                CodeGraph gives AI coding agents a pre-indexed knowledge graph — symbol
-                relationships, call graphs, and code structure. Agents query the graph
-                instantly instead of scanning files. ~35% cheaper, ~70% fewer tool calls,
-                100% local. Supports Claude Code, Cursor, Codex CLI, OpenCode, and
-                Hermes Agent.
-              '';
-              homepage = "https://github.com/rbelem/codegraph";
-              license = nixpkgs.lib.licenses.mit;
-              platforms = systems;
-              maintainers = [ ];
-              mainProgram = "codegraph";
-            };
-          };
-
-          default = codegraph;
-
-          # Defined after codegraph so flake.nix file-order greps (used by update-flake)
-          # find codegraph's version and homepage first.
-          mkTreeSitterPerl = pkgs: pkgs.python3Packages.buildPythonPackage {
+          tree-sitter-perl = pkgs.python3Packages.buildPythonPackage {
             pname = "tree-sitter-perl";
-            version = treeSitterPerlVersion;
+            inherit version;
             format = "setuptools";
 
             src = pkgs.fetchFromGitHub {
-              owner = treeSitterPerlOwner;
-              repo = treeSitterPerlRepo;
-              rev = "v${treeSitterPerlVersion}";
+              owner = "ganezdragon";
+              repo = "tree-sitter-perl";
+              rev = "v${version}";
               hash = "sha256-1RnL1dFbTWalqIYg8oGNzwvZxOFPPKwj86Rc3ErfYMU=";
             };
 
+            # The GitHub source doesn't ship Python bindings (they're generated at release time
+            # via cibuildwheel). We generate a minimal Python package that compiles the grammar
+            # C source into a tree-sitter-compatible _binding.so with a language() capsule.
             preBuild = ''
               rm -f setup.py pyproject.toml
+
               mkdir -p tree_sitter_perl
 
               cat > tree_sitter_perl/__init__.py << 'PYEOF'
@@ -115,7 +69,7 @@
               from setuptools import Extension, setup
               setup(
                   name="tree-sitter-perl",
-                  version="${treeSitterPerlVersion}",
+                  version="${version}",
                   packages=["tree_sitter_perl"],
                   ext_package="tree_sitter_perl",
                   ext_modules=[
@@ -142,19 +96,8 @@
               platforms = systems;
             };
           };
-        }
-      );
 
-      devShells = forAllSystems (system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            packages = with pkgs; [
-              nodejs_22
-            ];
-          };
+          default = tree-sitter-perl;
         }
       );
     };

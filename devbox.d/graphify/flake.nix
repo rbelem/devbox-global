@@ -11,75 +11,165 @@
     };
   };
 
-  outputs = { self, nixpkgs, graphify-src }: let
-    supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-    forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
-  in {
-    packages = forAllSystems (pkgs: rec {
-      graphify = pkgs.python3Packages.buildPythonApplication rec {
-        pname = "graphifyy";
-        version = "0.8.21-perl";
-        format = "pyproject";
+  outputs = { self, nixpkgs, graphify-src }:
+    let
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-        src = graphify-src;
+      # tree-sitter-perl is defined inline (after graphify) because relative-path
+      # flake inputs don't work when devbox evaluates from nix store paths.
+      treeSitterPerlVersion = "1.1.1";
+      # Use variables to avoid matching update-flake's fetchFromGitHub detection
+      # (which greps for these attribute patterns as string literals).
+      treeSitterPerlOwner = "ganezdragon";
+      treeSitterPerlRepo = "tree-sitter-perl";
+    in
+    {
+      packages = forAllSystems (pkgs: rec {
+        graphify = pkgs.python3Packages.buildPythonApplication rec {
+          pname = "graphifyy";
+          version = "0.8.22-perl";
+          format = "pyproject";
 
-        nativeBuildInputs = with pkgs.python3Packages; [
-          setuptools
-          setuptools-scm
-          wheel
-        ];
+          src = graphify-src;
 
-        propagatedBuildInputs = with pkgs.python3Packages; [
-          networkx
-          numpy
-          pyyaml
-          requests
-          pydantic
-          tree-sitter
-          tree-sitter-python
-          tree-sitter-javascript
-          tree-sitter-rust
-          tree-sitter-c-sharp
-          # tree-sitter-perl is not in nixpkgs;
-          # install via pip into the venv after graphify is installed.
-        ];
+          nativeBuildInputs = with pkgs.python3Packages; [
+            setuptools
+            setuptools-scm
+            wheel
+          ];
 
-        # Many tree-sitter grammars are not packaged in nixpkgs;
-        # graphifyy installs/builds missing ones on first run.
-        dontCheckRuntimeDeps = true;
+          propagatedBuildInputs = with pkgs.python3Packages; [
+            networkx
+            numpy
+            pyyaml
+            requests
+            pydantic
+            tree-sitter
+            tree-sitter-python
+            tree-sitter-javascript
+            tree-sitter-rust
+            tree-sitter-c-sharp
+            (mkTreeSitterPerl pkgs)
+          ];
 
-        meta = with pkgs.lib; {
-          description = "Turn any folder into a queryable knowledge graph (with Perl support)";
-          homepage = "https://github.com/rbelem/graphify";
-          license = licenses.mit;
-          mainProgram = "graphify";
+          # Many tree-sitter grammars are not packaged in nixpkgs;
+          # graphifyy installs/builds missing ones on first run.
+          dontCheckRuntimeDeps = true;
+
+          meta = with pkgs.lib; {
+            description = "Turn any folder into a queryable knowledge graph (with Perl support)";
+            homepage = "https://github.com/rbelem/graphify";
+            license = licenses.mit;
+            mainProgram = "graphify";
+          };
         };
-      };
 
-      default = graphify;
-    });
+        default = graphify;
 
-    apps = forAllSystems (pkgs: {
-      graphify = {
-        type = "app";
-        program = "${self.packages.${pkgs.system}.graphify}/bin/graphify";
-      };
-      default = self.apps.${pkgs.system}.graphify;
-    });
+        # Defined after graphify so flake.nix file-order greps (used by update-flake)
+        # find graphify's version and homepage first.
+        mkTreeSitterPerl = pkgs: pkgs.python3Packages.buildPythonPackage {
+          pname = "tree-sitter-perl";
+          version = treeSitterPerlVersion;
+          format = "setuptools";
 
-    devShells = forAllSystems (pkgs: {
-      default = pkgs.mkShell {
-        packages = with pkgs; [
-          uv
-          python3
-          python3Packages.pip
-        ];
-        shellHook = ''
-          echo "graphify dev shell (rbelem/v5-perl fork)"
-          echo "Quick install: uv pip install -e ."
-          echo "Or: pip install -e ."
-        '';
-      };
-    });
-  };
+          src = pkgs.fetchFromGitHub {
+            owner = treeSitterPerlOwner;
+            repo = treeSitterPerlRepo;
+            rev = "v${treeSitterPerlVersion}";
+            hash = "sha256-1RnL1dFbTWalqIYg8oGNzwvZxOFPPKwj86Rc3ErfYMU=";
+          };
+
+          # GitHub source doesn't ship Python bindings (generated at release via cibuildwheel).
+          # Generate minimal binding that compiles parser + scanner into _binding.abi3.so.
+          preBuild = ''
+            rm -f setup.py pyproject.toml
+            mkdir -p tree_sitter_perl
+
+            cat > tree_sitter_perl/__init__.py << 'PYEOF'
+            """Perl grammar for tree-sitter."""
+            from ._binding import language
+            PYEOF
+
+            cat > binding.c << 'CEOF'
+            #include <Python.h>
+
+            typedef struct TSLanguage TSLanguage;
+            TSLanguage *tree_sitter_perl(void);
+
+            static PyObject *_language(PyObject *self, PyObject *args) {
+                return PyCapsule_New(tree_sitter_perl(), "tree_sitter.LANGUAGE", NULL);
+            }
+
+            static PyMethodDef _methods[] = {
+                {"language", _language, METH_NOARGS, "Get the tree-sitter language for this grammar."},
+                {NULL, NULL, 0, NULL}
+            };
+
+            static struct PyModuleDef _module = {
+                PyModuleDef_HEAD_INIT, "_binding", NULL, -1, _methods
+            };
+
+            PyMODINIT_FUNC PyInit__binding(void) {
+                return PyModule_Create(&_module);
+            }
+            CEOF
+
+            cat > setup.py << 'SETUPEOF'
+            from setuptools import Extension, setup
+            setup(
+                name="tree-sitter-perl",
+                version="${treeSitterPerlVersion}",
+                packages=["tree_sitter_perl"],
+                ext_package="tree_sitter_perl",
+                ext_modules=[
+                    Extension(
+                        name="_binding",
+                        sources=["binding.c", "src/parser.c", "src/scanner.c"],
+                        include_dirs=["src"],
+                        define_macros=[("Py_LIMITED_API", "0x030A0000")],
+                        py_limited_api=True,
+                    )
+                ],
+            )
+            SETUPEOF
+          '';
+
+          build-system = [ pkgs.python3Packages.setuptools ];
+
+          pythonImportsCheck = [ "tree_sitter_perl" ];
+
+          meta = {
+            description = "Perl grammar for tree-sitter";
+            homepage = "https://github.com/ganezdragon/tree-sitter-perl";
+            license = nixpkgs.lib.licenses.mit;
+            platforms = supportedSystems;
+          };
+        };
+      });
+
+      apps = forAllSystems (pkgs: {
+        graphify = {
+          type = "app";
+          program = "${self.packages.${pkgs.system}.graphify}/bin/graphify";
+        };
+        default = self.apps.${pkgs.system}.graphify;
+      });
+
+      devShells = forAllSystems (pkgs: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            uv
+            python3
+            python3Packages.pip
+          ];
+          shellHook = ''
+            echo "graphify dev shell (rbelem/v5-perl fork)"
+            echo "Quick install: uv pip install -e ."
+            echo "Or: pip install -e ."
+          '';
+        };
+      });
+    };
 }

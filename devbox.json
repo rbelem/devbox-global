@@ -22,6 +22,7 @@
     "difftastic@latest",
     "tig@latest",
     "tree-sitter@latest",
+    "path:devbox.d/tree-sitter-perl",
     "chezmoi@latest",
     "bitwarden-cli@latest",
     "atuin@latest",
