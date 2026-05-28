@@ -83,6 +83,11 @@
       "type": "local",
       "command": ["agentmemory", "mcp"],
       "enabled": true
+    },
+    "codegraph": {
+      "type": "local",
+      "command": ["codegraph", "serve", "--mcp"],
+      "enabled": true
     }
   },
   "permission": {
