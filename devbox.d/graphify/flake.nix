@@ -28,7 +28,7 @@
       packages = forAllSystems (pkgs: rec {
         graphify = pkgs.python3Packages.buildPythonApplication rec {
           pname = "graphifyy";
-          version = "0.8.24-perl";
+          version = "0.8.25-perl";
           format = "pyproject";
 
           src = graphify-src;
