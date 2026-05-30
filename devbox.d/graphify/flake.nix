@@ -35,9 +35,13 @@
 
           nativeBuildInputs = with pkgs.python3Packages; [
             setuptools
-            setuptools-scm
             wheel
           ];
+
+          # Remove setuptools-scm: it derives version from git tags, but our
+          # fork branch has upstream tags that produce a different version
+          # than what pyproject.toml declares. Without it, setuptools uses
+          # pyproject.toml's version field directly.
 
           propagatedBuildInputs = with pkgs.python3Packages; [
             networkx
