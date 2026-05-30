@@ -25,15 +25,19 @@
       treeSitterPerlRepo = "tree-sitter-perl";
     in
     {
-      packages = forAllSystems (pkgs: rec {
-        graphify = pkgs.python3Packages.buildPythonApplication rec {
+      packages = forAllSystems (pkgs:
+        let
+          # Use Python 3.12 to match system default `python` so `python -m graphify` works.
+          pythonPackages = pkgs.python312Packages;
+        in rec {
+        graphify = pythonPackages.buildPythonApplication rec {
           pname = "graphifyy";
           version = "0.8.25-perl";
           format = "pyproject";
 
           src = graphify-src;
 
-          nativeBuildInputs = with pkgs.python3Packages; [
+          nativeBuildInputs = with pythonPackages; [
             setuptools
             wheel
           ];
@@ -43,7 +47,7 @@
           # than what pyproject.toml declares. Without it, setuptools uses
           # pyproject.toml's version field directly.
 
-          propagatedBuildInputs = with pkgs.python3Packages; [
+          propagatedBuildInputs = with pythonPackages; [
             networkx
             numpy
             pyyaml
@@ -73,7 +77,7 @@
 
         # Defined after graphify so flake.nix file-order greps (used by update-flake)
         # find graphify's version and homepage first.
-        mkTreeSitterPerl = pkgs: pkgs.python3Packages.buildPythonPackage {
+        mkTreeSitterPerl = pkgs: pythonPackages.buildPythonPackage {
           pname = "tree-sitter-perl";
           version = treeSitterPerlVersion;
           format = "setuptools";
@@ -140,7 +144,7 @@
             SETUPEOF
           '';
 
-          build-system = [ pkgs.python3Packages.setuptools ];
+          build-system = [ pythonPackages.setuptools ];
 
           pythonImportsCheck = [ "tree_sitter_perl" ];
 
@@ -165,8 +169,8 @@
         default = pkgs.mkShell {
           packages = with pkgs; [
             uv
-            python3
-            python3Packages.pip
+            python312
+            python312Packages.pip
           ];
           shellHook = ''
             echo "graphify dev shell (rbelem/v5-perl fork)"

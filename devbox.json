@@ -106,6 +106,10 @@
       "[ -d \"$VENV_DIR\" ] || python3 -m venv \"$VENV_DIR\"",
       "[ -f \"$VENV_DIR/bin/activate\" ] && . \"$VENV_DIR/bin/activate\"",
 
+      // Make nix flakes' Python packages importable via `python -m`
+      "nix_py=\"$DEVBOX_PROJECT_ROOT/.devbox/nix/profile/default/lib/python3.12/site-packages\"",
+      "[ -d \"$nix_py\" ] && printf '%s\\n' \"$nix_py\" > \"$VENV_DIR/lib/python3.12/site-packages/nix-profiles.pth\"",
+
       "[[ ! ${BLE_VERSION-} ]] || ble-attach",
     ],
     "scripts": {
