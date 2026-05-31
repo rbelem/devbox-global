@@ -49,6 +49,7 @@
     "perl5Packages.PerlTidy@latest",
     "path:devbox.d/bun",
     "path:devbox.d/opencode",
+    "path:devbox.d/opencommit",
     "path:devbox.d/graphify",
     "path:devbox.d/skills",
     "path:devbox.d/rtk",
