@@ -94,17 +94,16 @@
     "external_directory": {
       "*": "ask",
       "~/.agents/*": "allow",
+      "~/.config/opencode/get-shit-done/*": "allow",
       "~/.config/opencode/skills/*": "allow",
-      "/tmp/*": "allow",
-      "~/.config/opencode/get-shit-done/*": "allow"
+      "~/.local/share/devbox/global/default": "allow",
+      "~/Workspace/github.com/rbelem/*": "allow",
+      "/tmp/*": "allow"
     },
     "lsp": "allow",
     "question": "allow",
     "skill": {
       "*": "allow",
-      "caveman": "allow",
-      "caveman-commit": "allow",
-      "find-skill": "allow"
     },
     "todowrite": "allow",
     "webfetch": "allow",
