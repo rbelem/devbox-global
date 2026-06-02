@@ -1,5 +1,5 @@
 {
-  description = "agent-browser - Browser automation CLI for AI agents";
+  description = "agent-browser - Browser automation CLI for AI agents (NixOS-compatible)";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -23,22 +23,38 @@
         src = pkgs.fetchurl {
           url = "https://github.com/vercel-labs/agent-browser/releases/download/v${version}/${systemToTarget.${pkgs.stdenv.hostPlatform.system}}";
           sha256 = {
-            #"x86_64-linux"   = pkgs.lib.fakeHash;
             "x86_64-linux"   = "sha256-lf+CJKlxaY2d+K3Sbx9XECfDX5AD4wZ8U+VNFUtbHqE=";
           }.${pkgs.stdenv.hostPlatform.system};
         };
 
         dontUnpack = true;
 
+        # Use nixpkgs chromium as the browser backend — avoids agent-browser's
+        # self-downloaded Chrome which fails on NixOS (missing libglib etc.)
+        buildInputs = [ pkgs.chromium pkgs.makeWrapper ];
+
         installPhase = ''
           mkdir -p $out/bin
-          install -m755 $src $out/bin/agent-browser
+          install -m755 $src $out/bin/agent-browser-unwrapped
+
+          makeWrapper $out/bin/agent-browser-unwrapped $out/bin/agent-browser \
+            --set AGENT_BROWSER_EXECUTABLE_PATH "${pkgs.chromium}/bin/chromium" \
+            --prefix PATH : ${pkgs.chromium}/bin
+
+          # Also provide a shell wrapper for manual uses
+          cat > $out/bin/agent-browser-env <<'EOF'
+#!/usr/bin/env bash
+export AGENT_BROWSER_EXECUTABLE_PATH="${pkgs.chromium}/bin/chromium"
+export PATH="${pkgs.chromium}/bin:$PATH"
+exec "$@"
+EOF
+          chmod +x $out/bin/agent-browser-env
         '';
 
         dontStrip = true;
 
         meta = with pkgs.lib; {
-          description = "Browser automation CLI for AI agents";
+          description = "Browser automation CLI for AI agents (NixOS-compatible with bundled chromium)";
           homepage = "https://github.com/vercel-labs/agent-browser";
           license = licenses.asl20;
           mainProgram = "agent-browser";
