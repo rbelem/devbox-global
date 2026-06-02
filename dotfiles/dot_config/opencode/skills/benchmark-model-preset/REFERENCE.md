@@ -198,6 +198,30 @@ PAYG per 1M tokens (USD). Use when model isn't on Go or you exceed Go limits.
 | gpt-5.4-mini | ❌ | ✅ | — | opencode/gpt-5.4-mini |
 | grok-build-0.1 | ❌ | ✅ | — | opencode/grok-build-0.1 |
 
+### AI Coding Daily Leaderboard (Jun 2, 2026)
+
+14 models tested on 4 Laravel/React projects, 5 runs each, max 20 pts.
+Source: https://aicodingdaily.com/article/llm-coding-leaderboard-may-15th-11-models-tested
+
+| Rank | Model | Score/20 | Avg Time | Avg Cost |
+|---|---|---|---|---|
+| 1 | Opus 4.8 (medium) | 20 | 01:40 | $0.64 |
+| 2 | Opus 4.7 (high) | 20 | 02:17 | $0.83 |
+| 3 | GPT-5.5 (medium) | 20 | 03:37 | $1.15 |
+| 4 | Opus 4.7 (medium) | 18 | 01:54 | $0.72 |
+| 5 | Composer 2.5 | 17 | 01:14 | $0.18 |
+| 6 | Gemini-3.1-Pro | 17 | 01:52 | $0.31 |
+| 7 | Sonnet 4.6 | 15 | 02:17 | $0.47 |
+| **8** | **MiniMax M3** | **15** | **05:34** | **$0.40** |
+| 9 | Kimi K2.6 | 14 | 04:28 | $0.18 |
+| 10 | MiMo 2.5 Pro | 13 | 03:22 | $0.17 |
+| 11 | GLM-5.1 | 9 | 03:22 | $0.24 |
+| 12 | Deepseek-V4-Pro | 9 | 05:55 | $0.11 |
+| 13 | Qwen 3.6 Plus | 6 | 03:02 | $0.07 |
+| 14 | Minimax M2.7 | 2 | 01:57 | $0.03 |
+
+**M3 verdict on this benchmark:** 15/20 (tied Sonnet 4.6). Beats Kimi K2.6 and MiMo-2.5-Pro. **Very slow** (5:34 avg — slowest in top 10). Simple Laravel/React tasks don't stress long-horizon reasoning like DeepSWE, so this score overstates M3's real capability vs DeepSWE's 13.3%.
+
 ## Past Benchmark History (from bak file, May 9 2026)
 
 Top performers from the user's own codeneedle benchmark:
@@ -235,6 +259,8 @@ Top performers from the user's own codeneedle benchmark:
 - **Artificial Analysis Intelligence Index v4.0** — Independent composite of 10 evaluations (agents, coding, general, science). Claude Opus 4.8 = 61.4 (top). Qwen3.7 Max = 56.6 (highest Chinese model). Source: artificialanalysis.ai
 - **DeepSWE** (datacurve.ai, May 30) — 113 contamination-free tasks. GPT-5.5 leads at 70%. Go models: kimi-k2.6 24%, mimo-v2.5-pro 19%, glm-5.1 18%.
 - **MiniMax M3 independent DeepSWE** (entrpi.github.io, Jun 2) — **13.3%** pass@1 strict (15/113). M3 sits below mimo-v2.5-pro (19%) and glm-5.1 (18%) on mini-swe-agent harness. Median 80k output tokens, 325 steps, $7.48/task — extremely token-hungry. Source: https://entrpi.github.io/misc/deep-swe-minimax-m3/
+- **AI Coding Daily** (aicodingdaily.com, Jun 2) — 14 models on 4 Laravel/React projects. MiniMax M3 scores **15/20** (#8, tied Sonnet 4.6). Very slow (5:34 avg). Simpler benchmark — doesn't stress long-horizon like DeepSWE. Source: https://aicodingdaily.com/article/llm-coding-leaderboard-may-15th-11-models-tested
+- **Kilo.ai Live Leaderboard** (kilo.ai/leaderboard) — Real token usage from 3M+ developers. MiniMax M3 at **47.6%** completion rate, $10.35/attempt. Live preference-based ranking, not controlled benchmark.
 - **SWE-rebench** (swe-rebench.com, May 15) — 110 problems, tool-use agentic eval. GLM-5.1 at 50.7%, Kimi K2.6 at 46.5%.
 - **Build Fast with AI June 2026 Leaderboard** — Comprehensive 10-model comparison across coding, agentic, reasoning, pricing. Rates Qwen3.7 Max as "rational alternative to Opus 4.8 at 1/6 price for agentic coding."
 
