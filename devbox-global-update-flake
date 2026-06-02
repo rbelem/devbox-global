@@ -205,11 +205,15 @@ for name in "${FLAKES[@]}"; do
         # Prefer tags starting with "v" (standard semver: vX.Y.Z).
         # Some repos have platform-prefixed tags (mac-vX.Y.Z, bun-vX.Y.Z)
         # that should be ignored when a v-prefixed tag exists.
-        # Note: || true after grep guards set -e when no v* tags exist.
         latest_tag="$(echo "$latest_tags" | grep '^v' | head -1 || true)"
+        # If no v-prefixed release exists, the releases are likely CI/action
+        # tags (e.g. github-action-v1.0.2) — fall through to git tags.
         if [[ -z "$latest_tag" ]]; then
-            latest_tag="$(echo "$latest_tags" | head -1)"
+            latest_tags=""
         fi
+    fi
+
+    if [[ -n "$latest_tags" ]]; then
         # Strip common prefixes: v, bun-v, mac-v
         latest_ver="${latest_tag#v}"
         latest_ver="${latest_ver#bun-v}"
