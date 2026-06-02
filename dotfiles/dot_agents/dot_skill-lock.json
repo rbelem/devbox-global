@@ -137,6 +137,15 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-05-21T14:20:56.247Z",
       "updatedAt": "2026-05-21T14:20:56.247Z"
+    },
+    "use-devbox": {
+      "source": "jetify-com/devbox",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/jetify-com/devbox.git",
+      "skillPath": ".agents/skills/use-devbox/SKILL.md",
+      "skillFolderHash": "dddca2aec4d2ba73895c80a11b9a433e1ca0b565",
+      "installedAt": "2026-06-02T06:36:19.372Z",
+      "updatedAt": "2026-06-02T06:36:19.372Z"
     }
   },
   "dismissed": {
