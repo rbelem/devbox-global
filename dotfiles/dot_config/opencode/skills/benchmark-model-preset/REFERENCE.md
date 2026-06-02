@@ -87,9 +87,10 @@ Models appear on different scales. Relative rankings within Go models:
 | qwen3.7-max | N/A | N/A | **60.6%** | **56.6** |
 | kimi-k2.6 | 24% | 46.5% | ~50% | ~50 |
 | glm-5.1 | 18% | 50.7% | ~56% | ~50 |
-| minimax-m3 | N/A | N/A | 59.0%* | N/A |
+| minimax-m3 | **13.3%**\* | N/A | 59.0%† | N/A |
 
-\* = vendor-reported by MiniMax (June 1, 2026), pending independent verification.
+\* = Independent DeepSWE run by entrpi/bleysg (Jun 2, 2026) using mini-swe-agent, MiniMax-direct API. Strict 90-min budget. Median 80k output tokens, 325 steps, $7.48/task. Sits between glm-5.1 (18%) and gemini-3.1-pro (10%).
+† = Vendor-reported by MiniMax using Claude Code scaffolding (stronger agent framework). Not comparable to mini-swe-agent scores.
 AA Index = Artificial Analysis Intelligence Index v4.0 (independent composite).
 
 ### Go Model Benchmark Ranking (by independent data)
@@ -98,9 +99,9 @@ Based on independently verified benchmarks available:
 
 1. **Qwen3.7 Max** — AA Index 56.6, SWE-Pro 60.6%, Terminal-Bench 2.0 69.7%. Clear #1 Go model.
 2. **Kimi K2.6** — DeepSWE 24%, SWE-rebench 46.5%. Solid mid-tier.
-3. **GLM-5.1** — DeepSWE 18%, SWE-rebench 50.7%.
-4. **MiMo-V2.5-Pro** — DeepSWE 19%. Strong value fixer.
-5. **MiniMax M3** — Claimed SWE-Pro 59.0% but unverified. Very promising.
+3. **MiMo-V2.5-Pro** — DeepSWE 19%. Strong value fixer.
+4. **GLM-5.1** — DeepSWE 18%, SWE-rebench 50.7%.
+5. **MiniMax M3** — **DeepSWE 13.3%** (independent, entrpi/bleysg, Jun 2). Vendor-claimed SWE-Pro 59.0% used Claude Code scaffolding; on mini-swe-agent (same as DeepSWE leaderboard), M3 scores below mimo-v2.5-pro (19%). Extremely token-hungry: 80k median output, 325 steps, $7.48/task.
 6. **DeepSeek V4 Pro** — DeepSWE 8%. Slow per user notes.
 7. **DeepSeek V4 Flash** — Est ~8-12%. Fast, cheap, high limits.
 
@@ -232,8 +233,9 @@ Top performers from the user's own codeneedle benchmark:
 ### External Benchmarks & Reviews (June 2026)
 
 - **Artificial Analysis Intelligence Index v4.0** — Independent composite of 10 evaluations (agents, coding, general, science). Claude Opus 4.8 = 61.4 (top). Qwen3.7 Max = 56.6 (highest Chinese model). Source: artificialanalysis.ai
-- **DeepSWE** (datacurve.ai, May 30) — 113 contamination-free tasks. GPT-5.5 leads at 70%. Go models: kimi-k2.6 24%, mimo-v2.5-pro 19%, glm-5.1 18%. Qwen3.7 Max and MiniMax M3 not yet evaluated.
-- **SWE-rebench** (swe-rebench.com, May 15) — 110 problems, tool-use agentic eval. GLM-5.1 at 50.7%, Kimi K2.6 at 46.5%. MiniMax M3/Qwen3.7 Max not yet evaluated.
+- **DeepSWE** (datacurve.ai, May 30) — 113 contamination-free tasks. GPT-5.5 leads at 70%. Go models: kimi-k2.6 24%, mimo-v2.5-pro 19%, glm-5.1 18%.
+- **MiniMax M3 independent DeepSWE** (entrpi.github.io, Jun 2) — **13.3%** pass@1 strict (15/113). M3 sits below mimo-v2.5-pro (19%) and glm-5.1 (18%) on mini-swe-agent harness. Median 80k output tokens, 325 steps, $7.48/task — extremely token-hungry. Source: https://entrpi.github.io/misc/deep-swe-minimax-m3/
+- **SWE-rebench** (swe-rebench.com, May 15) — 110 problems, tool-use agentic eval. GLM-5.1 at 50.7%, Kimi K2.6 at 46.5%.
 - **Build Fast with AI June 2026 Leaderboard** — Comprehensive 10-model comparison across coding, agentic, reasoning, pricing. Rates Qwen3.7 Max as "rational alternative to Opus 4.8 at 1/6 price for agentic coding."
 
 ### Key Operational Findings
