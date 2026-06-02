@@ -107,7 +107,9 @@
       "opencode-go": {
         "alpha": { "model": "opencode-go/qwen3.7-max", "variant": "high" },
         "beta": { "model": "opencode-go/kimi-k2.6", "variant": "high" },
-        "gamma": { "model": "opencode-go/mimo-v2.5-pro", "variant": "high" }
+        "gamma": { "model": "opencode-go/mimo-v2.5-pro", "variant": "high" },
+        "delta": { "model": "opencode-go/minimax-m3", "variant": "high" },
+        "epsilon": { "model": "opencode/gpt-5.5", "variant": "xhigh" }
       },
       "enhanced": {
         "alpha": { "model": "opencode/gpt-5.5", "variant": "xhigh" },
@@ -123,10 +125,15 @@
         "alpha": { "model": "opencode-go/mimo-v2.5", "variant": "high" },
         "beta": { "model": "opencode-go/deepseek-v4-flash" }
       },
+      "opencode-m3-test": {
+        "alpha": { "model": "opencode-go/minimax-m3", "variant": "high" },
+        "beta": { "model": "opencode-go/qwen3.7-max", "variant": "high" },
+        "gamma": { "model": "opencode-go/kimi-k2.6", "variant": "high" }
+      },
       "opencode-zen": {
         "alpha": { "model": "opencode/claude-opus-4-6" },
         "beta": { "model": "opencode/gemini-3.1-pro" },
-        "gamma": { "model": "opencode/gpt-5.5" }
+        "gamma": { "model": "opencode/gpt-5.5", "variant": "xhigh" }
       },
       "opencode-free": {
         "alpha": { "model": "opencode/hy3-preview-free" },
