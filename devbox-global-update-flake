@@ -315,7 +315,7 @@ resolve_hashes() {
 
         # Build the flake and capture output
         local build_output
-        if build_output=$(cd "$flake_dir" && nix build ".#default" 2>&1); then
+        if build_output=$(cd "$flake_dir" && nix build --no-link ".#default" 2>&1); then
             echo "    ${GREEN}✓${NC} build succeeded"
             return 0
         fi
