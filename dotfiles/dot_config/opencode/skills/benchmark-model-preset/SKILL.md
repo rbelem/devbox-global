@@ -148,11 +148,11 @@ Go subscription has shared per-model request pools. Multiple agents using the sa
 ```jsonc
 // Example: orchestator gets the deepest pool, low-volume agents share tighter ones
 "pool_strategy": {
-  "deepseek-v4-flash (158K/mo)":  "Orchestrator only",    // 19% of pool
-  "qwen3.6-plus (16.3K/mo)":       "Fixer + Oracle",      // ~22% of pool
-  "minimax-m2.7 (17K/mo)":         "Explorer + Librarian", // ~53% of pool
-  "kimi-k2.6 (5.75K/mo)":          "Designer + Observer",  // ~42% of pool
-  "mimo-v2.5-pro (6.45K/mo)":      "Council only"          // ~5% of pool
+  "deepseek-v4-flash (158K/mo)":    "Orchestrator only",      // 19% of pool
+  "mimo-v2.5 (150K/mo)":            "Explorer + Librarian",   // ~53% of pool
+  "mimo-v2.5-pro (16.3K/mo)":       "Fixer",                  // ~22% of pool
+  "qwen3.7-max (4.77K/mo)":         "Oracle + Council",       // ~5% of pool
+  "kimi-k2.6 (5.75K/mo)":           "Designer + Observer"     // ~42% of pool
 }
 ```
 
@@ -164,16 +164,15 @@ Running DeepSWE (113 tasks × mini-swe-agent) on missing models via Zen PAYG:
 
 | Model | Est 113 tasks | Est 20 tasks (recommended) |
 |---|---|---|
+| qwen3.7-max | ~$89 | ~$16 |
 | qwen3.6-plus | ~$46 | ~$8 |
-| glm-5 | ~$52 | ~$9 |
 | kimi-k2.5 | ~$39 | ~$7 |
 | deepseek-v4-flash | ~$35 | ~$6 |
-| qwen3.5-plus | ~$17 | ~$3 |
 | minimax-m2.7 | ~$16 | ~$3 |
-| minimax-m2.5 | ~$16 | ~$3 |
+| minimax-m2.5 | ~$16 | ~$3 (broken API) |
 | mimo-v2.5 | ~$38 | ~$7 |
 
-Highest ROI targets: **glm-5** ($~9 for 20 tasks — 3x faster than DS-V4-Flash, 99.5% acc in user bench), **qwen3.6-plus** ($~8 — 100% acc in user bench). Use `pier run -p deep-swe/tasks --n-tasks 20 --sample-seed 0` for subset.
+Highest ROI targets: **qwen3.6-plus** ($~8 for 20 tasks — 100% acc in user bench), **deepseek-v4-flash** ($~6 — cheapest reliable). *glm-5 deprecated May 14; qwen3.5-plus removed from Go.* Use `pier run -p deep-swe/tasks --n-tasks 20 --sample-seed 0` for subset.
 
 ## Pricing Strategy Rules
 
