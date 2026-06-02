@@ -12,7 +12,7 @@
       "x86_64-linux"   = "agent-browser-linux-x64";
     };
 
-    version = "0.27.0";
+    version = "0.27.1";
 
   in {
     packages = forAllSystems (pkgs: rec {
@@ -24,7 +24,7 @@
           url = "https://github.com/vercel-labs/agent-browser/releases/download/v${version}/${systemToTarget.${pkgs.stdenv.hostPlatform.system}}";
           sha256 = {
             #"x86_64-linux"   = pkgs.lib.fakeHash;
-            "x86_64-linux"   = "sha256-wkmpSMtqYN+UMg4xnDcqXmeUZsqOosxOabrE/MfCcPM=";
+            "x86_64-linux"   = "sha256-lf+CJKlxaY2d+K3Sbx9XECfDX5AD4wZ8U+VNFUtbHqE=";
           }.${pkgs.stdenv.hostPlatform.system};
         };
 

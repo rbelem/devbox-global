@@ -16,7 +16,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "0.9.7-perl";
+      version = "0.9.8-perl";
       treeSitterPerlVersion = "1.1.1";
       treeSitterPerlOwner = "ganezdragon";
       treeSitterPerlRepo = "tree-sitter-perl";

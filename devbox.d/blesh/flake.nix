@@ -17,10 +17,10 @@
 
           src = pkgs.fetchzip {
             url = "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz";
-            hash = "sha256-kGLp8RaInYSrJEi3h5kWEOMAbZV/gEPFUjOLgBuMhCI=";
+            hash = "sha256-EF9+tWfM64SZawlnAniF3O68k3blRWwUsu+CGgmaHPY=";
           };
 
-          version = "0.4.0-devel3-nightly";
+          version = "0.4.0-devel3";
         in
         {
           default = pkgs.stdenvNoCC.mkDerivation {
