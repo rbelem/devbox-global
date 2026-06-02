@@ -162,7 +162,22 @@ modified independently), shows what the opposite direction would change.
   Builds both the app and its missing PyPI deps (dbgpu) inline in the flake.
 - **Input-based composition** (neovim, skills): external flake inputs composed in outputs.
 
-## Key quirks
+### Fork perl branch maintenance
+
+**codegraph** (`rbelem/codegraph`, branch `v0.9.x-perl`) and **graphify**
+(`rbelem/graphify`, branch `v8-perl`) are rbelem forks that add Perl extraction
+on top of upstream releases. After `update-flake --all` bumps their version
+strings, the perl branches must be updated to match:
+
+1. `cd $(ghq root)/github.com/rbelem/<repo>` and `git checkout <branch>`
+2. `git fetch upstream --tags` (upstream = colbymchenry/codegraph or safishamsi/graphify)
+3. `git merge v<new-version>` — resolve conflicts:
+   - **CHANGELOG.md**: keep upstream changelog entries + restore Perl entry at top
+   - **pyproject.toml** (graphify): keep `tree-sitter-perl` dep + `perl = [...]` extra; combine `all = [...]` lists
+4. `git push origin <branch>`
+
+Local clones live under `ghq root` with remotes `origin` (rbelem) and `upstream`
+(the original author). Force-push is fine — these are personal forks.
 
 - **VirtualBox compat**: bun and opencode use `bun-linux-x64-baseline` (no AVX/AVX2)
   to avoid crashes on VMs.
@@ -203,3 +218,54 @@ All run via `devbox global run <name>`:
 
 `.chezmoiroot` = `dotfiles/`. autoCommit + autoPush enabled.
 `private_` prefix files = permission-sensitive (kde globalshortcuts, kwin rules, kxkbrc).
+
+## Orchestrator workflow
+
+### Role
+
+Workflow manager for coding work. Plan, schedule, delegate, monitor, reconcile, and
+verify specialist-agent work. Optimize for quality, speed, cost, and reliability.
+
+### Available agents
+
+| Agent | Lane | Best for |
+|---|---|---|
+| `@explorer` | Fast codebase recon | Discover what exists, glob/grep searches, structural questions |
+| `@librarian` | External research | Library docs, API refs, GitHub examples, bug investigations |
+| `@oracle` | Architecture & review | High-stakes decisions, complex debugging, code review, simplifications |
+| `@designer` | UI/UX design | User-facing polish, responsive layouts, design systems, animations |
+| `@fixer` | Bounded implementation | Well-defined multi-file changes, parallelizable work per folder |
+| `@council` | Multi-model consensus | Critical decisions needing 2+ model perspectives |
+| `@observer` | Visual analysis | Images, screenshots, PDFs, diagrams |
+
+### Workflow
+
+1. **Understand** — parse explicit + implicit needs
+2. **Path selection** — evaluate approach by quality, speed, cost
+3. **Delegation check** — match lanes, dispatch background tasks, reuse sessions
+4. **Plan & parallelize** — build work graph, independent lanes run now, dependent waits
+5. **Verify** — run diagnostics, route validation to right lanes, confirm success
+
+### Background task model
+
+- Spawn independent specialists as background tasks
+- Track task IDs with specialist, objective, state
+- Continue orchestration while tasks run (planning, scheduling, synthesis)
+- Completion events resume you — don't poll unless dependent
+- Never duplicate, undermine, or race a running lane
+- Cancellation is not rollback — reconcile partial changes before replacing
+
+### Communication
+
+- Answer directly, no preamble or flattery
+- Brief delegation notices ("Checking via @librarian...")
+- Push back when approach is problematic — state concern + alternative concisely
+
+### CodeGraph preferences
+
+Prefer CodeGraph MCP tools over grep/Read for structural questions:
+- `codegraph_context` — first call for "how does X work" questions
+- `codegraph_trace` — trace call paths from X to Y in one call
+- `codegraph_impact` — what breaks if changing Z
+- `codegraph_explore` — see several symbols' source grouped
+- Trust results from full AST parse; don't re-verify with grep
