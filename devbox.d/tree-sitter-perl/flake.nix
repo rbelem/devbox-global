@@ -8,7 +8,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.1.1";
+      version = "1.0.3";
     in
     {
       packages = forAllSystems (system:
@@ -22,16 +22,18 @@
             format = "setuptools";
 
             src = pkgs.fetchFromGitHub {
-              owner = "ganezdragon";
+              owner = "tree-sitter-perl";
               repo = "tree-sitter-perl";
               rev = "v${version}";
-              hash = "sha256-1RnL1dFbTWalqIYg8oGNzwvZxOFPPKwj86Rc3ErfYMU=";
+              hash = "sha256-FYEcSWgMqhTyaiSfWslsErgWWLiaZCIs08jff1JTJN8=";
             };
 
-            # The GitHub source doesn't ship Python bindings (they're generated at release time
-            # via cibuildwheel). We generate a minimal Python package that compiles the grammar
-            # C source into a tree-sitter-compatible _binding.so with a language() capsule.
+            # The tag source doesn't include generated parser.c or Python bindings.
+            # We generate parser.c from grammar.json, then produce a minimal Python
+            # package that compiles the grammar C source into a tree-sitter-compatible
+            # _binding.so with a language() capsule.
             preBuild = ''
+              tree-sitter generate src/grammar.json
               rm -f setup.py pyproject.toml
 
               mkdir -p tree_sitter_perl
@@ -85,13 +87,15 @@
               SETUPEOF
             '';
 
+            nativeBuildInputs = [ pkgs.tree-sitter ];
+
             build-system = [ pkgs.python3Packages.setuptools ];
 
             pythonImportsCheck = [ "tree_sitter_perl" ];
 
             meta = {
               description = "Perl grammar for tree-sitter";
-              homepage = "https://github.com/ganezdragon/tree-sitter-perl";
+              homepage = "https://github.com/tree-sitter-perl/tree-sitter-perl";
               license = nixpkgs.lib.licenses.mit;
               platforms = systems;
             };
