@@ -9,6 +9,7 @@ set -euo pipefail
 # devbox intercepts dash flags before passing to scripts).
 # Use -u/--update for direct script invocation (bypassing devbox).
 SHOW_HELP=false
+ALL_FLAKES=false
 declare -a UPDATE_TARGETS=()
 
 while [[ $# -gt 0 ]]; do
@@ -19,6 +20,10 @@ while [[ $# -gt 0 ]]; do
                 UPDATE_TARGETS+=("$1")
                 shift
             done
+            ;;
+        -a|--all)
+            ALL_FLAKES=true
+            shift
             ;;
         -h|--help)
             SHOW_HELP=true
@@ -41,6 +46,7 @@ if $SHOW_HELP; then
     echo "Check and optionally update devbox global flake packages."
     echo ""
     echo "  PKG [...]    Update specific packages by name"
+    echo "  -a, --all    Update all packages with available updates"
     echo "  (no args)    Show version comparison table"
     echo "  -u PKG [...] Alternative to positional args (for direct use)"
     echo "  -h, --help   Show this help"
@@ -389,7 +395,7 @@ printf "\n"
 printf "${GREEN}✓${NC} = up to date  ${RED}↑${NC} = update available  ${YELLOW}??${NC} = unknown\n"
 
 # ── Update workflow ──
-if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
+if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
     # Build list of upgradable packages
     declare -a UPGRADABLE=()
     for name in "${FLAKES[@]}"; do
@@ -409,30 +415,35 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
 
     # Validate targets against known flakes
     declare -a TARGETS=()
-    for target in "${UPDATE_TARGETS[@]}"; do
-        found=false
-        for name in "${UPGRADABLE[@]}"; do
-            [[ "$name" == "$target" ]] && { found=true; break; }
-        done
-        if $found; then
-            TARGETS+=("$target")
-        else
-            # Check if it's a known flake
-            is_flake=false
-            for name in "${FLAKES[@]}"; do
-                [[ "$name" == "$target" ]] && { is_flake=true; break; }
+    if $ALL_FLAKES; then
+        TARGETS=("${UPGRADABLE[@]}")
+    fi
+    if [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
+        for target in "${UPDATE_TARGETS[@]}"; do
+            found=false
+            for name in "${UPGRADABLE[@]}"; do
+                [[ "$name" == "$target" ]] && { found=true; break; }
             done
-            if ! $is_flake; then
-                echo "  Package '$target' is not a known flake package."
-            elif grep -qF "$FAKE_HASH" "$DEVBOX_D/$target/flake.nix" 2>/dev/null; then
-                # Version matches but hashes not fully resolved — retry resolution
+            if $found; then
                 TARGETS+=("$target")
             else
-                installed="${FLAKE_VERSION[$target]:-${INSTALLED[$target]:-unknown}}"
-                echo "  Package '$target' is already at $installed (no update needed)."
+                # Check if it's a known flake
+                is_flake=false
+                for name in "${FLAKES[@]}"; do
+                    [[ "$name" == "$target" ]] && { is_flake=true; break; }
+                done
+                if ! $is_flake; then
+                    echo "  Package '$target' is not a known flake package."
+                elif grep -qF "$FAKE_HASH" "$DEVBOX_D/$target/flake.nix" 2>/dev/null; then
+                    # Version matches but hashes not fully resolved — retry resolution
+                    TARGETS+=("$target")
+                else
+                    installed="${FLAKE_VERSION[$target]:-${INSTALLED[$target]:-unknown}}"
+                    echo "  Package '$target' is already at $installed (no update needed)."
+                fi
             fi
-        fi
-    done
+        done
+    fi
 
     if [[ ${#TARGETS[@]} -gt 0 ]]; then
         echo ""
