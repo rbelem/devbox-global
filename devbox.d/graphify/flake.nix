@@ -32,7 +32,7 @@
         in rec {
         graphify = pythonPackages.buildPythonApplication rec {
           pname = "graphifyy";
-          version = "0.8.28-perl";
+          version = "0.8.30-perl";
           format = "pyproject";
 
           src = graphify-src;
