@@ -4,23 +4,23 @@
   "preset": "opencode-best-value",
   "presets": {
     "balanced": {
-      "orchestrator": { "model": "opencode-go/deepseek-v4-pro", "skills": ["*"], "mcps": ["*"] },
-      "oracle": { "model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": [] },
-      "council": { "model": "opencode-go/mimo-v2.5-pro", "variant": "high" },
-      "librarian": { "model": "opencode-go/minimax-m2.7", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
-      "explorer": { "model": "opencode-go/deepseek-v4-flash", "skills": ["find-skills"], "mcps": [] },
+      "orchestrator": { "model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"] },
+      "oracle": { "model": "opencode-go/qwen3.7-max", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": [] },
+      "council": { "model": "opencode-go/qwen3.7-plus", "variant": "high" },
+      "librarian": { "model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
+      "explorer": { "model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["find-skills"], "mcps": [] },
       "designer": { "model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": [] },
       "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": [] },
-      "observer": { "model": "opencode-go/mimo-v2.5", "skills": ["docling"] }
+      "observer": { "model": "opencode-go/kimi-k2.6", "skills": ["docling"] }
     },
     "cheap": {
       "orchestrator": { "model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"] },
-      "oracle": { "model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": [] },
-      "librarian": { "model": "opencode-go/minimax-m2.7", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
-      "explorer": { "model": "opencode-go/deepseek-v4-flash", "skills": ["find-skills"], "mcps": [] },
-      "designer": { "model": "opencode-go/minimax-m2.7", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": [] },
+      "oracle": { "model": "opencode-go/qwen3.7-plus", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": [] },
+      "librarian": { "model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
+      "explorer": { "model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["find-skills"], "mcps": [] },
+      "designer": { "model": "opencode-go/kimi-k2.5", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": [] },
       "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": [] },
-      "observer": { "model": "opencode-go/mimo-v2.5", "skills": ["docling"] }
+      "observer": { "model": "opencode-go/kimi-k2.5", "skills": ["docling"] }
     },
     "quality": {
       "orchestrator": { "model": "opencode-go/mimo-v2.5-pro", "skills": ["*"], "mcps": ["*"] },
@@ -35,12 +35,22 @@
     "opencode-best-value": {
       "orchestrator": {"model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"]},
       "oracle": {"model": "opencode-go/qwen3.7-max", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
-      "librarian": {"model": "opencode-go/mimo-v2.5", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "opencode-go/mimo-v2.5", "skills": ["find-skills"], "mcps": []},
+      "librarian": {"model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["find-skills"], "mcps": []},
+      "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design"], "mcps": []},
+      "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "devbox"], "mcps": []},
+      "observer": { "model": "opencode-go/kimi-k2.6", "skills": ["docling"] },
+      "council": { "model": "opencode-go/qwen3.7-plus", "variant": "high" }
+    },
+    "opencode-best-value-v2": {
+      "orchestrator": {"model": "opencode-go/qwen3.7-plus", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "opencode-go/qwen3.7-max", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
+      "librarian": {"model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["find-skills"], "mcps": []},
       "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design"], "mcps": []},
       "fixer": {"model": "opencode-go/mimo-v2.5-pro", "variant": "high", "skills": ["git-commit", "greploop", "devbox"], "mcps": []},
       "observer": { "model": "opencode-go/kimi-k2.6", "skills": ["docling"] },
-      "council": { "model": "opencode-go/qwen3.7-max", "variant": "high" }
+      "council": { "model": "opencode-go/qwen3.7-plus", "variant": "high" }
     },
     "opencode-best-value-alt": {
       "orchestrator": {"model": "opencode-go/qwen3.7-max", "skills": ["*"], "mcps": ["*"]},
@@ -116,8 +126,14 @@
         "beta": { "model": "opencode-go/qwen3.7-max", "variant": "high" },
         "gamma": { "model": "opencode-go/kimi-k2.6", "variant": "high" }
       },
-      "opencode-go-cheap": {
+      "opencode-go-plus": {
         "alpha": { "model": "opencode-go/qwen3.7-max", "variant": "high" },
+        "beta": { "model": "opencode-go/qwen3.7-plus", "variant": "high" },
+        "gamma": { "model": "opencode-go/kimi-k2.6", "variant": "high" },
+        "delta": { "model": "opencode-go/mimo-v2.5-pro", "variant": "high" }
+      },
+      "opencode-go-cheap": {
+        "alpha": { "model": "opencode-go/qwen3.7-plus", "variant": "high" },
         "beta": { "model": "opencode-go/deepseek-v4-flash", "variant": "high" },
         "gamma": { "model": "opencode-go/mimo-v2.5" }
       },
