@@ -8,14 +8,14 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "0.9.26";
+      version = "0.9.27";
 
       # Fetch pre-built npm tarball (avoids building TypeScript from source).
       # Get the real npmDepsHash:
       #   1. Set npmDepsHash to lib.fakeHash
       #   2. Run: nix build "path:...#default"
       #   3. Replace with the hash from the error message
-      npmDepsHash = "sha256-0aWXHpP31ZmHtJ3dYqHr/sQoKNy5azmUmosyMUdY7RE=";
+      npmDepsHash = "sha256-3wwjOhE7Vk5azIt+llXH/ob52yj8oODgimxkYsHEjQo=";
 
       # ── iii-engine runtime ───────────────────────────────────────
       # Pre-built Rust binary from GitHub releases. Downloaded here
@@ -68,7 +68,7 @@
           src = pkgs.fetchurl {
             url = "https://registry.npmjs.org/@agentmemory/agentmemory/-/agentmemory-${version}.tgz";
             #hash = pkgs.lib.fakeHash;
-            hash = "sha256-h6SMbE4ELw91wQEh+zEJZ8XOd67+kWRbDXh6VWQdRTI=";
+            hash = "sha256-m5pgNaGo6+MEuvkrscWOIzfyRl147mO+vDZHU8D7KiU=";
           };
 
           # Pre-fetch only production dependencies (no devDeps, no TypeScript build).
