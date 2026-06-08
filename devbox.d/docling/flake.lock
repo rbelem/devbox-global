@@ -3,16 +3,16 @@
     "docling-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1780296527,
-        "narHash": "sha256-oT6+uWI5NgdthbU9rkLmfgkMdUaKJmVFMLd9TqFGhRs=",
+        "lastModified": 1780931487,
+        "narHash": "sha256-AiaN3cUKqa31XdIJ4r9Vnm0wfNJO9A5zK52n3J++YCM=",
         "owner": "docling-project",
         "repo": "docling",
-        "rev": "1b22fdbf95b2630a6eb0ad814a482a48d9d41b15",
+        "rev": "0a19233cab37d3178420b83204bbc78529ae49e3",
         "type": "github"
       },
       "original": {
         "owner": "docling-project",
-        "ref": "v2.96.1",
+        "ref": "v2.99.0",
         "repo": "docling",
         "type": "github"
       }
