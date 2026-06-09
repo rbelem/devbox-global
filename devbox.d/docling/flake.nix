@@ -77,6 +77,8 @@
             python-docx
             python-pptx
             openpyxl
+            # format-email deps
+            mail-parser
             # format-web deps
             beautifulsoup4
             lxml
@@ -120,14 +122,24 @@ class DoclingParseDocumentBackend(PyPdfiumDocumentBackend):
     """Stub: docling-parse not available, falling back to pypdfium2 backend."""
 
     pass
+
+
+class ThreadedDoclingParseDocumentBackend(PyPdfiumDocumentBackend):
+    """Stub: docling-parse not available, falling back to pypdfium2 backend."""
+
+    pass
 STUB
 
             # Make DoclingParseDocumentBackend import optional in CLI
-            sed -i '/^from docling\.backend\.docling_parse_backend import DoclingParseDocumentBackend$/c\
+            sed -i '/^from docling\.backend\.docling_parse_backend import ($/,/^)$/c\
 try:\
-    from docling.backend.docling_parse_backend import DoclingParseDocumentBackend\
+    from docling.backend.docling_parse_backend import (\
+        DoclingParseDocumentBackend,\
+        ThreadedDoclingParseDocumentBackend,\
+    )\
 except ImportError:\
-    DoclingParseDocumentBackend = None' "$site/docling/cli/main.py"
+    DoclingParseDocumentBackend = None\
+    ThreadedDoclingParseDocumentBackend = None' "$site/docling/cli/main.py"
           '';
 
           # Many transitive deps may not be in nixpkgs;
