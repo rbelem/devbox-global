@@ -7,7 +7,7 @@
     supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-    version = "0.5.8";
+    version = "0.5.9";
 
     # Get the real hash:
     #   cd ~/.local/share/devbox/global/current/devbox.d/whichllm
@@ -16,7 +16,7 @@
     # Then paste the sha256-... value below
     #
     # srcHash = nixpkgs.lib.fakeHash;
-    srcHash = "sha256-27SqXIhL2/8dZsYSIV6LkKg8fwZK6er/+rZ7cJDWWpU=";
+    srcHash = "sha256-TWDAg/AM0fg8oQj4To+Ht/DVIi9SieNMyYfQMsbKRtI=";
   in {
     packages = forAllSystems (system:
       let
