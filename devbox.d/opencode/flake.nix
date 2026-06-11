@@ -33,7 +33,7 @@
             inherit system;
             overlays = [ bun-baseline-overlay ];
           };
-          version = "1.17.1";
+          version = "1.17.3";
 
           # Get the real hash:
           #   cd ~/.local/share/devbox/global/current/devbox.d/opencode
@@ -42,9 +42,7 @@
           # Then paste the sha256-... value below
           # It will fail twice, for srcHash and nodeModulesHash
           #
-          #srcHash = pkgs.lib.fakeHash;
-          srcHash = "sha256-p3jOLzOJZKa2VvpYjgOQDyN+GyEYBtqRbD4meJNar2U=";
-          #nodeModulesHash = pkgs.lib.fakeHash;
+          srcHash = "sha256-Pqj49q8bTwnTQxnlJbqnot7Pvo2K/WbtdEjEsq5P7qo=";
           nodeModulesHash = "sha256-m0uTWu/JrzeUJXkaIlYf8TgrwMmMKwRsELHe5NAKPDY=";
 
           src = pkgs.fetchFromGitHub {

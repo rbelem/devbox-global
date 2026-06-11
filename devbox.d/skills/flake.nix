@@ -12,13 +12,14 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          version = "1.5.10";
+          version = "1.5.11";
           src = pkgs.fetchFromGitHub {
             owner = "vercel-labs";
             repo = "skills";
             rev = "v${version}";
-            hash = "sha256-nISOazYZ9I786Nn4TKmFXyK6WiTPdULdAG0aeRUVXvA=";
+            hash = "sha256-IAbkeN1ZP8z5xTaZafRLMhAlhXBDw+fkfTvjZBoGeqw=";
           };
+
         in
         {
           default = pkgs.skills.overrideAttrs (oldAttrs: {
