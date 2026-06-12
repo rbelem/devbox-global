@@ -16,7 +16,7 @@
         aarch64-darwin = "darwin-arm64";
       };
 
-      version = "1.3.1";
+      version = "1.3.4";
 
       # Set to pkgs.lib.fakeHash when updating, then run: devbox global update
       perArchSha256 = {

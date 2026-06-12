@@ -2,6 +2,15 @@
   description = "Pre-indexed code knowledge graph for AI coding assistants (rbelem fork with Perl support)";
   # upstream: colbymchenry/codegraph
   # fork-suffix: -perl
+  #
+  # After bumping the version above, sync the v0.9.x-perl fork branch:
+  #   cd $(ghq root)/github.com/colbymchenry/codegraph
+  #   git fetch origin --tags
+  #   git checkout v0.9.x-perl
+  #   git merge v<new-version>
+  #   # Resolve conflicts if any:
+  #   # - CHANGELOG.md: keep upstream entries + restore Perl entry at top
+  #   git push rbelem v0.9.x-perl
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

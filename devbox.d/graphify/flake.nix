@@ -2,6 +2,16 @@
   description = "graphify - AI coding assistant skill for knowledge graphs (rbelem fork with Perl support)";
   # upstream: safishamsi/graphify
   # fork-suffix: -perl
+  #
+  # After bumping the version above, sync the v8-perl fork branch:
+  #   cd $(ghq root)/github.com/safishamsi/graphify
+  #   git fetch origin --tags
+  #   git checkout v8-perl
+  #   git merge v<new-version>
+  #   # Resolve conflicts if any:
+  #   # - CHANGELOG.md: keep upstream entries + restore Perl entry at top
+  #   # - pyproject.toml: keep tree-sitter-perl dep + perl extra; combine all list
+  #   git push rbelem v8-perl
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -32,7 +42,7 @@
         in rec {
         graphify = pythonPackages.buildPythonApplication rec {
           pname = "graphifyy";
-          version = "0.8.37-perl";
+          version = "0.8.38-perl";
           format = "pyproject";
 
           src = graphify-src;
