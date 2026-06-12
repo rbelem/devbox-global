@@ -22,7 +22,7 @@
           litellmPrices = pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json";
             #hash = pkgs.lib.fakeHash;
-            hash = "sha256-8HS9fRrgsyy4s6rarXXl6tiVNfiYDGuqFCauT2vRpps=";
+            hash = "sha256-POuL/1um6YwHT7S0WamGt9XX9v2YPCxaDzvQOc/IIVw=";
           };
         in
         {

@@ -46,7 +46,7 @@
             #   1. Set to pkgs.lib.fakeHash
             #   2. Run: nix build "path:...#default"
             #   3. Replace with the hash from the error message
-            npmDepsHash = "sha256-1RnL1dFbTWalqIYg8oGNzwvZxOFPPKwj86Rc3ErfYMU=";
+            npmDepsHash = "sha256-y9nlK+fVCDGhFqXNX4PLoj8D4Fo8s8WNQPAvxYyTE40=";
 
             nodejs = pkgs.nodejs_22;
 
