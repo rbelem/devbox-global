@@ -20,6 +20,7 @@
     "ghq@latest",
     "tree@latest",
     "difftastic@latest",
+    "doggo@latest",
     "tig@latest",
     "tree-sitter@latest",
     "path:devbox.d/tree-sitter-perl",
