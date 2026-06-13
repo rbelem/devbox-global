@@ -67,6 +67,7 @@
     "path:devbox.d/agentmemory",
     "path:devbox.d/aicommits",
     "path:devbox.d/beads",
+    "path:devbox.d/skillspector",
     "xxd@latest",
     "file@latest",
   ],
