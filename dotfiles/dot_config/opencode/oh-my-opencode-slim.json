@@ -10,8 +10,8 @@
       "librarian": { "model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
       "explorer": { "model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["find-skills"], "mcps": [] },
       "designer": { "model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": [] },
-      "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": [] },
-      "observer": { "model": "opencode-go/kimi-k2.6", "skills": ["docling"] }
+      "fixer": { "model": "opencode-go/mimo-v2.5-pro", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": [] },
+      "observer": { "model": "opencode-go/minimax-m3", "skills": ["docling"] }
     },
     "cheap": {
       "orchestrator": { "model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"] },
@@ -38,9 +38,9 @@
       "librarian": {"model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
       "explorer": {"model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["find-skills"], "mcps": []},
       "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design"], "mcps": []},
-      "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "devbox"], "mcps": []},
-      "observer": { "model": "opencode-go/kimi-k2.6", "skills": ["docling"] },
-      "council": { "model": "opencode-go/qwen3.7-plus", "variant": "high" }
+      "fixer": {"model": "opencode-go/mimo-v2.5-pro", "variant": "high", "skills": ["git-commit", "greploop", "devbox"], "mcps": []},
+      "observer": {"model": "opencode-go/minimax-m3", "skills": ["docling"]},
+      "council": {"model": "opencode-go/qwen3.7-plus", "variant": "high"}
     },
     "opencode-best-value-v2": {
       "orchestrator": {"model": "opencode-go/qwen3.7-plus", "skills": ["*"], "mcps": ["*"]},
@@ -49,7 +49,7 @@
       "explorer": {"model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["find-skills"], "mcps": []},
       "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design"], "mcps": []},
       "fixer": {"model": "opencode-go/mimo-v2.5-pro", "variant": "high", "skills": ["git-commit", "greploop", "devbox"], "mcps": []},
-      "observer": { "model": "opencode-go/kimi-k2.6", "skills": ["docling"] },
+      "observer": {"model": "opencode-go/minimax-m3", "skills": ["docling"]},
       "council": { "model": "opencode-go/qwen3.7-plus", "variant": "high" }
     },
     "opencode-best-value-alt": {
