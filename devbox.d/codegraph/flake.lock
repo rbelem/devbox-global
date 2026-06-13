@@ -12,7 +12,7 @@
       },
       "original": {
         "owner": "rbelem",
-        "ref": "v0.9.x-perl",
+        "ref": "v1.0.x-perl",
         "repo": "codegraph",
         "type": "github"
       }

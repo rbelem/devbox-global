@@ -3,19 +3,19 @@
   # upstream: colbymchenry/codegraph
   # fork-suffix: -perl
   #
-  # After bumping the version above, sync the v0.9.x-perl fork branch:
-  #   cd $(ghq root)/github.com/colbymchenry/codegraph
+  # After bumping the version above, sync the v1.0.x-perl fork branch:
+  #   cd $(ghq root)/github.com/rbelem/codegraph
   #   git fetch origin --tags
-  #   git checkout v0.9.x-perl
+  #   git checkout v1.0.x-perl
   #   git merge v<new-version>
   #   # Resolve conflicts if any:
   #   # - CHANGELOG.md: keep upstream entries + restore Perl entry at top
-  #   git push rbelem v0.9.x-perl
+  #   git push origin v1.0.x-perl
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     codegraph-src = {
-      url = "github:rbelem/codegraph/v0.9.x-perl";
+      url = "github:rbelem/codegraph/v1.0.x-perl";
       flake = false;
     };
   };

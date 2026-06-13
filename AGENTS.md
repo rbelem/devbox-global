@@ -164,7 +164,7 @@ modified independently), shows what the opposite direction would change.
 
 ### Fork perl branch maintenance
 
-**codegraph** (`rbelem/codegraph`, branch `v0.9.x-perl`) and **graphify**
+**codegraph** (`rbelem/codegraph`, branch `v1.0.x-perl`) and **graphify**
 (`rbelem/graphify`, branch `v8-perl`) are rbelem forks that add Perl extraction
 on top of upstream releases. After `update-flake --all` bumps their version
 strings, the perl branches must be updated to match:
