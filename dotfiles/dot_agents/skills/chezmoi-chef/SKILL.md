@@ -51,6 +51,16 @@ chezmoi edit ~/.bashrc          # Opens source file
 chezmoi edit --apply ~/.bashrc  # Auto-apply after save
 ```
 
+### Add/Update a Managed File
+
+```bash
+chezmoi add ~/.bashrc           # Adds file to management (auto-commits + pushes)
+chezmoi add ~/.config/some-file # Works for any path under home
+```
+
+`chezmoi add` reads the destination file and writes it into the source directory,
+then auto-commits and pushes to the git remote. No separate commit needed.
+
 ### Sync Changes
 
 ```bash
@@ -66,6 +76,30 @@ chezmoi git add .
 chezmoi git commit -m "update"
 chezmoi git push
 ```
+
+### Remote Push Rejected (Remote Has Newer Commits)
+
+```bash
+chezmoi git pull                # No --rebase flag (chezmoi doesn't pass it)
+chezmoi git push
+```
+
+`chezmoi git` passes all remaining args to git, but chezmoi intercepts its own
+flags first. `--rebase` is a chezmoi flag, not a git one — omit it.
+
+### Troubleshooting Sync
+
+```bash
+chezmoi status                  # Shows file status (MM = modified source + dest)
+chezmoi diff ~/.bashrc          # Compare source vs destination for one file
+chezmoi cat ~/.bashrc           # Show source content as rendered for destination
+chezmoi apply                   # Overwrite destination to match source
+```
+
+`chezmoi diff` semantics: `a/` = source state (chezmoi tracked), `b/` = destination
+state (live file). `-` lines would be removed from destination, `+` lines added —
+it shows what changes `chezmoi apply` would make. If the diff seems reversed, the
+source is stale and needs `chezmoi add ~/file` to pick up destination changes.
 
 ## Templating
 
