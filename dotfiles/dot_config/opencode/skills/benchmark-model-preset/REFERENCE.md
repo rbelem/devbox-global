@@ -1,49 +1,69 @@
 # Benchmark & Pricing Reference
 
-## DeepSWE Leaderboard (May 30, 2026)
+## DeepSWE Leaderboard (June 11, 2026)
 
 Coding agent benchmark — 113 tasks across TypeScript, Go, Python, JS, Rust.
 Run on mini-swe-agent for consistency. Higher Pass@1 = better.
+Source: https://deepswe.datacurve.ai/ — fetched via agent-browser.
 
-Sources: https://deepswe.datacurve.ai/
-
-| Rank | Model [effort] | Pass@1 | ±CI | Avg Cost | Avg Time | Out Tok |
+| Rank | Model | Pass@1 | ±CI | Avg Cost | Avg Time | Out Tok |
 |---|---|---|---|---|---|---|
-| 1 | gpt-5.5 [xhigh] | 70% | ±4% | $6.61 | 21m | 47k |
-| 2 | claude-opus-4.8 [max] | 58% | ±5% | $12.58 | 43m | 136k |
-| 3 | gpt-5.4 [xhigh] | 56% | ±5% | $4.38 | 27m | 71k |
+| 1 | gpt-5.5 [xhigh] | 70% | ±3% | $6.61 | 21m | 47k |
+| 2 | claude-opus-4.8 [max] | 58% | ±2% | $12.58 | 43m | 136k |
+| 3 | gpt-5.4 [xhigh] | 56% | ±2% | $4.38 | 27m | 71k |
 | 4 | claude-opus-4.7 [max] | 54% | ±5% | $18.19 | 39m | 103k |
-| 5 | claude-sonnet-4.6 [high] | 32% | ±4% | $5.52 | 42m | 76k |
+| 5 | claude-sonnet-4.6 [high] | 32% | ±2% | $5.52 | 42m | 76k |
 | 6 | gemini-3.5-flash [medium] | 28% | ±4% | $7.42 | 17m | 189k |
 | 7 | claude-opus-4.6 [max] | 28% | ±4% | $5.39 | 30m | 44k |
-| 8 | gpt-5.4-mini [xhigh] | 24% | ±4% | $2.08 | 33m | 135k |
-| 9 | **kimi-k2.6** | 24% | ±4% | **$3.16** | 56m | 84k |
-| 10 | **mimo-v2.5-pro** | 19% | ±4% | **$1.99** | 28m | 49k |
-| 11 | **glm-5.1** | 18% | ±4% | **$7.46** | 35m | 49k |
-| 12 | grok-build-0.1 | 13% | ±3% | $6.60 | 44m | 52k |
-| 13 | gemini-3.1-pro | 10% | ±3% | $1.84 | 36m | 53k |
-| 14 | **deepseek-v4-pro** | 8% | ±2% | **$4.22** | 37m | 50k |
-| 15 | gemini-3-flash | 5% | ±2% | $1.53 | 39m | 233k |
+| 8 | gpt-5.4-mini [xhigh] | 24% | ±3% | $2.08 | 33m | 135k |
+| 9 | **kimi-k2.6** | **24%** | ±2% | **$3.16** | 56m | 84k |
+| 10 | **minimax-m3** | **20%** | ±4% | **$5.57** | 57m | 98k |
+| 11 | **mimo-v2.5-pro** | **19%** | ±2% | **$1.99** | 28m | 49k |
+| 12 | **qwen3.7-max** | **18%** | ±1% | **$2.12** | 17m | 42k |
+| 13 | **glm-5.1** | 18% | ±1% | $7.46 | 35m | 49k |
+| 14 | grok-build-0.1 | 13% | ±2% | $6.60 | 44m | 52k |
+| 15 | gemini-3.1-pro | 10% | ±3% | $1.84 | 36m | 53k |
+| 16 | deepseek-v4-pro | 8% | ±3% | $4.22 | 37m | 50k |
+| 17 | gemini-3-flash | 5% | ±2% | $1.53 | 39m | 233k |
 
-Note: Page showed 15/18 models. 3 models hidden behind a dropdown filter.
+Note: Page showed 17/20 models. 3 models hidden behind a dropdown filter.
 
-### Missing opencode-go models — extrapolated estimates
+### Go Model DeepSWE Score Update (June 11)
 
-Models on Go plan not present on DeepSWE leaderboard.
+Three Go models now have official scores where they previously had estimates:
 
-| Model | Est Pass@1 | Rationale |
-|---|---|---|
-| **qwen3.7-max** | ~35-45% | AA Index 56.6, SWE-Pro 60.6% (independent). Strongest Go model |
-| **qwen3.6-plus** | ~30-40% | Similar tier to gpt-5.4-mini (24%). User bench: 100% acc on easier tasks |
-| **glm-5** | ~22-28% | Slightly ahead of glm-5.1 (18%), similar to kimi-k2.6 tier. **DEPRECATED May 14, 2026** |
-| **kimi-k2.5** | ~22-28% | Slightly behind k2.6 (24%) |
-| **kimi-k2.6** | 24% | Confirmed: DeepSWE 24%, SWE-rebench 46.5% |
-| **minimax-m3** | ~30-40% | SWE-Pro 59.0% (vendor-claimed, unverified). 1M ctx, multimodal. Released June 1, 2026 |
-| **mimo-v2.5-pro** | 19% | Confirmed: DeepSWE 19%. Limits increased 2.5x to 16.3K/mo |
-| **mimo-v2.5** | ~15-22% | Non-pro. Limits INCREASED 14x to 150K/mo. Great for high-volume cheap roles |
-| **minimax-m2.7** | ~12-18% | Fast, small — decent for light tasks |
-| **minimax-m2.5** | ~10-15% | Weaker than m2.7, also has API issues in user's test |
-| **deepseek-v4-flash** | ~8-12% | Reasoning model, but weaker than v4-pro (8%) on hard tasks |
+| Model | Old Est | Official Score | Change |
+|---|---|---|---|
+| **minimax-m3** | ~30-40% / 13.3%⁽¹⁾ | **20%±4%** | Lower than vendor claims, higher than independent run |
+| **qwen3.7-max** | ~35-45% | **18%±1%** | Significantly lower than AA Index would suggest |
+| **kimi-k2.6** | 24% | **24%±2%** | Confirmed ✅ |
+| **mimo-v2.5-pro** | 19% | **19%±2%** | Confirmed ✅ |
+| **glm-5.1** | 18% | **18%±1%** | Confirmed ✅ |
+
+⁽¹⁾ entrpi/bleysg independent run (Jun 2) scored 13.3%. Official leaderboard (Jun 11) scores 20%±4%.
+The difference may be due to updated mini-swe-agent configuration or different run parameters.
+
+**Implication:** qwen3.7-max underperforms on agentic coding (18% DeepSWE) vs its reasoning benchmarks (AA 56.6, SWE-Pro 60.6%). It's still the best Oracle model on Go due to reasoning strength, but not the best for agentic fixer/orchestrator roles.
+
+### Go Model DeepSWE Ranking
+
+1. **kimi-k2.6** — 24%±2%, $3.16 — #1 Go model for coding agents
+2. **minimax-m3** — 20%±4%, $5.57 — Strong multimodal, 1M ctx, but expensive per task
+3. **mimo-v2.5-pro** — 19%±2%, $1.99 — Best value: quality per dollar
+4. **qwen3.7-max** — 18%±1%, $2.12 — Best reasoning, weaker at agentic coding
+5. **glm-5.1** — 18%±1%, $7.46 — Overpriced for the score
+
+### Non-DeepSWE Benchmarks for Go Models
+
+| Model | AA Index | SWE-Pro | SWE-rebench | AI Coding Daily |
+|---|---|---|---|---|
+| qwen3.7-max | **56.6** | **60.6%** | N/A | N/A |
+| kimi-k2.6 | ~50 | ~50% | 46.5% | 14/20 |
+| minimax-m3 | N/A | 59.0%† | **45.6%** | 15/20 |
+| mimo-v2.5-pro | N/A | N/A | N/A | 13/20 |
+| glm-5.1 | ~50 | ~56% | 50.7% | 9/20 |
+
+† = Vendor-reported using Claude Code scaffolding. M3's SWE-rebench score (45.6%) uses the same harness as all models listed. M3 AI Coding Daily: 15/20 (tied Sonnet 4.6), but very slow (5:34 avg).
 
 ## SWE-rebench Leaderboard (May 15, 2026)
 
@@ -105,22 +125,26 @@ Based on independently verified benchmarks available:
 6. **DeepSeek V4 Pro** — DeepSWE 8%. Slow per user notes.
 7. **DeepSeek V4 Flash** — Est ~8-12%. Fast, cheap, high limits.
 
-## OpenCode Go Plan (June 1, 2026)
+## OpenCode Go Plan (June 13, 2026)
 
 $10/mo ($5 first month). Limits in request count per model.
-**NEW models:** MiniMax M3, Qwen3.7 Max. **REMOVED:** Qwen3.5 Plus. **DEPRECATED:** GLM-5.
+**NEW models:** MiniMax M3 (now 16K/mo, up from 7K), Qwen3.7 Max, Kimi K2.7 Code.
+**REMOVED:** Qwen3.5 Plus. **DEPRECATED:** GLM-5.
+**Major limit increases:** MiMo-V2.5 (+14×), MiMo-V2.5-Pro (+2.5×), MiniMax M3 (+2.3×), Qwen3.7 Plus (+32%).
 
 | Model | Req/5h | Req/week | Req/month |
 |---|---|---|---|
 | DeepSeek V4 Flash | 31,650 | 79,050 | 158,150 |
 | MiMo-V2.5 | 30,100 | 75,200 | 150,400 |
+| Qwen3.7 Plus | 4,300 | 10,800 | 21,600 |
 | MiniMax M2.5 | 6,300 | 15,900 | 31,800 |
 | MiniMax M2.7 | 3,400 | 8,500 | 17,000 |
 | DeepSeek V4 Pro | 3,450 | 8,550 | 17,150 |
 | MiMo-V2.5-Pro | 3,250 | 8,150 | 16,300 |
+| MiniMax M3 | 3,200 | 8,000 | 16,000 |
 | Qwen3.6 Plus | 3,300 | 8,200 | 16,300 |
+| Kimi K2.7 Code | 1,850 | 4,630 | 9,250 |
 | Kimi K2.5 | 1,850 | 4,630 | 9,250 |
-| MiniMax M3 | 1,400 | 3,500 | 7,000 |
 | GLM-5 | 1,150 | 2,880 | 5,750 |
 | Kimi K2.6 | 1,150 | 2,880 | 5,750 |
 | Qwen3.7 Max | 950 | 2,390 | 4,770 |
@@ -236,10 +260,11 @@ Top performers from the user's own codeneedle benchmark:
 
 ### New Models Available on Go (June 2026)
 
-| Model | Req/mo | Pricing I/O | Key Strength | Caveat |
+| Model | Req/mo (live) | Pricing I/O | Key Strength | Caveat |
 |---|---|---|---|---|
-| **Qwen3.7 Max** | 4,770 | $2.50/$7.50 | AA Index 56.6, SWE-Pro 60.6%, 1M ctx | Proprietary, lowest limit on Go |
-| **MiniMax M3** | 7,000 | $0.60/$2.40 | SWE-Pro 59.0%*, multimodal, 1M ctx | Unverified benchmarks, open weights pending |
+| **Qwen3.7 Max** | 4,770 | $2.50/$7.50 | AA Index 56.6, SWE-Pro 60.6%, 1M ctx | DeepSWE only 18% ±1% for agentic coding |
+| **MiniMax M3** | 16,000 | $0.60/$2.40 | DeepSWE 20%±4%, SWE-rebench 45.6%, multimodal, 1M ctx | Very slow (57m avg DeepSWE, 5:34 AI Coding) |
+| **Kimi K2.7 Code** | 9,250 | $0.95/$4.00 | New coding-focused Kimi variant | No independent benchmarks yet |
 
 ### Models Removed / Deprecated
 
@@ -250,18 +275,19 @@ Top performers from the user's own codeneedle benchmark:
 
 - **MiMo-V2.5** — limits INCREASED 14× (2,150→30,100/5h, 10,900→150,400/mo). Now the highest-volume Go model after DS-V4-Flash.
 - **MiMo-V2.5-Pro** — limits increased 2.5× (1,290→3,250/5h, 6,450→16,300/mo).
-- **Kimi K2.5** — now explicitly listed with new limits (1,850/5h, 9,250/mo).
-- **MiniMax M3** — added at 1,400/5h, 7,000/mo.
+- **MiniMax M3** — limits increased 2.3× (1,400→3,200/5h, 7,000→16,000/mo). Now viable for Observer role.
 - **Qwen3.7 Max** — added at 950/5h, 4,770/mo.
+- **Qwen3.7 Plus** — limits increased 32% (3,300→4,300/5h, 16,300→21,600/mo).
+- **Kimi K2.7 Code** — new model added at 1,850/5h, 9,250/mo.
 
 ### External Benchmarks & Reviews (June 2026)
 
 - **Artificial Analysis Intelligence Index v4.0** — Independent composite of 10 evaluations (agents, coding, general, science). Claude Opus 4.8 = 61.4 (top). Qwen3.7 Max = 56.6 (highest Chinese model). Source: artificialanalysis.ai
-- **DeepSWE** (datacurve.ai, May 30) — 113 contamination-free tasks. GPT-5.5 leads at 70%. Go models: kimi-k2.6 24%, mimo-v2.5-pro 19%, glm-5.1 18%.
-- **MiniMax M3 independent DeepSWE** (entrpi.github.io, Jun 2) — **13.3%** pass@1 strict (15/113). M3 sits below mimo-v2.5-pro (19%) and glm-5.1 (18%) on mini-swe-agent harness. Median 80k output tokens, 325 steps, $7.48/task — extremely token-hungry. Source: https://entrpi.github.io/misc/deep-swe-minimax-m3/
+- **DeepSWE** (datacurve.ai, Jun 11) — 113 contamination-free tasks. 17/20 models shown. GPT-5.5 leads at 70%. Go models: kimi-k2.6 24%, minimax-m3 20%, mimo-v2.5-pro 19%, qwen3.7-max 18%, glm-5.1 18%. Previously missing scores now confirmed. Source: agent-browser snapshot (this session).
+- **MiniMax M3 independent DeepSWE** (entrpi.github.io, Jun 2) — **13.3%** pass@1 strict (15/113). Official leaderboard (Jun 11) now shows 20%±4%, suggesting updated configuration. Median 80k output tokens, 325 steps, $7.48/task. M3 remains token-hungry even at 20%. Source: https://entrpi.github.io/misc/deep-swe-minimax-m3/
 - **AI Coding Daily** (aicodingdaily.com, Jun 2) — 14 models on 4 Laravel/React projects. MiniMax M3 scores **15/20** (#8, tied Sonnet 4.6). Very slow (5:34 avg). Simpler benchmark — doesn't stress long-horizon like DeepSWE. Source: https://aicodingdaily.com/article/llm-coding-leaderboard-may-15th-11-models-tested
 - **Kilo.ai Live Leaderboard** (kilo.ai/leaderboard) — Real token usage from 3M+ developers. MiniMax M3 at **47.6%** completion rate, $10.35/attempt. Live preference-based ranking, not controlled benchmark.
-- **SWE-rebench** (swe-rebench.com, May 15) — 110 problems, tool-use agentic eval. GLM-5.1 at 50.7%, Kimi K2.6 at 46.5%.
+- **SWE-rebench** (swe-rebench.com, fetched Jun 13) — 110 problems, tool-use agentic eval. Now includes MiniMax M3 at **45.6%** resolved rate. Go model ranking on SWE-rebench: GLM-5.1 50.7% > Kimi K2.6 46.5% > MiniMax M3 45.6%. Source: agent-browser snapshot (this session).
 - **Build Fast with AI June 2026 Leaderboard** — Comprehensive 10-model comparison across coding, agentic, reasoning, pricing. Rates Qwen3.7 Max as "rational alternative to Opus 4.8 at 1/6 price for agentic coding."
 
 ### Key Operational Findings
