@@ -18,15 +18,15 @@
       "oracle": { "model": "opencode-go/qwen3.7-plus", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": [] },
       "librarian": { "model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
       "explorer": { "model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["find-skills"], "mcps": [] },
-      "designer": { "model": "opencode-go/kimi-k2.5", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": [] },
+      "designer": { "model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": [] },
       "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": [] },
-      "observer": { "model": "opencode-go/kimi-k2.5", "skills": ["docling"] }
+      "observer": { "model": "opencode-go/minimax-m3", "skills": ["docling"] }
     },
     "quality": {
       "orchestrator": { "model": "opencode-go/mimo-v2.5-pro", "skills": ["*"], "mcps": ["*"] },
       "oracle": { "model": "opencode-go/mimo-v2.5-pro", "variant": "max", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": [] },
       "council": { "model": "opencode-go/qwen3.7-max", "variant": "high" },
-      "librarian": { "model": "opencode-go/minimax-m2.7", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
+      "librarian": { "model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"] },
       "explorer": { "model": "opencode-go/deepseek-v4-flash", "skills": ["find-skills"], "mcps": [] },
       "designer": { "model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": [] },
       "fixer": { "model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": [] },
@@ -70,7 +70,7 @@
       "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
       "fixer": {"model": "opencode-go/qwen3.7-max", "variant": "high", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
       "observer": { "model": "opencode-go/kimi-k2.6", "skills": ["docling"] },
-      "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" }
+      "council": { "model": "opencode-go/kimi-k2.6", "variant": "high" }
     },
     "opencode-kimi": {
       "orchestrator": {"model": "opencode-go/kimi-k2.6", "skills": ["*"], "mcps": ["*"]},
@@ -79,16 +79,17 @@
       "explorer": {"model": "opencode-go/kimi-k2.6", "variant": "low", "skills": ["find-skills"], "mcps": []},
       "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
       "fixer": { "model": "opencode-go/kimi-k2.6", "variant": "low", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
+      "observer": {"model": "opencode-go/minimax-m3", "skills": ["docling"]},
       "council": { "model": "opencode-go/kimi-k2.6" }
     },
     "opencode-deepseek-v4": {
-      "orchestrator": {"model": "opencode-go/deepseek-v4-pro", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "opencode-go/deepseek-v4-pro", "variant": "max", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
+      "orchestrator": {"model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "opencode-go/deepseek-v4-flash", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
       "librarian": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
       "explorer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": ["find-skills"], "mcps": []},
-      "designer": {"model": "opencode-go/deepseek-v4-flash", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
+      "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
       "fixer": {"model": "opencode-go/deepseek-v4-flash", "variant": "low", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
-      "council": { "model": "opencode-go/deepseek-v4-pro", "variant": "max" }
+      "council": { "model": "opencode-go/deepseek-v4-flash", "variant": "high" }
     },
     "opencode-m3-experimental": {
       "orchestrator": {"model": "opencode-go/minimax-m3", "skills": ["*"], "mcps": ["*"]},
@@ -101,13 +102,14 @@
       "council": { "model": "opencode-go/minimax-m3", "variant": "high" }
     },
     "opencode-free":{
-      "orchestrator": {"model": "opencode/minimax-m2.5-free", "skills": ["*"], "mcps": ["*"]},
-      "oracle": {"model": "opencode/minimax-m2.5-free", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
-      "librarian": {"model": "opencode/minimax-m2.5-free", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
-      "explorer": {"model": "opencode/minimax-m2.5-free", "variant": "low", "skills": ["find-skills"], "mcps": []},
-      "designer": {"model": "opencode/minimax-m2.5-free", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
-      "fixer": { "model": "opencode/minimax-m2.5-free", "variant": "low", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
-      "council": { "model": "opencode/minimax-m2.5-free" }
+      "orchestrator": {"model": "opencode/deepseek-v4-flash-free", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "opencode/deepseek-v4-flash-free", "variant": "high", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
+      "librarian": {"model": "opencode/mimo-v2.5-free", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode/mimo-v2.5-free", "variant": "low", "skills": ["find-skills"], "mcps": []},
+      "designer": {"model": "opencode/mimo-v2.5-free", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
+      "fixer": { "model": "opencode/deepseek-v4-flash-free", "variant": "low", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
+      "observer": {"model": "opencode/deepseek-v4-flash-free", "skills": ["docling"]},
+      "council": { "model": "opencode/deepseek-v4-flash-free" }
     },
 
 
@@ -118,6 +120,7 @@
       "explorer": {"model": "abacus/zai-org/glm-4.7", "variant": "low", "skills": ["find-skills"], "mcps": []},
       "designer": {"model": "abacus/gemini-3.1-pro-preview", "variant": "medium", "skills": ["agent-browser", "mobile-android-design", "web-design-guidelines"], "mcps": []},
       "fixer": {"model": "abacus/deepseek-ai/DeepSeek-V3.2", "variant": "low", "skills": ["git-commit", "greploop", "common-code-reviewer", "code-review-expert", "devbox"], "mcps": []},
+      "observer": {"model": "abacus/gemini-3.1-pro-preview", "skills": ["docling"]},
       "council": { "model": "abacus/kimi-k2.5" }
     }
   },
@@ -162,9 +165,9 @@
         "gamma": { "model": "opencode/gpt-5.5", "variant": "xhigh" }
       },
       "opencode-free": {
-        "alpha": { "model": "opencode/hy3-preview-free" },
-        "beta": { "model": "opencode/ling-2.6-flash-free" },
-        "gamma": { "model": "opencode/nemotron-3-super-free" }
+        "alpha": { "model": "opencode/deepseek-v4-flash-free" },
+        "beta": { "model": "opencode/mimo-v2.5-free" },
+        "gamma": { "model": "opencode/north-mini-code-free" }
       },
       "abacus-default": {
         "alpha": { "model": "abacus/claude-opus-4-6" },
