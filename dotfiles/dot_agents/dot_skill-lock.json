@@ -155,42 +155,6 @@
       "skillFolderHash": "841dd11d5ad9df23d8c6953965ab946dcee8ffe2",
       "installedAt": "2026-06-08T02:03:32.616Z",
       "updatedAt": "2026-06-08T02:03:32.616Z"
-    },
-    "static-analysis": {
-      "source": "mohitmishra786/low-level-dev-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mohitmishra786/low-level-dev-skills.git",
-      "skillPath": "skills/build-systems/static-analysis/SKILL.md",
-      "skillFolderHash": "dceffd9b8a4119cf7135ed50542e9b2d75a88539",
-      "installedAt": "2026-06-09T19:08:30.006Z",
-      "updatedAt": "2026-06-09T19:08:30.006Z"
-    },
-    "sanitizers": {
-      "source": "mohitmishra786/low-level-dev-skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mohitmishra786/low-level-dev-skills.git",
-      "skillPath": "skills/runtimes/sanitizers/SKILL.md",
-      "skillFolderHash": "bb3e43aa70561e1d4abb83896f7c184286f2420a",
-      "installedAt": "2026-06-09T19:09:06.889Z",
-      "updatedAt": "2026-06-09T19:09:06.889Z"
-    },
-    "cpp": {
-      "source": "poletron/custom-rules",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/poletron/custom-rules.git",
-      "skillPath": "packages/cli/.agent/skills/cpp/SKILL.md",
-      "skillFolderHash": "c1ab30dc6c64bb2da7a256d71ff35922099d79e9",
-      "installedAt": "2026-06-09T19:09:20.601Z",
-      "updatedAt": "2026-06-09T19:09:20.601Z"
-    },
-    "vulnerability-scanning": {
-      "source": "aj-geddes/useful-ai-prompts",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/aj-geddes/useful-ai-prompts.git",
-      "skillPath": "skills/vulnerability-scanning/SKILL.md",
-      "skillFolderHash": "36f69b9a0602996994e62bf9eb3ccf0bdbe348e9",
-      "installedAt": "2026-06-09T19:12:20.981Z",
-      "updatedAt": "2026-06-09T19:12:20.981Z"
     }
   },
   "dismissed": {
