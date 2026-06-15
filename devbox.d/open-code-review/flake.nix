@@ -16,14 +16,14 @@
         aarch64-darwin = "darwin-arm64";
       };
 
-      version = "1.3.9";
+      version = "1.3.10";
 
       # Set to pkgs.lib.fakeHash when updating, then run: devbox global update
       perArchSha256 = {
-        x86_64-linux   = "sha256-+zUXRyn0JoSDHZIkNoe0IeY1bYCmyrvyUo+SEpidoAs=";
-        aarch64-linux  = "sha256-KghNrrnWIbbPJ1FA0w/WjMcEHvxynGjCA9Ycl7gTn8k=";
-        x86_64-darwin  = "sha256-aN2Ek9BE0oRGKqQTG4LPwJKG/dXfWRj6ybPcppPuREU=";
-        aarch64-darwin = "sha256-lVvwDA3SWXRovTe5YdBEpAKBOMwo9cGif5cWvszE4lk=";
+        x86_64-linux   = "sha256-631hLBLtIvQIwZswprsQ0iVAJiZQkcvt5+VoiU+zi5w=";
+        aarch64-linux  = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        x86_64-darwin  = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        aarch64-darwin = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
       };
     in
     {
