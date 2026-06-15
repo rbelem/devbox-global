@@ -24,6 +24,19 @@
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
+          overlays = [
+            # tzlocal V5 test fails in sandbox: timezone offset mismatch
+            # (test expects UTC-4, sandbox has UTC).
+            (final: prev: {
+              python312 = prev.python312.override {
+                packageOverrides = self: super: {
+                  tzlocal = super.tzlocal.overridePythonAttrs (old: {
+                    doCheck = false;
+                  });
+                };
+              };
+            })
+          ];
         };
         pythonPackages = pkgs.python312Packages;
       in {
