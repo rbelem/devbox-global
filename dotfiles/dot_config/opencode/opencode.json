@@ -4,7 +4,8 @@
   "small_model": "opencode-go/deepseek-v4-flash",
   "experimental": {
     "background_subagents": true,
-    "disable_paste_summary": true
+    "disable_paste_summary": true,
+    "mcp_timeout": 30000
   },
   "mcp": {
     "context7": {
@@ -65,7 +66,7 @@
         "@brave/brave-search-mcp-server"
       ],
       "environment": {
-        "BRAVE_API_KEY": "${env:BRAVE_API_KEY}"
+        "BRAVE_API_KEY": "{env:BRAVE_API_KEY}"
       },
       "enabled": false
     },
@@ -102,7 +103,7 @@
     "lsp": "allow",
     "question": "allow",
     "skill": {
-      "*": "allow",
+      "*": "allow"
     },
     "todowrite": "allow",
     "webfetch": "allow",
@@ -127,5 +128,12 @@
       "disable": true
     }
   },
+  "compaction": {
+    "tail_turns": 15
+  },
+  "tool_output": {
+    "max_lines": 500
+  },
+  "formatter": true,
   "lsp": true
 }
