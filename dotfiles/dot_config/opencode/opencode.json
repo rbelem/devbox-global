@@ -52,11 +52,10 @@
     },
     "tmux": {
       "type": "local",
-      "command": [
-        "bunx",
-        "-y",
-        "tmux-mcp"
-      ]
+      "command": ["uvx", "libtmux-mcp"],
+      "environment": {
+        "LIBTMUX_SAFETY": "read+send"
+      }
     },
     "brave-search": {
       "type": "local",
