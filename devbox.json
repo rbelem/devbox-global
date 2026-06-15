@@ -68,6 +68,7 @@
     "path:devbox.d/aicommits",
     "path:devbox.d/beads",
     "path:devbox.d/skillspector",
+    "uv@latest",
     "xxd@latest",
     "file@latest",
   ],
