@@ -263,8 +263,10 @@ Top performers from the user's own codeneedle benchmark:
 | Model | Req/mo (live) | Pricing I/O | Key Strength | Caveat |
 |---|---|---|---|---|
 | **Qwen3.7 Max** | 4,770 | $2.50/$7.50 | AA Index 56.6, SWE-Pro 60.6%, 1M ctx | DeepSWE only 18% ±1% for agentic coding |
-| **MiniMax M3** | 16,000 | $0.60/$2.40 | DeepSWE 20%±4%, SWE-rebench 45.6%, multimodal, 1M ctx | Very slow (57m avg DeepSWE, 5:34 AI Coding) |
+| **MiniMax M3** | 16,000 | $0.30/$1.20† | DeepSWE 20%±4%, SWE-rebench 45.6%, multimodal, 1M ctx | Very slow (57m avg DeepSWE, 5:34 AI Coding) |
 | **Kimi K2.7 Code** | 9,250 | $0.95/$4.00 | New coding-focused Kimi variant | No independent benchmarks yet |
+
+† M3 Zen price dropped 50% from $0.60/$2.40 to $0.30/$1.20 (confirmed Jun 16 scrape). Go pricing unchanged.
 
 ### Models Removed / Deprecated
 
@@ -278,7 +280,7 @@ Top performers from the user's own codeneedle benchmark:
 - **MiniMax M3** — limits increased 2.3× (1,400→3,200/5h, 7,000→16,000/mo). Now viable for Observer role.
 - **Qwen3.7 Max** — added at 950/5h, 4,770/mo.
 - **Qwen3.7 Plus** — limits increased 32% (3,300→4,300/5h, 16,300→21,600/mo).
-- **Kimi K2.7 Code** — new model added at 1,850/5h, 9,250/mo.
+- **Kimi K2.7 Code** — new model added at 1,350/5h, 9,250/mo (live scrape Jun 16 shows 1,350, down from 1,850 in earlier docs).
 
 ### External Benchmarks & Reviews (June 2026)
 
@@ -289,6 +291,17 @@ Top performers from the user's own codeneedle benchmark:
 - **Kilo.ai Live Leaderboard** (kilo.ai/leaderboard) — Real token usage from 3M+ developers. MiniMax M3 at **47.6%** completion rate, $10.35/attempt. Live preference-based ranking, not controlled benchmark.
 - **SWE-rebench** (swe-rebench.com, fetched Jun 13) — 110 problems, tool-use agentic eval. Now includes MiniMax M3 at **45.6%** resolved rate. Go model ranking on SWE-rebench: GLM-5.1 50.7% > Kimi K2.6 46.5% > MiniMax M3 45.6%. Source: agent-browser snapshot (this session).
 - **Build Fast with AI June 2026 Leaderboard** — Comprehensive 10-model comparison across coding, agentic, reasoning, pricing. Rates Qwen3.7 Max as "rational alternative to Opus 4.8 at 1/6 price for agentic coding."
+
+### Fresh Data Delta (Jun 16 scrape vs REFERENCE)
+
+| Finding | REFERENCE.md (Jun 13) | Live Scrape (Jun 16) |
+|---|---|---|
+| Kimi K2.7 Code 5h limit | 1,850 | **1,350** ↓ |
+| MiniMax M3 Zen pricing | $0.60/$2.40 | **$0.30/$1.20** ↓ 50% |
+| DeepSeek V4 Pro Zen cached | $0.0145 | **$0.145** ↑ 10× |
+| Claude Fable 5 on Zen | Not listed | **New** ($10/$50) |
+| Claude Sonnet 4 status | Active | **Deprecated** (Jun 15) |
+| DeepSeek V4 Flash cached read | $0.03 | **$0.028** ↓ minor |
 
 ### Key Operational Findings
 
