@@ -3,11 +3,11 @@
     "graphify-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1781019260,
-        "narHash": "sha256-uG1ZuJ9wnuxragTbNIWVN5TzoVq3aDnz2NTp1b7iUx4=",
+        "lastModified": 1781622872,
+        "narHash": "sha256-B4/zBqcWLGMmQk56BIsxJmrTW5rBwGewL6zxCNycMwM=",
         "owner": "rbelem",
         "repo": "graphify",
-        "rev": "387742eb9cc82a8d1de70cd9460ecbffb039ab55",
+        "rev": "5c3d182c8f96e5d008b321a3296494a11ca1b3a8",
         "type": "github"
       },
       "original": {
@@ -19,11 +19,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1776548001,
-        "narHash": "sha256-ZSK0NL4a1BwVbbTBoSnWgbJy9HeZFXLYQizjb2DPF24=",
+        "lastModified": 1781074563,
+        "narHash": "sha256-md8WlXOlfnIeHeOScMTTHFyf2d6iaTwPl2apR5EQ3P4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b12141ef619e0a9c1c84dc8c684040326f27cdcc",
+        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
         "type": "github"
       },
       "original": {
