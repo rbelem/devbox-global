@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Fetch latest OpenCode pricing + benchmarks via agent-browser.
 # Requires: agent-browser (npm i -g agent-browser && agent-browser install)
-# Usage: ./fetch-pricing.sh [--go | --zen | --deepswe | --models | --all]
+# Usage: ./fetch-pricing.sh [--go | --zen | --deepswe | --models | --swe | --analysis | --arena | --all]
 # Output: agent-browser snapshots saved to ./out/
 
 set -euo pipefail
@@ -78,6 +78,31 @@ fetch_artificial_analysis() {
   echo "Done: artificial-analysis.txt"
 }
 
+fetch_arena() {
+  echo "=== LM Arena Agent: fetching agent leaderboard ==="
+  ab open "https://arena.ai/leaderboard/agent/" 2>/dev/null
+  ab wait --load networkidle 2>/dev/null
+  ab snapshot --compact --depth 20 > "$OUTDIR/arena-agent-snapshot.txt"
+  echo "Done: arena-agent-snapshot.txt (main table)"
+
+  # Also fetch methodology page
+  echo "=== LM Arena Agent: fetching methodology ==="
+  # Try clicking the "View Methodology" link
+  ab snapshot -i 2>/dev/null | grep -q "View Methodology" && {
+    ab click "$(ab snapshot -i | grep -o '@e[0-9]*.*View Methodology' | head -1 | grep -o '@e[0-9]*')" 2>/dev/null || true
+    ab wait --load networkidle 2>/dev/null
+    ab snapshot --compact --depth 15 > "$OUTDIR/arena-agent-methodology.txt"
+    echo "Done: arena-agent-methodology.txt"
+  } || echo "View Methodology link not found"
+}
+
+fetch_arena_no_browser() {
+  # For curl-based fetching (static page alternative)
+  echo "=== LM Arena Agent: fetching via curl (fallback) ==="
+  curl -sL "https://arena.ai/leaderboard/agent/" -o "$OUTDIR/arena-agent-raw.html"
+  echo "Done: arena-agent-raw.html (not recommended — JS-rendered table may be incomplete)"
+}
+
 ensure_chrome
 
 case "${1:---all}" in
@@ -87,6 +112,7 @@ case "${1:---all}" in
   --models)    fetch_models_dev ;;
   --swe)       fetch_swe_rebench ;;
   --analysis)  fetch_artificial_analysis ;;
+  --arena)     fetch_arena ;;
   --all|*)
     fetch_go
     fetch_zen
@@ -94,6 +120,7 @@ case "${1:---all}" in
     fetch_models_dev
     fetch_swe_rebench
     fetch_artificial_analysis
+    fetch_arena
     echo ""
     echo "=== All fetches complete ==="
     echo "Output in: $OUTDIR/"
