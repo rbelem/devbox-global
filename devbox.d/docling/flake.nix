@@ -4,14 +4,14 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     docling-src = {
-      url = "github:docling-project/docling/v2.102.2";
+      url = "github:docling-project/docling/v2.103.0";
       flake = false;
     };
   };
 
   outputs = { self, nixpkgs, docling-src }:
     let
-      version = "2.102.2";
+      version = "2.103.0";
 
       supportedSystems = [
         "x86_64-linux"
