@@ -135,6 +135,7 @@
     }
   },
   "council": {
+    "timeout": 600000,
     "default_preset": "opencode-go",
     "presets": {
       "opencode-go": {
