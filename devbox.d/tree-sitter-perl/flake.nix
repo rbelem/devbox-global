@@ -8,7 +8,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.1.2";
+      version = "1.1.3";
     in
     {
       packages = forAllSystems (system:
@@ -25,7 +25,7 @@
               owner = "tree-sitter-perl";
               repo = "tree-sitter-perl";
               rev = "v${version}";
-              hash = "sha256-n61EnZszV6odNssETF3SsY2f7ShHog5msNX5Ds8Ietk=";
+              hash = "sha256-jP9ALLfKtnaYaFgHXfqT+oDvRlIig9f3HZ8VfM2Rsrs=";
             };
 
             # The tag source doesn't include generated parser.c or Python bindings.
