@@ -87,6 +87,7 @@
     "codegraph": {
       "type": "local",
       "command": ["codegraph", "serve", "--mcp"],
+      "timeout": 600000,
       "enabled": true
     }
   },

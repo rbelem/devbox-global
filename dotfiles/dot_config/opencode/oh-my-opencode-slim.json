@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
   "disabled_agents": [],
-  "preset": "opencode-best-value-v4",
+  "preset": "opencode-best-value-v5",
   "presets": {
     "balanced": {
       "orchestrator": { "model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"] },
@@ -41,6 +41,16 @@
       "fixer": {"model": "opencode-go/mimo-v2.5-pro", "variant": "high", "skills": ["git-commit", "greploop", "devbox"], "mcps": []},
       "observer": {"model": "opencode-go/minimax-m3", "skills": ["docling"]},
       "council": {"model": "opencode-go/qwen3.7-plus", "variant": "high"}
+    },
+    "opencode-best-value-v5": {
+      "orchestrator": {"model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"]},
+      "oracle": {"model": "opencode-go/glm-5.2", "variant": "max", "skills": ["simplify", "grill-me", "caveman-review"], "mcps": []},
+      "librarian": {"model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["docling", "find-skills", "agent-browser"], "mcps": ["websearch","context7","grep_app"]},
+      "explorer": {"model": "opencode-go/mimo-v2.5", "variant": "low", "skills": ["find-skills"], "mcps": []},
+      "designer": {"model": "opencode-go/kimi-k2.6", "variant": "medium", "skills": ["agent-browser", "mobile-android-design"], "mcps": []},
+      "fixer": {"model": "opencode-go/kimi-k2.7-code", "variant": "high", "skills": ["git-commit", "greploop", "devbox"], "mcps": []},
+      "observer": {"model": "opencode-go/minimax-m3", "skills": ["docling"]},
+      "council": {"model": "opencode-go/glm-5.2", "variant": "max"}
     },
     "opencode-best-value-v4": {
       "orchestrator": {"model": "opencode-go/deepseek-v4-flash", "skills": ["*"], "mcps": ["*"]},
@@ -143,7 +153,8 @@
         "beta": { "model": "opencode-go/kimi-k2.6", "variant": "high" },
         "gamma": { "model": "opencode-go/mimo-v2.5-pro", "variant": "high" },
         "delta": { "model": "opencode-go/minimax-m3", "variant": "high" },
-        "epsilon": { "model": "opencode/gpt-5.5", "variant": "xhigh" }
+        "epsilon": { "model": "opencode/gpt-5.5", "variant": "xhigh" },
+        "zeta": { "model": "opencode-go/glm-5.2", "variant": "max" }
       },
       "enhanced": {
         "alpha": { "model": "opencode/gpt-5.5", "variant": "xhigh" },

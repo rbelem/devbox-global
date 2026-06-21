@@ -1,0 +1,686 @@
+- generic
+  - link "Skip to content" [ref=e1]
+  - banner
+    - link "OpenCode" [ref=e3]
+      - StaticText "OpenCode"
+    - link [ref=e4]
+    - link [ref=e5]
+    - button "Search" [ref=e6]
+      - generic
+        - StaticText "Ctrl"
+        - StaticText "K"
+  - navigation "Main" [ref=e2]
+    - list
+      - listitem [level=1]
+        - link "Intro" [ref=e236]
+      - listitem [level=1]
+        - link "Config" [ref=e237]
+      - listitem [level=1]
+        - link "Providers" [ref=e238]
+      - listitem [level=1]
+        - link "Network" [ref=e239]
+      - listitem [level=1]
+        - link "Enterprise" [ref=e240]
+      - listitem [level=1]
+        - link "Troubleshooting" [ref=e241]
+      - listitem [level=1]
+        - link "Windows" [ref=e242]
+      - listitem [level=1]
+        - group
+          - DisclosureTriangle "Usage" [expanded=true]
+            - StaticText "Usage"
+          - list
+            - listitem [level=2]
+              - link "Go" [ref=e268]
+            - listitem [level=2]
+              - link "TUI" [ref=e269]
+            - listitem [level=2]
+              - link "CLI" [ref=e270]
+            - listitem [level=2]
+              - link "Web" [ref=e271]
+            - listitem [level=2]
+              - link "IDE" [ref=e272]
+            - listitem [level=2]
+              - link "Zen" [ref=e273]
+            - listitem [level=2]
+              - link "Share" [ref=e274]
+            - listitem [level=2]
+              - link "GitHub" [ref=e275]
+            - listitem [level=2]
+              - link "GitLab" [ref=e276]
+      - listitem [level=1]
+        - group
+          - DisclosureTriangle "Configure" [expanded=true]
+            - StaticText "Configure"
+          - list
+            - listitem [level=2]
+              - link "Tools" [ref=e277]
+            - listitem [level=2]
+              - link "Rules" [ref=e278]
+            - listitem [level=2]
+              - link "Agents" [ref=e279]
+            - listitem [level=2]
+              - link "Models" [ref=e280]
+            - listitem [level=2]
+              - link "Themes" [ref=e281]
+            - listitem [level=2]
+              - link "Keybinds" [ref=e282]
+            - listitem [level=2]
+              - link "Commands" [ref=e283]
+            - listitem [level=2]
+              - link "Formatters" [ref=e284]
+            - listitem [level=2]
+              - link "Permissions" [ref=e285]
+            - listitem [level=2]
+              - link "Policies" [ref=e286]
+            - listitem [level=2]
+              - link "LSP Servers" [ref=e287]
+            - listitem [level=2]
+              - link "MCP servers" [ref=e288]
+            - listitem [level=2]
+              - link "ACP Support" [ref=e289]
+            - listitem [level=2]
+              - link "Agent Skills" [ref=e290]
+            - listitem [level=2]
+              - link "References" [ref=e291]
+            - listitem [level=2]
+              - link "Custom Tools" [ref=e292]
+      - listitem [level=1]
+        - group
+          - DisclosureTriangle "Develop" [expanded=true]
+            - StaticText "Develop"
+          - list
+            - listitem [level=2]
+              - link "SDK" [ref=e293]
+            - listitem [level=2]
+              - link "Server" [ref=e294]
+            - listitem [level=2]
+              - link "Plugins" [ref=e295]
+            - listitem [level=2]
+              - link "Ecosystem" [ref=e296]
+  - complementary
+    - generic
+      - navigation "On this page" [ref=e28]
+        - heading "On this page" [level=2, ref=e220]
+        - list
+          - listitem [level=1]
+            - link "Overview" [ref=e243]
+          - listitem [level=1]
+            - link "Background" [ref=e244]
+          - listitem [level=1]
+            - link "How it works" [ref=e245]
+          - listitem [level=1]
+            - link "Usage limits" [ref=e246]
+            - list
+              - listitem [level=2]
+                - link "Usage beyond limits" [ref=e297]
+          - listitem [level=1]
+            - link "Endpoints" [ref=e247]
+            - list
+              - listitem [level=2]
+                - link "Models" [ref=e298]
+          - listitem [level=1]
+            - link "Privacy" [ref=e248]
+          - listitem [level=1]
+            - link "Goals" [ref=e249]
+  - main
+    - heading "Go" [level=1, ref=e7]
+    - paragraph
+      - StaticText "Low cost subscription for open coding models."
+    - paragraph
+      - StaticText "OpenCode Go is a low cost subscription — "
+      - strong
+        - StaticText "$5 for your first month"
+      - StaticText ", then "
+      - strong
+        - StaticText "$10/month"
+      - StaticText " — that gives you reliable access to popular open coding models."
+    - paragraph
+      - StaticText "Go works like any other provider in OpenCode. You subscribe to OpenCode Go and get your API key. It’s "
+      - strong
+        - StaticText "completely optional"
+      - StaticText " and you don’t need to use it to use OpenCode."
+    - paragraph
+      - StaticText "It is designed primarily for international users, with models hosted in the US, EU, and Singapore for stable global access."
+    - separator
+    - heading "Background" [level=2, ref=e8]
+      - link "Background" [ref=e16]
+    - paragraph
+      - StaticText "Open models have gotten really good. They now reach performance close to proprietary models for coding tasks. And because many providers can serve them competitively, they are usually far cheaper."
+    - paragraph
+      - StaticText "However, getting reliable, low latency access to them can be difficult. Providers vary in quality and availability."
+    - complementary "Tip"
+      - paragraph
+        - StaticText "We tested a select group of models and providers that work well with OpenCode."
+    - paragraph
+      - StaticText "To fix this, we did a couple of things:"
+    - list
+      - listitem [level=1]
+        - StaticText "We tested a select group of open models and talked to their teams about how to best run them."
+      - listitem [level=1]
+        - StaticText "We then worked with a few providers to make sure these were being served correctly."
+      - listitem [level=1]
+        - StaticText "Finally, we benchmarked the combination of the model/provider and came up with a list that we feel good recommending."
+    - paragraph
+      - StaticText "OpenCode Go gives you access to these models for "
+      - strong
+        - StaticText "$5 for your first month"
+      - StaticText ", then "
+      - strong
+        - StaticText "$10/month"
+      - StaticText "."
+    - separator
+    - heading "How it works" [level=2, ref=e9]
+      - link "How it works" [ref=e17]
+    - paragraph
+      - StaticText "OpenCode Go works like any other provider in OpenCode."
+    - list
+      - listitem [level=1]
+        - StaticText "You sign in to "
+        - strong
+          - link "OpenCode Zen" [ref=e221]
+        - StaticText ", subscribe to Go, and copy your API key."
+      - listitem [level=1]
+        - StaticText "You run the "
+        - code
+          - StaticText "`"
+          - StaticText "/connect"
+          - StaticText "`"
+        - StaticText " command in the TUI, select "
+        - code
+          - StaticText "`"
+          - StaticText "OpenCode Go"
+          - StaticText "`"
+        - StaticText ", and paste your API key."
+      - listitem [level=1]
+        - StaticText "Run "
+        - code
+          - StaticText "`"
+          - StaticText "/models"
+          - StaticText "`"
+        - StaticText " in the TUI to see the list of models available through Go."
+    - complementary "Note"
+      - paragraph
+        - StaticText "Only one member per workspace can subscribe to OpenCode Go."
+    - paragraph
+      - StaticText "The current list of models includes:"
+    - list
+      - listitem [level=1]
+        - strong
+          - StaticText "GLM-5.1"
+      - listitem [level=1]
+        - strong
+          - StaticText "GLM-5"
+      - listitem [level=1]
+        - strong
+          - StaticText "Kimi K2.7 Code"
+      - listitem [level=1]
+        - strong
+          - StaticText "Kimi K2.6"
+      - listitem [level=1]
+        - strong
+          - StaticText "MiMo-V2.5"
+      - listitem [level=1]
+        - strong
+          - StaticText "MiMo-V2.5-Pro"
+      - listitem [level=1]
+        - strong
+          - StaticText "MiniMax M3"
+      - listitem [level=1]
+        - strong
+          - StaticText "MiniMax M2.7"
+      - listitem [level=1]
+        - strong
+          - StaticText "Qwen3.7 Max"
+      - listitem [level=1]
+        - strong
+          - StaticText "Qwen3.7 Plus"
+      - listitem [level=1]
+        - strong
+          - StaticText "Qwen3.6 Plus"
+      - listitem [level=1]
+        - strong
+          - StaticText "DeepSeek V4 Pro"
+      - listitem [level=1]
+        - strong
+          - StaticText "DeepSeek V4 Flash"
+    - paragraph
+      - StaticText "The list of models may change as we test and add new ones."
+    - separator
+    - heading "Usage limits" [level=2, ref=e10]
+      - link "Usage limits" [ref=e18]
+    - paragraph
+      - StaticText "OpenCode Go includes the following limits:"
+    - list
+      - listitem [level=1]
+        - strong
+          - StaticText "5 hour limit"
+        - StaticText " — $12 of usage"
+      - listitem [level=1]
+        - strong
+          - StaticText "Weekly limit"
+        - StaticText " — $30 of usage"
+      - listitem [level=1]
+        - strong
+          - StaticText "Monthly limit"
+        - StaticText " — $60 of usage"
+    - paragraph
+      - StaticText "Limits are defined in dollar value. This means your actual request count depends on the model you use. Cheaper models like DeepSeek V4 Flash allow for more requests, while higher-cost models like GLM-5.1 allow for fewer."
+    - paragraph
+      - StaticText "The table below provides an estimated request count based on typical Go usage patterns:"
+    - table
+      - rowgroup
+        - row
+          - columnheader "MODEL" [ref=e222]
+          - columnheader "REQUESTS PER 5 HOUR" [ref=e223]
+          - columnheader "REQUESTS PER WEEK" [ref=e224]
+          - columnheader "REQUESTS PER MONTH" [ref=e225]
+      - row
+        - cell "GLM-5.1" [ref=e29]
+        - cell "880" [ref=e30]
+        - cell "2,150" [ref=e31]
+        - cell "4,300" [ref=e32]
+      - row
+        - cell "GLM-5" [ref=e33]
+        - cell "1,150" [ref=e34]
+        - cell "2,880" [ref=e35]
+        - cell "5,750" [ref=e36]
+      - row
+        - cell "Kimi K2.6" [ref=e37]
+        - cell "1,150" [ref=e38]
+        - cell "2,880" [ref=e39]
+        - cell "5,750" [ref=e40]
+      - row
+        - cell "Kimi K2.7 Code" [ref=e41]
+        - cell "1,350" [ref=e42]
+        - cell "4,630" [ref=e43]
+        - cell "9,250" [ref=e44]
+      - row
+        - cell "MiMo-V2.5" [ref=e45]
+        - cell "30,100" [ref=e46]
+        - cell "75,200" [ref=e47]
+        - cell "150,400" [ref=e48]
+      - row
+        - cell "MiMo-V2.5-Pro" [ref=e49]
+        - cell "3,250" [ref=e50]
+        - cell "8,150" [ref=e51]
+        - cell "16,300" [ref=e52]
+      - row
+        - cell "MiniMax M3" [ref=e53]
+        - cell "3,200" [ref=e54]
+        - cell "8,000" [ref=e55]
+        - cell "16,000" [ref=e56]
+      - row
+        - cell "MiniMax M2.7" [ref=e57]
+        - cell "3,400" [ref=e58]
+        - cell "8,500" [ref=e59]
+        - cell "17,000" [ref=e60]
+      - row
+        - cell "Qwen3.7 Max" [ref=e61]
+        - cell "950" [ref=e62]
+        - cell "2,390" [ref=e63]
+        - cell "4,770" [ref=e64]
+      - row
+        - cell "Qwen3.7 Plus" [ref=e65]
+        - cell "4,300" [ref=e66]
+        - cell "10,800" [ref=e67]
+        - cell "21,600" [ref=e68]
+      - row
+        - cell "Qwen3.6 Plus" [ref=e69]
+        - cell "3,300" [ref=e70]
+        - cell "8,200" [ref=e71]
+        - cell "16,300" [ref=e72]
+      - row
+        - cell "DeepSeek V4 Pro" [ref=e73]
+        - cell "3,450" [ref=e74]
+        - cell "8,550" [ref=e75]
+        - cell "17,150" [ref=e76]
+      - row
+        - cell "DeepSeek V4 Flash" [ref=e77]
+        - cell "31,650" [ref=e78]
+        - cell "79,050" [ref=e79]
+        - cell "158,150" [ref=e80]
+    - paragraph
+      - StaticText "The estimates are based on observed average request patterns:"
+    - list
+      - listitem [level=1]
+        - StaticText "GLM-5/5.1 — 700 input, 52,000 cached, 150 output tokens per request"
+      - listitem [level=1]
+        - StaticText "Kimi K2.7/K2.6 — 870 input, 55,000 cached, 200 output tokens per request"
+      - listitem [level=1]
+        - StaticText "DeepSeek V4 Pro — 750 input, 82,000 cached, 290 output tokens per request"
+      - listitem [level=1]
+        - StaticText "DeepSeek V4 Flash — 790 input, 68,000 cached, 280 output tokens per request"
+      - listitem [level=1]
+        - StaticText "MiniMax M3 — 510 input, 56,000 cached, 190 output tokens per request"
+      - listitem [level=1]
+        - StaticText "MiniMax M2.7 — 300 input, 55,000 cached, 125 output tokens per request"
+      - listitem [level=1]
+        - StaticText "MiMo-V2.5 — 830 input, 71,500 cached, 295 output tokens per request"
+      - listitem [level=1]
+        - StaticText "MiMo-V2.5-Pro — 790 input, 86,000 cached, 305 output tokens per request"
+      - listitem [level=1]
+        - StaticText "Qwen3.7 Max — 420 input, 66,000 cached, 200 output tokens per request"
+      - listitem [level=1]
+        - StaticText "Qwen3.7 Plus — 500 input, 57,000 cached, 190 output tokens per request"
+      - listitem [level=1]
+        - StaticText "Qwen3.6 Plus — 500 input, 57,000 cached, 190 output tokens per request"
+    - paragraph
+      - StaticText "The estimates are also based on the following prices per 1M tokens:"
+    - table
+      - rowgroup
+        - row
+          - columnheader "MODEL" [ref=e226]
+          - columnheader "INPUT" [ref=e227]
+          - columnheader "OUTPUT" [ref=e228]
+          - columnheader "CACHED READ" [ref=e229]
+          - columnheader "CACHED WRITE" [ref=e230]
+      - row
+        - cell "GLM-5.1" [ref=e81]
+        - cell "$1.40" [ref=e82]
+        - cell "$4.40" [ref=e83]
+        - cell "$0.26" [ref=e84]
+        - cell "-" [ref=e85]
+      - row
+        - cell "GLM-5" [ref=e86]
+        - cell "$1.00" [ref=e87]
+        - cell "$3.20" [ref=e88]
+        - cell "$0.20" [ref=e89]
+        - cell "-" [ref=e90]
+      - row
+        - cell "Kimi K2.7 Code" [ref=e91]
+        - cell "$0.95" [ref=e92]
+        - cell "$4.00" [ref=e93]
+        - cell "$0.19" [ref=e94]
+        - cell "-" [ref=e95]
+      - row
+        - cell "Kimi K2.6" [ref=e96]
+        - cell "$0.95" [ref=e97]
+        - cell "$4.00" [ref=e98]
+        - cell "$0.16" [ref=e99]
+        - cell "-" [ref=e100]
+      - row
+        - cell "MiMo V2.5" [ref=e101]
+        - cell "$0.14" [ref=e102]
+        - cell "$0.28" [ref=e103]
+        - cell "$0.0028" [ref=e104]
+        - cell "-" [ref=e105]
+      - row
+        - cell "MiMo V2.5 Pro" [ref=e106]
+        - cell "$1.74" [ref=e107]
+        - cell "$3.48" [ref=e108]
+        - cell "$0.0145" [ref=e109]
+        - cell "-" [ref=e110]
+      - row
+        - cell "MiniMax M3" [ref=e111]
+        - cell "$0.30" [ref=e112]
+        - cell "$1.20" [ref=e113]
+        - cell "$0.06" [ref=e114]
+        - cell "-" [ref=e115]
+      - row
+        - cell "MiniMax M2.7" [ref=e116]
+        - cell "$0.30" [ref=e117]
+        - cell "$1.20" [ref=e118]
+        - cell "$0.06" [ref=e119]
+        - cell "$0.375" [ref=e120]
+      - row
+        - cell "MiniMax M2.5" [ref=e121]
+        - cell "$0.30" [ref=e122]
+        - cell "$1.20" [ref=e123]
+        - cell "$0.06" [ref=e124]
+        - cell "$0.375" [ref=e125]
+      - row
+        - cell "Qwen3.7 Max" [ref=e126]
+        - cell "$2.50" [ref=e127]
+        - cell "$7.50" [ref=e128]
+        - cell "$0.50" [ref=e129]
+        - cell "$3.125" [ref=e130]
+      - row
+        - cell "Qwen3.7 Plus (≤ 256K tokens)" [ref=e131]
+        - cell "$0.40" [ref=e132]
+        - cell "$1.60" [ref=e133]
+        - cell "$0.04" [ref=e134]
+        - cell "$0.50" [ref=e135]
+      - row
+        - cell "Qwen3.7 Plus (> 256K tokens)" [ref=e136]
+        - cell "$1.20" [ref=e137]
+        - cell "$4.80" [ref=e138]
+        - cell "$0.12" [ref=e139]
+        - cell "$1.50" [ref=e140]
+      - row
+        - cell "Qwen3.6 Plus (≤ 256K tokens)" [ref=e141]
+        - cell "$0.50" [ref=e142]
+        - cell "$3.00" [ref=e143]
+        - cell "$0.05" [ref=e144]
+        - cell "$0.625" [ref=e145]
+      - row
+        - cell "Qwen3.6 Plus (> 256K tokens)" [ref=e146]
+        - cell "$2.00" [ref=e147]
+        - cell "$6.00" [ref=e148]
+        - cell "$0.20" [ref=e149]
+        - cell "$2.50" [ref=e150]
+      - row
+        - cell "DeepSeek V4 Pro" [ref=e151]
+        - cell "$1.74" [ref=e152]
+        - cell "$3.48" [ref=e153]
+        - cell "$0.0145" [ref=e154]
+        - cell "-" [ref=e155]
+      - row
+        - cell "DeepSeek V4 Flash" [ref=e156]
+        - cell "$0.14" [ref=e157]
+        - cell "$0.28" [ref=e158]
+        - cell "$0.0028" [ref=e159]
+        - cell "-" [ref=e160]
+    - paragraph
+      - StaticText "You can track your current usage in the "
+      - strong
+        - link "console" [ref=e161]
+      - StaticText "."
+    - complementary "Tip"
+      - paragraph
+        - StaticText "If you reach the usage limit, you can continue using the free models."
+    - paragraph
+      - StaticText "Usage limits may change as we learn from early usage and feedback."
+    - separator
+    - heading "Usage beyond limits" [level=3, ref=e11]
+      - link "Usage beyond limits" [ref=e19]
+    - paragraph
+      - StaticText "If you also have credits on your Zen balance, you can enable the "
+      - strong
+        - StaticText "Use balance"
+      - StaticText " option in the console. When enabled, Go will fall back to your Zen balance after you’ve reached your usage limits instead of blocking requests."
+    - separator
+    - heading "Endpoints" [level=2, ref=e12]
+      - link "Endpoints" [ref=e20]
+    - paragraph
+      - StaticText "You can also access Go models through the following API endpoints."
+    - table
+      - rowgroup
+        - row
+          - columnheader "MODEL" [ref=e231]
+          - columnheader "MODEL ID" [ref=e232]
+          - columnheader "ENDPOINT" [ref=e233]
+          - columnheader "AI SDK PACKAGE" [ref=e234]
+      - row
+        - cell "GLM-5.1" [ref=e162]
+        - cell "glm-5.1" [ref=e163]
+        - cell "`https://opencode.ai/zen/go/v1/chat/completions`" [ref=e164]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e165]
+          - code
+      - row
+        - cell "GLM-5" [ref=e166]
+        - cell "glm-5" [ref=e167]
+        - cell "`https://opencode.ai/zen/go/v1/chat/completions`" [ref=e168]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e169]
+          - code
+      - row
+        - cell "Kimi K2.7" [ref=e170]
+        - cell "kimi-k2.7" [ref=e171]
+        - cell "`https://opencode.ai/zen/go/v1/chat/completions`" [ref=e172]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e173]
+          - code
+      - row
+        - cell "Kimi K2.6" [ref=e174]
+        - cell "kimi-k2.6" [ref=e175]
+        - cell "`https://opencode.ai/zen/go/v1/chat/completions`" [ref=e176]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e177]
+          - code
+      - row
+        - cell "DeepSeek V4 Pro" [ref=e178]
+        - cell "deepseek-v4-pro" [ref=e179]
+        - cell "`https://opencode.ai/zen/go/v1/chat/completions`" [ref=e180]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e181]
+          - code
+      - row
+        - cell "DeepSeek V4 Flash" [ref=e182]
+        - cell "deepseek-v4-flash" [ref=e183]
+        - cell "`https://opencode.ai/zen/go/v1/chat/completions`" [ref=e184]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e185]
+          - code
+      - row
+        - cell "MiMo-V2.5" [ref=e186]
+        - cell "mimo-v2.5" [ref=e187]
+        - cell "`https://opencode.ai/zen/go/v1/chat/completions`" [ref=e188]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e189]
+          - code
+      - row
+        - cell "MiMo-V2.5-Pro" [ref=e190]
+        - cell "mimo-v2.5-pro" [ref=e191]
+        - cell "`https://opencode.ai/zen/go/v1/chat/completions`" [ref=e192]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e193]
+          - code
+      - row
+        - cell "MiniMax M3" [ref=e194]
+        - cell "minimax-m3" [ref=e195]
+        - cell "`https://opencode.ai/zen/go/v1/messages`" [ref=e196]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e197]
+          - code
+      - row
+        - cell "MiniMax M2.7" [ref=e198]
+        - cell "minimax-m2.7" [ref=e199]
+        - cell "`https://opencode.ai/zen/go/v1/messages`" [ref=e200]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e201]
+          - code
+      - row
+        - cell "MiniMax M2.5" [ref=e202]
+        - cell "minimax-m2.5" [ref=e203]
+        - cell "`https://opencode.ai/zen/go/v1/messages`" [ref=e204]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e205]
+          - code
+      - row
+        - cell "Qwen3.7 Max" [ref=e206]
+        - cell "qwen3.7-max" [ref=e207]
+        - cell "`https://opencode.ai/zen/go/v1/messages`" [ref=e208]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e209]
+          - code
+      - row
+        - cell "Qwen3.7 Plus" [ref=e210]
+        - cell "qwen3.7-plus" [ref=e211]
+        - cell "`https://opencode.ai/zen/go/v1/messages`" [ref=e212]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e213]
+          - code
+      - row
+        - cell "Qwen3.6 Plus" [ref=e214]
+        - cell "qwen3.6-plus" [ref=e215]
+        - cell "`https://opencode.ai/zen/go/v1/messages`" [ref=e216]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e217]
+          - code
+    - paragraph
+      - StaticText "The "
+      - link "model id" [ref=e21]
+      - StaticText " in your OpenCode config uses the format "
+      - code
+        - StaticText "`"
+        - StaticText "opencode-go/<model-id>"
+        - StaticText "`"
+      - StaticText ". For example, for Kimi K2.7 Code, you would use "
+      - code
+        - StaticText "`"
+        - StaticText "opencode-go/kimi-k2.7-code"
+        - StaticText "`"
+      - StaticText " in your config."
+    - separator
+    - heading "Models" [level=3, ref=e13]
+      - link "Models" [ref=e22]
+    - paragraph
+      - StaticText "You can fetch the full list of available models and their metadata from:"
+    - figure
+      - code
+        - StaticText "https://opencode.ai/zen/go/v1/models"
+      - generic
+        - button "Copy to clipboard" [ref=e218]
+    - separator
+    - heading "Privacy" [level=2, ref=e14]
+      - link "Privacy" [ref=e23]
+    - paragraph
+      - StaticText "The plan is designed primarily for international users, with models hosted in the US, EU, and Singapore for stable global access. Our providers follow a zero-retention policy and do not use your data for model training."
+    - separator
+    - heading "Goals" [level=2, ref=e15]
+      - link "Goals" [ref=e24]
+    - paragraph
+      - StaticText "We created OpenCode Go to:"
+    - list
+      - listitem [level=1]
+        - StaticText "Make AI coding "
+        - strong
+          - StaticText "accessible"
+        - StaticText " to more people with a low cost subscription."
+      - listitem [level=1]
+        - StaticText "Provide "
+        - strong
+          - StaticText "reliable"
+        - StaticText " access to the best open coding models."
+      - listitem [level=1]
+        - StaticText "Curate models that are "
+        - strong
+          - StaticText "tested and benchmarked"
+        - StaticText " for coding agent use."
+      - listitem [level=1]
+        - StaticText "Have "
+        - strong
+          - StaticText "no lock-in"
+        - StaticText " by allowing you to use any other provider with OpenCode as well."
+    - sectionfooter
+      - link "Edit page" [ref=e25]
+      - link "Found a bug? Open an issue" [ref=e26]
+      - link "Join our Discord community" [ref=e27]
+      - LabelText
+        - StaticText "Select language"
+        - combobox "Select language" [expanded=false, ref=e235]: English
+          - MenuListPopup
+            - option "English" [selected, ref=e250]
+            - option "العربية" [ref=e251]
+            - option "Bosanski" [ref=e252]
+            - option "Dansk" [ref=e253]
+            - option "Deutsch" [ref=e254]
+            - option "Español" [ref=e255]
+            - option "Français" [ref=e256]
+            - option "Italiano" [ref=e257]
+            - option "日本語" [ref=e258]
+            - option "한국어" [ref=e259]
+            - option "Norsk Bokmål" [ref=e260]
+            - option "Polski" [ref=e261]
+            - option "Português (Brasil)" [ref=e262]
+            - option "Русский" [ref=e263]
+            - option "ไทย" [ref=e264]
+            - option "Türkçe" [ref=e265]
+            - option "简体中文" [ref=e266]
+            - option "繁體中文" [ref=e267]
+      - paragraph
+        - link "Anomaly" [ref=e219]
+      - paragraph
+        - StaticText "Last updated: "

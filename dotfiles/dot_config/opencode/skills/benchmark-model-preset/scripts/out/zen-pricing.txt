@@ -1,0 +1,1128 @@
+- generic
+  - link "Skip to content" [ref=e1]
+  - banner
+    - link "OpenCode" [ref=e3]
+      - StaticText "OpenCode"
+    - link [ref=e4]
+    - link [ref=e5]
+    - button "Search" [ref=e6]
+      - generic
+        - StaticText "Ctrl"
+        - StaticText "K"
+  - navigation "Main" [ref=e2]
+    - list
+      - listitem [level=1]
+        - link "Intro" [ref=e554]
+      - listitem [level=1]
+        - link "Config" [ref=e555]
+      - listitem [level=1]
+        - link "Providers" [ref=e556]
+      - listitem [level=1]
+        - link "Network" [ref=e557]
+      - listitem [level=1]
+        - link "Enterprise" [ref=e558]
+      - listitem [level=1]
+        - link "Troubleshooting" [ref=e559]
+      - listitem [level=1]
+        - link "Windows" [ref=e560]
+      - listitem [level=1]
+        - group
+          - DisclosureTriangle "Usage" [expanded=true]
+            - StaticText "Usage"
+          - list
+            - listitem [level=2]
+              - link "Go" [ref=e587]
+            - listitem [level=2]
+              - link "TUI" [ref=e588]
+            - listitem [level=2]
+              - link "CLI" [ref=e589]
+            - listitem [level=2]
+              - link "Web" [ref=e590]
+            - listitem [level=2]
+              - link "IDE" [ref=e591]
+            - listitem [level=2]
+              - link "Zen" [ref=e592]
+            - listitem [level=2]
+              - link "Share" [ref=e593]
+            - listitem [level=2]
+              - link "GitHub" [ref=e594]
+            - listitem [level=2]
+              - link "GitLab" [ref=e595]
+      - listitem [level=1]
+        - group
+          - DisclosureTriangle "Configure" [expanded=true]
+            - StaticText "Configure"
+          - list
+            - listitem [level=2]
+              - link "Tools" [ref=e596]
+            - listitem [level=2]
+              - link "Rules" [ref=e597]
+            - listitem [level=2]
+              - link "Agents" [ref=e598]
+            - listitem [level=2]
+              - link "Models" [ref=e599]
+            - listitem [level=2]
+              - link "Themes" [ref=e600]
+            - listitem [level=2]
+              - link "Keybinds" [ref=e601]
+            - listitem [level=2]
+              - link "Commands" [ref=e602]
+            - listitem [level=2]
+              - link "Formatters" [ref=e603]
+            - listitem [level=2]
+              - link "Permissions" [ref=e604]
+            - listitem [level=2]
+              - link "Policies" [ref=e605]
+            - listitem [level=2]
+              - link "LSP Servers" [ref=e606]
+            - listitem [level=2]
+              - link "MCP servers" [ref=e607]
+            - listitem [level=2]
+              - link "ACP Support" [ref=e608]
+            - listitem [level=2]
+              - link "Agent Skills" [ref=e609]
+            - listitem [level=2]
+              - link "References" [ref=e610]
+            - listitem [level=2]
+              - link "Custom Tools" [ref=e611]
+      - listitem [level=1]
+        - group
+          - DisclosureTriangle "Develop" [expanded=true]
+            - StaticText "Develop"
+          - list
+            - listitem [level=2]
+              - link "SDK" [ref=e612]
+            - listitem [level=2]
+              - link "Server" [ref=e613]
+            - listitem [level=2]
+              - link "Plugins" [ref=e614]
+            - listitem [level=2]
+              - link "Ecosystem" [ref=e615]
+  - complementary
+    - generic
+      - navigation "On this page" [ref=e42]
+        - heading "On this page" [level=2, ref=e540]
+        - list
+          - listitem [level=1]
+            - link "Overview" [ref=e561]
+          - listitem [level=1]
+            - link "Background" [ref=e562]
+          - listitem [level=1]
+            - link "How it works" [ref=e563]
+          - listitem [level=1]
+            - link "Endpoints" [ref=e564]
+            - list
+              - listitem [level=2]
+                - link "Models" [ref=e616]
+          - listitem [level=1]
+            - link "Pricing" [ref=e565]
+            - list
+              - listitem [level=2]
+                - link "Auto-reload" [ref=e617]
+              - listitem [level=2]
+                - link "Monthly limits" [ref=e618]
+              - listitem [level=2]
+                - link "Deprecated models" [ref=e619]
+          - listitem [level=1]
+            - link "Privacy" [ref=e566]
+          - listitem [level=1]
+            - link "For Teams" [ref=e567]
+            - list
+              - listitem [level=2]
+                - link "Roles" [ref=e620]
+              - listitem [level=2]
+                - link "Model access" [ref=e621]
+              - listitem [level=2]
+                - link "Bring your own key" [ref=e622]
+          - listitem [level=1]
+            - link "Goals" [ref=e568]
+  - main
+    - heading "Zen" [level=1, ref=e7]
+    - paragraph
+      - StaticText "Curated list of models provided by OpenCode."
+    - paragraph
+      - StaticText "OpenCode Zen is a list of tested and verified models provided by the OpenCode team."
+    - paragraph
+      - StaticText "Zen works like any other provider in OpenCode. You login to OpenCode Zen and get your API key. It’s "
+      - strong
+        - StaticText "completely optional"
+      - StaticText " and you don’t need to use it to use OpenCode."
+    - separator
+    - heading "Background" [level=2, ref=e8]
+      - link "Background" [ref=e22]
+    - paragraph
+      - StaticText "There are a large number of models out there but only a few of these models work well as coding agents. Additionally, most providers are configured very differently; so you get very different performance and quality."
+    - complementary "Tip"
+      - paragraph
+        - StaticText "We tested a select group of models and providers that work well with OpenCode."
+    - paragraph
+      - StaticText "So if you are using a model through something like OpenRouter, you can never be sure if you are getting the best version of the model you want."
+    - paragraph
+      - StaticText "To fix this, we did a couple of things:"
+    - list
+      - listitem [level=1]
+        - StaticText "We tested a select group of models and talked to their teams about how to best run them."
+      - listitem [level=1]
+        - StaticText "We then worked with a few providers to make sure these were being served correctly."
+      - listitem [level=1]
+        - StaticText "Finally, we benchmarked the combination of the model/provider and came up with a list that we feel good recommending."
+    - paragraph
+      - StaticText "OpenCode Zen is an AI gateway that gives you access to these models."
+    - separator
+    - heading "How it works" [level=2, ref=e9]
+      - link "How it works" [ref=e23]
+    - paragraph
+      - StaticText "OpenCode Zen works like any other provider in OpenCode."
+    - list
+      - listitem [level=1]
+        - StaticText "You sign in to "
+        - strong
+          - link "OpenCode Zen" [ref=e541]
+        - StaticText ", add your billing details, and copy your API key."
+      - listitem [level=1]
+        - StaticText "You run the "
+        - code
+          - StaticText "`"
+          - StaticText "/connect"
+          - StaticText "`"
+        - StaticText " command in the TUI, select OpenCode Zen, and paste your API key."
+      - listitem [level=1]
+        - StaticText "Run "
+        - code
+          - StaticText "`"
+          - StaticText "/models"
+          - StaticText "`"
+        - StaticText " in the TUI to see the list of models we recommend."
+    - paragraph
+      - StaticText "You are charged per request and you can add credits to your account."
+    - separator
+    - heading "Endpoints" [level=2, ref=e10]
+      - link "Endpoints" [ref=e24]
+    - paragraph
+      - StaticText "You can also access our models through the following API endpoints."
+    - table
+      - rowgroup
+        - row
+          - columnheader "MODEL" [ref=e542]
+          - columnheader "MODEL ID" [ref=e543]
+          - columnheader "ENDPOINT" [ref=e544]
+          - columnheader "AI SDK PACKAGE" [ref=e545]
+      - row
+        - cell "GPT 5.5" [ref=e43]
+        - cell "gpt-5.5" [ref=e44]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e45]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e46]
+          - code
+      - row
+        - cell "GPT 5.5 Pro" [ref=e47]
+        - cell "gpt-5.5-pro" [ref=e48]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e49]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e50]
+          - code
+      - row
+        - cell "GPT 5.4" [ref=e51]
+        - cell "gpt-5.4" [ref=e52]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e53]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e54]
+          - code
+      - row
+        - cell "GPT 5.4 Pro" [ref=e55]
+        - cell "gpt-5.4-pro" [ref=e56]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e57]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e58]
+          - code
+      - row
+        - cell "GPT 5.4 Mini" [ref=e59]
+        - cell "gpt-5.4-mini" [ref=e60]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e61]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e62]
+          - code
+      - row
+        - cell "GPT 5.4 Nano" [ref=e63]
+        - cell "gpt-5.4-nano" [ref=e64]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e65]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e66]
+          - code
+      - row
+        - cell "GPT 5.3 Codex" [ref=e67]
+        - cell "gpt-5.3-codex" [ref=e68]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e69]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e70]
+          - code
+      - row
+        - cell "GPT 5.3 Codex Spark" [ref=e71]
+        - cell "gpt-5.3-codex-spark" [ref=e72]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e73]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e74]
+          - code
+      - row
+        - cell "GPT 5.2" [ref=e75]
+        - cell "gpt-5.2" [ref=e76]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e77]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e78]
+          - code
+      - row
+        - cell "GPT 5.2 Codex" [ref=e79]
+        - cell "gpt-5.2-codex" [ref=e80]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e81]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e82]
+          - code
+      - row
+        - cell "GPT 5.1" [ref=e83]
+        - cell "gpt-5.1" [ref=e84]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e85]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e86]
+          - code
+      - row
+        - cell "GPT 5.1 Codex" [ref=e87]
+        - cell "gpt-5.1-codex" [ref=e88]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e89]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e90]
+          - code
+      - row
+        - cell "GPT 5.1 Codex Max" [ref=e91]
+        - cell "gpt-5.1-codex-max" [ref=e92]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e93]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e94]
+          - code
+      - row
+        - cell "GPT 5.1 Codex Mini" [ref=e95]
+        - cell "gpt-5.1-codex-mini" [ref=e96]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e97]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e98]
+          - code
+      - row
+        - cell "GPT 5" [ref=e99]
+        - cell "gpt-5" [ref=e100]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e101]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e102]
+          - code
+      - row
+        - cell "GPT 5 Codex" [ref=e103]
+        - cell "gpt-5-codex" [ref=e104]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e105]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e106]
+          - code
+      - row
+        - cell "GPT 5 Nano" [ref=e107]
+        - cell "gpt-5-nano" [ref=e108]
+        - cell "`https://opencode.ai/zen/v1/responses`" [ref=e109]
+          - code
+        - cell "`@ai-sdk/openai`" [ref=e110]
+          - code
+      - row
+        - cell "Claude Fable 5" [ref=e111]
+        - cell "claude-fable-5" [ref=e112]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e113]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e114]
+          - code
+      - row
+        - cell "Claude Opus 4.8" [ref=e115]
+        - cell "claude-opus-4-8" [ref=e116]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e117]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e118]
+          - code
+      - row
+        - cell "Claude Opus 4.7" [ref=e119]
+        - cell "claude-opus-4-7" [ref=e120]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e121]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e122]
+          - code
+      - row
+        - cell "Claude Opus 4.6" [ref=e123]
+        - cell "claude-opus-4-6" [ref=e124]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e125]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e126]
+          - code
+      - row
+        - cell "Claude Opus 4.5" [ref=e127]
+        - cell "claude-opus-4-5" [ref=e128]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e129]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e130]
+          - code
+      - row
+        - cell "Claude Opus 4.1" [ref=e131]
+        - cell "claude-opus-4-1" [ref=e132]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e133]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e134]
+          - code
+      - row
+        - cell "Claude Sonnet 4.6" [ref=e135]
+        - cell "claude-sonnet-4-6" [ref=e136]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e137]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e138]
+          - code
+      - row
+        - cell "Claude Sonnet 4.5" [ref=e139]
+        - cell "claude-sonnet-4-5" [ref=e140]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e141]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e142]
+          - code
+      - row
+        - cell "Claude Sonnet 4" [ref=e143]
+        - cell "claude-sonnet-4" [ref=e144]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e145]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e146]
+          - code
+      - row
+        - cell "Claude Haiku 4.5" [ref=e147]
+        - cell "claude-haiku-4-5" [ref=e148]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e149]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e150]
+          - code
+      - row
+        - cell "Claude Haiku 3.5" [ref=e151]
+        - cell "claude-3-5-haiku" [ref=e152]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e153]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e154]
+          - code
+      - row
+        - cell "Gemini 3.5 Flash" [ref=e155]
+        - cell "gemini-3.5-flash" [ref=e156]
+        - cell "`https://opencode.ai/zen/v1/models/gemini-3.5-flash`" [ref=e157]
+          - code
+        - cell "`@ai-sdk/google`" [ref=e158]
+          - code
+      - row
+        - cell "Gemini 3.1 Pro" [ref=e159]
+        - cell "gemini-3.1-pro" [ref=e160]
+        - cell "`https://opencode.ai/zen/v1/models/gemini-3.1-pro`" [ref=e161]
+          - code
+        - cell "`@ai-sdk/google`" [ref=e162]
+          - code
+      - row
+        - cell "Gemini 3 Flash" [ref=e163]
+        - cell "gemini-3-flash" [ref=e164]
+        - cell "`https://opencode.ai/zen/v1/models/gemini-3-flash`" [ref=e165]
+          - code
+        - cell "`@ai-sdk/google`" [ref=e166]
+          - code
+      - row
+        - cell "Qwen3.7 Max" [ref=e167]
+        - cell "qwen3.7-max" [ref=e168]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e169]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e170]
+          - code
+      - row
+        - cell "Qwen3.7 Plus" [ref=e171]
+        - cell "qwen3.7-plus" [ref=e172]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e173]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e174]
+          - code
+      - row
+        - cell "Qwen3.6 Plus" [ref=e175]
+        - cell "qwen3.6-plus" [ref=e176]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e177]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e178]
+          - code
+      - row
+        - cell "Qwen3.5 Plus" [ref=e179]
+        - cell "qwen3.5-plus" [ref=e180]
+        - cell "`https://opencode.ai/zen/v1/messages`" [ref=e181]
+          - code
+        - cell "`@ai-sdk/anthropic`" [ref=e182]
+          - code
+      - row
+        - cell "DeepSeek V4 Pro" [ref=e183]
+        - cell "deepseek-v4-pro" [ref=e184]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e185]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e186]
+          - code
+      - row
+        - cell "DeepSeek V4 Flash" [ref=e187]
+        - cell "deepseek-v4-flash" [ref=e188]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e189]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e190]
+          - code
+      - row
+        - cell "MiniMax M2.7" [ref=e191]
+        - cell "minimax-m2.7" [ref=e192]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e193]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e194]
+          - code
+      - row
+        - cell "MiniMax M2.5" [ref=e195]
+        - cell "minimax-m2.5" [ref=e196]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e197]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e198]
+          - code
+      - row
+        - cell "GLM 5.1" [ref=e199]
+        - cell "glm-5.1" [ref=e200]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e201]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e202]
+          - code
+      - row
+        - cell "GLM 5" [ref=e203]
+        - cell "glm-5" [ref=e204]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e205]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e206]
+          - code
+      - row
+        - cell "Kimi K2.5" [ref=e207]
+        - cell "kimi-k2.5" [ref=e208]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e209]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e210]
+          - code
+      - row
+        - cell "Kimi K2.6" [ref=e211]
+        - cell "kimi-k2.6" [ref=e212]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e213]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e214]
+          - code
+      - row
+        - cell "Grok Build 0.1" [ref=e215]
+        - cell "grok-build-0.1" [ref=e216]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e217]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e218]
+          - code
+      - row
+        - cell "Big Pickle" [ref=e219]
+        - cell "big-pickle" [ref=e220]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e221]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e222]
+          - code
+      - row
+        - cell "MiMo-V2.5 Free" [ref=e223]
+        - cell "mimo-v2.5-free" [ref=e224]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e225]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e226]
+          - code
+      - row
+        - cell "North Mini Code Free" [ref=e227]
+        - cell "north-mini-code-free" [ref=e228]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e229]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e230]
+          - code
+      - row
+        - cell "Nemotron 3 Ultra Free" [ref=e231]
+        - cell "nemotron-3-ultra-free" [ref=e232]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e233]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e234]
+          - code
+      - row
+        - cell "DeepSeek V4 Flash Free" [ref=e235]
+        - cell "deepseek-v4-flash-free" [ref=e236]
+        - cell "`https://opencode.ai/zen/v1/chat/completions`" [ref=e237]
+          - code
+        - cell "`@ai-sdk/openai-compatible`" [ref=e238]
+          - code
+    - paragraph
+      - StaticText "The "
+      - link "model id" [ref=e25]
+      - StaticText " in your OpenCode config uses the format "
+      - code
+        - StaticText "`"
+        - StaticText "opencode/<model-id>"
+        - StaticText "`"
+      - StaticText ". For example, for GPT 5.5, you would use "
+      - code
+        - StaticText "`"
+        - StaticText "opencode/gpt-5.5"
+        - StaticText "`"
+      - StaticText " in your config."
+    - separator
+    - heading "Models" [level=3, ref=e11]
+      - link "Models" [ref=e26]
+    - paragraph
+      - StaticText "You can fetch the full list of available models and their metadata from:"
+    - figure
+      - code
+        - StaticText "https://opencode.ai/zen/v1/models"
+      - generic
+        - button "Copy to clipboard" [ref=e239]
+    - separator
+    - heading "Pricing" [level=2, ref=e12]
+      - link "Pricing" [ref=e27]
+    - paragraph
+      - StaticText "We support a pay-as-you-go model. Below are the prices "
+      - strong
+        - StaticText "per 1M tokens"
+      - StaticText "."
+    - table
+      - rowgroup
+        - row
+          - columnheader "MODEL" [ref=e546]
+          - columnheader "INPUT" [ref=e547]
+          - columnheader "OUTPUT" [ref=e548]
+          - columnheader "CACHED READ" [ref=e549]
+          - columnheader "CACHED WRITE" [ref=e550]
+      - row
+        - cell "Big Pickle" [ref=e240]
+        - cell "Free" [ref=e241]
+        - cell "Free" [ref=e242]
+        - cell "Free" [ref=e243]
+        - cell "-" [ref=e244]
+      - row
+        - cell "DeepSeek V4 Flash Free" [ref=e245]
+        - cell "Free" [ref=e246]
+        - cell "Free" [ref=e247]
+        - cell "Free" [ref=e248]
+        - cell "-" [ref=e249]
+      - row
+        - cell "MiMo-V2.5 Free" [ref=e250]
+        - cell "Free" [ref=e251]
+        - cell "Free" [ref=e252]
+        - cell "Free" [ref=e253]
+        - cell "-" [ref=e254]
+      - row
+        - cell "North Mini Code Free" [ref=e255]
+        - cell "Free" [ref=e256]
+        - cell "Free" [ref=e257]
+        - cell "Free" [ref=e258]
+        - cell "-" [ref=e259]
+      - row
+        - cell "Nemotron 3 Ultra Free" [ref=e260]
+        - cell "Free" [ref=e261]
+        - cell "Free" [ref=e262]
+        - cell "Free" [ref=e263]
+        - cell "-" [ref=e264]
+      - row
+        - cell "MiniMax M2.7" [ref=e265]
+        - cell "$0.30" [ref=e266]
+        - cell "$1.20" [ref=e267]
+        - cell "$0.06" [ref=e268]
+        - cell "$0.375" [ref=e269]
+      - row
+        - cell "MiniMax M2.5" [ref=e270]
+        - cell "$0.30" [ref=e271]
+        - cell "$1.20" [ref=e272]
+        - cell "$0.06" [ref=e273]
+        - cell "$0.375" [ref=e274]
+      - row
+        - cell "GLM 5.1" [ref=e275]
+        - cell "$1.40" [ref=e276]
+        - cell "$4.40" [ref=e277]
+        - cell "$0.26" [ref=e278]
+        - cell "-" [ref=e279]
+      - row
+        - cell "GLM 5" [ref=e280]
+        - cell "$1.00" [ref=e281]
+        - cell "$3.20" [ref=e282]
+        - cell "$0.20" [ref=e283]
+        - cell "-" [ref=e284]
+      - row
+        - cell "Kimi K2.5" [ref=e285]
+        - cell "$0.60" [ref=e286]
+        - cell "$3.00" [ref=e287]
+        - cell "$0.10" [ref=e288]
+        - cell "-" [ref=e289]
+      - row
+        - cell "Kimi K2.6" [ref=e290]
+        - cell "$0.95" [ref=e291]
+        - cell "$4.00" [ref=e292]
+        - cell "$0.16" [ref=e293]
+        - cell "-" [ref=e294]
+      - row
+        - cell "Qwen3.7 Max" [ref=e295]
+        - cell "$2.50" [ref=e296]
+        - cell "$7.50" [ref=e297]
+        - cell "$0.50" [ref=e298]
+        - cell "$3.125" [ref=e299]
+      - row
+        - cell "Qwen3.7 Plus" [ref=e300]
+        - cell "$0.40" [ref=e301]
+        - cell "$1.60" [ref=e302]
+        - cell "$0.04" [ref=e303]
+        - cell "$0.50" [ref=e304]
+      - row
+        - cell "Qwen3.6 Plus" [ref=e305]
+        - cell "$0.50" [ref=e306]
+        - cell "$3.00" [ref=e307]
+        - cell "$0.05" [ref=e308]
+        - cell "$0.625" [ref=e309]
+      - row
+        - cell "Qwen3.5 Plus" [ref=e310]
+        - cell "$0.20" [ref=e311]
+        - cell "$1.20" [ref=e312]
+        - cell "$0.02" [ref=e313]
+        - cell "$0.25" [ref=e314]
+      - row
+        - cell "DeepSeek V4 Pro" [ref=e315]
+        - cell "$1.74" [ref=e316]
+        - cell "$3.48" [ref=e317]
+        - cell "$0.145" [ref=e318]
+        - cell "-" [ref=e319]
+      - row
+        - cell "DeepSeek V4 Flash" [ref=e320]
+        - cell "$0.14" [ref=e321]
+        - cell "$0.28" [ref=e322]
+        - cell "$0.028" [ref=e323]
+        - cell "-" [ref=e324]
+      - row
+        - cell "Grok Build 0.1" [ref=e325]
+        - cell "$1.00" [ref=e326]
+        - cell "$2.00" [ref=e327]
+        - cell "$0.20" [ref=e328]
+        - cell "-" [ref=e329]
+      - row
+        - cell "Claude Fable 5" [ref=e330]
+        - cell "$10.00" [ref=e331]
+        - cell "$50.00" [ref=e332]
+        - cell "$1.00" [ref=e333]
+        - cell "$12.50" [ref=e334]
+      - row
+        - cell "Claude Opus 4.8" [ref=e335]
+        - cell "$5.00" [ref=e336]
+        - cell "$25.00" [ref=e337]
+        - cell "$0.50" [ref=e338]
+        - cell "$6.25" [ref=e339]
+      - row
+        - cell "Claude Opus 4.7" [ref=e340]
+        - cell "$5.00" [ref=e341]
+        - cell "$25.00" [ref=e342]
+        - cell "$0.50" [ref=e343]
+        - cell "$6.25" [ref=e344]
+      - row
+        - cell "Claude Opus 4.6" [ref=e345]
+        - cell "$5.00" [ref=e346]
+        - cell "$25.00" [ref=e347]
+        - cell "$0.50" [ref=e348]
+        - cell "$6.25" [ref=e349]
+      - row
+        - cell "Claude Opus 4.5" [ref=e350]
+        - cell "$5.00" [ref=e351]
+        - cell "$25.00" [ref=e352]
+        - cell "$0.50" [ref=e353]
+        - cell "$6.25" [ref=e354]
+      - row
+        - cell "Claude Opus 4.1" [ref=e355]
+        - cell "$15.00" [ref=e356]
+        - cell "$75.00" [ref=e357]
+        - cell "$1.50" [ref=e358]
+        - cell "$18.75" [ref=e359]
+      - row
+        - cell "Claude Sonnet 4.6" [ref=e360]
+        - cell "$3.00" [ref=e361]
+        - cell "$15.00" [ref=e362]
+        - cell "$0.30" [ref=e363]
+        - cell "$3.75" [ref=e364]
+      - row
+        - cell "Claude Sonnet 4.5 (≤ 200K tokens)" [ref=e365]
+        - cell "$3.00" [ref=e366]
+        - cell "$15.00" [ref=e367]
+        - cell "$0.30" [ref=e368]
+        - cell "$3.75" [ref=e369]
+      - row
+        - cell "Claude Sonnet 4.5 (> 200K tokens)" [ref=e370]
+        - cell "$6.00" [ref=e371]
+        - cell "$22.50" [ref=e372]
+        - cell "$0.60" [ref=e373]
+        - cell "$7.50" [ref=e374]
+      - row
+        - cell "Claude Sonnet 4 (≤ 200K tokens)" [ref=e375]
+        - cell "$3.00" [ref=e376]
+        - cell "$15.00" [ref=e377]
+        - cell "$0.30" [ref=e378]
+        - cell "$3.75" [ref=e379]
+      - row
+        - cell "Claude Sonnet 4 (> 200K tokens)" [ref=e380]
+        - cell "$6.00" [ref=e381]
+        - cell "$22.50" [ref=e382]
+        - cell "$0.60" [ref=e383]
+        - cell "$7.50" [ref=e384]
+      - row
+        - cell "Claude Haiku 4.5" [ref=e385]
+        - cell "$1.00" [ref=e386]
+        - cell "$5.00" [ref=e387]
+        - cell "$0.10" [ref=e388]
+        - cell "$1.25" [ref=e389]
+      - row
+        - cell "Gemini 3.5 Flash" [ref=e390]
+        - cell "$1.50" [ref=e391]
+        - cell "$9.00" [ref=e392]
+        - cell "$0.15" [ref=e393]
+        - cell "-" [ref=e394]
+      - row
+        - cell "Gemini 3.1 Pro (≤ 200K tokens)" [ref=e395]
+        - cell "$2.00" [ref=e396]
+        - cell "$12.00" [ref=e397]
+        - cell "$0.20" [ref=e398]
+        - cell "-" [ref=e399]
+      - row
+        - cell "Gemini 3.1 Pro (> 200K tokens)" [ref=e400]
+        - cell "$4.00" [ref=e401]
+        - cell "$18.00" [ref=e402]
+        - cell "$0.40" [ref=e403]
+        - cell "-" [ref=e404]
+      - row
+        - cell "Gemini 3 Flash" [ref=e405]
+        - cell "$0.50" [ref=e406]
+        - cell "$3.00" [ref=e407]
+        - cell "$0.05" [ref=e408]
+        - cell "-" [ref=e409]
+      - row
+        - cell "GPT 5.5 (≤ 272K tokens)" [ref=e410]
+        - cell "$5.00" [ref=e411]
+        - cell "$30.00" [ref=e412]
+        - cell "$0.50" [ref=e413]
+        - cell "-" [ref=e414]
+      - row
+        - cell "GPT 5.5 (> 272K tokens)" [ref=e415]
+        - cell "$10.00" [ref=e416]
+        - cell "$45.00" [ref=e417]
+        - cell "$1.00" [ref=e418]
+        - cell "-" [ref=e419]
+      - row
+        - cell "GPT 5.5 Pro" [ref=e420]
+        - cell "$30.00" [ref=e421]
+        - cell "$180.00" [ref=e422]
+        - cell "$30.00" [ref=e423]
+        - cell "-" [ref=e424]
+      - row
+        - cell "GPT 5.4 (≤ 272K tokens)" [ref=e425]
+        - cell "$2.50" [ref=e426]
+        - cell "$15.00" [ref=e427]
+        - cell "$0.25" [ref=e428]
+        - cell "-" [ref=e429]
+      - row
+        - cell "GPT 5.4 (> 272K tokens)" [ref=e430]
+        - cell "$5.00" [ref=e431]
+        - cell "$22.50" [ref=e432]
+        - cell "$0.50" [ref=e433]
+        - cell "-" [ref=e434]
+      - row
+        - cell "GPT 5.4 Pro" [ref=e435]
+        - cell "$30.00" [ref=e436]
+        - cell "$180.00" [ref=e437]
+        - cell "$30.00" [ref=e438]
+        - cell "-" [ref=e439]
+      - row
+        - cell "GPT 5.4 Mini" [ref=e440]
+        - cell "$0.75" [ref=e441]
+        - cell "$4.50" [ref=e442]
+        - cell "$0.075" [ref=e443]
+        - cell "-" [ref=e444]
+      - row
+        - cell "GPT 5.4 Nano" [ref=e445]
+        - cell "$0.20" [ref=e446]
+        - cell "$1.25" [ref=e447]
+        - cell "$0.02" [ref=e448]
+        - cell "-" [ref=e449]
+      - row
+        - cell "GPT 5.3 Codex Spark" [ref=e450]
+        - cell "$1.75" [ref=e451]
+        - cell "$14.00" [ref=e452]
+        - cell "$0.175" [ref=e453]
+        - cell "-" [ref=e454]
+      - row
+        - cell "GPT 5.3 Codex" [ref=e455]
+        - cell "$1.75" [ref=e456]
+        - cell "$14.00" [ref=e457]
+        - cell "$0.175" [ref=e458]
+        - cell "-" [ref=e459]
+      - row
+        - cell "GPT 5.2" [ref=e460]
+        - cell "$1.75" [ref=e461]
+        - cell "$14.00" [ref=e462]
+        - cell "$0.175" [ref=e463]
+        - cell "-" [ref=e464]
+      - row
+        - cell "GPT 5.2 Codex" [ref=e465]
+        - cell "$1.75" [ref=e466]
+        - cell "$14.00" [ref=e467]
+        - cell "$0.175" [ref=e468]
+        - cell "-" [ref=e469]
+      - row
+        - cell "GPT 5.1" [ref=e470]
+        - cell "$1.07" [ref=e471]
+        - cell "$8.50" [ref=e472]
+        - cell "$0.107" [ref=e473]
+        - cell "-" [ref=e474]
+      - row
+        - cell "GPT 5.1 Codex" [ref=e475]
+        - cell "$1.07" [ref=e476]
+        - cell "$8.50" [ref=e477]
+        - cell "$0.107" [ref=e478]
+        - cell "-" [ref=e479]
+      - row
+        - cell "GPT 5.1 Codex Max" [ref=e480]
+        - cell "$1.25" [ref=e481]
+        - cell "$10.00" [ref=e482]
+        - cell "$0.125" [ref=e483]
+        - cell "-" [ref=e484]
+      - row
+        - cell "GPT 5.1 Codex Mini" [ref=e485]
+        - cell "$0.25" [ref=e486]
+        - cell "$2.00" [ref=e487]
+        - cell "$0.025" [ref=e488]
+        - cell "-" [ref=e489]
+      - row
+        - cell "GPT 5" [ref=e490]
+        - cell "$1.07" [ref=e491]
+        - cell "$8.50" [ref=e492]
+        - cell "$0.107" [ref=e493]
+        - cell "-" [ref=e494]
+      - row
+        - cell "GPT 5 Codex" [ref=e495]
+        - cell "$1.07" [ref=e496]
+        - cell "$8.50" [ref=e497]
+        - cell "$0.107" [ref=e498]
+        - cell "-" [ref=e499]
+      - row
+        - cell "GPT 5 Nano" [ref=e500]
+        - cell "$0.05" [ref=e501]
+        - cell "$0.40" [ref=e502]
+        - cell "$0.005" [ref=e503]
+        - cell "-" [ref=e504]
+    - paragraph
+      - StaticText "You might notice "
+      - emphasis
+        - StaticText "Claude Haiku 3.5"
+      - StaticText " in your usage history. This is a "
+      - link "low cost model" [ref=e28]
+      - StaticText " that’s used to generate the titles of your sessions."
+    - complementary "Note"
+      - paragraph
+        - StaticText "Credit card fees are passed along at cost (4.4% + $0.30 per transaction); we don’t charge anything beyond that."
+    - paragraph
+      - StaticText "The free models:"
+    - list
+      - listitem [level=1]
+        - StaticText "DeepSeek V4 Flash Free is available on OpenCode for a limited time. The team is using this time to collect feedback and improve the model."
+      - listitem [level=1]
+        - StaticText "MiMo-V2.5 Free is available on OpenCode for a limited time. The team is using this time to collect feedback and improve the model."
+      - listitem [level=1]
+        - StaticText "North Mini Code Free is available on OpenCode for a limited time. The team is using this time to collect feedback and improve the model."
+      - listitem [level=1]
+        - StaticText "Nemotron 3 Ultra Free is available on OpenCode for a limited time. The team is using this time to collect feedback and improve the model."
+      - listitem [level=1]
+        - StaticText "Big Pickle is a stealth model that’s free on OpenCode for a limited time. The team is using this time to collect feedback and improve the model."
+    - paragraph
+      - link "Contact us" [ref=e29]
+      - StaticText " if you have any questions."
+    - separator
+    - heading "Auto-reload" [level=3, ref=e13]
+      - link "Auto-reload" [ref=e30]
+    - paragraph
+      - StaticText "If your balance goes below $5, Zen will automatically reload $20."
+    - paragraph
+      - StaticText "You can change the auto-reload amount. You can also disable auto-reload entirely."
+    - separator
+    - heading "Monthly limits" [level=3, ref=e14]
+      - link "Monthly limits" [ref=e31]
+    - paragraph
+      - StaticText "You can also set a monthly usage limit for the entire workspace and for each member of your team."
+    - paragraph
+      - StaticText "For example, let’s say you set a monthly usage limit to $20, Zen will not use more than $20 in a month. But if you have auto-reload enabled, Zen might end up charging you more than $20 if your balance goes below $5."
+    - separator
+    - heading "Deprecated models" [level=3, ref=e15]
+      - link "Deprecated models" [ref=e32]
+    - table
+      - rowgroup
+        - row
+          - columnheader "MODEL" [ref=e551]
+          - columnheader "DEPRECATION DATE" [ref=e552]
+      - row
+        - cell "GPT 5.2 Codex" [ref=e505]
+        - cell "July 23, 2026" [ref=e506]
+      - row
+        - cell "GPT 5.1 Codex" [ref=e507]
+        - cell "July 23, 2026" [ref=e508]
+      - row
+        - cell "GPT 5.1 Codex Max" [ref=e509]
+        - cell "July 23, 2026" [ref=e510]
+      - row
+        - cell "GPT 5.1 Codex Mini" [ref=e511]
+        - cell "July 23, 2026" [ref=e512]
+      - row
+        - cell "GPT 5 Codex" [ref=e513]
+        - cell "July 23, 2026" [ref=e514]
+      - row
+        - cell "Claude Sonnet 4" [ref=e515]
+        - cell "June 15, 2026" [ref=e516]
+      - row
+        - cell "GLM 5" [ref=e517]
+        - cell "May 14, 2026" [ref=e518]
+      - row
+        - cell "MiniMax M2.1" [ref=e519]
+        - cell "March 15, 2026" [ref=e520]
+      - row
+        - cell "GLM 4.7" [ref=e521]
+        - cell "March 15, 2026" [ref=e522]
+      - row
+        - cell "GLM 4.6" [ref=e523]
+        - cell "March 15, 2026" [ref=e524]
+      - row
+        - cell "Gemini 3 Pro" [ref=e525]
+        - cell "March 9, 2026" [ref=e526]
+      - row
+        - cell "Kimi K2 Thinking" [ref=e527]
+        - cell "March 6, 2026" [ref=e528]
+      - row
+        - cell "Kimi K2" [ref=e529]
+        - cell "March 6, 2026" [ref=e530]
+      - row
+        - cell "Claude Haiku 3.5" [ref=e531]
+        - cell "Feb 16, 2026" [ref=e532]
+      - row
+        - cell "Qwen3 Coder 480B" [ref=e533]
+        - cell "Feb 6, 2026" [ref=e534]
+    - separator
+    - heading "Privacy" [level=2, ref=e16]
+      - link "Privacy" [ref=e33]
+    - paragraph
+      - StaticText "All our models are hosted in the US. Our providers follow a zero-retention policy and do not use your data for model training, with the following exceptions:"
+    - list
+      - listitem [level=1]
+        - StaticText "Big Pickle: During its free period, collected data may be used to improve the model."
+      - listitem [level=1]
+        - StaticText "DeepSeek V4 Flash Free: During its free period, collected data may be used to improve the model."
+      - listitem [level=1]
+        - StaticText "MiMo-V2.5 Free: During its free period, collected data may be used to improve the model."
+      - listitem [level=1]
+        - StaticText "North Mini Code Free: During its free period, collected data may be used to improve the model."
+      - listitem [level=1]
+        - StaticText "Nemotron 3 Ultra Free (NVIDIA free endpoints): Trial use only — do not submit personal or confidential data. Your use is logged for security purposes and to improve NVIDIA products and services. The logged session data for improvement purposes is not linked to your identity or any persistent identifier. For more information about our data processing practices, see our "
+        - link "Privacy Policy" [ref=e535]
+        - StaticText ". By interacting with this endpoint, you consent to our collection, recording, and use of such information and the "
+        - link "NVIDIA API Trial Terms of Service" [ref=e536]
+        - StaticText "."
+      - listitem [level=1]
+        - StaticText "OpenAI APIs: Requests are retained for 30 days in accordance with "
+        - link "OpenAI’s Data Policies" [ref=e537]
+        - StaticText "."
+      - listitem [level=1]
+        - StaticText "Anthropic APIs: Requests are retained for 30 days in accordance with "
+        - link "Anthropic’s Data Policies" [ref=e538]
+        - StaticText "."
+    - separator
+    - heading "For Teams" [level=2, ref=e17]
+      - link "For Teams" [ref=e34]
+    - paragraph
+      - StaticText "Zen also works great for teams. You can invite teammates, assign roles, curate the models your team uses, and more."
+    - complementary "Note"
+      - paragraph
+        - StaticText "Workspaces are currently free for teams as a part of the beta."
+    - paragraph
+      - StaticText "Managing your workspace is currently free for teams as a part of the beta. We’ll be sharing more details on the pricing soon."
+    - separator
+    - heading "Roles" [level=3, ref=e18]
+      - link "Roles" [ref=e35]
+    - paragraph
+      - StaticText "You can invite teammates to your workspace and assign roles:"
+    - list
+      - listitem [level=1]
+        - strong
+          - StaticText "Admin"
+        - StaticText ": Manage models, members, API keys, and billing"
+      - listitem [level=1]
+        - strong
+          - StaticText "Member"
+        - StaticText ": Manage only their own API keys"
+    - paragraph
+      - StaticText "Admins can also set monthly spending limits for each member to keep costs under control."
+    - separator
+    - heading "Model access" [level=3, ref=e19]
+      - link "Model access" [ref=e36]
+    - paragraph
+      - StaticText "Admins can enable or disable specific models for the workspace. Requests made to a disabled model will return an error."
+    - paragraph
+      - StaticText "This is useful for cases where you want to disable the use of a model that collects data."
+    - separator
+    - heading "Bring your own key" [level=3, ref=e20]
+      - link "Bring your own key" [ref=e37]
+    - paragraph
+      - StaticText "You can use your own OpenAI or Anthropic API keys while still accessing other models in Zen."
+    - paragraph
+      - StaticText "When you use your own keys, tokens are billed directly by the provider, not by Zen."
+    - paragraph
+      - StaticText "For example, your organization might already have a key for OpenAI or Anthropic and you want to use that instead of the one that Zen provides."
+    - separator
+    - heading "Goals" [level=2, ref=e21]
+      - link "Goals" [ref=e38]
+    - paragraph
+      - StaticText "We created OpenCode Zen to:"
+    - list
+      - listitem [level=1]
+        - strong
+          - StaticText "Benchmark"
+        - StaticText " the best models/providers for coding agents."
+      - listitem [level=1]
+        - StaticText "Have access to the "
+        - strong
+          - StaticText "highest quality"
+        - StaticText " options and not downgrade performance or route to cheaper providers."
+      - listitem [level=1]
+        - StaticText "Pass along any "
+        - strong
+          - StaticText "price drops"
+        - StaticText " by selling at cost; so the only markup is to cover our processing fees."
+      - listitem [level=1]
+        - StaticText "Have "
+        - strong
+          - StaticText "no lock-in"
+        - StaticText " by allowing you to use it with any other coding agent. And always let you use any other provider with OpenCode as well."
+    - sectionfooter
+      - link "Edit page" [ref=e39]
+      - link "Found a bug? Open an issue" [ref=e40]
+      - link "Join our Discord community" [ref=e41]
+      - LabelText
+        - StaticText "Select language"
+        - combobox "Select language" [expanded=false, ref=e553]: English
+          - MenuListPopup
+            - option "English" [selected, ref=e569]
+            - option "العربية" [ref=e570]
+            - option "Bosanski" [ref=e571]
+            - option "Dansk" [ref=e572]
+            - option "Deutsch" [ref=e573]
+            - option "Español" [ref=e574]
+            - option "Français" [ref=e575]
+            - option "Italiano" [ref=e576]
+            - option "日本語" [ref=e577]
+            - option "한국어" [ref=e578]
+            - option "Norsk Bokmål" [ref=e579]
+            - option "Polski" [ref=e580]
+            - option "Português (Brasil)" [ref=e581]
+            - option "Русский" [ref=e582]
+            - option "ไทย" [ref=e583]
+            - option "Türkçe" [ref=e584]
+            - option "简体中文" [ref=e585]
+            - option "繁體中文" [ref=e586]
+      - paragraph
+        - link "Anomaly" [ref=e539]
+      - paragraph
+        - StaticText "Last updated: "

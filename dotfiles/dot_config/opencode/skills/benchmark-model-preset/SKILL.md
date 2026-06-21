@@ -19,13 +19,16 @@ Build optimal-value oh-my-opencode-slim presets by cross-referencing benchmark s
 
 | Source | URL | What It Provides |
 |---|---|---|
-| DeepSWE Leaderboard | https://deepswe.datacurve.ai/ | Pass@1, avg cost, avg time per coding task |
+| DeepSWE Leaderboard | https://deepswe.datacurve.ai/ | Pass@1, avg cost, avg time per coding task (v1.1 + v1) |
 | SWE-rebench | https://swe-rebench.com/ | Pass@1, Pass@5 per model on SWE-bench tasks |
 | OpenCode Go | https://opencode.ai/docs/go/ | Go subscription model list + request limits |
 | OpenCode Zen | https://opencode.ai/docs/zen | Zen PAYG pricing per 1M tokens (input/output/cached) |
 | models.dev | https://models.dev/ | Canonical model metadata (context window, modalities, tool support) |
-| Artificial Analysis | https://artificialanalysis.ai/models | Intelligence vs price/speed comparisons |
-| CloudPrice | https://cloudprice.net/models | Cross-provider pricing tables |
+| Artificial Analysis | https://artificialanalysis.ai/models | Intelligence Index, cost per task frontier |
+| **Arena AI** | **https://arena.ai/leaderboard** | **Agent Arena + Text Arena human-preference scores** |
+| LiveBench | https://livebench.ai/ | Contamination-freshened objective benchmark |
+| GLM-5.2 Model Card | https://huggingface.co/zai-org/GLM-5.2 | Official Z.ai benchmarks (DeepSWE 46.2, SWE-Pro 62.1, etc.) |
+| Z.ai API Docs | https://docs.z.ai/guides/llm/glm-5.2 | Reasoning effort variants (high/max), thinking control |
 
 ## Agent Role → Model Requirements
 
@@ -41,6 +44,18 @@ Map benchmark strengths to what each agent needs:
 | **Designer** | UI/UX quality, visual output | Not well measured by coding benchmarks — use model reputation for frontend |
 | **Fixer** | Reliable bounded implementation | DeepSWE Pass@1 + consistency (low variance across runs) |
 | **Observer** | Vision, PDF/document reading | Vision capability, multimodal quality |
+
+## GLM-5.2 Notes
+
+GLM-5.2 has **two reasoning effort levels**:
+- **`max`** (default) — used for all published benchmarks (DeepSWE 46.2, SWE-Pro 62.1, etc.)
+- **`high`** — must be explicitly set; faster/cheaper but lower quality
+
+In oh-my-opencode-slim config, map `variant` to `reasoning_effort`:
+- `"variant": "max"` → `reasoning_effort: "max"` (benchmark-matched)
+- `"variant": "high"` → `reasoning_effort: "high"` (saves tokens, weaker)
+
+Always use `variant: "max"` for Oracle and Council to match the benchmarked scores.
 
 ## Workflow
 
@@ -81,25 +96,26 @@ agent-browser wait 3000
 # 2. Snapshot the page to see elements (find table data)
 agent-browser snapshot --compact --depth 15
 
-# 3. If filter dropdown exists, click to expand
-agent-browser snapshot -i                     # find interactive element ref
-agent-browser click @e<N>                     # click the "Models(15/18)" toggle
+# 3. Try both v1 and v1.1 tabs
+agent-browser snapshot -i | grep -i "v1\.1\|button.*v1"
+agent-browser click @e<N>  # click version button
 agent-browser wait 1000
-agent-browser snapshot --compact --depth 15   # get expanded view
+agent-browser snapshot --compact --depth 15
 
-# 4. Fetch OpenCode docs
+# 4. Fetch GLM-5.2 model card for latest benchmarks
+agent-browser open "https://huggingface.co/zai-org/GLM-5.2"
+agent-browser snapshot --compact --depth 12
+
+# 5. Fetch Arena AI leaderboard
+agent-browser open "https://arena.ai/leaderboard"
+agent-browser snapshot --compact --depth 15
+
+# 6. Fetch OpenCode docs
 agent-browser open "https://opencode.ai/docs/go/"
 agent-browser snapshot --compact --depth 12   # get Go model list + limits
 
 agent-browser open "https://opencode.ai/docs/zen/"
 agent-browser snapshot --compact --depth 12   # get Zen pricing table
-
-# 5. Fetch models.dev registry
-agent-browser open "https://models.dev/api.json"
-agent-browser snapshot --compact --depth 10
-
-# 6. Save screenshots for visual review
-agent-browser screenshot --full --annotate    # annotated screenshot
 ```
 
 ### Step 3: Cross-Reference Per Agent
@@ -119,7 +135,7 @@ Write or update the preset in `oh-my-opencode-slim.json`. Follow the schema:
 ```jsonc
 "my-best-value": {
   "orchestrator": { "model": "opencode-go/<model>", "skills": ["*"], "mcps": ["*"] },
-  "oracle": { "model": "opencode-go/<model>", "variant": "high|max", "skills": ["..."], "mcps": [] },
+  "oracle": { "model": "opencode-go/<model>", "variant": "max|high", "skills": ["..."], "mcps": [] },
   "librarian": { "model": "opencode-go/<model>", "variant": "low", "skills": ["..."], "mcps": ["..."] },
   "explorer": { "model": "opencode-go/<model>", "variant": "low", "skills": [], "mcps": [] },
   "designer": { "model": "opencode-go/<model>", "variant": "medium", "skills": ["..."], "mcps": [] },
@@ -128,6 +144,9 @@ Write or update the preset in `oh-my-opencode-slim.json`. Follow the schema:
   "council": { "model": "opencode-go/<model>", "variant": "max|high" }
 }
 ```
+
+**GLM-5.2 variant note:** To match published benchmark scores, use `"variant": "max"`.
+If you need faster/cheaper responses, use `"variant": "high"` but expect less capability.
 
 ### Step 5: Validate
 
@@ -146,15 +165,18 @@ opencode models --refresh
 Go subscription has shared per-model request pools. Multiple agents using the same model compete for the same pool. Optimize by spreading agents across models:
 
 ```jsonc
-// Example: orchestator gets the deepest pool, low-volume agents share tighter ones
+// Current best-value pool strategy (v5):
 "pool_strategy": {
-  "deepseek-v4-flash (158K/mo)":    "Orchestrator only",      // 19% of pool
-  "mimo-v2.5 (150K/mo)":            "Explorer + Librarian",   // ~53% of pool
-  "mimo-v2.5-pro (16.3K/mo)":       "Fixer",                  // ~22% of pool
-  "qwen3.7-max (4.77K/mo)":         "Oracle + Council",       // ~5% of pool
-  "kimi-k2.6 (5.75K/mo)":           "Designer + Observer"     // ~42% of pool
+  "deepseek-v4-flash (158K/mo)":    "Orchestrator",
+  "mimo-v2.5 (150K/mo)":            "Explorer + Librarian",
+  "kimi-k2.7-code (9.25K/mo)":      "Fixer",
+  "glm-5.2 (4.3K/mo)":              "Oracle + Council",
+  "kimi-k2.6 (5.75K/mo)":           "Designer",
+  "minimax-m3 (16K/mo)":            "Observer"
 }
 ```
+
+All pools are separate — no contention. GLM-5.2's 4,300/mo is enough for Oracle + Council since both are low-volume.
 
 See REFERENCE.md for request limits per model.
 
@@ -164,15 +186,13 @@ Running DeepSWE (113 tasks × mini-swe-agent) on missing models via Zen PAYG:
 
 | Model | Est 113 tasks | Est 20 tasks (recommended) |
 |---|---|---|
+| GLM-5.2 | ~$52 | ~$9 |
 | qwen3.7-max | ~$89 | ~$16 |
-| qwen3.6-plus | ~$46 | ~$8 |
-| kimi-k2.5 | ~$39 | ~$7 |
+| kimi-k2.7-code | ~$35 | ~$6 |
 | deepseek-v4-flash | ~$35 | ~$6 |
-| minimax-m2.7 | ~$16 | ~$3 |
-| minimax-m2.5 | ~$16 | ~$3 (broken API) |
-| mimo-v2.5 | ~$38 | ~$7 |
 
-Highest ROI targets: **qwen3.6-plus** ($~8 for 20 tasks — 100% acc in user bench), **deepseek-v4-flash** ($~6 — cheapest reliable). *glm-5 deprecated May 14; qwen3.5-plus removed from Go.* Use `pier run -p deep-swe/tasks --n-tasks 20 --sample-seed 0` for subset.
+Highest ROI targets: **kimi-k2.7-code** (31% v1.1, cheap), **deepseek-v4-flash** (cheapest reliable).
+Use `pier run -p deep-swe/tasks --n-tasks 20 --sample-seed 0` for subset.
 
 ## Pricing Strategy Rules
 
@@ -193,10 +213,10 @@ See the utility script `scripts/fetch-pricing.sh` for automated cost estimation.
 
 ## Data Quality Notes
 
-- **DeepSWE** uses JS-rendered tables with interactive filters. `agent-browser` is required for accurate scraping — `curl` alone cannot extract the data.
-- **OpenCode docs** (Go, Zen) are server-rendered Markdown/HTML. Both `curl` and `agent-browser` work, but `agent-browser` handles rate-limiting and mobile-redirect cases better.
-- **models.dev** exposes a static JSON API at `/api.json`. Either tool works.
-- **Screenshots**: Use `agent-browser screenshot --annotate` to capture visual page state for tables with complex formatting or charts.
+- **DeepSWE** uses JS-rendered tables with interactive filters and version tabs (v1.1 vs v1). `agent-browser` is required for accurate scraping.
+- **OpenCode docs** (Go, Zen) are server-rendered Markdown/HTML. Both `curl` and `agent-browser` work.
+- **GLM-5.2 benchmarks** from vendor model card (huggingface.co/zai-org/GLM-5.2) are self-reported but widely verified by independent sources (Artificial Analysis, VentureBeat, TechStackups).
+- **Arena AI** is the renamed LMSYS Chatbot Arena — human preference votes with causal tracing.
 - **Data volatility**: Pricing and leaderboard data changes frequently. Always re-fetch before making config decisions. The REFERENCE.md tables are snapshots, not live.
 
 ## See Also

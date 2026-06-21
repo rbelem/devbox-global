@@ -1,0 +1,323 @@
+- banner
+  - link "Datacurve" [ref=e1]
+  - link "DeepSWE home" [ref=e2]
+  - navigation
+    - link "Blog" [ref=e4]
+    - link "Run" [ref=e5]
+    - link "Data" [ref=e6]
+    - link "GitHub repository" [ref=e7]
+    - button "Theme: light (click to switch to dark)" [ref=e8]
+- main
+  - sectionheader
+    - heading "DeepSWE" [level=1, ref=e26]
+    - link "by Datacurve" [ref=e27]
+    - paragraph
+      - StaticText "Measuring frontier coding agents on original, long-horizon engineering tasks"
+    - link "Read the blog" [ref=e28]
+      - StaticText "Read the blog"
+      - image
+    - link "Run DeepSWE" [ref=e29]
+    - link "Get notified when new models drop" [ref=e30]
+      - StaticText "Get notified when new models drop"
+      - image
+  - generic
+    - button "Cost" [ref=e9]
+    - button "Time" [ref=e10]
+    - button "Output tokens" [ref=e11]
+    - StaticText "Updated "
+    - StaticText "June 11, 2026"
+    - button "Pick models" [expanded=false, ref=e12]
+      - StaticText "Models"
+      - StaticText "("
+      - StaticText "17"
+      - StaticText "/"
+      - StaticText "20"
+      - StaticText ")"
+      - image
+    - image "Pass rate vs Avg cost per task"
+      - StaticText "DeepSWE score"
+      - StaticText "$0"
+      - StaticText "$5.00"
+      - StaticText "$10"
+      - StaticText "$15"
+      - generic
+      - generic
+      - generic
+      - generic
+      - generic
+      - generic
+      - generic
+      - generic
+      - generic
+      - StaticText "Avg cost per task"
+      - StaticText "most efficient ↗"
+      - StaticText "gpt-5.4 [xhigh]"
+      - StaticText "claude-opus-4.8 [high]"
+      - StaticText "Default"
+      - StaticText "gpt-5.5 [medium]"
+      - StaticText "Default"
+      - StaticText "claude-opus-4.7 [xhigh]"
+      - StaticText "Default"
+      - StaticText "claude-sonnet-4.6 [high]"
+      - StaticText "gemini-3.5-flash [medium]"
+      - StaticText "claude-opus-4.6 [max]"
+      - StaticText "gpt-5.4-mini [xhigh]"
+      - StaticText "kimi-k2.6"
+      - StaticText "minimax-m3"
+      - StaticText "mimo-v2.5-pro"
+      - StaticText "qwen3.7-max"
+      - StaticText "glm-5.1"
+      - StaticText "grok-build-0.1"
+      - StaticText "gemini-3.1-pro"
+      - StaticText "deepseek-v4-pro"
+      - StaticText "gemini-3-flash"
+    - button "Best" [ref=e13]
+    - button "All effort levels" [ref=e14]
+    - button "Pick models" [expanded=false, ref=e15]
+      - StaticText "Models"
+      - StaticText "("
+      - StaticText "17"
+      - StaticText "/"
+      - StaticText "20"
+      - StaticText ")"
+      - image
+    - StaticText "MODEL"
+    - StaticText "PASS@1"
+    - StaticText "AVG COST"
+    - StaticText "AVG TIME"
+    - StaticText "OUT TOK"
+    - StaticText "gpt-5.5"
+    - StaticText "["
+    - StaticText "xhigh"
+    - StaticText "]"
+    - generic
+    - generic
+      - StaticText "70%±3%"
+    - StaticText "$6.61"
+    - StaticText "21m"
+    - StaticText "47k"
+    - StaticText "claude-opus-4.8"
+    - StaticText "["
+    - StaticText "max"
+    - StaticText "]"
+    - generic
+    - generic
+      - StaticText "58%±2%"
+    - StaticText "$12.58"
+    - StaticText "43m"
+    - StaticText "136k"
+    - StaticText "gpt-5.4"
+    - StaticText "["
+    - StaticText "xhigh"
+    - StaticText "]"
+    - generic
+    - generic
+      - StaticText "56%±2%"
+    - StaticText "$4.38"
+    - StaticText "27m"
+    - StaticText "71k"
+    - StaticText "claude-opus-4.7"
+    - StaticText "["
+    - StaticText "max"
+    - StaticText "]"
+    - generic
+    - generic
+      - StaticText "54%±5%"
+    - StaticText "$18.19"
+    - StaticText "39m"
+    - StaticText "103k"
+    - StaticText "claude-sonnet-4.6"
+    - StaticText "["
+    - StaticText "high"
+    - StaticText "]"
+    - generic
+    - generic
+      - StaticText "32%±2%"
+    - StaticText "$5.52"
+    - StaticText "42m"
+    - StaticText "76k"
+    - StaticText "gemini-3.5-flash"
+    - StaticText "["
+    - StaticText "medium"
+    - StaticText "]"
+    - generic
+    - generic
+      - StaticText "28%±4%"
+    - StaticText "$7.42"
+    - StaticText "17m"
+    - StaticText "189k"
+    - StaticText "claude-opus-4.6"
+    - StaticText "["
+    - StaticText "max"
+    - StaticText "]"
+    - generic
+    - generic
+      - StaticText "28%±4%"
+    - StaticText "$5.39"
+    - StaticText "30m"
+    - StaticText "44k"
+    - StaticText "gpt-5.4-mini"
+    - StaticText "["
+    - StaticText "xhigh"
+    - StaticText "]"
+    - generic
+    - generic
+      - StaticText "24%±3%"
+    - StaticText "$2.08"
+    - StaticText "33m"
+    - StaticText "135k"
+    - StaticText "kimi-k2.6"
+    - generic
+    - generic
+      - StaticText "24%±2%"
+    - StaticText "$3.16"
+    - StaticText "56m"
+    - StaticText "84k"
+    - StaticText "minimax-m3"
+    - generic
+    - generic
+      - StaticText "20%±4%"
+    - StaticText "$5.57"
+    - StaticText "57m"
+    - StaticText "98k"
+    - StaticText "mimo-v2.5-pro"
+    - generic
+    - generic
+      - StaticText "19%±2%"
+    - StaticText "$1.99"
+    - StaticText "28m"
+    - StaticText "49k"
+    - StaticText "qwen3.7-max"
+    - generic
+    - generic
+      - StaticText "18%±1%"
+    - StaticText "$2.12"
+    - StaticText "17m"
+    - StaticText "42k"
+    - StaticText "glm-5.1"
+    - generic
+    - generic
+      - StaticText "18%±1%"
+    - StaticText "$7.46"
+    - StaticText "35m"
+    - StaticText "49k"
+    - StaticText "grok-build-0.1"
+    - generic
+    - generic
+      - StaticText "13%±2%"
+    - StaticText "$6.60"
+    - StaticText "44m"
+    - StaticText "52k"
+    - StaticText "gemini-3.1-pro"
+    - generic
+    - generic
+      - StaticText "10%±3%"
+    - StaticText "$1.84"
+    - StaticText "36m"
+    - StaticText "53k"
+    - StaticText "deepseek-v4-pro"
+    - generic
+    - generic
+      - StaticText "8%±3%"
+    - StaticText "$4.22"
+    - StaticText "37m"
+    - StaticText "50k"
+    - StaticText "gemini-3-flash"
+    - generic
+    - generic
+      - StaticText "5%±2%"
+    - StaticText "$1.53"
+    - StaticText "39m"
+    - StaticText "233k"
+    - generic
+      - StaticText "0"
+      - StaticText "%"
+      - StaticText "20"
+      - StaticText "%"
+      - StaticText "40"
+      - StaticText "%"
+      - StaticText "60"
+      - StaticText "%"
+      - StaticText "80"
+      - StaticText "%"
+    - paragraph
+      - StaticText "All models run on"
+      - link "mini-swe-agent" [ref=e31]
+      - StaticText "for consistency."
+      - link "Read why" [ref=e32]
+      - StaticText "."
+  - generic
+    - paragraph
+      - StaticText "Today's leading public coding benchmarks are starting to saturate at the frontier: top models cluster within a narrow score band where adjacent configurations often overlap on confidence intervals. DeepSWE is a long-horizon software engineering benchmark built to separate them. It delivers four advances over existing public benchmarks:"
+    - list
+      - listitem [level=1]
+        - StaticText ": Tasks are written from scratch, not adapted from existing commits or PRs, so no model has seen the solution during pretraining."
+      - listitem [level=1]
+        - StaticText ": Tasks span a broad pool of 91 repositories across 5 languages."
+      - listitem [level=1]
+        - StaticText ": Prompts are ~half the length of SWE-bench Pro's, yet solutions require 5.5x more code and ~2x more output tokens."
+      - listitem [level=1]
+        - StaticText ": Verifiers are hand-written to test software behavior rather than implementation details."
+    - paragraph
+      - StaticText "The result is a benchmark that reflects how today's frontier coding agents actually perform in software engineering work."
+  - generic
+    - heading "Task Examples" [level=2, ref=e16]
+    - link "Abort pending body reads on shutdown Ensure interrupted request and response body reads, formData parsing, and discarded timers abort cleanly during shutdown. capricorn86/happy-dom TYPESCRIPT" [ref=e17]
+      - heading "Abort pending body reads on shutdown" [level=3, ref=e33]
+      - paragraph
+      - StaticText "capricorn86/happy-dom"
+      - StaticText "TYPESCRIPT"
+    - link "Fix PromQL label sorting across typed and untyped values PromQL label sorting must order mixed typed and untyped label values with stable typed comparison rules. prometheus/prometheus GO" [ref=e18]
+      - heading "Fix PromQL label sorting across typed and untyped values" [level=3, ref=e34]
+      - paragraph
+      - StaticText "prometheus/prometheus"
+      - StaticText "GO"
+    - link "Add config file parsing to Cliffy commands Add command-level config file loading, parsing, merging, and precedence handling. c4spar/cliffy TYPESCRIPT" [ref=e19]
+      - heading "Add config file parsing to Cliffy commands" [level=3, ref=e35]
+      - paragraph
+      - StaticText "c4spar/cliffy"
+      - StaticText "TYPESCRIPT"
+    - link "Add deterministic map conflict detection to Y.Map writes Add strict, deterministic conflict detection for Y.Map key writes with collect and error policies. yjs/yjs JAVASCRIPT" [ref=e20]
+      - heading "Add deterministic map conflict detection to Y.Map writes" [level=3, ref=e36]
+      - paragraph
+      - StaticText "yjs/yjs"
+      - StaticText "JAVASCRIPT"
+    - link "Add trap coredump generation to wasmi Generate opt-in Wasm coredumps on traps and attach the bytes to errors. wasmi-labs/wasmi RUST" [ref=e21]
+      - heading "Add trap coredump generation to wasmi" [level=3, ref=e37]
+      - paragraph
+      - StaticText "wasmi-labs/wasmi"
+      - StaticText "RUST"
+    - link "Add XML diff, patch, and merge operations to etree Add recursive XML diffing, patch generation and application, reverse patching, three-way merge, and diff summaries. beevik/etree GO" [ref=e22]
+      - heading "Add XML diff, patch, and merge operations to etree" [level=3, ref=e38]
+      - paragraph
+      - StaticText "beevik/etree"
+      - StaticText "GO"
+    - link "All 113 tasks" [ref=e23]
+      - StaticText "All 113 tasks"
+      - image
+  - heading "Read the full blog" [level=2, ref=e24]
+  - link "Open" [ref=e25]
+    - StaticText "Open"
+    - image
+  - list
+    - listitem [level=1]
+      - link "01 Introduction Why a new benchmark" [ref=e39]
+    - listitem [level=1]
+      - link "02 Overview What separates DeepSWE" [ref=e40]
+    - listitem [level=1]
+      - link "03 Methodology How tasks and verifiers are built" [ref=e41]
+    - listitem [level=1]
+      - link "04 Results Where frontier models diverge" [ref=e42]
+    - listitem [level=1]
+      - link "05 Qualitative analysis How each frontier model fails" [ref=e43]
+    - listitem [level=1]
+      - link "06 Limitations & future work What we'd do differently" [ref=e44]
+  - generic
+    - generic
+      - heading "Sign up for leaderboard updates" [level=2, ref=e45]
+      - paragraph
+      - generic
+        - textbox "Email address" [required, ref=e46]
+        - button "Notify me" [ref=e47]
+- contentinfo
+  - link "We're hiring" [ref=e3]
