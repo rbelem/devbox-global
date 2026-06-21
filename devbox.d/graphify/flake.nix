@@ -68,6 +68,9 @@
             tree-sitter-javascript
             tree-sitter-rust
             tree-sitter-c-sharp
+            # Required for the gemini semantic backend
+            openai
+            tiktoken
             (mkTreeSitterPerl pkgs)
           ];
 
