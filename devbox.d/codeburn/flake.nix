@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs }:
     let
-      version = "0.9.12";
+      version = "0.9.14";
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
@@ -22,7 +22,7 @@
           litellmPrices = pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json";
             #hash = pkgs.lib.fakeHash;
-            hash = "sha256-POuL/1um6YwHT7S0WamGt9XX9v2YPCxaDzvQOc/IIVw=";
+            hash = "sha256-NsiZTk1l7c/jlsZHN9kKoPfzA3hAZ6Jt/CCQmUxv3k0=";
           };
         in
         {
@@ -35,12 +35,12 @@
               repo = "codeburn";
               rev = "v${version}";
               #hash = pkgs.lib.fakeHash;
-              hash = "sha256-YjvG9mkhszP+tUIgXFCCMKazjEt2qQ11x2Tr78X+7eQ=";
+              hash = "sha256-8B3dAJLZ1ntvYvuJVIW1VBGA7xB+DZ3yFHQIJNSzbE8=";
             };
 
             # Run `nix build` once and replace with the hash from the error message
             #npmDepsHash = pkgs.lib.fakeHash;
-            npmDepsHash = "sha256-XXQDxv8fHnpK1pUxBCg38NnHadtbwOjPJW7Q2bdu8vA=";
+            npmDepsHash = "sha256-TSoz72VUsvpEby7VQ9T/qp8fI3J8Ra/+QPGuCBvW5FA=";
 
             nodejs = pkgs.nodejs_22;
 
