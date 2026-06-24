@@ -3,19 +3,19 @@
   # upstream: colbymchenry/codegraph
   # fork-suffix: -perl
   #
-  # After bumping the version above, sync the v1.0.x-perl fork branch:
+  # After bumping the version above, sync the v1.1.x-perl fork branch:
   #   cd $(ghq root)/github.com/rbelem/codegraph
   #   git fetch origin --tags
-  #   git checkout v1.0.x-perl
+  #   git checkout v1.1.x-perl
   #   git merge v<new-version>
   #   # Resolve conflicts if any:
   #   # - CHANGELOG.md: keep upstream entries + restore Perl entry at top
-  #   git push origin v1.0.x-perl
+  #   git push origin v1.1.x-perl
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     codegraph-src = {
-      url = "github:rbelem/codegraph/v1.0.x-perl";
+      url = "github:rbelem/codegraph/v1.1.x-perl";
       flake = false;
     };
   };
@@ -25,7 +25,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.0.1-perl";
+      version = "1.1.0-perl";
       treeSitterPerlVersion = "1.1.1";
       treeSitterPerlOwner = "ganezdragon";
       treeSitterPerlRepo = "tree-sitter-perl";
@@ -46,7 +46,7 @@
             #   1. Set to pkgs.lib.fakeHash
             #   2. Run: nix build "path:...#default"
             #   3. Replace with the hash from the error message
-            npmDepsHash = "sha256-y9nlK+fVCDGhFqXNX4PLoj8D4Fo8s8WNQPAvxYyTE40=";
+            npmDepsHash = "sha256-fr8drgy4b/+M5srCOkZg+8LznN2bs3n4UocMKku5yfk=";
 
             nodejs = pkgs.nodejs_22;
 
