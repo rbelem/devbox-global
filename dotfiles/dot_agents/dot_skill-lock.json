@@ -15,72 +15,45 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/skills.git",
       "skillPath": "skills/find-skills/SKILL.md",
-      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "skillFolderHash": "eb6a23305aea6e340d14b9de3766e721f9f4861b",
       "installedAt": "2026-04-25T07:47:43.898Z",
-      "updatedAt": "2026-04-25T07:47:43.898Z"
+      "updatedAt": "2026-06-25T01:48:09.802Z"
     },
     "agent-browser": {
       "source": "vercel-labs/agent-browser",
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "121eecacd86c0aab06aef5cd4663e80c5397cd41",
+      "skillFolderHash": "9b31e495b887e4ca123960415eca69fc7e1bba28",
       "installedAt": "2026-04-25T07:48:46.777Z",
-      "updatedAt": "2026-04-25T07:48:46.777Z"
-    },
-    "caveman": {
-      "source": "JuliusBrussee/caveman",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
-      "skillPath": "caveman/SKILL.md",
-      "skillFolderHash": "825e13085d1515fe67881b2123f3bf9b34c26154",
-      "installedAt": "2026-04-25T07:49:27.487Z",
-      "updatedAt": "2026-04-25T08:27:54.010Z"
+      "updatedAt": "2026-06-25T01:48:17.668Z"
     },
     "caveman-commit": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-commit/SKILL.md",
-      "skillFolderHash": "f8d14c8de94e55b43de62b4b3081230248e2f481",
+      "skillFolderHash": "6ba13fa3503e9607eed8f94828b524510d83b7ef",
       "installedAt": "2026-04-25T08:27:54.342Z",
-      "updatedAt": "2026-04-25T08:27:54.342Z"
-    },
-    "caveman-compress": {
-      "source": "JuliusBrussee/caveman",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
-      "skillPath": "caveman-compress/SKILL.md",
-      "skillFolderHash": "c58e4ecb3f2748626d43c54479e67a4c0fe46f3d",
-      "installedAt": "2026-04-25T08:27:54.899Z",
-      "updatedAt": "2026-04-25T08:27:54.899Z"
+      "updatedAt": "2026-06-25T01:48:24.823Z"
     },
     "caveman-help": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-help/SKILL.md",
-      "skillFolderHash": "0456947ac9539b1f8cba536f3b7a19d7a0f4eb91",
+      "skillFolderHash": "b4f5ebc5f3ce9bfa652996b5161bbe3cc0b88297",
       "installedAt": "2026-04-25T08:27:55.239Z",
-      "updatedAt": "2026-04-25T08:27:55.239Z"
+      "updatedAt": "2026-06-25T01:48:31.185Z"
     },
     "caveman-review": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-review/SKILL.md",
-      "skillFolderHash": "2147719da5f81255dbf960d6ce46d5a7ee9d0860",
+      "skillFolderHash": "2d9762b7aec395b9713fde57fb8965bc3bbd2c3f",
       "installedAt": "2026-04-25T08:27:55.576Z",
-      "updatedAt": "2026-04-25T08:27:55.576Z"
-    },
-    "compress": {
-      "source": "JuliusBrussee/caveman",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
-      "skillPath": "skills/compress/SKILL.md",
-      "skillFolderHash": "fc6ecd3c4081d88c72aa55908ec36841f7c7bf9b",
-      "installedAt": "2026-04-25T08:27:55.918Z",
-      "updatedAt": "2026-04-25T08:27:55.918Z"
+      "updatedAt": "2026-06-25T01:48:39.261Z"
     },
     "git-commit": {
       "source": "github/awesome-copilot",
@@ -91,52 +64,41 @@
       "installedAt": "2026-05-02T18:24:24.330Z",
       "updatedAt": "2026-05-02T18:24:24.330Z"
     },
-    "docling": {
-      "source": "existential-birds/beagle",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/existential-birds/beagle.git",
-      "skillPath": "plugins/beagle-core/skills/docling/SKILL.md",
-      "skillFolderHash": "455602908072dd1d0ae3a8ea0904dbba67a7bfb1",
-      "installedAt": "2026-05-10T02:39:06.463Z",
-      "updatedAt": "2026-05-10T02:39:06.463Z"
-    },
     "greploop": {
       "source": "greptileai/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/greptileai/skills.git",
       "skillPath": "greploop/SKILL.md",
-      "skillFolderHash": "f84eab4310956640aecf592e0842c735c76137d2",
+      "skillFolderHash": "347330e4b64be5c2d59f324726d9be6dbf5ebf00",
       "installedAt": "2026-05-17T20:31:49.434Z",
-      "updatedAt": "2026-05-17T20:31:49.434Z"
+      "updatedAt": "2026-06-25T01:48:46.042Z"
     },
     "grill-me": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/grill-me/SKILL.md",
-      "skillFolderHash": "2a1ad17028306ebe45f0e49703fa28b9b2e7f499",
-      "pluginName": "mattpocock-skills",
+      "skillFolderHash": "8320e7b87f7b208f50ce165b1dd43d1e93c8e801",
       "installedAt": "2026-05-17T20:53:19.730Z",
-      "updatedAt": "2026-05-17T20:53:19.730Z"
+      "updatedAt": "2026-06-25T01:48:54.546Z"
     },
     "mobile-android-design": {
       "source": "wshobson/agents",
       "sourceType": "github",
       "sourceUrl": "https://github.com/wshobson/agents.git",
       "skillPath": "plugins/ui-design/skills/mobile-android-design/SKILL.md",
-      "skillFolderHash": "fd6c79b59755b55f1cbfd12a477e4a003ea0ff3c",
+      "skillFolderHash": "81dd2f7f2196d74f4937aeb649fc536398601c01",
       "installedAt": "2026-05-19T12:13:14.907Z",
-      "updatedAt": "2026-05-19T12:13:14.907Z"
+      "updatedAt": "2026-06-25T01:49:12.633Z"
     },
     "handoff": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/handoff/SKILL.md",
-      "skillFolderHash": "7bbb60d64c911617cee7f71b2ba9e24364faa14e",
-      "pluginName": "mattpocock-skills",
+      "skillFolderHash": "aa82ffd61d7a3bda110060b4e24ec782b983cb8d",
       "installedAt": "2026-05-21T14:20:56.247Z",
-      "updatedAt": "2026-05-21T14:20:56.247Z"
+      "updatedAt": "2026-06-25T01:49:02.817Z"
     },
     "use-devbox": {
       "source": "jetify-com/devbox",
@@ -152,9 +114,19 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/alibaba/open-code-review.git",
       "skillPath": "skills/open-code-review/SKILL.md",
-      "skillFolderHash": "841dd11d5ad9df23d8c6953965ab946dcee8ffe2",
+      "skillFolderHash": "162e96f55a04f56aae9762b9de99f39e5e8081c6",
       "installedAt": "2026-06-08T02:03:32.616Z",
-      "updatedAt": "2026-06-08T02:03:32.616Z"
+      "updatedAt": "2026-06-25T01:49:22.670Z"
+    },
+    "ask-matt": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/ask-matt/SKILL.md",
+      "skillFolderHash": "e0bda11b432c90bb79f9a7a746c86c84c7ad0143",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-06-25T01:56:32.367Z",
+      "updatedAt": "2026-06-25T01:56:32.367Z"
     }
   },
   "dismissed": {
