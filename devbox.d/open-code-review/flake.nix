@@ -16,7 +16,7 @@
         aarch64-darwin = "darwin-arm64";
       };
 
-      version = "1.6.0";
+      version = "1.6.1";
 
       # Set each to the fake hash string when updating, then build and capture.
       perArchSha256 = {
