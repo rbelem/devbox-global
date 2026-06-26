@@ -97,7 +97,7 @@ done < <(grep -oP '"path:devbox\.d/[^"]+"|"[^"]+@latest"' "$DEVBOX_JSON" | tr -d
 
 # ── For each flake, extract GitHub source + version from flake.nix ──
 declare -A FLAKE_OWNER FLAKE_REPO FLAKE_VERSION FLAKE_TYPE \
-         FLAKE_UPSTREAM FLAKE_FORK_SUFFIX
+         FLAKE_UPSTREAM FLAKE_FORK_SUFFIX FLAKE_RELEASE_PREFIX
 
 for name in "${FLAKES[@]}"; do
     flake_nix="$DEVBOX_D/$name/flake.nix"
@@ -174,10 +174,13 @@ for name in "${FLAKES[@]}"; do
     # Extract fork metadata from flake.nix comments:
     #   # upstream: owner/repo       → check this repo for new releases
     #   # fork-suffix: -perl         → appended to upstream version for fork version
+    #   # release-prefix: cli-v      → filter tags by this prefix (e.g. cli-v, skill-v)
     upstream_comment="$(grep -oP '^[[:space:]]*#\s*upstream:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
     fork_suffix_comment="$(grep -oP '^[[:space:]]*#\s*fork-suffix:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
+    release_prefix_comment="$(grep -oP '^[[:space:]]*#\s*release-prefix:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
     [[ -n "$upstream_comment" ]] && FLAKE_UPSTREAM["$name"]="$upstream_comment"
     [[ -n "$fork_suffix_comment" ]] && FLAKE_FORK_SUFFIX["$name"]="$fork_suffix_comment"
+    [[ -n "$release_prefix_comment" ]] && FLAKE_RELEASE_PREFIX["$name"]="$release_prefix_comment"
 done
 
 # ── Check latest GitHub version ──
@@ -198,41 +201,65 @@ for name in "${FLAKES[@]}"; do
         repo="${FLAKE_UPSTREAM[$name]#*/}"
     fi
 
+    release_prefix="${FLAKE_RELEASE_PREFIX[$name]:-}"
+
     # Try GitHub releases first (exclude pre-releases)
     latest_tags="$(gh release list -R "$owner/$repo" --limit 20 -L 20 --json tagName,isPrerelease -q '.[] | select(.isPrerelease == false) | .tagName' 2>/dev/null || true)"
 
     if [[ -n "$latest_tags" ]]; then
-        # Prefer tags starting with "v" (standard semver: vX.Y.Z).
-        latest_tag="$(echo "$latest_tags" | grep '^v' | head -1 || true)"
-        # If no v-prefixed release, try known platform prefixes (bun-v, mac-v)
-        # that are still version tags (e.g. bun-v1.3.14, mac-v1.2.3).
-        if [[ -z "$latest_tag" ]]; then
-            latest_tag="$(echo "$latest_tags" | grep -E '^(bun-v|mac-v)' | head -1 || true)"
-        fi
-        # If none match a known version prefix, releases are likely CI/action
-        # tags (e.g. github-action-v1.0.2) — fall through to git tags.
-        if [[ -z "$latest_tag" ]]; then
-            latest_tags=""
+        if [[ -n "$release_prefix" ]]; then
+            # Custom release prefix (e.g. cli-v, skill-v) — filter by it
+            latest_tag="$(echo "$latest_tags" | grep "^${release_prefix}" | head -1 || true)"
+            # If no match, don't fallthrough — this repo has no matching releases
+            [[ -z "$latest_tag" ]] && latest_tags=""
+        else
+            # Prefer tags starting with "v" (standard semver: vX.Y.Z).
+            latest_tag="$(echo "$latest_tags" | grep '^v' | head -1 || true)"
+            # If no v-prefixed release, try known platform prefixes (bun-v, mac-v)
+            # that are still version tags (e.g. bun-v1.3.14, mac-v1.2.3).
+            if [[ -z "$latest_tag" ]]; then
+                latest_tag="$(echo "$latest_tags" | grep -E '^(bun-v|mac-v)' | head -1 || true)"
+            fi
+            # If none match a known version prefix, releases are likely CI/action
+            # tags (e.g. github-action-v1.0.2) — fall through to git tags.
+            if [[ -z "$latest_tag" ]]; then
+                latest_tags=""
+            fi
         fi
     fi
 
     if [[ -n "$latest_tags" ]]; then
-        # Strip common prefixes: v, bun-v, mac-v
-        latest_ver="${latest_tag#v}"
-        latest_ver="${latest_ver#bun-v}"
-        latest_ver="${latest_ver#mac-v}"
+        if [[ -n "$release_prefix" ]]; then
+            # Strip release prefix (e.g. cli-v3.1.0 → 3.1.0)
+            latest_ver="${latest_tag#$release_prefix}"
+            latest_ver="${latest_ver#v}"
+        else
+            # Strip common prefixes: v, bun-v, mac-v
+            latest_ver="${latest_tag#v}"
+            latest_ver="${latest_ver#bun-v}"
+            latest_ver="${latest_ver#mac-v}"
+        fi
         LATEST["$name"]="$latest_ver"
     else
         # Fall back to tags — same v-prefix preference
         all_tags="$(gh api "repos/$owner/$repo/tags" --jq '.[].name' 2>/dev/null || true)"
         if [[ -n "$all_tags" ]]; then
-            latest_tag="$(echo "$all_tags" | grep '^v' | head -1 || true)"
+            if [[ -n "$release_prefix" ]]; then
+                latest_tag="$(echo "$all_tags" | grep "^${release_prefix}" | head -1 || true)"
+            else
+                latest_tag="$(echo "$all_tags" | grep '^v' | head -1 || true)"
+            fi
             if [[ -z "$latest_tag" ]]; then
                 latest_tag="$(echo "$all_tags" | head -1)"
             fi
-            latest_ver="${latest_tag#v}"
-            latest_ver="${latest_ver#bun-v}"
-            latest_ver="${latest_ver#mac-v}"
+            if [[ -n "$release_prefix" ]]; then
+                latest_ver="${latest_tag#$release_prefix}"
+                latest_ver="${latest_ver#v}"
+            else
+                latest_ver="${latest_tag#v}"
+                latest_ver="${latest_ver#bun-v}"
+                latest_ver="${latest_ver#mac-v}"
+            fi
             LATEST["$name"]="$latest_ver"
         else
             # Fall back to default branch

@@ -8,7 +8,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "3.3.2";
+      version = "3.3.5";
     in
     {
       packages = forAllSystems (system:
@@ -22,7 +22,7 @@
 
             src = pkgs.fetchurl {
               url = "https://registry.npmjs.org/opencommit/-/opencommit-${version}.tgz";
-              hash = "sha256-rQ9pc5EosTMW8Mr7VMuClU5WwkH6qzyCNRWGjLnBTOM=";
+              hash = "sha256-b5ZAqMOlkwkhT2KzzCefcccSL7TIzfx5GyRj1/sA4zg=";
             };
 
             nativeBuildInputs = [ pkgs.makeWrapper ];

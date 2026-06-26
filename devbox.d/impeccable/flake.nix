@@ -1,6 +1,8 @@
 {
   description = "impeccable - design guidance for AI coding agents";
 
+  # release-prefix: cli-v
+
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs = { self, nixpkgs }:
@@ -9,61 +11,63 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       version = "3.1.0";
-
-      # Bun baseline (no AVX — works on VirtualBox).
-      bunVersion = "1.3.13";
-      bunHash = "sha256-nYokKSpwaAkCBdqsCloiP19pc29Sh+N7+I07QDHtx1A=";
-
-      # Overlay that replaces nixpkgs' bun with baseline build (no AVX/AVX2)
-      # for VirtualBox compat. Same pattern as devbox.d/opencode.
-      bun-baseline-overlay = final: prev: {
-        bun = prev.bun.overrideAttrs (old: {
-          src = prev.fetchurl {
-            url = "https://github.com/oven-sh/bun/releases/download/bun-v${bunVersion}/bun-linux-x64-baseline.zip";
-            hash = bunHash;
-          };
-        });
-      };
     in
     {
       packages = forAllSystems (system:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ bun-baseline-overlay ];
-          };
+          pkgs = import nixpkgs { inherit system; };
 
-          src = pkgs.fetchFromGitHub {
+          srcOrig = pkgs.fetchFromGitHub {
             owner = "pbakaus";
             repo = "impeccable";
             rev = "cli-v${version}";
             hash = "sha256-U6Eukc+xT4xX/jA3IVNB42p7Eey2XDbK6l5LHSTATX8=";
           };
+
+          # Inject the package-lock.json (generated from bun.lock) into source.
+          # buildNpmPackage needs package-lock.json to use fetchNpmDeps + --offline.
+          # The lockfile is regenerated when deps change via bun2npm-lock helper.
+          src = pkgs.runCommand "impeccable-src" { } ''
+            cp -r ${srcOrig} $out
+            chmod +w $out
+            cp ${./package-lock.json} $out/package-lock.json
+          '';
+
+          # Pre-fetched npm dependencies — no network needed in sandbox.
+          # fetchNpmDeps needs src to be a directory containing package-lock.json.
+          npmDepsSrc = pkgs.runCommand "npm-deps-src" { } ''
+            mkdir -p $out
+            cp ${./package-lock.json} $out/package-lock.json
+          '';
+          npmDeps = pkgs.fetchNpmDeps {
+            name = "impeccable-npm-deps";
+            src = npmDepsSrc;
+            hash = "sha256-c/XWs/gVOlBrIqMTcPpKKf1PyGQ6BCMMN3WgP0PML0U=";
+          };
         in
         {
-          default = pkgs.stdenvNoCC.mkDerivation {
+          default = pkgs.buildNpmPackage {
             pname = "impeccable";
-            inherit version src;
+            inherit version src npmDeps;
 
             # Requires Node.js >= 24 per upstream package.json
-            nativeBuildInputs = [ pkgs.bun pkgs.makeWrapper ];
+            nativeBuildInputs = [ pkgs.makeWrapper ];
 
-            # Uses bun.lock, install dependencies with bun (faster than npm).
-            # __noChroot needed because bun needs network access in sandbox.
-            __noChroot = true;
+            # Suppress browser downloads during npm install (puppeteer, playwright)
+            PUPPETEER_SKIP_BROWSER_DOWNLOAD = 1;
+            PUPPETEER_SKIP_DOWNLOAD = 1;
+            PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = 1;
 
-            buildPhase = ''
-              runHook preBuild
-              bun install --no-save --ignore-scripts
-              runHook postBuild
-            '';
+            # No npm build step — just install deps and copy files
+            dontNpmBuild = true;
+            dontNpmPrune = true;
 
             installPhase = ''
               runHook preInstall
 
               mkdir -p $out/lib/node_modules/impeccable
-              # Strip bun's .cache symlink farm that points to TMPDIR
-              rm -rf node_modules/.cache
+              # Strip bun's .cache — created if --no-save is not fully effective
+              rm -rf node_modules/.cache 2>/dev/null || true
               cp -r cli package.json node_modules $out/lib/node_modules/impeccable/
 
               mkdir -p $out/bin
