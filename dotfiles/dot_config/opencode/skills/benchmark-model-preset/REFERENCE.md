@@ -347,6 +347,42 @@ $10/mo ($5 first month). Limits in request count per model.
 | GLM-5.1 | 880 | 2,150 | 4,300 |
 | **GLM-5.2** | **880** | **2,150** | **4,300** |
 
+## OpenRouter Pricing (Live via MCP)
+
+OpenRouter PAYG pricing for key models. Prices per 1M tokens (USD). Live data via `openrouter_models-list` or `openrouter_model-endpoints`.
+Often cheaper than Zen for the same model. Includes Artificial Analysis benchmarks.
+
+| Model | OpenRouter Prompt | OpenRouter Completion | OpenRouter Cached | AA Intel | AA Coding | AA Agentic | Cheapest Provider |
+|---|---|---|---|---|---|---|---|
+| GLM-5.2 | $0.95 | $3.00 | $0.18 | 51.1 | 68.8 | 43.1 | DeepInfra |
+| DeepSeek V4 Flash | $0.09 | $0.18 | $0.02 | 40.3 | 56.2 | 31.1 | Wafer |
+| DeepSeek V4 Pro | $0.44 | $0.87 | $0.004 | 44.3 | 59.4 | 36.4 | DeepInfra |
+| MiMo-V2.5 | $0.11 | $0.28 | — | — | — | — | DeepInfra |
+| MiMo-V2.5-Pro | $0.44 | $0.87 | $0.004 | 42.2 | 60.2 | 29.1 | DeepInfra |
+| Qwen3.7 Max | $1.25 | $3.75 | — | 46.0 | 66.0 | 30.6 | DeepInfra |
+| Qwen3.7 Plus | $0.32 | $1.28 | — | 39.0 | 55.9 | 20.8 | DeepInfra |
+| Kimi K2.6 | $0.66 | $3.41 | $0.14 | 42.8 | 56.0 | 30.3 | DeepInfra |
+| Kimi K2.7 Code | $0.95 | $4.00 | — | 41.9 | 60.8 | 29.6 | DeepInfra |
+| MiniMax M3 | $0.30 | $1.20 | $0.06 | 44.4 | 58.6 | 35.4 | DeepInfra |
+| MiniMax M2.7 | $0.30 | $1.20 | $0.06 | 38.1 | 52.6 | 25.6 | DeepInfra |
+| GPT-5.4 | $2.50 | $15.00 | $0.25 | 51.4 | 71.1 | 41.1 | OpenAI |
+| GPT-5.4 Mini | $0.75 | $4.50 | $0.075 | 40.0 | 56.1 | 30.2 | OpenAI |
+| GPT-5.5 | $5.00 | $30.00 | $0.50 | 54.8 | 74.9 | 44.9 | OpenAI |
+| Claude Opus 4.8 | $5.00 | $25.00 | $0.50 | 55.7 | 74.3 | 47.2 | Anthropic |
+| Claude Opus 4.7 | $5.00 | $25.00 | $0.50 | 53.5 | 73.6 | 44.4 | Anthropic |
+| Claude Sonnet 4.6 | $3.00 | $15.00 | $0.30 | 47.2 | 63.0 | 40.8 | Anthropic |
+| Gemini 3.5 Flash | $1.50 | $9.00 | $0.15 | 50.2 | 70.1 | 37.4 | Google |
+| Gemini 3.1 Pro | $2.00 | $12.00 | $0.20 | 46.5 | 68.8 | 21.4 | Google |
+| Nemotron 3 Ultra | Free | Free | — | 37.8 | 49.3 | 27.4 | NVIDIA |
+
+**Key takeaways:**
+- **OpenRouter is cheaper than Zen for Go-available models**: GLM-5.2 ($0.95/$3.00 vs $1.40/$4.40), DeepSeek V4 Flash ($0.09/$0.18 vs $0.14/$0.28)
+- **AA benchmarks are embedded in model metadata** — no separate scraping needed
+- **Provider choice matters**: GLM-5.2 ranges from $0.95/$3.00 (DeepInfra fp4) to $1.40/$4.40 (Z.AI, Fireworks, etc.) — 32% price difference
+- **OpenRouter has models not on Go or Zen**: Some models available on neither platform (e.g., KAT-Coder-Pro, Ring-2.6)
+
+Source: `openrouter_models-list` + `openrouter_benchmarks` (live MCP data).
+
 ## OpenCode Zen Pricing (June 17, 2026)
 
 PAYG per 1M tokens (USD). Use when model isn't on Go or you exceed Go limits.
@@ -397,29 +433,34 @@ PAYG per 1M tokens (USD). Use when model isn't on Go or you exceed Go limits.
 
 ## Model to Provider Mapping
 
-| Model | Go | Zen | Go ID | Zen ID |
-|---|---|---|---|---|
-| **glm-5.2** | ✅ | ✅ | opencode-go/glm-5.2 | opencode/glm-5-2 |
-| glm-5.1 | ✅ | ✅ | opencode-go/glm-5.1 | opencode/glm-5.1 |
-| glm-5 | ❌ | ✅⚠️ | — (deprecated) | opencode/glm-5 (deprecated May 14) |
-| deepseek-v4-flash | ✅ | ✅ | opencode-go/deepseek-v4-flash | opencode/deepseek-v4-flash |
-| deepseek-v4-pro | ✅ | ✅ | opencode-go/deepseek-v4-pro | opencode/deepseek-v4-pro |
-| kimi-k2.7-code | ✅ | ❌ | opencode-go/kimi-k2.7-code | — |
-| kimi-k2.6 | ✅ | ✅ | opencode-go/kimi-k2.6 | opencode/kimi-k2.6 |
-| mimo-v2.5 | ✅ | ✅ | opencode-go/mimo-v2.5 | opencode/mimo-v2.5 |
-| mimo-v2.5-pro | ✅ | ✅ | opencode-go/mimo-v2.5-pro | opencode/mimo-v2.5-pro |
-| minimax-m2.5 | ✅ | ✅ | opencode-go/minimax-m2.5 | opencode/minimax-m2.5 |
-| minimax-m2.7 | ✅ | ✅ | opencode-go/minimax-m2.7 | opencode/minimax-m2.7 |
-| **glm-5.2** | ✅ | **❌** | **opencode-go/glm-5.2** | — (Go only) |
-| **minimax-m3** | ✅ | **❌** | **opencode-go/minimax-m3** | — (Go only) |
-| **mimo-v2.5** | ✅ | **❌** | **opencode-go/mimo-v2.5** | — (Go only; free tier on Zen) |
-| **mimo-v2.5-pro** | ✅ | **❌** | **opencode-go/mimo-v2.5-pro** | — (Go only) |
-| **qwen3.7-max** | ✅ | ✅ | **opencode-go/qwen3.7-max** | **opencode/qwen3.7-max** |
-| qwen3.6-plus | ✅ | ✅ | opencode-go/qwen3.6-plus | opencode/qwen3.6-plus |
-| qwen3.5-plus | ❌ | ✅ | — | opencode/qwen3.5-plus |
-| claude-opus-4.8 | ❌ | ✅ | — | opencode/claude-opus-4-8 |
-| gpt-5.5 | ❌ | ✅ | — | opencode/gpt-5.5 |
-| gemini-3.1-pro | ❌ | ✅ | — | opencode/gemini-3.1-pro |
+| Model | Go | Zen | OpenRouter | Go ID | Zen ID | OpenRouter ID |
+|---|---|---|---|---|---|---|
+| **glm-5.2** | ✅ | ✅ | ✅ | opencode-go/glm-5.2 | opencode/glm-5-2 | z-ai/glm-5.2 |
+| glm-5.1 | ✅ | ✅ | ✅ | opencode-go/glm-5.1 | opencode/glm-5.1 | z-ai/glm-5.1 |
+| glm-5 | ❌ | ✅⚠️ | ✅ | — (deprecated) | opencode/glm-5 (deprecated May 14) | z-ai/glm-5 |
+| deepseek-v4-flash | ✅ | ✅ | ✅ | opencode-go/deepseek-v4-flash | opencode/deepseek-v4-flash | deepseek/deepseek-v4-flash |
+| deepseek-v4-pro | ✅ | ✅ | ✅ | opencode-go/deepseek-v4-pro | opencode/deepseek-v4-pro | deepseek/deepseek-v4-pro |
+| kimi-k2.7-code | ✅ | ❌ | ✅ | opencode-go/kimi-k2.7-code | — | moonshotai/kimi-k2.7-code |
+| kimi-k2.6 | ✅ | ✅ | ✅ | opencode-go/kimi-k2.6 | opencode/kimi-k2.6 | moonshotai/kimi-k2.6 |
+| mimo-v2.5 | ✅ | ✅ | ✅ | opencode-go/mimo-v2.5 | opencode/mimo-v2.5 | xiaomi/mimo-v2.5 |
+| mimo-v2.5-pro | ✅ | ✅ | ✅ | opencode-go/mimo-v2.5-pro | opencode/mimo-v2.5-pro | xiaomi/mimo-v2.5-pro |
+| minimax-m2.5 | ✅ | ✅ | ✅ | opencode-go/minimax-m2.5 | opencode/minimax-m2.5 | minimax/minimax-m2.5 |
+| minimax-m2.7 | ✅ | ✅ | ✅ | opencode-go/minimax-m2.7 | opencode/minimax-m2.7 | minimax/minimax-m2.7 |
+| minimax-m3 | ✅ | ❌ | ✅ | opencode-go/minimax-m3 | — (Go only) | minimax/minimax-m3 |
+| qwen3.7-max | ✅ | ✅ | ✅ | opencode-go/qwen3.7-max | opencode/qwen3.7-max | qwen/qwen3.7-max |
+| qwen3.7-plus | ✅ | ✅ | ✅ | opencode-go/qwen3.7-plus | opencode/qwen3.7-plus | qwen/qwen3.7-plus |
+| qwen3.6-plus | ✅ | ✅ | ✅ | opencode-go/qwen3.6-plus | opencode/qwen3.6-plus | qwen/qwen3.6-plus |
+| qwen3.5-plus | ❌ | ✅ | ✅ | — | opencode/qwen3.5-plus | qwen/qwen3.5-397b-a17b |
+| claude-opus-4.8 | ❌ | ✅ | ✅ | — | opencode/claude-opus-4-8 | anthropic/claude-opus-4.8 |
+| claude-opus-4.7 | ❌ | ✅ | ✅ | — | opencode/claude-opus-4-7 | anthropic/claude-opus-4.7 |
+| claude-sonnet-4.6 | ❌ | ✅ | ✅ | — | opencode/claude-sonnet-4-6 | anthropic/claude-sonnet-4.6 |
+| gpt-5.5 | ❌ | ✅ | ✅ | — | opencode/gpt-5.5 | openai/gpt-5.5 |
+| gpt-5.4 | ❌ | ✅ | ✅ | — | opencode/gpt-5.4 | openai/gpt-5.4 |
+| gemini-3.1-pro | ❌ | ✅ | ✅ | — | opencode/gemini-3.1-pro | google/gemini-3.1-pro-preview |
+| gemini-3.5-flash | ❌ | ✅ | ✅ | — | opencode/gemini-3.5-flash | google/gemini-3.5-flash |
+| nemotron-3-ultra | ❌ | ✅ (free) | ✅ (free) | — | opencode/nemotron-3-ultra | nvidia/nemotron-3-ultra-550b-a55b |
+
+**OpenRouter availability note:** OpenRouter offers virtually every model from every provider, including models absent from both Go and Zen. The OpenRouter MCP tools (`openrouter_models-list`, `openrouter_model-get`) provide live availability and pricing.
 
 ### AI Coding Daily Leaderboard (Jun 2, 2026)
 
@@ -544,3 +585,145 @@ User's own codeneedle benchmark:
 - **Coding Plan quota**: 3× during peak hours (14:00-18:00 Beijing), 2× off-peak
   - Promotional: off-peak billed at 1× through Sep 2026
   - Peak hours are UTC+8 (Beijing Time)
+
+## Data Sources
+
+| Source | URL/Access | What It Provides |
+|---|---|---|
+| DeepSWE Leaderboard | https://deepswe.datacurve.ai/ | Pass@1, avg cost, avg time per coding task (v1.1 + v1) |
+| SWE-rebench | https://swe-rebench.com/ | Pass@1, Pass@5 per model on SWE-bench tasks |
+| OpenCode Go | https://opencode.ai/docs/go/ | Go subscription model list + request limits |
+| OpenCode Zen | https://opencode.ai/docs/zen | Zen PAYG pricing per 1M tokens (input/output/cached) |
+| models.dev | https://models.dev/ | Canonical model metadata (context window, modalities, tool support) |
+| Artificial Analysis | https://artificialanalysis.ai/models | Intelligence vs price/speed comparisons |
+| CloudPrice | https://cloudprice.net/models | Cross-provider pricing tables |
+| LM Arena Agent | https://arena.ai/leaderboard/agent | Causal treatment-effect ranking of agent orchestrator models across 5 signals |
+| LiveBench | https://livebench.ai/ | Contamination-freshened objective benchmark |
+| GLM-5.2 Blog (Z.ai) | https://z.ai/blog/glm-5.2 | Official GLM-5.2 benchmark table |
+| **OpenRouter Catalog** | MCP tools: `openrouter_models-list`, `openrouter_model-get`, `openrouter_model-endpoints` | Live model catalog with pricing, context, provider endpoints, latency |
+| **OpenRouter Benchmarks** | MCP tools: `openrouter_benchmarks`, `openrouter_rankings-daily` | AA Intelligence/Coding/Agentic indices, Design Arena ELO, daily rankings |
+
+## Manual agent-browser workflow (interactive scraping)
+
+```bash
+# Prerequisite: npm i -g agent-browser && agent-browser install
+
+# DeepSWE leaderboard
+agent-browser open "https://deepswe.datacurve.ai/"
+agent-browser wait 3000
+agent-browser snapshot --compact --depth 15
+
+# Try both v1 and v1.1 tabs
+agent-browser snapshot -i | grep -i "v1\.1\|button.*v1"
+agent-browser click @e<N>  # click version button
+agent-browser wait 1000
+agent-browser snapshot --compact --depth 15
+
+# GLM-5.2 model card on HuggingFace
+agent-browser open "https://huggingface.co/zai-org/GLM-5.2"
+agent-browser snapshot --compact --depth 12
+
+# OpenCode docs
+agent-browser open "https://opencode.ai/docs/go/"
+agent-browser snapshot --compact --depth 12
+agent-browser open "https://opencode.ai/docs/zen/"
+agent-browser snapshot --compact --depth 12
+
+# models.dev registry
+agent-browser open "https://models.dev/api.json"
+agent-browser snapshot --compact --depth 10
+
+# LM Arena Agent leaderboard
+agent-browser open "https://arena.ai/leaderboard/agent/"
+agent-browser wait --load networkidle
+agent-browser snapshot --compact --depth 20
+agent-browser snapshot -i
+
+# View methodology
+agent-browser click @e<View Methodology>
+agent-browser wait --load networkidle
+agent-browser snapshot --compact --depth 15
+
+# Annotated screenshot
+agent-browser screenshot --full --annotate
+```
+
+## Go Pool Allocation Strategy
+
+Go subscription has shared per-model request pools. Multiple agents using the same model compete for the same pool. Optimize by spreading agents across models:
+
+```jsonc
+// Current best-value pool strategy (v5):
+"pool_strategy": {
+  "deepseek-v4-flash (158K/mo)":    "Orchestrator only",      // 19% of pool
+  "mimo-v2.5 (150K/mo)":            "Explorer + Librarian",   // ~53% of pool
+  "mimo-v2.5-pro (16.3K/mo)":       "Fixer (v4/best-value)",  // ~22% of pool
+  "glm-5.2 (4.3K/mo)":              "Oracle + Council alpha", // ~4% of pool — #1 Go model
+  "qwen3.7-max (4.77K/mo)":         "Council beta",           // ~5% of pool
+  "kimi-k2.6 (5.75K/mo)":           "Designer + Council",     // ~42% of pool
+  "minimax-m3 (16K/mo)":            "Observer"                // ~16% of pool
+}
+```
+
+All pools are separate — no contention. GLM-5.2's 4,300/mo is enough for Oracle + Council since both are low-volume.
+
+**OpenRouter as overflow:** Models not available on Go (e.g. Claude Opus 4.8, GPT-5.5) or with cheaper OpenRouter pricing can be routed via OpenRouter by specifying the OpenRouter model ID.
+
+See request limits per model in the OpenCode Go Plan table above.
+
+## Pricing Strategy Rules
+
+1. **Go subscription** is better for high-volume agents (Explorer, Librarian, Fixer) — $10/mo flat with generous limits
+2. **Zen PAYG** is better for occasional-use agents (Council, Oracle) — pay per token, no monthly commitment
+3. **Free models** (DeepSeek V4 Flash Free, MiMo-V2.5 Free, Nemotron 3 Super Free) are viable for experimental/toy presets only — unreliable quality
+4. **OpenRouter PAYG** is a viable third provider — often cheaper than Zen for the same model (e.g. GLM-5.2: $0.95/$3.00 on OpenRouter vs $1.40/$4.40 on Zen; DeepSeek V4 Flash: $0.09/$0.18 on OR vs $0.14/$0.28 on Zen). Use OpenRouter for models that are expensive on Zen or have better provider options (via `openrouter_model-endpoints`).
+5. **Same model on both Go + Zen** → use Go (already paid for), unless you need higher rate limits
+6. **Same model on OpenRouter vs Zen** → compare price with `openrouter_model-endpoints`; OpenRouter often wins on price and offers more provider choices
+
+## Cost to Run a Benchmark
+
+Running DeepSWE (113 tasks × mini-swe-agent) on missing models via Zen PAYG:
+
+| Model | Est 113 tasks | Est 20 tasks (recommended) |
+|---|---|---|
+| qwen3.7-max | ~$89 | ~$16 |
+| qwen3.6-plus | ~$46 | ~$8 |
+| glm-5.2 | ~$42 | ~$7.50 |
+| kimi-k2.5 | ~$39 | ~$7 |
+| deepseek-v4-flash | ~$35 | ~$6 |
+
+Highest ROI targets: **glm-5.2** ($~7.50 for 20 tasks — 46% DeepSWE, best Go model), **deepseek-v4-flash** ($~6 — cheapest reliable). Use `pier run -p deep-swe/tasks --n-tasks 20 --sample-seed 0` for subset.
+
+## Cost Comparison Heuristics
+
+For a given model, estimate monthly cost:
+
+- **Go (already subscribed)**: $0 additional per request (within limits)
+- **Go (need upgrade)**: $10/mo base + top-up if exceeding $60/mo
+- **Zen**: (avg input_tokens × input_price + avg output_tokens × output_price) × requests_per_month
+- **OpenRouter PAYG**: (avg input_tokens × input_price + avg output_tokens × output_price) × requests_per_month. Get per-model pricing via `openrouter_model-get` or `openrouter_model-endpoints`. OpenRouter often has the cheapest endpoints for open models.
+
+**OpenRouter price-check shortcut:** Use the MCP tools directly:
+
+```bash
+# Check cheapest provider for a model
+openrouter_model-endpoints author="z-ai" slug="glm-5.2"
+# → DeepInfra at $0.95/$3.00 per 1M tokens (cheapest)
+# → Z.AI direct at $1.40/$4.40 (matches Zen)
+
+# List all models with pricing sorted cheapest-first
+openrouter_models-list sort="pricing-low-to-high"
+```
+
+See `scripts/fetch-pricing.sh` for automated cost estimation.
+
+## Data Quality Notes
+
+- **DeepSWE** uses JS-rendered tables with interactive filters. `agent-browser` is required for accurate scraping — `curl` alone cannot extract the data.
+- **OpenCode docs** (Go, Zen) are server-rendered Markdown/HTML. Both `curl` and `agent-browser` work, but `agent-browser` handles rate-limiting and mobile-redirect cases better.
+- **models.dev** exposes a static JSON API at `/api.json`. Either tool works.
+- **LM Arena Agent** uses a causal evaluation framework (not pairwise votes). The page is server-rendered but has interactive column sorting. `agent-browser snapshot --compact --depth 20` captures the full table. The methodology page at arena.ai/blog/agent-arena explains the causal tracing approach.
+- **GLM-5.2 Blog (Z.ai)** is a vendor-run benchmark. However, the DeepSWE scores are reliable for cross-model comparison: Z.ai used the official mini-swe-agent harness and all comparison-model scores match the official DeepSWE leaderboard exactly (within ±1%). Other benchmarks (SWE-bench Pro, Terminal-Bench, etc.) may use different harnesses/configs across models — treat those as directional.
+- **Screenshots**: Use `agent-browser screenshot --annotate` to capture visual page state for tables with complex formatting or charts.
+- **OpenRouter MCP data** (`openrouter_models-list`, `openrouter_benchmarks`, `openrouter_rankings-daily`) is live data from the OpenRouter API — always up to date, no scraping needed. The Artificial Analysis indices are updated regularly by OpenRouter. This is the most reliable source for current pricing cross-referencing.
+- **Data volatility**: Pricing and leaderboard data changes frequently. Always re-fetch before making config decisions. Tables in this file are snapshots, not live. Use OpenRouter MCP tools for live data whenever possible.

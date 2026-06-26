@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Fetch latest OpenCode pricing + benchmarks via agent-browser.
+# Fetch latest OpenCode pricing + benchmarks via agent-browser and OpenRouter API.
 # Requires: agent-browser (npm i -g agent-browser && agent-browser install)
-# Usage: ./fetch-pricing.sh [--go | --zen | --deepswe | --models | --swe | --analysis | --arena | --all]
-# Output: agent-browser snapshots saved to ./out/
+#   OR: OPENROUTER_API_KEY env var for --openrouter mode
+# Usage: ./fetch-pricing.sh [--go | --zen | --deepswe | --models | --swe | --analysis | --arena | --openrouter | --all]
+# Output: agent-browser snapshots saved to ./out/, OpenRouter data to ./out/or-*.json
 
 set -euo pipefail
 OUTDIR="$(dirname "$0")/out"
@@ -103,6 +104,58 @@ fetch_arena_no_browser() {
   echo "Done: arena-agent-raw.html (not recommended — JS-rendered table may be incomplete)"
 }
 
+fetch_openrouter() {
+  echo "=== OpenRouter: fetching model catalog ==="
+  if [ -z "${OPENROUTER_API_KEY:-}" ]; then
+    echo "OPENROUTER_API_KEY not set. Skipping OpenRouter fetch."
+    echo "To enable: export OPENROUTER_API_KEY=sk-or-v1-..."
+    echo "Get a key at https://openrouter.ai/keys"
+    return
+  fi
+
+  # Fetch model catalog with pricing, context, and benchmark data
+  echo "Fetching model catalog..."
+  curl -sL -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+    "https://openrouter.ai/api/v1/models" \
+    -o "$OUTDIR/or-models.json"
+  echo "Done: or-models.json (raw model catalog)"
+
+  # Extract a human-readable pricing summary
+  echo "Generating pricing summary..."
+  cat "$OUTDIR/or-models.json" | python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+models = data.get('data', [])
+# Sort by prompt price ascending
+models.sort(key=lambda m: float(m.get('pricing', {}).get('prompt', 999)))
+print(f'| {\"Model\":<30} | {\"Prompt\":<12} | {\"Completion\":<12} | {\"Context\":<10} | {\"AA Intel\":<9} | {\"AA Coding\":<10} |')
+print(f'|{\"-\"*32}|{\"-\"*14}|{\"-\"*14}|{\"-\"*12}|{\"-\"*11}|{\"-\"*12}|')
+for m in models[:60]:
+    name = m.get('name', '?')[:30]
+    p = m.get('pricing', {})
+    prompt = f\"\${float(p.get('prompt',0))*1e6:.4f}\"
+    compl = f\"\${float(p.get('completion',0))*1e6:.4f}\"
+    ctx = m.get('context_length', 0)
+    ctx_str = f\"{ctx//1000}K\" if ctx >= 1000 else str(ctx)
+    aa = m.get('benchmarks', {}).get('artificial_analysis', {}) or {}
+    intel = aa.get('intelligence_index', '')
+    coding = aa.get('coding_index', '')
+    intel_str = f'{intel:.1f}' if isinstance(intel, (int, float)) else ''
+    coding_str = f'{coding:.1f}' if isinstance(coding, (int, float)) else ''
+    print(f'| {name:<30} | {prompt:<12} | {compl:<12} | {ctx_str:<10} | {intel_str:<9} | {coding_str:<10} |')
+" > "$OUTDIR/or-pricing-summary.txt"
+  echo "Done: or-pricing-summary.txt (top 60 models sorted by prompt price)"
+
+  # Fetch daily rankings
+  echo "Fetching daily rankings..."
+  curl -sL -H "Authorization: Bearer $OPENROUTER_API_KEY" \
+    "https://openrouter.ai/api/v1/rankings/daily" \
+    -o "$OUTDIR/or-rankings.json"
+  echo "Done: or-rankings.json"
+
+  echo "OpenRouter data fetched. Use openrouter_* MCP tools for live queries."
+}
+
 ensure_chrome
 
 case "${1:---all}" in
@@ -113,6 +166,7 @@ case "${1:---all}" in
   --swe)       fetch_swe_rebench ;;
   --analysis)  fetch_artificial_analysis ;;
   --arena)     fetch_arena ;;
+  --openrouter) fetch_openrouter ;;
   --all|*)
     fetch_go
     fetch_zen
@@ -121,6 +175,7 @@ case "${1:---all}" in
     fetch_swe_rebench
     fetch_artificial_analysis
     fetch_arena
+    fetch_openrouter
     echo ""
     echo "=== All fetches complete ==="
     echo "Output in: $OUTDIR/"
