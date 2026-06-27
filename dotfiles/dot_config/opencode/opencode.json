@@ -7,6 +7,12 @@
     "disable_paste_summary": true,
     "mcp_timeout": 30000
   },
+  "server": {
+    "port": 4096,
+    "hostname": "0.0.0.0",
+    "mdns": true,
+    "cors": []
+  },
   "mcp": {
     "context7": {
       "type": "remote",
