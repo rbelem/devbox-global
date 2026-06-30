@@ -220,6 +220,9 @@ All run via `devbox global run <name>`:
   may not have `gh` in PATH. If it shows all packages as "unknown", run
   `eval "$(devbox global shellenv --recompute)"` first, then run the script
   directly from `$(devbox global path)/devbox-global-update-flake`.
+  **Lock files**: After bumping versions, `devbox global install` (or
+  `shellenv --recompute`) updates `flake.lock` files. Commit these alongside
+  the version bumps — they pin the resolved input revisions.
 - `setup-git` — full git config (identity, aliases, delta, difftastic, credential helpers, includeif)
 - `setup-tmux` — clone gpakosz/.tmux + symlink local conf
 - `setup-nerd-fonts` — add Nerd Fonts dir to fontconfig
