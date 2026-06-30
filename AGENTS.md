@@ -96,8 +96,9 @@ ln -sf "$PWD/devbox.json" "$(devbox global path)/devbox.json"
 ln -sfn "$PWD/devbox.d" "$(devbox global path)/devbox.d"
 ```
 
-> `rsync devbox.d dest/` (no trailing slash) copies the directory itself.
-> `rsync devbox.d/ dest/` (with slash) copies contents into dest — wrong.
+> **rsync trailing-slash trap**: `rsync devbox.d dest/` (no slash) → dest gets `devbox.d/`.
+> `rsync devbox.d/ dest/` (with slash) → flattens `devbox.d/` contents into `dest/` root,
+> breaking `devbox.json`'s `path:devbox.d/name` references. Prefer `config-sync`.
 
 Then run `devbox global install` to install new/changed packages, and
 `eval "$(devbox global shellenv --recompute)"` to update the current shell.
@@ -161,13 +162,20 @@ modified independently), shows what the opposite direction would change.
 - **Build Python from source** (whichllm): fetchFromGitHub + buildPythonPackage.
   Builds both the app and its missing PyPI deps (dbgpu) inline in the flake.
 - **Input-based composition** (neovim, skills): external flake inputs composed in outputs.
+- **Inline Perl tree-sitter build** (codegraph, graphify): build a bundled
+  tree-sitter-perl as a Python package within the main flake (no separate flake
+  input). Source fetched from `tree-sitter-perl/tree-sitter-perl` (official org,
+  not `ganezdragon` fork — that fork only has tags up to v1.1.1). **Must include**
+  `tree-sitter generate src/grammar.json` in `preBuild` + `pkgs.tree-sitter` in
+  `nativeBuildInputs` because the official source doesn't ship pre-generated
+  `parser.c`.
 
 ### Fork perl branch maintenance
 
-**codegraph** (`rbelem/codegraph`, branch `v1.0.x-perl`) and **graphify**
-(`rbelem/graphify`, branch `v9-perl`) are rbelem forks that add Perl extraction
-on top of upstream releases. After `update-flake --all` bumps their version
-strings, the perl branches must be updated to match:
+**codegraph** (`rbelem/codegraph`, branch `v1.1.x-perl`, formerly `v1.0.x-perl`)
+and **graphify** (`rbelem/graphify`, branch `v9-perl`) are rbelem forks that add
+Perl extraction on top of upstream releases. After `update-flake --all` bumps
+their version strings, the perl branches must be updated to match:
 
 1. `cd $(ghq root)/github.com/rbelem/<repo>` and `git checkout <branch>`
 2. `git fetch upstream --tags` (upstream = colbymchenry/codegraph or safishamsi/graphify)
@@ -175,6 +183,11 @@ strings, the perl branches must be updated to match:
    - **CHANGELOG.md**: keep upstream changelog entries + restore Perl entry at top
    - **pyproject.toml** (graphify): keep `tree-sitter-perl` dep + `perl = [...]` extra; combine `all = [...]` lists
 4. `git push origin <branch>`
+
+**Codegraph perl branch naming**: The perl branch follows upstream's major.minor
+series (e.g. `v1.0.x-perl` for 1.0.x, `v1.1.x-perl` for 1.1.x). When upstream
+bumps past the current series, create a new perl branch for the new series and
+merge there. Old series branches are kept but not active.
 
 Local clones live under `ghq root` with remotes `origin` (rbelem) and `upstream`
 (the original author). Force-push is fine — these are personal forks.
@@ -202,7 +215,11 @@ All run via `devbox global run <name>`:
 - `config-push` / `config-pull` — sync devbox.json to/from GitHub
 - `config-sync` — runs `devbox-global-config-sync` (bidirectional repo↔global with conflict detection, supports `--dry-run`, `--diff`, `--reverse`, `--interactive`, `--sync`)
 - `update-flake` — runs `devbox-global-update-flake` script (parses flake.nix for
-  version + GitHub source, queries gh API for latest, prints color table)
+  version + GitHub source, queries gh API for latest, prints color table).
+  **Pitfall**: `devbox global run update-flake` uses the current shellenv which
+  may not have `gh` in PATH. If it shows all packages as "unknown", run
+  `eval "$(devbox global shellenv --recompute)"` first, then run the script
+  directly from `$(devbox global path)/devbox-global-update-flake`.
 - `setup-git` — full git config (identity, aliases, delta, difftastic, credential helpers, includeif)
 - `setup-tmux` — clone gpakosz/.tmux + symlink local conf
 - `setup-nerd-fonts` — add Nerd Fonts dir to fontconfig
