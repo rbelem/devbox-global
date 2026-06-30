@@ -25,9 +25,9 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.1.2-perl";
-      treeSitterPerlVersion = "1.1.1";
-      treeSitterPerlOwner = "ganezdragon";
+      version = "1.1.6-perl";
+      treeSitterPerlVersion = "1.2.0";
+      treeSitterPerlOwner = "tree-sitter-perl";
       treeSitterPerlRepo = "tree-sitter-perl";
     in
     {
@@ -84,10 +84,13 @@
               owner = treeSitterPerlOwner;
               repo = treeSitterPerlRepo;
               rev = "v${treeSitterPerlVersion}";
-              hash = "sha256-1RnL1dFbTWalqIYg8oGNzwvZxOFPPKwj86Rc3ErfYMU=";
+              hash = "sha256-x5rVu/GlZ5HL+8fUo1JdEftIgKDIcluuRTaQDSFBcYo=";
             };
 
+            nativeBuildInputs = [ pkgs.tree-sitter ];
+
             preBuild = ''
+              tree-sitter generate src/grammar.json
               rm -f setup.py pyproject.toml
               mkdir -p tree_sitter_perl
 
@@ -146,7 +149,7 @@
 
             meta = {
               description = "Perl grammar for tree-sitter";
-              homepage = "https://github.com/ganezdragon/tree-sitter-perl";
+              homepage = "https://github.com/tree-sitter-perl/tree-sitter-perl";
               license = nixpkgs.lib.licenses.mit;
               platforms = systems;
             };
