@@ -28,10 +28,10 @@
 
       # tree-sitter-perl is defined inline (after graphify) because relative-path
       # flake inputs don't work when devbox evaluates from nix store paths.
-      treeSitterPerlVersion = "1.1.1";
+      treeSitterPerlVersion = "1.2.0";
       # Use variables to avoid matching update-flake's fetchFromGitHub detection
       # (which greps for these attribute patterns as string literals).
-      treeSitterPerlOwner = "ganezdragon";
+      treeSitterPerlOwner = "tree-sitter-perl";
       treeSitterPerlRepo = "tree-sitter-perl";
     in
     {
@@ -42,7 +42,7 @@
         in rec {
         graphify = pythonPackages.buildPythonApplication rec {
           pname = "graphifyy";
-          version = "0.9.1-perl";
+          version = "0.9.2-perl";
           format = "pyproject";
 
           src = graphify-src;
@@ -99,12 +99,15 @@
             owner = treeSitterPerlOwner;
             repo = treeSitterPerlRepo;
             rev = "v${treeSitterPerlVersion}";
-            hash = "sha256-1RnL1dFbTWalqIYg8oGNzwvZxOFPPKwj86Rc3ErfYMU=";
+            hash = "sha256-x5rVu/GlZ5HL+8fUo1JdEftIgKDIcluuRTaQDSFBcYo=";
           };
 
           # GitHub source doesn't ship Python bindings (generated at release via cibuildwheel).
           # Generate minimal binding that compiles parser + scanner into _binding.abi3.so.
+          nativeBuildInputs = [ pkgs.tree-sitter ];
+
           preBuild = ''
+            tree-sitter generate src/grammar.json
             rm -f setup.py pyproject.toml
             mkdir -p tree_sitter_perl
 
@@ -163,7 +166,7 @@
 
           meta = {
             description = "Perl grammar for tree-sitter";
-            homepage = "https://github.com/ganezdragon/tree-sitter-perl";
+            homepage = "https://github.com/tree-sitter-perl/tree-sitter-perl";
             license = nixpkgs.lib.licenses.mit;
             platforms = supportedSystems;
           };
