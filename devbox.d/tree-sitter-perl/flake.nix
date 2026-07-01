@@ -25,7 +25,7 @@
               owner = "tree-sitter-perl";
               repo = "tree-sitter-perl";
               rev = "v${version}";
-              hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";  # FIXME: was "sha256-x5rVu/GlZ5HL+8fUo1JdEftIgKDIcluuRTaQDSFBcYo=";
+              hash = "sha256-i5T7jT0zi0TSt7eAvjvJRak8kpzxOEoPydU+yEosNgA=";
             };
 
             # The tag source doesn't include generated parser.c or Python bindings.

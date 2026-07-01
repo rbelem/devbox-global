@@ -22,7 +22,7 @@
 
             src = pkgs.fetchurl {
               url = "https://registry.npmjs.org/opencommit/-/opencommit-${version}.tgz";
-              hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+              hash = "sha256-2nUDAQ5yKjEnU0MnH7vUMl+92C9ItvvO2cvpQqTKfOU=";
             };
 
             nativeBuildInputs = [ pkgs.makeWrapper ];

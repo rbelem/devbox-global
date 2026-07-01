@@ -99,7 +99,7 @@
             owner = treeSitterPerlOwner;
             repo = treeSitterPerlRepo;
             rev = "v${treeSitterPerlVersion}";
-            hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+            hash = "sha256-i5T7jT0zi0TSt7eAvjvJRak8kpzxOEoPydU+yEosNgA=";
           };
 
           # GitHub source doesn't ship Python bindings (generated at release via cibuildwheel).
