@@ -28,7 +28,7 @@
 
       # tree-sitter-perl is defined inline (after graphify) because relative-path
       # flake inputs don't work when devbox evaluates from nix store paths.
-      treeSitterPerlVersion = "1.2.0";
+      treeSitterPerlVersion = "1.2.1";
       # Use variables to avoid matching update-flake's fetchFromGitHub detection
       # (which greps for these attribute patterns as string literals).
       treeSitterPerlOwner = "tree-sitter-perl";
@@ -42,7 +42,7 @@
         in rec {
         graphify = pythonPackages.buildPythonApplication rec {
           pname = "graphifyy";
-          version = "0.9.2-perl";
+          version = "0.9.4-perl";
           format = "pyproject";
 
           src = graphify-src;
@@ -99,7 +99,7 @@
             owner = treeSitterPerlOwner;
             repo = treeSitterPerlRepo;
             rev = "v${treeSitterPerlVersion}";
-            hash = "sha256-x5rVu/GlZ5HL+8fUo1JdEftIgKDIcluuRTaQDSFBcYo=";
+            hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
           };
 
           # GitHub source doesn't ship Python bindings (generated at release via cibuildwheel).

@@ -10,7 +10,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "3.1.0";
+      version = "3.2.0";
     in
     {
       packages = forAllSystems (system:
@@ -21,7 +21,7 @@
             owner = "pbakaus";
             repo = "impeccable";
             rev = "cli-v${version}";
-            hash = "sha256-U6Eukc+xT4xX/jA3IVNB42p7Eey2XDbK6l5LHSTATX8=";
+            hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
           };
 
           # Inject the package-lock.json (generated from bun.lock) into source.
@@ -42,7 +42,7 @@
           npmDeps = pkgs.fetchNpmDeps {
             name = "impeccable-npm-deps";
             src = npmDepsSrc;
-            hash = "sha256-c/XWs/gVOlBrIqMTcPpKKf1PyGQ6BCMMN3WgP0PML0U=";
+            hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
           };
         in
         {
