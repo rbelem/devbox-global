@@ -88,9 +88,11 @@
           ];
 
           # memory — hierarchical memory with vector search
+          # NOTE: sentence-transformers excluded because its transitive dep
+          # duckdb-engine has a flaky test (DeadlineExceeded) in nixpkgs.
+          # Revisit when nixpkgs patches the test upstream.
           memoryDeps = with pkgs.python312Packages; [
             sqlite-vec
-            sentence-transformers
           ];
 
           # relevance — semantic relevance scoring
@@ -125,9 +127,10 @@
           ];
 
           # evals — evaluation framework (GSM8K, SQuAD, BFCL)
+          # NOTE: sentence-transformers excluded for same reason as memory
+          # (transitive duckdb-engine flaky test in nixpkgs).
           evalsDeps = with pkgs.python312Packages; [
             datasets
-            sentence-transformers
             numpy
             scikit-learn
             anthropic
