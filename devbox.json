@@ -71,6 +71,7 @@
     "path:devbox.d/skillspector",
     "uv@latest",
     "xxd@latest",
+    "path:devbox.d/headroom",
     "file@latest",
   ],
   "env": {
