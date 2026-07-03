@@ -33,9 +33,11 @@
         "bunx",
         "-y",
         "chrome-devtools-mcp@latest",
-        "--autoConnect"
+        "--executablePath",
+        "/home/rodrigob/.local/share/flatpak/exports/bin/com.google.Chrome",
+        "--headless"
       ],
-      "enabled": false
+      "enabled": true
     },
     "browsermcp": {
       "type": "local",
@@ -100,6 +102,18 @@
       "type": "remote",
       "url": "https://mcp.openrouter.ai/mcp",
       "enabled": true
+    },
+    "firefox-devtools": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "-y",
+        "@mozilla/firefox-devtools-mcp@latest",
+        "--firefox-path",
+        "/home/rodrigob/.local/share/flatpak/exports/bin/org.mozilla.firefox",
+        "--headless"
+      ],
+      "enabled": true
     }
   },
   "permission": {
@@ -143,7 +157,7 @@
   "compaction": {
     "tail_turns": 15
   },
-  "tool_timeout": 900000,
+  //"tool_timeout": 900000,
   "tool_output": {
     "max_lines": 500
   },
