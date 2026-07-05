@@ -354,15 +354,16 @@ Often cheaper than Zen for the same model. Includes Artificial Analysis benchmar
 
 | Model | OpenRouter Prompt | OpenRouter Completion | OpenRouter Cached | AA Intel | AA Coding | AA Agentic | Cheapest Provider |
 |---|---|---|---|---|---|---|---|
-| GLM-5.2 | $0.95 | $3.00 | $0.18 | 51.1 | 68.8 | 43.1 | DeepInfra |
-| DeepSeek V4 Flash | $0.09 | $0.18 | $0.02 | 40.3 | 56.2 | 31.1 | Wafer |
+| GLM-5.2 | $0.56 | $1.76 | $0.104 | 51.1 | 68.8 | 43.1 | DeepInfra |
+| GLM-5.1 | $0.966 | $3.036 | $0.179 | 40.2 | 55.8 | 29.9 | Z.AI |
+| DeepSeek V4 Flash | $0.09 | $0.18 | $0.018 | 40.3 | 56.2 | 31.1 | Wafer |
 | DeepSeek V4 Pro | $0.44 | $0.87 | $0.004 | 44.3 | 59.4 | 36.4 | DeepInfra |
-| MiMo-V2.5 | $0.11 | $0.28 | — | — | — | — | DeepInfra |
-| MiMo-V2.5-Pro | $0.44 | $0.87 | $0.004 | 42.2 | 60.2 | 29.1 | DeepInfra |
-| Qwen3.7 Max | $1.25 | $3.75 | — | 46.0 | 66.0 | 30.6 | DeepInfra |
-| Qwen3.7 Plus | $0.32 | $1.28 | — | 39.0 | 55.9 | 20.8 | DeepInfra |
+| MiMo-V2.5 | $0.105 | $0.28 | — | — | — | — | DeepInfra |
+| MiMo-V2.5-Pro | $0.435 | $0.87 | $0.0036 | 42.2 | 60.2 | 29.1 | DeepInfra |
+| Qwen3.7 Max | $1.25 | $3.75 | $0.25 | 46.0 | 66.0 | 30.6 | DeepInfra |
+| Qwen3.7 Plus | $0.32 | $1.28 | $0.064 | 39.0 | 55.9 | 20.8 | DeepInfra |
 | Kimi K2.6 | $0.66 | $3.41 | $0.14 | 42.8 | 56.0 | 30.3 | DeepInfra |
-| Kimi K2.7 Code | $0.95 | $4.00 | — | 41.9 | 60.8 | 29.6 | DeepInfra |
+| Kimi K2.7 Code | $0.74 | $3.50 | $0.15 | 41.9 | 60.8 | 29.6 | DeepInfra |
 | MiniMax M3 | $0.30 | $1.20 | $0.06 | 44.4 | 58.6 | 35.4 | DeepInfra |
 | MiniMax M2.7 | $0.30 | $1.20 | $0.06 | 38.1 | 52.6 | 25.6 | DeepInfra |
 | GPT-5.4 | $2.50 | $15.00 | $0.25 | 51.4 | 71.1 | 41.1 | OpenAI |
@@ -376,12 +377,34 @@ Often cheaper than Zen for the same model. Includes Artificial Analysis benchmar
 | Nemotron 3 Ultra | Free | Free | — | 37.8 | 49.3 | 27.4 | NVIDIA |
 
 **Key takeaways:**
-- **OpenRouter is cheaper than Zen for Go-available models**: GLM-5.2 ($0.95/$3.00 vs $1.40/$4.40), DeepSeek V4 Flash ($0.09/$0.18 vs $0.14/$0.28)
+- **OpenRouter is cheaper than Zen for Go-available models**: GLM-5.2 ($0.56/$1.76 vs $1.40/$4.40 — 60% cheaper!), DeepSeek V4 Flash ($0.09/$0.18 vs $0.14/$0.28)
 - **AA benchmarks are embedded in model metadata** — no separate scraping needed
-- **Provider choice matters**: GLM-5.2 ranges from $0.95/$3.00 (DeepInfra fp4) to $1.40/$4.40 (Z.AI, Fireworks, etc.) — 32% price difference
+- **Provider choice matters**: GLM-5.2 ranges from $0.56/$1.76 (DeepInfra) to $1.40/$4.40 (Z.AI, Fireworks, etc.) — 60% price difference
 - **OpenRouter has models not on Go or Zen**: Some models available on neither platform (e.g., KAT-Coder-Pro, Ring-2.6)
 
 Source: `openrouter_models-list` + `openrouter_benchmarks` (live MCP data).
+
+## Design Arena ELO (Live, Jul 5 2026)
+
+From OpenRouter MCP `openrouter_models-list` — Design Arena ELO scores for Go-available models.
+Higher ELO = better. Categories: `models` arena (code gen, UI, 3D, gamedev, dataviz, website) and `agents` arena (fullstack, webapps, mobileapps, slides).
+
+| Model | Website ELO | CodeCategories ELO | UI Component ELO | 3D ELO | Fullstack (agent) ELO | WebApps (agent) ELO |
+|---|---|---|---|---|---|---|
+| **GLM-5.2** | **1356 (#1)** | **1360 (#1)** | 1339 (#5) | **1373 (#1)** | 1293 (#3) | 1284 (#3) |
+| GLM-5.1 | 1317 (#9) | 1331 (#5) | 1339 (#4) | 1341 (#5) | 1231 (#8) | 1245 (#10) |
+| Kimi K2.6 | 1318 (#7) | 1327 (#6) | 1320 (#10) | 1355 (#3) | 1220 (#11) | 1260 (#7) |
+| Kimi K2.7 Code | 1318 (#8) | 1306 (#13) | 1302 (#14) | 1315 (#13) | 1233 (#7) | 1248 (#8) |
+| MiMo-V2.5-Pro | 1309 (#11) | 1319 (#10) | 1299 (#15) | 1322 (#10) | — | — |
+| MiMo-V2.5 | 1304 (#12) | 1303 (#15) | 1311 (#13) | 1298 (#19) | — | — |
+| MiniMax M3 | 1304 (#13) | 1306 (#14) | 1294 (#17) | 1305 (#17) | — | — |
+| Qwen3.7 Max | 1302 (#14) | 1311 (#11) | 1331 (#6) | 1325 (#8) | 1223 (#9) | 1269 (#4) |
+
+**Key takeaways:**
+- **GLM-5.2 dominates Design Arena** — #1 on website, codecategories, and 3D. Best designer model on Go.
+- **Kimi K2.6** is strong on agent slides/htmlslides (ELO 1248, rank 2) — good for presentation-heavy design work.
+- **Qwen3.7 Max** has the best UI component ELO among Go models (1331, #6 overall).
+- For pure UI/UX design tasks, GLM-5.2 > Kimi K2.6 > Qwen3.7 Max.
 
 ## OpenCode Zen Pricing (June 17, 2026)
 
@@ -529,6 +552,16 @@ User's own codeneedle benchmark:
 - **Kilo.ai Live Leaderboard** (kilo.ai/leaderboard) — Real token usage from 3M+ developers. MiniMax M3 at 47.6% completion rate, $10.35/attempt.
 - **SWE-rebench** (swe-rebench.com, fetched Jun 13) — 110 problems, tool-use agentic eval. Go model ranking: GLM-5.1 50.7% > Kimi K2.6 46.5% > MiniMax M3 45.6%.
 - **Build Fast with AI June 2026 Leaderboard** — 10-model comparison. Rates Qwen3.7 Max as "rational alternative to Opus 4.8 at 1/6 price."
+
+### Fresh Data Delta (Jul 5 2026 update vs Jun 17)
+
+| Finding | Previous (Jun 17) | Live (Jul 5) |
+|---|---|---|
+| **GLM-5.2 OpenRouter price** | $0.95/$3.00 | **$0.56/$1.76** ↓ 41% |
+| GLM-5.1 OpenRouter price | Not listed | **$0.966/$3.036** (new) |
+| MiMo-V2.5-Pro OR price | $0.44/$0.87 | $0.435/$0.87 (≈same) |
+| Design Arena data | Not in REFERENCE | **Added** — GLM-5.2 #1 on website/codecategories/3D |
+| Go model list | 13 models | **Unchanged** (13 models, same limits) |
 
 ### Fresh Data Delta (Jun 17 scrape vs REFERENCE)
 
