@@ -143,7 +143,6 @@
   "compaction": {
     "tail_turns": 15
   },
-  "tool_timeout": 900000,
   "tool_output": {
     "max_lines": 500
   },
