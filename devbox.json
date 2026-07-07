@@ -71,7 +71,6 @@
     "path:devbox.d/skillspector",
     "uv@latest",
     "xxd@latest",
-    "path:devbox.d/headroom",
     "path:devbox.d/strix",
     "path:devbox.d/herdr",
     "file@latest",
