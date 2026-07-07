@@ -8,7 +8,7 @@
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      version = "0.29.0";
+      version = "0.30.0";
 
       # Pre-built abi3 wheels from GitHub releases (one per arch, compatible with Python 3.10+).
       # Rebuild when version bumps: download the new wheel and get its SHA256.
@@ -22,8 +22,8 @@
       };
 
       systemToHash = {
-        "x86_64-linux" = "sha256-cd004QOl+meX10mV9mzYkuefqJDzPO+ml3HWLvExbpI=";
-        "aarch64-linux" = "sha256-ZsrcvwBtHGmHgJ0fc/kxY/ZOLsOiH0CxjVGxRPSUVSY=";
+        "x86_64-linux" = "sha256-DmajJBkBq2JgarDPKyQfMtOlrJzwy9oJn8yGUZ3RcA0=";
+        "aarch64-linux" = "sha256-vQZ6Q0hbZf2NcZVu++Q+KvKoznLdaOS0juXL+tA7K5E=";
       };
     in
     {

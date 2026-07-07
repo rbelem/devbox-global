@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs }:
     let
-      version = "1.0.4";
+      version = "1.1.0";
 
       systems = [
         "x86_64-linux"
@@ -28,15 +28,15 @@
         };
         "aarch64-linux" = {
           asset = "dolt-linux-arm64.tar.gz";
-          hash = "sha256-68Y1LAC73UsZgMP9cHLubd4DuFy4wUF/8UaK8NDVLMQ=";
+          hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
         };
         "x86_64-darwin" = {
           asset = "dolt-darwin-amd64.tar.gz";
-          hash = "sha256-SgVLNBeyKj8Hzi6Y/F4j2wJ8366ay6YNXkMEcSrD+0Ls=";
+          hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
         };
         "aarch64-darwin" = {
           asset = "dolt-darwin-arm64.tar.gz";
-          hash = "sha256-ac7o+3zS3hBomkUCHmxeL4FVFPM/ci4SH8qlLGxnIWk=";
+          hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
         };
       }.${system} or (throw "Unsupported dolt system: ${system}");
 
@@ -44,19 +44,19 @@
       platform = system: {
         "x86_64-linux" = {
           asset = "beads_${version}_linux_amd64.tar.gz";
-          hash = "sha256-ZD5gLif2Zshyar/w8iAB4rWIOYj6lgIEveIKMSnUSKU=";
+          hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
         };
         "aarch64-linux" = {
           asset = "beads_${version}_linux_arm64.tar.gz";
-          hash = "sha256-SM31cc2LZLroHagpwTCeQCvBLmpMxrh2Bt/JIgt+zmA=";
+          hash = "sha256-5k629fmYyerj757HhvXxyQerPtBP4iDr8mXKmVLiGy8=";
         };
         "x86_64-darwin" = {
           asset = "beads_${version}_darwin_amd64.tar.gz";
-          hash = "sha256-ilL35U/gONNpzJ6g5l92hTt19UaccMnGk9ZGcWI8TOk=";
+          hash = "sha256-XX0w/a3PASt+DBkzpizfrvEG4lYVCbkE5QpnM2Ic+No=";
         };
         "aarch64-darwin" = {
           asset = "beads_${version}_darwin_arm64.tar.gz";
-          hash = "sha256-DFNHn+oHChyr6Osx44JNdMVkOx3spxpf6DLr046e+Hc=";
+          hash = "sha256-xC4k2Dslj3up9SptLV9rBVhp3+eAcWUFWYixLn6oxWQ=";
         };
       }.${system} or (throw "Unsupported system: ${system}");
 
