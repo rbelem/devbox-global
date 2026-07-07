@@ -1,9 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "opencode-go/glm-5.2",
-  "small_model": "opencode-go/mimo-v2.5-pro",
+  "small_model": "opencode-go/kimi-k2.6",
   "experimental": {
-    "background_subagents": true,
     "disable_paste_summary": true,
     "mcp_timeout": 30000
   },
@@ -83,7 +82,7 @@
         "-y",
         "opencode-docs-mcp@latest"
       ],
-      "enabled": false
+      "enabled": true
     },
     "agentmemory": {
       "type": "local",
@@ -100,6 +99,17 @@
       "type": "remote",
       "url": "https://mcp.openrouter.ai/mcp",
       "enabled": true
+    },
+    "firecrawl-mcp": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "-y",
+        "firecrawl-mcp"
+      ],
+      "environment": {
+        "FIRECRAWL_API_KEY": "{env:FIRECRAWL_API_KEY}"
+      }
     }
   },
   "permission": {

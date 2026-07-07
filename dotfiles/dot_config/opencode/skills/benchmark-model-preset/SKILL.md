@@ -52,14 +52,34 @@ Prerequisite: `npm i -g agent-browser && agent-browser install`. See REFERENCE.m
 - `openrouter_benchmarks source="design-arena"` — UI/UX ELO scores
 - `openrouter_rankings-daily` — model popularity
 
-### Step 3: Cross-Reference Per Agent
+### Step 3: Test Endpoint Health
+Before recommending models, verify they are actually serving inference:
+
+```bash
+# Quick ping without API key (checks endpoint exists, returns 401)
+./scripts/test-endpoints.sh --ping-only
+
+# Full live inference test (needs API key)
+./scripts/test-endpoints.sh $OPENCODE_GO_API_KEY
+# or
+export OPENAI_API_KEY=sk-...
+./scripts/test-endpoints.sh
+```
+
+**Auth differences discovered:**
+- OpenAI-compatible models (`/chat/completions`): `Authorization: Bearer <key>`
+- Anthropic-compatible models (`/messages`): **`x-api-key: <key>`**
+
+**Expected results:** 13/14 models up. `qwen3.7-max` has been observed as "temporarily unavailable" intermittently.
+
+### Step 4: Cross-Reference Per Agent
 1. **List candidates** on opencode-go, opencode-zen, openrouter
 2. **Filter by capability**: vision, speed, reasoning
 3. **Check benchmarks**: DeepSWE for coding, AA indices for reasoning
 4. **Compare pricing**: Go (free within limits) vs Zen PAYG vs OpenRouter PAYG — see REFERENCE.md for rules
 5. **Check context window**: ≥128K for Orchestrator, Fixer
 
-### Step 4: Build the Preset
+### Step 5: Build the Preset
 ```jsonc
 "my-best-value": {
   "orchestrator": { "model": "opencode-go/<model>", "skills": ["*"], "mcps": ["*"] },
@@ -73,7 +93,7 @@ Prerequisite: `npm i -g agent-browser && agent-browser install`. See REFERENCE.m
 }
 ```
 
-### Step 5: Validate
+### Step 6: Validate
 ```bash
 opencode models --refresh
 # Test agents, switch to new preset
@@ -83,4 +103,5 @@ opencode models --refresh
 
 - [REFERENCE.md](REFERENCE.md) — data sources, pricing tables, pool strategy, cost heuristics, data quality notes, manual scraping guide
 - [scripts/fetch-pricing.sh](scripts/fetch-pricing.sh) — automated data fetcher (agent-browser + OpenRouter API)
+- [scripts/test-endpoints.sh](scripts/test-endpoints.sh) — live endpoint health checker for all OpenCode Go models
 - **OpenRouter MCP:** `openrouter_models-list`, `openrouter_benchmarks`, `openrouter_rankings-daily`, `openrouter_model-endpoints` — live queries during sessions
