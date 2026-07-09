@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# devbox-global-config-sync
+# config-sync
 # Bidirectional config sync: repo ↔ $(devbox global path).
 # Detects conflicts (both sides modified), dry-run, diff preview.
 set -euo pipefail
@@ -15,7 +15,7 @@ NC=$'\033[0m'
 # ── Paths ──
 REPO_DIR="$(ghq root)/github.com/rbelem/devbox-global"
 GLOBAL_DIR="$(devbox global path)"
-ITEMS=("devbox.json" "devbox.d" "devbox-global-config-sync" "devbox-global-update-flake")
+ITEMS=("devbox.json" "devbox.d" "bin")
 
 # ── Help ──
 usage() {
