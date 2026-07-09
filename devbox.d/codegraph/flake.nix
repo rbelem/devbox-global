@@ -15,7 +15,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     codegraph-src = {
-      url = "github:rbelem/codegraph/v1.2.x-perl";
+      url = "github:rbelem/codegraph/v1.3.x-perl";
       flake = false;
     };
   };
@@ -46,7 +46,7 @@
             #   1. Set to pkgs.lib.fakeHash
             #   2. Run: nix build "path:...#default"
             #   3. Replace with the hash from the error message
-            npmDepsHash = "sha256-ilOWXV6PlKoY/JTpRYsmhtZuj/VfXWrUvAXC1MZVCn8=";
+            npmDepsHash = "sha256-++E5LBDzRtoKJJkPqjtNrfe0jhJgRRiKiKOiYggdE/o=";
 
             nodejs = pkgs.nodejs_22;
 

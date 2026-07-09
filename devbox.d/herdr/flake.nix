@@ -16,7 +16,7 @@
 
     systemToHash = {
       "x86_64-linux"  = "sha256-BD70Psur2ihGXc/x7sMYRRgVDVZ7i48gzanGyIdwZB0=";
-      "aarch64-linux" = "sha256-6kkAlPLHw5CZhwhX0Axkxijve166GWffQlgDNFXuLLE=";
+      "aarch64-linux" = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";  # FIXME: was "sha256-PXV6wwxjHnncRQOMPsxkI/4TqJ+c/6D0Fa7dLCfxV2w=";
     };
   in {
     packages = forAllSystems (pkgs: rec {
