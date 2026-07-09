@@ -7,7 +7,7 @@
     supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
     forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-    version = "0.7.1";
+    version = "0.7.3";
 
     systemToTarget = {
       "x86_64-linux"  = "herdr-linux-x86_64";
@@ -15,8 +15,8 @@
     };
 
     systemToHash = {
-      "x86_64-linux"  = "sha256-uWWsr/wsIvVLbmxkr3z46Yo/SsJiJjCgWZxnpLnYplQ=";
-      "aarch64-linux" = "sha256-PXV6wwxjHnncRQOMPsxkI/4TqJ+c/6D0Fa7dLCfxV2w=";
+      "x86_64-linux"  = "sha256-BD70Psur2ihGXc/x7sMYRRgVDVZ7i48gzanGyIdwZB0=";
+      "aarch64-linux" = "sha256-6kkAlPLHw5CZhwhX0Axkxijve166GWffQlgDNFXuLLE=";
     };
   in {
     packages = forAllSystems (pkgs: rec {

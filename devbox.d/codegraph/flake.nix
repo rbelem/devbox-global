@@ -3,14 +3,14 @@
   # upstream: colbymchenry/codegraph
   # fork-suffix: -perl
   #
-  # After bumping the version above, sync the v1.2.x-perl fork branch:
+  # After bumping the version above, sync the v1.3.x-perl fork branch:
   #   cd $(ghq root)/github.com/rbelem/codegraph
   #   git fetch origin --tags
-  #   git checkout v1.2.x-perl
+  #   git checkout v1.3.x-perl
   #   git merge v<new-version>
   #   # Resolve conflicts if any:
   #   # - CHANGELOG.md: keep upstream entries + restore Perl entry at top
-  #   git push origin v1.2.x-perl
+  #   git push origin v1.3.x-perl
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -25,7 +25,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.2.0-perl";
+      version = "1.3.1-perl";
       treeSitterPerlVersion = "1.2.0";
       treeSitterPerlOwner = "tree-sitter-perl";
       treeSitterPerlRepo = "tree-sitter-perl";
