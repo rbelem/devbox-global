@@ -1357,6 +1357,94 @@
         }
       }
     },
+    "libsecret@latest": {
+      "last_modified": "2026-07-05T19:27:47Z",
+      "resolved": "github:NixOS/nixpkgs/f205b5574fd0cb7da5b702a2da51507b7f4fdd1b#libsecret",
+      "source": "devbox-search",
+      "version": "0.21.7",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1s8v025qmq6aygfga4yddy19cpzqpv12-libsecret-0.21.7",
+              "default": true
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/wp9cxwx508jipdzqigimajja359ilwlk-libsecret-0.21.7-dev"
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/r9ny1dqxz5j2q2vvwpg37i78g731zxv7-libsecret-0.21.7-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/1s8v025qmq6aygfga4yddy19cpzqpv12-libsecret-0.21.7"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9jj405yb5cc31zvr7g7xxpinfbdyh7nr-libsecret-0.21.7",
+              "default": true
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/dczb7f7dyr4gm1crx1qf350q2c04r740-libsecret-0.21.7-debug"
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/a5lcmzw72ffybi1bisyg2fvasqv8ygwd-libsecret-0.21.7-dev"
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/1rfy8dg9223dvlshcdgvmi827viw4mcc-libsecret-0.21.7-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/9jj405yb5cc31zvr7g7xxpinfbdyh7nr-libsecret-0.21.7"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/bvsy28x7xfxi26487xvvb0jzlyjccqg6-libsecret-0.21.7",
+              "default": true
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/b22z08mnc9xi7gjm620r7davhair9bas-libsecret-0.21.7-dev"
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/x5g7vv05rh6jaxlg4vwl8kd5iggbr4x5-libsecret-0.21.7-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/bvsy28x7xfxi26487xvvb0jzlyjccqg6-libsecret-0.21.7"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ncchimf2sw3l3dfds9h747kwp68bhval-libsecret-0.21.7",
+              "default": true
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/86b3hjxa947csd1l7w3azxd5nxv1w7mh-libsecret-0.21.7-debug"
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/wzdn1dwn3np5ml06n36zwna08rmh8niy-libsecret-0.21.7-dev"
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/874mh71bvw86b35yk0bfbdd6n3q14hmd-libsecret-0.21.7-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/ncchimf2sw3l3dfds9h747kwp68bhval-libsecret-0.21.7"
+        }
+      }
+    },
     "libuuid@latest": {
       "last_modified": "2026-06-29T19:19:24Z",
       "resolved": "github:NixOS/nixpkgs/7a1a64774a5fd0b0cd39ac95d0e170ace8b266a0#libuuid",
@@ -1704,6 +1792,55 @@
             }
           ],
           "store_path": "/nix/store/p8hyi5zgaldlwwnhckjjwlmra9ipf5nx-nix-search-cli-0.3-unstable-2025-12-03"
+        }
+      }
+    },
+    "nodejs@latest": {
+      "last_modified": "2026-06-27T07:37:20Z",
+      "plugin_version": "0.0.4",
+      "resolved": "github:NixOS/nixpkgs/3d46470bb3030020f7e1361f33514854f5bfa86d#nodejs_26",
+      "source": "devbox-search",
+      "version": "26.4.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/dz3nxng3029j1gc570pkwj8ahfdl3sa4-nodejs-26.4.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/dz3nxng3029j1gc570pkwj8ahfdl3sa4-nodejs-26.4.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/4bv9k994r33svxczpy2wk3lhsrh3kspl-nodejs-26.4.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/4bv9k994r33svxczpy2wk3lhsrh3kspl-nodejs-26.4.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/wyxj7d54jggi26lnap66c858mb2l2m2q-nodejs-26.4.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/wyxj7d54jggi26lnap66c858mb2l2m2q-nodejs-26.4.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/i2jf2l5lqhy3d7zy3lzx5wjydyzw2hwm-nodejs-26.4.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/i2jf2l5lqhy3d7zy3lzx5wjydyzw2hwm-nodejs-26.4.0"
         }
       }
     },
@@ -2663,6 +2800,54 @@
               "default": true
             }
           ]
+        }
+      }
+    },
+    "zenity@latest": {
+      "last_modified": "2026-06-27T07:37:20Z",
+      "resolved": "github:NixOS/nixpkgs/3d46470bb3030020f7e1361f33514854f5bfa86d#zenity",
+      "source": "devbox-search",
+      "version": "4.2.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/lyijf9s0inwq5qzdaci3nj8p1h031d1q-zenity-4.2.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/lyijf9s0inwq5qzdaci3nj8p1h031d1q-zenity-4.2.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0qvwcarr26wpbbm026x7q1bgslkgwh9w-zenity-4.2.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0qvwcarr26wpbbm026x7q1bgslkgwh9w-zenity-4.2.2"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3cqz70wlv2xfkdw1iw950641abi3nlsc-zenity-4.2.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/3cqz70wlv2xfkdw1iw950641abi3nlsc-zenity-4.2.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/nrzx3yj434c593d65j28i8pvm40pzhzi-zenity-4.2.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/nrzx3yj434c593d65j28i8pvm40pzhzi-zenity-4.2.2"
         }
       }
     },
