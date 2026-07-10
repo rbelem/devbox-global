@@ -83,24 +83,23 @@
               # the Next.js build (next/font/google fetches fail in sandbox)
               tar xzf ${npmTarball} --strip=1 -C . package/dist/
 
-              # Replace CI-built native binaries with Nix-compiled ones from
-              # root node_modules. Mirrors the upstream postinstall.mjs logic.
-              for mod in better-sqlite3 wreq-js; do
+              # Replace stub modules in dist/node_modules/ with full copies
+              # from root node_modules/. The Next.js standalone bundles only
+              # a subset; packages like ioredis, undici, etc. end up as
+              # stubs (package.json only). Syncing all stubs avoids runtime
+              # ERR_MODULE_NOT_FOUND from dynamic imports (MCP, etc.).
+              for mod in $(cd "$PWD/dist/node_modules" && find . -maxdepth 1 -mindepth 1 -type d -exec basename {} \; && find . -maxdepth 2 -mindepth 2 -path './@*/*' -type d 2>/dev/null | sed 's|^\./||'); do
                 rootDir="$PWD/node_modules/$mod"
                 distDir="$PWD/dist/node_modules/$mod"
                 if [ -d "$rootDir" ] && [ -d "$distDir" ]; then
-                  echo "[nix] Replacing native binary: $mod"
-                  rm -rf "$distDir/build" "$distDir/rust" "$distDir/prebuilds" 2>/dev/null || true
-                  for dir in build rust prebuilds; do
-                    [ -d "$rootDir/$dir" ] && cp -r "$rootDir/$dir" "$distDir/"
-                  done
+                  distFiles=$(find "$distDir" -maxdepth 1 -type f 2>/dev/null | wc -l)
+                  if [ "$distFiles" -le 1 ]; then
+                    echo "[nix] Syncing stub module: $mod"
+                    rm -rf "$distDir"
+                    cp -r "$rootDir" "$distDir"
+                  fi
                 fi
               done
-              # @swc/helpers is pure JS — copy if missing from dist
-              if [ ! -d "$PWD/dist/node_modules/@swc/helpers" ] && [ -d "$PWD/node_modules/@swc/helpers" ]; then
-                mkdir -p "$PWD/dist/node_modules/@swc"
-                cp -r "$PWD/node_modules/@swc/helpers" "$PWD/dist/node_modules/@swc/"
-              fi
 
               # Copy the package to $out
               mkdir -p $out/lib/node_modules/omniroute
