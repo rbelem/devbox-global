@@ -72,9 +72,35 @@
             installPhase = ''
               runHook preInstall
 
+              # Compile native modules from source using node-gyp directly.
+              # npm rebuild / prebuild-install may fetch a CI binary compiled
+              # against a newer V8 than runtime Node 22.23.1 — force source
+              # compilation so the binary matches the Nix-built Node.js.
+              (cd node_modules/better-sqlite3 && node ../.bin/node-gyp rebuild 2>&1)
+              (cd node_modules/wreq-js && node ../.bin/node-gyp rebuild 2>&1) || true
+
               # Inject prebuilt dist/ from npm tarball — this avoids running
               # the Next.js build (next/font/google fetches fail in sandbox)
               tar xzf ${npmTarball} --strip=1 -C . package/dist/
+
+              # Replace CI-built native binaries with Nix-compiled ones from
+              # root node_modules. Mirrors the upstream postinstall.mjs logic.
+              for mod in better-sqlite3 wreq-js; do
+                rootDir="$PWD/node_modules/$mod"
+                distDir="$PWD/dist/node_modules/$mod"
+                if [ -d "$rootDir" ] && [ -d "$distDir" ]; then
+                  echo "[nix] Replacing native binary: $mod"
+                  rm -rf "$distDir/build" "$distDir/rust" "$distDir/prebuilds" 2>/dev/null || true
+                  for dir in build rust prebuilds; do
+                    [ -d "$rootDir/$dir" ] && cp -r "$rootDir/$dir" "$distDir/"
+                  done
+                fi
+              done
+              # @swc/helpers is pure JS — copy if missing from dist
+              if [ ! -d "$PWD/dist/node_modules/@swc/helpers" ] && [ -d "$PWD/node_modules/@swc/helpers" ]; then
+                mkdir -p "$PWD/dist/node_modules/@swc"
+                cp -r "$PWD/node_modules/@swc/helpers" "$PWD/dist/node_modules/@swc/"
+              fi
 
               # Copy the package to $out
               mkdir -p $out/lib/node_modules/omniroute
@@ -83,7 +109,7 @@
               # Create bin wrappers
               mkdir -p $out/bin
               for bin in omniroute omniroute-reset-password; do
-                makeWrapper ${pkgs.nodejs_22}/bin/node \
+                makeWrapper ${pkgs.nodejs}/bin/node \
                   $out/bin/$bin \
                   --add-flags "$out/lib/node_modules/omniroute/bin/$bin.mjs" \
                   --set NODE_PATH "$out/lib/node_modules"
