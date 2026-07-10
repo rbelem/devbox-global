@@ -6,20 +6,23 @@ Coding agent benchmark — 113 tasks across TypeScript, Go, Python, JS, Rust.
 Run on mini-swe-agent for consistency. Higher Pass@1 = better.
 Source: https://deepswe.datacurve.ai/ — fetched via agent-browser.
 
-### v1.1 (June 14, 2026) — Top-8 Frontier
+### v1.1 (July 1, 2026) — Top-10 Frontier
 
 | Rank | Model | Pass@1 | ±CI | Avg Cost | Out Tok | Steps |
 |---|---|---|---|---|---|---|
 | 1 | claude-fable-5 [max] | 70% | ±4% | $21.63 | 119k | 88 |
 | 2 | gpt-5.5 [xhigh] | 67% | ±6% | $7.23 | 46k | 82 |
 | 3 | claude-opus-4.8 [max] | 59% | ±2% | $13.22 | 135k | 120 |
-| 4 | gpt-5.4 [xhigh] | 52% | ±2% | $5.65 | 71k | 70 |
-| 5 | gemini-3.5-flash [medium] | 37% | ±2% | $7.34 | 276k | 86 |
-| 6 | **kimi-k2.7-code** | **31%** | ±1% | **$2.82** | 59k | 149 |
-| 7 | claude-sonnet-4.6 [high] | 30% | ±4% | $5.52 | 76k | 134 |
-| 8 | gemini-3.1-pro [high] | 12% | ±2% | $9.48 | 196k | 81 |
+| 4 | claude-sonnet-5 [max] | 54% | ±4% | $26.40 | 214k | 268 |
+| 5 | gpt-5.4 [xhigh] | 52% | ±2% | $5.65 | 71k | 70 |
+| **6** | **glm-5.2 [max]** ⚡ | **44%** | ±2% | **$3.92** | 78k | 129 |
+| 7 | gemini-3.5-flash [medium] | 37% | ±2% | $7.34 | 276k | 86 |
+| **8** | **kimi-k2.7-code** ⚡ | **31%** | ±1% | **$2.82** | 59k | 149 |
+| 9 | claude-sonnet-4.6 [high] | 30% | ±4% | $5.52 | 76k | 134 |
+| 10 | gemini-3.1-pro [high] | 12% | ±2% | $9.48 | 196k | 81 |
 
-Note: v1.1 only shows 8 frontier models. Older Go models are on the v1 tab.
+⚡ = Available on opencode-go
+Note: v1.1 updated to 10 models. GLM-5.2 independently verified at 44%±2% (vs 46% Z.ai self-reported). kimi-k2.7-code now on v1.1 leaderboard. Older Go models are on the v1 tab.
 
 ### v1 (June 11, 2026) — 17 Models (Legacy)
 
@@ -45,7 +48,7 @@ Note: v1.1 only shows 8 frontier models. Older Go models are on the v1 tab.
 | 17 | gemini-3-flash | 5% | ±2% | $1.53 | 39m | 233k |
 
 Note: Page showed 17/20 models. 3 models hidden behind a dropdown filter.
-† **GLM-5.2** scored **46%** on DeepSWE per Z.ai's official blog (Jun 16) using the same mini-swe-agent harness. Scores match all other models exactly, confirming a fair comparison. See "GLM-5.2 Full Benchmark Table" section below.
+† **GLM-5.2** scored **44%±2%** on DeepSWE v1.1 leaderboard (Jul 1, independently verified). Z.ai's self-reported blog score was 46.2%. The v1.1 leaderboard now shows 44%±2% — still #1 Go model by 2.4× margin. See "DeepSWE v1.1" and "GLM-5.2 Full Benchmark Table" sections below.
 
 ## GLM-5.2 Benchmark Summary (Released June 17, 2026)
 
@@ -59,7 +62,7 @@ To use `high`, you must explicitly pass `reasoning_effort="high"`.
 
 | Benchmark | GLM-5.2 | GLM-5.1 | Qwen3.7-Max | MiniMax M3 | Opus 4.8 | GPT-5.5 |
 |---|---|---|---|---|---|---|
-| **DeepSWE** | **46.2** | 18 | 18 | 20 | 58 | 70 |
+| **DeepSWE** | **46.2** (44±2 indep.) | 18 | 18 | 20 | 58 | 70 |
 | SWE-bench Pro | **62.1** | 58.4 | 60.6 | 59 | 69.2 | 58.6 |
 | Terminal-Bench 2.1 | **81.0** | 63.5 | 75 | 65 | 85 | 84 |
 | FrontierSWE | **74.4** | 30.5 | — | — | 75.1 | 72.6 |
@@ -84,37 +87,37 @@ To use `high`, you must explicitly pass `reasoning_effort="high"`.
 
 Source: https://arena.ai/leaderboard/ (formerly LMSYS Chatbot Arena)
 
-### Agent Arena (June 2026)
+### Agent Arena (July 8, 2026)
 
 Measures models on real-world long-horizon agentic tasks with web search, filesystem, and terminal tools. Uses causal tracing methodology.
+**947K sessions, 32 models** (up from 786K/28 on Jun 15).
 
 | Rank | Model | Score | Verdict |
 |---|---|---|---|
-| 1 | Claude Fable 5 (High) | 14.05% | Frontier |
-| 2 | Claude Opus 4.8 (Thinking) | 8.85% | + |
+| 1 | Claude Fable 5 (High) | +14.10% | Frontier |
+| 2 | Claude Opus 4.8 (Thinking) | +9.76% | + |
 | ... | ... | ... | |
-| **10** | **GLM-5.2 (Max)** | **4.51%** | **#1 open model** |
-| 13 | GLM-5.1 | — | ↑3 spots from 5.1 |
+| **10** | **GLM-5.2 (Max)** ⚡ | **+6.54%** | **#1 open model — BIG jump from +4.37%** |
+| 15 | **Qwen3.7 Max** ⚡ | **+0.36%** | **Massive improvement from -4.24%** |
 
-GLM-5.2 (Max): #3 Confirmed Task Success (+9.4%), #3 Praise vs Complaint (+14.9%).
-Weakness: #20 Steerability (-6.0%).
-
-### Overall Arena (Elo)
+**GLM-5.2 (Max) now dominates on Tool Hallucination:** #1 (tied) at 1.24% — lowest in the entire leaderboard.
+Also #3 Confirmed Success (+9.46%), #6 Praise/Complaint (+13.74%).
 
 ### Go Model DeepSWE Ranking
 
-1. **GLM-5.2** — **46%** (Z.ai official, Jun 16), $1.40/$4.40 — **#1 Go model by 2× margin**. 1M ctx, MIT license, Arena Agent +4.37%
-2. **kimi-k2.6** — 24%±2%, $3.16 — Distant second. Good coding agent, weak orchestrator (Arena -0.50%)
-3. **minimax-m3** — 20%±4%, $5.57 — Strong multimodal, 1M ctx, weak agent (-2.79% Arena)
-4. **mimo-v2.5-pro** — 19%±2%, $1.99 — Best value: quality per dollar
-5. **qwen3.7-max** — 18%±1%, $2.12 — Best reasoning (AA 56.6), weak at agentic coding
-6. **glm-5.1** — 18%±1%, $7.46 — Overpriced for the score
+1. **GLM-5.2** — **44%** (independently verified on v1.1, Jul 1), $1.40/$4.40 — **#1 Go model by 2.4× margin**. 1M ctx, MIT license, Arena Agent +6.54%
+2. **kimi-k2.7-code** — 31%±1%, $2.82 — Rising coding specialist. DeepSWE beats claude-sonnet-4.6 (30%)
+3. **kimi-k2.6** — 24%±2%, $3.16 — Distant third. Good coding agent, weak orchestrator (Arena -1.61%)
+4. **minimax-m3** — 20%±4%, $5.57 — Strong multimodal, 1M ctx, weak agent (-3.08% Arena)
+5. **mimo-v2.5-pro** — 19%±2%, $1.99 — Best value: quality per dollar
+6. **qwen3.7-max** — 18%±1%, $2.12 — Best reasoning (AA 56.6), now positive on Arena (+0.36%)
+7. **glm-5.1** — 18%±1%, $7.46 — Overpriced for the score
 
-### LM Arena Agent Leaderboard (June 15, 2026)
+### LM Arena Agent Leaderboard (July 8, 2026)
 
-Preference-based causal evaluation of agent orchestrator models across 786K+ real-world sessions (up from 260K+ Jun 14).
+Preference-based causal evaluation of agent orchestrator models across **947K+** real-world sessions.
 "Net Improvement" is the aggregate causal treatment effect (%); higher = better orchestrator.
-Source: https://arena.ai/leaderboard/agent — fetched via agent-browser.
+Source: https://arena.ai/leaderboard/agent — fetched via firecrawl.
 
 #### Key Signals
 
@@ -127,68 +130,82 @@ Source: https://arena.ai/leaderboard/agent — fetched via agent-browser.
 | **Bash Recovery** | Recovers from failed commands with fewest steps | Agentic resilience — key for Fixer role |
 | **Tool Hallucination** | Calls tools that don't exist | Reliability — lower/hallucination = better for all agents |
 
-#### Full Leaderboard (28 models)
+#### Signal Leaders (Jul 8)
+
+| Signal | #1 Model | Score |
+|---|---|---|
+| Confirmed Success | Claude Fable 5 (High) | +16.88% |
+| Praise vs Complaint | Claude Fable 5 (High) | +30.94% |
+| Steerability | Claude Fable 5 (High) | +12.56% |
+| Bash Recovery | GPT 5.5 (xHigh) | +14.54% |
+| **Tool Hallucination** | **GLM 5.2 (Max)** ⚡ | **1.24% (lowest — tied)** |
+
+#### Full Leaderboard (32 models)
 
 | Agent Rank | Model | Net Improvement | Confirmed Success | Praise/Complaint | Steerability | Bash Recovery | Tool Hallucination | Sessions |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Claude Fable 5 (High) | **+14.17%±1.54%** | +16.48% | +29.65% | +13.39% | +9.46% | -1.86% | 16,240 |
-| 2 | Claude Opus 4.8 (Thinking) | **+9.04%±1.19%** | +10.75% | +14.36% | +10.48% | +9.08% | -0.56% | 27,529 |
-| 3 | GPT 5.5 (xHigh) | **+8.27%±1.73%** | +4.42% | +17.52% | +3.12% | +14.42% | -1.86% | 11,963 |
-| 4 | Claude Opus 4.7 | **+8.12%±1.51%** | +4.63% | +10.73% | +11.69% | +11.74% | -1.81% | 29,557 |
-| 5 | Claude Opus 4.7 (Thinking) | **+8.09%±1.48%** | +4.51% | +12.40% | +8.66% | +13.08% | -1.82% | 29,504 |
-| 6 | GPT 5.5 (High) | **+7.78%±1.07%** | +5.93% | +10.90% | +7.56% | +12.64% | -1.86% | 38,520 |
-| 7 | GPT 5.5 | **+6.73%±1.03%** | +4.75% | +8.13% | +7.86% | +11.07% | -1.86% | 38,818 |
-| 8 | Claude Opus 4.6 | **+6.73%±1.42%** | +6.17% | +7.40% | +8.13% | +10.11% | -1.86% | 29,550 |
-| 9 | GPT 5.4 (High) | **+6.54%±1.07%** | +4.63% | +6.55% | +7.53% | +12.14% | -1.86% | 38,552 |
-| 10 | **GLM 5.2 (Max)** ⚡ | **+4.37%±2.48%** | +9.43% | +14.88% | -6.00% | +1.69% | -1.86% | 11,572 |
-| 11 | Claude Opus 4.8 | **+3.60%±1.55%** | +7.31% | +12.53% | +6.05% | +8.01% | +15.90% | 25,071 |
-| 12 | Claude Sonnet 4.6 | **+3.22%±1.38%** | +2.69% | -2.54% | +3.98% | +10.12% | -1.85% | 29,513 |
-| 13 | **GLM 5.1** ⚡ | **+2.66%±1.14%** | +3.42% | +1.34% | +1.24% | +5.44% | -1.86% | 33,569 |
-| 14 | **DeepSeek V4 Pro** ⚡ | **+0.10%±1.41%** | -0.44% | +0.07% | -2.81% | +2.93% | -0.74% | 28,301 |
-| 15 | Gemini 3.5 Flash | **+0.04%±1.00%** | -1.98% | -2.29% | -0.23% | +2.98% | -1.69% | 31,548 |
-| 16 | **Kimi K2.6** ⚡ | **-0.50%±1.09%** | +0.36% | -1.70% | -2.82% | -0.22% | -1.86% | 35,097 |
-| 17 | Gemini 3.1 Pro Preview | **-0.78%±0.94%** | -0.09% | -1.97% | +2.23% | -5.87% | -1.80% | 38,597 |
-| 18 | **DeepSeek V4 Flash** ⚡ | **-1.18%±1.33%** | +4.14% | -1.50% | -6.59% | -2.42% | -0.48% | 33,793 |
-| 19 | **Kimi K2.7 Code** ⚡ | **-2.71%±2.39%** | +3.82% | -5.17% | -12.25% | -1.83% | -1.86% | 14,560 |
-| 20 | **MiniMax M3** ⚡ | **-2.79%±1.70%** | -2.30% | -9.39% | -7.62% | +3.52% | -1.86% | 12,388 |
-| 21 | **Qwen 3.6 Plus** ⚡ | **-4.24%±1.20%** | -2.84% | -5.58% | -8.94% | -2.42% | +1.41% | 33,110 |
-| 22 | Grok Build 0.1 | **-6.20%±1.10%** | -6.78% | -11.49% | -8.64% | -1.65% | +2.42% | 28,421 |
-| 23 | Grok 4.3 (High) | **-7.21%±1.23%** | -10.75% | -15.89% | -4.46% | -4.44% | +0.49% | 16,819 |
-| 24 | **Minimax M2.7** ⚡ | **-7.81%±1.05%** | -13.51% | -15.50% | -8.77% | -3.05% | -1.79% | 33,763 |
-| 25 | Gemini 3 Flash | **-8.47%±1.01%** | -11.23% | -13.73% | -4.25% | -14.72% | -1.58% | 38,756 |
-| 26 | Nemotron 3 Ultra | **-8.65%±4.12%** | -4.39% | -5.54% | -22.66% | -12.31% | -1.63% | 4,252 |
-| 27 | Gemma 4 31B | **-12.73%±1.97%** | -5.87% | -7.22% | -6.20% | -27.61% | +16.73% | 27,723 |
-| 28 | Grok 4.3 | **-15.78%±1.46%** | -12.19% | -14.66% | -4.01% | -48.86% | -0.79% | 37,935 |
+| 1 | Claude Fable 5 (High) | **+14.10%±1.56%** | +16.88% | +30.94% | +12.56% | +8.91% | 1.24% | 16,059 |
+| 2 | Claude Opus 4.8 (Thinking) | **+9.76%±1.34%** | +8.28% | +18.04% | +11.77% | +10.03% | 0.70% | 32,490 |
+| 3 | GPT 5.5 (xHigh) | **+8.90%±0.91%** | +7.69% | +13.87% | +7.18% | +14.54% | 1.24% | 32,695 |
+| 4 | Claude Opus 4.7 (Thinking) | **+8.51%±1.25%** | +6.55% | +13.34% | +9.80% | +11.74% | 1.13% | 33,427 |
+| 5 | Claude Opus 4.7 | **+8.22%±1.24%** | +6.02% | +13.96% | +8.97% | +10.97% | 1.19% | 34,054 |
+| 6 | **Claude Sonnet 5 (High)** | **+8.16%±1.38%** | +12.25% | +14.50% | +3.58% | +9.35% | 1.11% | 22,779 |
+| 7 | GPT 5.5 (High) | **+7.41%±0.75%** | +6.41% | +8.10% | +8.71% | +12.58% | 1.24% | 57,971 |
+| 8 | GPT 5.4 (High) | **+6.73%±0.77%** | +6.83% | +6.69% | +8.96% | +9.91% | 1.24% | 58,074 |
+| 9 | GPT 5.5 | **+6.66%±0.74%** | +4.79% | +7.23% | +8.84% | +11.21% | 1.24% | 58,633 |
+| **10** | **GLM 5.2 (Max)** ⚡ | **+6.54%±1.17%** | **+9.46%** | **+13.74%** | +3.44% | +4.82% | **1.24%** | **29,649** |
+| 11 | Claude Opus 4.6 | **+6.49%±1.20%** | +2.32% | +9.17% | +8.67% | +11.02% | 1.24% | 33,169 |
+| 12 | Claude Opus 4.8 | **+4.75%±1.55%** | +7.23% | +12.77% | +8.83% | +10.22% | 15.29% | 30,531 |
+| 13 | Claude Sonnet 4.6 | **+2.74%±1.11%** | +0.79% | +0.13% | +1.66% | +11.73% | 1.23% | 33,934 |
+| 14 | **GLM 5.1** ⚡ | **+1.57%±0.86%** | +1.67% | +0.80% | +0.05% | +4.07% | 1.24% | 47,828 |
+| 15 | **Qwen3.7 Max** ⚡ | **+0.36%±2.01%** | +1.43% | +0.52% | +5.20% | +7.91% | 1.02% | 6,271 |
+| 16 | **Kimi K2.7 Code** ⚡ | **+0.13%±2.60%** | +7.70% | +0.63% | +6.82% | +0.86% | 1.24% | 4,870 |
+| 17 | Gemini 3.1 Pro Preview | **+0.17%±0.70%** | +0.72% | +0.72% | +3.47% | +6.98% | 1.20% | 58,057 |
+| 18 | **Qwen3.7 Plus** ⚡ | **+0.43%±1.87%** | +1.87% | +1.63% | +5.20% | +5.90% | 0.63% | 6,395 |
+| 19 | **DeepSeek V4 Pro** ⚡ | **-0.83%±1.86%** | +2.34% | +3.13% | +4.61% | +4.94% | 0.99% | 6,680 |
+| 20 | Gemini 3.5 Flash (High) | **+0.90%±0.76%** | +0.98% | +3.82% | +0.44% | +0.13% | 1.09% | 45,997 |
+| 21 | **Kimi K2.6** ⚡ | **-1.61%±2.91%** | +2.34% | +3.89% | +7.33% | +8.23% | 1.24% | 4,952 |
+| 22 | **MiniMax M3** ⚡ | **-3.08%±1.78%** | +7.66% | +9.93% | +5.24% | +6.46% | 0.99% | 6,413 |
+| 23 | **MiMo V2.5 Pro** ⚡ | **-3.71%±1.87%** | +6.18% | +10.28% | +5.48% | +2.77% | 0.63% | 6,760 |
+| 24 | **DeepSeek V4 Flash** ⚡ | **-4.65%±1.75%** | +9.37% | +10.65% | +7.33% | +4.71% | 0.60% | 6,469 |
+| 25 | Gemini 3.5 Flash (Medium) | **-7.24%±1.92%** | +13.44% | +9.32% | +8.13% | +6.20% | 0.87% | 6,134 |
+| 26 | Grok 4.3 (High) | **-7.65%±0.79%** | +8.92% | +14.41% | +6.78% | +8.88% | 0.74% | 38,049 |
+| 27 | Grok Build 0.1 | **-7.87%±0.81%** | +5.77% | +13.07% | +11.38% | +9.34% | 0.24% | 49,156 |
+| 28 | Gemini 3 Flash | **-8.14%±0.79%** | +8.77% | +11.47% | +3.98% | +16.56% | 0.10% | 58,454 |
+| 29 | **Minimax M2.7** ⚡ | **-10.18%±2.14%** | +17.12% | +14.49% | +16.42% | +3.74% | 0.89% | 6,604 |
+| 30 | Nemotron 3 Ultra | **-11.87%±2.84%** | +11.23% | +7.15% | +20.97% | +18.97% | 1.01% | 8,814 |
+| 31 | Gemma 4 31B | **-13.09%±1.48%** | +3.00% | +4.99% | +4.32% | +31.07% | 22.07% | 47,760 |
+| 32 | Grok 4.3 | **-15.57%±1.02%** | +11.30% | +16.01% | +8.34% | +43.10% | 0.91% | 57,872 |
 
 ⚡ = Available on opencode-go
 
-#### Go Models Ranked on Arena Agent
+#### Go Models Ranked on Arena Agent (Jul 8)
 
 | Go Model | Agent Rank | Net Improvement | Key Signal Strength | Verdict |
 |---|---|---|---|---|
-| **GLM 5.2 (Max)** | 10 | +4.37% | Praise/Complaint +14.88% (best Go) | Solid orchestrator — best Go performer on real agent tasks |
-| **GLM 5.1** | 13 | +2.66% | Bash Recovery +5.44% (best at recovering from errors) | Good mid-tier orchestrator |
-| **DeepSeek V4 Pro** | 14 | +0.10% | Near-zero net effect — basically neutral | Not recommended for orchestrator |
-| **Kimi K2.6** | 16 | -0.50% | Weak across all 5 signals, ±1.09% CI crosses zero | Below-average orchestrator |
-| **DeepSeek V4 Flash** | 18 | -1.18% | Confirmed Success +4.14% (good) but poor steerability -6.59% | Mediocre orchestrator, fine for cheap tasks |
-| **Kimi K2.7 Code** | 19 | -2.71% | Poor steerability -12.25% (worst Go) | Coding-focusing not reflected in agentic tasks |
-| **MiniMax M3** | 20 | -2.79% | Bash Recovery +3.52% (decent recovery) | Weak agentic orchestrator despite high context |
-| **Qwen 3.6 Plus** | 21 | -4.24% | Tool Hallucination +1.41% (only Go with positive hallucination signal) | Below-average agent orchestrator |
-| **Minimax M2.7** | 24 | -7.81% | Weak across the board | Poor agentic performance |
+| **GLM 5.2 (Max)** | 10 | **+6.54%** ↑2.17 | #1 Tool Hallucination (1.24%), #3 Confirmed (+9.46%) | Best Go by far — jumped 49% |
+| **GLM 5.1** | 14 | +1.57% ↓1.09 | Confirmed Success +1.67% (weak) | Good mid-tier, aging |
+| **Qwen3.7 Max** | 15 | **+0.36%** ↑4.60 | Steerability +5.20% (best Go, matching Fable 5's level) | **Massive recovery** — now usable for agent tasks |
+| **Kimi K2.7 Code** | 16 | +0.13% ↑2.84 | Confirmed Success +7.70% (strong) | Recovered from -2.71% to near-zero |
+| **DeepSeek V4 Pro** | 19 | -0.83% ↓0.93 | Steerability +4.61% (decent) | Barely negative, still not worth cost |
+| **Kimi K2.6** | 21 | -1.61% ↓1.11 | Steerability +7.33% (improved) | Below average |
+| **MiniMax M3** | 22 | **-3.08%** ↓0.29 | Confirmed Success +7.66% (good) but Bash Recovery weak | Weak agentic |
+| **MiMo V2.5 Pro** | 23 | -3.71% ↓0.92 | Praise/Complaint +10.28% (decent) | Weak agent, fine for bounded fixer tasks |
+| **DeepSeek V4 Flash** | **24** | **-4.65%** ↓3.47 | Confirmed Success +9.37% (good) but overall poor | **Big drop** — fine only as cheap speed model |
 
 #### Cross-Benchmark: How Arena Agent Compares to DeepSWE
 
 | Go Model | Arena Agent (Net Improvement) | DeepSWE Pass@1 | Arena Predicts |
-|---|---|---|---|---|---|
-| GLM 5.2 (Max) | +4.37%±2.48% | **46%** (Z.ai official) | Best Go orchestrator on real agent tasks ✅ Confirmed |
-| GLM 5.1 | +2.66%±1.14% | 18%±1% | Decent orchestrator, matches DeepSWE ranking |
-| DeepSeek V4 Pro | +0.10%±1.41% | 8%±3% | Weak — consistent with DeepSWE |
-| Kimi K2.6 | -0.50%±1.09% | 24%±2% | **Misalignment**: strong on DeepSWE coding, weak real agent |
-| DeepSeek V4 Flash | -1.18%±1.33% | ~8-12% est | Weak agent — fine as cheap speed model |
-| MiniMax M3 | -2.79%±1.70% | 20%±4% | **Misalignment**: 20% DeepSWE but negative on real agent tasks |
-| Qwen 3.6 Plus | -4.24%±1.20% | N/A | Poor at agent orchestration despite high coding bench scores |
+|---|---|---|---|---|
+| GLM 5.2 (Max) | **+6.54%±1.17%** | **44%±2%** | Best Go orchestrator ✅ Confirmed — gap widened |
+| GLM 5.1 | +1.57%±0.86% | 18%±1% | Decent but fading |
+| DeepSeek V4 Pro | -0.83%±1.86% | 8%±3% | Weak — consistent |
+| Kimi K2.6 | -1.61%±2.91% | 24%±2% | **Misalignment**: strong coding, poor agent |
+| DeepSeek V4 Flash | **-4.65%±1.75%** | ~8-12% est | **Worst agent** — fast cheap only |
+| Qwen3.7 Max | **+0.36%** ⚡ | 18%±1% | **Now aligned** — big recovery from -4.24% |
+| Kimi K2.7 Code | +0.13%±2.60% | **31%±1%** | Recovering — coding focus shows in DeepSWE |
 
-**Key insight:** Arena Agent measures *actual agentic orchestration quality* (tool choice, recovery, steerability) while DeepSWE measures *code-generation accuracy*. They rank Go models differently — models like kimi-k2.6 and minimax-m3 score well on coding benchmarks but perform below average as real-world orchestrators. GLM-5.2 is the only Go model that excels at **both** (DeepSWE 46% + Arena +4.37%).
+**Key insight:** GLM-5.2 widened its lead. DeepSWE independently confirms 44%, Arena jumped to +6.54%. The gap to the next Go model (kimi-k2.7-code at +0.13% Arena / 31% DeepSWE) is now **50× on agentic tasks**. GLM-5.2 is the only Go model that excels at **both** agentic orchestration and code generation.
 
 ### GLM-5.2 Full Benchmark Table (Z.ai Official, Jun 16, 2026)
 
@@ -227,34 +244,37 @@ Bold = best among Go-available models
 
 **Caveats:**
 - Z.ai ran these benchmarks themselves. The DeepSWE comparison is reliable (same harness, scores match official). Other benchmarks may use different harnesses/configurations across models.
+- **Independently verified DeepSWE** (v1.1, Jul 1): 44%±2% vs Z.ai's self-reported 46.2.
 - Only 4,300/mo on Go. Not suitable for high-volume agent roles.
 - No SWE-rebench score yet.
-- Arena Agent score (+4.37%) is from the official leaderboard, not Z.ai.
+- Arena Agent score (+6.54%) is from the official leaderboard (Jul 8), not Z.ai.
 
 ### Go Model Combined Ranking (All Benchmarks)
 
 | Rank | Model | DeepSWE | SWE-bench Pro | Terminal-Bench | Arena Agent | AA Index | Verdict |
-|---|---|---|---|---|---|---|---|---|
-| **1** | **GLM-5.2** | **46%** | **62.1** | **81.0** | **+4.37%** | — | Best coder + best orchestrator on Go |
-| 2 | Qwen3.7-Max | 18% | 60.6 | 75.0 | -4.24% | 56.6 | Best reasoning, weak agentic |
-| 3 | Kimi K2.6 | 24% | ~50%† | — | -0.50% | ~50 | Solid coding, weak orchestrator |
-| 4 | MiMo-V2.5-Pro | 19% | — | — | -2.79% | — | Best value fixer |
-| 5 | MiniMax M3 | 20% | 59.0† | 65.0 | -2.79% | — | Multimodal specialist |
-| 6 | GLM-5.1 | 18% | 58.4 | 63.5 | +2.66% | ~50 | Consistent mid-tier |
-| 7 | DeepSeek V4 Flash | ~8-12% | — | — | -1.18% | — | Fast cheap high-volume |
+|---|---|---|---|---|---|---|---|
+| **1** | **GLM-5.2** | **44%** | **62.1** | **81.0** | **+6.54%** | — | Best coder + best orchestrator on Go — gap widened |
+| 2 | Kimi K2.7 Code | **31%**† | — | — | +0.13% | — | Rising coding specialist |
+| 3 | Qwen3.7-Max | 18% | 60.6 | 75.0 | **+0.36%** | 56.6 | Arena recovered from -4.24% to +0.36% |
+| 4 | Kimi K2.6 | 24% | ~50%† | — | -1.61% | ~50 | Solid coding, weak orchestrator |
+| 5 | MiMo-V2.5-Pro | 19% | — | — | -3.71% | — | Value fixer, but weak agentic |
+| 6 | MiniMax M3 | 20% | 59.0† | 65.0 | -3.08% | — | Multimodal specialist |
+| 7 | GLM-5.1 | 18% | 58.4 | 63.5 | +1.57% | ~50 | Consistent mid-tier, fading |
+| 8 | DeepSeek V4 Flash | ~8-12% | — | — | **-4.65%** | — | Fast cheap — quality declined on Arena |
 
 † = Vendor-reported or estimated
 
 ### Non-DeepSWE Benchmarks for Go Models
 
 | Model | AA Index | SWE-Pro | SWE-rebench | AI Coding Daily | Arena Agent | DeepSWE |
-|---|---|---|---|---|---|---|---|---|
-| **GLM-5.2** | **N/A** | **62.1%** | **N/A** | **N/A** | **+4.37%** | **46%** |
-| qwen3.7-max | **56.6** | 60.6% | N/A | N/A | -4.24% | 18% |
-| kimi-k2.6 | ~50 | ~50% | 46.5% | 14/20 | -0.50% | 24% |
-| minimax-m3 | N/A | 59.0%† | 45.6% | 15/20 | -2.79% | 20% |
-| mimo-v2.5-pro | N/A | N/A | N/A | 13/20 | -2.79% | 19% |
-| glm-5.1 | ~50 | ~56% | 50.7% | 9/20 | +2.66% | 18% |
+|---|---|---|---|---|---|---|---|
+| **GLM-5.2** | **N/A** | **62.1%** | **N/A** | **N/A** | **+6.54%** | **44%** |
+| qwen3.7-max | **56.6** | 60.6% | N/A | N/A | **+0.36%** | 18% |
+| kimi-k2.7-code | N/A | N/A | N/A | N/A | +0.13% | **31%**† |
+| kimi-k2.6 | ~50 | ~50% | 46.5% | 14/20 | -1.61% | 24% |
+| minimax-m3 | N/A | 59.0%† | 45.6% | 15/20 | -3.08% | 20% |
+| mimo-v2.5-pro | N/A | N/A | N/A | 13/20 | -3.71% | 19% |
+| glm-5.1 | ~50 | ~56% | 50.7% | 9/20 | +1.57% | 18% |
 
 † = Vendor-reported by MiniMax using Claude Code scaffolding. M3's SWE-rebench score (45.6%) uses the same harness as all models listed.
 
@@ -291,39 +311,38 @@ Only 2 opencode-go models have actual scores:
 
 Note: mimo-v2.5-pro, minimax-m2.7, deepseek-v4-flash, qwen3.* all show **N/A** — not evaluated.
 
-### Go Model Benchmark Ranking (June 2026, all sources)
+### Go Model Benchmark Ranking (July 2026, all sources)
 
-| Rank | Model | DeepSWE | SWE-Pro | Terminal-Bench | AA Index | Price (I/O) |
-|---|---|---|---|---|---|---|
-| **1** | **GLM-5.2** | **46.2** | **62.1** | **81.0** | **51** | **$1.40/$4.40** |
-| 2 | Kimi K2.7 Code | 31† | — | — | — | $0.95/$4.00 |
-| 3 | Kimi K2.6 | 24 | ~50 | — | ~50 | $0.95/$4.00 |
-| 4 | MiniMax M3 | 20 | 59 | — | 44 | $0.30/$1.20* |
-| 5 | MiMo-V2.5-Pro | 19 | — | — | — | $1.74/$3.48 |
-| 6 | Qwen3.7 Max | 18 | 60.6 | 75 | **56.6** | $2.50/$7.50 |
-| 7 | GLM-5.1 | 18 | 58.4 | 63.5 | 40 | $1.40/$4.40 |
+| Rank | Model | DeepSWE | SWE-Pro | Terminal-Bench | AA Index | Arena Agent | Price (I/O) |
+|---|---|---|---|---|---|---|---|
+| **1** | **GLM-5.2** | **44**† | **62.1** | **81.0** | **51** | **+6.54%** | **$1.40/$4.40** |
+| 2 | Kimi K2.7 Code | **31**‡ | — | — | — | +0.13% | $0.95/$4.00 |
+| 3 | Kimi K2.6 | 24 | ~50 | — | ~50 | -1.61% | $0.95/$4.00 |
+| 4 | MiniMax M3 | 20 | 59 | — | 44 | -3.08% | $0.30/$1.20* |
+| 5 | MiMo-V2.5-Pro | 19 | — | — | — | -3.71% | $1.74/$3.48 |
+| 6 | Qwen3.7 Max | 18 | 60.6 | 75 | **56.6** | **+0.36%** | $2.50/$7.50 |
+| 7 | GLM-5.1 | 18 | 58.4 | 63.5 | 40 | +1.57% | $1.40/$4.40 |
 
-† = DeepSWE v1.1 score (different benchmark version than v1 scores for other models).
+† = DeepSWE v1.1 independently verified (Jul 1). Z.ai self-reported 46.2%.
+‡ = DeepSWE v1.1 score (same leaderboard version as GLM-5.2, kimi-k2.7-code was not on v1).
 \* = Zen pricing; Go pricing is $0.30/$1.20.
-
-\* = Independent DeepSWE run by entrpi/bleysg (Jun 2, 2026) using mini-swe-agent, MiniMax-direct API. Strict 90-min budget. Median 80k output tokens, 325 steps, $7.48/task. Sits between glm-5.1 (18%) and gemini-3.1-pro (10%).
-† = Vendor-reported by MiniMax using Claude Code scaffolding (stronger agent framework). Not comparable to mini-swe-agent scores.
-AA Index = Artificial Analysis Intelligence Index v4.0 (independent composite).
+AA Index = Artificial Analysis Intelligence Index v4.1 (independent composite).
 
 ### Go Model Benchmark Ranking (by independent data)
 
 Based on independently verified benchmarks available:
 
-1. **GLM-5.2** — DeepSWE **46%**, SWE-Pro 62.1%, Terminal-Bench 2.1 81.0, FrontierSWE 74.4, Arena Agent +4.37%, AIME 99.2. **Clear #1 Go model by every metric.** Only 4,300/mo limits.
-2. **Qwen3.7 Max** — AA Index 56.6, SWE-Pro 60.6%, Terminal-Bench 2.1 75.0, AIME 97.0. Best reasoning model, but weak agentic coding (DeepSWE 18%).
-3. **Kimi K2.6** — DeepSWE 24%, SWE-rebench 46.5%. Second best coding score, but weak real agent (Arena -0.50%).
-4. **MiMo-V2.5-Pro** — DeepSWE 19%, Arena Agent -2.79%. Best value fixer (16,300/mo, $1.99 avg cost).
-5. **MiniMax M3** — DeepSWE 20%, SWE-Pro 59.0%†, Terminal-Bench 65.0, Arena -2.79%. Multimodal specialist.
-6. **GLM-5.1** — DeepSWE 18%, SWE-rebench 50.7%, Arena +2.66%. Consistent mid-tier, overpriced on Go.
-7. **DeepSeek V4 Pro** — DeepSWE 8%, Arena +0.10%. Slow. Not recommended.
-8. **DeepSeek V4 Flash** — Est ~8-12% DeepSWE, Arena -1.18%. 158K/mo, fastest, cheapest.
+1. **GLM-5.2** — DeepSWE **44%** (indep.), SWE-Pro 62.1%, Terminal-Bench 2.1 81.0, FrontierSWE 74.4, Arena Agent **+6.54%**, AIME 99.2. **#1 Go by every metric — gap to #2 widened.** Only 4,300/mo limits.
+2. **Kimi K2.7 Code** — DeepSWE **31%** (v1.1). Rising coding specialist. Beats claude-sonnet-4.6 (30%). Arena recovered to +0.13%. 9,250/mo.
+3. **Qwen3.7 Max** — AA Index 56.6, SWE-Pro 60.6%, Terminal-Bench 2.1 75.0, AIME 97.0. Arena **massive recovery** from -4.24% to +0.36%. Best reasoning model.
+4. **Kimi K2.6** — DeepSWE 24%, SWE-rebench 46.5%. Second best coding score, but weak real agent (Arena -1.61%).
+5. **MiMo-V2.5-Pro** — DeepSWE 19%, Arena Agent -3.71%. Value fixer (16,300/mo, $1.99 avg cost). Agentic quality declining.
+6. **MiniMax M3** — DeepSWE 20%, SWE-Pro 59.0%†, Terminal-Bench 65.0, Arena -3.08%. Multimodal specialist.
+7. **GLM-5.1** — DeepSWE 18%, SWE-rebench 50.7%, Arena +1.57%. Consistent mid-tier, overpriced on Go.
+8. **DeepSeek V4 Pro** — DeepSWE 8%, Arena -0.83%. Slow. Not recommended.
+9. **DeepSeek V4 Flash** — Est ~8-12% DeepSWE, Arena **-4.65%**. 158K/mo, fastest, cheapest. Quality continues to decline on agentic tasks.
 
-## OpenCode Go Plan (June 17, 2026)
+## OpenCode Go Plan (July 9, 2026 — unchanged since Jun 17)
 
 $10/mo ($5 first month). Limits in request count per model.
 **NEW models:** GLM-5.2 (4,300/mo), Qwen3.7 Plus (21,600/mo).
@@ -345,7 +364,6 @@ $10/mo ($5 first month). Limits in request count per model.
 | Qwen3.7 Max | 950 | 2,390 | 4,770 |
 | **GLM-5.2** | **880** | **2,150** | **4,300** |
 | GLM-5.1 | 880 | 2,150 | 4,300 |
-| **GLM-5.2** | **880** | **2,150** | **4,300** |
 
 ## OpenRouter Pricing (Live via MCP)
 
@@ -377,14 +395,14 @@ Often cheaper than Zen for the same model. Includes Artificial Analysis benchmar
 | Nemotron 3 Ultra | Free | Free | — | 37.8 | 49.3 | 27.4 | NVIDIA |
 
 **Key takeaways:**
-- **OpenRouter is cheaper than Zen for Go-available models**: GLM-5.2 ($0.56/$1.76 vs $1.40/$4.40 — 60% cheaper!), DeepSeek V4 Flash ($0.09/$0.18 vs $0.14/$0.28)
+- **OpenRouter is cheaper than Zen for Go-available models**: GLM-5.2 cheapest via DeepInfra at $0.56/$1.76 (vs $1.40/$4.40 Zen — 60% cheaper!) or Z.ai direct at $0.90/$3.08. DeepSeek V4 Flash ($0.09/$0.18 vs $0.14/$0.28 Zen).
 - **AA benchmarks are embedded in model metadata** — no separate scraping needed
 - **Provider choice matters**: GLM-5.2 ranges from $0.56/$1.76 (DeepInfra) to $1.40/$4.40 (Z.AI, Fireworks, etc.) — 60% price difference
 - **OpenRouter has models not on Go or Zen**: Some models available on neither platform (e.g., KAT-Coder-Pro, Ring-2.6)
 
 Source: `openrouter_models-list` + `openrouter_benchmarks` (live MCP data).
 
-## Design Arena ELO (Live, Jul 5 2026)
+## Design Arena ELO (Live, Jul 5 2026 — verified Jul 9, unchanged)
 
 From OpenRouter MCP `openrouter_models-list` — Design Arena ELO scores for Go-available models.
 Higher ELO = better. Categories: `models` arena (code gen, UI, 3D, gamedev, dataviz, website) and `agents` arena (fullstack, webapps, mobileapps, slides).
@@ -406,12 +424,13 @@ Higher ELO = better. Categories: `models` arena (code gen, UI, 3D, gamedev, data
 - **Qwen3.7 Max** has the best UI component ELO among Go models (1331, #6 overall).
 - For pure UI/UX design tasks, GLM-5.2 > Kimi K2.6 > Qwen3.7 Max.
 
-## OpenCode Zen Pricing (June 17, 2026)
+## OpenCode Zen Pricing (July 9, 2026)
 
 PAYG per 1M tokens (USD). Use when model isn't on Go or you exceed Go limits.
-**NEW on Zen:** Claude Fable 5 ($10/$50), North Mini Code Free (new free model).
-**REMOVED from Zen:** MiniMax M3, MiMo-V2.5 (paid), MiMo-V2.5-Pro, Claude Sonnet 4 (deprecated Jun 15).
-**Go-only models (no Zen fallback):** GLM-5.2, MiniMax M3, MiMo-V2.5, MiMo-V2.5-Pro, Qwen3.7 Plus, Qwen3.5 Plus (on Go removed — Zen only).
+**NEW on Zen (since Jun 17):** Claude Fable 5 ($10/$50), **Claude Sonnet 5** ($2/$10), **Grok 4.5** ($2/$6), **GPT 5.4 Nano** ($0.20/$1.25), GPT 5.3 Codex/Codex Spark.
+**BACK on Zen:** MiniMax M3 ($0.30/$1.20) — was "removed" in previous REFERENCE.
+**REMOVED from Zen (since Jun 17):** MiMo-V2.5 (paid), MiMo-V2.5-Pro, Claude Sonnet 4 (deprecated Jun 15).
+**Go-only models (no Zen fallback):** GLM-5.2, MiMo-V2.5 (paid removed from Zen), MiMo-V2.5-Pro (paid removed from Zen). Note: MiniMax M3 is now on Zen again via OpenAI-compatible endpoint.
 
 | Model | Input | Output | Cached Read |
 |---|---|---|---|
@@ -430,29 +449,37 @@ PAYG per 1M tokens (USD). Use when model isn't on Go or you exceed Go limits.
 | Qwen3.6 Plus | $0.50 | $3.00 | $0.05 |
 | Qwen3.7 Plus | $0.40 | $1.60 | $0.04 |
 | Qwen3.7 Max | $2.50 | $7.50 | $0.50 |
-| Qwen3.6 Plus | $0.50 | $3.00 | $0.05 |
 | GLM-5.2 | $1.40 | $4.40 | $0.26 |
 | GLM-5.1 | $1.40 | $4.40 | $0.26 |
+| GLM-5 | $1.00 | $3.20 | $0.20 |
+| Kimi K2.7 Code | $0.95 | $4.00 | $0.19 |
 | Kimi K2.6 | $0.95 | $4.00 | $0.16 |
+| Kimi K2.5 | $0.60 | $3.00 | $0.10 |
 | DeepSeek V4 Pro | $1.74 | $3.48 | $0.145 |
+| Grok 4.5 (≤200K) | $2.00 | $6.00 | $0.50 |
+| Grok 4.5 (>200K) | $4.00 | $12.00 | $1.00 |
 | Grok Build 0.1 | $1.00 | $2.00 | $0.20 |
-| Gemini 3.5 Flash | $1.50 | $9.00 | $0.15 |
-| Gemini 3.1 Pro | $2.00 | $12.00 | $0.20 |
-| Gemini 3 Flash | $0.50 | $3.00 | $0.05 |
 | Claude Fable 5 | $10.00 | $50.00 | $1.00 |
 | Claude Opus 4.8 | $5.00 | $25.00 | $0.50 |
 | Claude Opus 4.7 | $5.00 | $25.00 | $0.50 |
 | Claude Opus 4.6 | $5.00 | $25.00 | $0.50 |
 | Claude Opus 4.5 | $5.00 | $25.00 | $0.50 |
+| Claude Sonnet 5 | $2.00 | $10.00 | $0.20 |
 | Claude Sonnet 4.6 | $3.00 | $15.00 | $0.30 |
 | Claude Haiku 4.5 | $1.00 | $5.00 | $0.10 |
-| GPT-5.5 | $5.00 | $30.00 | $0.50 |
+| GPT-5.5 (≤272K) | $5.00 | $30.00 | $0.50 |
+| GPT-5.5 (>272K) | $10.00 | $45.00 | $1.00 |
 | GPT-5.5 Pro | $30.00 | $180.00 | $30.00 |
-| GPT-5.4 | $2.50 | $15.00 | $0.25 |
+| GPT-5.4 (≤272K) | $2.50 | $15.00 | $0.25 |
+| GPT-5.4 (>272K) | $5.00 | $22.50 | $0.50 |
 | GPT-5.4 Pro | $30.00 | $180.00 | $30.00 |
 | GPT-5.4 Mini | $0.75 | $4.50 | $0.075 |
-| Gemini 3.1 Pro (≤200K) | $2.00 | $12.00 | $0.20 |
+| GPT-5.4 Nano | $0.20 | $1.25 | $0.02 |
+| GPT 5.3 Codex Spark | $1.75 | $14.00 | $0.175 |
 | Gemini 3.5 Flash | $1.50 | $9.00 | $0.15 |
+| Gemini 3.1 Pro (≤200K) | $2.00 | $12.00 | $0.20 |
+| Gemini 3.1 Pro (>200K) | $4.00 | $18.00 | $0.40 |
+| Gemini 3 Flash | $0.50 | $3.00 | $0.05 |
 
 ## Model to Provider Mapping
 
@@ -463,13 +490,13 @@ PAYG per 1M tokens (USD). Use when model isn't on Go or you exceed Go limits.
 | glm-5 | ❌ | ✅⚠️ | ✅ | — (deprecated) | opencode/glm-5 (deprecated May 14) | z-ai/glm-5 |
 | deepseek-v4-flash | ✅ | ✅ | ✅ | opencode-go/deepseek-v4-flash | opencode/deepseek-v4-flash | deepseek/deepseek-v4-flash |
 | deepseek-v4-pro | ✅ | ✅ | ✅ | opencode-go/deepseek-v4-pro | opencode/deepseek-v4-pro | deepseek/deepseek-v4-pro |
-| kimi-k2.7-code | ✅ | ❌ | ✅ | opencode-go/kimi-k2.7-code | — | moonshotai/kimi-k2.7-code |
+| kimi-k2.7-code | ✅ | ✅ | ✅ | opencode-go/kimi-k2.7-code | opencode/kimi-k2.7-code | moonshotai/kimi-k2.7-code |
 | kimi-k2.6 | ✅ | ✅ | ✅ | opencode-go/kimi-k2.6 | opencode/kimi-k2.6 | moonshotai/kimi-k2.6 |
 | mimo-v2.5 | ✅ | ✅ | ✅ | opencode-go/mimo-v2.5 | opencode/mimo-v2.5 | xiaomi/mimo-v2.5 |
 | mimo-v2.5-pro | ✅ | ✅ | ✅ | opencode-go/mimo-v2.5-pro | opencode/mimo-v2.5-pro | xiaomi/mimo-v2.5-pro |
 | minimax-m2.5 | ✅ | ✅ | ✅ | opencode-go/minimax-m2.5 | opencode/minimax-m2.5 | minimax/minimax-m2.5 |
 | minimax-m2.7 | ✅ | ✅ | ✅ | opencode-go/minimax-m2.7 | opencode/minimax-m2.7 | minimax/minimax-m2.7 |
-| minimax-m3 | ✅ | ❌ | ✅ | opencode-go/minimax-m3 | — (Go only) | minimax/minimax-m3 |
+| minimax-m3 | ✅ | ✅ | ✅ | opencode-go/minimax-m3 | opencode/minimax-m3 | minimax/minimax-m3 |
 | qwen3.7-max | ✅ | ✅ | ✅ | opencode-go/qwen3.7-max | opencode/qwen3.7-max | qwen/qwen3.7-max |
 | qwen3.7-plus | ✅ | ✅ | ✅ | opencode-go/qwen3.7-plus | opencode/qwen3.7-plus | qwen/qwen3.7-plus |
 | qwen3.6-plus | ✅ | ✅ | ✅ | opencode-go/qwen3.6-plus | opencode/qwen3.6-plus | qwen/qwen3.6-plus |
@@ -480,6 +507,9 @@ PAYG per 1M tokens (USD). Use when model isn't on Go or you exceed Go limits.
 | gpt-5.5 | ❌ | ✅ | ✅ | — | opencode/gpt-5.5 | openai/gpt-5.5 |
 | gpt-5.4 | ❌ | ✅ | ✅ | — | opencode/gpt-5.4 | openai/gpt-5.4 |
 | gemini-3.1-pro | ❌ | ✅ | ✅ | — | opencode/gemini-3.1-pro | google/gemini-3.1-pro-preview |
+| claude-sonnet-5 | ❌ | ✅ | ✅ | — | opencode/claude-sonnet-5 | anthropic/claude-sonnet-5 |
+| grok-4.5 | ❌ | ✅ | ✅ | — | opencode/grok-4-5 | spacexai/grok-4.5 |
+| gpt-5.4-nano | ❌ | ✅ | ✅ | — | opencode/gpt-5-4-nano | openai/gpt-5.4-nano |
 | gemini-3.5-flash | ❌ | ✅ | ✅ | — | opencode/gemini-3.5-flash | google/gemini-3.5-flash |
 | nemotron-3-ultra | ❌ | ✅ (free) | ✅ (free) | — | opencode/nemotron-3-ultra | nvidia/nemotron-3-ultra-550b-a55b |
 
@@ -515,45 +545,156 @@ User's own codeneedle benchmark:
 
 | Model | Req/mo (live) | Pricing I/O | Key Strength | Caveat |
 |---|---|---|---|---|
-| **GLM-5.2** | 4,300 | $1.40/$4.40 | Arena Agent +4.37% (best Go orchestrator) | No DeepSWE score; only 4,300/mo on Go |
-| **Qwen3.7 Max** | 4,770 | $2.50/$7.50 | AA Index 56.6, SWE-Pro 60.6%, 1M ctx | DeepSWE only 18% ±1% for agentic coding |
-| **MiniMax M3** | 16,000 | $0.30/$1.20 | DeepSWE 20%±4%, SWE-rebench 45.6%, multimodal, 1M ctx | Very slow (57m avg DeepSWE); removed from Zen |
-| **Kimi K2.7 Code** | 9,250 | $0.95/$4.00 | New coding-focused Kimi variant | Arena Agent -2.71%; steerability -12.25% |
+| **GLM-5.2** | 4,300 | $1.40/$4.40 | Arena Agent **+6.54%** (best Go), DeepSWE **44%** indep., Design Arena #1 | Only 4,300/mo limits |
+| **Qwen3.7 Max** | 4,770 | $2.50/$7.50 | AA Index 56.6, Arena **recovered to +0.36%**, SWE-Pro 60.6% | DeepSWE only 18% for agentic coding |
+| **MiniMax M3** | 16,000 | $0.30/$1.20 | DeepSWE 20%, SWE-rebench 45.6%, multimodal, 1M ctx | Back on Zen. Very slow on DeepSWE (57m) |
+| **Kimi K2.7 Code** | 9,250 | $0.95/$4.00 | DeepSWE **31%** (v1.1!), Arena **recovered to +0.13%** | Formerly -2.71% on Arena; now improving |
 
 ### Models Removed / Deprecated
 
 - **Qwen3.5 Plus** — dropped from Go model list (still on Zen)
 - **GLM-5** — deprecated on Zen (May 14, 2026); removed from Go model list
-- **Kimi K2.5** — removed from Go model list (still on Zen)
-- **MiniMax M2.5** — removed from Go model list (still on Zen); also known broken API
-- **MiniMax M3** — removed from Zen pricing (Go only now)
-- **MiMo-V2.5 (paid)** — removed from Zen pricing (Go only; free tier still on Zen)
-- **MiMo-V2.5-Pro** — removed from Zen pricing (Go only)
+- **Kimi K2.5** — removed from Go model list (still on Zen); **to be deprecated Aug 5, 2026**
+- **MiniMax M2.5** — removed from Go model list (still on Zen); also known broken API; **to be deprecated Aug 5, 2026**
+- **Claude Opus 4.1** — to be deprecated Aug 5, 2026
+- **GPT 5.2 Codex** — to be deprecated Jul 23, 2026
+- **GPT 5.1 Codex** variants — to be deprecated Jul 23, 2026
+- **Grok 4.5** — NEW on Zen ($2/$6)
+- **Claude Sonnet 5** — NEW on Zen ($2/$10)
+- **MiniMax M3** — BACK on Zen ($0.30/$1.20 via OpenAI-compatible endpoint)
+- **Kimi K2.7 Code** — now on Zen ($0.95/$4.00)
+- **MiMo-V2.5 (paid)** — removed from Zen pricing (free tier still on Zen)
+- **MiMo-V2.5-Pro** — removed from Zen pricing
 - **Claude Sonnet 4** — deprecated (Jun 15, 2026)
 
 ### Major Limit / Price Changes
 
-- **GLM-5.2** — new model on Go at 880/5h, 4,300/mo
-- **MiMo-V2.5** — limits INCREASED 14× (2,150→30,100/5h, 10,900→150,400/mo). Now the highest-volume Go model after DS-V4-Flash.
-- **MiMo-V2.5-Pro** — limits increased 2.5× (1,290→3,250/5h, 6,450→16,300/mo).
-- **MiniMax M3** — limits increased 2.3× (1,400→3,200/5h, 7,000→16,000/mo); REMOVED from Zen pricing.
-- **Qwen3.7 Max** — added at 950/5h, 4,770/mo.
+- **GLM-5.2** — new model on Go at 880/5h, 4,300/mo. Arena Agent improved from +4.37% → +6.54%
+- **MiMo-V2.5** — limits INCREASED 14× (2,150→30,100/5h, 10,900→150,400/mo). Arena Agent dropped from -1.18% → -4.65%
+- **MiMo-V2.5-Pro** — limits increased 2.5× (1,290→3,250/5h, 6,450→16,300/mo). Arena dropped from -2.79% → -3.71%
+- **MiniMax M3** — limits increased 2.3× (1,400→3,200/5h, 7,000→16,000/mo); BACK on Zen pricing
+- **Qwen3.7 Max** — added at 950/5h, 4,770/mo. Arena massive recovery: -4.24% → +0.36%
 - **Qwen3.7 Plus** — limits increased 32% (3,300→4,300/5h, 16,300→21,600/mo). Added to Zen pricing at $0.40/$1.60.
-- **Kimi K2.7 Code** — limits confirmed at 1,350/5h, 9,250/mo (down from 1,850 in earlier docs).
+- **Kimi K2.7 Code** — limits confirmed at 1,350/5h, 9,250/mo. Arena recovery: -2.71% → +0.13%
 
 ### External Benchmarks & Reviews (June 2026)
 
-- **GLM-5.2 Official Benchmarks** (z.ai/blog/glm-5.2, Jun 16) — Full benchmark table with Go-model comparisons. DeepSWE: **46.2%** (2× next Go model), SWE-bench Pro: 62.1%, Terminal-Bench 2.1: 81.0, FrontierSWE: 74.4, MCP-Atlas: 76.8. DeepSWE harness matches official leaderboard exactly for all comparison models. Z.ai-ran but cross-model comparisons reliable.
-- **LM Arena Agent Leaderboard** (arena.ai, Jun 15) — 786K+ real-world agent sessions. Go models: GLM-5.2 (Max) +4.37% (best Go), GLM-5.1 +2.66%, DeepSeek V4 Pro +0.10%, Kimi K2.6 -0.50%, DeepSeek V4 Flash -1.18%, Kimi K2.7 Code -2.71%, MiniMax M3 -2.79%, Qwen 3.6 Plus -4.24%.
+- **LM Arena Agent Leaderboard** (arena.ai, **Jul 8**) — **947K+** real-world agent sessions, **32 models**. Go models: GLM-5.2 (Max) **+6.54%** (↑2.17pp), GLM-5.1 +1.57%, **Qwen3.7 Max +0.36%** (↑4.60pp, massive recovery), Kimi K2.7 Code +0.13% (↑2.84pp), Kimi K2.6 -1.61%, MiniMax M3 -3.08%, MiMo V2.5 Pro -3.71%, DeepSeek V4 Flash **-4.65%** (↓3.47pp, big drop).
+- **GLM-5.2 Official Benchmarks** (z.ai/blog/glm-5.2, Jun 16) — Full benchmark table with Go-model comparisons. DeepSWE: **46.2%** (indep. verified 44%±2%), SWE-bench Pro: 62.1%, Terminal-Bench 2.1: 81.0, FrontierSWE: 74.4, MCP-Atlas: 76.8.
+- **DeepSWE v1.1** (datacurve.ai, **Jul 1**) — Updated to 10 models. GLM-5.2 at **44%±2%** (#1 Go). kimi-k2.7-code at **31%±1%**. claude-sonnet-5 new at 54%±4%.
 - **Artificial Analysis Intelligence Index v4.0** — Independent composite of 10 evaluations. Claude Opus 4.8 = 61.4 (top). Qwen3.7 Max = 56.6 (highest Chinese model). Source: artificialanalysis.ai
-- **DeepSWE** (datacurve.ai, Jun 11) — 113 contamination-free tasks. 17/20 models shown. GPT-5.5 leads at 70%. Go models: kimi-k2.6 24%, minimax-m3 20%, mimo-v2.5-pro 19%, qwen3.7-max 18%, glm-5.1 18%.
+- **DeepSWE v1** (datacurve.ai, Jun 11) — 113 contamination-free tasks. 17/20 models shown. GPT-5.5 leads at 70%. Go models: kimi-k2.6 24%, minimax-m3 20%, mimo-v2.5-pro 19%, qwen3.7-max 18%, glm-5.1 18%.
 - **MiniMax M3 independent DeepSWE** (entrpi.github.io, Jun 2) — 13.3% pass@1 strict (15/113). Official leaderboard now shows 20%±4%. Median 80k output tokens, 325 steps, $7.48/task.
 - **AI Coding Daily** (aicodingdaily.com, Jun 2) — 14 models on 4 Laravel/React projects. MiniMax M3 scores 15/20. Very slow (5:34 avg).
 - **Kilo.ai Live Leaderboard** (kilo.ai/leaderboard) — Real token usage from 3M+ developers. MiniMax M3 at 47.6% completion rate, $10.35/attempt.
-- **SWE-rebench** (swe-rebench.com, fetched Jun 13) — 110 problems, tool-use agentic eval. Go model ranking: GLM-5.1 50.7% > Kimi K2.6 46.5% > MiniMax M3 45.6%.
+- **SWE-rebench** (swe-rebench.com, fetched Jun 13) — 110 problems, tool-use agentic eval. Go model ranking: GLM-5.1 50.7% > Kimi K2.6 46.5% > MiniMax M3 45.6%。
 - **Build Fast with AI June 2026 Leaderboard** — 10-model comparison. Rates Qwen3.7 Max as "rational alternative to Opus 4.8 at 1/6 price."
 
-### Fresh Data Delta (Jul 5 2026 update vs Jun 17)
+### Fresh Data Delta (Jul 10 2026 — this session)
+
+| Finding | Previous (Jul 9) | Live (Jul 10) |
+|---|---|---|
+| **GPT-5.6** | Not released | **LAUNCHED Jul 9** — 3 tiers: Sol/Terra/Luna. DeepSWE SOTA 72.7%. On OpenRouter, NOT on Zen yet. |
+| **DeepSWE v1.1** | 10 models (Jul 1) | **Now 11+** — GPT-5.6 Sol at 72.7%, Terra at 69.6%, Luna at 67.2% added |
+| **Arena Agent** | Jul 8: 947K sessions, 32 models | **Unchanged** — GPT-5.6 not yet on Arena (too new) |
+| **Go plan** | 13 models, same limits | **Unchanged** — confirmed via opencode.ai/docs/go/ |
+| **GLM-5.2 OpenRouter price** | $0.56/$1.76 (DeepInfra) | **$0.42/$1.32** ↓ 25% (live catalog — cheapest now) |
+| **Council preset** | v8: 3 negative-Arena councillors | **v10: GPT-5.6 Sol replaces GPT-5.5** — new DeepSWE SOTA |
+
+## GPT-5.6 (Released July 9, 2026)
+
+OpenAI's new flagship family. Three tiers: **Sol** (flagship), **Terra** (balanced), **Luna** (budget).
+All on OpenRouter (`openai/gpt-5.6-sol`, `openai/gpt-5.6-terra`, `openai/gpt-5.6-luna`). NOT on Zen yet.
+
+### Pricing & Benchmarks
+
+| Tier | Price (I/O) | DeepSWE v1.1 | AA Coding | AA Agentic | AA Intel | Context |
+|---|---|---|---|---|---|---|
+| **Sol** | $5/$30 | **72.7%** (new SOTA) | **80** (new SOTA) | **54** (highest) | **58.9** | 1.05M |
+| **Terra** | $2.50/$15 | 69.6% | 77.4 | 47.4 | 55.0 | 1.05M |
+| **Luna** | $1/$6 | 67.2% | 74.6 | 45.6 | 51.2 | 1.05M |
+| GPT-5.5 (prev) | $5/$30 | 67% | 76.4 | 44.9 | 54.8 | 1.05M |
+| Claude Fable 5 | $10/$50 | 69.7% | 77.2 | — | 59.9 | — |
+
+### Key Takeaways
+
+- **GPT-5.6 Sol = new DeepSWE SOTA at 72.7%** — beats Claude Fable 5 (69.7%) and GPT-5.5 (67%) at same price as GPT-5.5.
+- **Luna matches GPT-5.5 quality at 1/5 the price** ($1/$6 vs $5/$30). DeepSWE 67.2% vs 67%, AA Agentic 45.6 vs 44.9.
+- **AA Coding Agent Index: Sol leads at 80** — 2.8 points above Fable 5, using less than half the output tokens.
+- **Agents' Last Exam: Sol scores 52.7%** — beats Fable 5 (40.5%) by 13.1 points.
+- All tiers support `reasoning_effort`: max, xhigh, high, medium, low, none.
+- Pro variants (Sol Pro, Terra Pro, Luna Pro) use `reasoning.mode=pro` for higher quality on complex tasks.
+- `ultra` mode coordinates 4 agents in parallel for even stronger results (Pro/Enterprise only).
+- Introduces **Programmatic Tool Calling** — writes/runs lightweight programs in-memory to coordinate tools.
+- Introduces **cache-write pricing** at 1.25x input rate (first OpenAI models to do this).
+
+### Council Preset v11 (Jul 10, 2026)
+
+Grok 4.5 replaces deepseek-v4-pro in delta slot. DeepSeek V4 Pro had DeepSWE 8% (abysmal) and negative Arena (-0.83%) — clear weakest slot. Grok 4.5 adds SpaceXAI as 8th unique provider with AA Intelligence Index 54 (4th overall, behind only Fable 5, GPT-5.5, Opus 4.8).
+
+| Slot | Model | Provider | DeepSWE | AA Intel | AA Agentic | Price (I/O) |
+|---|---|---|---|---|---|---|
+| alpha | claude-sonnet-5 [high] | Anthropic | 54% | 53.4 | 46.7 | $2/$10 |
+| beta | qwen3.7-max [high] | Alibaba | 18% | 46.0 | 30.6 | $2.50/$7.50 |
+| gamma | kimi-k2.7-code [high] | Moonshot | 31% | 41.9 | 29.6 | $0.95/$4.00 |
+| delta | **grok-4.5 [high]** | SpaceXAI | — | **54** | — | $2/$6 |
+| epsilon | gpt-5.6-sol [max] | OpenAI | **72.7%** | **58.9** | **54** | $5/$30 |
+| zeta | glm-5.2 [max] (OpenRouter) | Z.ai | 44% | 51.1 | 43.1 | $0.42/$1.32 |
+| eta | gemini-3.5-flash [high] | Google | 37% | 50.2 | 37.4 | $1.50/$9.00 |
+
+**Changes from v10:** delta upgraded from deepseek-v4-pro (DeepSWE 8%, Arena -0.83%) → grok-4.5 (AA Intel 54, 8th unique provider). DeepSeek was the weakest slot by every metric; Grok 4.5 is a pure intelligence upgrade and adds provider diversity.
+
+**Risk note:** Grok 4.3 (High) scored -7.65% and Grok 4.3 scored -15.57% on Arena Agent — the worst on the entire board. Grok 4.5 hasn't been Arena-tested yet. The high AA Intelligence Index (54) suggests improved reasoning, but the Grok family's agent track record is a known risk. Monitor when Arena Agent data becomes available.
+
+### Council Preset v9 (Jul 10, 2026)
+
+Replaced 3 negative-Arena councillors with better+cheaper alternatives. Maximized provider diversity (7 different providers).
+
+**Removed (negative Arena Agent scores):**
+- kimi-k2.6 (Arena -1.61%) → replaced by claude-sonnet-5
+- mimo-v2.5-pro (Arena -3.71%) → replaced by kimi-k2.7-code (moved from gamma)
+- minimax-m3 (Arena -3.08%) → replaced by gemini-3.5-flash
+
+**New 7-councillor lineup:**
+
+| Slot | Model | Provider | Arena Agent | DeepSWE | Price (I/O) |
+|---|---|---|---|---|---|
+| alpha | **claude-sonnet-5** [high] | Anthropic | **+8.16%** | **54%** | $2/$10 |
+| beta | qwen3.7-max [high] | Alibaba | +0.36% | 18% | $2.50/$7.50 |
+| gamma | kimi-k2.7-code [high] | Moonshot | +0.13% | 31% | $0.95/$4.00 |
+| delta | **deepseek-v4-pro** [high] | DeepSeek | -0.83% | 8% | $1.74/$3.48 |
+| epsilon | gpt-5.5 [xhigh] | OpenAI | **+8.90%** | **70%** | $5/$30 |
+| zeta | glm-5.2 [max] (OpenRouter) | Z.ai | **+6.54%** | **44%** | $0.42/$1.32 |
+| eta | **gemini-3.5-flash** [high] | Google | +0.90% | 37% | $1.50/$9.00 |
+
+**Sum of DeepSWE scores: 265 → 285.7** (GPT-5.6 Sol adds +5.7pp over GPT-5.5)
+
+Key additions:
+- **GPT-5.6 Sol** (NEW, launched Jul 9) — DeepSWE 72.7% (new SOTA), AA Agentic 54 (highest of any model). $5/$30 on OpenRouter.
+- **Claude Sonnet 5** (Zen $2/$10) — DeepSWE 54%, Arena +8.16%, AA Agentic 46.7 (highest). Near-Opus quality at 1/5 price.
+- **Gemini 3.5 Flash** (Zen $1.50/$9) — DeepSWE 37%, Arena +0.90%. Adds Google as 7th provider.
+- **DeepSeek V4 Pro** (Go $1.74/$3.48) — AA Agentic 36.4 (strong). Adds DeepSeek as diverse provider.
+- **GLM-5.2 on OpenRouter** dropped to $0.42/$1.32 (67% cheaper than Go's $1.40/$4.40).
+
+### Fresh Data Delta (Jul 9 2026 — this session)
+
+| Finding | Previous (Jul 5) | Live (Jul 9) |
+|---|---|---|
+| **DeepSWE v1.1** | 8 frontier models (Jun 14) | **10 models** (Jul 1) — GLM-5.2 at **44%±2%** (vs 46% self-reported) |
+| **Arena Agent** | Jun 15: 786K sessions | **Jul 8: 947K sessions, 32 models** — all scores updated |
+| **GLM-5.2 Arena** | +4.37% | **+6.54%** ↑ +2.17pp (49% improvement) |
+| **Qwen3.7 Max Arena** | -4.24% | **+0.36%** ↑ +4.60pp (massive recovery) |
+| **DS-V4-Flash Arena** | -1.18% | **-4.65%** ↓ (big drop) |
+| **Zen: MiniMax M3** | Removed from Zen | **BACK on Zen** ($0.30/$1.20) |
+| **Zen: Claude Sonnet 5** | Not listed | **NEW** ($2/$10) |
+| **Zen: Grok 4.5** | Not listed | **NEW** ($2/$6) |
+| **Zen: Kimi K2.7 Code** | Go-only | **Now on Zen** ($0.95/$4.00) |
+| **Zen: GPT 5.4 Nano** | Not listed | **NEW** ($0.20/$1.25) |
+| **OpenRouter GLM-5.2** | $0.56/$1.76 (DeepInfra cheapest) | **$0.90/$3.08** (Z.ai direct) — price diff by provider confirmed |
+| **Go model list** | 13 models | **Still 13 models**, limits unchanged |
+| **Preset update** | v7 active | **v8 active** — Fixer upgraded to kimi-k2.7-code |
+
+#### Previous Delta (Jul 5 vs Jun 17, preserved for reference)
 
 | Finding | Previous (Jun 17) | Live (Jul 5) |
 |---|---|---|
@@ -593,12 +734,12 @@ User's own codeneedle benchmark:
 - **nemotron-3-super-free** is unstable
 - **big-pickle** is experimental, not production-ready
 
-## External Benchmarks & Reviews (June 2026)
+## External Benchmarks & Reviews (June–July 2026)
 
 - **Artificial Analysis Intelligence Index v4.1** (Jun 17) — GLM-5.2 scores **51** (#1 open-weights). Leads MiniMax-M3 (44), DeepSeek V4 Pro (44), Kimi K2.6 (43). On Intelligence vs Cost per Task Pareto frontier at ~$0.46/task. Source: artificialanalysis.ai
-- **DeepSWE v1.1** (datacurve.ai, Jun 14) — GLM-5.2 not shown (v1.1 only has 8 frontier models). kimi-k2.7-code at **31%±1%** — beats claude-sonnet-4.6 (30%). Source: agent-browser (this session).
+- **DeepSWE v1.1** (datacurve.ai, **Jul 1**) — Updated to 10 models. GLM-5.2 at **44%±2%** (independently verified). kimi-k2.7-code at **31%±1%** — beats claude-sonnet-4.6 (30%). claude-sonnet-5 new at 54%±4%. Source: firecrawl.
 - **DeepSWE v1** (datacurve.ai, Jun 11) — 17 models. Go models: kimi-k2.6 24%, minimax-m3 20%, mimo-v2.5-pro 19%, qwen3.7-max 18%, glm-5.1 18%. Source: agent-browser.
-- **Agent Arena** (arena.ai, Jun 16) — GLM-5.2 (Max) #10 overall, #1 open model by wide margin. #3 Confirmed Task Success. Source: arena.ai/leaderboard/agent
+- **Agent Arena** (arena.ai, **Jul 8**) — **947K+** sessions, 32 models. GLM-5.2 (Max) **+6.54%** (#1 open model, #10 overall). #1 tied lowest Tool Hallucination. Source: firecrawl.
 - **LiveBench** (livebench.ai) — GLM 5.2 overall 76.24. Coding 78.63, Math 79.65, Reasoning 73.33, Language 89.78. Source: livebench.ai
 - **SWE-rebench** (Jun 13) — Only GLM-5.1 (50.7%) and Kimi K2.6 (46.5%) have scores. Source: agent-browser.
 - **TechStackups** (Jun 18) — Independent GLM-5.2 vs Opus 4.8 real-world build test: GLM was 2× slower (1h10m vs 33m), but 4× cheaper ($5.39 vs $21.92). Source: techstackups.com
@@ -628,9 +769,10 @@ User's own codeneedle benchmark:
 | OpenCode Go | https://opencode.ai/docs/go/ | Go subscription model list + request limits |
 | OpenCode Zen | https://opencode.ai/docs/zen | Zen PAYG pricing per 1M tokens (input/output/cached) |
 | models.dev | https://models.dev/ | Canonical model metadata (context window, modalities, tool support) |
-| Artificial Analysis | https://artificialanalysis.ai/models | Intelligence vs price/speed comparisons |
+| **Artificial Analysis** | **https://artificialanalysis.ai/models** | **Intelligence Index, output speed, cost per task, latency, context window, pricing — per-model pages have rich structured data** |
 | CloudPrice | https://cloudprice.net/models | Cross-provider pricing tables |
-| LM Arena Agent | https://arena.ai/leaderboard/agent | Causal treatment-effect ranking of agent orchestrator models across 5 signals |
+| LM Arena Agent | https://arena.ai/leaderboard/agent | Causal treatment-effect ranking of agent orchestrator models across 5 signals, 947K+ sessions |
+| Design Arena | https://designarena.ai/leaderboard | UI/UX, code generation, 3D, website, fullstack agent ELO rankings |
 | LiveBench | https://livebench.ai/ | Contamination-freshened objective benchmark |
 | GLM-5.2 Blog (Z.ai) | https://z.ai/blog/glm-5.2 | Official GLM-5.2 benchmark table |
 | **OpenRouter Catalog** | MCP tools: `openrouter_models-list`, `openrouter_model-get`, `openrouter_model-endpoints` | Live model catalog with pricing, context, provider endpoints, latency |
@@ -686,15 +828,14 @@ agent-browser screenshot --full --annotate
 Go subscription has shared per-model request pools. Multiple agents using the same model compete for the same pool. Optimize by spreading agents across models:
 
 ```jsonc
-// Current best-value pool strategy (v5):
+// Current best-value pool strategy (v8):
 "pool_strategy": {
-  "deepseek-v4-flash (158K/mo)":    "Orchestrator only",      // 19% of pool
-  "mimo-v2.5 (150K/mo)":            "Explorer + Librarian",   // ~53% of pool
-  "mimo-v2.5-pro (16.3K/mo)":       "Fixer (v4/best-value)",  // ~22% of pool
-  "glm-5.2 (4.3K/mo)":              "Oracle + Council alpha", // ~4% of pool — #1 Go model
-  "qwen3.7-max (4.77K/mo)":         "Council beta",           // ~5% of pool
-  "kimi-k2.6 (5.75K/mo)":           "Designer + Council",     // ~42% of pool
-  "minimax-m3 (16K/mo)":            "Observer"                // ~16% of pool
+  "deepseek-v4-flash (158K/mo)":    "Orchestrator only",      // 19% of pool — Arena dropped to -4.65% but 158K/mo is hard to beat for volume
+  "mimo-v2.5 (150K/mo)":            "Explorer + Librarian",   // ~53% of pool — unchanged, fast+cheap
+  "kimi-k2.7-code (9.25K/mo)":      "Fixer (v8, NEW)",        // UPGRADED — DeepSWE 31% vs 19% for mimo-v2.5-pro
+  "glm-5.2 (4.3K/mo)":              "Oracle + Council alpha", // ~4% of pool — #1 Go model, Arena +6.54%
+  "kimi-k2.6 (5.75K/mo)":           "Designer",               // ~42% of pool — good enough for design tasks
+  "minimax-m3 (16K/mo)":            "Observer"                // ~16% of pool — best vision on Go
 }
 ```
 
@@ -709,7 +850,7 @@ See request limits per model in the OpenCode Go Plan table above.
 1. **Go subscription** is better for high-volume agents (Explorer, Librarian, Fixer) — $10/mo flat with generous limits
 2. **Zen PAYG** is better for occasional-use agents (Council, Oracle) — pay per token, no monthly commitment
 3. **Free models** (DeepSeek V4 Flash Free, MiMo-V2.5 Free, Nemotron 3 Super Free) are viable for experimental/toy presets only — unreliable quality
-4. **OpenRouter PAYG** is a viable third provider — often cheaper than Zen for the same model (e.g. GLM-5.2: $0.95/$3.00 on OpenRouter vs $1.40/$4.40 on Zen; DeepSeek V4 Flash: $0.09/$0.18 on OR vs $0.14/$0.28 on Zen). Use OpenRouter for models that are expensive on Zen or have better provider options (via `openrouter_model-endpoints`).
+4. **OpenRouter PAYG** is a viable third provider — often cheaper than Zen for the same model (e.g. GLM-5.2: $0.56/$1.76 on OpenRouter DeepInfra vs $1.40/$4.40 on Zen — 60% cheaper; DeepSeek V4 Flash: $0.09/$0.18 on OR vs $0.14/$0.28 on Zen). Use OpenRouter for models that are expensive on Zen or have better provider options (via `openrouter_model-endpoints`).
 5. **Same model on both Go + Zen** → use Go (already paid for), unless you need higher rate limits
 6. **Same model on OpenRouter vs Zen** → compare price with `openrouter_model-endpoints`; OpenRouter often wins on price and offers more provider choices
 
@@ -741,7 +882,9 @@ For a given model, estimate monthly cost:
 ```bash
 # Check cheapest provider for a model
 openrouter_model-endpoints author="z-ai" slug="glm-5.2"
-# → DeepInfra at $0.95/$3.00 per 1M tokens (cheapest)
+# → DeepInfra at $0.56/$1.76 per 1M tokens (cheapest, FP8)
+# → StreamLake at $0.49/$1.54 (cheapest raw, FP8)
+# → Z.AI direct at $0.90/$3.08 (matches OpenRouter listed price)
 # → Z.AI direct at $1.40/$4.40 (matches Zen)
 
 # List all models with pricing sorted cheapest-first
@@ -750,13 +893,63 @@ openrouter_models-list sort="pricing-low-to-high"
 
 See `scripts/fetch-pricing.sh` for automated cost estimation.
 
+## Artificial Analysis Intelligence Index Data
+
+Live data at https://artificialanalysis.ai/models — fetched via firecrawl.
+
+AA provides the **AA Intelligence Index v4.1** (composite of 10 evals: GDPval-AA v2, τ³-Banking, Terminal-Bench v2.1, SciCode, HLE, GPQA Diamond, CritPt, AA-Omniscience, AA-LCR), plus output speed (t/s), latency, cost per task, and context window per model.
+
+### Go Model AA Profile (live, Jul 9, 2026)
+
+| Model | AA Intel Index | Output Speed (t/s) | Cost/Task | Context | Active Params |
+|---|---|---|---|---|---|
+| GLM-5.2 (max) | **51** | **199** | ~$0.37 | 1M | 40B |
+| Kimi K2.7 Code | — | ~46 | — | 128K | — |
+| Kimi K2.6 | ~43 | ~42 | ~$1.18 | 128K | — |
+| MiniMax M3 | ~44 | ~109 | ~$0.33 | 1M | — |
+| MiMo-V2.5-Pro | ~42 | ~53 | ~$0.17 | 256K | — |
+| GLM-5.1 | ~40 | ~72 | ~$0.48 | 203K | — |
+| DeepSeek V4 Pro | ~44 | ~64 | ~$0.22 | 1M | — |
+| DeepSeek V4 Flash | ~40 | ~128 | ~$0.18 | 1M | — |
+
+Notes: AA Intelligence Index v4.1. Values without explicit AA scores are estimated from OpenRouter metadata. "Cost/Task" = weighted avg cost per AA Intelligence Index task. GLM-5.2 output speed of 199 t/s is well above average for its size class (median: 58 t/s).
+
+### Using AA Data via Firecrawl
+
+```bash
+# Scrape per-model page for full metrics
+firecrawl_scrape url="https://artificialanalysis.ai/models/glm-5-2" formats="markdown" waitFor=5000
+
+# Search for specific model
+firecrawl_search query="site:artificialanalysis.ai GLM 5.2 intelligence coding agentic index"
+```
+
+AA data complements DeepSWE and Arena Agent: AA measures **standalone reasoning** (not agentic tool use), so it's orthogonal to those other benchmarks. High AA + high Arena = strong all-around model (GLM-5.2). High AA + low Arena = good standalone reasoning but poor tool orchestration.
+
+## Firecrawl as Data Source
+
+Firecrawl is the primary web-data engine for this skill alongside OpenRouter MCP:
+
+| Source | Firecrawl Method | Reliability | Notes |
+|---|---|---|---|
+| DeepSWE | `firecrawl_scrape` with waitFor=3000 | Good | JS-rendered table; markdown mode captures text |
+| Arena Agent | `firecrawl_scrape` with waitFor=5000 | Good | Server-rendered; markdown mode captures full table |
+| OpenCode Go | `firecrawl_scrape` | Excellent | Static HTML |
+| OpenCode Zen | `firecrawl_scrape` | Excellent | Static HTML |
+| Artificial Analysis | `firecrawl_scrape` with waitFor=5000 | Medium | JS-heavy; text metrics extractable but chart data is visual-only |
+| Design Arena | `firecrawl_scrape` with waitFor=3000 | Medium | Large page; search for specific model names |
+| OpenRouter pricing | `firecrawl_scrape` | Excellent | Static model listing pages |
+| Z.ai blog | `firecrawl_scrape` | Excellent | Static blog content |
+
+**Firecrawl search** (`firecrawl_search`) is for discovering URLs before scraping. Always call `firecrawl_search_feedback` with the search ID after using results to improve quality and refund 1 credit.
+
 ## Data Quality Notes
 
-- **DeepSWE** uses JS-rendered tables with interactive filters. `agent-browser` is required for accurate scraping — `curl` alone cannot extract the data.
+- **DeepSWE** uses JS-rendered tables with interactive filters. `agent-browser` is required for accurate scraping — `curl` alone cannot extract the data. Firecrawl with `waitFor` can partially extract it (markdown mode captures the table text).
 - **OpenCode docs** (Go, Zen) are server-rendered Markdown/HTML. Both `curl` and `agent-browser` work, but `agent-browser` handles rate-limiting and mobile-redirect cases better.
 - **models.dev** exposes a static JSON API at `/api.json`. Either tool works.
-- **LM Arena Agent** uses a causal evaluation framework (not pairwise votes). The page is server-rendered but has interactive column sorting. `agent-browser snapshot --compact --depth 20` captures the full table. The methodology page at arena.ai/blog/agent-arena explains the causal tracing approach.
+- **LM Arena Agent** uses a causal evaluation framework (not pairwise votes). The page is server-rendered. Firecrawl extracts the full table in markdown mode. `agent-browser snapshot --compact --depth 20` also works. The methodology page at arena.ai/blog/agent-arena explains the causal tracing approach.
 - **GLM-5.2 Blog (Z.ai)** is a vendor-run benchmark. However, the DeepSWE scores are reliable for cross-model comparison: Z.ai used the official mini-swe-agent harness and all comparison-model scores match the official DeepSWE leaderboard exactly (within ±1%). Other benchmarks (SWE-bench Pro, Terminal-Bench, etc.) may use different harnesses/configs across models — treat those as directional.
 - **Screenshots**: Use `agent-browser screenshot --annotate` to capture visual page state for tables with complex formatting or charts.
-- **OpenRouter MCP data** (`openrouter_models-list`, `openrouter_benchmarks`, `openrouter_rankings-daily`) is live data from the OpenRouter API — always up to date, no scraping needed. The Artificial Analysis indices are updated regularly by OpenRouter. This is the most reliable source for current pricing cross-referencing.
+- **OpenRouter MCP data** (`openrouter_models-list`, `openrouter_benchmarks`, `openrouter_rankings-daily`) is live data from the OpenRouter API — always up to date, no scraping needed. **Note:** AA and Design Arena benchmarks require authentication via `openrouter_benchmarks`. The Artificial Analysis indices are updated regularly by OpenRouter. This is the most reliable source for current pricing cross-referencing.
 - **Data volatility**: Pricing and leaderboard data changes frequently. Always re-fetch before making config decisions. Tables in this file are snapshots, not live. Use OpenRouter MCP tools for live data whenever possible.
