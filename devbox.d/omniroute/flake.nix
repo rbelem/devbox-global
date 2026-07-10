@@ -112,7 +112,8 @@
                 makeWrapper ${pkgs.nodejs}/bin/node \
                   $out/bin/$bin \
                   --add-flags "$out/lib/node_modules/omniroute/bin/$bin.mjs" \
-                  --set NODE_PATH "$out/lib/node_modules"
+                  --set NODE_PATH "$out/lib/node_modules" \
+                  --prefix PATH : ${pkgs.nodejs}/bin
               done
 
               runHook postInstall
