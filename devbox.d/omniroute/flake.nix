@@ -24,12 +24,26 @@
           srcHash = "sha256-XQ8C1C3xLgWCIPeaH/dkrbdKBjyooBr/X75BUvuqSAU=";
           npmDepsHash = "sha256-NoYZbB/cDRjtHLDqFX+/opoyNkJYwyzGyJiVF7SZozQ=";
 
-          src = pkgs.fetchFromGitHub {
+          # GitHub source provides the lockfile + source files for CLI
+          githubSrc = pkgs.fetchFromGitHub {
             owner = "diegosouzapw";
             repo = "OmniRoute";
             rev = "v${version}";
             hash = srcHash;
           };
+
+          # npm tarball ships prebuilt dist/ (Next.js standalone bundle with
+          # fonts etc.) — use it to avoid running `next build` in the Nix
+          # sandbox where font downloads fail due to no network.
+          # Get the hash with: nix-prefetch-url https://registry.npmjs.org/omniroute/-/omniroute-${version}.tgz
+          npmDistHash = "sha256-Ti0l7pU1HpT3XpK7Ca8HHtLISZ2akjEINvfDoa6J45U=";
+
+          npmTarball = pkgs.fetchurl {
+            url = "https://registry.npmjs.org/omniroute/-/omniroute-${version}.tgz";
+            hash = npmDistHash;
+          };
+
+          src = githubSrc;
         in
         {
           default = pkgs.buildNpmPackage rec {
@@ -48,12 +62,19 @@
               libsecret
             ];
 
-            dontNpmBuild = true;
-
             npmFlags = [ "--ignore-scripts" ];
+
+            # Skip the heavy Next.js build (next build needs Google Fonts fetch
+            # which fails in Nix sandbox). We inject the prebuilt dist/ from
+            # the npm tarball in installPhase instead.
+            dontNpmBuild = true;
 
             installPhase = ''
               runHook preInstall
+
+              # Inject prebuilt dist/ from npm tarball — this avoids running
+              # the Next.js build (next/font/google fetches fail in sandbox)
+              tar xzf ${npmTarball} --strip=1 -C . package/dist/
 
               # Copy the package to $out
               mkdir -p $out/lib/node_modules/omniroute
