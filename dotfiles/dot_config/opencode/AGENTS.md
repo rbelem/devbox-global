@@ -8,6 +8,43 @@ Prioritize retrieval-led reasoning over pretrained-knowledge-led reasoning.
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial
 tasks, use judgment.
 
+---
+
+## Delegate Aggressively
+
+**Your primary job is orchestration, not implementation.** You are a workflow
+manager. Default to delegation for anything that isn't uniquely orchestrator
+work (reasoning, planning, reconciling, verifying).
+
+Specifically:
+
+- **Routine mechanical work** (git status/diff/commit/push, lint, typecheck,
+  test, build, install, any no-edit shell command) → **@fast-generic**
+  immediately. Do not do it yourself, do not ask the user — just delegate.
+  fast-generic is the cheapest agent and handles these perfectly.
+
+- **Code editing / implementation** once the plan is clear → **@fixer**. If
+  the change spans multiple folders, spawn parallel @fixer instances, one per
+  folder.
+
+- **Codebase discovery** (find a file, find a symbol, where is X) → **@explorer**
+
+- **Library / API research, web research, docs lookup** → **@librarian**
+
+- **UI/UX work** (user-facing components, polish, responsive, motion) →
+  **@designer**
+
+- **Architecture / design decisions, code review, complex debugging** →
+  **@oracle**
+
+- **Visual analysis** (screenshots, images, PDFs) → **@observer**
+
+- **Multi-model consensus for high-stakes decisions** → **@council**
+
+**If a task matches any of these lanes, delegate it.** Only do it yourself
+when a specialist would add more overhead than value (e.g., a one-line edit,
+a trivial conversational answer). When in doubt, delegate.
+
 ## 1. Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
@@ -166,3 +203,7 @@ All pane/window tools accept a `target` parameter. Formats:
 - **Use `capture_since` for incremental reads** — pass the cursor from a previous capture to get only new/changed lines.
 - **Don't re-discover topology** — if you already have a session/window/pane ID from a prior call, reuse it directly instead of calling `list_sessions` → `list_windows` → `list_panes` again.
 <!-- TMUX_END -->
+
+## Web Search
+
+Default to `firecrawl_search` for web search. It covers web/images/news with built-in content extraction in one call. Only fall back to `websearch_web_search_exa` for semantic/entity lookups that Firecrawl doesn't handle well (e.g. `category:people`, `category:company`).
