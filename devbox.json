@@ -75,6 +75,7 @@
     "xxd@latest",
     "path:devbox.d/strix",
     "path:devbox.d/herdr",
+    "path:devbox.d/omniroute",
     "file@latest",
   ],
   "env": {
