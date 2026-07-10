@@ -1,0 +1,11 @@
+# Devbox service: OmniRoute AI gateway
+# Started with: devbox services up omniroute
+# Stopped with:  devbox services stop omniroute
+
+version: "0.5"
+
+processes:
+  omniroute:
+    command: omniroute --port 20128
+    availability:
+      restart: "always"
