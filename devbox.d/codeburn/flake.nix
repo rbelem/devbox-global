@@ -22,7 +22,7 @@
           litellmPrices = pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json";
             #hash = pkgs.lib.fakeHash;
-            hash = "sha256-tsw7k6LgyhsGUINWWDkrpRQWu0KQf8yo0AIDxsqvLoA=";
+            hash = "sha256-Rbt0ALVTMJ0CtH0JZ6245pzwQXG9opy5LSw0DLYFapw=";
           };
         in
         {
@@ -75,9 +75,12 @@
               "
             '';
 
-            # Skip the bundle-litellm step (data already provided above), just run tsup
+            # Skip the bundle-litellm step (data already provided above).
+            # Run tsup, then copy the CLI entry point (upstream's build script
+            # does this: fs.copyFileSync('src/cli.ts', 'dist/cli.js'))
             buildPhase = ''
               npx tsup
+              node -e "const fs=require('fs'); fs.copyFileSync('src/cli.ts','dist/cli.js'); fs.chmodSync('dist/cli.js',0o755)"
             '';
 
             # No native build inputs needed — codeburn uses Node.js built-in
