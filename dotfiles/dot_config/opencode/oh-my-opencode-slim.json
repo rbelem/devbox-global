@@ -12,7 +12,7 @@
     "opencode-best-value-v8": {
       "orchestrator": {
         "model": "omniroute/openrouter/z-ai/glm-5.2",
-        "variant": "max",
+        "variant": "high",
         "skills": [
           "*",
           "!find-skills",
@@ -24,33 +24,41 @@
           "!brandkit",
           "!redesign-existing-projects",
           "!imagegen-frontend-web",
-          "!imagegen-frontend-mobile"
+          "!imagegen-frontend-mobile",
+          "!gpt-taste",
+          "!stitch-design-taste",
+          "!image-to-code",
+          "!prototype"
         ],
         "mcps": [
-          "*"
+          "*",
+          "!chrome-devtools",
+          "!browsermcp",
+          "!firecrawl-mcp",
+          "!context7",
+          "!gh_grep",
+          "!opencode-docs",
+          "!openrouter",
+          "!omniroute",
+          "!websearch"
         ]
       },
       "oracle": {
         "model": "omniroute/openrouter/z-ai/glm-5.2",
-        "variant": "max",
+        "variant": "high",
         "skills": [
           "simplify",
-          "grill-me",
-          "grilling",
-          "caveman-review",
-          "caveman-compress",
-          "codebase-design",
           "code-review",
           "diagnose",
-          "domain-modeling",
-          "reflect",
+          "codebase-design",
           "thermo-nuclear-code-quality-review",
-          "zoom-out"
+          "zoom-out",
+          "domain-modeling",
+          "grill-me",
+          "improve-codebase-architecture"
         ],
         "mcps": [
-          "codegraph",
-          "firecrawl-mcp",
-          "websearch"
+          "codegraph"
         ]
       },
       "librarian": {
@@ -58,23 +66,20 @@
         "variant": "low",
         "skills": [
           "docling",
-          "find-skills",
-          "agent-browser",
           "research"
         ],
         "mcps": [
           "websearch",
           "context7",
-          "grep_app",
-          "firecrawl-mcp"
+          "gh_grep",
+          "firecrawl-mcp",
+          "opencode-docs"
         ]
       },
       "explorer": {
         "model": "opencode-go/mimo-v2.5",
         "variant": "low",
-        "skills": [
-          "ask-matt"
-        ],
+        "skills": [],
         "mcps": [
           "codegraph"
         ]
@@ -82,6 +87,7 @@
       "designer": {
         "model": "opencode-go/kimi-k2.6",
         "variant": "medium",
+        "temperature": 0.7,
         "skills": [
           "agent-browser",
           "mobile-android-design",
@@ -89,41 +95,38 @@
           "high-end-visual-design",
           "gpt-taste",
           "image-to-code",
-          "stitch-design-taste"
+          "stitch-design-taste",
+          "prototype"
         ],
-        "mcps": [
-          "codegraph"
-        ]
+        "mcps": []
       },
       "fixer": {
         "model": "opencode-go/kimi-k2.7-code",
         "variant": "high",
         "skills": [
           "git-commit",
-          "greploop",
           "devbox",
-          "clonedeps",
           "full-output-enforcement",
           "graphify",
-          "setup-pre-commit"
-        ],
-        "mcps": [
-          "codegraph",
-          "firecrawl-mcp"
-        ]
-      },
-      "observer": {
-        "model": "opencode-go/minimax-m3",
-        "skills": [
-          "docling"
+          "clonedeps",
+          "greploop",
+          "tdd"
         ],
         "mcps": [
           "codegraph"
         ]
       },
+      "observer": {
+        "model": "opencode-go/minimax-m3",
+        "variant": "medium",
+        "skills": [
+          "docling"
+        ],
+        "mcps": []
+      },
       "council": {
         "model": "omniroute/openrouter/z-ai/glm-5.2",
-        "variant": "max"
+        "variant": "high"
       }
     }
   },

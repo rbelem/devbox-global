@@ -137,12 +137,12 @@
       "headers": {
         "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
       },
-      "enabled": false
+      "enabled": true
     },
     "gh_grep": {
       "type": "remote",
       "url": "https://mcp.grep.app",
-      "enabled": false
+      "enabled": true
     },
     "chrome-devtools": {
       "type": "local",
@@ -152,7 +152,7 @@
         "chrome-devtools-mcp@latest",
         "--autoConnect"
       ],
-      "enabled": false
+      "enabled": true
     },
     "browsermcp": {
       "type": "local",
@@ -161,7 +161,7 @@
         "-y",
         "@browsermcp/mcp@latest"
       ],
-      "enabled": false
+      "enabled": true
     },
     "Framelink MCP for Figma": {
       "type": "local",
@@ -239,9 +239,9 @@
     "external_directory": {
       "*": "ask",
       "~/.agents/*": "allow",
-      "~/.config/opencode/get-shit-done/*": "allow",
       "~/.config/opencode/skills/*": "allow",
       "~/.local/share/devbox/global/default": "allow",
+      "~/Workspace/rbelem/*": "allow",
       "~/Workspace/github.com/rbelem/*": "allow",
       "/tmp/*": "allow"
     },
@@ -274,10 +274,10 @@
     }
   },
   "compaction": {
-    "tail_turns": 15
+    "tail_turns": 10
   },
   "tool_output": {
-    "max_lines": 500
+    "max_lines": 400
   },
   "formatter": true,
   "lsp": true
