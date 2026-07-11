@@ -13,12 +13,24 @@ XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}" && [ -n "$XDG_RUNTIME_DIR" ] && [ -f "$XD
 
 # nix-ld must be enabled on the nix host
 # "programs.nix-ld.enable = true;"
-uname -v | grep -q 'NixOS' && export NIX_LD=$(nix eval --impure --raw --expr '
+# Cache the dynamic linker path — it only changes when glibc updates.
+# Recompute only if the cache is missing or the cached path no longer exists.
+if uname -v | grep -q 'NixOS'; then
+  _nix_ld_cache="${XDG_CACHE_HOME:-$HOME/.cache}/devbox-nix-ld"
+  if [ -f "$_nix_ld_cache" ] && [ -x "$(<"$_nix_ld_cache")" ]; then
+    export NIX_LD="$(<"$_nix_ld_cache")"
+  else
+    export NIX_LD=$(nix eval --impure --raw --expr '
 let
   pkgs = import <nixpkgs> {};
   NIX_LD = pkgs.lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
 in NIX_LD
 ')
+    [ -d "${XDG_CACHE_HOME:-$HOME/.cache}" ] || mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}"
+    printf '%s\n' "$NIX_LD" > "$_nix_ld_cache"
+  fi
+  unset _nix_ld_cache
+fi
 
 # Starship prompt
 command -v starship >/dev/null 2>&1 && eval "$(starship init bash --print-full-init)"
@@ -35,11 +47,13 @@ set -o vi
 # atuin history
 command -v atuin >/dev/null 2>&1 && eval "$(atuin init --disable-up-arrow bash)"
 
-# bash completions
-for f in "$DEVBOX_PACKAGES_DIR/share/bash-completion/completions/"*; do
-  [ $(basename $f) = Makemodule.am ] || [ $(basename $f) = enosys ] && continue
-  source "$f"
-done
+# bash completions — let bash-completion's dynamic loader (complete -D -F
+# _comp_complete_load) discover them lazily via XDG_DATA_DIRS instead of
+# sourcing 150 files on every shell start.
+case ":$XDG_DATA_DIRS:" in
+  *":$DEVBOX_PACKAGES_DIR/share:"*) ;;
+  *) export XDG_DATA_DIRS="$DEVBOX_PACKAGES_DIR/share:${XDG_DATA_DIRS:-}" ;;
+esac
 
 # Python virtual environment setup
 [ -d "$VENV_DIR" ] || python3 -m venv "$VENV_DIR"
