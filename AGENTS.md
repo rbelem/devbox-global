@@ -75,7 +75,7 @@ devbox.json              # global package + script declarations
 devbox.lock              # pinned nixpkgs versions (stale, 2023)
 devbox.d/<name>/         # 26 flake-based packages (referenced path:devbox.d/<name>)
 dotfiles/                # chezmoi root (.chezmoiroot = dotfiles)
-bin/                     # 15 standalone scripts (synced to $(devbox global path)/bin/)
+bin/                     # 16 standalone scripts (synced to $(devbox global path)/bin/)
 ```
 
 > **Standalone scripts** (`update-flake`, `config-sync`, `secrets-setup`,
@@ -203,11 +203,13 @@ Local clones live under `ghq root` with remotes `origin` (rbelem) and `upstream`
 
 - **VirtualBox compat**: bun and opencode use `bun-linux-x64-baseline` (no AVX/AVX2)
   to avoid crashes on VMs.
-- **NixOS vs non-NixOS**: init_hook conditionally sets `NIX_LD` only on NixOS.
+- **NixOS vs non-NixOS**: `bin/init-hook` conditionally sets `NIX_LD` only on NixOS.
   Flatpak setup branches on NixOS vs non-NixOS for font paths.
-- **init_hook order**: non-interactive short-circuit → ble.sh → starship → zoxide
-  (aliases `cd` to `z`) → fzf → `set -o vi` → atuin → bash completions → Python
-  venv → ble-attach.
+- **init_hook**: `bin/init-hook` — sourced (not executed) by devbox shell
+  init_hook so `return` and exports persist. Order: non-interactive
+  short-circuit → Bitwarden secrets → ble.sh → `NIX_LD` (NixOS only) →
+  starship → zoxide (aliases `cd` to `z`) → fzf → `set -o vi` → atuin →
+  bash completions → Python venv → nix-profiles.pth → ble-attach.
 - **Python venv**: `$VENV_DIR` = `~/.local/share/devbox/global/python-venv`.
   Auto-activated in init_hook. Managed via `python-install`/`python-update` scripts.
 - **Git config is elaborate**: `setup-git` script is the longest. Sets up delta
