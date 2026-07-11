@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo 'Copying fontconfig config and rebuilding font caches for all flatpak apps...'
+for app_id in $(flatpak list --app --columns=application 2>/dev/null); do
+  conf_dir="$HOME/.var/app/$app_id/config/fontconfig/conf.d"
+  cache_dir="$HOME/.var/app/$app_id/cache/fontconfig"
+  echo "  $app_id..."
+  mkdir -p "$conf_dir"
+  cp -n /etc/fonts/conf.d/*.conf "$conf_dir/" 2>/dev/null
+  rm -rf "$cache_dir" 2>/dev/null
+  flatpak run --command=fc-cache "$app_id" -f -v 2>/dev/null \
+    && echo "    done" \
+    || echo "    skipped (no fc-cache)"
+done
+rm -rf $HOME/.cache/fontconfig
+fc-cache -fv
+echo 'Done. Restart your flatpak apps to apply.'

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+mkdir -p $HOME/.config/containers
+cat <<EOF > $HOME/.config/containers/policy.json
+{
+  "default": [{"type": "insecureAcceptAnything"}],
+  "transports": {"docker-daemon": {"": [{"type":"insecureAcceptAnything"}]}}
+}
+EOF

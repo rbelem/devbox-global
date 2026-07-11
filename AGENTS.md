@@ -73,11 +73,18 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ```
 devbox.json              # global package + script declarations
 devbox.lock              # pinned nixpkgs versions (stale, 2023)
-devbox.d/<name>/         # 15 flake-based packages (referenced path:devbox.d/<name>)
+devbox.d/<name>/         # 26 flake-based packages (referenced path:devbox.d/<name>)
 dotfiles/                # chezmoi root (.chezmoiroot = dotfiles)
-devbox-global-update-flake  # standalone script: check & update flake versions
-devbox-global-config-sync  # standalone script: safe bidirectional repo↔global sync
+bin/                     # 15 standalone scripts (synced to $(devbox global path)/bin/)
 ```
+
+> **Standalone scripts** (`update-flake`, `config-sync`, `secrets-setup`,
+> `secrets-refresh`, `setup-git`, `setup-tmux`, `setup-flatpak`, etc.) live in
+> `bin/` and are synced to `$(devbox global path)/bin/` via `config-sync`.
+> `devbox.json` script entries reference them as `$(devbox global path)/bin/<name>`.
+> Small scripts (1-4 lines: `config-edit`, `config-pull`, `config-push`,
+> `first-install`, `setup-neovim`, `python-install`, `python-update`) remain
+> inline in `devbox.json`.
 
 ## Sync rule
 
@@ -89,7 +96,7 @@ After changing files, sync to make them take effect:
 devbox global run config-sync
 
 # Option B: rsync (incremental, shows changes)
-rsync -ai devbox.json devbox.d devbox-global-config-sync devbox-global-update-flake "$(devbox global path)/"
+rsync -ai devbox.json devbox.d "$(devbox global path)/"
 
 # Option C: symlink (one-time setup, auto-syncs after)
 ln -sf "$PWD/devbox.json" "$(devbox global path)/devbox.json"
@@ -142,14 +149,16 @@ modified independently), shows what the opposite direction would change.
 | `devbox global run config-edit` | Open devbox.json in $EDITOR |
 | `devbox global run update-flake` | Run update-flake version checker |
 | `devbox global run config-sync` | Sync repo ↔ global with conflict detection (dry-run by default, add `--sync` to apply) |
+| `devbox global run secrets-setup` | Set up Bitwarden secrets cache |
+| `devbox global run secrets-refresh` | Refresh Bitwarden secrets cache |
 | `devbox global run python-install <pkg>` | pip install into managed venv |
 | `devbox global run python-update` | Upgrade all pip packages in venv |
 
 ## devbox.d/ flakes
 
-16 local flake packages. Patterns found in their flake.nix files:
+26 local flake packages. Patterns found in their flake.nix files:
 
-- **Simple fetch + install** (blesh, gemini-cli-bin, agent-browser): fetch tarball
+- **Simple fetch + install** (blesh, agent-browser): fetch tarball
   from GitHub releases, copy to store, provide helper script.
 - **Npm build** (aicommits): `fetchFromGitHub` + `buildNpmPackage`. Uses
   `dontNpmInstall = true` + manual installPhase because `prepack` needs pnpm.
@@ -172,7 +181,7 @@ modified independently), shows what the opposite direction would change.
 
 ### Fork perl branch maintenance
 
-**codegraph** (`rbelem/codegraph`, branch `v1.1.x-perl`, formerly `v1.0.x-perl`)
+**codegraph** (`rbelem/codegraph`, branch `v1.4.x-perl`, formerly `v1.1.x-perl` / `v1.0.x-perl`)
 and **graphify** (`rbelem/graphify`, branch `v9-perl`) are rbelem forks that add
 Perl extraction on top of upstream releases. After `update-flake --all` bumps
 their version strings, the perl branches must be updated to match:
@@ -210,19 +219,22 @@ Local clones live under `ghq root` with remotes `origin` (rbelem) and `upstream`
 
 ## Scripts reference
 
-All run via `devbox global run <name>`:
+All run via `devbox global run <name>`. Scripts in `bin/` are version-controlled
+here and synced to `$(devbox global path)/bin/` via `config-sync`; small scripts
+(1-4 lines) remain inline in `devbox.json`.
 
 - `config-push` / `config-pull` — sync devbox.json to/from GitHub
-- `config-sync` — runs `devbox-global-config-sync` (bidirectional repo↔global with conflict detection, supports `--dry-run`, `--diff`, `--reverse`, `--interactive`, `--sync`)
-- `update-flake` — runs `devbox-global-update-flake` script (parses flake.nix for
+- `config-sync` — runs `config-sync` from `$(devbox global path)/bin/` (bidirectional repo↔global with conflict detection, supports `--dry-run`, `--diff`, `--reverse`, `--interactive`, `--sync`)
+- `update-flake` — runs `update-flake` from `$(devbox global path)/bin/` (parses flake.nix for
   version + GitHub source, queries gh API for latest, prints color table).
   **Pitfall**: `devbox global run update-flake` uses the current shellenv which
   may not have `gh` in PATH. If it shows all packages as "unknown", run
   `eval "$(devbox global shellenv --recompute)"` first, then run the script
-  directly from `$(devbox global path)/devbox-global-update-flake`.
+  directly from `$(devbox global path)/bin/update-flake`.
   **Lock files**: After bumping versions, `devbox global install` (or
   `shellenv --recompute`) updates `flake.lock` files. Commit these alongside
   the version bumps — they pin the resolved input revisions.
+- `secrets-setup` / `secrets-refresh` — manage Bitwarden secrets cache (scripts in `$(devbox global path)/bin/`)
 - `setup-git` — full git config (identity, aliases, delta, difftastic, credential helpers, includeif)
 - `setup-tmux` — clone gpakosz/.tmux + symlink local conf
 - `setup-nerd-fonts` — add Nerd Fonts dir to fontconfig
@@ -232,6 +244,9 @@ All run via `devbox global run <name>`:
 - `setup-flatpak` — Flathub repos, font symlinks, flatpak overrides
 - `setup-podman` — permissive container policy.json
 - `setup-kde-secrets-service` — replace ksecretd with kwalletd5
+- `setup-devbox-bashrc` — append bashrc.d sourcing block to ~/.bashrc
+- `fix-flatpak-fonts` — copy fontconfig + rebuild font caches for all flatpak apps
+- `fix-protonvpn-fonts` — fix ProtonVPN flatpak font rendering
 - `python-install` / `python-update` — manage Python venv packages
 
 ## Chezmoi dotfiles
