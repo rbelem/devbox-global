@@ -1,0 +1,16 @@
+{
+  // Enable or disable the Smart Title plugin
+  "enabled": true,
+
+  // Enable debug logging to ~/.config/opencode/logs/smart-title/YYYY-MM-DD.log
+  "debug": false,
+
+  // Optional: Specify a model to use for title generation
+  // Format: "provider/model" (same as agent model config in opencode.jsonc)
+  // If not specified, will use intelligent fallbacks from authenticated providers
+  // Examples: "anthropic/claude-haiku-4-5", "openai/gpt-5-mini"
+  // "model": "anthropic/claude-haiku-4-5",
+
+  // Update title every N idle events (default: 1)
+  "updateThreshold": 1
+}
