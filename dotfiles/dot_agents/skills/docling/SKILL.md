@@ -383,3 +383,37 @@ documents = [
 - Supports local execution for air-gapped environments
 - Supports GPU acceleration for OCR and table detection
 - Default models run on CPU; GPU requires configuration
+
+## MCP Server (docling-mcp)
+
+`docling-mcp` is a SEPARATE package/repo ([github.com/docling-project/docling-mcp](https://github.com/docling-project/docling-mcp), PyPI: `docling-mcp`) from docling itself. It exposes `docling-mcp-server` — an MCP server making docling's document conversion callable by AI clients (Claude Desktop, LM Studio, Llama Stack, opencode, etc.).
+
+### Install / run
+
+```bash
+uvx --from=docling-mcp docling-mcp-server
+```
+
+### Dependencies (v2.1.0)
+
+| Package | Constraint |
+|---|---|
+| `docling-core` | `>=2.51.0` |
+| `docling-slim[service-client]` | `~=2.92` |
+| `mcp[cli]` | `>=1.9.4` |
+| `pydantic-settings` | `~=2.4` |
+| `pydantic` | `~=2.10` |
+| `httpx` | `>=0.28.1` |
+| `python-dotenv` | `>=1.1.0` |
+
+PEP 440: `~=2.92` means `>=2.92,<3.0` so docling-slim 2.111.0 satisfies.
+
+### Architecture (v2.0+)
+
+- **Remote mode** (default, ~50MB) — delegates conversion to a Docling Serve API
+- **Local mode** (`[local]` extra) — full local model stack
+- **Hybrid mode** — remote with automatic fallback to local
+
+### Building inside a Nix flake (devbox.d/docling/flake.nix)
+
+Use `buildPythonApplication` with `fetchFromGitHub` on `docling-project/docling-mcp`. Reference the flake's overridden `docling-core` and `docling-slim` via `python3.pkgs.overrideScope`. The flake's docling already includes `httpx`+`websockets` (service-client deps) so the `[service-client]` extra is covered. New deps to add: `mcp[cli]`, `pydantic-settings`, `python-dotenv` — check if `mcp` is in nixpkgs first.
