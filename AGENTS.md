@@ -181,6 +181,11 @@ modified independently), shows what the opposite direction would change.
 
 ### Fork perl branch maintenance
 
+> **This step is MANDATORY**, not optional. Whenever `update-flake --all` bumps
+> **codegraph** or **graphify**, the corresponding perl branch MUST be updated
+> as part of the same workflow. Do not treat it as a follow-up or "if you
+> remember" task.
+
 **codegraph** (`rbelem/codegraph`, branch `v1.4.x-perl`, formerly `v1.1.x-perl` / `v1.0.x-perl`)
 and **graphify** (`rbelem/graphify`, branch `v9-perl`) are rbelem forks that add
 Perl extraction on top of upstream releases. After `update-flake --all` bumps
@@ -236,6 +241,9 @@ here and synced to `$(devbox global path)/bin/` via `config-sync`; small scripts
   **Lock files**: After bumping versions, `devbox global install` (or
   `shellenv --recompute`) updates `flake.lock` files. Commit these alongside
   the version bumps — they pin the resolved input revisions.
+  **Fork perl branches**: If the version bumps touched **codegraph** or
+  **graphify**, perform the perl branch maintenance documented above before
+  considering the update complete.
 - `secrets-setup` / `secrets-refresh` — manage Bitwarden secrets cache (scripts in `$(devbox global path)/bin/`)
 - `setup-git` — full git config (identity, aliases, delta, difftastic, credential helpers, includeif)
 - `setup-tmux` — clone gpakosz/.tmux + symlink local conf
