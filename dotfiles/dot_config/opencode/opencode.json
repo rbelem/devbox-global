@@ -236,7 +236,7 @@
     },
     "docling": {
       "type": "local",
-      "command": ["uvx", "--from=docling-mcp", "docling-mcp-server"],
+      "command": ["docling-mcp-server", "--transport", "stdio"],
       "environment": {
         "LD_LIBRARY_PATH": "/run/current-system/sw/share/nix-ld/lib"
       }

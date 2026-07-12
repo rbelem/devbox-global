@@ -34,6 +34,23 @@
         "type": "github"
       }
     },
+    "docling-mcp-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780645008,
+        "narHash": "sha256-YivWDPl7rB4N7E+t1wJQk6zG+d4rF6Si5U+GAA+lJII=",
+        "owner": "docling-project",
+        "repo": "docling-mcp",
+        "rev": "59f793b1288e8e359778ab9a1230e86a7ffc10ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "docling-project",
+        "ref": "v2.1.0",
+        "repo": "docling-mcp",
+        "type": "github"
+      }
+    },
     "docling-src": {
       "flake": false,
       "locked": {
@@ -71,6 +88,7 @@
       "inputs": {
         "doclang-src": "doclang-src",
         "docling-core-src": "docling-core-src",
+        "docling-mcp-src": "docling-mcp-src",
         "docling-src": "docling-src",
         "nixpkgs": "nixpkgs"
       }

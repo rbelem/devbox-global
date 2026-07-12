@@ -15,9 +15,13 @@
       url = "github:doclang-project/doclang/v0.7.2";
       flake = false;
     };
+    docling-mcp-src = {
+      url = "github:docling-project/docling-mcp/v2.1.0";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, docling-src, docling-core-src, doclang-src }:
+  outputs = { self, nixpkgs, docling-src, docling-core-src, doclang-src, docling-mcp-src }:
     let
       version = "2.111.0";
 
@@ -73,97 +77,123 @@
             ];
             doCheck = false;
           };
-        });
 
-        docling = final.python3Packages.buildPythonApplication rec {
-          pname = "docling-slim";
-          inherit version;
-          format = "other";
+          # Build docling-mcp from source (uses our overridden docling + docling-core)
+          docling-mcp = pfinal.buildPythonPackage rec {
+            pname = "docling-mcp";
+            version = "2.1.0";
+            format = "pyproject";
+            src = docling-mcp-src;
+            build-system = with pfinal; [ hatchling ];
+            pythonRelaxDeps = [ "docling-slim" "docling-core" "pydantic" "pydantic-settings" ];
+            # Remove docling-slim from pyproject deps; we provide it via nix
+            preConfigure = ''
+              sed -i '/docling-slim/d' pyproject.toml
+            '';
+            dependencies = with pfinal; [
+              docling-core
+              pfinal.docling  # our overridden docling-slim (provides service-client extra)
+              httpx
+              mcp           # mcp[cli] = mcp + typer + python-dotenv
+              pydantic
+              pydantic-settings
+              python-dotenv
+              typer
+            ];
+            dontCheckRuntimeDeps = true;
+            doCheck = false;
+          };
 
-          src = docling-src;
+          # Override docling (docling-slim) to v2.111.0 from GitHub
+          docling = pfinal.buildPythonApplication rec {
+            pname = "docling-slim";
+            inherit version;
+            format = "other";
 
-          # The pyproject.toml and docling/ source are at the repo root
-          # (monorepo: root = docling-slim, packages/docling = meta-package)
-          setSourceRoot = "sourceRoot=source";
+            src = docling-src;
 
-          nativeBuildInputs = with final.python3Packages; [
-            hatchling
-            build
-            installer
-          ];
+            # The pyproject.toml and docling/ source are at the repo root
+            # (monorepo: root = docling-slim, packages/docling = meta-package)
+            setSourceRoot = "sourceRoot=source";
 
-          buildPhase = ''
-            runHook preBuild
-            python -m build --no-isolation --outdir dist/ --wheel
-            runHook postBuild
-          '';
+            nativeBuildInputs = with pfinal; [
+              hatchling
+              build
+              installer
+            ];
 
-          installPhase = ''
-            runHook preInstall
-            mkdir -p "$out"
-            python -m installer --prefix "$out" dist/*.whl
-            runHook postInstall
-          '';
+            buildPhase = ''
+              runHook preBuild
+              python -m build --no-isolation --outdir dist/ --wheel
+              runHook postBuild
+            '';
 
-          propagatedBuildInputs = with final.python3Packages; [
-            # Core deps
-            pydantic
-            docling-core
-            pydantic-settings
-            filetype
-            requests
-            certifi
-            pluggy
-            tqdm
-            # CLI deps
-            typer
-            rich
-            # convert-core deps
-            numpy
-            pillow
-            scipy
-            rtree
-            # format-pdf (pypdfium2 only; docling-parse is broken in nixpkgs)
-            pypdfium2
-            # format-office deps
-            python-docx
-            python-pptx
-            openpyxl
-            # format-email deps
-            mail-parser
-            # format-web deps
-            beautifulsoup4
-            lxml
-            marko
-            # format-latex deps
-            pylatexenc
-            # extract-core deps
-            polyfactory
-            # models deps
-            torch
-            torchvision
-            docling-ibm-models
-            accelerate
-            huggingface-hub
-            defusedxml
-            # service-client deps
-            httpx
-            websockets
-            # chunking deps (via docling-core[chunking])
-            # typing
-            typing-extensions
-            # OCR deps (RapidOCR)
-            rapidocr
-            onnxruntime
-          ];
+            installPhase = ''
+              runHook preInstall
+              mkdir -p "$out"
+              python -m installer --prefix "$out" dist/*.whl
+              runHook postInstall
+            '';
 
-          # Patch imports to make docling_parse optional since
-          # docling-parse is broken in nixpkgs (C++ build fails with nlohmann_json 3.12)
-          postInstall = ''
-            site=$out/${final.python3Packages.python.sitePackages}
+            propagatedBuildInputs = with pfinal; [
+              # Core deps
+              pydantic
+              docling-core
+              pydantic-settings
+              filetype
+              requests
+              certifi
+              pluggy
+              tqdm
+              # CLI deps
+              typer
+              rich
+              # convert-core deps
+              numpy
+              pillow
+              scipy
+              rtree
+              # format-pdf (pypdfium2 only; docling-parse is broken in nixpkgs)
+              pypdfium2
+              # format-office deps
+              python-docx
+              python-pptx
+              openpyxl
+              # format-email deps
+              mail-parser
+              # format-web deps
+              beautifulsoup4
+              lxml
+              marko
+              # format-latex deps
+              pylatexenc
+              # extract-core deps
+              polyfactory
+              # models deps
+              torch
+              torchvision
+              docling-ibm-models
+              accelerate
+              huggingface-hub
+              defusedxml
+              # service-client deps
+              httpx
+              websockets
+              # chunking deps (via docling-core[chunking])
+              # typing
+              typing-extensions
+              # OCR deps (RapidOCR)
+              rapidocr
+              onnxruntime
+            ];
 
-            # Replace docling_parse_backend with a stub that doesn't import docling_parse
-            cat > "$site/docling/backend/docling_parse_backend.py" << 'STUB'
+            # Patch imports to make docling_parse optional since
+            # docling-parse is broken in nixpkgs (C++ build fails with nlohmann_json 3.12)
+            postInstall = ''
+              site=$out/${pfinal.python.sitePackages}
+
+              # Replace docling_parse_backend with a stub that doesn't import docling_parse
+              cat > "$site/docling/backend/docling_parse_backend.py" << 'STUB'
 import logging
 from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
 
@@ -182,8 +212,8 @@ class ThreadedDoclingParseDocumentBackend(PyPdfiumDocumentBackend):
     pass
 STUB
 
-            # Make DoclingParseDocumentBackend import optional in CLI
-            sed -i '/^from docling\.backend\.docling_parse_backend import ($/,/^)$/c\
+              # Make DoclingParseDocumentBackend import optional in CLI
+              sed -i '/^from docling\.backend\.docling_parse_backend import ($/,/^)$/c\
 try:\
     from docling.backend.docling_parse_backend import (\
         DoclingParseDocumentBackend,\
@@ -192,23 +222,27 @@ try:\
 except ImportError:\
     DoclingParseDocumentBackend = None\
     ThreadedDoclingParseDocumentBackend = None' "$site/docling/cli/main.py"
-          '';
+            '';
 
-          # Many transitive deps may not be in nixpkgs;
-          # skip strict runtime dependency checking.
-          dontCheckRuntimeDeps = true;
+            # Many transitive deps may not be in nixpkgs;
+            # skip strict runtime dependency checking.
+            dontCheckRuntimeDeps = true;
 
-          # Tests require network access and model downloads
-          doCheck = false;
+            # Tests require network access and model downloads
+            doCheck = false;
 
-          meta = with final.lib; {
-            description = "SDK and CLI for parsing PDF, DOCX, HTML, and more to unified document representation";
-            homepage = "https://github.com/docling-project/docling";
-            license = licenses.mit;
-            mainProgram = "docling";
-            platforms = supportedSystems;
+            meta = with final.lib; {
+              description = "SDK and CLI for parsing PDF, DOCX, HTML, and more to unified document representation";
+              homepage = "https://github.com/docling-project/docling";
+              license = licenses.mit;
+              mainProgram = "docling";
+              platforms = supportedSystems;
+            };
           };
-        };
+        });
+
+        docling = final.python3Packages.docling;
+        docling-mcp = final.python3Packages.docling-mcp;
       };
     in
     {
@@ -220,7 +254,12 @@ except ImportError:\
         in
         {
           docling = pkgsWithOverlay.docling;
-          default = pkgsWithOverlay.docling;
+          docling-mcp = pkgsWithOverlay.docling-mcp;
+          # default = env with both docling + docling-mcp binaries in PATH
+          default = pkgsWithOverlay.buildEnv {
+            name = "docling-env";
+            paths = [ pkgsWithOverlay.docling pkgsWithOverlay.docling-mcp ];
+          };
         });
 
       devShells = forAllSystems (pkgs:
@@ -229,7 +268,7 @@ except ImportError:\
         in
         {
           default = pkgsWithOverlay.mkShell {
-            buildInputs = [ pkgsWithOverlay.docling ];
+            buildInputs = [ pkgsWithOverlay.docling pkgsWithOverlay.docling-mcp ];
           };
         });
     };
