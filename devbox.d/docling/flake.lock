@@ -1,5 +1,39 @@
 {
   "nodes": {
+    "doclang-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783085772,
+        "narHash": "sha256-Bk/AbrZmNMkytxqI7y/+dZDyAnRxkHhXdFnEe0n9Po4=",
+        "owner": "doclang-project",
+        "repo": "doclang",
+        "rev": "1a73a57552b84dfc6a126cae0dbef783707f7beb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "doclang-project",
+        "ref": "v0.7.2",
+        "repo": "doclang",
+        "type": "github"
+      }
+    },
+    "docling-core-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783769762,
+        "narHash": "sha256-9+QLsMPODMoRAFKPvfs8vzsCtWXlGlecG+bnlmNtPp4=",
+        "owner": "docling-project",
+        "repo": "docling-core",
+        "rev": "9e9c28f309377b54e48043e8c0e6db272ff765f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "docling-project",
+        "ref": "v2.87.0",
+        "repo": "docling-core",
+        "type": "github"
+      }
+    },
     "docling-src": {
       "flake": false,
       "locked": {
@@ -35,6 +69,8 @@
     },
     "root": {
       "inputs": {
+        "doclang-src": "doclang-src",
+        "docling-core-src": "docling-core-src",
         "docling-src": "docling-src",
         "nixpkgs": "nixpkgs"
       }

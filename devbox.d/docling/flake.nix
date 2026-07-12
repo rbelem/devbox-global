@@ -7,9 +7,17 @@
       url = "github:docling-project/docling/v2.111.0";
       flake = false;
     };
+    docling-core-src = {
+      url = "github:docling-project/docling-core/v2.87.0";
+      flake = false;
+    };
+    doclang-src = {
+      url = "github:doclang-project/doclang/v0.7.2";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, docling-src }:
+  outputs = { self, nixpkgs, docling-src, docling-core-src, doclang-src }:
     let
       version = "2.111.0";
 
@@ -23,6 +31,50 @@
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
       docling-overlay = final: prev: {
+        # Extend python3Packages so docling's `with final.python3Packages;
+        # docling-core` picks up our overridden versions, not nixpkgs' 2.73.0.
+        python3Packages = prev.python3Packages.overrideScope (pfinal: pprev: {
+          # Override doclang to v0.7.2 (not in nixpkgs)
+          doclang = pfinal.buildPythonPackage rec {
+            pname = "doclang";
+            version = "0.7.2";
+            format = "pyproject";
+            src = doclang-src;
+            build-system = [ pfinal.setuptools ];
+            dependencies = with pfinal; [ lxml typer ];
+            doCheck = false;
+          };
+
+          # Override docling-core to v2.87.0 (nixpkgs has 2.73.0, too old)
+          docling-core = pfinal.buildPythonPackage rec {
+            pname = "docling-core";
+            version = "2.87.0";
+            format = "pyproject";
+            src = docling-core-src;
+            build-system = with pfinal; [ poetry-core setuptools ];
+            pythonRelaxDeps = [ "defusedxml" "pydantic-settings" ];
+            dependencies = with pfinal; [
+              defusedxml
+              jsonref
+              jsonschema
+              latex2mathml
+              pandas
+              pillow
+              pydantic
+              pydantic-settings
+              pyyaml
+              semchunk
+              tabulate
+              tree-sitter
+              transformers
+              typer
+              typing-extensions
+              pfinal.doclang  # use our overridden doclang
+            ];
+            doCheck = false;
+          };
+        });
+
         docling = final.python3Packages.buildPythonApplication rec {
           pname = "docling-slim";
           inherit version;
