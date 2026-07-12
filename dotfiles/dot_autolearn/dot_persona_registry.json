@@ -1,8 +1,0 @@
-{
-  "default": {
-    "uuid": null,
-    "description": "Default knowledge store",
-    "sync_enabled": true,
-    "created_at": "2026-07-11"
-  }
-}

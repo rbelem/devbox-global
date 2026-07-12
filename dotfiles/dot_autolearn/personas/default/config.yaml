@@ -1,7 +1,0 @@
-review_threshold: 10
-session_review_on_idle: true
-max_conversation_buffer: 50
-curator_interval_days: 7
-stale_after_days: 30
-archive_after_days: 90
-escalation_threshold: 3

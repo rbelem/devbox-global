@@ -1,4 +1,0 @@
-{"type":"review_spawned","message_count":10,"review_file":"/home/rodrigo/.autolearn/personas/default/reviews/review-1783814128980.md","timestamp":"2026-07-11T23:55:28.981Z","project":"devbox-global"}
-{"type":"review_spawned","message_count":2,"review_file":"/home/rodrigo/.autolearn/personas/default/reviews/review-1783814141193.md","timestamp":"2026-07-11T23:55:41.193Z","project":"devbox-global"}
-{"type": "review_complete", "timestamp": "2026-07-11T23:56:43.033979+00:00", "observations": 1, "memory_updated": true, "user_profile_updated": false, "skills_created": 0, "skills_patched": 0, "topics": ["update-flake", "gh-authentication", "devbox-global", "documentation-wrong"]}
-{"type": "review_complete", "timestamp": "2026-07-11T23:57:06.580608+00:00", "observations": 2, "memory_updated": true, "user_profile_updated": false, "skills_created": 1, "skills_patched": 0, "topics": ["gh-auth", "update-flake", "silent-error-suppression", "devbox-global"]}
