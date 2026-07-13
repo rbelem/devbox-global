@@ -11,8 +11,7 @@ sections="
   core
   credential.https://dev.azure.com
   credential
-  delta
-  difftool.difftastic
+  difftool.hunk
   diff
   http
   http.https://*.*.local
@@ -23,7 +22,7 @@ sections="
 "
 for section in $sections; do
   git config --global --get-regexp '^$section' > /dev/null 2>&1 \
-    && git config --global --remove-section $section
+    && git config --global --remove-section "$section"
 done
 git config --global user.name 'Rodrigo Belem'
 git config --global user.email rodrigo.belem@gmail.com
@@ -35,6 +34,9 @@ done
 git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.co checkout
+git config --global alias.diff 'hunk diff'
+git config --global alias.show 'hunk show'
+git config --global alias.stash 'hunk stash show'
 git config --global branch.autosetupmerge always
 git config --global branch.autosetuprebase always
 git config --global commit.verbose true
@@ -53,27 +55,11 @@ git config --global --add credential.https://github.com.helper oauth
 git config --global --add credential.https://gitlab.com.helper cache
 git config --global --add credential.https://gitlab.com.helper oauth
 git config --global credential.https://dev.azure.com.useHttpPath true
-git config --global core.pager 'less -RF'
-git config --global pager.delta delta
-git config --global alias.delta diff
-git config --global interactive.diffFilter 'delta --color-only'
-mkdir -p $HOME/.local/share/delta
-curl -sLJ https://github.com/dandavison/delta/raw/main/themes.gitconfig \
-  -o $HOME/.local/share/delta/themes.gitconfig
-git config --global include.path $HOME/.local/share/delta/themes.gitconfig
+git config --global core.pager 'hunk pager'
 git config --global diff.colorMoved default
 git config --global diff.guitool meld
-git config --global diff.tool difftastic
-git config --global difftool.difftastic.cmd 'difft "$LOCAL" "$REMOTE"'
-git config --global delta.features calochortus-lyallii
-git config --global delta.line-numbers-minus-style 'bold "#b10036"'
-git config --global delta.line-numbers-plus-style 'bold "#00b136"'
-git config --global delta.max-line-length 1024
-git config --global delta.navigate true
-git config --global delta.pager 'less -RF'
-git config --global delta.side-by-side true
-git config --global delta.tabs 2
-git config --global delta.true-color always
+git config --global diff.tool hunk
+git config --global difftool.hunk.cmd 'hunk difftool "$LOCAL" "$REMOTE"'
 git config --global merge.conflictstyle diff3
 git config --global merge.guitool meld
 git config --global merge.tool vimdiff
