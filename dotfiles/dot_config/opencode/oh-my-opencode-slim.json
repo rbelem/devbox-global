@@ -7,12 +7,12 @@
     "position": "bottom-left",
     "size": "small"
   },
-  "preset": "opencode-best-value-v8",
+  "preset": "value",
   "presets": {
-    "opencode-best-value-v8": {
+    "quality": {
       "orchestrator": {
         "model": "omniroute/openrouter/z-ai/glm-5.2",
-        "variant": "high",
+        "variant": "max",
         "skills": [
           "*",
           "!find-skills",
@@ -45,7 +45,7 @@
       },
       "oracle": {
         "model": "omniroute/openrouter/z-ai/glm-5.2",
-        "variant": "high",
+        "variant": "max",
         "skills": [
           "simplify",
           "code-review",
@@ -55,7 +55,8 @@
           "zoom-out",
           "domain-modeling",
           "grill-me",
-          "improve-codebase-architecture"
+          "improve-codebase-architecture",
+          "verification-planning"
         ],
         "mcps": [
           "codegraph"
@@ -86,8 +87,8 @@
         ]
       },
       "designer": {
-        "model": "opencode-go/kimi-k2.6",
-        "variant": "medium",
+        "model": "omniroute/openrouter/z-ai/glm-5.2",
+        "variant": "high",
         "temperature": 0.7,
         "skills": [
           "agent-browser",
@@ -111,7 +112,8 @@
           "graphify",
           "clonedeps",
           "greploop",
-          "tdd"
+          "tdd",
+          "verification-planning"
         ],
         "mcps": [
           "codegraph"
@@ -129,7 +131,123 @@
       },
       "council": {
         "model": "omniroute/openrouter/z-ai/glm-5.2",
-        "variant": "high"
+        "variant": "max"
+      }
+    },
+    "value": {
+      "orchestrator": {
+        "model": "opencode-go/mimo-v2.5",
+        "variant": "low",
+        "skills": [
+          "*",
+          "!find-skills",
+          "!design-taste-frontend",
+          "!high-end-visual-design",
+          "!minimalist-ui",
+          "!industrial-brutalist-ui",
+          "!mobile-android-design",
+          "!brandkit",
+          "!redesign-existing-projects",
+          "!imagegen-frontend-web",
+          "!imagegen-frontend-mobile",
+          "!gpt-taste",
+          "!stitch-design-taste",
+          "!image-to-code",
+          "!prototype"
+        ],
+        "mcps": [
+          "*",
+          "!chrome-devtools",
+          "!browsermcp",
+          "!firecrawl-mcp",
+          "!context7",
+          "!gh_grep",
+          "!opencode-docs",
+          "!openrouter",
+          "!omniroute",
+          "!websearch"
+        ]
+      },
+      "oracle": {
+        "model": "opencode-go/qwen3.7-plus",
+        "variant": "medium",
+        "skills": [
+          "simplify",
+          "code-review",
+          "diagnosing-bugs",
+          "codebase-design",
+          "zoom-out",
+          "domain-modeling"
+        ],
+        "mcps": [
+          "codegraph"
+        ]
+      },
+      "librarian": {
+        "model": "opencode-go/mimo-v2.5",
+        "variant": "low",
+        "skills": [
+          "docling",
+          "research"
+        ],
+        "mcps": [
+          "websearch",
+          "context7",
+          "gh_grep",
+          "firecrawl-mcp",
+          "opencode-docs",
+          "docling"
+        ]
+      },
+      "explorer": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "variant": "low",
+        "skills": [],
+        "mcps": [
+          "codegraph"
+        ]
+      },
+      "designer": {
+        "model": "opencode-go/mimo-v2.5",
+        "variant": "medium",
+        "temperature": 0.7,
+        "skills": [
+          "agent-browser",
+          "design-taste-frontend",
+          "high-end-visual-design",
+          "image-to-code",
+          "prototype"
+        ],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "variant": "low",
+        "skills": [
+          "git-commit",
+          "devbox",
+          "full-output-enforcement",
+          "graphify",
+          "clonedeps",
+          "tdd"
+        ],
+        "mcps": [
+          "codegraph"
+        ]
+      },
+      "observer": {
+        "model": "opencode-go/minimax-m3",
+        "variant": "medium",
+        "skills": [
+          "docling"
+        ],
+        "mcps": [
+          "docling"
+        ]
+      },
+      "council": {
+        "model": "opencode-go/mimo-v2.5",
+        "variant": "medium"
       }
     }
   },
@@ -143,10 +261,18 @@
       "mcps": []
     }
   },
-  "tmux": {
-    "enabled": true,
+  "multiplexer": {
+    "type": "tmux",
     "layout": "main-vertical",
     "main_pane_size": 60
+  },
+  "fallback": {
+    "enabled": true,
+    "timeoutMs": 15000,
+    "retryDelayMs": 500,
+    "maxRetries": 3,
+    "retry_on_empty": true,
+    "runtimeOverride": true
   },
   "council": {
     "timeout": 600000,
@@ -154,31 +280,27 @@
     "presets": {
       "opencode-go": {
         "alpha": {
-          "model": "opencode/claude-sonnet-5",
-          "variant": "high"
-        },
-        "beta": {
           "model": "opencode-go/qwen3.7-max",
           "variant": "high"
         },
-        "gamma": {
+        "beta": {
           "model": "opencode-go/kimi-k2.7-code",
           "variant": "high"
         },
-        "delta": {
-          "model": "opencode/grok-4.5",
+        "gamma": {
+          "model": "omniroute/openrouter/tencent/hy3",
           "variant": "high"
         },
-        "epsilon": {
-          "model": "omniroute/openrouter/openai/gpt-5.6-sol",
-          "variant": "max"
-        },
-        "zeta": {
+        "delta": {
           "model": "omniroute/openrouter/z-ai/glm-5.2",
           "variant": "max"
         },
-        "eta": {
-          "model": "opencode/gemini-3.5-flash",
+        "epsilon": {
+          "model": "opencode-go/minimax-m3",
+          "variant": "high"
+        },
+        "zeta": {
+          "model": "opencode-go/mimo-v2.5-pro",
           "variant": "high"
         }
       },

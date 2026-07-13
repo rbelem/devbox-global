@@ -2,13 +2,13 @@
   "version": 3,
   "skills": {
     "simplify": {
-      "source": "brianlovin/claude-config",
+      "source": "alvinunreal/oh-my-opencode-slim",
       "sourceType": "github",
-      "sourceUrl": "https://github.com/brianlovin/claude-config.git",
-      "skillPath": "skills/simplify/SKILL.md",
-      "skillFolderHash": "83566973442dc05bcf5abbe83053e8a8e5f50b6b",
+      "sourceUrl": "https://github.com/alvinunreal/oh-my-opencode-slim.git",
+      "skillPath": "src/skills/simplify/SKILL.md",
+      "skillFolderHash": "3ba46ee379e49113868d9c4bc7e7c7d3d06603b6",
       "installedAt": "2026-04-25T07:47:31.816Z",
-      "updatedAt": "2026-04-25T07:47:31.816Z"
+      "updatedAt": "2026-07-13T19:38:50.328Z"
     },
     "find-skills": {
       "source": "vercel-labs/skills",
@@ -730,6 +730,87 @@
       "skillFolderHash": "36f69b9a0602996994e62bf9eb3ccf0bdbe348e9",
       "installedAt": "2026-07-11T16:42:04.245Z",
       "updatedAt": "2026-07-11T16:42:04.245Z"
+    },
+    "clonedeps": {
+      "source": "alvinunreal/oh-my-opencode-slim",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/alvinunreal/oh-my-opencode-slim.git",
+      "skillPath": "src/skills/clonedeps/SKILL.md",
+      "skillFolderHash": "98c1bf3e9fbfb184f55123794e1e6dbda30e4199",
+      "installedAt": "2026-07-13T19:38:50.305Z",
+      "updatedAt": "2026-07-13T19:38:50.305Z"
+    },
+    "codemap": {
+      "source": "alvinunreal/oh-my-opencode-slim",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/alvinunreal/oh-my-opencode-slim.git",
+      "skillPath": "src/skills/codemap/SKILL.md",
+      "skillFolderHash": "e79deb7cd7035485bec02d8e8b0598bf49d7d1ef",
+      "installedAt": "2026-07-13T19:38:50.313Z",
+      "updatedAt": "2026-07-13T19:38:50.313Z"
+    },
+    "deepwork": {
+      "source": "alvinunreal/oh-my-opencode-slim",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/alvinunreal/oh-my-opencode-slim.git",
+      "skillPath": "src/skills/deepwork/SKILL.md",
+      "skillFolderHash": "5f4fcda6753697addafbaf3f33181de6148c5be8",
+      "installedAt": "2026-07-13T19:38:50.316Z",
+      "updatedAt": "2026-07-13T19:38:50.316Z"
+    },
+    "loop-engineering": {
+      "source": "alvinunreal/oh-my-opencode-slim",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/alvinunreal/oh-my-opencode-slim.git",
+      "skillPath": "src/skills/loop-engineering/SKILL.md",
+      "skillFolderHash": "782f53bcc7158f0fb88bee514f5774911a88ec44",
+      "installedAt": "2026-07-13T19:38:50.318Z",
+      "updatedAt": "2026-07-13T19:38:50.318Z"
+    },
+    "oh-my-opencode-slim": {
+      "source": "alvinunreal/oh-my-opencode-slim",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/alvinunreal/oh-my-opencode-slim.git",
+      "skillPath": "src/skills/oh-my-opencode-slim/SKILL.md",
+      "skillFolderHash": "035c705e2c7c713618e22b9e4783a5ee13fd8aba",
+      "installedAt": "2026-07-13T19:38:50.320Z",
+      "updatedAt": "2026-07-13T19:38:50.320Z"
+    },
+    "reflect": {
+      "source": "alvinunreal/oh-my-opencode-slim",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/alvinunreal/oh-my-opencode-slim.git",
+      "skillPath": "src/skills/reflect/SKILL.md",
+      "skillFolderHash": "534bae5476337342a3d7eec212febd2cea400bdc",
+      "installedAt": "2026-07-13T19:38:50.324Z",
+      "updatedAt": "2026-07-13T19:38:50.324Z"
+    },
+    "release-smoke-test": {
+      "source": "alvinunreal/oh-my-opencode-slim",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/alvinunreal/oh-my-opencode-slim.git",
+      "skillPath": "src/skills/release-smoke-test/SKILL.md",
+      "skillFolderHash": "daf8ae3e8669bc4a17525309f8482c9e66f1b9f1",
+      "installedAt": "2026-07-13T19:38:50.326Z",
+      "updatedAt": "2026-07-13T19:38:50.326Z"
+    },
+    "verification-planning": {
+      "source": "alvinunreal/oh-my-opencode-slim",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/alvinunreal/oh-my-opencode-slim.git",
+      "skillPath": "src/skills/verification-planning/SKILL.md",
+      "skillFolderHash": "aaf76b1b0d682f80a55d240c8f6dc05a80de84f1",
+      "installedAt": "2026-07-13T19:38:50.329Z",
+      "updatedAt": "2026-07-13T19:38:50.329Z"
+    },
+    "worktrees": {
+      "source": "alvinunreal/oh-my-opencode-slim",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/alvinunreal/oh-my-opencode-slim.git",
+      "skillPath": "src/skills/worktrees/SKILL.md",
+      "skillFolderHash": "5bbddf468d1a70d213befae5eca9076544eaa110",
+      "installedAt": "2026-07-13T19:38:50.331Z",
+      "updatedAt": "2026-07-13T19:38:50.331Z"
     }
   },
   "dismissed": {

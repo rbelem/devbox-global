@@ -122,3 +122,33 @@ EOF
 - NEVER skip hooks (--no-verify) unless user asks
 - NEVER force push to main/master
 - If commit fails due to hooks, fix and create NEW commit (don't amend)
+
+## Already-Staged Files Trap (most common surgical-staging failure)
+
+`git commit` commits **ALL** staged files — not just the ones you `git add` in the current session. If prior work left files staged (column-1 `M`/`A`/`D` in `git status --porcelain`), your `git add <file>` adds yours, then `git commit` sweeps in ALL of them — violating "stage ONLY `<file>`" instructions.
+
+**Prevention** — before committing, check what's already staged:
+
+```bash
+git status --porcelain   # column 1 = staged, column 2 = unstaged
+```
+
+Verify the "Changes to be committed" section contains ONLY your target file(s). If other files are already staged, pick one:
+
+```bash
+# Option A: unstage the others first
+git restore --staged <unwanted-file>
+
+# Option B: pathspec-limited commit (commits only listed files regardless of what else is staged)
+git commit -- <pathspec> -m "<message>"
+```
+
+**Recovery** if already committed wrongly:
+
+```bash
+git reset HEAD~1          # mixed reset (NOT --hard — safe, keeps working tree intact)
+# This unstages EVERYTHING and moves HEAD back one commit.
+# Then re-stage only the intended file(s) and recommit.
+```
+
+`git reset HEAD~1` (mixed, default) is NOT a destructive operation — it keeps working-tree changes. `git reset --hard HEAD~1` IS destructive and is forbidden unless the user explicitly requests it.

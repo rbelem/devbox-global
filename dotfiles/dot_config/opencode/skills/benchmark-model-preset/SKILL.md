@@ -25,8 +25,12 @@ Build optimal-value oh-my-opencode-slim presets by cross-referencing benchmark s
 | **Librarian** | Fast lookup, instruction following | Speed (latency/throughput), cheap |
 | **Explorer** | Fast codebase search, pattern matching | Speed, cheap — benchmark scores less relevant |
 | **Designer** | UI/UX quality, visual output | Design Arena ELO (UI component/website categories) |
-| **Fixer** | Reliable bounded implementation | DeepSWE Pass@1 + consistency (low variance) |
+| **Fixer** | Reliable bounded implementation | DeepSWE Pass@1 + consistency (low variance); prefer verified Go models (kimi-k2.7-code) over Hy3 |
 | **Observer** | Vision, PDF/document reading | Vision capability, multimodal quality |
+
+## Hy3 Notes
+
+Tencent Hy3 (Apache 2.0, 295B MoE/21B active) — SWE-bench Verified 78% (Tencent-reported, not independently verified), DeepSWE 28 (self-reported). AA Intelligence Index 34 (#23/94 — below all Go models). $0.14/$0.58 on OpenRouter ONLY (NOT on Go/Zen). Text-only. Reasoning modes: no_think (default), low, high. Structured output errors 7-11%. Tool call errors 3-4%. Consider for council diversity (Tencent provider) but NOT for fixer — kimi-k2.7-code (DeepSWE 31% verified, free on Go) beats Hy3 on every independent metric.
 
 ## GLM-5.2 Variant Notes
 

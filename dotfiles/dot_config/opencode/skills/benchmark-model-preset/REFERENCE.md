@@ -106,12 +106,13 @@ Also #3 Confirmed Success (+9.46%), #6 Praise/Complaint (+13.74%).
 ### Go Model DeepSWE Ranking
 
 1. **GLM-5.2** — **44%** (independently verified on v1.1, Jul 1), $1.40/$4.40 — **#1 Go model by 2.4× margin**. 1M ctx, MIT license, Arena Agent +6.54%
-2. **kimi-k2.7-code** — 31%±1%, $2.82 — Rising coding specialist. DeepSWE beats claude-sonnet-4.6 (30%)
-3. **kimi-k2.6** — 24%±2%, $3.16 — Distant third. Good coding agent, weak orchestrator (Arena -1.61%)
-4. **minimax-m3** — 20%±4%, $5.57 — Strong multimodal, 1M ctx, weak agent (-3.08% Arena)
-5. **mimo-v2.5-pro** — 19%±2%, $1.99 — Best value: quality per dollar
-6. **qwen3.7-max** — 18%±1%, $2.12 — Best reasoning (AA 56.6), now positive on Arena (+0.36%)
-7. **glm-5.1** — 18%±1%, $7.46 — Overpriced for the score
+2. **Hy3** — **28**† DeepSWE (Tencent self-reported, not on official leaderboard), SWE-bench Verified **78%** ⚠️ (Tencent-reported, not on official SWE-bench leaderboard), Apache 2.0, 295B MoE/21B active — **OpenRouter only: $0.14/$0.58**
+3. **kimi-k2.7-code** — 31%±1%, $2.82 — Rising coding specialist. DeepSWE beats claude-sonnet-4.6 (30%)
+4. **kimi-k2.6** — 24%±2%, $3.16 — Distant third. Good coding agent, weak orchestrator (Arena -1.61%)
+5. **minimax-m3** — 20%±4%, $5.57 — Strong multimodal, 1M ctx, weak agent (-3.08% Arena)
+6. **mimo-v2.5-pro** — 19%±2%, $1.99 — Best value: quality per dollar
+7. **qwen3.7-max** — 18%±1%, $2.12 — Best reasoning (AA 56.6), now positive on Arena (+0.36%)
+8. **glm-5.1** — 18%±1%, $7.46 — Overpriced for the score
 
 ### LM Arena Agent Leaderboard (July 8, 2026)
 
@@ -254,15 +255,17 @@ Bold = best among Go-available models
 | Rank | Model | DeepSWE | SWE-bench Pro | Terminal-Bench | Arena Agent | AA Index | Verdict |
 |---|---|---|---|---|---|---|---|
 | **1** | **GLM-5.2** | **44%** | **62.1** | **81.0** | **+6.54%** | — | Best coder + best orchestrator on Go — gap widened |
+| **NEW** | **Hy3** | **28**† | **57.9**‡ | — | — | — | **NEW Jul 6** — SWE-bench Verified 78% ⚠️ Tencent-reported, not on official SWE-bench leaderboard; OpenRouter only |
 | 2 | Kimi K2.7 Code | **31%**† | — | — | +0.13% | — | Rising coding specialist |
 | 3 | Qwen3.7-Max | 18% | 60.6 | 75.0 | **+0.36%** | 56.6 | Arena recovered from -4.24% to +0.36% |
 | 4 | Kimi K2.6 | 24% | ~50%† | — | -1.61% | ~50 | Solid coding, weak orchestrator |
 | 5 | MiMo-V2.5-Pro | 19% | — | — | -3.71% | — | Value fixer, but weak agentic |
-| 6 | MiniMax M3 | 20% | 59.0† | 65.0 | -3.08% | — | Multimodal specialist |
+| 6 | MiniMax M3 | 20% | — | 65.0 | -3.08% | — | Multimodal specialist |
 | 7 | GLM-5.1 | 18% | 58.4 | 63.5 | +1.57% | ~50 | Consistent mid-tier, fading |
 | 8 | DeepSeek V4 Flash | ~8-12% | — | — | **-4.65%** | — | Fast cheap — quality declined on Arena |
 
-† = Vendor-reported or estimated
+† = Vendor-reported or estimated. For Hy3, † = Tencent-reported DeepSWE 28 (not on official DeepSWE leaderboard).
+‡ = SWE-bench Pro (Tencent-reported; Hy3 not on official SWE-bench leaderboard).
 
 ### Non-DeepSWE Benchmarks for Go Models
 
@@ -316,6 +319,7 @@ Note: mimo-v2.5-pro, minimax-m2.7, deepseek-v4-flash, qwen3.* all show **N/A** �
 | Rank | Model | DeepSWE | SWE-Pro | Terminal-Bench | AA Index | Arena Agent | Price (I/O) |
 |---|---|---|---|---|---|---|---|
 | **1** | **GLM-5.2** | **44**† | **62.1** | **81.0** | **51** | **+6.54%** | **$1.40/$4.40** |
+| **NEW** | **Hy3** | **28**† | **57.9**‡ | — | — | — | **$0.14/$0.58 (OR)** — NEW Jul 6: SWE-bench Verified 78% ⚠️ Tencent-reported, not on official SWE-bench leaderboard; OpenRouter only |
 | 2 | Kimi K2.7 Code | **31**‡ | — | — | — | +0.13% | $0.95/$4.00 |
 | 3 | Kimi K2.6 | 24 | ~50 | — | ~50 | -1.61% | $0.95/$4.00 |
 | 4 | MiniMax M3 | 20 | 59 | — | 44 | -3.08% | $0.30/$1.20* |
@@ -323,8 +327,8 @@ Note: mimo-v2.5-pro, minimax-m2.7, deepseek-v4-flash, qwen3.* all show **N/A** �
 | 6 | Qwen3.7 Max | 18 | 60.6 | 75 | **56.6** | **+0.36%** | $2.50/$7.50 |
 | 7 | GLM-5.1 | 18 | 58.4 | 63.5 | 40 | +1.57% | $1.40/$4.40 |
 
-† = DeepSWE v1.1 independently verified (Jul 1). Z.ai self-reported 46.2%.
-‡ = DeepSWE v1.1 score (same leaderboard version as GLM-5.2, kimi-k2.7-code was not on v1).
+† = DeepSWE v1.1 independently verified (Jul 1) for GLM-5.2; for Hy3, † = Tencent-reported DeepSWE 28 (not on official DeepSWE leaderboard).
+‡ = DeepSWE v1.1 score (same leaderboard version as GLM-5.2, kimi-k2.7-code was not on v1). For Hy3, ‡ = SWE-bench Pro (Tencent-reported; not on official SWE-bench leaderboard).
 \* = Zen pricing; Go pricing is $0.30/$1.20.
 AA Index = Artificial Analysis Intelligence Index v4.1 (independent composite).
 
@@ -333,14 +337,15 @@ AA Index = Artificial Analysis Intelligence Index v4.1 (independent composite).
 Based on independently verified benchmarks available:
 
 1. **GLM-5.2** — DeepSWE **44%** (indep.), SWE-Pro 62.1%, Terminal-Bench 2.1 81.0, FrontierSWE 74.4, Arena Agent **+6.54%**, AIME 99.2. **#1 Go by every metric — gap to #2 widened.** Only 4,300/mo limits.
-2. **Kimi K2.7 Code** — DeepSWE **31%** (v1.1). Rising coding specialist. Beats claude-sonnet-4.6 (30%). Arena recovered to +0.13%. 9,250/mo.
-3. **Qwen3.7 Max** — AA Index 56.6, SWE-Pro 60.6%, Terminal-Bench 2.1 75.0, AIME 97.0. Arena **massive recovery** from -4.24% to +0.36%. Best reasoning model.
-4. **Kimi K2.6** — DeepSWE 24%, SWE-rebench 46.5%. Second best coding score, but weak real agent (Arena -1.61%).
-5. **MiMo-V2.5-Pro** — DeepSWE 19%, Arena Agent -3.71%. Value fixer (16,300/mo, $1.99 avg cost). Agentic quality declining.
-6. **MiniMax M3** — DeepSWE 20%, SWE-Pro 59.0%†, Terminal-Bench 65.0, Arena -3.08%. Multimodal specialist.
-7. **GLM-5.1** — DeepSWE 18%, SWE-rebench 50.7%, Arena +1.57%. Consistent mid-tier, overpriced on Go.
-8. **DeepSeek V4 Pro** — DeepSWE 8%, Arena -0.83%. Slow. Not recommended.
-9. **DeepSeek V4 Flash** — Est ~8-12% DeepSWE, Arena **-4.65%**. 158K/mo, fastest, cheapest. Quality continues to decline on agentic tasks.
+2. **NEW: Hy3** — DeepSWE **28** (Tencent self-reported, not on official leaderboard), SWE-bench Verified **78%** ⚠️ (Tencent-reported, not on official SWE-bench leaderboard), SWE-bench Pro 57.9, GPQA 90.4, HLE 53.2. AA Intelligence Index **34** (#23/94 — below all Go models). Apache 2.0, 295B MoE/21B active. **OpenRouter only ($0.14/$0.58) — NOT on OpenCode Go or Zen.** Blind expert eval 2.67/4 beats GLM-5.1 (2.51/4). Comparable to GLM-5.2 at 2.6× smaller.
+3. **Kimi K2.7 Code** — DeepSWE **31%** (v1.1). Rising coding specialist. Beats claude-sonnet-4.6 (30%). Arena recovered to +0.13%. 9,250/mo.
+4. **Qwen3.7 Max** — AA Index 56.6, SWE-Pro 60.6%, Terminal-Bench 2.1 75.0, AIME 97.0. Arena **massive recovery** from -4.24% to +0.36%. Best reasoning model.
+5. **Kimi K2.6** — DeepSWE 24%, SWE-rebench 46.5%. Second best coding score, but weak real agent (Arena -1.61%).
+6. **MiMo-V2.5-Pro** — DeepSWE 19%, Arena Agent -3.71%. Value fixer (16,300/mo, $1.99 avg cost). Agentic quality declining.
+7. **MiniMax M3** — DeepSWE 20%, SWE-Pro 59.0%†, Terminal-Bench 65.0, Arena -3.08%. Multimodal specialist.
+8. **GLM-5.1** — DeepSWE 18%, SWE-rebench 50.7%, Arena +1.57%. Consistent mid-tier, overpriced on Go.
+9. **DeepSeek V4 Pro** — DeepSWE 8%, Arena -0.83%. Slow. Not recommended.
+10. **DeepSeek V4 Flash** — Est ~8-12% DeepSWE, Arena **-4.65%**. 158K/mo, fastest, cheapest. Quality continues to decline on agentic tasks.
 
 ## OpenCode Go Plan (July 9, 2026 — unchanged since Jun 17)
 
@@ -374,6 +379,7 @@ Often cheaper than Zen for the same model. Includes Artificial Analysis benchmar
 |---|---|---|---|---|---|---|---|
 | GLM-5.2 | $0.56 | $1.76 | $0.104 | 51.1 | 68.8 | 43.1 | DeepInfra |
 | GLM-5.1 | $0.966 | $3.036 | $0.179 | 40.2 | 55.8 | 29.9 | Z.AI |
+| Hy3 | $0.14 | $0.58 | $0.035 | — | — | — | DeepInfra |
 | DeepSeek V4 Flash | $0.09 | $0.18 | $0.018 | 40.3 | 56.2 | 31.1 | Wafer |
 | DeepSeek V4 Pro | $0.44 | $0.87 | $0.004 | 44.3 | 59.4 | 36.4 | DeepInfra |
 | MiMo-V2.5 | $0.105 | $0.28 | — | — | — | — | DeepInfra |
@@ -590,6 +596,15 @@ User's own codeneedle benchmark:
 - **SWE-rebench** (swe-rebench.com, fetched Jun 13) — 110 problems, tool-use agentic eval. Go model ranking: GLM-5.1 50.7% > Kimi K2.6 46.5% > MiniMax M3 45.6%。
 - **Build Fast with AI June 2026 Leaderboard** — 10-model comparison. Rates Qwen3.7 Max as "rational alternative to Opus 4.8 at 1/6 price."
 
+### Fresh Data Delta (Jul 13 2026 — this session)
+
+| Finding | Previous (Jul 10) | Live (Jul 13) |
+|---|---|---|
+| **Tencent Hy3** | Not in REFERENCE | **ADDED** — Released Jul 6, SWE-bench Verified 78% (Tencent-reported, not on official leaderboard), DeepSWE 28 (self-reported), AA Intel Index 34 (#23/94). Apache 2.0, 295B MoE/21B active, 256K ctx. NOT on OpenCode Go/Zen. OpenRouter $0.14/$0.58. Structured output errors 7-11%. |
+| **oh-my-opencode-slim v2.2.0** | v2.1.1 | **Released Jul 13** — image_routing, cmux multiplexer, verification-planning skill, permission schema restored |
+| **User presets** | Single "opencode-best-value-v8" | **Two presets: "quality" (GLM-5.2 + kimi-k2.7-code fixer) and "value" (mimo-v2.5 + deepseek-v4-flash)** — no Claude/OpenAI/Gemini, affordable models only; Hy3 is OpenRouter-only and not the fixer |
+| **Council lineup** | 7 councillors (incl Claude/GPT/Gemini/Grok) | **6 affordable councillors** — qwen3.7-max, kimi-k2.7-code, Hy3, GLM-5.2, minimax-m3, mimo-v2.5-pro |
+
 ### Fresh Data Delta (Jul 10 2026 — this session)
 
 | Finding | Previous (Jul 9) | Live (Jul 10) |
@@ -727,12 +742,78 @@ Key additions:
 ### Key Operational Findings
 
 - **GLM-5.2**: variant `"max"` recommended for coding (default). `"high"` for faster/cheaper.
+- **Hy3**: variant `"high"` for coding tasks, `"low"` for speed. `no_think` default. Text-only (no vision). **OpenRouter only** ($0.14/$0.58 DeepInfra) — NOT on Go/Zen. Structured output errors 7.39% (DeepInfra) / 11.03% (AtlasCloud); tool call errors 4.37% (DeepInfra) / 3.40% (AtlasCloud). Monitor tool-calling reliability. AA Intelligence Index 34 (#23/94) is below all Go models — consider only for council/provider diversity, not as primary fixer.
 - **kimi-k2.6** needs `prefill_no_think=true` to suppress excessive CoT
 - **deepseek-v4-flash** needs 24k max_tokens to avoid empty responses
 - **deepseek-v4-pro** is impractically slow (~5-10 min/query)
 - **minimax-m2.5** and **minimax-m2.5-free** are broken (API malformed responses)
 - **nemotron-3-super-free** is unstable
 - **big-pickle** is experimental, not production-ready
+
+## Tencent Hy3 (Released July 6, 2026)
+
+Tencent's Hunyuan 3.0 — 295B MoE, 21B active, **Apache 2.0** open weights. Open-sourced on HuggingFace (tencent/Hy3). **OpenRouter only** (`tencent/hy3`) — NOT available on OpenCode Go or Zen as of July 13, 2026.
+
+### Architecture & Specs
+
+| Property | Value |
+|---|---|
+| Total parameters | 295B |
+| Active parameters | 21B |
+| Architecture | MoE (192 experts, top-8) |
+| MTP layer | 3.8B (speculative decoding) |
+| Context window | 256K tokens |
+| License | Apache 2.0 |
+| Modalities | Text-only |
+| Reasoning modes | no_think (default), low, high |
+
+### Benchmarks
+
+| Benchmark | Hy3 | GLM-5.2 | GPT-5.5 | Notes |
+|---|---|---|---|---|
+| SWE-bench Verified | **78%** | — | — | ⚠️ Tencent-reported, not on official SWE-bench leaderboard |
+| SWE-bench Pro | 57.9 | 62.1 | 58.6 | Tencent-reported |
+| GPQA Diamond | 90.4 | 91.2 | 93.6 | |
+| HLE | 53.2 | 40.5 | — | Beats GPT-5.5 on FrontierScience |
+| WildClawBench Overall | 53.6 | — | — | |
+| Apex Agents | 25.6 | — | — | |
+| Skillsbench V1.1 | 55.3 | — | — | |
+| DeepSWE | **28** | 44% | 70% | Tencent self-reported, not on official DeepSWE leaderboard |
+| Arena Agent | **N/A** | +6.54% | +8.90% | Not yet evaluated (released Jul 6) |
+
+**Blind expert evaluation** (270 experts, Tencent-conducted): Hy3 scored **2.67/4**, outperforming GLM-5.1 (2.51/4). Strongest in frontend development, data & storage, CI/CD.
+
+### Artificial Analysis & OpenRouter Metrics
+
+- **AA Intelligence Index**: **34** (rank #23/94) — below all Go models (GLM-5.2=51, Qwen3.7 Max=56.6, DeepSeek V4 Flash=40)
+- **AA output speed**: **162.5 tok/s** (rank #9/94)
+- **AA calculated price**: $0.123/$0.43 per 1M tokens
+- **Structured output error**: 7.39% (DeepInfra), 11.03% (AtlasCloud)
+- **Tool call error**: 4.37% (DeepInfra), 3.40% (AtlasCloud)
+- **Throughput**: 30 tok/s (GMICloud), 15 tok/s (AtlasCloud), 10 tok/s (DeepInfra)
+
+### Pricing
+
+| Provider | Input $/1M | Output $/1M | Cache Read $/1M | Notes |
+|---|---|---|---|---|
+| OpenRouter (DeepInfra) | $0.14 | $0.58 | $0.035 | Cheapest OR provider |
+| OpenRouter (GMICloud) | $0.14 | $0.58 | $0.035 | |
+| OpenRouter (AtlasCloud) | $0.20 | $0.80 | $0.10 | |
+| OpenRouter (free tier) | Free | Free | — | `tencent/hy3:free` |
+| Tencent Cloud | ~$0.18 | ~$0.59 | ~$0.06 | |
+
+### Key Takeaways
+
+- **OpenRouter only** — NOT on OpenCode Go or Zen; route via `tencent/hy3` or `omniroute/openrouter/tencent/hy3`
+- **SWE-bench Verified 78%** ⚠️ is Tencent-reported and not on the official SWE-bench leaderboard
+- **DeepSWE 28** is Tencent self-reported and not on the official DeepSWE leaderboard
+- **AA Intelligence Index 34 (#23/94)** — below every Go model; weak standalone reasoning
+- **47% fewer tokens** than GLM-5.2 in WorkBuddy document processing — cost-efficient when it works
+- **Apache 2.0** — fully open weights, commercially usable
+- **Text-only** — no vision capability, cannot serve as observer
+- **Structured output errors** 7.39-11.03% and **tool call errors** 3.40-4.37% on OpenRouter — may affect tool-calling reliability
+- **Not a primary fixer** — kimi-k2.7-code (DeepSWE 31% independently verified, free on Go) beats Hy3 on every independent metric
+- Consider only for **council/provider diversity** (Tencent family) at low cost, not for high-reliability agent roles
 
 ## External Benchmarks & Reviews (June–July 2026)
 
@@ -828,14 +909,23 @@ agent-browser screenshot --full --annotate
 Go subscription has shared per-model request pools. Multiple agents using the same model compete for the same pool. Optimize by spreading agents across models:
 
 ```jsonc
-// Current best-value pool strategy (v8):
-"pool_strategy": {
-  "deepseek-v4-flash (158K/mo)":    "Orchestrator only",      // 19% of pool — Arena dropped to -4.65% but 158K/mo is hard to beat for volume
-  "mimo-v2.5 (150K/mo)":            "Explorer + Librarian",   // ~53% of pool — unchanged, fast+cheap
-  "kimi-k2.7-code (9.25K/mo)":      "Fixer (v8, NEW)",        // UPGRADED — DeepSWE 31% vs 19% for mimo-v2.5-pro
-  "glm-5.2 (4.3K/mo)":              "Oracle + Council alpha", // ~4% of pool — #1 Go model, Arena +6.54%
-  "kimi-k2.6 (5.75K/mo)":           "Designer",               // ~42% of pool — good enough for design tasks
-  "minimax-m3 (16K/mo)":            "Observer"                // ~16% of pool — best vision on Go
+// Pool strategy (v9, Jul 13):
+// Two presets: "quality" (best work) and "value" (routine tasks)
+// Constraint: NO Claude/OpenAI/Gemini — affordable models only
+// NOTE: Hy3 is NOT on Go/Zen — OpenRouter only
+
+"quality_preset": {
+  "glm-5.2 (4.3K/mo Go + OR overflow)":  "Orchestrator + Oracle + Designer + Council",  // #1 model, max variant
+  "kimi-k2.7-code (9.25K/mo Go)":         "Fixer",                                       // DeepSWE 31% (verified), Arena +0.13%
+  "mimo-v2.5 (150K/mo Go)":              "Explorer + Librarian",
+  "minimax-m3 (16K/mo Go)":              "Observer"                                     // Multimodal
+}
+
+"value_preset": {
+  "mimo-v2.5 (150K/mo Go)":              "Orchestrator + Librarian + Designer + Council",
+  "deepseek-v4-flash (158K/mo Go)":      "Explorer + Fixer",                            // 158K/mo, cheapest
+  "qwen3.7-plus (21K/mo Go)":            "Oracle",
+  "minimax-m3 (16K/mo Go)":              "Observer"
 }
 ```
 
