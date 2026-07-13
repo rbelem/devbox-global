@@ -6,7 +6,14 @@
 [ "${-#*i}" == "$-" ] || [ ! -t 0 ] || [ -z "$PS1" ] || [ -n "$TOOLBOX_PATH" ] && return
 
 # Source Bitwarden secrets cache (fast, regenerable)
-XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}" && [ -n "$XDG_RUNTIME_DIR" ] && [ -f "$XDG_RUNTIME_DIR/devbox-secrets.sh" ] && . "$XDG_RUNTIME_DIR/devbox-secrets.sh"
+# Auto-generate if missing (e.g., after reboot clears $XDG_RUNTIME_DIR)
+XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}"
+if [ -n "$XDG_RUNTIME_DIR" ]; then
+  _secrets_cache="$XDG_RUNTIME_DIR/devbox-secrets.sh"
+  [ -f "$_secrets_cache" ] || devbox global run secrets-refresh >/dev/null 2>&1
+  [ -f "$_secrets_cache" ] && . "$_secrets_cache"
+  unset _secrets_cache
+fi
 
 # ble.sh line editor (if terminal input is not working, remove ~/.cache/blesh/)
 [ -f $(blesh-share)/ble.sh ] && source -- $(blesh-share)/ble.sh --attach=none
