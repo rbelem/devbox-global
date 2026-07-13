@@ -12,12 +12,12 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          version = "1.5.15";
+          version = "1.5.17";
           src = pkgs.fetchFromGitHub {
             owner = "vercel-labs";
             repo = "skills";
             rev = "v${version}";
-            hash = "sha256-vRkV0p1IZjXV4wSiFtIqA9F26k1F2i3wmLEKNIQj3lk=";
+            hash = "sha256-aMBdpoLo3SBCrnxRRkY/hZgpRzreicMO+0ZROCVZXX0=";
           };
 
         in
@@ -28,7 +28,7 @@
               pname = oldAttrs.pname;
               inherit version src;
               fetcherVersion = 3;
-              hash = "sha256-3GSa4ze859dRA4Yrxw8r3rwZKn7FMSjBMvpz1HTDobU=";
+              hash = "sha256-wntHp5UT21wD1myxj8EQafQis5QMuQ9U2PKiKg2jalw=";
             };
           });
         }
