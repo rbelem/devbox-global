@@ -9,20 +9,24 @@ done
 sections="
   alias
   core
+  credential.https://bitbucket.org
   credential.https://dev.azure.com
+  credential.https://github.com
+  credential.https://gitlab.com
   credential
+  delta
+  difftool.difftastic
   difftool.hunk
   diff
-  http
   http.https://*.*.local
   include
   init
   interactive
   merge
+  pager
 "
 for section in $sections; do
-  git config --global --get-regexp '^$section' > /dev/null 2>&1 \
-    && git config --global --remove-section "$section"
+  git config --global --remove-section "$section" 2>/dev/null || true
 done
 git config --global user.name 'Rodrigo Belem'
 git config --global user.email rodrigo.belem@gmail.com
@@ -63,4 +67,4 @@ git config --global difftool.hunk.cmd 'hunk difftool "$LOCAL" "$REMOTE"'
 git config --global merge.conflictstyle diff3
 git config --global merge.guitool meld
 git config --global merge.tool vimdiff
-git config --global mergetool.vimdiff.cmd "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'"
+git config --global mergetool.vimdiff.cmd 'nvim -d $LOCAL $REMOTE $MERGED -c "$wincmd w" -c "wincmd J"'
