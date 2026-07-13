@@ -60,6 +60,8 @@ git config --global --add credential.https://gitlab.com.helper cache
 git config --global --add credential.https://gitlab.com.helper oauth
 git config --global credential.https://dev.azure.com.useHttpPath true
 git config --global core.pager 'hunk pager'
+git config --global pager.log 'less'
+git config --global pager.show 'less'
 git config --global diff.colorMoved default
 git config --global diff.guitool meld
 git config --global diff.tool hunk
