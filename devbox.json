@@ -75,6 +75,7 @@
     "xxd@latest",
     "path:devbox.d/strix",
     "path:devbox.d/herdr",
+    "path:devbox.d/hunk",
     "path:devbox.d/omniroute",
     "nodejs@latest",
     "file@latest",
