@@ -14,15 +14,15 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          version = "3.8.47";
+          version = "3.8.48";
 
           # Get the real hashes:
           #   1. Set srcHash to pkgs.lib.fakeHash or comment out
           #   2. Run: nix build .#default
           #   3. It will fail for srcHash first — copy the "got" hash
           #   4. Then it will fail for npmDepsHash — copy that too
-          srcHash = "sha256-5xRzCl9YqN9tlDiCquXuXFMXokvmCS6BqWWYoI/goi0=";
-          npmDepsHash = "sha256-ffy/GzappSNOTm0x9w2a+4XTgaSZ9HyTbQ5hEm0lFZM=";
+          srcHash = "sha256-lqw0M0mHqsMWWvz7X+3sO+FbaVmJ9bL9FBgB5HxsUBI=";
+          npmDepsHash = "sha256-pVq6fpF0d1FeJmZm4rGcV0wjpoFcDmlhY254Muo00qI=";
 
           # GitHub source provides the lockfile + source files for CLI
           githubSrc = pkgs.fetchFromGitHub {
@@ -36,7 +36,7 @@
           # fonts etc.) — use it to avoid running `next build` in the Nix
           # sandbox where font downloads fail due to no network.
           # Get the hash with: nix-prefetch-url https://registry.npmjs.org/omniroute/-/omniroute-${version}.tgz
-          npmDistHash = "sha256-1G2J0UOLNxaXiNtUG1ZMHqbRZwwBK+agKN5tnmQSjIQ=";
+          npmDistHash = "sha256-sJXyyGId+zdaSRDtYkMOhz7abuuRm1ZU1AeyHFk4MlU=";
 
           npmTarball = pkgs.fetchurl {
             url = "https://registry.npmjs.org/omniroute/-/omniroute-${version}.tgz";
