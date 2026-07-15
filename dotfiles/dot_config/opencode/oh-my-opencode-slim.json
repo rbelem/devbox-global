@@ -7,7 +7,7 @@
     "position": "bottom-left",
     "size": "small"
   },
-  "preset": "value",
+  "preset": "cheap",
   "presets": {
     "quality": {
       "orchestrator": {
@@ -70,7 +70,6 @@
           "research"
         ],
         "mcps": [
-          "websearch",
           "context7",
           "gh_grep",
           "firecrawl-mcp",
@@ -191,7 +190,6 @@
           "research"
         ],
         "mcps": [
-          "websearch",
           "context7",
           "gh_grep",
           "firecrawl-mcp",
@@ -307,7 +305,6 @@
           "research"
         ],
         "mcps": [
-          "websearch",
           "context7",
           "gh_grep",
           "firecrawl-mcp",

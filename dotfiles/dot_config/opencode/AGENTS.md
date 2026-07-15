@@ -10,22 +10,23 @@ tasks, use judgment.
 
 ---
 
-## Delegate Aggressively
+## Delegation: Use Judgment
 
-**Your primary job is orchestration, not implementation.** You are a workflow
-manager. Default to delegation for anything that isn't uniquely orchestrator
-work (reasoning, planning, reconciling, verifying).
+You can do work directly or delegate to a specialist. Pick whichever costs
+less (tokens + latency) for the actual task at hand. Delegation has real
+overhead — dispatch prompts, background-task bookkeeping, session setup, and
+context hand-off. For trivial or single-step work, doing it yourself is
+usually cheaper than delegating.
 
-Specifically:
+These lanes are available when delegation is the better trade-off:
 
 - **Routine mechanical work** (git status/diff/commit/push, lint, typecheck,
-  test, build, install, any no-edit shell command) → **@fast-generic**
-  immediately. Do not do it yourself, do not ask the user — just delegate.
-  fast-generic is the cheapest agent and handles these perfectly.
+  test, build, install, any no-edit shell command) → **@fast-generic** (cheap;
+  good when you would otherwise block on a long shell command)
 
-- **Code editing / implementation** once the plan is clear → **@fixer**. If
-  the change spans multiple folders, spawn parallel @fixer instances, one per
-  folder.
+- **Code editing / implementation** once the plan is clear → **@fixer**. For
+  changes that span multiple folders, parallel @fixer instances per folder
+  can help, but only when the parallel work has real isolation.
 
 - **Codebase discovery** (find a file, find a symbol, where is X) → **@explorer**
 
@@ -41,9 +42,9 @@ Specifically:
 
 - **Multi-model consensus for high-stakes decisions** → **@council**
 
-**If a task matches any of these lanes, delegate it.** Only do it yourself
-when a specialist would add more overhead than value (e.g., a one-line edit,
-a trivial conversational answer). When in doubt, delegate.
+Default to doing it yourself unless the task is clearly suited to a
+specialist (deep, multi-step, or high-stakes) AND the delegation overhead
+will pay for itself. When in doubt, do it yourself.
 
 ## 1. Think Before Coding
 
@@ -206,4 +207,4 @@ All pane/window tools accept a `target` parameter. Formats:
 
 ## Web Search
 
-Default to `firecrawl_search` for web search. It covers web/images/news with built-in content extraction in one call. Only fall back to `websearch_web_search_exa` for semantic/entity lookups that Firecrawl doesn't handle well (e.g. `category:people`, `category:company`).
+Use `firecrawl_search` (and `firecrawl_scrape`) for all web search. It covers web/images/news with built-in content extraction in one call. The built-in `websearch` (exa) is disabled — firecrawl is the only web search backend.
