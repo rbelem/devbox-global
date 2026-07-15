@@ -16,11 +16,11 @@
         aarch64-darwin = "darwin-arm64";
       };
 
-      version = "1.7.8";
+      version = "1.7.10";
 
       # Set each to the fake hash string when updating, then build and capture.
       perArchSha256 = {
-        x86_64-linux   = "sha256-7NnJ8qLDiZg7+x6Mu1zp+v5M0fBOrkoF4a2c6HAbxUw=";
+        x86_64-linux   = "sha256-Wq/k1P3uWMfMSK4U2TFpHBWfg/570fmCXqRBXu7/IPg=";
         aarch64-linux  = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
         x86_64-darwin  = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
         aarch64-darwin = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
