@@ -136,7 +136,7 @@
       "setup-themes": "\"$(devbox global path)/bin/setup-themes\" \"$@\"",
       "setup-tmux": "\"$(devbox global path)/bin/setup-tmux\" \"$@\"",
       "setup-kde-secrets-service": "\"$(devbox global path)/bin/setup-kde-secrets-service\" \"$@\"",
-      "nix-store-gc": "nix store gc --extra-experimental-features nix-command",
+      "nix-store-gc": "nix store gc",
     },
   },
 }
