@@ -80,8 +80,8 @@ To use `high`, you must explicitly pass `reasoning_effort="high"`.
 
 1. **GLM-5.2 obliterates qwen3.7-max on agentic coding**: DeepSWE **46.2 vs 18** (2.6×), Terminal-Bench **81 vs 75**, SWE-bench Pro **62.1 vs 60.6**.
 2. **GLM-5.2 vs Opus 4.8**: Trails by ~1% on FrontierSWE (74.4 vs 75.1), ~10% on DeepSWE. Beats Opus on math (AIME 99.2 vs 95.7). Opus leads on NL2Repo (69.7 vs 48.9) and SWE-Marathon (26 vs 13).
-3. **GLM-5.2 vs GPT-5.5**: Beats GPT-5.5 on SWE-bench Pro (62.1 vs 58.6), FrontierSWE (74.4 vs 72.6), MCP-Atlas (76.8 vs 75.3) — at **~1/6 the cost**.
-4. **Price**: $1.40/$4.40 vs qwen3.7-max $2.50/$7.50 (~45% cheaper).
+3. **GLM-5.2 vs GPT-5.5**: Beats GPT-5.5 on SWE-bench Pro (62.1 vs 58.6), FrontierSWE (74.4 vs 72.6), MCP-Atlas (76.8 vs 75.3) — at **~1/4.5 the cost** (post-price-doubling).
+4. **Price**: $2.80/$8.80 (Zen) vs qwen3.7-max $2.50/$7.50 — now ~12% more expensive on Zen. Use OpenRouter DeepInfra ($1.12/$3.52) to stay competitive.
 
 ## Arena AI Leaderboard
 
@@ -105,7 +105,7 @@ Also #3 Confirmed Success (+9.46%), #6 Praise/Complaint (+13.74%).
 
 ### Go Model DeepSWE Ranking
 
-1. **GLM-5.2** — **44%** (independently verified on v1.1, Jul 1), $1.40/$4.40 — **#1 Go model by 2.4× margin**. 1M ctx, MIT license, Arena Agent +6.54%
+1. **GLM-5.2** — **44%** (independently verified on v1.1, Jul 1), $2.80/$8.80 — **#1 Go model by 2.4× margin**. 1M ctx, MIT license, Arena Agent +6.54%
 2. **Hy3** — **28**† DeepSWE (Tencent self-reported, not on official leaderboard), SWE-bench Verified **78%** ⚠️ (Tencent-reported, not on official SWE-bench leaderboard), Apache 2.0, 295B MoE/21B active — **OpenRouter only: $0.14/$0.58**
 3. **kimi-k2.7-code** — 31%±1%, $2.82 — Rising coding specialist. DeepSWE beats claude-sonnet-4.6 (30%)
 4. **kimi-k2.6** — 24%±2%, $3.16 — Distant third. Good coding agent, weak orchestrator (Arena -1.61%)
@@ -318,7 +318,7 @@ Note: mimo-v2.5-pro, minimax-m2.7, deepseek-v4-flash, qwen3.* all show **N/A** �
 
 | Rank | Model | DeepSWE | SWE-Pro | Terminal-Bench | AA Index | Arena Agent | Price (I/O) |
 |---|---|---|---|---|---|---|---|
-| **1** | **GLM-5.2** | **44**† | **62.1** | **81.0** | **51** | **+6.54%** | **$1.40/$4.40** |
+| **1** | **GLM-5.2** | **44**† | **62.1** | **81.0** | **51** | **+6.54%** | **$2.80/$8.80** |
 | **NEW** | **Hy3** | **28**† | **57.9**‡ | — | — | — | **$0.14/$0.58 (OR)** — NEW Jul 6: SWE-bench Verified 78% ⚠️ Tencent-reported, not on official SWE-bench leaderboard; OpenRouter only |
 | 2 | Kimi K2.7 Code | **31**‡ | — | — | — | +0.13% | $0.95/$4.00 |
 | 3 | Kimi K2.6 | 24 | ~50 | — | ~50 | -1.61% | $0.95/$4.00 |
@@ -377,7 +377,7 @@ Often cheaper than Zen for the same model. Includes Artificial Analysis benchmar
 
 | Model | OpenRouter Prompt | OpenRouter Completion | OpenRouter Cached | AA Intel | AA Coding | AA Agentic | Cheapest Provider |
 |---|---|---|---|---|---|---|---|
-| GLM-5.2 | $0.56 | $1.76 | $0.104 | 51.1 | 68.8 | 43.1 | DeepInfra |
+| GLM-5.2 | $1.12 | $3.52 | $0.208 | 51.1 | 68.8 | 43.1 | DeepInfra |
 | GLM-5.1 | $0.966 | $3.036 | $0.179 | 40.2 | 55.8 | 29.9 | Z.AI |
 | Hy3 | $0.14 | $0.58 | $0.035 | — | — | — | DeepInfra |
 | DeepSeek V4 Flash | $0.09 | $0.18 | $0.018 | 40.3 | 56.2 | 31.1 | Wafer |
@@ -401,9 +401,9 @@ Often cheaper than Zen for the same model. Includes Artificial Analysis benchmar
 | Nemotron 3 Ultra | Free | Free | — | 37.8 | 49.3 | 27.4 | NVIDIA |
 
 **Key takeaways:**
-- **OpenRouter is cheaper than Zen for Go-available models**: GLM-5.2 cheapest via DeepInfra at $0.56/$1.76 (vs $1.40/$4.40 Zen — 60% cheaper!) or Z.ai direct at $0.90/$3.08. DeepSeek V4 Flash ($0.09/$0.18 vs $0.14/$0.28 Zen).
+- **OpenRouter is cheaper than Zen for Go-available models**: GLM-5.2 cheapest via DeepInfra at $1.12/$3.52 (vs $2.80/$8.80 Zen — 60% cheaper!) or Z.ai direct at $1.80/$6.16. DeepSeek V4 Flash ($0.09/$0.18 vs $0.14/$0.28 Zen).
 - **AA benchmarks are embedded in model metadata** — no separate scraping needed
-- **Provider choice matters**: GLM-5.2 ranges from $0.56/$1.76 (DeepInfra) to $1.40/$4.40 (Z.AI, Fireworks, etc.) — 60% price difference
+- **Provider choice matters**: GLM-5.2 ranges from $1.12/$3.52 (DeepInfra) to $2.80/$8.80 (Z.AI, Fireworks, etc.) — 60% price difference
 - **OpenRouter has models not on Go or Zen**: Some models available on neither platform (e.g., KAT-Coder-Pro, Ring-2.6)
 
 Source: `openrouter_models-list` + `openrouter_benchmarks` (live MCP data).
@@ -455,7 +455,7 @@ PAYG per 1M tokens (USD). Use when model isn't on Go or you exceed Go limits.
 | Qwen3.6 Plus | $0.50 | $3.00 | $0.05 |
 | Qwen3.7 Plus | $0.40 | $1.60 | $0.04 |
 | Qwen3.7 Max | $2.50 | $7.50 | $0.50 |
-| GLM-5.2 | $1.40 | $4.40 | $0.26 |
+| GLM-5.2 | $2.80 | $8.80 | $0.52 |
 | GLM-5.1 | $1.40 | $4.40 | $0.26 |
 | GLM-5 | $1.00 | $3.20 | $0.20 |
 | Kimi K2.7 Code | $0.95 | $4.00 | $0.19 |
@@ -551,7 +551,7 @@ User's own codeneedle benchmark:
 
 | Model | Req/mo (live) | Pricing I/O | Key Strength | Caveat |
 |---|---|---|---|---|
-| **GLM-5.2** | 4,300 | $1.40/$4.40 | Arena Agent **+6.54%** (best Go), DeepSWE **44%** indep., Design Arena #1 | Only 4,300/mo limits |
+| **GLM-5.2** | 4,300 | $2.80/$8.80 | Arena Agent **+6.54%** (best Go), DeepSWE **44%** indep., Design Arena #1 | Only 4,300/mo limits |
 | **Qwen3.7 Max** | 4,770 | $2.50/$7.50 | AA Index 56.6, Arena **recovered to +0.36%**, SWE-Pro 60.6% | DeepSWE only 18% for agentic coding |
 | **MiniMax M3** | 16,000 | $0.30/$1.20 | DeepSWE 20%, SWE-rebench 45.6%, multimodal, 1M ctx | Back on Zen. Very slow on DeepSWE (57m) |
 | **Kimi K2.7 Code** | 9,250 | $0.95/$4.00 | DeepSWE **31%** (v1.1!), Arena **recovered to +0.13%** | Formerly -2.71% on Arena; now improving |
@@ -595,6 +595,13 @@ User's own codeneedle benchmark:
 - **Kilo.ai Live Leaderboard** (kilo.ai/leaderboard) — Real token usage from 3M+ developers. MiniMax M3 at 47.6% completion rate, $10.35/attempt.
 - **SWE-rebench** (swe-rebench.com, fetched Jun 13) — 110 problems, tool-use agentic eval. Go model ranking: GLM-5.1 50.7% > Kimi K2.6 46.5% > MiniMax M3 45.6%。
 - **Build Fast with AI June 2026 Leaderboard** — 10-model comparison. Rates Qwen3.7 Max as "rational alternative to Opus 4.8 at 1/6 price."
+
+### Fresh Data Delta (Jul 14 2026 — this session)
+
+| Finding | Previous (Jul 13) | Live (Jul 14) |
+|---|---|---|
+| **GLM-5.2 pricing** | DeepInfra $0.56/$1.76, Zen $1.40/$4.40 | **DOUBLED** — DeepInfra $1.12/$3.52, Zen $2.80/$8.80, Z.ai $1.80/$6.16. Go flat $10/mo unchanged (4,300 req/mo). |
+| **GLM-5.2 cost/task** | ~$0.37 | **~$0.74** (2× increase) |
 
 ### Fresh Data Delta (Jul 13 2026 — this session)
 
@@ -654,7 +661,7 @@ Grok 4.5 replaces deepseek-v4-pro in delta slot. DeepSeek V4 Pro had DeepSWE 8% 
 | gamma | kimi-k2.7-code [high] | Moonshot | 31% | 41.9 | 29.6 | $0.95/$4.00 |
 | delta | **grok-4.5 [high]** | SpaceXAI | — | **54** | — | $2/$6 |
 | epsilon | gpt-5.6-sol [max] | OpenAI | **72.7%** | **58.9** | **54** | $5/$30 |
-| zeta | glm-5.2 [max] (OpenRouter) | Z.ai | 44% | 51.1 | 43.1 | $0.42/$1.32 |
+| zeta | glm-5.2 [max] (OpenRouter) | Z.ai | 44% | 51.1 | 43.1 | $1.12/$3.52 |
 | eta | gemini-3.5-flash [high] | Google | 37% | 50.2 | 37.4 | $1.50/$9.00 |
 
 **Changes from v10:** delta upgraded from deepseek-v4-pro (DeepSWE 8%, Arena -0.83%) → grok-4.5 (AA Intel 54, 8th unique provider). DeepSeek was the weakest slot by every metric; Grok 4.5 is a pure intelligence upgrade and adds provider diversity.
@@ -679,7 +686,7 @@ Replaced 3 negative-Arena councillors with better+cheaper alternatives. Maximize
 | gamma | kimi-k2.7-code [high] | Moonshot | +0.13% | 31% | $0.95/$4.00 |
 | delta | **deepseek-v4-pro** [high] | DeepSeek | -0.83% | 8% | $1.74/$3.48 |
 | epsilon | gpt-5.5 [xhigh] | OpenAI | **+8.90%** | **70%** | $5/$30 |
-| zeta | glm-5.2 [max] (OpenRouter) | Z.ai | **+6.54%** | **44%** | $0.42/$1.32 |
+| zeta | glm-5.2 [max] (OpenRouter) | Z.ai | **+6.54%** | **44%** | $1.12/$3.52 |
 | eta | **gemini-3.5-flash** [high] | Google | +0.90% | 37% | $1.50/$9.00 |
 
 **Sum of DeepSWE scores: 265 → 285.7** (GPT-5.6 Sol adds +5.7pp over GPT-5.5)
@@ -689,7 +696,7 @@ Key additions:
 - **Claude Sonnet 5** (Zen $2/$10) — DeepSWE 54%, Arena +8.16%, AA Agentic 46.7 (highest). Near-Opus quality at 1/5 price.
 - **Gemini 3.5 Flash** (Zen $1.50/$9) — DeepSWE 37%, Arena +0.90%. Adds Google as 7th provider.
 - **DeepSeek V4 Pro** (Go $1.74/$3.48) — AA Agentic 36.4 (strong). Adds DeepSeek as diverse provider.
-- **GLM-5.2 on OpenRouter** dropped to $0.42/$1.32 (67% cheaper than Go's $1.40/$4.40).
+- **GLM-5.2 on OpenRouter** now $1.12/$3.52 (DeepInfra cheapest, 60% cheaper than Zen's $2.80/$8.80).
 
 ### Fresh Data Delta (Jul 9 2026 — this session)
 
@@ -817,7 +824,7 @@ Tencent's Hunyuan 3.0 — 295B MoE, 21B active, **Apache 2.0** open weights. Ope
 
 ## External Benchmarks & Reviews (June–July 2026)
 
-- **Artificial Analysis Intelligence Index v4.1** (Jun 17) — GLM-5.2 scores **51** (#1 open-weights). Leads MiniMax-M3 (44), DeepSeek V4 Pro (44), Kimi K2.6 (43). On Intelligence vs Cost per Task Pareto frontier at ~$0.46/task. Source: artificialanalysis.ai
+- **Artificial Analysis Intelligence Index v4.1** (Jun 17) — GLM-5.2 scores **51** (#1 open-weights). Leads MiniMax-M3 (44), DeepSeek V4 Pro (44), Kimi K2.6 (43). On Intelligence vs Cost per Task Pareto frontier at ~$0.92/task (post-price-doubling). Source: artificialanalysis.ai
 - **DeepSWE v1.1** (datacurve.ai, **Jul 1**) — Updated to 10 models. GLM-5.2 at **44%±2%** (independently verified). kimi-k2.7-code at **31%±1%** — beats claude-sonnet-4.6 (30%). claude-sonnet-5 new at 54%±4%. Source: firecrawl.
 - **DeepSWE v1** (datacurve.ai, Jun 11) — 17 models. Go models: kimi-k2.6 24%, minimax-m3 20%, mimo-v2.5-pro 19%, qwen3.7-max 18%, glm-5.1 18%. Source: agent-browser.
 - **Agent Arena** (arena.ai, **Jul 8**) — **947K+** sessions, 32 models. GLM-5.2 (Max) **+6.54%** (#1 open model, #10 overall). #1 tied lowest Tool Hallucination. Source: firecrawl.
@@ -915,7 +922,7 @@ Go subscription has shared per-model request pools. Multiple agents using the sa
 // NOTE: Hy3 is NOT on Go/Zen — OpenRouter only
 
 "quality_preset": {
-  "glm-5.2 (4.3K/mo Go + OR overflow)":  "Orchestrator + Oracle + Designer + Council",  // #1 model, max variant
+  "glm-5.2 (4.3K/mo Go + OR overflow)":  "Orchestrator + Oracle + Designer + Council",  // #1 model, max variant — $2.80/$8.80 Zen, $1.12/$3.52 OR DeepInfra
   "kimi-k2.7-code (9.25K/mo Go)":         "Fixer",                                       // DeepSWE 31% (verified), Arena +0.13%
   "mimo-v2.5 (150K/mo Go)":              "Explorer + Librarian",
   "minimax-m3 (16K/mo Go)":              "Observer"                                     // Multimodal
@@ -940,7 +947,7 @@ See request limits per model in the OpenCode Go Plan table above.
 1. **Go subscription** is better for high-volume agents (Explorer, Librarian, Fixer) — $10/mo flat with generous limits
 2. **Zen PAYG** is better for occasional-use agents (Council, Oracle) — pay per token, no monthly commitment
 3. **Free models** (DeepSeek V4 Flash Free, MiMo-V2.5 Free, Nemotron 3 Super Free) are viable for experimental/toy presets only — unreliable quality
-4. **OpenRouter PAYG** is a viable third provider — often cheaper than Zen for the same model (e.g. GLM-5.2: $0.56/$1.76 on OpenRouter DeepInfra vs $1.40/$4.40 on Zen — 60% cheaper; DeepSeek V4 Flash: $0.09/$0.18 on OR vs $0.14/$0.28 on Zen). Use OpenRouter for models that are expensive on Zen or have better provider options (via `openrouter_model-endpoints`).
+4. **OpenRouter PAYG** is a viable third provider — often cheaper than Zen for the same model (e.g. GLM-5.2: $1.12/$3.52 on OpenRouter DeepInfra vs $2.80/$8.80 on Zen — 60% cheaper; DeepSeek V4 Flash: $0.09/$0.18 on OR vs $0.14/$0.28 on Zen). Use OpenRouter for models that are expensive on Zen or have better provider options (via `openrouter_model-endpoints`).
 5. **Same model on both Go + Zen** → use Go (already paid for), unless you need higher rate limits
 6. **Same model on OpenRouter vs Zen** → compare price with `openrouter_model-endpoints`; OpenRouter often wins on price and offers more provider choices
 
@@ -972,10 +979,10 @@ For a given model, estimate monthly cost:
 ```bash
 # Check cheapest provider for a model
 openrouter_model-endpoints author="z-ai" slug="glm-5.2"
-# → DeepInfra at $0.56/$1.76 per 1M tokens (cheapest, FP8)
+# → DeepInfra at $1.12/$3.52 per 1M tokens (cheapest, FP8 — post-price-doubling)
 # → StreamLake at $0.49/$1.54 (cheapest raw, FP8)
 # → Z.AI direct at $0.90/$3.08 (matches OpenRouter listed price)
-# → Z.AI direct at $1.40/$4.40 (matches Zen)
+# → Z.AI direct at $1.80/$6.16 (matches Zen at $2.80/$8.80 — post-doubling)
 
 # List all models with pricing sorted cheapest-first
 openrouter_models-list sort="pricing-low-to-high"
@@ -993,7 +1000,7 @@ AA provides the **AA Intelligence Index v4.1** (composite of 10 evals: GDPval-AA
 
 | Model | AA Intel Index | Output Speed (t/s) | Cost/Task | Context | Active Params |
 |---|---|---|---|---|---|
-| GLM-5.2 (max) | **51** | **199** | ~$0.37 | 1M | 40B |
+| GLM-5.2 (max) | **51** | **199** | ~$0.74 | 1M | 40B |
 | Kimi K2.7 Code | — | ~46 | — | 128K | — |
 | Kimi K2.6 | ~43 | ~42 | ~$1.18 | 128K | — |
 | MiniMax M3 | ~44 | ~109 | ~$0.33 | 1M | — |

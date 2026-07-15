@@ -9,37 +9,52 @@
     - button "Theme: light (click to switch to dark)" [ref=e8]
 - main
   - sectionheader
-    - heading "DeepSWE" [level=1, ref=e26]
-    - link "by Datacurve" [ref=e27]
+    - heading "DeepSWE" [level=1, ref=e46]
+    - link "by Datacurve" [ref=e47]
+    - DescriptionList
+      - term "tasks"
+      - definition
+      - term "repos"
+      - definition
+      - term "languages"
+      - definition
+      - term "models"
+      - definition
     - paragraph
       - StaticText "Measuring frontier coding agents on original, long-horizon engineering tasks"
-    - link "Read the blog" [ref=e28]
+    - link "Read the blog" [ref=e48]
       - StaticText "Read the blog"
       - image
-    - link "Run DeepSWE" [ref=e29]
-    - link "Get notified when new models drop" [ref=e30]
+    - link "Run DeepSWE" [ref=e49]
+    - link "Get notified when new models drop" [ref=e50]
       - StaticText "Get notified when new models drop"
       - image
   - generic
-    - button "Cost" [ref=e9]
-    - button "Time" [ref=e10]
-    - button "Output tokens" [ref=e11]
-    - StaticText "Updated "
-    - StaticText "June 11, 2026"
-    - button "Pick models" [expanded=false, ref=e12]
+    - heading "Leaderboard" [level=2, ref=e9]
+    - button "v1.1" [ref=e10]
+    - button "v1" [ref=e11]
+    - button "Cost" [ref=e12]
+    - button "Output tokens" [ref=e13]
+    - button "Agent steps" [ref=e14]
+    - StaticText "113 tasks"
+    - StaticText "· updated "
+    - StaticText "July 13, 2026"
+    - button "Pick models" [expanded=false, ref=e15]
       - StaticText "Models"
       - StaticText "("
-      - StaticText "17"
+      - StaticText "14"
       - StaticText "/"
-      - StaticText "20"
+      - StaticText "14"
       - StaticText ")"
       - image
-    - image "Pass rate vs Avg cost per task"
+    - image "Pass rate vs Avg cost per task" [ref=e16] clickable [onclick]
       - StaticText "DeepSWE score"
       - StaticText "$0"
       - StaticText "$5.00"
       - StaticText "$10"
       - StaticText "$15"
+      - StaticText "$20"
+      - StaticText "$25"
       - generic
       - generic
       - generic
@@ -51,184 +66,224 @@
       - generic
       - StaticText "Avg cost per task"
       - StaticText "most efficient ↗"
-      - StaticText "gpt-5.4 [xhigh]"
-      - StaticText "claude-opus-4.8 [high]"
-      - StaticText "Default"
-      - StaticText "gpt-5.5 [medium]"
-      - StaticText "Default"
-      - StaticText "claude-opus-4.7 [xhigh]"
-      - StaticText "Default"
-      - StaticText "claude-sonnet-4.6 [high]"
-      - StaticText "gemini-3.5-flash [medium]"
-      - StaticText "claude-opus-4.6 [max]"
-      - StaticText "gpt-5.4-mini [xhigh]"
-      - StaticText "kimi-k2.6"
-      - StaticText "minimax-m3"
-      - StaticText "mimo-v2.5-pro"
-      - StaticText "qwen3.7-max"
-      - StaticText "glm-5.1"
-      - StaticText "grok-build-0.1"
-      - StaticText "gemini-3.1-pro"
-      - StaticText "deepseek-v4-pro"
-      - StaticText "gemini-3-flash"
-    - button "Best" [ref=e13]
-    - button "All effort levels" [ref=e14]
-    - button "Pick models" [expanded=false, ref=e15]
+      - graphics-symbol [ref=e51] clickable [cursor:pointer, onclick]
+      - graphics-symbol [ref=e52] clickable [cursor:pointer, onclick]
+      - graphics-symbol [ref=e53] clickable [cursor:pointer, onclick]
+      - graphics-symbol [ref=e54] clickable [cursor:pointer, onclick]
+      - graphics-symbol [ref=e55] clickable [cursor:pointer, onclick]
+      - graphics-symbol [ref=e56] clickable [cursor:pointer, onclick]
+      - graphics-symbol [ref=e57] clickable [cursor:pointer, onclick]
+      - graphics-symbol [ref=e58] clickable [cursor:pointer, onclick]
+      - group [ref=e59] clickable [cursor:pointer, onclick]
+      - group [ref=e60] clickable [cursor:pointer, onclick]
+      - group [ref=e61] clickable [cursor:pointer, onclick]
+      - group [ref=e62] clickable [cursor:pointer, onclick]
+      - group [ref=e63] clickable [cursor:pointer, onclick]
+      - group [ref=e64] clickable [cursor:pointer, onclick]
+      - group [ref=e65] clickable [cursor:pointer, onclick]
+      - group [ref=e66] clickable [cursor:pointer, onclick]
+      - group [ref=e67] clickable [cursor:pointer, onclick]
+      - group [ref=e68] clickable [cursor:pointer, onclick]
+      - group [ref=e69] clickable [cursor:pointer, onclick]
+      - group [ref=e70] clickable [cursor:pointer, onclick]
+      - group [ref=e71] clickable [cursor:pointer, onclick]
+      - group [ref=e72] clickable [cursor:pointer, onclick]
+      - group [ref=e73] clickable [cursor:pointer, onclick]
+      - group [ref=e74] clickable [cursor:pointer, onclick]
+      - group [ref=e75] clickable [cursor:pointer, onclick]
+      - group [ref=e76] clickable [cursor:pointer, onclick]
+      - group [ref=e77] clickable [cursor:pointer, onclick]
+      - group [ref=e78] clickable [cursor:pointer, onclick]
+      - group [ref=e79] clickable [cursor:pointer, onclick]
+      - group [ref=e80] clickable [cursor:pointer, onclick]
+      - group [ref=e81] clickable [cursor:pointer, onclick]
+      - group [ref=e82] clickable [cursor:pointer, onclick]
+      - group [ref=e83] clickable [cursor:pointer, onclick]
+      - group [ref=e84] clickable [cursor:pointer, onclick]
+      - group [ref=e85] clickable [cursor:pointer, onclick]
+      - group [ref=e86] clickable [cursor:pointer, onclick]
+      - group [ref=e87] clickable [cursor:pointer, onclick]
+      - group [ref=e88] clickable [cursor:pointer, onclick]
+      - group [ref=e89] clickable [cursor:pointer, onclick]
+      - group [ref=e90] clickable [cursor:pointer, onclick]
+      - group [ref=e91] clickable [cursor:pointer, onclick]
+      - group [ref=e92] clickable [cursor:pointer, onclick]
+      - group [ref=e93] clickable [cursor:pointer, onclick]
+      - group [ref=e94] clickable [cursor:pointer, onclick]
+      - group [ref=e95] clickable [cursor:pointer, onclick]
+      - group [ref=e96] clickable [cursor:pointer, onclick]
+      - group [ref=e97] clickable [cursor:pointer, onclick]
+      - group [ref=e98] clickable [cursor:pointer, onclick]
+      - group [ref=e99] clickable [cursor:pointer, onclick]
+      - group [ref=e100] clickable [cursor:pointer, onclick]
+      - group [ref=e101] clickable [cursor:pointer, onclick]
+      - group [ref=e102] clickable [cursor:pointer, onclick]
+      - group [ref=e103] clickable [cursor:pointer, onclick]
+      - group [ref=e104] clickable [cursor:pointer, onclick]
+      - group [ref=e105] clickable [cursor:pointer, onclick]
+      - group [ref=e106] clickable [cursor:pointer, onclick]
+      - group [ref=e107] clickable [cursor:pointer, onclick]
+      - group [ref=e108] clickable [cursor:pointer, onclick]
+      - group [ref=e109] clickable [cursor:pointer, onclick]
+      - group [ref=e110] clickable [cursor:pointer, onclick]
+      - group [ref=e111] clickable [cursor:pointer, onclick]
+      - group [ref=e112] clickable [cursor:pointer, onclick]
+      - group [ref=e113] clickable [cursor:pointer, onclick]
+      - group [ref=e114] clickable [cursor:pointer, onclick]
+    - button "v1.1" [ref=e17]
+    - button "v1" [ref=e18]
+    - button "Best" [ref=e19]
+    - button "All effort levels" [ref=e20]
+    - button "Pick models" [expanded=false, ref=e21]
       - StaticText "Models"
       - StaticText "("
-      - StaticText "17"
+      - StaticText "14"
       - StaticText "/"
-      - StaticText "20"
+      - StaticText "14"
       - StaticText ")"
       - image
     - StaticText "MODEL"
     - StaticText "PASS@1"
     - StaticText "AVG COST"
-    - StaticText "AVG TIME"
     - StaticText "OUT TOK"
-    - StaticText "gpt-5.5"
-    - StaticText "["
-    - StaticText "xhigh"
-    - StaticText "]"
-    - generic
-    - generic
-      - StaticText "70%±3%"
-    - StaticText "$6.61"
-    - StaticText "21m"
-    - StaticText "47k"
-    - StaticText "claude-opus-4.8"
-    - StaticText "["
-    - StaticText "max"
-    - StaticText "]"
-    - generic
-    - generic
-      - StaticText "58%±2%"
-    - StaticText "$12.58"
-    - StaticText "43m"
-    - StaticText "136k"
-    - StaticText "gpt-5.4"
-    - StaticText "["
-    - StaticText "xhigh"
-    - StaticText "]"
-    - generic
-    - generic
-      - StaticText "56%±2%"
-    - StaticText "$4.38"
-    - StaticText "27m"
-    - StaticText "71k"
-    - StaticText "claude-opus-4.7"
-    - StaticText "["
-    - StaticText "max"
-    - StaticText "]"
-    - generic
-    - generic
-      - StaticText "54%±5%"
-    - StaticText "$18.19"
-    - StaticText "39m"
-    - StaticText "103k"
-    - StaticText "claude-sonnet-4.6"
-    - StaticText "["
-    - StaticText "high"
-    - StaticText "]"
-    - generic
-    - generic
-      - StaticText "32%±2%"
-    - StaticText "$5.52"
-    - StaticText "42m"
-    - StaticText "76k"
-    - StaticText "gemini-3.5-flash"
-    - StaticText "["
-    - StaticText "medium"
-    - StaticText "]"
-    - generic
-    - generic
-      - StaticText "28%±4%"
-    - StaticText "$7.42"
-    - StaticText "17m"
-    - StaticText "189k"
-    - StaticText "claude-opus-4.6"
-    - StaticText "["
-    - StaticText "max"
-    - StaticText "]"
-    - generic
-    - generic
-      - StaticText "28%±4%"
-    - StaticText "$5.39"
-    - StaticText "30m"
-    - StaticText "44k"
-    - StaticText "gpt-5.4-mini"
-    - StaticText "["
-    - StaticText "xhigh"
-    - StaticText "]"
-    - generic
-    - generic
-      - StaticText "24%±3%"
-    - StaticText "$2.08"
-    - StaticText "33m"
-    - StaticText "135k"
-    - StaticText "kimi-k2.6"
-    - generic
-    - generic
-      - StaticText "24%±2%"
-    - StaticText "$3.16"
-    - StaticText "56m"
-    - StaticText "84k"
-    - StaticText "minimax-m3"
-    - generic
-    - generic
-      - StaticText "20%±4%"
-    - StaticText "$5.57"
-    - StaticText "57m"
-    - StaticText "98k"
-    - StaticText "mimo-v2.5-pro"
-    - generic
-    - generic
-      - StaticText "19%±2%"
-    - StaticText "$1.99"
-    - StaticText "28m"
-    - StaticText "49k"
-    - StaticText "qwen3.7-max"
-    - generic
-    - generic
-      - StaticText "18%±1%"
-    - StaticText "$2.12"
-    - StaticText "17m"
-    - StaticText "42k"
-    - StaticText "glm-5.1"
-    - generic
-    - generic
-      - StaticText "18%±1%"
-    - StaticText "$7.46"
-    - StaticText "35m"
-    - StaticText "49k"
-    - StaticText "grok-build-0.1"
-    - generic
-    - generic
-      - StaticText "13%±2%"
-    - StaticText "$6.60"
-    - StaticText "44m"
-    - StaticText "52k"
-    - StaticText "gemini-3.1-pro"
-    - generic
-    - generic
-      - StaticText "10%±3%"
-    - StaticText "$1.84"
-    - StaticText "36m"
-    - StaticText "53k"
-    - StaticText "deepseek-v4-pro"
-    - generic
-    - generic
-      - StaticText "8%±3%"
-    - StaticText "$4.22"
-    - StaticText "37m"
-    - StaticText "50k"
-    - StaticText "gemini-3-flash"
-    - generic
-    - generic
-      - StaticText "5%±2%"
-    - StaticText "$1.53"
-    - StaticText "39m"
-    - StaticText "233k"
+    - StaticText "STEPS"
+    - button "gpt-5.6-sol [max] 73%±3% $8.39 60k 61" [ref=e22]
+      - StaticText "gpt-5.6-sol"
+      - StaticText "["
+      - StaticText "max"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$8.39"
+      - StaticText "60k"
+      - StaticText "61"
+    - button "claude-fable-5 [max] 70%±4% $21.63 119k 88" [ref=e23]
+      - StaticText "claude-fable-5"
+      - StaticText "["
+      - StaticText "max"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$21.63"
+      - StaticText "119k"
+      - StaticText "88"
+    - button "gpt-5.6-terra [max] 70%±3% $4.95 72k 76" [ref=e24]
+      - StaticText "gpt-5.6-terra"
+      - StaticText "["
+      - StaticText "max"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$4.95"
+      - StaticText "72k"
+      - StaticText "76"
+    - button "gpt-5.6-luna [max] 67%±4% $3.03 73k 102" [ref=e25]
+      - StaticText "gpt-5.6-luna"
+      - StaticText "["
+      - StaticText "max"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$3.03"
+      - StaticText "73k"
+      - StaticText "102"
+    - button "gpt-5.5 [xhigh] 67%±6% $7.23 46k 82" [ref=e26]
+      - StaticText "gpt-5.5"
+      - StaticText "["
+      - StaticText "xhigh"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$7.23"
+      - StaticText "46k"
+      - StaticText "82"
+    - button "claude-opus-4.8 [max] 59%±2% $13.22 135k 120" [ref=e27]
+      - StaticText "claude-opus-4.8"
+      - StaticText "["
+      - StaticText "max"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$13.22"
+      - StaticText "135k"
+      - StaticText "120"
+    - button "claude-sonnet-5 [max] 54%±4% $26.40 214k 268" [ref=e28]
+      - StaticText "claude-sonnet-5"
+      - StaticText "["
+      - StaticText "max"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$26.40"
+      - StaticText "214k"
+      - StaticText "268"
+    - button "muse-spark-1.1 [xhigh] 53%±3% $2.36 74k 96" [ref=e29]
+      - StaticText "muse-spark-1.1"
+      - StaticText "["
+      - StaticText "xhigh"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$2.36"
+      - StaticText "74k"
+      - StaticText "96"
+    - button "gpt-5.4 [xhigh] 52%±2% $5.65 71k 70" [ref=e30]
+      - StaticText "gpt-5.4"
+      - StaticText "["
+      - StaticText "xhigh"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$5.65"
+      - StaticText "71k"
+      - StaticText "70"
+    - button "glm-5.2 [max] 44%±2% $3.92 78k 129" [ref=e31]
+      - StaticText "glm-5.2"
+      - StaticText "["
+      - StaticText "max"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$3.92"
+      - StaticText "78k"
+      - StaticText "129"
+    - button "gemini-3.5-flash [medium] 37%±2% $7.34 276k 86" [ref=e32]
+      - StaticText "gemini-3.5-flash"
+      - StaticText "["
+      - StaticText "medium"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$7.34"
+      - StaticText "276k"
+      - StaticText "86"
+    - button "kimi-k2.7-code 31%±1% $2.82 59k 149" [ref=e33]
+      - StaticText "kimi-k2.7-code"
+      - generic
+      - generic
+      - StaticText "$2.82"
+      - StaticText "59k"
+      - StaticText "149"
+    - button "claude-sonnet-4.6 [high] 30%±4% $5.52 76k 134" [ref=e34]
+      - StaticText "claude-sonnet-4.6"
+      - StaticText "["
+      - StaticText "high"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$5.52"
+      - StaticText "76k"
+      - StaticText "134"
+    - button "gemini-3.1-pro [high] 12%±2% $9.48 196k 81" [ref=e35]
+      - StaticText "gemini-3.1-pro"
+      - StaticText "["
+      - StaticText "high"
+      - StaticText "]"
+      - generic
+      - generic
+      - StaticText "$9.48"
+      - StaticText "196k"
+      - StaticText "81"
     - generic
       - StaticText "0"
       - StaticText "%"
@@ -242,9 +297,9 @@
       - StaticText "%"
     - paragraph
       - StaticText "All models run on"
-      - link "mini-swe-agent" [ref=e31]
+      - link "mini-swe-agent" [ref=e115]
       - StaticText "for consistency."
-      - link "Read why" [ref=e32]
+      - link "Read why" [ref=e116]
       - StaticText "."
   - generic
     - paragraph
@@ -261,63 +316,63 @@
     - paragraph
       - StaticText "The result is a benchmark that reflects how today's frontier coding agents actually perform in software engineering work."
   - generic
-    - heading "Task Examples" [level=2, ref=e16]
-    - link "Abort pending body reads on shutdown Ensure interrupted request and response body reads, formData parsing, and discarded timers abort cleanly during shutdown. capricorn86/happy-dom TYPESCRIPT" [ref=e17]
-      - heading "Abort pending body reads on shutdown" [level=3, ref=e33]
+    - heading "Task Examples" [level=2, ref=e36]
+    - link "Abort pending body reads on shutdown Ensure interrupted request and response body reads, formData parsing, and discarded timers abort cleanly during shutdown. capricorn86/happy-dom TYPESCRIPT" [ref=e37]
+      - heading "Abort pending body reads on shutdown" [level=3, ref=e117]
       - paragraph
       - StaticText "capricorn86/happy-dom"
       - StaticText "TYPESCRIPT"
-    - link "Fix PromQL label sorting across typed and untyped values PromQL label sorting must order mixed typed and untyped label values with stable typed comparison rules. prometheus/prometheus GO" [ref=e18]
-      - heading "Fix PromQL label sorting across typed and untyped values" [level=3, ref=e34]
+    - link "Fix PromQL label sorting across typed and untyped values PromQL label sorting must order mixed typed and untyped label values with stable typed comparison rules. prometheus/prometheus GO" [ref=e38]
+      - heading "Fix PromQL label sorting across typed and untyped values" [level=3, ref=e118]
       - paragraph
       - StaticText "prometheus/prometheus"
       - StaticText "GO"
-    - link "Add config file parsing to Cliffy commands Add command-level config file loading, parsing, merging, and precedence handling. c4spar/cliffy TYPESCRIPT" [ref=e19]
-      - heading "Add config file parsing to Cliffy commands" [level=3, ref=e35]
+    - link "Add config file parsing to Cliffy commands Add command-level config file loading, parsing, merging, and precedence handling. c4spar/cliffy TYPESCRIPT" [ref=e39]
+      - heading "Add config file parsing to Cliffy commands" [level=3, ref=e119]
       - paragraph
       - StaticText "c4spar/cliffy"
       - StaticText "TYPESCRIPT"
-    - link "Add deterministic map conflict detection to Y.Map writes Add strict, deterministic conflict detection for Y.Map key writes with collect and error policies. yjs/yjs JAVASCRIPT" [ref=e20]
-      - heading "Add deterministic map conflict detection to Y.Map writes" [level=3, ref=e36]
+    - link "Add deterministic map conflict detection to Y.Map writes Add strict, deterministic conflict detection for Y.Map key writes with collect and error policies. yjs/yjs JAVASCRIPT" [ref=e40]
+      - heading "Add deterministic map conflict detection to Y.Map writes" [level=3, ref=e120]
       - paragraph
       - StaticText "yjs/yjs"
       - StaticText "JAVASCRIPT"
-    - link "Add trap coredump generation to wasmi Generate opt-in Wasm coredumps on traps and attach the bytes to errors. wasmi-labs/wasmi RUST" [ref=e21]
-      - heading "Add trap coredump generation to wasmi" [level=3, ref=e37]
+    - link "Add trap coredump generation to wasmi Generate opt-in Wasm coredumps on traps and attach the bytes to errors. wasmi-labs/wasmi RUST" [ref=e41]
+      - heading "Add trap coredump generation to wasmi" [level=3, ref=e121]
       - paragraph
       - StaticText "wasmi-labs/wasmi"
       - StaticText "RUST"
-    - link "Add XML diff, patch, and merge operations to etree Add recursive XML diffing, patch generation and application, reverse patching, three-way merge, and diff summaries. beevik/etree GO" [ref=e22]
-      - heading "Add XML diff, patch, and merge operations to etree" [level=3, ref=e38]
+    - link "Add XML diff, patch, and merge operations to etree Add recursive XML diffing, patch generation and application, reverse patching, three-way merge, and diff summaries. beevik/etree GO" [ref=e42]
+      - heading "Add XML diff, patch, and merge operations to etree" [level=3, ref=e122]
       - paragraph
       - StaticText "beevik/etree"
       - StaticText "GO"
-    - link "All 113 tasks" [ref=e23]
+    - link "All 113 tasks" [ref=e43]
       - StaticText "All 113 tasks"
       - image
-  - heading "Read the full blog" [level=2, ref=e24]
-  - link "Open" [ref=e25]
+  - heading "Read the full blog" [level=2, ref=e44]
+  - link "Open" [ref=e45]
     - StaticText "Open"
     - image
   - list
     - listitem [level=1]
-      - link "01 Introduction Why a new benchmark" [ref=e39]
+      - link "01 Introduction Why a new benchmark" [ref=e123]
     - listitem [level=1]
-      - link "02 Overview What separates DeepSWE" [ref=e40]
+      - link "02 Overview What separates DeepSWE" [ref=e124]
     - listitem [level=1]
-      - link "03 Methodology How tasks and verifiers are built" [ref=e41]
+      - link "03 Methodology How tasks and verifiers are built" [ref=e125]
     - listitem [level=1]
-      - link "04 Results Where frontier models diverge" [ref=e42]
+      - link "04 Results Where frontier models diverge" [ref=e126]
     - listitem [level=1]
-      - link "05 Qualitative analysis How each frontier model fails" [ref=e43]
+      - link "05 Qualitative analysis How each frontier model fails" [ref=e127]
     - listitem [level=1]
-      - link "06 Limitations & future work What we'd do differently" [ref=e44]
+      - link "06 Limitations & future work What we'd do differently" [ref=e128]
   - generic
     - generic
-      - heading "Sign up for leaderboard updates" [level=2, ref=e45]
+      - heading "Sign up for leaderboard updates" [level=2, ref=e129]
       - paragraph
       - generic
-        - textbox "Email address" [required, ref=e46]
-        - button "Notify me" [ref=e47]
+        - textbox "Email address" [required, ref=e130]
+        - button "Notify me" [ref=e131]
 - contentinfo
   - link "We're hiring" [ref=e3]

@@ -12,1127 +12,1445 @@
     - StaticText "About"
   - link "Discord" [ref=e7]
     - StaticText "Discord"
+  - StaticText "Time Window"
+  - button [expanded=false, ref=e8]
   - generic
     - generic
-    - slider [ref=e10]: 28
+    - slider [ref=e11]: 28
     - generic
       - StaticText "28/02/2026"
       - image
-    - slider [ref=e11]: 33
+    - slider [ref=e12]: 33
     - generic
       - StaticText "14/05/2026"
       - image
-  - group [ref=e12] clickable [cursor:pointer]
-    - combobox [expanded=false, ref=e15]: Interaction mode: Tool usage, Text-based
-      - StaticText "Interaction mode:"
-      - StaticText "Tool usage, Text-based"
-  - StaticText "110"
-  - StaticText " problems from "
-  - StaticText "86"
-  - StaticText " repositories selected within the current time window."
-  - button "Inspect" [ref=e8]
+  - StaticText "110 problems from 86 repositories selected within the current time window."
+  - button "Inspect" [ref=e9]
     - StaticText "Inspect"
-  - StaticText "You can adjust time window, modifying the problems' release start and end dates. Evaluations highlighted in "
-  - StaticText "red"
-  - StaticText " may be potentially contaminated, meaning they include tasks that were created before the model's release date. Evaluations highlighted in "
-  - StaticText "orange"
-  - StaticText " display evaluations of external systems for reference. If a selected time window is wider than the range of task dates a model was evaluated on, the model will appear at the bottom of the leaderboard with N/A values."
-  - StaticText "Insights"
-  - button "Expand" [ref=e13]
-    - StaticText "Expand"
+  - button "Insights Click to expand" [ref=e13]
+    - StaticText "Insights"
+    - StaticText "Click to expand"
+  - radiogroup "Filter by type"
+    - LabelText
+      - radio "All" [checked=true, ref=e23]
+      - StaticText "All"
+    - LabelText [ref=e15] clickable [cursor:pointer]
+      - radio "Agent" [checked=false, ref=e24]
+      - StaticText "Agent"
+    - LabelText [ref=e16] clickable [cursor:pointer]
+      - radio "Model" [checked=false, ref=e25]
+      - StaticText "Model"
+  - StaticText "Potential contamination"
+  - StaticText "External system"
+  - StaticText "Beyond eval range"
   - table
     - rowgroup
       - row
-        - columnheader "Rank" [ref=e866]
-          - StaticText "Rank"
-        - columnheader "Model" [ref=e867]
+        - columnheader "#" [ref=e696]
+          - StaticText "#"
+        - columnheader "Model" [ref=e697]
           - StaticText "Model"
-        - columnheader "Resolved Rate (%)" [ref=e868]
+        - columnheader "Resolved Rate (%)" [ref=e698]
           - StaticText "Resolved Rate (%)"
-        - columnheader "Resolved Rate SEM (±)" [ref=e869]
-          - StaticText "Resolved Rate SEM (±)"
-        - columnheader "Pass@5 (%)" [ref=e870]
+          - button [expanded=false, ref=e703]
+        - columnheader "Pass@5 (%)" [ref=e699]
           - StaticText "Pass@5 (%)"
-        - columnheader "Cost per Problem ($)" [ref=e871]
+        - columnheader "Cost per Problem ($)" [ref=e700]
           - StaticText "Cost per Problem ($)"
-        - columnheader "Tokens per Problem" [ref=e872]
+        - columnheader "Tokens per Problem" [ref=e701]
           - StaticText "Tokens per Problem"
-        - columnheader "Cached Tokens (%)" [ref=e873]
-          - StaticText "Cached Tokens (%)"
     - row
-      - cell "1" [ref=e22]
-      - cell "gpt-5.5-2026-04-23-xhigh" [ref=e23]
+      - cell "1" [ref=e26]
+      - cell "OpenAI gpt-5.5-2026-04-23-xhigh Model" [ref=e27]
+        - image "OpenAI"
         - StaticText "gpt-5.5-2026-04-23-xhigh"
-      - cell "62.7%" [ref=e24]
-      - cell "0.91%" [ref=e25]
-      - cell "70.0%" [ref=e26]
-      - cell "$2.25" [ref=e27]
-      - cell "2,120,660" [ref=e28]
-      - cell "90.0%" [ref=e29]
+        - generic
+          - StaticText "Model"
+      - cell "62.7% ± 0.91%" [ref=e28]
+        - StaticText "62.7%"
+        - StaticText "± 0.91%"
+      - cell "70.0%" [ref=e29]
+      - cell "$2.25" [ref=e30]
+      - cell "2,120,660 90.0% cached" [ref=e31]
+        - StaticText "2,120,660"
+        - StaticText "90.0% cached"
     - row
-      - cell "2" [ref=e30]
-      - cell "Junie" [ref=e31]
+      - cell "2" [ref=e32]
+      - cell "Junie Junie Agent" [ref=e33]
+        - image "Junie"
         - StaticText "Junie"
-      - cell "61.6%" [ref=e32]
-      - cell "0.64%" [ref=e33]
-      - cell "72.7%" [ref=e34]
-      - cell "$1.84" [ref=e35]
-      - cell "1,866,497" [ref=e36]
-      - cell "91.6%" [ref=e37]
+        - generic
+          - StaticText "Agent"
+      - cell "61.6% ± 0.64%" [ref=e34]
+        - StaticText "61.6%"
+        - StaticText "± 0.64%"
+      - cell "72.7%" [ref=e35]
+      - cell "$1.84" [ref=e36]
+      - cell "1,866,497 91.6% cached" [ref=e37]
+        - StaticText "1,866,497"
+        - StaticText "91.6% cached"
     - row
       - cell "3" [ref=e38]
-      - cell "Codex" [ref=e39]
+      - cell "OpenAI Codex Agent" [ref=e39]
+        - image "OpenAI"
         - StaticText "Codex"
-      - cell "60.4%" [ref=e40]
-      - cell "1.37%" [ref=e41]
-      - cell "71.8%" [ref=e42]
-      - cell "$1.75" [ref=e43]
-      - cell "1,898,131" [ref=e44]
-      - cell "92.5%" [ref=e45]
+        - generic
+          - StaticText "Agent"
+      - cell "60.4% ± 1.37%" [ref=e40]
+        - StaticText "60.4%"
+        - StaticText "± 1.37%"
+      - cell "71.8%" [ref=e41]
+      - cell "$1.75" [ref=e42]
+      - cell "1,898,131 92.5% cached" [ref=e43]
+        - StaticText "1,898,131"
+        - StaticText "92.5% cached"
     - row
-      - cell "4" [ref=e46]
-      - cell "Claude Code" [ref=e47]
+      - cell "4" [ref=e44]
+      - cell "Anthropic Claude Code Agent" [ref=e45]
+        - image "Anthropic"
         - StaticText "Claude Code"
-      - cell "59.6%" [ref=e48]
-      - cell "1.98%" [ref=e49]
-      - cell "72.7%" [ref=e50]
-      - cell "$1.74" [ref=e51]
-      - cell "1,878,248" [ref=e52]
-      - cell "93.6%" [ref=e53]
+        - generic
+          - StaticText "Agent"
+      - cell "59.6% ± 1.98%" [ref=e46]
+        - StaticText "59.6%"
+        - StaticText "± 1.98%"
+      - cell "72.7%" [ref=e47]
+      - cell "$1.74" [ref=e48]
+      - cell "1,878,248 93.6% cached" [ref=e49]
+        - StaticText "1,878,248"
+        - StaticText "93.6% cached"
     - row
-      - cell "5" [ref=e54]
-      - cell "gpt-5.5-2026-04-23-medium" [ref=e55]
+      - cell "5" [ref=e50]
+      - cell "OpenAI gpt-5.5-2026-04-23-medium Model" [ref=e51]
+        - image "OpenAI"
         - StaticText "gpt-5.5-2026-04-23-medium"
-      - cell "58.9%" [ref=e56]
-      - cell "0.78%" [ref=e57]
-      - cell "70.0%" [ref=e58]
-      - cell "$0.98" [ref=e59]
-      - cell "708,418" [ref=e60]
-      - cell "83.5%" [ref=e61]
+        - generic
+          - StaticText "Model"
+      - cell "58.9% ± 0.78%" [ref=e52]
+        - StaticText "58.9%"
+        - StaticText "± 0.78%"
+      - cell "70.0%" [ref=e53]
+      - cell "$0.98" [ref=e54]
+      - cell "708,418 83.5% cached" [ref=e55]
+        - StaticText "708,418"
+        - StaticText "83.5% cached"
     - row
-      - cell "6" [ref=e62]
-      - cell "Claude Opus 4.8-xhigh" [ref=e63]
+      - cell "6" [ref=e56]
+      - cell "Anthropic Claude Opus 4.8-xhigh Model" [ref=e57]
+        - image "Anthropic"
         - StaticText "Claude Opus 4.8-xhigh"
-      - cell "56.5%" [ref=e64]
-      - cell "1.20%" [ref=e65]
-      - cell "67.3%" [ref=e66]
-      - cell "$2.02" [ref=e67]
-      - cell "2,479,387" [ref=e68]
-      - cell "95.3%" [ref=e69]
+        - generic
+          - StaticText "Model"
+      - cell "56.5% ± 1.20%" [ref=e58]
+        - StaticText "56.5%"
+        - StaticText "± 1.20%"
+      - cell "67.3%" [ref=e59]
+      - cell "$2.02" [ref=e60]
+      - cell "2,479,387 95.3% cached" [ref=e61]
+        - StaticText "2,479,387"
+        - StaticText "95.3% cached"
     - row
-      - cell "7" [ref=e70]
-      - cell "gpt-5.4-2026-03-05-medium" [ref=e71]
+      - cell "7" [ref=e62]
+      - cell "OpenAI gpt-5.4-2026-03-05-medium Model" [ref=e63]
+        - image "OpenAI"
         - StaticText "gpt-5.4-2026-03-05-medium"
-      - cell "54.9%" [ref=e72]
-      - cell "1.02%" [ref=e73]
-      - cell "70.9%" [ref=e74]
-      - cell "$0.60" [ref=e75]
-      - cell "834,452" [ref=e76]
-      - cell "83.5%" [ref=e77]
+        - generic
+          - StaticText "Model"
+      - cell "54.9% ± 1.02%" [ref=e64]
+        - StaticText "54.9%"
+        - StaticText "± 1.02%"
+      - cell "70.9%" [ref=e65]
+      - cell "$0.60" [ref=e66]
+      - cell "834,452 83.5% cached" [ref=e67]
+        - StaticText "834,452"
+        - StaticText "83.5% cached"
     - row
-      - cell "8" [ref=e78]
-      - cell "Claude Opus 4.7-high" [ref=e79]
+      - cell "8" [ref=e68]
+      - cell "Anthropic Claude Opus 4.7-high Model" [ref=e69]
+        - image "Anthropic"
         - StaticText "Claude Opus 4.7-high"
-      - cell "53.1%" [ref=e80]
-      - cell "1.45%" [ref=e81]
-      - cell "66.4%" [ref=e82]
-      - cell "$1.32" [ref=e83]
-      - cell "1,526,135" [ref=e84]
-      - cell "94.2%" [ref=e85]
+        - generic
+          - StaticText "Model"
+      - cell "53.1% ± 1.45%" [ref=e70]
+        - StaticText "53.1%"
+        - StaticText "± 1.45%"
+      - cell "66.4%" [ref=e71]
+      - cell "$1.32" [ref=e72]
+      - cell "1,526,135 94.2% cached" [ref=e73]
+        - StaticText "1,526,135"
+        - StaticText "94.2% cached"
     - row
-      - cell "9" [ref=e86]
-      - cell "Cursor" [ref=e87]
+      - cell "9" [ref=e74]
+      - cell "Cursor Cursor Agent" [ref=e75]
+        - image "Cursor"
         - StaticText "Cursor"
-      - cell "53.0%" [ref=e88]
-      - cell "0.53%" [ref=e89]
-      - cell "64.5%" [ref=e90]
-      - cell "$0.23" [ref=e91]
-      - cell "1,031,653" [ref=e92]
-      - cell "98.7%" [ref=e93]
+        - generic
+          - StaticText "Agent"
+      - cell "53.0% ± 0.53%" [ref=e76]
+        - StaticText "53.0%"
+        - StaticText "± 0.53%"
+      - cell "64.5%" [ref=e77]
+      - cell "$0.23" [ref=e78]
+      - cell "1,031,653 98.7% cached" [ref=e79]
+        - StaticText "1,031,653"
+        - StaticText "98.7% cached"
     - row
-      - cell "10" [ref=e94]
-      - cell "Claude Sonnet 4.6" [ref=e95]
+      - cell "10" [ref=e80]
+      - cell "Anthropic Claude Sonnet 4.6 Model" [ref=e81]
+        - image "Anthropic"
         - StaticText "Claude Sonnet 4.6"
-      - cell "51.3%" [ref=e96]
-      - cell "0.55%" [ref=e97]
-      - cell "63.6%" [ref=e98]
-      - cell "$1.29" [ref=e99]
-      - cell "2,644,577" [ref=e100]
-      - cell "95.6%" [ref=e101]
+        - generic
+          - StaticText "Model"
+      - cell "51.3% ± 0.55%" [ref=e82]
+        - StaticText "51.3%"
+        - StaticText "± 0.55%"
+      - cell "63.6%" [ref=e83]
+      - cell "$1.29" [ref=e84]
+      - cell "2,644,577 95.6% cached" [ref=e85]
+        - StaticText "2,644,577"
+        - StaticText "95.6% cached"
     - row
-      - cell "11" [ref=e102]
-      - cell "Gemini 3.1 Pro Preview" [ref=e103]
+      - cell "11" [ref=e86]
+      - cell "Gemini Gemini 3.1 Pro Preview Model" [ref=e87]
+        - image "Gemini"
         - StaticText "Gemini 3.1 Pro Preview"
-      - cell "51.1%" [ref=e104]
-      - cell "1.20%" [ref=e105]
-      - cell "66.4%" [ref=e106]
-      - cell "$0.75" [ref=e107]
-      - cell "1,545,445" [ref=e108]
-      - cell "80.1%" [ref=e109]
+        - generic
+          - StaticText "Model"
+      - cell "51.1% ± 1.20%" [ref=e88]
+        - StaticText "51.1%"
+        - StaticText "± 1.20%"
+      - cell "66.4%" [ref=e89]
+      - cell "$0.75" [ref=e90]
+      - cell "1,545,445 80.1% cached" [ref=e91]
+        - StaticText "1,545,445"
+        - StaticText "80.1% cached"
     - row
-      - cell "12" [ref=e110]
-      - cell "GLM-5.1" [ref=e111]
+      - cell "12" [ref=e92]
+      - cell "Z.ai GLM-5.2 Model" [ref=e93]
+        - image "Z.ai"
+        - StaticText "GLM-5.2"
+        - generic
+          - StaticText "Model"
+      - cell "51.1% ± 1.13%" [ref=e94]
+        - StaticText "51.1%"
+        - StaticText "± 1.13%"
+      - cell "71.8%" [ref=e95]
+      - cell "$0.75" [ref=e96]
+      - cell "2,623,456 87.0% cached" [ref=e97]
+        - StaticText "2,623,456"
+        - StaticText "87.0% cached"
+    - row
+      - cell "13" [ref=e98]
+      - cell "Z.ai GLM-5.1 Model" [ref=e99]
+        - image "Z.ai"
         - StaticText "GLM-5.1"
-      - cell "50.7%" [ref=e112]
-      - cell "0.93%" [ref=e113]
-      - cell "65.5%" [ref=e114]
-      - cell "$0.94" [ref=e115]
-      - cell "2,664,001" [ref=e116]
-      - cell "91.8%" [ref=e117]
+        - generic
+          - StaticText "Model"
+      - cell "50.7% ± 0.93%" [ref=e100]
+        - StaticText "50.7%"
+        - StaticText "± 0.93%"
+      - cell "65.5%" [ref=e101]
+      - cell "$0.94" [ref=e102]
+      - cell "2,664,001 91.8% cached" [ref=e103]
+        - StaticText "2,664,001"
+        - StaticText "91.8% cached"
     - row
-      - cell "13" [ref=e118]
-      - cell "Gemini 3.5 Flash" [ref=e119]
+      - cell "14" [ref=e104]
+      - cell "Gemini Gemini 3.5 Flash Model" [ref=e105]
+        - image "Gemini"
         - StaticText "Gemini 3.5 Flash"
-      - cell "49.5%" [ref=e120]
-      - cell "0.98%" [ref=e121]
-      - cell "61.8%" [ref=e122]
-      - cell "$0.77" [ref=e123]
-      - cell "1,848,593" [ref=e124]
-      - cell "75.7%" [ref=e125]
+        - generic
+          - StaticText "Model"
+      - cell "49.5% ± 0.98%" [ref=e106]
+        - StaticText "49.5%"
+        - StaticText "± 0.98%"
+      - cell "61.8%" [ref=e107]
+      - cell "$0.77" [ref=e108]
+      - cell "1,848,593 75.7% cached" [ref=e109]
+        - StaticText "1,848,593"
+        - StaticText "75.7% cached"
     - row
-      - cell "14" [ref=e126]
-      - cell "Claude Opus 4.6-high" [ref=e127]
+      - cell "15" [ref=e110]
+      - cell "Anthropic Claude Opus 4.6-high Model" [ref=e111]
+        - image "Anthropic"
         - StaticText "Claude Opus 4.6-high"
-      - cell "47.8%" [ref=e128]
-      - cell "1.37%" [ref=e129]
-      - cell "60.9%" [ref=e130]
-      - cell "$1.53" [ref=e131]
-      - cell "1,828,649" [ref=e132]
-      - cell "93.6%" [ref=e133]
+        - generic
+          - StaticText "Model"
+      - cell "47.8% ± 1.37%" [ref=e112]
+        - StaticText "47.8%"
+        - StaticText "± 1.37%"
+      - cell "60.9%" [ref=e113]
+      - cell "$1.53" [ref=e114]
+      - cell "1,828,649 93.6% cached" [ref=e115]
+        - StaticText "1,828,649"
+        - StaticText "93.6% cached"
     - row
-      - cell "15" [ref=e134]
-      - cell "Kimi K2.6" [ref=e135]
+      - cell "16" [ref=e116]
+      - cell "Kimi Kimi K2.6 Model" [ref=e117]
+        - image "Kimi"
         - StaticText "Kimi K2.6"
-      - cell "46.5%" [ref=e136]
-      - cell "1.27%" [ref=e137]
-      - cell "64.5%" [ref=e138]
-      - cell "$0.61" [ref=e139]
-      - cell "2,466,977" [ref=e140]
-      - cell "90.4%" [ref=e141]
+        - generic
+          - StaticText "Model"
+      - cell "46.5% ± 1.27%" [ref=e118]
+        - StaticText "46.5%"
+        - StaticText "± 1.27%"
+      - cell "64.5%" [ref=e119]
+      - cell "$0.61" [ref=e120]
+      - cell "2,466,977 90.4% cached" [ref=e121]
+        - StaticText "2,466,977"
+        - StaticText "90.4% cached"
     - row
-      - cell "16" [ref=e142]
-      - cell "MiniMax M3" [ref=e143]
+      - cell "17" [ref=e122]
+      - cell "Minimax MiniMax M3 Model" [ref=e123]
+        - image "Minimax"
         - StaticText "MiniMax M3"
-      - cell "45.6%" [ref=e144]
-      - cell "1.27%" [ref=e145]
-      - cell "67.3%" [ref=e146]
-      - cell "$1.06" [ref=e147]
-      - cell "6,885,818" [ref=e148]
-      - cell "93.5%" [ref=e149]
+        - generic
+          - StaticText "Model"
+      - cell "45.6% ± 1.27%" [ref=e124]
+        - StaticText "45.6%"
+        - StaticText "± 1.27%"
+      - cell "67.3%" [ref=e125]
+      - cell "$1.06" [ref=e126]
+      - cell "6,885,818 93.5% cached" [ref=e127]
+        - StaticText "6,885,818"
+        - StaticText "93.5% cached"
     - row
-      - cell "17" [ref=e150]
-      - cell "GLM-4.7" [ref=e151]
+      - cell "18" [ref=e128]
+      - cell "DeepSeek DeepSeek-V4 Pro Model" [ref=e129]
+        - image "DeepSeek"
+        - StaticText "DeepSeek-V4 Pro"
+        - generic
+          - StaticText "Model"
+      - cell "42.7% ± 1.29%" [ref=e130]
+        - StaticText "42.7%"
+        - StaticText "± 1.29%"
+      - cell "61.8%" [ref=e131]
+      - cell "$0.22" [ref=e132]
+      - cell "2,247,891 76.9% cached" [ref=e133]
+        - StaticText "2,247,891"
+        - StaticText "76.9% cached"
+    - row
+      - cell "19" [ref=e134]
+      - cell "XiaomiMiMo MiMo V2.5 Pro Model" [ref=e135]
+        - image "XiaomiMiMo"
+        - StaticText "MiMo V2.5 Pro"
+        - generic
+          - StaticText "Model"
+      - cell "42.4% ± 0.84%" [ref=e136]
+        - StaticText "42.4%"
+        - StaticText "± 0.84%"
+      - cell "61.8%" [ref=e137]
+      - cell "$0.12" [ref=e138]
+      - cell "2,586,998 88.6% cached" [ref=e139]
+        - StaticText "2,586,998"
+        - StaticText "88.6% cached"
+    - row
+      - cell "20" [ref=e140]
+      - cell "DeepSeek DeepSeek-V4 Flash Model" [ref=e141]
+        - image "DeepSeek"
+        - StaticText "DeepSeek-V4 Flash"
+        - generic
+          - StaticText "Model"
+      - cell "38.4% ± 0.97%" [ref=e142]
+        - StaticText "38.4%"
+        - StaticText "± 0.97%"
+      - cell "57.3%" [ref=e143]
+      - cell "$0.07" [ref=e144]
+      - cell "2,996,077 95.5% cached" [ref=e145]
+        - StaticText "2,996,077"
+        - StaticText "95.5% cached"
+    - row
+      - cell "21" [ref=e146]
+      - cell "Z.ai GLM-4.7 Model" [ref=e147]
+        - image "Z.ai"
         - StaticText "GLM-4.7"
-      - cell "38.2%" [ref=e152]
-      - cell "0.86%" [ref=e153]
-      - cell "59.1%" [ref=e154]
-      - cell "$0.39" [ref=e155]
-      - cell "2,256,182" [ref=e156]
-      - cell "86.4%" [ref=e157]
+        - generic
+          - StaticText "Model"
+      - cell "38.2% ± 0.86%" [ref=e148]
+        - StaticText "38.2%"
+        - StaticText "± 0.86%"
+      - cell "59.1%" [ref=e149]
+      - cell "$0.39" [ref=e150]
+      - cell "2,256,182 86.4% cached" [ref=e151]
+        - StaticText "2,256,182"
+        - StaticText "86.4% cached"
     - row
-      - cell "18" [ref=e158]
-      - cell "Claude Opus 4.1" [ref=e159]
+      - cell "22" [ref=e152]
+      - cell "Qwen Qwen3.6-27B Model" [ref=e153]
+        - image "Qwen"
+        - StaticText "Qwen3.6-27B"
+        - generic
+          - StaticText "Model"
+      - cell "36.5% ± 0.45%" [ref=e154]
+        - StaticText "36.5%"
+        - StaticText "± 0.45%"
+      - cell "50.9%" [ref=e155]
+      - cell "$0.56" [ref=e156]
+      - cell "1,875,624 14.2% cached" [ref=e157]
+        - StaticText "1,875,624"
+        - StaticText "14.2% cached"
+    - row
+      - cell "23" [ref=e158]
+      - cell "Qwen Qwen3.6-35B-A3B Model" [ref=e159]
+        - image "Qwen"
+        - StaticText "Qwen3.6-35B-A3B"
+        - generic
+          - StaticText "Model"
+      - cell "33.8% ± 0.93%" [ref=e160]
+        - StaticText "33.8%"
+        - StaticText "± 0.93%"
+      - cell "54.5%" [ref=e161]
+      - cell "$0.18" [ref=e162]
+      - cell "2,229,925 78.4% cached" [ref=e163]
+        - StaticText "2,229,925"
+        - StaticText "78.4% cached"
+    - row
+      - cell "24" [ref=e164]
+      - cell "Gemini Gemma 4 31B Model" [ref=e165]
+        - image "Gemini"
+        - StaticText "Gemma 4 31B"
+        - generic
+          - StaticText "Model"
+      - cell "16.5% ± 1.13%" [ref=e166]
+        - StaticText "16.5%"
+        - StaticText "± 1.13%"
+      - cell "37.3%" [ref=e167]
+      - cell "$0.32" [ref=e168]
+      - cell "2,238,420 69.6% cached" [ref=e169]
+        - StaticText "2,238,420"
+        - StaticText "69.6% cached"
+    - row
+      - cell "25" [ref=e170]
+      - cell "Anthropic Claude Opus 4.1 Model" [ref=e171]
+        - image "Anthropic"
         - StaticText "Claude Opus 4.1"
-      - cell "N/A" [ref=e160]
-      - cell "N/A" [ref=e161]
-      - cell "N/A" [ref=e162]
-      - cell "N/A" [ref=e163]
-      - cell "N/A" [ref=e164]
-      - cell "N/A" [ref=e165]
-    - row
-      - cell "19" [ref=e166]
-      - cell "Claude Opus 4.5" [ref=e167]
-        - StaticText "Claude Opus 4.5"
-      - cell "N/A" [ref=e168]
-      - cell "N/A" [ref=e169]
-      - cell "N/A" [ref=e170]
-      - cell "N/A" [ref=e171]
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e172]
       - cell "N/A" [ref=e173]
+      - cell "N/A" [ref=e174]
+      - cell "N/A" [ref=e175]
     - row
-      - cell "20" [ref=e174]
-      - cell "Claude Sonnet 3.5" [ref=e175]
-        - StaticText "Claude Sonnet 3.5"
-      - cell "N/A" [ref=e176]
-      - cell "N/A" [ref=e177]
+      - cell "26" [ref=e176]
+      - cell "Anthropic Claude Opus 4.5 Model" [ref=e177]
+        - image "Anthropic"
+        - StaticText "Claude Opus 4.5"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e178]
       - cell "N/A" [ref=e179]
       - cell "N/A" [ref=e180]
       - cell "N/A" [ref=e181]
     - row
-      - cell "21" [ref=e182]
-      - cell "Claude Sonnet 4" [ref=e183]
-        - StaticText "Claude Sonnet 4"
+      - cell "27" [ref=e182]
+      - cell "Anthropic Claude Sonnet 3.5 Model" [ref=e183]
+        - image "Anthropic"
+        - StaticText "Claude Sonnet 3.5"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e184]
       - cell "N/A" [ref=e185]
       - cell "N/A" [ref=e186]
       - cell "N/A" [ref=e187]
-      - cell "N/A" [ref=e188]
-      - cell "N/A" [ref=e189]
     - row
-      - cell "22" [ref=e190]
-      - cell "Claude Sonnet 4.5" [ref=e191]
-        - StaticText "Claude Sonnet 4.5"
+      - cell "28" [ref=e188]
+      - cell "Anthropic Claude Sonnet 4 Model" [ref=e189]
+        - image "Anthropic"
+        - StaticText "Claude Sonnet 4"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e190]
+      - cell "N/A" [ref=e191]
       - cell "N/A" [ref=e192]
       - cell "N/A" [ref=e193]
-      - cell "N/A" [ref=e194]
-      - cell "N/A" [ref=e195]
+    - row
+      - cell "29" [ref=e194]
+      - cell "Anthropic Claude Sonnet 4.5 Model" [ref=e195]
+        - image "Anthropic"
+        - StaticText "Claude Sonnet 4.5"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e196]
       - cell "N/A" [ref=e197]
+      - cell "N/A" [ref=e198]
+      - cell "N/A" [ref=e199]
     - row
-      - cell "23" [ref=e198]
-      - cell "DeepSeek-R1-0528" [ref=e199]
+      - cell "30" [ref=e200]
+      - cell "DeepSeek DeepSeek-R1-0528 Model" [ref=e201]
+        - image "DeepSeek"
         - StaticText "DeepSeek-R1-0528"
-      - cell "N/A" [ref=e200]
-      - cell "N/A" [ref=e201]
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e202]
       - cell "N/A" [ref=e203]
       - cell "N/A" [ref=e204]
       - cell "N/A" [ref=e205]
     - row
-      - cell "24" [ref=e206]
-      - cell "DeepSeek-V3" [ref=e207]
+      - cell "31" [ref=e206]
+      - cell "DeepSeek DeepSeek-V3 Model" [ref=e207]
+        - image "DeepSeek"
         - StaticText "DeepSeek-V3"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e208]
       - cell "N/A" [ref=e209]
       - cell "N/A" [ref=e210]
       - cell "N/A" [ref=e211]
-      - cell "N/A" [ref=e212]
-      - cell "N/A" [ref=e213]
     - row
-      - cell "25" [ref=e214]
-      - cell "DeepSeek-V3-0324" [ref=e215]
+      - cell "32" [ref=e212]
+      - cell "DeepSeek DeepSeek-V3-0324 Model" [ref=e213]
+        - image "DeepSeek"
         - StaticText "DeepSeek-V3-0324"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e214]
+      - cell "N/A" [ref=e215]
       - cell "N/A" [ref=e216]
       - cell "N/A" [ref=e217]
-      - cell "N/A" [ref=e218]
-      - cell "N/A" [ref=e219]
+    - row
+      - cell "33" [ref=e218]
+      - cell "DeepSeek DeepSeek-V3-0324 Model" [ref=e219]
+        - image "DeepSeek"
+        - StaticText "DeepSeek-V3-0324"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e220]
       - cell "N/A" [ref=e221]
+      - cell "N/A" [ref=e222]
+      - cell "N/A" [ref=e223]
     - row
-      - cell "26" [ref=e222]
-      - cell "DeepSeek-V3-0324" [ref=e223]
-        - StaticText "DeepSeek-V3-0324"
-      - cell "N/A" [ref=e224]
-      - cell "N/A" [ref=e225]
+      - cell "34" [ref=e224]
+      - cell "DeepSeek DeepSeek-V3.1 Model" [ref=e225]
+        - image "DeepSeek"
+        - StaticText "DeepSeek-V3.1"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e226]
       - cell "N/A" [ref=e227]
       - cell "N/A" [ref=e228]
       - cell "N/A" [ref=e229]
     - row
-      - cell "27" [ref=e230]
-      - cell "DeepSeek-V3.1" [ref=e231]
-        - StaticText "DeepSeek-V3.1"
+      - cell "35" [ref=e230]
+      - cell "DeepSeek DeepSeek-V3.2 Model" [ref=e231]
+        - image "DeepSeek"
+        - StaticText "DeepSeek-V3.2"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e232]
       - cell "N/A" [ref=e233]
       - cell "N/A" [ref=e234]
       - cell "N/A" [ref=e235]
-      - cell "N/A" [ref=e236]
-      - cell "N/A" [ref=e237]
     - row
-      - cell "28" [ref=e238]
-      - cell "DeepSeek-V3.2" [ref=e239]
-        - StaticText "DeepSeek-V3.2"
+      - cell "36" [ref=e236]
+      - cell "Mistral Devstral-2-123B-Instruct-2512 Model" [ref=e237]
+        - image "Mistral"
+        - StaticText "Devstral-2-123B-Instruct-2512"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e238]
+      - cell "N/A" [ref=e239]
       - cell "N/A" [ref=e240]
       - cell "N/A" [ref=e241]
-      - cell "N/A" [ref=e242]
-      - cell "N/A" [ref=e243]
+    - row
+      - cell "37" [ref=e242]
+      - cell "Mistral Devstral-Small-2-24B-Instruct-2512 Model" [ref=e243]
+        - image "Mistral"
+        - StaticText "Devstral-Small-2-24B-Instruct-2512"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e244]
       - cell "N/A" [ref=e245]
+      - cell "N/A" [ref=e246]
+      - cell "N/A" [ref=e247]
     - row
-      - cell "29" [ref=e246]
-      - cell "Devstral-2-123B-Instruct-2512" [ref=e247]
-        - StaticText "Devstral-2-123B-Instruct-2512"
-      - cell "N/A" [ref=e248]
-      - cell "N/A" [ref=e249]
+      - cell "38" [ref=e248]
+      - cell "Mistral Devstral-Small-2505 Model" [ref=e249]
+        - image "Mistral"
+        - StaticText "Devstral-Small-2505"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e250]
       - cell "N/A" [ref=e251]
       - cell "N/A" [ref=e252]
       - cell "N/A" [ref=e253]
     - row
-      - cell "30" [ref=e254]
-      - cell "Devstral-Small-2-24B-Instruct-2512" [ref=e255]
-        - StaticText "Devstral-Small-2-24B-Instruct-2512"
+      - cell "39" [ref=e254]
+      - cell "Gemini Gemini 3 Flash Preview Model" [ref=e255]
+        - image "Gemini"
+        - StaticText "Gemini 3 Flash Preview"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e256]
       - cell "N/A" [ref=e257]
       - cell "N/A" [ref=e258]
       - cell "N/A" [ref=e259]
-      - cell "N/A" [ref=e260]
-      - cell "N/A" [ref=e261]
     - row
-      - cell "31" [ref=e262]
-      - cell "Devstral-Small-2505" [ref=e263]
-        - StaticText "Devstral-Small-2505"
+      - cell "40" [ref=e260]
+      - cell "Gemini Gemini 3 Pro Preview Model" [ref=e261]
+        - image "Gemini"
+        - StaticText "Gemini 3 Pro Preview"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e262]
+      - cell "N/A" [ref=e263]
       - cell "N/A" [ref=e264]
       - cell "N/A" [ref=e265]
-      - cell "N/A" [ref=e266]
-      - cell "N/A" [ref=e267]
+    - row
+      - cell "41" [ref=e266]
+      - cell "Gemini gemini-2.0-flash Model" [ref=e267]
+        - image "Gemini"
+        - StaticText "gemini-2.0-flash"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e268]
       - cell "N/A" [ref=e269]
+      - cell "N/A" [ref=e270]
+      - cell "N/A" [ref=e271]
     - row
-      - cell "32" [ref=e270]
-      - cell "Gemini 3 Flash Preview" [ref=e271]
-        - StaticText "Gemini 3 Flash Preview"
-      - cell "N/A" [ref=e272]
-      - cell "N/A" [ref=e273]
+      - cell "42" [ref=e272]
+      - cell "Gemini gemini-2.0-flash Model" [ref=e273]
+        - image "Gemini"
+        - StaticText "gemini-2.0-flash"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e274]
       - cell "N/A" [ref=e275]
       - cell "N/A" [ref=e276]
       - cell "N/A" [ref=e277]
     - row
-      - cell "33" [ref=e278]
-      - cell "Gemini 3 Pro Preview" [ref=e279]
-        - StaticText "Gemini 3 Pro Preview"
+      - cell "43" [ref=e278]
+      - cell "Gemini gemini-2.5-flash Model" [ref=e279]
+        - image "Gemini"
+        - StaticText "gemini-2.5-flash"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e280]
       - cell "N/A" [ref=e281]
       - cell "N/A" [ref=e282]
       - cell "N/A" [ref=e283]
-      - cell "N/A" [ref=e284]
-      - cell "N/A" [ref=e285]
     - row
-      - cell "34" [ref=e286]
-      - cell "gemini-2.0-flash" [ref=e287]
-        - StaticText "gemini-2.0-flash"
+      - cell "44" [ref=e284]
+      - cell "Gemini gemini-2.5-flash-preview-05-20 no-thinking Model" [ref=e285]
+        - image "Gemini"
+        - StaticText "gemini-2.5-flash-preview-05-20 no-thinking"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e286]
+      - cell "N/A" [ref=e287]
       - cell "N/A" [ref=e288]
       - cell "N/A" [ref=e289]
-      - cell "N/A" [ref=e290]
-      - cell "N/A" [ref=e291]
+    - row
+      - cell "45" [ref=e290]
+      - cell "Gemini gemini-2.5-flash-preview-05-20 no-thinking Model" [ref=e291]
+        - image "Gemini"
+        - StaticText "gemini-2.5-flash-preview-05-20 no-thinking"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e292]
       - cell "N/A" [ref=e293]
+      - cell "N/A" [ref=e294]
+      - cell "N/A" [ref=e295]
     - row
-      - cell "35" [ref=e294]
-      - cell "gemini-2.0-flash" [ref=e295]
-        - StaticText "gemini-2.0-flash"
-      - cell "N/A" [ref=e296]
-      - cell "N/A" [ref=e297]
+      - cell "46" [ref=e296]
+      - cell "Gemini gemini-2.5-pro Model" [ref=e297]
+        - image "Gemini"
+        - StaticText "gemini-2.5-pro"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e298]
       - cell "N/A" [ref=e299]
       - cell "N/A" [ref=e300]
       - cell "N/A" [ref=e301]
     - row
-      - cell "36" [ref=e302]
-      - cell "gemini-2.5-flash" [ref=e303]
-        - StaticText "gemini-2.5-flash"
+      - cell "47" [ref=e302]
+      - cell "Gemini gemma-3-27b-it Model" [ref=e303]
+        - image "Gemini"
+        - StaticText "gemma-3-27b-it"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e304]
       - cell "N/A" [ref=e305]
       - cell "N/A" [ref=e306]
       - cell "N/A" [ref=e307]
-      - cell "N/A" [ref=e308]
-      - cell "N/A" [ref=e309]
     - row
-      - cell "37" [ref=e310]
-      - cell "gemini-2.5-flash-preview-05-20 no-thinking" [ref=e311]
-        - StaticText "gemini-2.5-flash-preview-05-20 no-thinking"
+      - cell "48" [ref=e308]
+      - cell "Z.ai GLM-4.5 Model" [ref=e309]
+        - image "Z.ai"
+        - StaticText "GLM-4.5"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e310]
+      - cell "N/A" [ref=e311]
       - cell "N/A" [ref=e312]
       - cell "N/A" [ref=e313]
-      - cell "N/A" [ref=e314]
-      - cell "N/A" [ref=e315]
+    - row
+      - cell "49" [ref=e314]
+      - cell "Z.ai GLM-4.5 Air Model" [ref=e315]
+        - image "Z.ai"
+        - StaticText "GLM-4.5 Air"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e316]
       - cell "N/A" [ref=e317]
+      - cell "N/A" [ref=e318]
+      - cell "N/A" [ref=e319]
     - row
-      - cell "38" [ref=e318]
-      - cell "gemini-2.5-flash-preview-05-20 no-thinking" [ref=e319]
-        - StaticText "gemini-2.5-flash-preview-05-20 no-thinking"
-      - cell "N/A" [ref=e320]
-      - cell "N/A" [ref=e321]
+      - cell "50" [ref=e320]
+      - cell "Z.ai GLM-4.6 Model" [ref=e321]
+        - image "Z.ai"
+        - StaticText "GLM-4.6"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e322]
       - cell "N/A" [ref=e323]
       - cell "N/A" [ref=e324]
       - cell "N/A" [ref=e325]
     - row
-      - cell "39" [ref=e326]
-      - cell "gemini-2.5-pro" [ref=e327]
-        - StaticText "gemini-2.5-pro"
+      - cell "51" [ref=e326]
+      - cell "Z.ai GLM-4.7 Flash Model" [ref=e327]
+        - image "Z.ai"
+        - StaticText "GLM-4.7 Flash"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e328]
       - cell "N/A" [ref=e329]
       - cell "N/A" [ref=e330]
       - cell "N/A" [ref=e331]
-      - cell "N/A" [ref=e332]
-      - cell "N/A" [ref=e333]
     - row
-      - cell "40" [ref=e334]
-      - cell "Gemma 4 31B" [ref=e335]
-        - StaticText "Gemma 4 31B"
+      - cell "52" [ref=e332]
+      - cell "Z.ai GLM-5 Model" [ref=e333]
+        - image "Z.ai"
+        - StaticText "GLM-5"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e334]
+      - cell "N/A" [ref=e335]
       - cell "N/A" [ref=e336]
       - cell "N/A" [ref=e337]
-      - cell "N/A" [ref=e338]
-      - cell "N/A" [ref=e339]
+    - row
+      - cell "53" [ref=e338]
+      - cell "Z.ai GLM-5.1 Model" [ref=e339]
+        - image "Z.ai"
+        - StaticText "GLM-5.1"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e340]
       - cell "N/A" [ref=e341]
+      - cell "N/A" [ref=e342]
+      - cell "N/A" [ref=e343]
     - row
-      - cell "41" [ref=e342]
-      - cell "gemma-3-27b-it" [ref=e343]
-        - StaticText "gemma-3-27b-it"
-      - cell "N/A" [ref=e344]
-      - cell "N/A" [ref=e345]
+      - cell "54" [ref=e344]
+      - cell "OpenAI gpt-4.1-2025-04-14 Model" [ref=e345]
+        - image "OpenAI"
+        - StaticText "gpt-4.1-2025-04-14"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e346]
       - cell "N/A" [ref=e347]
       - cell "N/A" [ref=e348]
       - cell "N/A" [ref=e349]
     - row
-      - cell "42" [ref=e350]
-      - cell "GLM-4.5" [ref=e351]
-        - StaticText "GLM-4.5"
+      - cell "55" [ref=e350]
+      - cell "OpenAI gpt-4.1-2025-04-14 Model" [ref=e351]
+        - image "OpenAI"
+        - StaticText "gpt-4.1-2025-04-14"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e352]
       - cell "N/A" [ref=e353]
       - cell "N/A" [ref=e354]
       - cell "N/A" [ref=e355]
-      - cell "N/A" [ref=e356]
-      - cell "N/A" [ref=e357]
     - row
-      - cell "43" [ref=e358]
-      - cell "GLM-4.5 Air" [ref=e359]
-        - StaticText "GLM-4.5 Air"
+      - cell "56" [ref=e356]
+      - cell "OpenAI gpt-4.1-mini-2025-04-14 Model" [ref=e357]
+        - image "OpenAI"
+        - StaticText "gpt-4.1-mini-2025-04-14"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e358]
+      - cell "N/A" [ref=e359]
       - cell "N/A" [ref=e360]
       - cell "N/A" [ref=e361]
-      - cell "N/A" [ref=e362]
-      - cell "N/A" [ref=e363]
+    - row
+      - cell "57" [ref=e362]
+      - cell "OpenAI gpt-4.1-mini-2025-04-14 Model" [ref=e363]
+        - image "OpenAI"
+        - StaticText "gpt-4.1-mini-2025-04-14"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e364]
       - cell "N/A" [ref=e365]
+      - cell "N/A" [ref=e366]
+      - cell "N/A" [ref=e367]
     - row
-      - cell "44" [ref=e366]
-      - cell "GLM-4.6" [ref=e367]
-        - StaticText "GLM-4.6"
-      - cell "N/A" [ref=e368]
-      - cell "N/A" [ref=e369]
+      - cell "58" [ref=e368]
+      - cell "OpenAI gpt-4.1-nano-2025-04-14 Model" [ref=e369]
+        - image "OpenAI"
+        - StaticText "gpt-4.1-nano-2025-04-14"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e370]
       - cell "N/A" [ref=e371]
       - cell "N/A" [ref=e372]
       - cell "N/A" [ref=e373]
     - row
-      - cell "45" [ref=e374]
-      - cell "GLM-4.7 Flash" [ref=e375]
-        - StaticText "GLM-4.7 Flash"
+      - cell "59" [ref=e374]
+      - cell "OpenAI gpt-5-2025-08-07-high Model" [ref=e375]
+        - image "OpenAI"
+        - StaticText "gpt-5-2025-08-07-high"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e376]
       - cell "N/A" [ref=e377]
       - cell "N/A" [ref=e378]
       - cell "N/A" [ref=e379]
-      - cell "N/A" [ref=e380]
-      - cell "N/A" [ref=e381]
     - row
-      - cell "46" [ref=e382]
-      - cell "GLM-5" [ref=e383]
-        - StaticText "GLM-5"
+      - cell "60" [ref=e380]
+      - cell "OpenAI gpt-5-2025-08-07-medium Model" [ref=e381]
+        - image "OpenAI"
+        - StaticText "gpt-5-2025-08-07-medium"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e382]
+      - cell "N/A" [ref=e383]
       - cell "N/A" [ref=e384]
       - cell "N/A" [ref=e385]
-      - cell "N/A" [ref=e386]
-      - cell "N/A" [ref=e387]
+    - row
+      - cell "61" [ref=e386]
+      - cell "OpenAI gpt-5-2025-08-07-minimal Model" [ref=e387]
+        - image "OpenAI"
+        - StaticText "gpt-5-2025-08-07-minimal"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e388]
       - cell "N/A" [ref=e389]
+      - cell "N/A" [ref=e390]
+      - cell "N/A" [ref=e391]
     - row
-      - cell "47" [ref=e390]
-      - cell "GLM-5.1" [ref=e391]
-        - StaticText "GLM-5.1"
-      - cell "N/A" [ref=e392]
-      - cell "N/A" [ref=e393]
+      - cell "62" [ref=e392]
+      - cell "OpenAI gpt-5-codex Model" [ref=e393]
+        - image "OpenAI"
+        - StaticText "gpt-5-codex"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e394]
       - cell "N/A" [ref=e395]
       - cell "N/A" [ref=e396]
       - cell "N/A" [ref=e397]
     - row
-      - cell "48" [ref=e398]
-      - cell "gpt-4.1-2025-04-14" [ref=e399]
-        - StaticText "gpt-4.1-2025-04-14"
+      - cell "63" [ref=e398]
+      - cell "OpenAI gpt-5-mini-2025-08-07-high Model" [ref=e399]
+        - image "OpenAI"
+        - StaticText "gpt-5-mini-2025-08-07-high"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e400]
       - cell "N/A" [ref=e401]
       - cell "N/A" [ref=e402]
       - cell "N/A" [ref=e403]
-      - cell "N/A" [ref=e404]
-      - cell "N/A" [ref=e405]
     - row
-      - cell "49" [ref=e406]
-      - cell "gpt-4.1-2025-04-14" [ref=e407]
-        - StaticText "gpt-4.1-2025-04-14"
+      - cell "64" [ref=e404]
+      - cell "OpenAI gpt-5-mini-2025-08-07-medium Model" [ref=e405]
+        - image "OpenAI"
+        - StaticText "gpt-5-mini-2025-08-07-medium"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e406]
+      - cell "N/A" [ref=e407]
       - cell "N/A" [ref=e408]
       - cell "N/A" [ref=e409]
-      - cell "N/A" [ref=e410]
-      - cell "N/A" [ref=e411]
+    - row
+      - cell "65" [ref=e410]
+      - cell "OpenAI gpt-5.1-codex Model" [ref=e411]
+        - image "OpenAI"
+        - StaticText "gpt-5.1-codex"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e412]
       - cell "N/A" [ref=e413]
+      - cell "N/A" [ref=e414]
+      - cell "N/A" [ref=e415]
     - row
-      - cell "50" [ref=e414]
-      - cell "gpt-4.1-mini-2025-04-14" [ref=e415]
-        - StaticText "gpt-4.1-mini-2025-04-14"
-      - cell "N/A" [ref=e416]
-      - cell "N/A" [ref=e417]
+      - cell "66" [ref=e416]
+      - cell "OpenAI gpt-5.1-codex-max Model" [ref=e417]
+        - image "OpenAI"
+        - StaticText "gpt-5.1-codex-max"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e418]
       - cell "N/A" [ref=e419]
       - cell "N/A" [ref=e420]
       - cell "N/A" [ref=e421]
     - row
-      - cell "51" [ref=e422]
-      - cell "gpt-4.1-mini-2025-04-14" [ref=e423]
-        - StaticText "gpt-4.1-mini-2025-04-14"
+      - cell "67" [ref=e422]
+      - cell "OpenAI gpt-5.2-2025-12-11-medium Model" [ref=e423]
+        - image "OpenAI"
+        - StaticText "gpt-5.2-2025-12-11-medium"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e424]
       - cell "N/A" [ref=e425]
       - cell "N/A" [ref=e426]
       - cell "N/A" [ref=e427]
-      - cell "N/A" [ref=e428]
-      - cell "N/A" [ref=e429]
     - row
-      - cell "52" [ref=e430]
-      - cell "gpt-4.1-nano-2025-04-14" [ref=e431]
-        - StaticText "gpt-4.1-nano-2025-04-14"
+      - cell "68" [ref=e428]
+      - cell "OpenAI gpt-5.2-2025-12-11-xhigh Model" [ref=e429]
+        - image "OpenAI"
+        - StaticText "gpt-5.2-2025-12-11-xhigh"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e430]
+      - cell "N/A" [ref=e431]
       - cell "N/A" [ref=e432]
       - cell "N/A" [ref=e433]
-      - cell "N/A" [ref=e434]
-      - cell "N/A" [ref=e435]
+    - row
+      - cell "69" [ref=e434]
+      - cell "OpenAI gpt-5.2-codex Model" [ref=e435]
+        - image "OpenAI"
+        - StaticText "gpt-5.2-codex"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e436]
       - cell "N/A" [ref=e437]
+      - cell "N/A" [ref=e438]
+      - cell "N/A" [ref=e439]
     - row
-      - cell "53" [ref=e438]
-      - cell "gpt-5-2025-08-07-high" [ref=e439]
-        - StaticText "gpt-5-2025-08-07-high"
-      - cell "N/A" [ref=e440]
-      - cell "N/A" [ref=e441]
+      - cell "70" [ref=e440]
+      - cell "OpenAI gpt-5.3-codex Model" [ref=e441]
+        - image "OpenAI"
+        - StaticText "gpt-5.3-codex"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e442]
       - cell "N/A" [ref=e443]
       - cell "N/A" [ref=e444]
       - cell "N/A" [ref=e445]
     - row
-      - cell "54" [ref=e446]
-      - cell "gpt-5-2025-08-07-medium" [ref=e447]
-        - StaticText "gpt-5-2025-08-07-medium"
+      - cell "71" [ref=e446]
+      - cell "OpenAI gpt-5.3-codex-xhigh Model" [ref=e447]
+        - image "OpenAI"
+        - StaticText "gpt-5.3-codex-xhigh"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e448]
       - cell "N/A" [ref=e449]
       - cell "N/A" [ref=e450]
       - cell "N/A" [ref=e451]
-      - cell "N/A" [ref=e452]
-      - cell "N/A" [ref=e453]
     - row
-      - cell "55" [ref=e454]
-      - cell "gpt-5-2025-08-07-minimal" [ref=e455]
-        - StaticText "gpt-5-2025-08-07-minimal"
+      - cell "72" [ref=e452]
+      - cell "OpenAI gpt-oss-120b Model" [ref=e453]
+        - image "OpenAI"
+        - StaticText "gpt-oss-120b"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e454]
+      - cell "N/A" [ref=e455]
       - cell "N/A" [ref=e456]
       - cell "N/A" [ref=e457]
-      - cell "N/A" [ref=e458]
-      - cell "N/A" [ref=e459]
+    - row
+      - cell "73" [ref=e458]
+      - cell "OpenAI gpt-oss-120b-high Model" [ref=e459]
+        - image "OpenAI"
+        - StaticText "gpt-oss-120b-high"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e460]
       - cell "N/A" [ref=e461]
+      - cell "N/A" [ref=e462]
+      - cell "N/A" [ref=e463]
     - row
-      - cell "56" [ref=e462]
-      - cell "gpt-5-codex" [ref=e463]
-        - StaticText "gpt-5-codex"
-      - cell "N/A" [ref=e464]
-      - cell "N/A" [ref=e465]
+      - cell "74" [ref=e464]
+      - cell "OpenAI gpt-oss-20b Model" [ref=e465]
+        - image "OpenAI"
+        - StaticText "gpt-oss-20b"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e466]
       - cell "N/A" [ref=e467]
       - cell "N/A" [ref=e468]
       - cell "N/A" [ref=e469]
     - row
-      - cell "57" [ref=e470]
-      - cell "gpt-5-mini-2025-08-07-high" [ref=e471]
-        - StaticText "gpt-5-mini-2025-08-07-high"
+      - cell "75" [ref=e470]
+      - cell "Grok Grok 4 Model" [ref=e471]
+        - image "Grok"
+        - StaticText "Grok 4"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e472]
       - cell "N/A" [ref=e473]
       - cell "N/A" [ref=e474]
       - cell "N/A" [ref=e475]
-      - cell "N/A" [ref=e476]
-      - cell "N/A" [ref=e477]
     - row
-      - cell "58" [ref=e478]
-      - cell "gpt-5-mini-2025-08-07-medium" [ref=e479]
-        - StaticText "gpt-5-mini-2025-08-07-medium"
+      - cell "76" [ref=e476]
+      - cell "Grok Grok Code Fast 1 Model" [ref=e477]
+        - image "Grok"
+        - StaticText "Grok Code Fast 1"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e478]
+      - cell "N/A" [ref=e479]
       - cell "N/A" [ref=e480]
       - cell "N/A" [ref=e481]
-      - cell "N/A" [ref=e482]
-      - cell "N/A" [ref=e483]
+    - row
+      - cell "77" [ref=e482]
+      - cell "OpenRouter horizon-alpha Model" [ref=e483]
+        - image "OpenRouter"
+        - StaticText "horizon-alpha"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e484]
       - cell "N/A" [ref=e485]
+      - cell "N/A" [ref=e486]
+      - cell "N/A" [ref=e487]
     - row
-      - cell "59" [ref=e486]
-      - cell "gpt-5.1-codex" [ref=e487]
-        - StaticText "gpt-5.1-codex"
-      - cell "N/A" [ref=e488]
-      - cell "N/A" [ref=e489]
+      - cell "78" [ref=e488]
+      - cell "OpenRouter horizon-beta Model" [ref=e489]
+        - image "OpenRouter"
+        - StaticText "horizon-beta"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e490]
       - cell "N/A" [ref=e491]
       - cell "N/A" [ref=e492]
       - cell "N/A" [ref=e493]
     - row
-      - cell "60" [ref=e494]
-      - cell "gpt-5.1-codex-max" [ref=e495]
-        - StaticText "gpt-5.1-codex-max"
+      - cell "79" [ref=e494]
+      - cell "Kimi Kimi K2 Model" [ref=e495]
+        - image "Kimi"
+        - StaticText "Kimi K2"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e496]
       - cell "N/A" [ref=e497]
       - cell "N/A" [ref=e498]
       - cell "N/A" [ref=e499]
-      - cell "N/A" [ref=e500]
-      - cell "N/A" [ref=e501]
     - row
-      - cell "61" [ref=e502]
-      - cell "gpt-5.2-2025-12-11-medium" [ref=e503]
-        - StaticText "gpt-5.2-2025-12-11-medium"
+      - cell "80" [ref=e500]
+      - cell "Kimi Kimi K2 Instruct 0905 Model" [ref=e501]
+        - image "Kimi"
+        - StaticText "Kimi K2 Instruct 0905"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e502]
+      - cell "N/A" [ref=e503]
       - cell "N/A" [ref=e504]
       - cell "N/A" [ref=e505]
-      - cell "N/A" [ref=e506]
-      - cell "N/A" [ref=e507]
+    - row
+      - cell "81" [ref=e506]
+      - cell "Kimi Kimi K2 Thinking Model" [ref=e507]
+        - image "Kimi"
+        - StaticText "Kimi K2 Thinking"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e508]
       - cell "N/A" [ref=e509]
+      - cell "N/A" [ref=e510]
+      - cell "N/A" [ref=e511]
     - row
-      - cell "62" [ref=e510]
-      - cell "gpt-5.2-2025-12-11-xhigh" [ref=e511]
-        - StaticText "gpt-5.2-2025-12-11-xhigh"
-      - cell "N/A" [ref=e512]
-      - cell "N/A" [ref=e513]
+      - cell "82" [ref=e512]
+      - cell "Kimi Kimi K2.5 Model" [ref=e513]
+        - image "Kimi"
+        - StaticText "Kimi K2.5"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e514]
       - cell "N/A" [ref=e515]
       - cell "N/A" [ref=e516]
       - cell "N/A" [ref=e517]
     - row
-      - cell "63" [ref=e518]
-      - cell "gpt-5.2-codex" [ref=e519]
-        - StaticText "gpt-5.2-codex"
+      - cell "83" [ref=e518]
+      - cell "Meta Llama-3.3-70B-Instruct Model" [ref=e519]
+        - image "Meta"
+        - StaticText "Llama-3.3-70B-Instruct"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e520]
       - cell "N/A" [ref=e521]
       - cell "N/A" [ref=e522]
       - cell "N/A" [ref=e523]
-      - cell "N/A" [ref=e524]
-      - cell "N/A" [ref=e525]
     - row
-      - cell "64" [ref=e526]
-      - cell "gpt-5.3-codex" [ref=e527]
-        - StaticText "gpt-5.3-codex"
+      - cell "84" [ref=e524]
+      - cell "Meta Llama-4-Maverick-17B-128E-Instruct Model" [ref=e525]
+        - image "Meta"
+        - StaticText "Llama-4-Maverick-17B-128E-Instruct"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e526]
+      - cell "N/A" [ref=e527]
       - cell "N/A" [ref=e528]
       - cell "N/A" [ref=e529]
-      - cell "N/A" [ref=e530]
-      - cell "N/A" [ref=e531]
+    - row
+      - cell "85" [ref=e530]
+      - cell "Meta Llama-4-Scout-17B-16E-Instruct Model" [ref=e531]
+        - image "Meta"
+        - StaticText "Llama-4-Scout-17B-16E-Instruct"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e532]
       - cell "N/A" [ref=e533]
+      - cell "N/A" [ref=e534]
+      - cell "N/A" [ref=e535]
     - row
-      - cell "65" [ref=e534]
-      - cell "gpt-5.3-codex-xhigh" [ref=e535]
-        - StaticText "gpt-5.3-codex-xhigh"
-      - cell "N/A" [ref=e536]
-      - cell "N/A" [ref=e537]
+      - cell "86" [ref=e536]
+      - cell "Minimax MiniMax M2 Model" [ref=e537]
+        - image "Minimax"
+        - StaticText "MiniMax M2"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e538]
       - cell "N/A" [ref=e539]
       - cell "N/A" [ref=e540]
       - cell "N/A" [ref=e541]
     - row
-      - cell "66" [ref=e542]
-      - cell "gpt-oss-120b" [ref=e543]
-        - StaticText "gpt-oss-120b"
+      - cell "87" [ref=e542]
+      - cell "Minimax MiniMax M2.1 Model" [ref=e543]
+        - image "Minimax"
+        - StaticText "MiniMax M2.1"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e544]
       - cell "N/A" [ref=e545]
       - cell "N/A" [ref=e546]
       - cell "N/A" [ref=e547]
-      - cell "N/A" [ref=e548]
-      - cell "N/A" [ref=e549]
     - row
-      - cell "67" [ref=e550]
-      - cell "gpt-oss-120b-high" [ref=e551]
-        - StaticText "gpt-oss-120b-high"
+      - cell "88" [ref=e548]
+      - cell "Minimax MiniMax M2.5 Model" [ref=e549]
+        - image "Minimax"
+        - StaticText "MiniMax M2.5"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e550]
+      - cell "N/A" [ref=e551]
       - cell "N/A" [ref=e552]
       - cell "N/A" [ref=e553]
-      - cell "N/A" [ref=e554]
-      - cell "N/A" [ref=e555]
+    - row
+      - cell "89" [ref=e554]
+      - cell "Minimax MiniMax M2.7 Model" [ref=e555]
+        - image "Minimax"
+        - StaticText "MiniMax M2.7"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e556]
       - cell "N/A" [ref=e557]
+      - cell "N/A" [ref=e558]
+      - cell "N/A" [ref=e559]
     - row
-      - cell "68" [ref=e558]
-      - cell "gpt-oss-20b" [ref=e559]
-        - StaticText "gpt-oss-20b"
-      - cell "N/A" [ref=e560]
-      - cell "N/A" [ref=e561]
+      - cell "90" [ref=e560]
+      - cell "OpenAI o3-2025-04-16 Model" [ref=e561]
+        - image "OpenAI"
+        - StaticText "o3-2025-04-16"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e562]
       - cell "N/A" [ref=e563]
       - cell "N/A" [ref=e564]
       - cell "N/A" [ref=e565]
     - row
-      - cell "69" [ref=e566]
-      - cell "Grok 4" [ref=e567]
-        - StaticText "Grok 4"
+      - cell "91" [ref=e566]
+      - cell "OpenAI o4-mini-2025-04-16 Model" [ref=e567]
+        - image "OpenAI"
+        - StaticText "o4-mini-2025-04-16"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e568]
       - cell "N/A" [ref=e569]
       - cell "N/A" [ref=e570]
       - cell "N/A" [ref=e571]
-      - cell "N/A" [ref=e572]
-      - cell "N/A" [ref=e573]
     - row
-      - cell "70" [ref=e574]
-      - cell "Grok Code Fast 1" [ref=e575]
-        - StaticText "Grok Code Fast 1"
+      - cell "92" [ref=e572]
+      - cell "Qwen Qwen2.5-72B-Instruct Model" [ref=e573]
+        - image "Qwen"
+        - StaticText "Qwen2.5-72B-Instruct"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e574]
+      - cell "N/A" [ref=e575]
       - cell "N/A" [ref=e576]
       - cell "N/A" [ref=e577]
-      - cell "N/A" [ref=e578]
-      - cell "N/A" [ref=e579]
+    - row
+      - cell "93" [ref=e578]
+      - cell "Qwen Qwen2.5-Coder-32B-Instruct Model" [ref=e579]
+        - image "Qwen"
+        - StaticText "Qwen2.5-Coder-32B-Instruct"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e580]
       - cell "N/A" [ref=e581]
+      - cell "N/A" [ref=e582]
+      - cell "N/A" [ref=e583]
     - row
-      - cell "71" [ref=e582]
-      - cell "horizon-alpha" [ref=e583]
-        - StaticText "horizon-alpha"
-      - cell "N/A" [ref=e584]
-      - cell "N/A" [ref=e585]
+      - cell "94" [ref=e584]
+      - cell "Qwen Qwen3-235B-A22B Model" [ref=e585]
+        - image "Qwen"
+        - StaticText "Qwen3-235B-A22B"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e586]
       - cell "N/A" [ref=e587]
       - cell "N/A" [ref=e588]
       - cell "N/A" [ref=e589]
     - row
-      - cell "72" [ref=e590]
-      - cell "horizon-beta" [ref=e591]
-        - StaticText "horizon-beta"
+      - cell "95" [ref=e590]
+      - cell "Qwen Qwen3-235B-A22B no-thinking Model" [ref=e591]
+        - image "Qwen"
+        - StaticText "Qwen3-235B-A22B no-thinking"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e592]
       - cell "N/A" [ref=e593]
       - cell "N/A" [ref=e594]
       - cell "N/A" [ref=e595]
-      - cell "N/A" [ref=e596]
-      - cell "N/A" [ref=e597]
     - row
-      - cell "73" [ref=e598]
-      - cell "Kimi K2" [ref=e599]
-        - StaticText "Kimi K2"
+      - cell "96" [ref=e596]
+      - cell "Qwen Qwen3-235B-A22B thinking Model" [ref=e597]
+        - image "Qwen"
+        - StaticText "Qwen3-235B-A22B thinking"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e598]
+      - cell "N/A" [ref=e599]
       - cell "N/A" [ref=e600]
       - cell "N/A" [ref=e601]
-      - cell "N/A" [ref=e602]
-      - cell "N/A" [ref=e603]
+    - row
+      - cell "97" [ref=e602]
+      - cell "Qwen Qwen3-235B-A22B-Instruct-2507 Model" [ref=e603]
+        - image "Qwen"
+        - StaticText "Qwen3-235B-A22B-Instruct-2507"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e604]
       - cell "N/A" [ref=e605]
+      - cell "N/A" [ref=e606]
+      - cell "N/A" [ref=e607]
     - row
-      - cell "74" [ref=e606]
-      - cell "Kimi K2 Instruct 0905" [ref=e607]
-        - StaticText "Kimi K2 Instruct 0905"
-      - cell "N/A" [ref=e608]
-      - cell "N/A" [ref=e609]
+      - cell "98" [ref=e608]
+      - cell "Qwen Qwen3-235B-A22B-Thinking-2507 Model" [ref=e609]
+        - image "Qwen"
+        - StaticText "Qwen3-235B-A22B-Thinking-2507"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e610]
       - cell "N/A" [ref=e611]
       - cell "N/A" [ref=e612]
       - cell "N/A" [ref=e613]
     - row
-      - cell "75" [ref=e614]
-      - cell "Kimi K2 Thinking" [ref=e615]
-        - StaticText "Kimi K2 Thinking"
+      - cell "99" [ref=e614]
+      - cell "Qwen Qwen3-30B-A3B-Instruct-2507 Model" [ref=e615]
+        - image "Qwen"
+        - StaticText "Qwen3-30B-A3B-Instruct-2507"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e616]
       - cell "N/A" [ref=e617]
       - cell "N/A" [ref=e618]
       - cell "N/A" [ref=e619]
-      - cell "N/A" [ref=e620]
-      - cell "N/A" [ref=e621]
     - row
-      - cell "76" [ref=e622]
-      - cell "Kimi K2.5" [ref=e623]
-        - StaticText "Kimi K2.5"
+      - cell "100" [ref=e620]
+      - cell "Qwen Qwen3-30B-A3B-Thinking-2507 Model" [ref=e621]
+        - image "Qwen"
+        - StaticText "Qwen3-30B-A3B-Thinking-2507"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e622]
+      - cell "N/A" [ref=e623]
       - cell "N/A" [ref=e624]
       - cell "N/A" [ref=e625]
-      - cell "N/A" [ref=e626]
-      - cell "N/A" [ref=e627]
+    - row
+      - cell "101" [ref=e626]
+      - cell "Qwen Qwen3-32B Model" [ref=e627]
+        - image "Qwen"
+        - StaticText "Qwen3-32B"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e628]
       - cell "N/A" [ref=e629]
+      - cell "N/A" [ref=e630]
+      - cell "N/A" [ref=e631]
     - row
-      - cell "77" [ref=e630]
-      - cell "Llama-3.3-70B-Instruct" [ref=e631]
-        - StaticText "Llama-3.3-70B-Instruct"
-      - cell "N/A" [ref=e632]
-      - cell "N/A" [ref=e633]
+      - cell "102" [ref=e632]
+      - cell "Qwen Qwen3-32B no-thinking Model" [ref=e633]
+        - image "Qwen"
+        - StaticText "Qwen3-32B no-thinking"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e634]
       - cell "N/A" [ref=e635]
       - cell "N/A" [ref=e636]
       - cell "N/A" [ref=e637]
     - row
-      - cell "78" [ref=e638]
-      - cell "Llama-4-Maverick-17B-128E-Instruct" [ref=e639]
-        - StaticText "Llama-4-Maverick-17B-128E-Instruct"
+      - cell "103" [ref=e638]
+      - cell "Qwen Qwen3-32B thinking Model" [ref=e639]
+        - image "Qwen"
+        - StaticText "Qwen3-32B thinking"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e640]
       - cell "N/A" [ref=e641]
       - cell "N/A" [ref=e642]
       - cell "N/A" [ref=e643]
-      - cell "N/A" [ref=e644]
-      - cell "N/A" [ref=e645]
     - row
-      - cell "79" [ref=e646]
-      - cell "Llama-4-Scout-17B-16E-Instruct" [ref=e647]
-        - StaticText "Llama-4-Scout-17B-16E-Instruct"
+      - cell "104" [ref=e644]
+      - cell "Qwen Qwen3-Coder-30B-A3B-Instruct Model" [ref=e645]
+        - image "Qwen"
+        - StaticText "Qwen3-Coder-30B-A3B-Instruct"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e646]
+      - cell "N/A" [ref=e647]
       - cell "N/A" [ref=e648]
       - cell "N/A" [ref=e649]
-      - cell "N/A" [ref=e650]
-      - cell "N/A" [ref=e651]
+    - row
+      - cell "105" [ref=e650]
+      - cell "Qwen Qwen3-Coder-480B-A35B-Instruct Model" [ref=e651]
+        - image "Qwen"
+        - StaticText "Qwen3-Coder-480B-A35B-Instruct"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e652]
       - cell "N/A" [ref=e653]
+      - cell "N/A" [ref=e654]
+      - cell "N/A" [ref=e655]
     - row
-      - cell "80" [ref=e654]
-      - cell "MiniMax M2" [ref=e655]
-        - StaticText "MiniMax M2"
-      - cell "N/A" [ref=e656]
-      - cell "N/A" [ref=e657]
+      - cell "106" [ref=e656]
+      - cell "Qwen Qwen3-Coder-Next Model" [ref=e657]
+        - image "Qwen"
+        - StaticText "Qwen3-Coder-Next"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e658]
       - cell "N/A" [ref=e659]
       - cell "N/A" [ref=e660]
       - cell "N/A" [ref=e661]
     - row
-      - cell "81" [ref=e662]
-      - cell "MiniMax M2.1" [ref=e663]
-        - StaticText "MiniMax M2.1"
+      - cell "107" [ref=e662]
+      - cell "Qwen Qwen3-Next-80B-A3B-Instruct Model" [ref=e663]
+        - image "Qwen"
+        - StaticText "Qwen3-Next-80B-A3B-Instruct"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e664]
       - cell "N/A" [ref=e665]
       - cell "N/A" [ref=e666]
       - cell "N/A" [ref=e667]
-      - cell "N/A" [ref=e668]
-      - cell "N/A" [ref=e669]
     - row
-      - cell "82" [ref=e670]
-      - cell "MiniMax M2.5" [ref=e671]
-        - StaticText "MiniMax M2.5"
+      - cell "108" [ref=e668]
+      - cell "Qwen Qwen3.5-27B Model" [ref=e669]
+        - image "Qwen"
+        - StaticText "Qwen3.5-27B"
+        - generic
+          - StaticText "Model"
+      - cell "N/A" [ref=e670]
+      - cell "N/A" [ref=e671]
       - cell "N/A" [ref=e672]
       - cell "N/A" [ref=e673]
-      - cell "N/A" [ref=e674]
-      - cell "N/A" [ref=e675]
+    - row
+      - cell "109" [ref=e674]
+      - cell "Qwen Qwen3.5-35B-A3B Model" [ref=e675]
+        - image "Qwen"
+        - StaticText "Qwen3.5-35B-A3B"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e676]
       - cell "N/A" [ref=e677]
+      - cell "N/A" [ref=e678]
+      - cell "N/A" [ref=e679]
     - row
-      - cell "83" [ref=e678]
-      - cell "MiniMax M2.7" [ref=e679]
-        - StaticText "MiniMax M2.7"
-      - cell "N/A" [ref=e680]
-      - cell "N/A" [ref=e681]
+      - cell "110" [ref=e680]
+      - cell "Qwen Qwen3.5-397B-A17B Model" [ref=e681]
+        - image "Qwen"
+        - StaticText "Qwen3.5-397B-A17B"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e682]
       - cell "N/A" [ref=e683]
       - cell "N/A" [ref=e684]
       - cell "N/A" [ref=e685]
     - row
-      - cell "84" [ref=e686]
-      - cell "o3-2025-04-16" [ref=e687]
-        - StaticText "o3-2025-04-16"
+      - cell "111" [ref=e686]
+      - cell "Stepfun Step-3.5-Flash Model" [ref=e687]
+        - image "Stepfun"
+        - StaticText "Step-3.5-Flash"
+        - generic
+          - StaticText "Model"
       - cell "N/A" [ref=e688]
       - cell "N/A" [ref=e689]
       - cell "N/A" [ref=e690]
       - cell "N/A" [ref=e691]
-      - cell "N/A" [ref=e692]
-      - cell "N/A" [ref=e693]
-    - row
-      - cell "85" [ref=e694]
-      - cell "o4-mini-2025-04-16" [ref=e695]
-        - StaticText "o4-mini-2025-04-16"
-      - cell "N/A" [ref=e696]
-      - cell "N/A" [ref=e697]
-      - cell "N/A" [ref=e698]
-      - cell "N/A" [ref=e699]
-      - cell "N/A" [ref=e700]
-      - cell "N/A" [ref=e701]
-    - row
-      - cell "86" [ref=e702]
-      - cell "Qwen2.5-72B-Instruct" [ref=e703]
-        - StaticText "Qwen2.5-72B-Instruct"
-      - cell "N/A" [ref=e704]
-      - cell "N/A" [ref=e705]
-      - cell "N/A" [ref=e706]
-      - cell "N/A" [ref=e707]
-      - cell "N/A" [ref=e708]
-      - cell "N/A" [ref=e709]
-    - row
-      - cell "87" [ref=e710]
-      - cell "Qwen2.5-Coder-32B-Instruct" [ref=e711]
-        - StaticText "Qwen2.5-Coder-32B-Instruct"
-      - cell "N/A" [ref=e712]
-      - cell "N/A" [ref=e713]
-      - cell "N/A" [ref=e714]
-      - cell "N/A" [ref=e715]
-      - cell "N/A" [ref=e716]
-      - cell "N/A" [ref=e717]
-    - row
-      - cell "88" [ref=e718]
-      - cell "Qwen3-235B-A22B" [ref=e719]
-        - StaticText "Qwen3-235B-A22B"
-      - cell "N/A" [ref=e720]
-      - cell "N/A" [ref=e721]
-      - cell "N/A" [ref=e722]
-      - cell "N/A" [ref=e723]
-      - cell "N/A" [ref=e724]
-      - cell "N/A" [ref=e725]
-    - row
-      - cell "89" [ref=e726]
-      - cell "Qwen3-235B-A22B no-thinking" [ref=e727]
-        - StaticText "Qwen3-235B-A22B no-thinking"
-      - cell "N/A" [ref=e728]
-      - cell "N/A" [ref=e729]
-      - cell "N/A" [ref=e730]
-      - cell "N/A" [ref=e731]
-      - cell "N/A" [ref=e732]
-      - cell "N/A" [ref=e733]
-    - row
-      - cell "90" [ref=e734]
-      - cell "Qwen3-235B-A22B thinking" [ref=e735]
-        - StaticText "Qwen3-235B-A22B thinking"
-      - cell "N/A" [ref=e736]
-      - cell "N/A" [ref=e737]
-      - cell "N/A" [ref=e738]
-      - cell "N/A" [ref=e739]
-      - cell "N/A" [ref=e740]
-      - cell "N/A" [ref=e741]
-    - row
-      - cell "91" [ref=e742]
-      - cell "Qwen3-235B-A22B-Instruct-2507" [ref=e743]
-        - StaticText "Qwen3-235B-A22B-Instruct-2507"
-      - cell "N/A" [ref=e744]
-      - cell "N/A" [ref=e745]
-      - cell "N/A" [ref=e746]
-      - cell "N/A" [ref=e747]
-      - cell "N/A" [ref=e748]
-      - cell "N/A" [ref=e749]
-    - row
-      - cell "92" [ref=e750]
-      - cell "Qwen3-235B-A22B-Thinking-2507" [ref=e751]
-        - StaticText "Qwen3-235B-A22B-Thinking-2507"
-      - cell "N/A" [ref=e752]
-      - cell "N/A" [ref=e753]
-      - cell "N/A" [ref=e754]
-      - cell "N/A" [ref=e755]
-      - cell "N/A" [ref=e756]
-      - cell "N/A" [ref=e757]
-    - row
-      - cell "93" [ref=e758]
-      - cell "Qwen3-30B-A3B-Instruct-2507" [ref=e759]
-        - StaticText "Qwen3-30B-A3B-Instruct-2507"
-      - cell "N/A" [ref=e760]
-      - cell "N/A" [ref=e761]
-      - cell "N/A" [ref=e762]
-      - cell "N/A" [ref=e763]
-      - cell "N/A" [ref=e764]
-      - cell "N/A" [ref=e765]
-    - row
-      - cell "94" [ref=e766]
-      - cell "Qwen3-30B-A3B-Thinking-2507" [ref=e767]
-        - StaticText "Qwen3-30B-A3B-Thinking-2507"
-      - cell "N/A" [ref=e768]
-      - cell "N/A" [ref=e769]
-      - cell "N/A" [ref=e770]
-      - cell "N/A" [ref=e771]
-      - cell "N/A" [ref=e772]
-      - cell "N/A" [ref=e773]
-    - row
-      - cell "95" [ref=e774]
-      - cell "Qwen3-32B" [ref=e775]
-        - StaticText "Qwen3-32B"
-      - cell "N/A" [ref=e776]
-      - cell "N/A" [ref=e777]
-      - cell "N/A" [ref=e778]
-      - cell "N/A" [ref=e779]
-      - cell "N/A" [ref=e780]
-      - cell "N/A" [ref=e781]
-    - row
-      - cell "96" [ref=e782]
-      - cell "Qwen3-32B no-thinking" [ref=e783]
-        - StaticText "Qwen3-32B no-thinking"
-      - cell "N/A" [ref=e784]
-      - cell "N/A" [ref=e785]
-      - cell "N/A" [ref=e786]
-      - cell "N/A" [ref=e787]
-      - cell "N/A" [ref=e788]
-      - cell "N/A" [ref=e789]
-    - row
-      - cell "97" [ref=e790]
-      - cell "Qwen3-32B thinking" [ref=e791]
-        - StaticText "Qwen3-32B thinking"
-      - cell "N/A" [ref=e792]
-      - cell "N/A" [ref=e793]
-      - cell "N/A" [ref=e794]
-      - cell "N/A" [ref=e795]
-      - cell "N/A" [ref=e796]
-      - cell "N/A" [ref=e797]
-    - row
-      - cell "98" [ref=e798]
-      - cell "Qwen3-Coder-30B-A3B-Instruct" [ref=e799]
-        - StaticText "Qwen3-Coder-30B-A3B-Instruct"
-      - cell "N/A" [ref=e800]
-      - cell "N/A" [ref=e801]
-      - cell "N/A" [ref=e802]
-      - cell "N/A" [ref=e803]
-      - cell "N/A" [ref=e804]
-      - cell "N/A" [ref=e805]
-    - row
-      - cell "99" [ref=e806]
-      - cell "Qwen3-Coder-480B-A35B-Instruct" [ref=e807]
-        - StaticText "Qwen3-Coder-480B-A35B-Instruct"
-      - cell "N/A" [ref=e808]
-      - cell "N/A" [ref=e809]
-      - cell "N/A" [ref=e810]
-      - cell "N/A" [ref=e811]
-      - cell "N/A" [ref=e812]
-      - cell "N/A" [ref=e813]
-    - row
-      - cell "100" [ref=e814]
-      - cell "Qwen3-Coder-Next" [ref=e815]
-        - StaticText "Qwen3-Coder-Next"
-      - cell "N/A" [ref=e816]
-      - cell "N/A" [ref=e817]
-      - cell "N/A" [ref=e818]
-      - cell "N/A" [ref=e819]
-      - cell "N/A" [ref=e820]
-      - cell "N/A" [ref=e821]
-    - row
-      - cell "101" [ref=e822]
-      - cell "Qwen3-Next-80B-A3B-Instruct" [ref=e823]
-        - StaticText "Qwen3-Next-80B-A3B-Instruct"
-      - cell "N/A" [ref=e824]
-      - cell "N/A" [ref=e825]
-      - cell "N/A" [ref=e826]
-      - cell "N/A" [ref=e827]
-      - cell "N/A" [ref=e828]
-      - cell "N/A" [ref=e829]
-    - row
-      - cell "102" [ref=e830]
-      - cell "Qwen3.5-27B" [ref=e831]
-        - StaticText "Qwen3.5-27B"
-      - cell "N/A" [ref=e832]
-      - cell "N/A" [ref=e833]
-      - cell "N/A" [ref=e834]
-      - cell "N/A" [ref=e835]
-      - cell "N/A" [ref=e836]
-      - cell "N/A" [ref=e837]
-    - row
-      - cell "103" [ref=e838]
-      - cell "Qwen3.5-35B-A3B" [ref=e839]
-        - StaticText "Qwen3.5-35B-A3B"
-      - cell "N/A" [ref=e840]
-      - cell "N/A" [ref=e841]
-      - cell "N/A" [ref=e842]
-      - cell "N/A" [ref=e843]
-      - cell "N/A" [ref=e844]
-      - cell "N/A" [ref=e845]
-    - row
-      - cell "104" [ref=e846]
-      - cell "Qwen3.5-397B-A17B" [ref=e847]
-        - StaticText "Qwen3.5-397B-A17B"
-      - cell "N/A" [ref=e848]
-      - cell "N/A" [ref=e849]
-      - cell "N/A" [ref=e850]
-      - cell "N/A" [ref=e851]
-      - cell "N/A" [ref=e852]
-      - cell "N/A" [ref=e853]
-    - row
-      - cell "105" [ref=e854]
-      - cell "Step-3.5-Flash" [ref=e855]
-        - StaticText "Step-3.5-Flash"
-      - cell "N/A" [ref=e856]
-      - cell "N/A" [ref=e857]
-      - cell "N/A" [ref=e858]
-      - cell "N/A" [ref=e859]
-      - cell "N/A" [ref=e860]
-      - cell "N/A" [ref=e861]
+  - generic
+    - SvgRoot [ref=e702] clickable [onclick]
+      - StaticText "gpt-5.5-2026-04-23-xhigh"
+      - StaticText "Junie"
+      - StaticText "Codex"
+      - StaticText "Claude Code"
+      - StaticText "gpt-5.5-2026-04-23-medium"
+      - StaticText "Claude Opus 4.8-xhigh"
+      - StaticText "gpt-5.4-2026-03-05-medium"
+      - StaticText "Claude Opus 4.7-high"
+      - StaticText "Cursor"
+      - StaticText "Claude Sonnet 4.6"
+      - StaticText "Gemini 3.1 Pro Preview"
+      - StaticText "GLM-5.2"
+      - StaticText "GLM-5.1"
+      - StaticText "Gemini 3.5 Flash"
+      - StaticText "Claude Opus 4.6-high"
+      - StaticText "Kimi K2.6"
+      - StaticText "MiniMax M3"
+      - StaticText "DeepSeek-V4 Pro"
+      - StaticText "MiMo V2.5 Pro"
+      - StaticText "DeepSeek-V4 Flash"
+      - StaticText "GLM-4.7"
+      - StaticText "Qwen3.6-27B"
+      - StaticText "Qwen3.6-35B-A…"
+      - StaticText "Ge…"
+    - generic
+      - image "OpenAI"
+      - image "Junie"
+      - image "OpenAI"
+      - image "Anthropic"
+      - image "OpenAI"
+      - image "Anthropic"
+      - image "OpenAI"
+      - image "Anthropic"
+      - image "Cursor"
+      - image "Anthropic"
+      - image "Gemini"
+      - image "Z.ai"
+      - image "Z.ai"
+      - image "Gemini"
+      - image "Anthropic"
+      - image "Kimi"
+      - image "Minimax"
+      - image "DeepSeek"
+      - image "XiaomiMiMo"
+      - image "DeepSeek"
+      - image "Z.ai"
+      - image "Qwen"
+      - image "Qwen"
+      - image "Gemini"
   - generic
     - generic
       - generic
-      - slider [ref=e16]: 0
+      - slider [ref=e17]: 0
       - generic
         - StaticText "Jan 2025"
         - image
-      - slider [ref=e17]: 16
+      - slider [ref=e18]: 16
       - generic
         - StaticText "May 2026"
         - image
-    - group [ref=e18] clickable [cursor:pointer]
-      - combobox [expanded=false, ref=e862]: Models: gpt-4.1-2025-04-14 (text), DeepSeek-V3-0324 (text), DeepSeek-V3 (text), Qwen3-235B-A22B no-thinking (text), Qwen3-235B-A22B thinking (text), Qwen3-32B no-thinking (text), Qwen3-32B thinking (text), Llama-4-Maverick-17B-128E-Instruct (text), Qwen2.5-72B-Instruct (text), Llama-3.3-70B-Instruct (text), Llama-4-Scout-17B-16E-Instruct (text), gemma-3-27b-it (text), Qwen2.5-Coder-32B-Instruct (text), gpt-4.1-mini-2025-04-14 (text), gpt-4.1-nano-2025-04-14 (text), gemini-2.0-flash (text), gemini-2.5-flash-preview-05-20 no-thinking (text), Devstral-Small-2505 (text), DeepSeek-V3-0324 (tools), Claude Sonnet 3.5 (tools), Claude Sonnet 4 (tools), gemini-2.5-flash-preview-05-20 no-thinking (tools), gpt-4.1-2025-04-14 (tools), o3-2025-04-16 (tools), gemini-2.5-flash (tools), gemini-2.0-flash (tools), gemini-2.5-pro (tools), Qwen3-Coder-480B-A35B-Instruct (tools), Qwen3-235B-A22B-Thinking-2507 (tools), Qwen3-235B-A22B-Instruct-2507 (tools), o4-mini-2025-04-16 (tools), DeepSeek-R1-0528 (tools), horizon-alpha (tools), Qwen3-Coder-30B-A3B-Instruct (tools), horizon-beta (tools), gpt-5-2025-08-07-medium (tools), gpt-5-2025-08-07-high (tools), gpt-5-2025-08-07-minimal (tools), GLM-4.5 (tools), GLM-4.5 Air (tools), Grok Code Fast 1 (tools), gpt-oss-120b (tools), gpt-oss-20b (tools), gpt-5-mini-2025-08-07-medium (tools), gpt-4.1-mini-2025-04-14 (tools), Kimi K2 (tools), Qwen3-235B-A22B (tools), Qwen3-32B (tools), Kimi K2 Instruct 0905 (tools), Qwen3-Next-80B-A3B-Instruct (tools), DeepSeek-V3.1 (tools), Grok 4 (tools), Claude Sonnet 4.5 (tools), Claude Opus 4.1 (tools), gpt-5-codex (tools), Qwen3-30B-A3B-Thinking-2507 (tools), Qwen3-30B-A3B-Instruct-2507 (tools), GLM-4.6 (tools), MiniMax M2 (tools), Claude Opus 4.5 (tools), Gemini 3 Pro Preview (tools), gpt-5.1-codex-max (tools), gpt-5.2-2025-12-11-medium (tools), Devstral-2-123B-Instruct-2512 (tools), Devstral-Small-2-24B-Instruct-2512 (tools), DeepSeek-V3.2 (tools), Claude Code (tools), MiniMax M2.1 (tools), gpt-5.1-codex (tools), gpt-5.2-2025-12-11-xhigh (tools), gpt-5-mini-2025-08-07-high (tools), Kimi K2 Thinking (tools), GLM-4.7 (tools), Gemini 3 Flash Preview (tools), gpt-oss-120b-high (tools), GLM-4.7 Flash (tools), Kimi K2.5 (tools), gpt-5.2-codex (tools), Qwen3-Coder-Next (tools), Claude Opus 4.6-high (tools), GLM-5 (tools), Codex (tools), MiniMax M2.5 (tools), Junie (tools), Gemini 3.1 Pro Preview (tools), Claude Sonnet 4.6 (tools), gpt-5.3-codex (tools), gpt-5.3-codex-xhigh (tools), gpt-5.4-2026-03-05-medium (tools), Qwen3.5-35B-A3B (tools), Qwen3.5-397B-A17B (tools), Step-3.5-Flash (tools), GLM-5.1 (tools), MiniMax M2.7 (tools), Qwen3.5-27B (tools), Gemma 4 31B (tools), Cursor (tools), GLM-5.1 (tools), Claude Opus 4.7-high (tools), gpt-5.5-2026-04-23-medium (tools), gpt-5.5-2026-04-23-xhigh (tools), Kimi K2.6 (tools), Claude Opus 4.8-xhigh (tools), Gemini 3.5 Flash (tools), MiniMax M3 (tools)
+    - group [ref=e19] clickable [cursor:pointer]
+      - combobox [expanded=false, ref=e692]: Models: gpt-4.1-2025-04-14 (text), DeepSeek-V3-0324 (text), DeepSeek-V3 (text), Qwen3-235B-A22B no-thinking (text), Qwen3-235B-A22B thinking (text), Qwen3-32B no-thinking (text), Qwen3-32B thinking (text), Llama-4-Maverick-17B-128E-Instruct (text), Qwen2.5-72B-Instruct (text), Llama-3.3-70B-Instruct (text), Llama-4-Scout-17B-16E-Instruct (text), gemma-3-27b-it (text), Qwen2.5-Coder-32B-Instruct (text), gpt-4.1-mini-2025-04-14 (text), gpt-4.1-nano-2025-04-14 (text), gemini-2.0-flash (text), gemini-2.5-flash-preview-05-20 no-thinking (text), Devstral-Small-2505 (text), DeepSeek-V3-0324 (tools), Claude Sonnet 3.5 (tools), Claude Sonnet 4 (tools), gemini-2.5-flash-preview-05-20 no-thinking (tools), gpt-4.1-2025-04-14 (tools), o3-2025-04-16 (tools), gemini-2.5-flash (tools), gemini-2.0-flash (tools), gemini-2.5-pro (tools), Qwen3-Coder-480B-A35B-Instruct (tools), Qwen3-235B-A22B-Thinking-2507 (tools), Qwen3-235B-A22B-Instruct-2507 (tools), o4-mini-2025-04-16 (tools), DeepSeek-R1-0528 (tools), horizon-alpha (tools), Qwen3-Coder-30B-A3B-Instruct (tools), horizon-beta (tools), gpt-5-2025-08-07-medium (tools), gpt-5-2025-08-07-high (tools), gpt-5-2025-08-07-minimal (tools), GLM-4.5 (tools), GLM-4.5 Air (tools), Grok Code Fast 1 (tools), gpt-oss-120b (tools), gpt-oss-20b (tools), gpt-5-mini-2025-08-07-medium (tools), gpt-4.1-mini-2025-04-14 (tools), Kimi K2 (tools), Qwen3-235B-A22B (tools), Qwen3-32B (tools), Kimi K2 Instruct 0905 (tools), Qwen3-Next-80B-A3B-Instruct (tools), DeepSeek-V3.1 (tools), Grok 4 (tools), Claude Sonnet 4.5 (tools), Claude Opus 4.1 (tools), gpt-5-codex (tools), Qwen3-30B-A3B-Thinking-2507 (tools), Qwen3-30B-A3B-Instruct-2507 (tools), GLM-4.6 (tools), MiniMax M2 (tools), Claude Opus 4.5 (tools), Gemini 3 Pro Preview (tools), gpt-5.1-codex-max (tools), gpt-5.2-2025-12-11-medium (tools), Devstral-2-123B-Instruct-2512 (tools), Devstral-Small-2-24B-Instruct-2512 (tools), DeepSeek-V3.2 (tools), Claude Code (tools), MiniMax M2.1 (tools), gpt-5.1-codex (tools), gpt-5.2-2025-12-11-xhigh (tools), gpt-5-mini-2025-08-07-high (tools), Kimi K2 Thinking (tools), GLM-4.7 (tools), Gemini 3 Flash Preview (tools), gpt-oss-120b-high (tools), GLM-4.7 Flash (tools), Kimi K2.5 (tools), gpt-5.2-codex (tools), Qwen3-Coder-Next (tools), Claude Opus 4.6-high (tools), GLM-5 (tools), Codex (tools), MiniMax M2.5 (tools), Junie (tools), Gemini 3.1 Pro Preview (tools), Claude Sonnet 4.6 (tools), gpt-5.3-codex (tools), gpt-5.3-codex-xhigh (tools), gpt-5.4-2026-03-05-medium (tools), Qwen3.5-35B-A3B (tools), Qwen3.5-397B-A17B (tools), Step-3.5-Flash (tools), GLM-5.1 (tools), MiniMax M2.7 (tools), Qwen3.5-27B (tools), Gemma 4 31B (tools), Cursor (tools), GLM-5.1 (tools), Claude Opus 4.7-high (tools), gpt-5.5-2026-04-23-medium (tools), gpt-5.5-2026-04-23-xhigh (tools), Kimi K2.6 (tools), Claude Opus 4.8-xhigh (tools), Gemini 3.5 Flash (tools), MiniMax M3 (tools), GLM-5.2 (tools), DeepSeek-V4 Pro (tools), MiMo V2.5 Pro (tools), Qwen3.6-27B (tools), Qwen3.6-35B-A3B (tools), DeepSeek-V4 Flash (tools)
         - StaticText "Models:"
-        - StaticText "gpt-4.1-2025-04-14 (text), DeepSeek-V3-0324 (text), DeepSeek-V3 (text), Qwen3-235B-A22B no-thinking (text), Qwen3-235B-A22B thinking (text), Qwen3-32B no-thinking (text), Qwen3-32B thinking (text), Llama-4-Maverick-17B-128E-Instruct (text), Qwen2.5-72B-Instruct (text), Llama-3.3-70B-Instruct (text), Llama-4-Scout-17B-16E-Instruct (text), gemma-3-27b-it (text), Qwen2.5-Coder-32B-Instruct (text), gpt-4.1-mini-2025-04-14 (text), gpt-4.1-nano-2025-04-14 (text), gemini-2.0-flash (text), gemini-2.5-flash-preview-05-20 no-thinking (text), Devstral-Small-2505 (text), DeepSeek-V3-0324 (tools), Claude Sonnet 3.5 (tools), Claude Sonnet 4 (tools), gemini-2.5-flash-preview-05-20 no-thinking (tools), gpt-4.1-2025-04-14 (tools), o3-2025-04-16 (tools), gemini-2.5-flash (tools), gemini-2.0-flash (tools), gemini-2.5-pro (tools), Qwen3-Coder-480B-A35B-Instruct (tools), Qwen3-235B-A22B-Thinking-2507 (tools), Qwen3-235B-A22B-Instruct-2507 (tools), o4-mini-2025-04-16 (tools), DeepSeek-R1-0528 (tools), horizon-alpha (tools), Qwen3-Coder-30B-A3B-Instruct (tools), horizon-beta (tools), gpt-5-2025-08-07-medium (tools), gpt-5-2025-08-07-high (tools), gpt-5-2025-08-07-minimal (tools), GLM-4.5 (tools), GLM-4.5 Air (tools), Grok Code Fast 1 (tools), gpt-oss-120b (tools), gpt-oss-20b (tools), gpt-5-mini-2025-08-07-medium (tools), gpt-4.1-mini-2025-04-14 (tools), Kimi K2 (tools), Qwen3-235B-A22B (tools), Qwen3-32B (tools), Kimi K2 Instruct 0905 (tools), Qwen3-Next-80B-A3B-Instruct (tools), DeepSeek-V3.1 (tools), Grok 4 (tools), Claude Sonnet 4.5 (tools), Claude Opus 4.1 (tools), gpt-5-codex (tools), Qwen3-30B-A3B-Thinking-2507 (tools), Qwen3-30B-A3B-Instruct-2507 (tools), GLM-4.6 (tools), MiniMax M2 (tools), Claude Opus 4.5 (tools), Gemini 3 Pro Preview (tools), gpt-5.1-codex-max (tools), gpt-5.2-2025-12-11-medium (tools), Devstral-2-123B-Instruct-2512 (tools), Devstral-Small-2-24B-Instruct-2512 (tools), DeepSeek-V3.2 (tools), Claude Code (tools), MiniMax M2.1 (tools), gpt-5.1-codex (tools), gpt-5.2-2025-12-11-xhigh (tools), gpt-5-mini-2025-08-07-high (tools), Kimi K2 Thinking (tools), GLM-4.7 (tools), Gemini 3 Flash Preview (tools), gpt-oss-120b-high (tools), GLM-4.7 Flash (tools), Kimi K2.5 (tools), gpt-5.2-codex (tools), Qwen3-Coder-Next (tools), Claude Opus 4.6-high (tools), GLM-5 (tools), Codex (tools), MiniMax M2.5 (tools), Junie (tools), Gemini 3.1 Pro Preview (tools), Claude Sonnet 4.6 (tools), gpt-5.3-codex (tools), gpt-5.3-codex-xhigh (tools), gpt-5.4-2026-03-05-medium (tools), Qwen3.5-35B-A3B (tools), Qwen3.5-397B-A17B (tools), Step-3.5-Flash (tools), GLM-5.1 (tools), MiniMax M2.7 (tools), Qwen3.5-27B (tools), Gemma 4 31B (tools), Cursor (tools), GLM-5.1 (tools), Claude Opus 4.7-high (tools), gpt-5.5-2026-04-23-medium (tools), gpt-5.5-2026-04-23-xhigh (tools), Kimi K2.6 (tools), Claude Opus 4.8-xhigh (tools), Gemini 3.5 Flash (tools), MiniMax M3 (tools)"
+        - StaticText "gpt-4.1-2025-04-14 (text), DeepSeek-V3-0324 (text), DeepSeek-V3 (text), Qwen3-235B-A22B no-thinking (text), Qwen3-235B-A22B thinking (text), Qwen3-32B no-thinking (text), Qwen3-32B thinking (text), Llama-4-Maverick-17B-128E-Instruct (text), Qwen2.5-72B-Instruct (text), Llama-3.3-70B-Instruct (text), Llama-4-Scout-17B-16E-Instruct (text), gemma-3-27b-it (text), Qwen2.5-Coder-32B-Instruct (text), gpt-4.1-mini-2025-04-14 (text), gpt-4.1-nano-2025-04-14 (text), gemini-2.0-flash (text), gemini-2.5-flash-preview-05-20 no-thinking (text), Devstral-Small-2505 (text), DeepSeek-V3-0324 (tools), Claude Sonnet 3.5 (tools), Claude Sonnet 4 (tools), gemini-2.5-flash-preview-05-20 no-thinking (tools), gpt-4.1-2025-04-14 (tools), o3-2025-04-16 (tools), gemini-2.5-flash (tools), gemini-2.0-flash (tools), gemini-2.5-pro (tools), Qwen3-Coder-480B-A35B-Instruct (tools), Qwen3-235B-A22B-Thinking-2507 (tools), Qwen3-235B-A22B-Instruct-2507 (tools), o4-mini-2025-04-16 (tools), DeepSeek-R1-0528 (tools), horizon-alpha (tools), Qwen3-Coder-30B-A3B-Instruct (tools), horizon-beta (tools), gpt-5-2025-08-07-medium (tools), gpt-5-2025-08-07-high (tools), gpt-5-2025-08-07-minimal (tools), GLM-4.5 (tools), GLM-4.5 Air (tools), Grok Code Fast 1 (tools), gpt-oss-120b (tools), gpt-oss-20b (tools), gpt-5-mini-2025-08-07-medium (tools), gpt-4.1-mini-2025-04-14 (tools), Kimi K2 (tools), Qwen3-235B-A22B (tools), Qwen3-32B (tools), Kimi K2 Instruct 0905 (tools), Qwen3-Next-80B-A3B-Instruct (tools), DeepSeek-V3.1 (tools), Grok 4 (tools), Claude Sonnet 4.5 (tools), Claude Opus 4.1 (tools), gpt-5-codex (tools), Qwen3-30B-A3B-Thinking-2507 (tools), Qwen3-30B-A3B-Instruct-2507 (tools), GLM-4.6 (tools), MiniMax M2 (tools), Claude Opus 4.5 (tools), Gemini 3 Pro Preview (tools), gpt-5.1-codex-max (tools), gpt-5.2-2025-12-11-medium (tools), Devstral-2-123B-Instruct-2512 (tools), Devstral-Small-2-24B-Instruct-2512 (tools), DeepSeek-V3.2 (tools), Claude Code (tools), MiniMax M2.1 (tools), gpt-5.1-codex (tools), gpt-5.2-2025-12-11-xhigh (tools), gpt-5-mini-2025-08-07-high (tools), Kimi K2 Thinking (tools), GLM-4.7 (tools), Gemini 3 Flash Preview (tools), gpt-oss-120b-high (tools), GLM-4.7 Flash (tools), Kimi K2.5 (tools), gpt-5.2-codex (tools), Qwen3-Coder-Next (tools), Claude Opus 4.6-high (tools), GLM-5 (tools), Codex (tools), MiniMax M2.5 (tools), Junie (tools), Gemini 3.1 Pro Preview (tools), Claude Sonnet 4.6 (tools), gpt-5.3-codex (tools), gpt-5.3-codex-xhigh (tools), gpt-5.4-2026-03-05-medium (tools), Qwen3.5-35B-A3B (tools), Qwen3.5-397B-A17B (tools), Step-3.5-Flash (tools), GLM-5.1 (tools), MiniMax M2.7 (tools), Qwen3.5-27B (tools), Gemma 4 31B (tools), Cursor (tools), GLM-5.1 (tools), Claude Opus 4.7-high (tools), gpt-5.5-2026-04-23-medium (tools), gpt-5.5-2026-04-23-xhigh (tools), Kimi K2.6 (tools), Claude Opus 4.8-xhigh (tools), Gemini 3.5 Flash (tools), MiniMax M3 (tools), GLM-5.2 (tools), DeepSeek-V4 Pro (tools), MiMo V2.5 Pro (tools), Qwen3.6-27B (tools), Qwen3.6-35B-A3B (tools), DeepSeek-V4 Flash (tools)"
     - radiogroup
       - LabelText
-        - radio "Resolved Rate" [checked=true, ref=e863]
+        - radio "Resolved Rate" [checked=true, ref=e693]
         - StaticText "Resolved Rate"
-      - LabelText [ref=e19] clickable [cursor:pointer]
-        - radio "Pass@5" [checked=false, ref=e864]
+      - LabelText [ref=e20] clickable [cursor:pointer]
+        - radio "Pass@5" [checked=false, ref=e694]
         - StaticText "Pass@5"
     - generic
-      - SvgRoot [ref=e865] clickable [onclick]
+      - SvgRoot [ref=e695] clickable [onclick]
         - StaticText "Jan 2025"
         - StaticText "Feb 2025"
         - StaticText "Mar 2025"
@@ -1167,219 +1485,16 @@
         - StaticText "65"
         - StaticText "70"
         - group
-        - group [ref=e874] clickable [cursor:pointer]
-          - StaticText "gpt-4.1-2025-04-14 (text)"
-        - group [ref=e875] clickable [cursor:pointer]
-          - StaticText "DeepSeek-V3-0324 (text)"
-        - group [ref=e876] clickable [cursor:pointer]
-          - StaticText "DeepSeek-V3 (text)"
-        - group [ref=e877] clickable [cursor:pointer]
-          - StaticText "Qwen3-235B-A22B no-thinking (text)"
-        - group [ref=e878] clickable [cursor:pointer]
-          - StaticText "Qwen3-235B-A22B thinking (text)"
-        - group [ref=e879] clickable [cursor:pointer]
-          - StaticText "Qwen3-32B no-thinking (text)"
-        - group [ref=e880] clickable [cursor:pointer]
-          - StaticText "Qwen3-32B thinking (text)"
-        - group [ref=e881] clickable [cursor:pointer]
-          - StaticText "Llama-4-Maverick-17B-128E-Instruct (text)"
-        - group [ref=e882] clickable [cursor:pointer]
-          - StaticText "Qwen2.5-72B-Instruct (text)"
-        - group [ref=e883] clickable [cursor:pointer]
-          - StaticText "Llama-3.3-70B-Instruct (text)"
-        - group [ref=e884] clickable [cursor:pointer]
-          - StaticText "Llama-4-Scout-17B-16E-Instruct (text)"
-        - group [ref=e885] clickable [cursor:pointer]
-          - StaticText "gemma-3-27b-it (text)"
-        - group [ref=e886] clickable [cursor:pointer]
-          - StaticText "Qwen2.5-Coder-32B-Instruct (text)"
-        - group [ref=e887] clickable [cursor:pointer]
-          - StaticText "gpt-4.1-mini-2025-04-14 (text)"
-        - group [ref=e888] clickable [cursor:pointer]
-          - StaticText "gpt-4.1-nano-2025-04-14 (text)"
-        - group [ref=e889] clickable [cursor:pointer]
-          - StaticText "gemini-2.0-flash (text)"
-        - group [ref=e890] clickable [cursor:pointer]
-          - StaticText "gemini-2.5-flash-preview-05-20 no-thinking (text)"
-        - group [ref=e891] clickable [cursor:pointer]
-          - StaticText "Devstral-Small-2505 (text)"
-        - group [ref=e892] clickable [cursor:pointer]
-          - StaticText "DeepSeek-V3-0324 (tools)"
-        - group [ref=e893] clickable [cursor:pointer]
-          - StaticText "Claude Sonnet 3.5 (tools)"
-        - group [ref=e894] clickable [cursor:pointer]
-          - StaticText "Claude Sonnet 4 (tools)"
-        - group [ref=e895] clickable [cursor:pointer]
-          - StaticText "gemini-2.5-flash-preview-05-20 no-thinking (tools)"
-        - group [ref=e896] clickable [cursor:pointer]
-          - StaticText "gpt-4.1-2025-04-14 (tools)"
-        - group [ref=e897] clickable [cursor:pointer]
-          - StaticText "o3-2025-04-16 (tools)"
-        - group [ref=e898] clickable [cursor:pointer]
-          - StaticText "gemini-2.5-flash (tools)"
-        - group [ref=e899] clickable [cursor:pointer]
-          - StaticText "gemini-2.0-flash (tools)"
-        - group [ref=e900] clickable [cursor:pointer]
-          - StaticText "gemini-2.5-pro (tools)"
-        - group [ref=e901] clickable [cursor:pointer]
-          - StaticText "Qwen3-Coder-480B-A35B-Instruct (tools)"
-        - group [ref=e902] clickable [cursor:pointer]
-          - StaticText "Qwen3-235B-A22B-Thinking-2507 (tools)"
-        - group [ref=e903] clickable [cursor:pointer]
-          - StaticText "Qwen3-235B-A22B-Instruct-2507 (tools)"
-        - group [ref=e904] clickable [cursor:pointer]
-          - StaticText "o4-mini-2025-04-16 (tools)"
-        - group [ref=e905] clickable [cursor:pointer]
-          - StaticText "DeepSeek-R1-0528 (tools)"
-        - group [ref=e906] clickable [cursor:pointer]
-          - StaticText "horizon-alpha (tools)"
-        - group [ref=e907] clickable [cursor:pointer]
-          - StaticText "Qwen3-Coder-30B-A3B-Instruct (tools)"
-        - group [ref=e908] clickable [cursor:pointer]
-          - StaticText "horizon-beta (tools)"
-        - group [ref=e909] clickable [cursor:pointer]
-          - StaticText "gpt-5-2025-08-07-medium (tools)"
-        - group [ref=e910] clickable [cursor:pointer]
-          - StaticText "gpt-5-2025-08-07-high (tools)"
-        - group [ref=e911] clickable [cursor:pointer]
-          - StaticText "gpt-5-2025-08-07-minimal (tools)"
-        - group [ref=e912] clickable [cursor:pointer]
-          - StaticText "GLM-4.5 (tools)"
-        - group [ref=e913] clickable [cursor:pointer]
-          - StaticText "GLM-4.5 Air (tools)"
-        - group [ref=e914] clickable [cursor:pointer]
-          - StaticText "Grok Code Fast 1 (tools)"
-        - group [ref=e915] clickable [cursor:pointer]
-          - StaticText "gpt-oss-120b (tools)"
-        - group [ref=e916] clickable [cursor:pointer]
-          - StaticText "gpt-oss-20b (tools)"
-        - group [ref=e917] clickable [cursor:pointer]
-          - StaticText "gpt-5-mini-2025-08-07-medium (tools)"
-        - group [ref=e918] clickable [cursor:pointer]
-          - StaticText "gpt-4.1-mini-2025-04-14 (tools)"
-        - group [ref=e919] clickable [cursor:pointer]
-          - StaticText "Kimi K2 (tools)"
-        - group [ref=e920] clickable [cursor:pointer]
-          - StaticText "Qwen3-235B-A22B (tools)"
-        - group [ref=e921] clickable [cursor:pointer]
-          - StaticText "Qwen3-32B (tools)"
-        - group [ref=e922] clickable [cursor:pointer]
-          - StaticText "Kimi K2 Instruct 0905 (tools)"
-        - group [ref=e923] clickable [cursor:pointer]
-          - StaticText "Qwen3-Next-80B-A3B-Instruct (tools)"
-        - group [ref=e924] clickable [cursor:pointer]
-          - StaticText "DeepSeek-V3.1 (tools)"
-        - group [ref=e925] clickable [cursor:pointer]
-          - StaticText "Grok 4 (tools)"
-        - group [ref=e926] clickable [cursor:pointer]
-          - StaticText "Claude Sonnet 4.5 (tools)"
-        - group [ref=e927] clickable [cursor:pointer]
-          - StaticText "Claude Opus 4.1 (tools)"
-        - group [ref=e928] clickable [cursor:pointer]
-          - StaticText "gpt-5-codex (tools)"
-        - group [ref=e929] clickable [cursor:pointer]
-          - StaticText "Qwen3-30B-A3B-Thinking-2507 (tools)"
-        - group [ref=e930] clickable [cursor:pointer]
-          - StaticText "Qwen3-30B-A3B-Instruct-2507 (tools)"
-        - group [ref=e931] clickable [cursor:pointer]
-          - StaticText "GLM-4.6 (tools)"
-        - group [ref=e932] clickable [cursor:pointer]
-          - StaticText "MiniMax M2 (tools)"
-        - group [ref=e933] clickable [cursor:pointer]
-          - StaticText "Claude Opus 4.5 (tools)"
-        - group [ref=e934] clickable [cursor:pointer]
-          - StaticText "Gemini 3 Pro Preview (tools)"
-        - group [ref=e935] clickable [cursor:pointer]
-          - StaticText "gpt-5.1-codex-max (tools)"
-        - group [ref=e936] clickable [cursor:pointer]
-          - StaticText "gpt-5.2-2025-12-11-medium (tools)"
-        - group [ref=e937] clickable [cursor:pointer]
-          - StaticText "Devstral-2-123B-Instruct-2512 (tools)"
-        - group [ref=e938] clickable [cursor:pointer]
-          - StaticText "Devstral-Small-2-24B-Instruct-2512 (tools)"
-        - group [ref=e939] clickable [cursor:pointer]
-          - StaticText "DeepSeek-V3.2 (tools)"
-        - group [ref=e940] clickable [cursor:pointer]
-          - StaticText "Claude Code (tools)"
-        - group [ref=e941] clickable [cursor:pointer]
-          - StaticText "MiniMax M2.1 (tools)"
-        - group [ref=e942] clickable [cursor:pointer]
-          - StaticText "gpt-5.1-codex (tools)"
-        - group [ref=e943] clickable [cursor:pointer]
-          - StaticText "gpt-5.2-2025-12-11-xhigh (tools)"
-        - group [ref=e944] clickable [cursor:pointer]
-          - StaticText "gpt-5-mini-2025-08-07-high (tools)"
-        - group [ref=e945] clickable [cursor:pointer]
-          - StaticText "Kimi K2 Thinking (tools)"
-        - group [ref=e946] clickable [cursor:pointer]
-          - StaticText "GLM-4.7 (tools)"
-        - group [ref=e947] clickable [cursor:pointer]
-          - StaticText "Gemini 3 Flash Preview (tools)"
-        - group [ref=e948] clickable [cursor:pointer]
-          - StaticText "gpt-oss-120b-high (tools)"
-        - group [ref=e949] clickable [cursor:pointer]
-          - StaticText "GLM-4.7 Flash (tools)"
-        - group [ref=e950] clickable [cursor:pointer]
-          - StaticText "Kimi K2.5 (tools)"
-        - group [ref=e951] clickable [cursor:pointer]
-          - StaticText "gpt-5.2-codex (tools)"
-        - group [ref=e952] clickable [cursor:pointer]
-          - StaticText "Qwen3-Coder-Next (tools)"
-        - group [ref=e953] clickable [cursor:pointer]
-          - StaticText "Claude Opus 4.6-high (tools)"
-        - group [ref=e954] clickable [cursor:pointer]
-          - StaticText "GLM-5 (tools)"
-        - group [ref=e955] clickable [cursor:pointer]
-          - StaticText "Codex (tools)"
-        - group [ref=e956] clickable [cursor:pointer]
-          - StaticText "MiniMax M2.5 (tools)"
-        - group [ref=e957] clickable [cursor:pointer]
-          - StaticText "Junie (tools)"
-        - group [ref=e958] clickable [cursor:pointer]
-          - StaticText "Gemini 3.1 Pro Preview (tools)"
-        - group [ref=e959] clickable [cursor:pointer]
-          - StaticText "Claude Sonnet 4.6 (tools)"
-        - group [ref=e960] clickable [cursor:pointer]
-          - StaticText "gpt-5.3-codex (tools)"
-        - group [ref=e961] clickable [cursor:pointer]
-          - StaticText "gpt-5.3-codex-xhigh (tools)"
-        - group [ref=e962] clickable [cursor:pointer]
-          - StaticText "gpt-5.4-2026-03-05-medium (tools)"
-        - group [ref=e963] clickable [cursor:pointer]
-          - StaticText "Qwen3.5-35B-A3B (tools)"
-        - group [ref=e964] clickable [cursor:pointer]
-          - StaticText "Qwen3.5-397B-A17B (tools)"
-        - group [ref=e965] clickable [cursor:pointer]
-          - StaticText "Step-3.5-Flash (tools)"
-        - group [ref=e966] clickable [cursor:pointer]
-          - StaticText "GLM-5.1 (tools)"
-        - group [ref=e967] clickable [cursor:pointer]
-          - StaticText "MiniMax M2.7 (tools)"
-        - group [ref=e968] clickable [cursor:pointer]
-          - StaticText "Qwen3.5-27B (tools)"
-        - group [ref=e969] clickable [cursor:pointer]
-          - StaticText "Gemma 4 31B (tools)"
-        - group [ref=e970] clickable [cursor:pointer]
-          - StaticText "Cursor (tools)"
-        - group [ref=e971] clickable [cursor:pointer]
-          - StaticText "GLM-5.1 (tools)"
-        - group [ref=e972] clickable [cursor:pointer]
-          - StaticText "Claude Opus 4.7-high (tools)"
-        - group [ref=e973] clickable [cursor:pointer]
-          - StaticText "gpt-5.5-2026-04-23-medium (tools)"
-        - group [ref=e974] clickable [cursor:pointer]
-          - StaticText "gpt-5.5-2026-04-23-xhigh (tools)"
-        - group [ref=e975] clickable [cursor:pointer]
-          - StaticText "Kimi K2.6 (tools)"
-        - group [ref=e976] clickable [cursor:pointer]
-          - StaticText "Claude Opus 4.8-xhigh (tools)"
-        - group [ref=e977] clickable [cursor:pointer]
-          - StaticText "Gemini 3.5 Flash (tools)"
-        - group [ref=e978] clickable [cursor:pointer]
-          - StaticText "MiniMax M3 (tools)"
-        - StaticText "Click legend items to show/hide data. Hold Ctrl/Cmd to select multiple items."
-  - heading "News" [level=2, ref=e9]
+  - heading "News" [level=2, ref=e10]
   - list
+    - listitem [level=1]
+      - ListMarker "• "
+      - strong
+        - StaticText "[2026-07-01]:"
+      - list
+        - listitem [level=2]
+          - ListMarker "◦ "
+          - StaticText "Added new models to the leaderboad: GLM 5.2, DeepSeek-V4 Pro, DeepSeek-V4 Flash, MiMo V2.5 Pro, Qwen3.6-35B-A3B, Qwen3.6-27B and Gemma 4 31B."
     - listitem [level=1]
       - ListMarker "• "
       - strong
@@ -1603,8 +1718,8 @@
         - listitem [level=2]
           - StaticText "Updated demo format: tool calls are now shown as distinct assistant and tool messages."
     - listitem [level=1]
-      - link "Docker images" [ref=e20]
-      - link "dataset" [ref=e21]
+      - link "Docker images" [ref=e21]
+      - link "dataset" [ref=e22]
     - listitem [level=1]
     - listitem [level=1]
       - StaticText " Added tool usage support, evaluations on May data and new models: Claude Sonnet 3.5/4 and o3."

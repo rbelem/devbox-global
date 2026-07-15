@@ -1,5 +1,5 @@
 {
-  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "$schema": "https://raw.githubusercontent.com/alvinunreal/oh-my-opencode-slim/master/oh-my-opencode-slim.schema.json",
   "disabled_agents": [],
   "showStartupToast": true,
   "companion": {
@@ -11,7 +11,7 @@
   "presets": {
     "quality": {
       "orchestrator": {
-        "model": "omniroute/openrouter/z-ai/glm-5.2",
+        "model": "zai/glm-5.2",
         "variant": "max",
         "skills": [
           "*",
@@ -44,7 +44,7 @@
         ]
       },
       "oracle": {
-        "model": "omniroute/openrouter/z-ai/glm-5.2",
+        "model": "minimax/MiniMax-M3",
         "variant": "max",
         "skills": [
           "simplify",
@@ -87,7 +87,7 @@
         ]
       },
       "designer": {
-        "model": "omniroute/openrouter/z-ai/glm-5.2",
+        "model": "minimax/MiniMax-M3",
         "variant": "high",
         "temperature": 0.7,
         "skills": [
@@ -120,7 +120,7 @@
         ]
       },
       "observer": {
-        "model": "opencode-go/minimax-m3",
+        "model": "minimax/MiniMax-M3",
         "variant": "medium",
         "skills": [
           "docling"
@@ -130,14 +130,14 @@
         ]
       },
       "council": {
-        "model": "omniroute/openrouter/z-ai/glm-5.2",
+        "model": "minimax/MiniMax-M3",
         "variant": "max"
       }
     },
     "value": {
       "orchestrator": {
-        "model": "opencode-go/mimo-v2.5",
-        "variant": "low",
+        "model": "minimax/MiniMax-M3",
+        "variant": "max",
         "skills": [
           "*",
           "!find-skills",
@@ -169,8 +169,124 @@
         ]
       },
       "oracle": {
-        "model": "opencode-go/qwen3.7-plus",
+        "model": "zai/glm-5.2",
+        "variant": "max",
+        "skills": [
+          "simplify",
+          "code-review",
+          "diagnosing-bugs",
+          "codebase-design",
+          "zoom-out",
+          "domain-modeling"
+        ],
+        "mcps": [
+          "codegraph"
+        ]
+      },
+      "librarian": {
+        "model": "opencode-go/mimo-v2.5",
+        "variant": "low",
+        "skills": [
+          "docling",
+          "research"
+        ],
+        "mcps": [
+          "websearch",
+          "context7",
+          "gh_grep",
+          "firecrawl-mcp",
+          "opencode-docs",
+          "docling"
+        ]
+      },
+      "explorer": {
+        "model": "opencode-go/deepseek-v4-flash",
+        "variant": "low",
+        "skills": [],
+        "mcps": [
+          "codegraph"
+        ]
+      },
+      "designer": {
+        "model": "minimax/MiniMax-M3",
+        "variant": "max",
+        "temperature": 0.7,
+        "skills": [
+          "agent-browser",
+          "design-taste-frontend",
+          "high-end-visual-design",
+          "image-to-code",
+          "prototype"
+        ],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "minimax/MiniMax-M3",
+        "variant": "high",
+        "skills": [
+          "git-commit",
+          "devbox",
+          "full-output-enforcement",
+          "graphify",
+          "clonedeps",
+          "tdd"
+        ],
+        "mcps": [
+          "codegraph"
+        ]
+      },
+      "observer": {
+        "model": "minimax/MiniMax-M3",
         "variant": "medium",
+        "skills": [
+          "docling"
+        ],
+        "mcps": [
+          "docling"
+        ]
+      },
+      "council": {
+        "model": "minimax/MiniMax-M3",
+        "variant": "max"
+      }
+    },
+    "cheap": {
+      "orchestrator": {
+        "model": "minimax/MiniMax-M3",
+        "variant": "medium",
+        "skills": [
+          "*",
+          "!find-skills",
+          "!design-taste-frontend",
+          "!high-end-visual-design",
+          "!minimalist-ui",
+          "!industrial-brutalist-ui",
+          "!mobile-android-design",
+          "!brandkit",
+          "!redesign-existing-projects",
+          "!imagegen-frontend-web",
+          "!imagegen-frontend-mobile",
+          "!gpt-taste",
+          "!stitch-design-taste",
+          "!image-to-code",
+          "!prototype"
+        ],
+        "mcps": [
+          "*",
+          "!chrome-devtools",
+          "!browsermcp",
+          "!firecrawl-mcp",
+          "!context7",
+          "!gh_grep",
+          "!opencode-docs",
+          "!openrouter",
+          "!omniroute",
+          "!websearch"
+        ]
+      },
+      "oracle": {
+        "model": "opencode-go/mimo-v2.5",
+        "variant": "high",
         "skills": [
           "simplify",
           "code-review",
@@ -209,7 +325,7 @@
       },
       "designer": {
         "model": "opencode-go/mimo-v2.5",
-        "variant": "medium",
+        "variant": "high",
         "temperature": 0.7,
         "skills": [
           "agent-browser",
@@ -222,7 +338,7 @@
       },
       "fixer": {
         "model": "opencode-go/deepseek-v4-flash",
-        "variant": "low",
+        "variant": "high",
         "skills": [
           "git-commit",
           "devbox",
@@ -236,8 +352,8 @@
         ]
       },
       "observer": {
-        "model": "opencode-go/minimax-m3",
-        "variant": "medium",
+        "model": "minimax/MiniMax-M3",
+        "variant": "low",
         "skills": [
           "docling"
         ],
@@ -247,7 +363,7 @@
       },
       "council": {
         "model": "opencode-go/mimo-v2.5",
-        "variant": "medium"
+        "variant": "high"
       }
     }
   },
@@ -276,43 +392,28 @@
   },
   "council": {
     "timeout": 600000,
-    "default_preset": "opencode-go",
+    "default_preset": "default",
     "presets": {
-      "opencode-go": {
+      "default": {
         "alpha": {
+          "model": "zai/glm-5.2",
+          "variant": "max"
+        },
+        "beta": {
+          "model": "minimax/MiniMax-M3",
+          "variant": "max"
+        },
+        "gamma": {
           "model": "opencode-go/qwen3.7-max",
           "variant": "high"
         },
-        "beta": {
-          "model": "opencode-go/kimi-k2.7-code",
-          "variant": "high"
-        },
-        "gamma": {
-          "model": "omniroute/openrouter/tencent/hy3",
-          "variant": "high"
-        },
         "delta": {
-          "model": "omniroute/openrouter/z-ai/glm-5.2",
-          "variant": "max"
-        },
-        "epsilon": {
-          "model": "opencode-go/minimax-m3",
+          "model": "opencode-go/kimi-k2.7-code",
           "variant": "high"
         },
         "zeta": {
           "model": "opencode-go/mimo-v2.5-pro",
           "variant": "high"
-        }
-      },
-      "opencode-free": {
-        "alpha": {
-          "model": "opencode/deepseek-v4-flash-free"
-        },
-        "beta": {
-          "model": "opencode/mimo-v2.5-free"
-        },
-        "gamma": {
-          "model": "opencode/north-mini-code-free"
         }
       }
     }

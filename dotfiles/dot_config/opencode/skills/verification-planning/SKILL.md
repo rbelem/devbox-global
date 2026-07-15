@@ -98,6 +98,5 @@ what remains outside its reach.
 ## Scope
 
 Use this skill proportionately. Small mechanical changes can follow ordinary
-project checks directly. For release-specific validation, use
-`release-smoke-test`; for larger multi-phase work, let this skill establish the
-evidence path that later work follows.
+project checks directly. For larger multi-phase work, let this skill establish
+the evidence path that later work follows.
