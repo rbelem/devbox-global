@@ -77,6 +77,7 @@
     "path:devbox.d/herdr",
     "path:devbox.d/hunk",
     "path:devbox.d/omniroute",
+    "path:devbox.d/dcg",
     "nodejs@latest",
     "file@latest",
   ],
