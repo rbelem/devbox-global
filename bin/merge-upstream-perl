@@ -1,0 +1,200 @@
+#!/usr/bin/env bash
+# merge-upstream-perl
+# Syncs the upstream release tag into a rbelem/*-perl fork branch.
+# Used after `update-flake` bumps a perl-flake (codegraph, graphify).
+#
+# Examples:
+#   merge-upstream-perl --repo graphify --version 0.9.17      # dry-run by default
+#   merge-upstream-perl --repo graphify --version 0.9.17 --apply
+#   merge-upstream-perl --repo codegraph --version 1.4.2
+#
+# What it does:
+#   1. Locates $(ghq root)/github.com/rbelem/<repo>
+#   2. git fetch upstream --tags
+#   3. Checkouts the perl branch (v<N>.<N>.x-perl for codegraph; v<N-perl for graphify)
+#   4. git merge v<version> with hints for known conflicts (CHANGELOG.md, pyproject.toml)
+#   5. Pushes to origin (force-push safe — personal forks)
+#
+# Conflict auto-resolution is intentionally NOT performed: human review is
+# required for CHANGELOG.md and pyproject.toml. The script aborts the merge
+# cleanly (git merge --abort) and prints hints if conflicts arise.
+set -euo pipefail
+
+# ── Colors ──
+RED=$'\033[0;31m'
+GREEN=$'\033[0;32m'
+YELLOW=$'\033[1;33m'
+CYAN=$'\033[0;36m'
+BOLD=$'\033[1m'
+NC=$'\033[0m'
+
+# ── Defaults ──
+REPO=""
+VERSION=""
+APPLY=false
+
+usage() {
+    cat <<EOF
+Usage: $(basename "$0") --repo <name> --version <X.Y.Z> [--apply]
+
+  --repo <name>      Fork to sync. Currently one of: codegraph, graphify.
+  --version <ver>    Upstream version tag to merge (e.g. 0.9.17).
+  --apply            Actually push the merge. Default is dry-run.
+
+Dry-run (default) shows what WOULD happen without fetching/merging/pushing.
+
+Examples:
+  $(basename "$0") --repo graphify --version 0.9.17
+  $(basename "$0") --repo codegraph --version 1.4.2 --apply
+EOF
+}
+
+# ── Parse args ──
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --repo)    REPO="$2"; shift 2 ;;
+        --version) VERSION="$2"; shift 2 ;;
+        --apply)   APPLY=true; shift ;;
+        -h|--help) usage; exit 0 ;;
+        *) echo "${RED}Unknown arg${NC}: $1" >&2; usage; exit 1 ;;
+    esac
+done
+
+if [[ -z "$REPO" || -z "$VERSION" ]]; then
+    echo "${RED}ERROR${NC}: --repo and --version are required." >&2
+    usage; exit 1
+fi
+
+# ── Fork registry: maps repo → (perl branch, upstream remote repo) ──
+case "$REPO" in
+    codegraph)
+        PERL_BRANCH="v1.4.x-perl"   # update this when upstream major.minor series advances
+        UPSTREAM_OWNER="colbymchenry"
+        ;;
+    graphify)
+        PERL_BRANCH="v9-perl"
+        UPSTREAM_OWNER="safishamsi"
+        ;;
+    *)
+        echo "${RED}ERROR${NC}: unknown fork '$REPO'. Add it to the registry in $0." >&2
+        exit 1
+        ;;
+esac
+
+UPSTREAM_REPO="$UPSTREAM_OWNER/$REPO"
+FORK_DIR="$(ghq root)/github.com/rbelem/$REPO"
+TAG="v$VERSION"
+
+# ── Preflight ──
+if [[ ! -d "$FORK_DIR/.git" ]]; then
+    echo "${RED}ERROR${NC}: fork not found at $FORK_DIR." >&2
+    echo "  Clone via: ghq get rbelem/$REPO" >&2
+    exit 1
+fi
+
+cd "$FORK_DIR"
+
+# Verify both remotes exist
+if ! git remote get-url upstream >/dev/null 2>&1; then
+    echo "${RED}ERROR${NC}: 'upstream' remote not configured." >&2
+    echo "  Add via: git -C '$FORK_DIR' remote add upstream https://github.com/$UPSTREAM_REPO.git" >&2
+    exit 1
+fi
+
+if ! git remote get-url origin >/dev/null 2>&1; then
+    echo "${RED}ERROR${NC}: 'origin' remote not configured." >&2
+    exit 1
+fi
+
+# Ensure working tree is clean
+if ! git diff --quiet HEAD 2>/dev/null || [[ -n "$(git status --porcelain)" ]]; then
+    echo "${RED}ERROR${NC}: working tree has uncommitted changes. Commit or stash first." >&2
+    git status --short
+    exit 1
+fi
+
+# Verify the tag exists upstream
+echo "${BOLD}Preflight${NC}"
+echo "  fork:        $FORK_DIR"
+echo "  perl branch: $PERL_BRANCH"
+echo "  upstream:    https://github.com/$UPSTREAM_REPO.git"
+echo "  merge tag:   $TAG"
+echo ""
+
+# Quick check that upstream has the tag (without fetching in dry-run)
+if ! $APPLY; then
+    if git ls-remote --tags "https://github.com/$UPSTREAM_REPO.git" "$TAG" 2>/dev/null | grep -q "$TAG"; then
+        echo "  ${GREEN}✓${NC} upstream tag $TAG exists"
+    else
+        echo "  ${YELLOW}?${NC} upstream tag $TAG not yet seen locally — will fetch in --apply"
+    fi
+    echo ""
+    echo "${YELLOW}DRY-RUN${NC}: would execute:"
+    echo "  cd $FORK_DIR"
+    echo "  git fetch upstream --tags"
+    echo "  git checkout $PERL_BRANCH"
+    echo "  git merge $TAG --no-edit"
+    echo "  [on conflict]: abort merge, print hint for known files:"
+    echo "    - CHANGELOG.md: keep upstream entries + restore Perl entry at top"
+    echo "    - pyproject.toml (graphify only): keep tree-sitter-perl dep, perl extra; combine all lists"
+    echo "  git push origin $PERL_BRANCH"
+    exit 0
+fi
+
+# ── Apply: do the work ──
+echo "${BOLD}${CYAN}Applying${NC}"
+echo ""
+
+echo "  git fetch upstream --tags"
+git fetch upstream --tags
+echo "  ${GREEN}✓${NC} fetched"
+
+# Verify the tag now exists locally
+if ! git rev-parse "$TAG" >/dev/null 2>&1; then
+    echo "${RED}ERROR${NC}: tag $TAG not found even after fetch. Aborting." >&2
+    exit 1
+fi
+
+echo "  git checkout $PERL_BRANCH"
+if ! git checkout "$PERL_BRANCH" 2>/dev/null; then
+    echo "${RED}ERROR${NC}: could not checkout $PERL_BRANCH. Branch may be missing." >&2
+    echo "  Create with: git checkout -b $PERL_BRANCH upstream/main" >&2
+    exit 1
+fi
+
+echo "  git merge $TAG --no-edit"
+# --no-edit accepts the default merge commit message. The merge may still
+# fail with conflicts — that's a feature, not a bug. We handle it below.
+if git merge "$TAG" --no-edit 2>&1 | tail -20; then
+    echo ""
+    echo "  ${GREEN}✓${NC} merge succeeded (no conflicts)"
+else
+    echo ""
+    echo "  ${YELLOW}!${NC} merge has conflicts. Resolution hints:"
+    case "$REPO" in
+        graphify)
+            echo "    - CHANGELOG.md: keep upstream entries, restore 'tree-sitter-perl' Perl entry at top"
+            echo "    - pyproject.toml: keep 'tree-sitter-perl' in deps + 'perl = [\"tree-sitter-perl\"]' extra"
+            echo "                   combine 'all = [...]' lists: upstream extras + tree-sitter-perl"
+            ;;
+        codegraph)
+            echo "    - CHANGELOG.md: keep upstream changelog + restore Perl entry at top"
+            ;;
+    esac
+    echo ""
+    echo "  Resolve, then:"
+    echo "    git add <resolved files>"
+    echo "    git commit --no-edit"
+    echo "    $0 --repo $REPO --version $VERSION --apply  # skip fetch+checkout, only push"
+    echo ""
+    echo "  OR abort this merge:"
+    echo "    git merge --abort"
+    exit 1
+fi
+
+echo "  git push origin $PERL_BRANCH"
+git push origin "$PERL_BRANCH"
+echo "  ${GREEN}✓${NC} pushed"
+
+echo ""
+echo "${BOLD}${GREEN}Done${NC}: $PERL_BRANCH now contains $TAG"

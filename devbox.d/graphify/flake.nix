@@ -3,9 +3,11 @@
   # upstream: safishamsi/graphify
   # fork-suffix: -perl
   #
-  # After bumping the version above, sync the v9-perl fork branch:
+  # After bumping the version above, sync the v9-perl fork branch.
+  # Easiest path: run merge-upstream-perl --repo graphify --version <X.Y.Z> [--apply].
+  # Manual path:
   #   cd $(ghq root)/github.com/safishamsi/graphify
-  #   git fetch origin --tags
+  #   git fetch upstream --tags
   #   git checkout v9-perl
   #   git merge v<new-version>
   #   # Resolve conflicts if any:

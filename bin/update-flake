@@ -57,6 +57,16 @@ DEVBOX_GLOBAL_PATH="$(devbox global path)"
 DEVBOX_JSON="$DEVBOX_GLOBAL_PATH/devbox.json"
 DEVBOX_D="$DEVBOX_GLOBAL_PATH/devbox.d"
 
+# ── Preflight: gh must be authenticated ──
+# gh release list / gh api calls below use `2>/dev/null || true` to keep
+# detection robust, but a missing gh auth causes ALL packages to show "unknown"
+# silently. Fail fast with a clear message instead.
+if ! gh auth status >/dev/null 2>&1; then
+    echo "${RED}ERROR${NC}: gh is not authenticated." >&2
+    echo "Run: ${BOLD}gh auth login${NC}" >&2
+    exit 1
+fi
+
 # Colors
 RED=$'\033[0;31m'
 GREEN=$'\033[0;32m'
@@ -203,7 +213,11 @@ for name in "${FLAKES[@]}"; do
 
     release_prefix="${FLAKE_RELEASE_PREFIX[$name]:-}"
 
-    # Try GitHub releases first (exclude pre-releases)
+    # Try GitHub releases first (exclude pre-releases).
+    # NOTE: `2>/dev/null || true` is intentional — API errors (rate limit,
+    # 404 for private repos, etc.) fall through to "unknown" for that
+    # package rather than aborting the whole run. The preflight gh-auth
+    # check above ensures at least the AUTH case is loud.
     latest_tags="$(gh release list -R "$owner/$repo" --limit 20 -L 20 --json tagName,isPrerelease -q '.[] | select(.isPrerelease == false) | .tagName' 2>/dev/null || true)"
 
     if [[ -n "$latest_tags" ]]; then
@@ -364,10 +378,13 @@ resolve_hashes() {
             return 1
         fi
 
-        # Replace the first fakeHash placeholder with the real hash (with quotes)
-        # Uses perl for first-match-only semantics (sed address ranges
-        # stop at comments containing "fakeHash" before reaching the assignment)
-        perl -i -pe 'if (!$done && s{"'"$FAKE_HASH"'";\s*#\s*FIXME:\s*was\s*"[^"]*"}{"'"$got_hash"'"} ) { $done = 1 }' "$flake_nix"
+        # Replace only the first occurrence (only the hash the current build
+        # is failing on). sed address range `0,/PATTERN/` stops at the first
+        # line containing PATTERN, so multi-hash flakes progress one hash
+        # per build iteration. The FIXME comment becomes stale (harmless
+        # audit trail) but the substitution itself is no longer coupled to
+        # the comment format.
+        sed -i -e "0,/\"${FAKE_HASH}\"/{s/\"${FAKE_HASH}\"/\"${got_hash}\"/}" "$flake_nix"
         echo "    hash $attempt: $got_hash"
     done
 

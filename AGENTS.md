@@ -233,17 +233,21 @@ here and synced to `$(devbox global path)/bin/` via `config-sync`; small scripts
 - `config-push` / `config-pull` — sync devbox.json to/from GitHub
 - `config-sync` — runs `config-sync` from `$(devbox global path)/bin/` (bidirectional repo↔global with conflict detection, supports `--dry-run`, `--diff`, `--reverse`, `--interactive`, `--sync`)
 - `update-flake` — runs `update-flake` from `$(devbox global path)/bin/` (parses flake.nix for
-  version + GitHub source, queries gh API for latest, prints color table).
-  **Pitfall**: `devbox global run update-flake` uses the current shellenv which
-  may not have `gh` in PATH. If it shows all packages as "unknown", run
-  `eval "$(devbox global shellenv --recompute)"` first, then run the script
-  directly from `$(devbox global path)/bin/update-flake`.
+  version + GitHub source, queries gh API for latest, prints color table). Supports:
+  - `(no args)` — show comparison table only
+  - `-u PKG [...]` — update specific packages
+  - `-a, --all` — update every package with an available update (scripts flag note:
+    devbox intercepts `--all`, so use `-a` via `devbox global run update-flake -a`)
+  **Preflight**: script checks `gh auth status` at startup. If everything reports
+  `unknown` (every LATEST cell), the cause is gh not authenticated, NOT a PATH
+  issue. Run `gh auth login` (or set `GH_TOKEN`).
   **Lock files**: After bumping versions, `devbox global install` (or
   `shellenv --recompute`) updates `flake.lock` files. Commit these alongside
   the version bumps — they pin the resolved input revisions.
   **Fork perl branches**: If the version bumps touched **codegraph** or
-  **graphify**, perform the perl branch maintenance documented above before
-  considering the update complete.
+  **graphify**, run `$(devbox global path)/bin/merge-upstream-perl --repo <name>
+  --version <X.Y.Z> --apply` before considering the update complete.
+  Manual fallback procedure is in `update-flake-workflow` skill, Step 5.
 - `secrets-setup` / `secrets-refresh` — manage Bitwarden secrets cache (scripts in `$(devbox global path)/bin/`)
 - `setup-git` — full git config (identity, aliases, delta, difftastic, credential helpers, includeif)
 - `setup-tmux` — clone gpakosz/.tmux + symlink local conf
