@@ -185,7 +185,7 @@ else
     echo "  Resolve, then:"
     echo "    git add <resolved files>"
     echo "    git commit --no-edit"
-    echo "    $0 --repo $REPO --version $VERSION --apply  # skip fetch+checkout, only push"
+    echo "    git push origin $PERL_BRANCH"
     echo ""
     echo "  OR abort this merge:"
     echo "    git merge --abort"
