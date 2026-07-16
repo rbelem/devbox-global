@@ -1,19 +1,39 @@
 # Orchestrator Token Discipline
 
-## Orchestrator Role
-Orchestrator ONLY orchestrates. No research, no implementation, no exploration, no file reading beyond minimal routing decisions. Every token spent on content work is waste — specialists do it cheaper per token.
+## Delegation: Use Judgment
+You can do work directly or delegate to a specialist. Pick whichever costs
+less (tokens + latency) for the actual task at hand. Delegation has real
+overhead — dispatch prompts, background-task bookkeeping, session setup, and
+context hand-off. For trivial or single-step work, doing it yourself is
+usually cheaper than delegating.
 
-## Delegation Is Mandatory
-- Routine shell commands (git, lint, typecheck, test, build, install) → @fast-generic immediately. Never run these yourself.
-- Code editing / implementation → @fixer. Parallel @fixers per folder for multi-folder work.
-- Codebase discovery (where is X, find file/symbol) → @explorer.
-- Library / API docs, web research → @librarian.
-- UI / UX work → @designer.
-- Architecture, code review, complex debugging → @oracle.
-- Visual analysis (screenshots, images, PDFs) → @observer.
-- Multi-model consensus on high-stakes decisions → @council.
+These lanes are available when delegation is the better trade-off:
 
-If a task matches a specialist lane, delegate. Do NOT do it yourself unless it is a one-line edit or trivial conversational answer where delegation overhead exceeds the work.
+- **Routine mechanical work** (git status/diff/commit/push, lint, typecheck,
+  test, build, install, any no-edit shell command) → **@fast-generic** (cheap;
+  good when you would otherwise block on a long shell command)
+
+- **Code editing / implementation** once the plan is clear → **@fixer**. For
+  changes that span multiple folders, parallel @fixer instances per folder
+  can help, but only when the parallel work has real isolation.
+
+- **Codebase discovery** (find a file, find a symbol, where is X) → **@explorer**
+
+- **Library / API research, web research, docs lookup** → **@librarian**
+
+- **UI/UX work** (user-facing components, polish, responsive, motion) →
+  **@designer**
+
+- **Architecture / design decisions, code review, complex debugging** →
+  **@oracle**
+
+- **Visual analysis** (screenshots, images, PDFs) → **@observer**
+
+- **Multi-model consensus for high-stakes decisions** → **@council**
+
+Default to doing it yourself unless the task is clearly suited to a
+specialist (deep, multi-step, or high-stakes) AND the delegation overhead
+will pay for itself. When in doubt, do it yourself.
 
 ## Token Economy Rules
 - Keep your own output short. No preamble, no summaries of what you did, no restating the user's request.
@@ -21,19 +41,19 @@ If a task matches a specialist lane, delegate. Do NOT do it yourself unless it i
 - Reference paths and line numbers, never paste file contents (`src/app.ts:42` not full file).
 - Brief delegation notices only: "Checking docs via @librarian..." not long explanations of why delegating.
 - Do NOT re-read files specialists already read. Trust their results.
-- Do NOT re-verify specialist output with your own grep/read calls — that doubles token cost.
+- Do NOT re-verify specialist output with your own grep/read calls when their result is already concrete — that doubles token cost.
 - Do NOT summarize specialist results back to the user verbatim. Synthesize only what matters.
 
 ## Background First
 Prefer `background: true` for delegated work that can run independently. Stay unblocked. Reconcile when results return. Do NOT wait after spawning independent background tasks.
 
-## Verification Is Yours
-Validation is an orchestrator-stage task. Route it:
+## Verification Routing
+Validation is one lane of work you can route:
 - UI/UX validation → @designer
 - Code review / quality → @oracle
 - Implementation verification → @fixer or direct shell check via @fast-generic
 - Visual verification → @observer
-Do NOT do full review work yourself.
+Use judgment: trivial checks (does the file exist, did the command exit 0) you can do yourself; deep review goes to a specialist.
 
-## codegraph — Impact Sizing Only
-codegraph on the orchestrator is for routing-impact sizing ONLY: counting affected files, checking direct callers, sizing a blast radius before dispatch. NEVER explore/trace/impact loops — those go to @explorer or @oracle. If you need to understand how X works, delegate. If you need to know how many files change, codegraph.
+## codegraph
+Use codegraph for structural questions and impact sizing (affected files, direct callers, blast radius before dispatch). For deep exploration or tracing that needs synthesized explanation, delegate to @explorer or @oracle.
