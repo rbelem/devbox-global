@@ -11,7 +11,7 @@
   "presets": {
     "quality": {
       "orchestrator": {
-        "model": "zai/glm-5.2",
+        "model": "zai-coding-plan/glm-5.2",
         "variant": "max",
         "skills": [
           "*",
@@ -44,7 +44,7 @@
         ]
       },
       "oracle": {
-        "model": "zai/glm-5.2",
+        "model": "zai-coding-plan/glm-5.2",
         "variant": "max",
         "skills": [
           "simplify",
@@ -168,7 +168,7 @@
         ]
       },
       "oracle": {
-        "model": "zai/glm-5.2",
+        "model": "zai-coding-plan/glm-5.2",
         "variant": "max",
         "skills": [
           "simplify",
@@ -283,7 +283,7 @@
         ]
       },
       "oracle": {
-        "model": "zai/glm-5.2",
+        "model": "zai-coding-plan/glm-5.2",
         "variant": "high",
         "skills": [
           "simplify",
@@ -393,7 +393,7 @@
     "presets": {
       "default": {
         "alpha": {
-          "model": "zai/glm-5.2",
+          "model": "zai-coding-plan/glm-5.2",
           "variant": "max"
         },
         "beta": {
