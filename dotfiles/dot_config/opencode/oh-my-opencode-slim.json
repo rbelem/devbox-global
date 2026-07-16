@@ -7,7 +7,7 @@
     "position": "bottom-left",
     "size": "small"
   },
-  "preset": "cheap",
+  "preset": "value",
   "presets": {
     "quality": {
       "orchestrator": {
@@ -44,7 +44,7 @@
         ]
       },
       "oracle": {
-        "model": "minimax/MiniMax-M3",
+        "model": "zai/glm-5.2",
         "variant": "max",
         "skills": [
           "simplify",
@@ -283,7 +283,7 @@
         ]
       },
       "oracle": {
-        "model": "opencode-go/mimo-v2.5",
+        "model": "zai/glm-5.2",
         "variant": "high",
         "skills": [
           "simplify",
