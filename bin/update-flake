@@ -57,23 +57,28 @@ DEVBOX_GLOBAL_PATH="$(devbox global path)"
 DEVBOX_JSON="$DEVBOX_GLOBAL_PATH/devbox.json"
 DEVBOX_D="$DEVBOX_GLOBAL_PATH/devbox.d"
 
-# ── Preflight: gh must be authenticated ──
-# gh release list / gh api calls below use `2>/dev/null || true` to keep
-# detection robust, but a missing gh auth causes ALL packages to show "unknown"
-# silently. Fail fast with a clear message instead.
-if ! gh auth status >/dev/null 2>&1; then
-    echo "${RED}ERROR${NC}: gh is not authenticated." >&2
-    echo "Run: ${BOLD}gh auth login${NC}" >&2
-    exit 1
-fi
-
-# Colors
+# Colors (declared before preflight so error paths can use them under set -u)
 RED=$'\033[0;31m'
 GREEN=$'\033[0;32m'
 YELLOW=$'\033[1;33m'
 CYAN=$'\033[0;36m'
 BOLD=$'\033[1m'
 NC=$'\033[0m'
+
+# ── Preflight: gh must be installed and authenticated ──
+# gh release list / gh api calls below use `2>/dev/null || true` to keep
+# detection robust, but a missing gh auth causes ALL packages to show "unknown"
+# silently. Fail fast with a clear message instead.
+if ! command -v gh >/dev/null 2>&1; then
+    echo "${RED}ERROR${NC}: gh is not installed." >&2
+    echo "Install: ${BOLD}nix-env -iA nixpkgs.gh${NC} or your distro's package manager." >&2
+    exit 1
+fi
+if ! gh auth status >/dev/null 2>&1; then
+    echo "${RED}ERROR${NC}: gh is not authenticated." >&2
+    echo "Run: ${BOLD}gh auth login${NC}" >&2
+    exit 1
+fi
 
 # Fake hash placeholder — literal string, works in any nix scope (no pkgs dependency)
 FAKE_HASH='sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='
@@ -326,12 +331,13 @@ update_flake() {
     fi
 
     # 3. Reset hashes to a literal fake hash (no pkgs dependency, works in any scope)
-    #    Named attrs: hash, srcHash, cargoHash, npmDepsHash, nodeModulesHash, outputHash
+    #    Named attrs: hash, srcHash, cargoHash, npmDepsHash, npmDistHash,
+    #                 nodeModulesHash, outputHash
     #    Quoted attrs: "platform" = "sha256-..." (agent-browser pattern)
     #    Uses ERE (sed -r), no PCRE non-capturing groups.
-    if grep -qE '(^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null \
+    if grep -qE '(^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|npmDistHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null \
         || grep -qE '"[^"]+"[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null; then
-        sed -ri 's/((^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1"'"$FAKE_HASH"'";  # FIXME: was "\4"/' "$flake_nix"
+        sed -ri 's/((^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|npmDistHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1"'"$FAKE_HASH"'";  # FIXME: was "\4"/' "$flake_nix"
         sed -ri 's/("[^"]+"[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1"'"$FAKE_HASH"'";  # FIXME: was "\2"/' "$flake_nix"
         echo "    ✓ hashes reset to fakeHash"
     else
@@ -345,51 +351,66 @@ resolve_hashes() {
     local flake_dir="$DEVBOX_D/$name"
     local flake_nix="$flake_dir/flake.nix"
     local max_attempts=10
+    local result=1  # default: failure
+    local attempt=0
 
     # Only if hashes were reset to fakeHash
-    if ! grep -qF "$FAKE_HASH" "$flake_nix" 2>/dev/null; then
-        return 0
+    if grep -qF "$FAKE_HASH" "$flake_nix" 2>/dev/null; then
+        echo ""
+        echo "    Computing hashes (building with nix)..."
+
+        for ((attempt=1; attempt<=max_attempts; attempt++)); do
+            # Check if all fakeHash placeholders are resolved
+            if ! grep -qF "$FAKE_HASH" "$flake_nix" 2>/dev/null; then
+                echo "    ${GREEN}✓${NC} all hashes resolved"
+                result=0
+                break
+            fi
+
+            # Build the flake and capture output
+            local build_output
+            if build_output=$(cd "$flake_dir" && nix build --no-link ".#default" 2>&1); then
+                echo "    ${GREEN}✓${NC} build succeeded"
+                result=0
+                break
+            fi
+
+            # Extract "got" hash from error output.
+            # NOTE: avoid `grep -oP '...\K...'` (PCRE lookbehind) — Alpine/musl/busybox
+            # greps don't support -P. Use ERE with sed to strip the prefix.
+            local got_hash
+            got_hash=$(echo "$build_output" | grep -oE 'got:[[:space:]]+sha256-[a-zA-Z0-9+/=]+' | head -1 | sed -E 's/^got:[[:space:]]+//')
+
+            if [[ -z "$got_hash" ]]; then
+                echo "    ${YELLOW}!${NC} non-hash build error:"
+                echo "$build_output" | grep -E '(error:|Error:)' | head -5 | sed 's/^/      /'
+                break
+            fi
+
+            # Replace only the first occurrence (only the hash the current build
+            # is failing on). sed address range `0,/PATTERN/` stops at the first
+            # line containing PATTERN, so multi-hash flakes progress one hash
+            # per build iteration. The trailing `; # FIXME: was "..."` audit
+            # comment (injected by the reset step above) is stripped from the
+            # same line — it's only meaningful during the resolution loop.
+            sed -i -e "0,/\"${FAKE_HASH}\"/{s/\"${FAKE_HASH}\"/\"${got_hash}\"/}" "$flake_nix"
+            sed -i -E -e "0,/\"${got_hash}\"/{s/;[[:space:]]*#[[:space:]]*FIXME:[[:space:]]*was[[:space:]]*\"sha256-[^\"]*\"//}" "$flake_nix"
+            echo "    hash $attempt: $got_hash"
+        done
+    else
+        result=0
     fi
 
-    echo ""
-    echo "    Computing hashes (building with nix)..."
+    # Final cleanup: strip any FIXME residue left behind (e.g. from previous
+    # bumps where one arch's hash could not be resolved on the host arch).
+    # Idempotent — no-op on clean files.
+    sed -i -E 's/;[[:space:]]*#[[:space:]]*FIXME:[[:space:]]*was[[:space:]]*"[^"]*"//g' "$flake_nix" 2>/dev/null || true
 
-    for ((attempt=1; attempt<=max_attempts; attempt++)); do
-        # Check if all fakeHash placeholders are resolved
-        if ! grep -qF "$FAKE_HASH" "$flake_nix" 2>/dev/null; then
-            echo "    ${GREEN}✓${NC} all hashes resolved"
-            return 0
-        fi
+    if [[ $result -eq 1 && $attempt -ge $max_attempts ]]; then
+        echo "    ${YELLOW}!${NC} max retries reached"
+    fi
 
-        # Build the flake and capture output
-        local build_output
-        if build_output=$(cd "$flake_dir" && nix build --no-link ".#default" 2>&1); then
-            echo "    ${GREEN}✓${NC} build succeeded"
-            return 0
-        fi
-
-        # Extract "got" hash from error output
-        local got_hash
-        got_hash=$(echo "$build_output" | grep -oP 'got:\s+\Ksha256-[a-zA-Z0-9+/=]+' | head -1)
-
-        if [[ -z "$got_hash" ]]; then
-            echo "    ${YELLOW}!${NC} non-hash build error:"
-            echo "$build_output" | grep -E '(error:|Error:)' | head -5 | sed 's/^/      /'
-            return 1
-        fi
-
-        # Replace only the first occurrence (only the hash the current build
-        # is failing on). sed address range `0,/PATTERN/` stops at the first
-        # line containing PATTERN, so multi-hash flakes progress one hash
-        # per build iteration. The FIXME comment becomes stale (harmless
-        # audit trail) but the substitution itself is no longer coupled to
-        # the comment format.
-        sed -i -e "0,/\"${FAKE_HASH}\"/{s/\"${FAKE_HASH}\"/\"${got_hash}\"/}" "$flake_nix"
-        echo "    hash $attempt: $got_hash"
-    done
-
-    echo "    ${YELLOW}!${NC} max retries reached"
-    return 1
+    return $result
 }
 
 # ── Print results ──
