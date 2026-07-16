@@ -542,6 +542,9 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
         done
         echo ""
         echo "${BOLD}${GREEN}All updates applied.${NC}"
+        echo ""
+        echo "→ Running post-install hooks..."
+        "$DEVBOX_GLOBAL_PATH/bin/post-install"
     fi
 fi
 
