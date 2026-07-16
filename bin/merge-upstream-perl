@@ -18,6 +18,11 @@
 # Conflict auto-resolution is intentionally NOT performed: human review is
 # required for CHANGELOG.md and pyproject.toml. The script aborts the merge
 # cleanly (git merge --abort) and prints hints if conflicts arise.
+#
+# Branch-version contract: PERL_BRANCH and TAG must share the same major.minor
+# series (e.g. v1.4.x-perl only accepts v1.4.* tags). When upstream crosses
+# major.minor, create the next series branch upstream and update PERL_BRANCH
+# below.
 set -euo pipefail
 
 # ── Colors ──
@@ -85,6 +90,26 @@ UPSTREAM_REPO="$UPSTREAM_OWNER/$REPO"
 FORK_DIR="$(ghq root)/github.com/rbelem/$REPO"
 TAG="v$VERSION"
 
+# ── Branch-version contract preflight ──
+# PERL_BRANCH and TAG must share the same major.minor series, otherwise we
+# risk merging v1.5.0 into v1.4.x-perl (git accepts it silently and the
+# branch name becomes a lie). When upstream crosses major.minor the user
+# must create the next series branch upstream and update PERL_BRANCH above.
+# `|| true` lets the regex assignment succeed when the pattern doesn't match
+# (e.g. graphify's v9-perl has no minor version); both empty strings compare
+# equal, so the preflight is a no-op for series-less branch names.
+BRANCH_SERIES="$(echo "$PERL_BRANCH" | grep -oE '^v[0-9]+\.[0-9]+' || true)"
+TAG_SERIES="$(echo "$TAG" | grep -oE '^v[0-9]+\.[0-9]+' || true)"
+if [[ -n "$BRANCH_SERIES" && -n "$TAG_SERIES" && "$BRANCH_SERIES" != "$TAG_SERIES" ]]; then
+    echo "${RED}ERROR${NC}: tag series $TAG_SERIES does not match perl branch series $BRANCH_SERIES." >&2
+    echo "When upstream $REPO crossed major.minor, create the next perl branch:" >&2
+    echo "  cd \"$FORK_DIR\"" >&2
+    echo "  git checkout -b ${TAG_SERIES}.x-perl $UPSTREAM_OWNER/main  # or master/main per upstream" >&2
+    echo "  git push -u origin ${TAG_SERIES}.x-perl" >&2
+    echo "Then update PERL_BRANCH in $0." >&2
+    exit 1
+fi
+
 # ── Preflight ──
 if [[ ! -d "$FORK_DIR/.git" ]]; then
     echo "${RED}ERROR${NC}: fork not found at $FORK_DIR." >&2
@@ -107,7 +132,7 @@ if ! git remote get-url origin >/dev/null 2>&1; then
 fi
 
 # Ensure working tree is clean
-if ! git diff --quiet HEAD 2>/dev/null || [[ -n "$(git status --porcelain)" ]]; then
+if [[ -n "$(git status --porcelain)" ]]; then
     echo "${RED}ERROR${NC}: working tree has uncommitted changes. Commit or stash first." >&2
     git status --short
     exit 1

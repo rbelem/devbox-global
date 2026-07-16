@@ -238,9 +238,10 @@ here and synced to `$(devbox global path)/bin/` via `config-sync`; small scripts
   - `-u PKG [...]` — update specific packages
   - `-a, --all` — update every package with an available update (scripts flag note:
     devbox intercepts `--all`, so use `-a` via `devbox global run update-flake -a`)
-  **Preflight**: script checks `gh auth status` at startup. If everything reports
-  `unknown` (every LATEST cell), the cause is gh not authenticated, NOT a PATH
-  issue. Run `gh auth login` (or set `GH_TOKEN`).
+  **Preflight**: script checks `gh auth status` at startup (added 024a02e).
+  If the script crashes with "gh is not authenticated" or "gh is not
+  installed", the cause is exactly that — no more silent "everything
+  unknown" tables. Run `gh auth login` (or set `GH_TOKEN`).
   **Lock files**: After bumping versions, `devbox global install` (or
   `shellenv --recompute`) updates `flake.lock` files. Commit these alongside
   the version bumps — they pin the resolved input revisions.

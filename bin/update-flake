@@ -367,9 +367,11 @@ resolve_hashes() {
                 break
             fi
 
-            # Build the flake and capture output
+            # Build the flake and capture output.
+            # `timeout 600` guards against stalled substituters / wedged networks —
+            # max_attempts bounds FAILED attempts but a hung build blocks forever otherwise.
             local build_output
-            if build_output=$(cd "$flake_dir" && nix build --no-link ".#default" 2>&1); then
+            if build_output=$(cd "$flake_dir" && timeout 600 nix build --no-link ".#default" 2>&1); then
                 echo "    ${GREEN}✓${NC} build succeeded"
                 result=0
                 break
@@ -484,6 +486,17 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
             UPGRADABLE+=("$name")
         fi
     done
+
+    # Tell the user explicitly when --all / -u finds nothing — silent no-op is confusing.
+    if [[ ${#UPGRADABLE[@]} -eq 0 ]]; then
+        if $ALL_FLAKES; then
+            echo ""
+            echo "${GREEN}${BOLD}All flake packages are already at latest.${NC}"
+        elif [[ ${#UPDATE_TARGETS[@]} -gt 0 ]]; then
+            echo ""
+            echo "${GREEN}${BOLD}No updates available for the requested packages.${NC}"
+        fi
+    fi
 
     # Validate targets against known flakes
     declare -a TARGETS=()
