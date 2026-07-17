@@ -12,12 +12,12 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          version = "1.5.18";
+          version = "1.5.19";
           src = pkgs.fetchFromGitHub {
             owner = "vercel-labs";
             repo = "skills";
             rev = "v${version}";
-            hash = "sha256-emkYVqtl0K4RBSjVuU+oFs46SWngcRUIRUX/GKedq6g=";
+            hash = "sha256-lxf2ODxgwin83JHRrDynMccTFtCo+tYFb053XrS1IqA=";
           };
 
         in
