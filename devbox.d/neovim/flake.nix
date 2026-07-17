@@ -13,15 +13,22 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system}.extend neovim-nightly-overlay.overlays.default;
-        in
-        {
-          default = pkgs.wrapNeovim pkgs.neovim {
+          nvim = pkgs.wrapNeovim pkgs.neovim {
             extraLuaPackages = ps: [ ps.lpeg ];
             viAlias = true;
             vimAlias = true;
             withNodeJs = true;
             withPython3 = true;
             withRuby = true;
+          };
+          vimdiff = pkgs.writeShellScriptBin "vimdiff" ''
+            exec ${nvim}/bin/nvim -d "$@"
+          '';
+        in
+        {
+          default = pkgs.symlinkJoin {
+            name = "neovim-with-vimdiff";
+            paths = [ nvim vimdiff ];
           };
         }
       );
