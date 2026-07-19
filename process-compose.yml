@@ -2,10 +2,18 @@
 # Started with: devbox services up omniroute
 # Stopped with:  devbox services stop omniroute
 
+# Devbox service: wigolo MCP server (stdio transport)
+# Started with: devbox services up wigolo
+# Stopped with:  devbox services stop wigolo
+
 version: "0.5"
 
 processes:
   omniroute:
     command: omniroute --port 20128
+    availability:
+      restart: "always"
+  wigolo:
+    command: wigolo
     availability:
       restart: "always"
