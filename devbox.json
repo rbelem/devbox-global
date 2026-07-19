@@ -81,6 +81,7 @@
     "path:devbox.d/openinterpreter",
     "path:devbox.d/firecrawl",
     "path:devbox.d/wigolo",
+    "path:devbox.d/jcode",
     "nodejs@latest",
     "file@latest",
   ],
