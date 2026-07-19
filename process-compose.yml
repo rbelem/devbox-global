@@ -2,7 +2,7 @@
 # Started with: devbox services up omniroute
 # Stopped with:  devbox services stop omniroute
 
-# Devbox service: wigolo MCP server (stdio transport)
+# Devbox service: wigolo HTTP daemon (REST + remote MCP on :3333)
 # Started with: devbox services up wigolo
 # Stopped with:  devbox services stop wigolo
 
@@ -14,6 +14,6 @@ processes:
     availability:
       restart: "always"
   wigolo:
-    command: wigolo
+    command: wigolo serve
     availability:
       restart: "always"
