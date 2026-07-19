@@ -283,7 +283,7 @@
       "environment": {
         "FIRECRAWL_API_KEY": "{env:FIRECRAWL_API_KEY}"
       },
-      "enabled": true
+      "enabled": false
     },
     "omniroute": {
       "type": "local",
@@ -306,6 +306,11 @@
         "stdio"
       ],
       "enabled": false
+    },
+    "wigolo": {
+      "type": "remote",
+      "url": "http://127.0.0.1:3333/mcp",
+      "enabled": true
     }
   },
   "tools": {
