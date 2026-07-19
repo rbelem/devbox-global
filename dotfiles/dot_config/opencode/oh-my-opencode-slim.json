@@ -7,7 +7,7 @@
     "position": "bottom-left",
     "size": "small"
   },
-  "preset": "value",
+  "preset": "quality",
   "presets": {
     "quality": {
       "orchestrator": {
@@ -44,7 +44,7 @@
         ]
       },
       "oracle": {
-        "model": "zai-coding-plan/glm-5.2",
+        "model": "moonshotai/kimi-k3",
         "variant": "max",
         "skills": [
           "simplify",
@@ -86,9 +86,8 @@
         ]
       },
       "designer": {
-        "model": "minimax/MiniMax-M3",
-        "variant": "high",
-        "temperature": 0.7,
+        "model": "zai-coding-plan/glm-5.2",
+        "variant": "max",
         "skills": [
           "agent-browser",
           "mobile-android-design",
@@ -102,7 +101,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "opencode-go/kimi-k2.7-code",
+        "model": "moonshotai/kimi-k2.7-code",
         "variant": "high",
         "skills": [
           "git-commit",
@@ -129,7 +128,7 @@
         ]
       },
       "council": {
-        "model": "minimax/MiniMax-M3",
+        "model": "zai-coding-plan/glm-5.2",
         "variant": "max"
       }
     },
@@ -168,7 +167,7 @@
         ]
       },
       "oracle": {
-        "model": "zai-coding-plan/glm-5.2",
+        "model": "moonshotai/kimi-k3",
         "variant": "max",
         "skills": [
           "simplify",
@@ -198,7 +197,7 @@
         ]
       },
       "explorer": {
-        "model": "opencode-go/deepseek-v4-flash",
+        "model": "opencode-go/mimo-v2.5",
         "variant": "low",
         "skills": [],
         "mcps": [
@@ -206,9 +205,8 @@
         ]
       },
       "designer": {
-        "model": "minimax/MiniMax-M3",
+        "model": "zai-coding-plan/glm-5.2",
         "variant": "max",
-        "temperature": 0.7,
         "skills": [
           "agent-browser",
           "design-taste-frontend",
@@ -219,7 +217,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "minimax/MiniMax-M3",
+        "model": "moonshotai/kimi-k2.7-code-highspeed",
         "variant": "high",
         "skills": [
           "git-commit",
@@ -244,7 +242,7 @@
         ]
       },
       "council": {
-        "model": "minimax/MiniMax-M3",
+        "model": "zai-coding-plan/glm-5.2",
         "variant": "max"
       }
     },
@@ -313,7 +311,7 @@
         ]
       },
       "explorer": {
-        "model": "opencode-go/deepseek-v4-flash",
+        "model": "opencode-go/mimo-v2.5",
         "variant": "low",
         "skills": [],
         "mcps": [
@@ -323,7 +321,6 @@
       "designer": {
         "model": "opencode-go/mimo-v2.5",
         "variant": "high",
-        "temperature": 0.7,
         "skills": [
           "agent-browser",
           "design-taste-frontend",
@@ -334,7 +331,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "opencode-go/deepseek-v4-flash",
+        "model": "opencode-go/mimo-v2.5-pro",
         "variant": "high",
         "skills": [
           "git-commit",
@@ -360,7 +357,7 @@
       },
       "council": {
         "model": "opencode-go/mimo-v2.5",
-        "variant": "high"
+        "variant": "max"
       }
     }
   },
@@ -393,11 +390,11 @@
     "presets": {
       "default": {
         "alpha": {
-          "model": "zai-coding-plan/glm-5.2",
+          "model": "minimax/MiniMax-M3",
           "variant": "max"
         },
         "beta": {
-          "model": "minimax/MiniMax-M3",
+          "model": "zai-coding-plan/glm-5.2",
           "variant": "max"
         },
         "gamma": {
@@ -405,8 +402,8 @@
           "variant": "high"
         },
         "delta": {
-          "model": "opencode-go/kimi-k2.7-code",
-          "variant": "high"
+          "model": "moonshotai/kimi-k3",
+          "variant": "max"
         },
         "zeta": {
           "model": "opencode-go/mimo-v2.5-pro",
