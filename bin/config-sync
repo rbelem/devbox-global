@@ -15,7 +15,7 @@ NC=$'\033[0m'
 # ── Paths ──
 REPO_DIR="$(ghq root)/github.com/rbelem/devbox-global"
 GLOBAL_DIR="$(devbox global path)"
-ITEMS=("devbox.json" "devbox.d" "bin")
+ITEMS=("devbox.json" "devbox.d" "bin" "process-compose.yml")
 
 # ── Help ──
 usage() {
