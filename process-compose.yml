@@ -18,5 +18,6 @@ processes:
     environment:
       - "WIGOLO_LLM_PROVIDER=openai"
       - "WIGOLO_LLM_MODEL=${OPENAI_MODEL}"
+      - "LD_LIBRARY_PATH=${PLAYWRIGHT_CHROMIUM_DEPS}/lib"
     availability:
       restart: "always"
