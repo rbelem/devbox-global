@@ -43,6 +43,21 @@
           };
 
           src = githubSrc;
+
+          # Runtime libs for Playwright's bundled Chromium on NixOS.
+          # Derived by `ldd chrome | grep 'not found'` against a bare NixOS env.
+          # Re-check when bumping wigolo's playwright version (rare).
+          chromiumDeps = pkgs.buildEnv {
+            name = "playwright-chromium-deps";
+            paths = with pkgs; [
+              glib.out nspr nss at-spi2-core dbus.lib alsa-lib cairo
+              cups.lib expat libgbm pango.out systemdMinimal
+              xorg.libX11 xorg.libxcb xorg.libXcomposite xorg.libXdamage
+              xorg.libXext xorg.libXfixes libxkbcommon xorg.libXrandr
+            ];
+            pathsToLink = [ "/lib" ];
+            ignoreCollisions = true;
+          };
         in
         {
           default = pkgs.buildNpmPackage rec {
@@ -114,7 +129,8 @@
                 $out/bin/wigolo \
                 --add-flags "$out/lib/node_modules/wigolo/dist/index.js" \
                 --set NODE_PATH "$out/lib/node_modules" \
-                --prefix PATH : ${pkgs.nodejs_22}/bin
+                --prefix PATH : ${pkgs.nodejs_22}/bin \
+                --prefix LD_LIBRARY_PATH : ${chromiumDeps}/lib
 
               runHook postInstall
             '';

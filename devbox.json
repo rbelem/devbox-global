@@ -81,7 +81,6 @@
     "path:devbox.d/openinterpreter",
     "path:devbox.d/firecrawl",
     "path:devbox.d/wigolo",
-    "path:devbox.d/playwright-chromium-deps",
     "path:devbox.d/jcode",
     "nodejs@latest",
     "file@latest",
@@ -94,7 +93,6 @@
     "VENV_DIR":       "$HOME/.local/share/devbox/global/python-venv",
     "PYTHONPATH":     "${DEVBOX_PACKAGES_DIR}/lib/python3.12/site-packages${PYTHONPATH:+:$PYTHONPATH}",
     "OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS": "1",
-    "LD_LIBRARY_PATH": "/nix/store/shg8vsydkl942q709jyzla3aydz5ipl7-playwright-chromium-deps/lib",
   },
   "shell": {
     "init_hook": [
