@@ -1,0 +1,169 @@
+{
+  "/home/rodrigo/.agents/skills/wigolo": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "992d38226fbcca38843b7806cfaecd786d34682c17b10eaf9820835df94a7c4a",
+          "rules/cache-first.md": "29c1e609947834bb6ca8cc65da3935c66f21510f135513c0d6fd82d4afb2f46a",
+          "rules/synthesis.md": "12d15a7f60d9795930ea924df14a8a20cda0f50086ede2906cf286c410c9ed3f"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.014Z"
+  },
+  "/home/rodrigo/.agents/skills/wigolo-agent": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo-agent": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "9fc5c54d8ba87999f926e0a2633671230bb728ba13f903f8797b61f56b34c1e9"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.015Z"
+  },
+  "/home/rodrigo/.agents/skills/wigolo-cache": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo-cache": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "cde29e3e3d7ab7623b77336e2493ad1da41a17dca54307d2521ad16d72767331"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.015Z"
+  },
+  "/home/rodrigo/.agents/skills/wigolo-crawl": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo-crawl": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "8565bf7fc82a79d2414163176c0f68548eb04d64b784d6b186cd8a1ebeefb635"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.016Z"
+  },
+  "/home/rodrigo/.agents/skills/wigolo-diff": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo-diff": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "9edd77e27048136975550c0b2af9e3037d6ce985c58f3d1dd58487af437b7694"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.016Z"
+  },
+  "/home/rodrigo/.agents/skills/wigolo-extract": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo-extract": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "59021e699232505dc09fe297235e9faea01c50fcbdee0c01fb2ab4b9ed43eaa9"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.016Z"
+  },
+  "/home/rodrigo/.agents/skills/wigolo-fetch": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo-fetch": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "45eb8936cf4c7c7274ff4c4135ad41c1d8b812e62d539ccd2ef30c81aa75222c"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.017Z"
+  },
+  "/home/rodrigo/.agents/skills/wigolo-find-similar": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo-find-similar": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "5ebdd7f7673ba36cc6445f9c4f0a52ef32095613c64f7dab05668987dd8215a3"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.017Z"
+  },
+  "/home/rodrigo/.agents/skills/wigolo-research": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo-research": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "0de922659b92512a5251a42a159d889489216dd55e86a9fa948232ba4d0af823"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.018Z"
+  },
+  "/home/rodrigo/.agents/skills/wigolo-search": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo-search": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "b3b3fbcf1a749e0e4ca438f8bf5e79a95bd96eb68993947555a1eb6dd6c2a2d1"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.018Z"
+  },
+  "/home/rodrigo/.agents/skills/wigolo-watch": {
+    "scope": "global",
+    "agents": [
+      "codex"
+    ],
+    "packs": {
+      "wigolo-watch": {
+        "version": "0.2.1",
+        "files": {
+          "SKILL.md": "84710dc69b7d9f9b585664af3325854b1aab0b5b32b3de54aa4f0f0c862491cf"
+        }
+      }
+    },
+    "installedAt": "2026-07-19T15:39:46.019Z"
+  }
+}
