@@ -15,5 +15,8 @@ processes:
       restart: "always"
   wigolo:
     command: wigolo serve
+    environment:
+      - "WIGOLO_LLM_PROVIDER=openai"
+      - "WIGOLO_LLM_MODEL=${OPENAI_MODEL}"
     availability:
       restart: "always"
