@@ -78,7 +78,6 @@
     "path:devbox.d/hunk",
     "path:devbox.d/omniroute",
     "path:devbox.d/dcg",
-    "path:devbox.d/openinterpreter",
     "path:devbox.d/firecrawl",
     "path:devbox.d/wigolo",
     "path:devbox.d/jcode",
