@@ -109,6 +109,7 @@
         "devbox global push https://github.com/rbelem/devbox-global.git",
       ],
       "config-sync": "\"$(devbox global path)/bin/config-sync\" \"$@\"",
+      "upload-flakes": "\"$(devbox global path)/bin/upload-flakes\" \"$@\"",
       "secrets-setup": "\"$(devbox global path)/bin/secrets-setup\" \"$@\"",
       "secrets-refresh": "\"$(devbox global path)/bin/secrets-refresh\" \"$@\"",
       "secrets-add": "\"$(devbox global path)/bin/secrets-add\" \"$@\"",

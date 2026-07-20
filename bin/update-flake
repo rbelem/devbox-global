@@ -545,6 +545,10 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
         echo ""
         echo "→ Running post-install hooks..."
         "$DEVBOX_GLOBAL_PATH/bin/post-install"
+        echo ""
+        echo "→ Uploading updated flakes to Jetify Cache..."
+        "$DEVBOX_GLOBAL_PATH/bin/upload-flakes" \
+            || echo "    ${YELLOW}!${NC} upload had errors (see above); run again manually if needed"
     fi
 fi
 

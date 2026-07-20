@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+# upload-flakes — push every devbox.d/<name>/flake.nix + the full global
+# closure to the configured Jetify Cache.
+#
+# Requires `sudo devbox cache configure` already run on this host.
+# Safe to re-run (idempotent — already-cached paths are no-ops).
+#
+# Run:  devbox global run upload-flakes
+#   or:  "$(devbox global path)/bin/upload-flakes"
+set -euo pipefail
+
+RED=$'\033[0;31m'; GREEN=$'\033[0;32m'; YELLOW=$'\033[1;33m'
+CYAN=$'\033[0;36m'; BOLD=$'\033[1m'; NC=$'\033[0m'
+
+# ── Preflight: devbox + cache configured ──
+command -v devbox >/dev/null 2>&1 || {
+    echo "${RED}ERROR${NC}: devbox not installed." >&2; exit 1; }
+
+if ! devbox cache info >/dev/null 2>&1; then
+    echo "${RED}ERROR${NC}: Jetify cache not configured on this host." >&2
+    echo "Run: ${BOLD}sudo devbox cache configure${NC}" >&2
+    exit 1
+fi
+
+# Verify the user is in trusted-users — daemon silently ignores substituter
+# requests from untrusted users, so cache uploads from this session will fail.
+if ! nix show-config 2>/dev/null | grep -qE '^trusted-users\s*=\s*.*\brodrigo\b'; then
+    if ! nix show-config 2>/dev/null | grep -qE '^trusted-users\s*=\s*.*@wheel\b'; then
+        echo "${YELLOW}WARNING${NC}: current user may not be in nix trusted-users."
+        echo "If uploads silently fail, run: ${BOLD}sudo devbox cache configure${NC}" >&2
+    fi
+fi
+
+DEVBOX_GLOBAL_PATH="$(devbox global path)"
+DEVBOX_D="$DEVBOX_GLOBAL_PATH/devbox.d"
+
+[[ -d "$DEVBOX_D" ]] || {
+    echo "${RED}ERROR${NC}: devbox.d not found at $DEVBOX_D" >&2; exit 1; }
+
+# ── Per-flake upload ──
+echo "${BOLD}${CYAN}Uploading devbox.d/* flakes to Jetify Cache...${NC}"
+echo
+
+uploaded=0
+skipped=0
+failed=0
+declare -a FAILED_NAMES=()
+
+for d in "$DEVBOX_D"/*/; do
+    name="$(basename "$d")"
+    [[ -f "$d/flake.nix" ]] || { skipped=$((skipped+1)); continue; }
+
+    printf "  → %-30s " "$name"
+    if devbox cache upload "path:$d" >/dev/null 2>&1; then
+        printf "${GREEN}✓${NC}\n"
+        uploaded=$((uploaded+1))
+    else
+        printf "${RED}✗${NC}\n"
+        failed=$((failed+1))
+        FAILED_NAMES+=("$name")
+    fi
+done
+
+echo
+echo "${BOLD}Flakes:${NC} ${GREEN}${uploaded} uploaded${NC}, ${skipped} skipped, ${failed} failed"
+if (( failed > 0 )); then
+    printf "  ${RED}failed:${NC} %s\n" "${FAILED_NAMES[*]}"
+fi
+
+# ── Full global closure upload (catches non-flake packages too) ──
+echo
+echo "${BOLD}${CYAN}Uploading full global closure...${NC}"
+echo
+if devbox cache upload -c "$DEVBOX_GLOBAL_PATH" 2>&1 | tail -5; then
+    echo
+    echo "${GREEN}${BOLD}✓ All done.${NC} Other machines in your Jetify org can now pull."
+else
+    echo
+    echo "${YELLOW}!${NC} closure upload had errors (flakes above may still have succeeded)"
+    exit 1
+fi
