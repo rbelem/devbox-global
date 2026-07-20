@@ -395,8 +395,8 @@ resolve_hashes() {
             # per build iteration. The trailing `; # FIXME: was "..."` audit
             # comment (injected by the reset step above) is stripped from the
             # same line — it's only meaningful during the resolution loop.
-            sed -i -e "0,/\"${FAKE_HASH}\"/{s/\"${FAKE_HASH}\"/\"${got_hash}\"/}" "$flake_nix"
-            sed -i -E -e "0,/\"${got_hash}\"/{s/;[[:space:]]*#[[:space:]]*FIXME:[[:space:]]*was[[:space:]]*\"sha256-[^\"]*\"//}" "$flake_nix"
+            sed -i -e "0,/${FAKE_HASH//\//\\/}/{s/${FAKE_HASH//\//\\/}/${got_hash//\//\\/}/}" "$flake_nix"
+            sed -i -E -e "0,/${got_hash//\//\\/}/{s/;[[:space:]]*#[[:space:]]*FIXME:[[:space:]]*was[[:space:]]*\"sha256-[^\"]*\"//}" "$flake_nix"
             echo "    hash $attempt: $got_hash"
         done
     else
