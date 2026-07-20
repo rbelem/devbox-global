@@ -7,7 +7,7 @@
     supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-    version = "0.52.0";
+    version = "0.53.0";
 
     # Upstream uses <os>-<arch> asset suffix (not Rust target triples).
     systemToTarget = {
@@ -20,10 +20,10 @@
     # Hashes from upstream SHA256SUMS at
     # https://github.com/1jehuang/jcode/releases/download/v${version}/SHA256SUMS
     systemToHash = {
-      "x86_64-linux"   = "sha256-lU8KPYyO7wsEygQoDSVxbejYqeNMziAOYaJuBmYA/zw=";
-      "aarch64-linux"  = "sha256-G5OxwRXP515p0EdXjM953WPdLuac/NrRknx/DS0QCrE=";
-      "x86_64-darwin"  = "sha256-yH9Y++ccVJ809z/1FM5Bey9iCI+6yPH8dbXDBCrbbgc=";
-      "aarch64-darwin" = "sha256-/u9yCM4l59zXJVtP9Gt4G9b08TvlhGiLi0yx64wgnJE=";
+      "x86_64-linux"   = "sha256-YOG4/Kiw5SjGQF8FMLjjERJLtjTJ6famWILPxO2ftoA=";
+      "aarch64-linux"  = "sha256-paP3XoEAehrn4SFtgW1C+YsEuvZn2tJUXFAze0VhFXo=";
+      "x86_64-darwin"  = "sha256-icSjEX2ysLd1tPc5cpidYAZBlUOD7coZCBDyze7J7ds=";
+      "aarch64-darwin" = "sha256-sVFWhsFbeXIOkS1+hw3PTuXFFyUa4yR8KnDlcq0iw8s=";
     };
   in {
     packages = forAllSystems (pkgs: rec {
