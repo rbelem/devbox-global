@@ -21,7 +21,7 @@
           # Update the hash when rebuilding: nix build will show the expected hash.
           litellmPrices = pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json";
-            hash = "sha256-M87e+ibfDqOMUmzYk53UILac5o79DnjwkYcXgcysO94=";
+            hash = "sha256-jV/bRDNx+DNMKMsP9kvw82rRNexvdm7sdnzGLTt/gJI=";
           };
         in
         {
