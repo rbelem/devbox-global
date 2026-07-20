@@ -1,5 +1,5 @@
 {
-  description = "Bun overlay - latest release (baseline) from GitHub";
+  description = "Bun canary (latest main-branch build, x64 baseline for VirtualBox compat)";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -7,87 +7,77 @@
 
   outputs = { self, nixpkgs }:
     let
-      version = "1.3.14";
-      tag = "bun-v${version}";
+      systems = [ "x86_64-linux" ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      systems = [
-        "x86_64-linux"
-      ];
-
-      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
-
-      bun-overlay = final: prev: {
-        bun = final.stdenv.mkDerivation {
-          pname = "bun";
-          inherit version;
-
-          src =
-            let
-              platform =
-                if final.stdenv.hostPlatform.system == "x86_64-linux" then
-                {
-                  # Baseline build: no AVX/AVX2 — compatible with VirtualBox,
-                  # older CPUs, and emulated x86-64. SIGILL / ILL_ILLOPN on
-                  # VMs when using the optimized (-x64) build.
-                  url = "https://github.com/oven-sh/bun/releases/download/${tag}/bun-linux-x64-baseline.zip";
-                  hash = "sha256-vglDdJBMSzCC7+NrMg1CP+Dq052aWvDGGfdP6H23xf8=";
-                }
-                else
-                  throw "Unsupported platform: ${final.stdenv.hostPlatform.system}";
-            in
-            final.fetchzip {
-              url = platform.url;
-              hash = platform.hash;
-            };
-
-          nativeBuildInputs = [ final.unzip final.makeWrapper ] ++ final.lib.optionals final.stdenv.isLinux [ final.autoPatchelfHook ];
-
-          buildInputs = final.lib.optionals final.stdenv.isLinux [
-            final.zlib
-            final.gcc.cc.lib
-          ];
-
-          dontConfigure = true;
-          dontBuild = true;
-
-          installPhase = ''
-            runHook preInstall
-
-            install -Dm 755 ./bun $out/bin/bun
-            ln -s $out/bin/bun $out/bin/bunx
-
-            runHook postInstall
-          '';
-
-          meta = {
-            description = "Incredibly fast JavaScript runtime, bundler, test runner, and package manager";
-            homepage = "https://bun.sh";
-            license = final.lib.licenses.mit;
-            platforms = systems;
-          };
-        };
-      };
+      # Bun's CI publishes canary builds (latest main-branch HEAD) as
+      # pre-compiled zips at this URL. The "baseline" variant targets
+      # Nehalem (2008) ISA — no AVX/AVX2 — which is what we want for
+      # VirtualBox / older CPU compatibility. Bump the hash with:
+      #   nix-prefetch-url https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline.zip
+      canaryUrl = "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline.zip";
+      canarySha256 = "sha256-6Ptf1gu3z+CgYmqeTZL+nWEUWnSZ7SWtI3NnhE3n6QU=";
     in
     {
-      overlays.default = bun-overlay;
-
-      packages = forAllSystems (pkgs:
+      packages = forAllSystems (system:
         let
-          pkgsWithOverlay = pkgs.extend bun-overlay;
+          pkgs = nixpkgs.legacyPackages.${system};
         in
         {
-          bun = pkgsWithOverlay.bun;
-          default = pkgsWithOverlay.bun;
-        });
+          default = pkgs.stdenvNoCC.mkDerivation {
+            pname = "bun";
+            version = "1.4.0-canary";
 
-      devShells = forAllSystems (pkgs:
-        let
-          pkgsWithOverlay = pkgs.extend bun-overlay;
-        in
-        {
-          default = pkgsWithOverlay.mkShell {
-            buildInputs = [ pkgsWithOverlay.bun ];
+            src = pkgs.fetchurl {
+              url = canaryUrl;
+              sha256 = canarySha256;
+            };
+
+            nativeBuildInputs = [
+              pkgs.unzip
+              pkgs.makeWrapper
+            ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+              pkgs.autoPatchelfHook
+            ];
+
+            buildInputs = pkgs.lib.optionals pkgs.stdenv.isLinux [
+              pkgs.zlib
+              pkgs.gcc.cc.lib
+            ];
+
+            dontConfigure = true;
+            dontBuild = true;
+
+            # The zip extracts to bun-linux-x64-baseline/bun. stdenv's
+            # unpackPhase auto-detects bun-linux-x64-baseline as the
+            # $sourceRoot and cd's into it, so by installPhase the cwd
+            # is already inside that dir and we reference the binary
+            # as just `bun`.
+            installPhase = ''
+              runHook preInstall
+
+              install -Dm 755 bun $out/bin/bun
+              ln -s $out/bin/bun $out/bin/bunx
+
+              runHook postInstall
+            '';
+
+            meta = {
+              description = "Incredibly fast JavaScript runtime, bundler, test runner, and package manager (canary / main branch)";
+              longDescription = ''
+                Bun canary build (latest main-branch HEAD) from
+                oven-sh/bun's GitHub releases. Pre-compiled, x86-64
+                baseline ISA (Nehalem / no AVX) for VirtualBox and
+                older CPU compatibility. Hash pins the exact canary
+                artifact that was verified; bump with `nix-prefetch-url`
+                to track main.
+              '';
+              homepage = "https://bun.sh";
+              license = pkgs.lib.licenses.mit;
+              platforms = systems;
+            };
           };
-        });
+        }
+      );
     };
 }
