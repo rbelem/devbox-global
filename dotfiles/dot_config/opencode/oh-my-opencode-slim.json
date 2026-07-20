@@ -7,7 +7,7 @@
     "position": "bottom-left",
     "size": "small"
   },
-  "preset": "quality",
+  "preset": "value",
   "presets": {
     "quality": {
       "orchestrator": {
