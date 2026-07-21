@@ -35,7 +35,7 @@
     "libsecret@latest",
     "zenity@latest",
     "podman@latest",
-    "python312@latest",
+    "python314@latest",
     "jdk21@latest",
     "unzip@latest",
     "p7zip@latest",
@@ -83,7 +83,7 @@
     "NIX_CONFIG":     "experimental-features = nix-command flakes",
     "LOCALE_ARCHIVE": "${DEVBOX_PACKAGES_DIR}/lib/locale/locale-archive",
     "VENV_DIR":       "$HOME/.local/share/devbox/global/python-venv",
-    "PYTHONPATH":     "${DEVBOX_PACKAGES_DIR}/lib/python3.12/site-packages${PYTHONPATH:+:$PYTHONPATH}",
+    "PYTHONPATH":     "${DEVBOX_PACKAGES_DIR}/lib/python3.14/site-packages${PYTHONPATH:+:$PYTHONPATH}",
     "OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS": "1",
   },
   "shell": {
