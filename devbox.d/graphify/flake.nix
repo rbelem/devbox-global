@@ -39,8 +39,13 @@
     {
       packages = forAllSystems (pkgs:
         let
-          # Use Python 3.12 to match system default `python` so `python -m graphify` works.
-          pythonPackages = pkgs.python312Packages;
+          # inline-snapshot 0.32.5 has 3 broken tests in nixpkgs
+          # (snapshot value mismatch in sandbox env); skip them.
+          pythonPackages = pkgs.python3Packages.overrideScope (final: prev: {
+            inline-snapshot = prev.inline-snapshot.overridePythonAttrs (old: {
+              doCheck = false;
+            });
+          });
         in rec {
         graphify = pythonPackages.buildPythonApplication rec {
           pname = "graphifyy";
@@ -187,8 +192,8 @@
         default = pkgs.mkShell {
           packages = with pkgs; [
             uv
-            python312
-            python312Packages.pip
+            python3
+            python3Packages.pip
           ];
           shellHook = ''
             echo "graphify dev shell (rbelem/v5-perl fork)"

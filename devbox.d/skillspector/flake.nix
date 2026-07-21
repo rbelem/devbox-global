@@ -28,9 +28,14 @@
             # tzlocal V5 test fails in sandbox: timezone offset mismatch
             # (test expects UTC-4, sandbox has UTC).
             (final: prev: {
-              python312 = prev.python312.override {
+              python3 = prev.python3.override {
                 packageOverrides = self: super: {
                   tzlocal = super.tzlocal.overridePythonAttrs (old: {
+                    doCheck = false;
+                  });
+                  # inline-snapshot 0.32.5 has 3 broken tests in nixpkgs
+                  # (snapshot value mismatch in sandbox env).
+                  inline-snapshot = super.inline-snapshot.overridePythonAttrs (old: {
                     doCheck = false;
                   });
                 };
@@ -38,7 +43,7 @@
             })
           ];
         };
-        pythonPackages = pkgs.python312Packages;
+        pythonPackages = pkgs.python3Packages;
       in {
         default = pythonPackages.buildPythonApplication {
           pname = "skillspector";
