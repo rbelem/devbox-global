@@ -37,17 +37,31 @@ DEVBOX_D="$DEVBOX_GLOBAL_PATH/devbox.d"
 [[ -d "$DEVBOX_D" ]] || {
     echo "${RED}ERROR${NC}: devbox.d not found at $DEVBOX_D" >&2; exit 1; }
 
-# ── Per-flake upload ──
+# ── Per-flake upload (only packages enabled in devbox.json) ──
 echo "${BOLD}${CYAN}Uploading devbox.d/* flakes to Jetify Cache...${NC}"
 echo
+
+# Extract enabled path:devbox.d/<name> entries from devbox.json
+ENABLED_FLAKES=()
+while IFS= read -r line; do
+    # Extract <name> from "path:devbox.d/<name>"
+    name="${line#path:devbox.d/}"
+    name="${name%%\"*}"
+    [[ -n "$name" ]] && ENABLED_FLAKES+=("$name")
+done < <(grep -oE '"path:devbox\.d/[^/]+"' "$DEVBOX_GLOBAL_PATH/devbox.json")
+
+if (( ${#ENABLED_FLAKES[@]} == 0 )); then
+    echo "${YELLOW}!${NC} No path:devbox.d/* packages found in devbox.json."
+    exit 0
+fi
 
 uploaded=0
 skipped=0
 failed=0
 declare -a FAILED_NAMES=()
 
-for d in "$DEVBOX_D"/*/; do
-    name="$(basename "$d")"
+for name in "${ENABLED_FLAKES[@]}"; do
+    d="$DEVBOX_D/$name/"
     [[ -f "$d/flake.nix" ]] || { skipped=$((skipped+1)); continue; }
 
     printf "  → %-30s " "$name"
