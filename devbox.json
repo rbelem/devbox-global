@@ -65,7 +65,6 @@
     "path:devbox.d/codecanary",
     "path:devbox.d/codegraph",
     "path:devbox.d/whichllm",
-    "path:devbox.d/docling",
     "path:devbox.d/agentmemory",
     "path:devbox.d/aicommits",
     "path:devbox.d/beads",

@@ -298,15 +298,6 @@
       },
       "enabled": true
     },
-    "docling": {
-      "type": "local",
-      "command": [
-        "docling-mcp-server",
-        "--transport",
-        "stdio"
-      ],
-      "enabled": false
-    },
     "wigolo": {
       "type": "remote",
       "url": "http://127.0.0.1:3333/mcp",
@@ -327,8 +318,7 @@
     "firecrawl-mcp_firecrawl_agent*": false,
     "chrome-devtools_performance_*": false,
     "chrome-devtools_lighthouse_*": false,
-    "chrome-devtools_take_heapsnapshot": false,
-    "docling_*": false
+    "chrome-devtools_take_heapsnapshot": false
   },
   "permission": {
     "external_directory": {

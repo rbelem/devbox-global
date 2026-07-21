@@ -66,15 +66,13 @@
         "model": "opencode-go/mimo-v2.5",
         "variant": "low",
         "skills": [
-          "docling",
           "research"
         ],
         "mcps": [
           "context7",
           "gh_grep",
           "firecrawl-mcp",
-          "opencode-docs",
-          "docling"
+          "opencode-docs"
         ]
       },
       "explorer": {
@@ -120,12 +118,8 @@
       "observer": {
         "model": "minimax/MiniMax-M3",
         "variant": "medium",
-        "skills": [
-          "docling"
-        ],
-        "mcps": [
-          "docling"
-        ]
+        "skills": [],
+        "mcps": []
       },
       "council": {
         "model": "zai-coding-plan/glm-5.2",
@@ -185,15 +179,13 @@
         "model": "opencode-go/mimo-v2.5",
         "variant": "low",
         "skills": [
-          "docling",
           "research"
         ],
         "mcps": [
           "context7",
           "gh_grep",
           "firecrawl-mcp",
-          "opencode-docs",
-          "docling"
+          "opencode-docs"
         ]
       },
       "explorer": {
@@ -234,12 +226,8 @@
       "observer": {
         "model": "minimax/MiniMax-M3",
         "variant": "medium",
-        "skills": [
-          "docling"
-        ],
-        "mcps": [
-          "docling"
-        ]
+        "skills": [],
+        "mcps": []
       },
       "council": {
         "model": "zai-coding-plan/glm-5.2",
@@ -299,15 +287,13 @@
         "model": "opencode-go/mimo-v2.5",
         "variant": "low",
         "skills": [
-          "docling",
           "research"
         ],
         "mcps": [
           "context7",
           "gh_grep",
           "firecrawl-mcp",
-          "opencode-docs",
-          "docling"
+          "opencode-docs"
         ]
       },
       "explorer": {
@@ -348,12 +334,8 @@
       "observer": {
         "model": "minimax/MiniMax-M3",
         "variant": "low",
-        "skills": [
-          "docling"
-        ],
-        "mcps": [
-          "docling"
-        ]
+        "skills": [],
+        "mcps": []
       },
       "council": {
         "model": "opencode-go/mimo-v2.5",
