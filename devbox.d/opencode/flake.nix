@@ -84,6 +84,28 @@
           default = (pkgs.opencode.override { bun = localBun; }).overrideAttrs (oldAttrs: {
             inherit version src;
 
+            # The nixpkgs opencode package defines `node_modules` as a
+            # fixed-output sub-derivation whose outputHash is pinned to
+            # nixpkgs' version (1.17.20). When we override src/version
+            # on the outer derivation, `finalAttrs.node_modules` (used
+            # in configurePhase: `cp -R ${finalAttrs.node_modules}/. .`)
+            # is rebuilt against the new source — but its outputHash is
+            # still the old hardcoded literal, so the fixed-output check
+            # fails with:
+            #   "specified: <old nixpkgs hash>  got: <new source hash>"
+            #
+            # Fix: override `node_modules` as a top-level attr (not
+            # passthru) so the fixed-point resolves to our version.
+            # overrideAttrs passes `oldAttrs` = previous finalAttrs,
+            # so oldAttrs.node_modules exists and carries the bun
+            # override through. Capture the correct hash via:
+            #   1. set nodeModulesHash = fakeHash, run `devbox global update`
+            #   2. paste the "got:" sha256-... back into nodeModulesHash
+            node_modules = oldAttrs.node_modules.overrideAttrs (_: {
+                inherit version src;
+                outputHash = nodeModulesHash;
+            });
+
             # postPatch uses python3 (heredoc) to rewrite build.ts.
             nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [
               pkgs.python3
