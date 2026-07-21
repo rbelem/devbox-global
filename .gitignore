@@ -1,1 +1,4 @@
 result
+
+# Devbox-generated AWS credential wrapper (machine-specific)
+.aws/
