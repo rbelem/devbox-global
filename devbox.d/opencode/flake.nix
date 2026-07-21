@@ -1,32 +1,77 @@
 {
-  description = "OpenCode 1.18.3 built as a plain bundle (path A) using bun from devbox.d/bun";
+  description = "OpenCode 1.18.3 built as a plain bundle (path A) using canary bun runtime";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    # Input-based composition: opencode consumes the bun produced by the
-    # sibling devbox.d/bun flake (canary, latest main). The build skips
-    # `bun build --compile` entirely (which segfaults on every bun ≥
-    # 1.3.14) and ships a plain JS bundle wrapped in a tiny shell stub
-    # that invokes the canary bun runtime against it.
-    bun.url = "path:../bun";
   };
 
-  outputs = { self, nixpkgs, bun }:
+  outputs = { self, nixpkgs }:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.18.3";
+      version = "1.18.4";
 
-      srcHash = "sha256-Wdkzms59oHw3M/Em2RH7BPhZME8AtLmtNFSnsUxO1V4=";
-      nodeModulesHash = "sha256-1NUtprMH8GnSUqQ+mHQSC+JLU7lwzHe6XXYHe129WmE=";
+      # Canary bun 1.4.0 (x64 baseline). Inlined here (rather than via
+      # `inputs.bun.url = "path:../bun"`) because devbox copies this flake
+      # to `~/.local/share/devbox/global/default/devbox.d/opencode/` at
+      # install time, and nix flake input resolution of `path:../bun` from
+      # a stored copy of the opencode source collapses to `/nix/store/bun/`
+      # (no hash, nix rejects it as not a valid store path). Self-contained
+      # means opencode works identically in the repo and in devbox's global
+      # copy. The same canary URL is used by `devbox.d/bun/flake.nix` for
+      # general-purpose `result/bin/bun`; bump both hashes together when
+      # rolling to a new canary build.
+      bunCanarySha256 = "sha256-6Ptf1gu3z+CgYmqeTZL+nWEUWnSZ7SWtI3NnhE3n6QU=";
+
+      # Hash capture workflow for srcHash / nodeModulesHash:
+      #   1. uncomment fakeHash lines and comment real hashes
+      #   2. devbox global update
+      #   3. paste sha256-... values back
+      srcHash = "sha256-tGMO5JktINO8kXAHFQftn+JCrzwvpmNipTa8V0aIfNI=";
+      nodeModulesHash = "sha256-7WVCgEVno9J6i+BL6F2H7RU37eunRs/Ljxy+/AB1DP0=";
     in
     {
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          localBun = bun.packages.${system}.default;
+
+          # Inline canary bun fetch — same URL as devbox.d/bun/flake.nix,
+          # but pulled directly so opencode doesn't need cross-flake
+          # inputs (which break in devbox's stored-copy install path).
+          localBun = pkgs.stdenvNoCC.mkDerivation {
+            pname = "bun";
+            version = "1.4.0-canary";
+
+            src = pkgs.fetchurl {
+              url = "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline.zip";
+              sha256 = bunCanarySha256;
+            };
+
+            nativeBuildInputs = [
+              pkgs.unzip
+              pkgs.makeWrapper
+            ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+              pkgs.autoPatchelfHook
+            ];
+
+            buildInputs = pkgs.lib.optionals pkgs.stdenv.isLinux [
+              pkgs.openssl
+              pkgs.zlib
+              pkgs.gcc.cc.lib
+            ];
+
+            dontConfigure = true;
+            dontBuild = true;
+
+            # stdenv cd's into the extracted top-level dir on unpack.
+            installPhase = ''
+              runHook preInstall
+              install -Dm 755 bun $out/bin/bun
+              ln -s $out/bin/bun $out/bin/bunx
+              runHook postInstall
+            '';
+          };
 
           src = pkgs.fetchFromGitHub {
             owner = "anomalyco";
@@ -56,7 +101,7 @@
             #   2. Replace the smoke test with a debug `find` + glob step
             #      that locates the entrypoint the bundler produced, then
             #      runs it under canary bun. This handles whatever output
-            #      layout bun's bundler settles on.
+            #      layout bun's bundler settles on without guessing.
             postPatch = ''
               python3 <<'PYEOF'
               import re, pathlib
@@ -124,13 +169,6 @@
               PYEOF
             '';
 
-            # buildPhase already runs `bun --bun ./script/build.ts --single`
-            # from ./packages/opencode, which (with our patch) now produces
-            # a directory bundle instead of a single binary.
-
-            # installPhase: copy bundle + node_modules into libexec, ship
-            # a wrapper at $out/bin/opencode that execs canary bun on the
-            # bundle. Same structure as nixpkgs's opencode but no binary.
             installPhase = ''
               runHook preInstall
 
@@ -145,13 +183,11 @@
               # (node_modules/<pkg> -> .bun/<pkg>@ver>/node_modules/<pkg>)
               # that point to source-relative paths and break under a
               # plain `cp -R` (noBrokenSymlinks: 124 dangling symlinks).
-              # Trade-off: ~5x larger install because dedup is lost.
               cp -RL . $out/libexec/opencode/
 
               # The wrapper — invokes canary bun on the bundle. Uses
               # `<<'WRAPPER'` (single-quoted heredoc) so `$p`, `$@`, etc.
-              # stay literal for the shell, and `''$` escapes so nix
-              # doesn't interpolate them. We derive our own $out at
+              # stay literal for the shell. We derive our own $out at
               # runtime via readlink (since `$out` would otherwise be
               # literal in this single-quoted heredoc and empty when the
               # script runs).
@@ -194,8 +230,7 @@
             postInstall = "";
 
             # Path A doesn't produce a compiled binary — skip the version
-            # check hook (which would segfault trying to run opencode) and
-            # the install-completion step (which calls `opencode completion`).
+            # check hook (which would segfault trying to run opencode).
             doInstallCheck = false;
             nativeInstallCheckInputs = [ ];
           });

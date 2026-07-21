@@ -17,7 +17,10 @@
 
           src = pkgs.fetchzip {
             url = "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz";
-            hash = "sha256-EF9+tWfM64SZawlnAniF3O68k3blRWwUsu+CGgmaHPY=";
+            # Bumped nightly tarball hash. The ble.sh nightly tarball is
+            # rebuilt continuously, so the pinned hash needs refreshing
+            # periodically — see bin/update-flake's "got_hash" handling.
+            hash = "sha256-YufcfgCiIdvmqJsXnn2WHv2W9QwycnSqg4AdfCvVcZo=";
           };
 
           version = "0.4.0-devel3";

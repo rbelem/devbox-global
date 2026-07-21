@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs }:
     let
-      version = "0.9.16";
+      version = "0.9.19";
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
@@ -33,11 +33,11 @@
               owner = "getagentseal";
               repo = "codeburn";
               rev = "v${version}";
-              hash = "sha256-dAoaFqR3mL2btwuA4eAbabs7OUtXwHB7LBykiY/VQU8=";
+              hash = "sha256-upA986jO+oeBviitqMhEHf2DgAnZAancmqdqVsY/dEI=";
             };
 
             # Run `nix build` once and replace with the hash from the error message
-            npmDepsHash = "sha256-pReRn6nxvxa/ppovCtdtBfQTG80acTQm5IZcyhCQFmE=";
+            npmDepsHash = "sha256-/YTr1x2ka1hUvZPLAlG6Ek5Dw86VosYx3mtFyr5Ardk=";
 
             nodejs = pkgs.nodejs_22;
 
