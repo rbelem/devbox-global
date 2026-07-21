@@ -83,6 +83,25 @@ fi
 # Fake hash placeholder — literal string, works in any nix scope (no pkgs dependency)
 FAKE_HASH='sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='
 
+# ── Semver comparison ──
+# Returns 0 (true) if $1 > $2 semver-wise, 1 otherwise. Strips leading 'v',
+# defaults missing components to 0 (so "2.0" == "2.0.0"), and ignores non-digit
+# suffixes like "-rc1" or "+build3" so tags remain comparable.
+semver_gt() {
+    local a="${1#v}" b="${2#v}"
+    local -a ap=() bp=()
+    IFS='.' read -ra ap <<< "$a"
+    IFS='.' read -ra bp <<< "$b"
+    for i in 0 1 2; do
+        local av="${ap[$i]:-0}" bv="${bp[$i]:-0}"
+        av="${av%%[!0-9]*}"  # drop -rc1, +build3, etc.
+        bv="${bv%%[!0-9]*}"
+        (( av > bv )) && return 0
+        (( av < bv )) && return 1
+    done
+    return 1  # equal
+}
+
 # ── Parse installed versions from `devbox global list` ──
 declare -A INSTALLED
 while IFS= read -r line; do
@@ -415,6 +434,28 @@ resolve_hashes() {
     return $result
 }
 
+# ── Detect flakes that exist in devbox.d/ but aren't enabled in devbox.json ──
+# FLAKES (built above) only contains path:devbox.d/X entries from devbox.json,
+# so all loops iterate enabled flakes only. Surface un-enabled flake dirs here
+# so they are visible rather than silently ignored.
+if [[ -d "$DEVBOX_D" ]]; then
+    declare -a SKIPPED_FLAKES=()
+    while IFS= read -r dir_name; do
+        [[ -z "$dir_name" ]] && continue
+        enabled=false
+        for fname in "${FLAKES[@]}"; do
+            [[ "$dir_name" == "$fname" ]] && { enabled=true; break; }
+        done
+        $enabled || SKIPPED_FLAKES+=("$dir_name")
+    done < <(find "$DEVBOX_D" -mindepth 1 -maxdepth 1 -type d ! -name '.*' -printf '%f\n' 2>/dev/null | sort)
+
+    if [[ ${#SKIPPED_FLAKES[@]} -gt 0 ]]; then
+        printf "${YELLOW}Note: %d flake(s) in devbox.d/ are not enabled in devbox.json (skipped):${NC}\n" "${#SKIPPED_FLAKES[@]}"
+        printf '  - %s\n' "${SKIPPED_FLAKES[@]}"
+        printf "\n"
+    fi
+fi
+
 # ── Print results ──
 printf "\n${BOLD}${CYAN}═══ Devbox Global Flake Packages ═══${NC}\n\n"
 printf "${BOLD}%-15s %-25s %-15s %-15s %-8s${NC}\n" "PACKAGE" "SOURCE" "INSTALLED" "LATEST" "STATUS"
@@ -436,13 +477,15 @@ for name in "${FLAKES[@]}"; do
         compare_installed="${installed%${FLAKE_FORK_SUFFIX[$name]}}"
     fi
 
-    # Determine status
+    # Determine status (semver-aware: ↓ if installed is older than latest, ↑ if installed is ahead of upstream, e.g. fork)
     if [[ "$latest" == "unknown" || "$installed" == "unknown" || "$latest" == branch:* ]]; then
         status="${YELLOW}??${NC}"
-    elif [[ "$compare_installed" == "$latest" ]]; then
-        status="${GREEN}✓${NC}"
+    elif semver_gt "$latest" "$compare_installed"; then
+        status="${RED}↓${NC}"
+    elif semver_gt "$compare_installed" "$latest"; then
+        status="${YELLOW}↑${NC}"
     else
-        status="${RED}↑${NC}"
+        status="${GREEN}✓${NC}"
     fi
 
     latest_display="${latest#branch:}"
@@ -466,7 +509,7 @@ for name in "${!INSTALLED[@]}"; do
 done | sort
 
 printf "\n"
-printf "${GREEN}✓${NC} = up to date  ${RED}↑${NC} = update available  ${YELLOW}??${NC} = unknown\n"
+printf "${GREEN}✓${NC} = up to date  ${RED}↓${NC} = older (update available)  ${YELLOW}↑${NC} = ahead of latest  ${YELLOW}??${NC} = unknown\n"
 
 # ── Update workflow ──
 if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
@@ -482,7 +525,10 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
             compare_installed="${installed%${FLAKE_FORK_SUFFIX[$name]}}"
         fi
 
-        if [[ "$installed" != "unknown" && "$latest" != "unknown" && "$latest" != branch:* && "$compare_installed" != "$latest" ]]; then
+        # Only upgrade when upstream release is strictly newer than installed
+        # (semver-aware — "1.2.10" beats "1.2.9", not string "1.10.0" < "1.2.3")
+        if [[ "$installed" != "unknown" && "$latest" != "unknown" && "$latest" != branch:* ]] \
+            && semver_gt "$latest" "$compare_installed"; then
             UPGRADABLE+=("$name")
         fi
     done
