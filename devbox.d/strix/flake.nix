@@ -7,14 +7,14 @@
     supportedSystems = [ "x86_64-linux" ];
     forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-    version = "1.1.0";
+    version = "1.2.0";
 
     systemToTarget = {
       "x86_64-linux" = "strix-${version}-linux-x86_64";
     };
 
     systemToHash = {
-      "x86_64-linux" = "sha256-fovoQbkZWhbgOOqkPmlFLcYW+xnKaXmvvKqdhClg5+c=";
+      "x86_64-linux" = "sha256-ZGXNiM5s5XJKX2FaFkQUFiEP69O8bdQEIdTFjQj6hH4=";
     };
   in {
     packages = forAllSystems (pkgs: rec {
