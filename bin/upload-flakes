@@ -45,8 +45,8 @@ echo
 ENABLED_FLAKES=()
 while IFS= read -r line; do
     # Extract <name> from "path:devbox.d/<name>"
-    name="${line#path:devbox.d/}"
-    name="${name%%\"*}"
+    name="${line#'"'path:devbox.d/}"
+    name="${name%\"}"
     [[ -n "$name" ]] && ENABLED_FLAKES+=("$name")
 done < <(grep -oE '"path:devbox\.d/[^/]+"' "$DEVBOX_GLOBAL_PATH/devbox.json")
 
