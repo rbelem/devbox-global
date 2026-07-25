@@ -7,7 +7,7 @@
     supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-    version = "0.17.4";
+    version = "0.17.6";
 
     systemToTarget = {
       "x86_64-linux"  = "linux-x64";
@@ -17,10 +17,10 @@
     };
 
     systemToHash = {
-      "x86_64-linux"  = "sha256-2Mzy35V6G4WKLc81sTsWFlS4gZI3IdPfuaQ/GZcv7A8=";
-      "aarch64-linux" = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-      "x86_64-darwin" = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-      "aarch64-darwin" = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      "x86_64-linux"  = "sha256-/TcD0a+1HROoD7SYGMNJutzFdCw+EA7UYYT3MYwm7mo=";
+      "aarch64-linux" = "sha256-Et+gyvdAAEVRtmI+3yI+cPUi0LaJJoLm2/owK9mset4=";
+      "x86_64-darwin" = "sha256-oqxYpJuE9ewXLXGzA/oPDmq2PC7xjHQqBGRXc2U2gJU=";
+      "aarch64-darwin" = "sha256-BcAMig+SpkM0o2Wek7+T5yBIUuIfi0On4zjqb8ehN8E=";
     };
   in {
     packages = forAllSystems (pkgs: rec {
