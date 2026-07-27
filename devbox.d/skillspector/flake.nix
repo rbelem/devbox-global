@@ -7,9 +7,9 @@
     supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-    # No version tags upstream — pinned to latest commit on main.
-    version = "0-unstable-2026-06-10";
-    rev = "1a7bf02";
+    # Tracking tagged releases — bump rev + version + srcHash together.
+    version = "2.5.0";
+    rev = "v${version}";
 
     # Get the real hash:
     #   cd ~/.local/share/devbox/global/current/devbox.d/skillspector
@@ -17,7 +17,7 @@
     #   run the command "devbox global update"
     # Then paste the sha256-... value below
     #
-    srcHash = "sha256-NwkfzgKfKNC9xWoznCRfdFrytvdR+J5X7TImdjZ6Td8=";
+    srcHash = "sha256-uONYkwKDEzk2FVeKh2Ge7fIF6Fq2VZW63TPY2z+fcrk=";
   in {
     packages = forAllSystems (system:
       let
