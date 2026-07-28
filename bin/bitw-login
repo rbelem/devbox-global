@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+# bitw-login
+# Manual Bitwarden OAuth login via BW Personal API Keys (client_credentials grant).
+#
+# bitw is the rbelem/bitw fork — a D-Bus Secret Service provider for Bitwarden.
+# It reads BW_CLIENTID and BW_CLIENTSECRET env vars at startup (crypto.go:111,127)
+# and uses the client_credentials OAuth grant (auth.go:115-134) for machine-to-machine
+# auth. This bypasses the captcha gate that broke the password grant flow.
+#
+# ── One-time setup ──
+# Generate a BW Personal API Key:
+#   1. Log in to vault.bitwarden.com
+#   2. Settings → Security → Keys → API Key
+#   3. Master password confirmation
+#   4. Copy the two values:
+#        client_id:     user.<uuid>  (format: user.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+#        client_secret: one-time-shown string (save it — not shown again)
+#
+# ── Usage ──
+#   export BW_CLIENTID='user.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+#   export BW_CLIENTSECRET='your-client-secret'
+#   devbox global run bitw-login
+#
+# ── After login ──
+#   bitw unlock   — decrypt the vault (master password cached in libsecret by
+#                   bin/secrets-setup:82 via `secret-tool store --label="Bitwarden"
+#                   bitwarden master-password`)
+#   bitw serve    — start the D-Bus Secret Service provider
+#
+# ── KNOWN LIMITATION ──
+# The bitw fork has an empty refreshToken() stub at auth.go:255 (returns nil).
+# The access token expires ~1 hour after login. After that, `bitw sync` and
+# `bitw serve` will fail with HTTP 401. Workaround: re-run this script to
+# re-authenticate. A proper fix (implementing refresh token logic) is in progress
+# in a separate lane.
+#
+# ── Phase B (forthcoming) ──
+# Vault item integration (reading secrets from the vault, populating env vars)
+# is a separate phase. This script handles Phase A only: authentication.
+set -euo pipefail
+
+# ── Colors ──
+RED=$'\033[0;31m'; GREEN=$'\033[0;32m'; YELLOW=$'\033[1;33m'; CYAN=$'\033[0;36m'; BOLD=$'\033[1m'; NC=$'\033[0m'
+
+# ── Preflight checks ──
+if ! command -v bitw >/dev/null 2>&1; then
+  echo "${RED}ERROR:${NC} bitw not found. Run: devbox global install" >&2
+  exit 1
+fi
+
+if [ -z "${BW_CLIENTID:-}" ] || [ -z "${BW_CLIENTSECRET:-}" ]; then
+  echo "${RED}ERROR:${NC} BW_CLIENTID and BW_CLIENTSECRET must be set." >&2
+  echo "  Generate at: vault.bitwarden.com → Settings → Security → Keys → API Key" >&2
+  echo "  Then:" >&2
+  echo "    export BW_CLIENTID='user.<uuid>'" >&2
+  echo "    export BW_CLIENTSECRET='<secret>'" >&2
+  echo "    devbox global run bitw-login" >&2
+  exit 1
+fi
+
+# ── Sanity-check client_id format ──
+if [[ ! "$BW_CLIENTID" =~ ^user\.[0-9a-f-]{36}$ ]]; then
+  echo "${YELLOW}⚠${NC} BW_CLIENTID format looks unexpected: $BW_CLIENTID" >&2
+  echo "  Expected: user.<uuid> (e.g. user.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)" >&2
+  echo "  Continuing anyway — format may have changed server-side." >&2
+fi
+
+# ── Login ──
+echo "${CYAN}Logging in to Bitwarden via bitw (client_credentials grant)...${NC}"
+if bitw login; then
+  echo ""
+  echo "${GREEN}${BOLD}✓ bitw logged in${NC}"
+  echo ""
+  echo "${BOLD}Next steps:${NC}"
+  echo "  1. bitw unlock    # decrypt vault (uses master pw from libsecret)"
+  echo "  2. bitw serve     # start D-Bus Secret Service provider"
+  echo ""
+  echo "${YELLOW}Note:${NC} Access token expires ~1hr (empty refreshToken stub)."
+  echo "  If bitw sync/serve fails with 401, re-run: devbox global run bitw-login"
+else
+  echo ""
+  echo "${RED}✗ bitw login failed.${NC}" >&2
+  echo "  Check BW_CLIENTID and BW_CLIENTSECRET are correct." >&2
+  echo "  Regenerate at: vault.bitwarden.com → Settings → Security → Keys → API Key" >&2
+  exit 1
+fi
