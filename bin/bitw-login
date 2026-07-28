@@ -7,6 +7,10 @@
 # and uses the client_credentials OAuth grant (auth.go:115-134) for machine-to-machine
 # auth. This bypasses the captcha gate that broke the password grant flow.
 #
+# Note: bitw tries the password grant first, hits the captcha gate, then
+# automatically retries with client_credentials. The captcha message is
+# expected, not an error.
+#
 # ── One-time setup ──
 # Generate a BW Personal API Key:
 #   1. Log in to vault.bitwarden.com
