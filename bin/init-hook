@@ -15,6 +15,16 @@ if [ -n "$XDG_RUNTIME_DIR" ]; then
   unset _secrets_cache
 fi
 
+# ── Defense-in-depth: fall back to libsecret if cache didn't set BW API key vars ──
+if [ -z "${BW_CLIENTSECRET:-}" ] && command -v secret-tool >/dev/null 2>&1; then
+  BW_CLIENTSECRET="$(secret-tool lookup bitwarden-client secret 2>/dev/null || true)"
+  [ -n "$BW_CLIENTSECRET" ] && export BW_CLIENTSECRET
+fi
+if [ -z "${BW_CLIENTID:-}" ] && command -v secret-tool >/dev/null 2>&1; then
+  BW_CLIENTID="$(secret-tool lookup bitwarden-client client-id 2>/dev/null || true)"
+  [ -n "$BW_CLIENTID" ] && export BW_CLIENTID
+fi
+
 # ble.sh line editor (if terminal input is not working, remove ~/.cache/blesh/)
 [ -f $(blesh-share)/ble.sh ] && source -- $(blesh-share)/ble.sh --attach=none
 
