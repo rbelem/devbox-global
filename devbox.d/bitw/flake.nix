@@ -25,23 +25,19 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
-              rev = "821fb6f551d13f34844a0f2d176cf5bec7be0d6e";
-              hash = "sha256-97K63MN7HOOOaiQF5XOr69rSaarS4i7HD0rBD/DMwwc=";
+              rev = "392fe15cfb2e516489c0cd86b43142aa02bba00d";
+              hash = "sha256-G8MZ5ztr3+aiLw1YWnDI/jVUTIhU7OFh7WSsCcL1Ibo=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
-            vendorHash = "sha256-L6kHDZt0+QMC9BCBgh0CMyfD1lCb8ymq1sl4QqoCGH0=";
+            vendorHash = "sha256-slM1IjkkXsv1rQx6D1Ofr2DkdgoimtZrhWi378UkgoI=";
 
-            # buildGoModule's default checkPhase runs `go vet ./...`, which transitively
-            # type-checks test packages. bitw's transitive test dep `rogpeppe/go-internal`
-            # is pinned at v1.9.0 (2023), predating Go 1.21's `testing.testDeps.InitRuntimeCoverage`
-            # method — its `nopTestDeps{}` doesn't satisfy the interface, breaking vet.
-            # `dontCheck = true` doesn't override buildGoModule's explicit checkPhase
-            # definition, so we replace it with a no-op.
-            # TODO: bump rogpeppe/go-internal in the fork to v1.10+ to re-enable `go vet`.
+            # buildGoModule's default checkPhase runs `go vet ./...` and `go test ./...`.
+            # The tests require network access (connect to identity.bitwarden.com), which
+            # is unavailable in the Nix sandbox. Override to only run vet.
             checkPhase = ''
               runHook preCheck
-              echo "Skipping go vet: rogpeppe/go-internal v1.9.0 incompatible with Go 1.21+ testing API"
+              go vet ./...
               runHook postCheck
             '';
 
