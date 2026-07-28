@@ -76,7 +76,8 @@
     "path:devbox.d/dcg",
     "path:devbox.d/wigolo",
     "path:devbox.d/jcode",
-    "path:devbox.d/goose"
+    "path:devbox.d/goose",
+    "path:devbox.d/bitw"
   ],
   "env": {
     "EDITOR": "vi",
