@@ -49,25 +49,32 @@ on every shell start, making the env vars available to `rbelem/bitw`.
 After writing the cache, `bin/secrets-refresh` sources it and mirrors
 both values to libsecret via `secret-tool store`:
 
-- `secret-tool store --label="Bitwarden API key" bitwarden-client secret "$BW_CLIENTSECRET"`
-- `secret-tool store --label="Bitwarden API key" bitwarden-client client-id "$BW_CLIENTID"`
+- `secret-tool store --label="Bitwarden API key" bitwarden api-key-secret "$BW_CLIENTSECRET"`
+- `secret-tool store --label="Bitwarden API key" bitwarden api-key-client-id "$BW_CLIENTID"`
 
-`bin/init-hook` does `secret-tool lookup bitwarden-client secret` and
-`secret-tool lookup bitwarden-client client-id` if the env vars are
-unset after sourcing the cache. This means a non-interactive shell
-without `secrets-refresh` having been run can still find the credentials
-(provided libsecret is unlocked).
+`bin/init-hook` does `secret-tool lookup bitwarden api-key-secret` and
+`secret-tool lookup bitwarden api-key-client-id` if the env vars are
+unset after sourcing the cache. The attribute scheme matches the existing
+`bitwarden master-password` convention from ADR-0002.
+
+This means an interactive shell without `secrets-refresh` having been
+run can still find the credentials (provided libsecret is unlocked).
+The fallback does **not** apply to cron or other non-interactive shells,
+because `bin/init-hook:6` short-circuits on non-interactive invocations
+before reaching the fallback block.
 
 ### Why dual-store
 
 Vault-item-only requires `secrets-refresh` to have run, which requires
 `bw unlock`, which requires the master password. If the master password
 is in libsecret (per ADR-0002), `secrets-refresh` is one keystroke away.
-But shells that don't source `bin/init-hook` (orphaned tmux panes,
-`su -`, cron jobs with libsecret access) won't have `BW_CLIENTSECRET`
-unless the libsecret fallback fires. The libsecret fallback also enables
-bitw to work in the time window between machine boot and
-`secrets-refresh` first run.
+But shells that don't source `bin/init-hook` (orphaned interactive tmux
+panes, interactive `su -`) won't have `BW_CLIENTSECRET` unless the
+libsecret fallback fires. The libsecret fallback also enables bitw to
+work in the time window between machine boot and `secrets-refresh` first
+run. (Cron jobs and other non-interactive shells short-circuit at
+`init-hook:6` and never reach the fallback — they must source the cache
+explicitly.)
 
 ## Security
 
@@ -90,10 +97,22 @@ password for vault-read purposes.
 
 No auto-rotation. On suspected compromise: vault.bitwarden.com →
 Settings → Security → Keys → Revoke. The user must then create a new
-Personal API Key, update the vault item
-(`bw edit item <id>` or web vault UI), and re-run
-`devbox global run secrets-refresh` to propagate to both the cache and
-libsecret.
+Personal API Key, update the vault item (`bw edit item <id>` or web
+vault UI), and re-run `devbox global run secrets-refresh` to propagate
+to both the cache and libsecret.
+
+**Stale libsecret hazard**: `secrets-refresh` only *writes* to libsecret
+when the vault item has values; it does **not** clear stale entries on
+revocation. After revoking or emptying the vault item, manually clear
+the libsecret mirror:
+
+```bash
+secret-tool clear bitwarden api-key-secret
+secret-tool clear bitwarden api-key-client-id
+```
+
+Otherwise, shells that hit the `init-hook` fallback will continue to
+authenticate with a dead credential and fail with a confusing error.
 
 ## Consequences
 
