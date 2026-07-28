@@ -10,7 +10,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "3.3.1";
+      version = "3.4.0";
     in
     {
       packages = forAllSystems (system:
@@ -21,7 +21,7 @@
             owner = "pbakaus";
             repo = "impeccable";
             rev = "cli-v${version}";
-            hash = "sha256-DF4jfpf9UOK0PZUM1Q4RR6sxOPTIw+8C0s0HhP+X16o=";
+            hash = "sha256-p22LeWzVJ/Z6cMB36/cTcSFCF7oFg6o18VnGpK8SVyg=";
           };
 
           # Inject the package-lock.json (generated from bun.lock) into source.
@@ -42,7 +42,7 @@
           npmDeps = pkgs.fetchNpmDeps {
             name = "impeccable-npm-deps";
             src = npmDepsSrc;
-            hash = "sha256-dsQjoTEFfNNY/5jihBvP3DhTJ0roZ8qk3mRZFwhHRu0=";
+            hash = "sha256-HbbZkX3MKs67xRvLT2CVTOKXtRr3Z6GVrB0c3aYhB04=";
             # npmDepsFetcherVersion 2 skips optional deps (which would otherwise
             # be fetched from the lockfile metadata and fail on transient
             # registry errors). Required because 3.3.1+ pulls in platform-specific
