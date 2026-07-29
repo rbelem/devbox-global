@@ -27,6 +27,12 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
+              # 8c4d06c (Phase 3b Auth-Email removal: the live Bitwarden identity
+              #          server maps an invalid Auth-Email header to
+              #          invalid_username_or_password, silently rejecting password
+              #          grant login. Dropped the header + base64 import + the
+              #          associated comment from api.go; password grant now
+              #          correctly reaches the twoFactorPrompt path).
               # f65dd2d (Phase 3a email-skip: drop the $EMAIL requirement for
               #          client_credentials users by moving the email check
               #          + /accounts/prelogin fetch inside the !useApiKey
@@ -37,8 +43,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "f65dd2d6fa5f4b2c0f2f5ecc719b3bc477133aa8";
-              hash = "sha256-KLjfCzVWp5oKxjeeFBIlgHUhkL7lvuPkJax9ROJGQQk=";
+              rev = "8c4d06ce5fd71579cc225ecebf49ddd33f888360";
+              hash = "sha256-ftsgPLrmKxOxJG1BVLWBWNv38yvDPW0KKwlcmjyAUl8=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
