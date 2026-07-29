@@ -95,12 +95,8 @@ if bitw login; then
   echo ""
   echo "${GREEN}${BOLD}✓ bitw logged in${NC}"
   echo ""
-  echo "${BOLD}Next steps:${NC}"
-  echo "  1. bitw unlock    # decrypt vault (uses master pw from libsecret)"
-  echo "  2. bitw serve     # start D-Bus Secret Service provider"
-  echo ""
-  echo "${YELLOW}Note:${NC} Access token expires ~1hr (empty refreshToken stub)."
-  echo "  If bitw sync/serve fails with 401, re-run: devbox global run bitw-login"
+  echo "Next: ${CYAN}devbox global run secrets-refresh${NC} to populate the cache file,"
+  echo "      or ${CYAN}devbox global run bitw status${NC} for token source / expiry / LastSync"
 else
   echo ""
   echo "${RED}✗ bitw login failed.${NC}" >&2
