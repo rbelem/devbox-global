@@ -27,12 +27,18 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
+              # f65dd2d (Phase 3a email-skip: drop the $EMAIL requirement for
+              #          client_credentials users by moving the email check
+              #          + /accounts/prelogin fetch inside the !useApiKey
+              #          branch of login(); fallback path lazy-fetches if
+              #          password grant is needed after a client_credentials
+              #          failure).
               # 0cb7762 (ensureToken fast-path: skip re-auth when cached access token
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "0cb7762fbeab0fd252eade329571444fa49544b0";
-              hash = "sha256-yDqM29IK0LHBXWDNk2xzuM6Tce+WQ8Z6ZP5nTXAogPA=";
+              rev = "f65dd2d6fa5f4b2c0f2f5ecc719b3bc477133aa8";
+              hash = "sha256-KLjfCzVWp5oKxjeeFBIlgHUhkL7lvuPkJax9ROJGQQk=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).

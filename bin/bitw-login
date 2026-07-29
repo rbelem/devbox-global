@@ -6,15 +6,12 @@
 # Service provider; that direction was rejected per ADR-0004:123-125 and the
 # dbus.go path will be deleted in Phase 7). It reads BW_CLIENTID and
 # BW_CLIENTSECRET env vars at startup (crypto.go:111,127) and uses the
-# client_credentials OAuth grant (auth.go:115-134) for machine-to-machine
-# auth. This bypasses the captcha gate that broke the password grant flow.
+# client_credentials OAuth grant (auth.go) for machine-to-machine auth.
+# This bypasses the captcha gate that broke the password grant flow.
 #
-# NOTE: bitw currently (Phase 1 pending) tries the password grant first,
-# hits the captcha-required response, then auto-retries with client_credentials.
-# Phase 1 will reorder auth.go:84 so client_credentials goes first when env
-# vars are present. Until then: typing your master password is required (the
-# fork will use it to satisfy the password-grant step before falling back);
-# you will see one "captcha required" message — that is expected, not an error.
+# As of Phase 3a, client_credentials users no longer need to configure
+# $EMAIL (or have a synced profile email) — the email check + preLogin
+# fetch are skipped when BW_CLIENTID is set (auth.go:84).
 #
 # ── One-time setup ──
 # Generate a BW Personal API Key:
@@ -33,13 +30,12 @@
 # ── Usage ──
 #   export BW_CLIENTID='user.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 #   export BW_CLIENTSECRET='your-client-secret'
-#   export EMAIL='your-bitwarden-account-email'      # required until Phase 1 ships
 #   devbox global run bitw-login
 #
 # ── What this does ──
-# Calls `bitw login`, which triggers the password grant (will hit captcha-
-# required) and then retries via client_credentials using the env vars above.
-# The access_token + refresh_token land in `~/.cache/bitw/data.json`
+# Calls `bitw login`, which goes straight to client_credentials using
+# the env vars above (no password grant, no captcha gate, no $EMAIL needed).
+# The access_token lands in `~/.cache/bitw/data.json`
 # (fork writes data.json at crypto.go / main.go; read by `bitw sync`, `bitw get`,
 # `bitw create` etc.). Mirror to libsecret happens in the next
 # `devbox global run secrets-refresh` (per ADR-0003).
