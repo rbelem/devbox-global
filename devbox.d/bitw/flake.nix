@@ -25,8 +25,8 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
-              rev = "bbc0870f51841879ff1d860234b212c8a0dd01d2";
-              hash = "sha256-zgI5YPfWbw1yntC/WNdTmDX6p42rS4ANLbqTXv+T0cw=";
+              rev = "488726f0665908f3c0f5ca80eded800a05e2d318";
+              hash = "sha256-2sMh5QSkSA6oi2RyozbUBhkYFK+2+QyxspPhIZDF0sc=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
