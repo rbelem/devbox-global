@@ -104,6 +104,7 @@
       "secrets-setup": "\"$(devbox global path)/bin/secrets-setup\" \"$@\"",
       "secrets-refresh": "\"$(devbox global path)/bin/secrets-refresh\" \"$@\"",
       "secrets-add": "\"$(devbox global path)/bin/secrets-add\" \"$@\"",
+      "bitw-login": "\"$(devbox global path)/bin/bitw-login\" \"$@\"",
       "first-install": [
         "devbox global run setup-git",
         "devbox global run setup-tmux",

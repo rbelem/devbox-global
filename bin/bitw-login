@@ -2,14 +2,19 @@
 # bitw-login
 # Manual Bitwarden OAuth login via BW Personal API Keys (client_credentials grant).
 #
-# bitw is the rbelem/bitw fork — a D-Bus Secret Service provider for Bitwarden.
-# It reads BW_CLIENTID and BW_CLIENTSECRET env vars at startup (crypto.go:111,127)
-# and uses the client_credentials OAuth grant (auth.go:115-134) for machine-to-machine
+# bitw is the rbelem/bitw fork — a CLI client for Bitwarden (NOT a D-Bus Secret
+# Service provider; that direction was rejected per ADR-0004:123-125 and the
+# dbus.go path will be deleted in Phase 7). It reads BW_CLIENTID and
+# BW_CLIENTSECRET env vars at startup (crypto.go:111,127) and uses the
+# client_credentials OAuth grant (auth.go:115-134) for machine-to-machine
 # auth. This bypasses the captcha gate that broke the password grant flow.
 #
-# Note: bitw tries the password grant first, hits the captcha gate, then
-# automatically retries with client_credentials. The captcha message is
-# expected, not an error.
+# NOTE: bitw currently (Phase 1 pending) tries the password grant first,
+# hits the captcha-required response, then auto-retries with client_credentials.
+# Phase 1 will reorder auth.go:84 so client_credentials goes first when env
+# vars are present. Until then: typing your master password is required (the
+# fork will use it to satisfy the password-grant step before falling back);
+# you will see one "captcha required" message — that is expected, not an error.
 #
 # ── One-time setup ──
 # Generate a BW Personal API Key:
@@ -20,27 +25,42 @@
 #        client_id:     user.<uuid>  (format: user.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 #        client_secret: one-time-shown string (save it — not shown again)
 #
+# Recommended: also stash BW_CLIENTSECRET as a vault item named
+# `devbox-global/bitwarden-api-key` (Login type, .login.password = client_secret,
+# custom field BW_CLIENTID = user.<uuid>) per ADR-0003, so new machines
+# self-heal on first `devbox global run secrets-refresh`.
+#
 # ── Usage ──
 #   export BW_CLIENTID='user.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 #   export BW_CLIENTSECRET='your-client-secret'
+#   export EMAIL='your-bitwarden-account-email'      # required until Phase 1 ships
 #   devbox global run bitw-login
 #
-# ── After login ──
-#   bitw unlock   — decrypt the vault (master password cached in libsecret by
-#                   bin/secrets-setup:82 via `secret-tool store --label="Bitwarden"
-#                   bitwarden master-password`)
-#   bitw serve    — start the D-Bus Secret Service provider
+# ── What this does ──
+# Calls `bitw login`, which triggers the password grant (will hit captcha-
+# required) and then retries via client_credentials using the env vars above.
+# The access_token + refresh_token land in `~/.cache/bitw/data.json`
+# (fork writes data.json at crypto.go / main.go; read by `bitw sync`, `bitw get`,
+# `bitw create` etc.). Mirror to libsecret happens in the next
+# `devbox global run secrets-refresh` (per ADR-0003).
 #
-# ── KNOWN LIMITATION ──
-# The bitw fork has an empty refreshToken() stub at auth.go:255 (returns nil).
-# The access token expires ~1 hour after login. After that, `bitw sync` and
-# `bitw serve` will fail with HTTP 401. Workaround: re-run this script to
-# re-authenticate. A proper fix (implementing refresh token logic) is in progress
-# in a separate lane.
+# ── Status check (after Phase 7a) ──
+#   devbox global run bitw status   # prints token source, expiry, LastSync
 #
-# ── Phase B (forthcoming) ──
-# Vault item integration (reading secrets from the vault, populating env vars)
-# is a separate phase. This script handles Phase A only: authentication.
+# ── References ──
+# ADR-0003 — Bitwarden Personal API Key dual-storage pattern
+# ADR-0004 — bw → bitw CLI parity migration
+# ADR-0005 — Phase 7 token-broker architecture (forthcoming)
+#
+# ── Removed (were stale, do NOT add back) ──
+#   bitw unlock    — does NOT exist as a bitw command (the master password
+#                    lives in libsecret and is read internally by bitw via
+#                    readLibsecretPassword() at crypto.go:98-105; you only
+#                    need to unlock the libsecret keyring itself, which your
+#                    DE handles at login).
+#   bitw serve     — was the D-Bus Secret Service path, deleted in Phase 7
+#                    (D-Bus name conflict with kwalletd5; not exposed to
+#                    third-party clients).
 set -euo pipefail
 
 # ── Colors ──
