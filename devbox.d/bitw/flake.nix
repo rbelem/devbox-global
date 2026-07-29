@@ -27,13 +27,12 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
-              # e39fdf0 (Phase 2: request-profile alignment with upstream bitwarden/clients;
-              #                clientVersion constant; deviceType() derives from deviceTypeNum();
-              #                Bitwarden-Client-Version 0.1.0 → 2026.7.0;
-              #                Accept/User-Agent(bitwarden_CLI/<ver> (LINUX))/Device-Type:25 added
-              #                centrally in httpDo).
-              rev = "e39fdf0065d94a12525afb417df8f766f7dcf50c";
-              hash = "sha256-vr+a+z5Xf3vKyBMeHINi8cjIEJt8jC1d+4Aus5VIXrs=";
+              # 0cb7762 (ensureToken fast-path: skip re-auth when cached access token
+              #          is valid; fixes 'Cannot reach Bitwarden vault' for
+              #          client_credentials users calling `bitw sync` from a subshell
+              #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
+              rev = "0cb7762fbeab0fd252eade329571444fa49544b0";
+              hash = "sha256-yDqM29IK0LHBXWDNk2xzuM6Tce+WQ8Z6ZP5nTXAogPA=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
