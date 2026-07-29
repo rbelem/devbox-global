@@ -7,7 +7,7 @@
     supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-    version = "0.6.7";
+    version = "0.7.8";
 
     # Upstream ships Rust target-triple-named .tar.xz assets.
     # Note: x86_64-linux uses musl (statically linked), aarch64-linux uses gnu.
@@ -19,10 +19,10 @@
     };
 
     systemToHash = {
-      "x86_64-linux"   = "sha256-bZB1S3FwvetjN1/X0g59wzDFa48QGPxFzLvVzMwcoYM=";
-      "aarch64-linux"  = "sha256-nZ7bVBoDwEl+RHLlymF0fUdjV87Qd9tFK7SBHO5ct34=";
-      "x86_64-darwin"  = "sha256-SBg1nljSGHIWDtVpiE7WQZNdX3Qii60wzR+qTUPBFYQ=";
-      "aarch64-darwin" = "sha256-3M/ZDb13p1RkeErpC+EOQ1bPAYVnCMqFBuy1bafnXn8=";
+      "x86_64-linux"   = "sha256-35jb75Bfm5sdVVJq7cftxrOXcl2VjJixx3U9E1K3nRI=";
+      "aarch64-linux"  = "sha256-qisZkFqdlt7xchWQKJwjJNOH6zXfKIEn80qzTs7Z2zk=";
+      "x86_64-darwin"  = "sha256-aVvsUNv3DMdEbi86k3OJAYntxxkgCGr9JwIgUe6wYCo=";
+      "aarch64-darwin" = "sha256-LdPspKXiH5ZOvY4WNreUnh3qKiq3KFh9ojynIRVJMFY=";
     };
   in {
     packages = forAllSystems (pkgs: rec {
