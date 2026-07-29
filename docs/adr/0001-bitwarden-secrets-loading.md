@@ -31,6 +31,8 @@ on `PATH` when init_hook runs.
   | Item | Env var |
   |---|---|
   | `devbox-global/github-token` | GITHUB_TOKEN (→ GH_TOKEN derived) |
+  | `devbox-global/bitwarden-api-key` | BW_CLIENTSECRET + BW_CLIENTID (custom field; per ADR-0003; bootstrap — excluded from `secrets-setup` create path because it stores the credentials needed to authenticate) |
+  | `devbox-global/brave-api-key` | BRAVE_API_KEY |
   | `devbox-global/mistral-api-key` | MISTRAL_API_KEY |
   | `devbox-global/firecrawl-api-key` | FIRECRAWL_API_KEY |
   | `devbox-global/openai-api-key` | OPENAI_API_KEY + BASE_URL + MODEL (custom fields) |
@@ -45,8 +47,11 @@ on `PATH` when init_hook runs.
   right after the non-interactive guard (line 89 of `devbox.json`).
   No `bw` call, no staleness check, no prompt.
 - **Refresh**: manual only. `devbox global run secrets-refresh` fetches
-  all items from bw and writes the cache. Requires `bw unlock` to have
-  been run (prompts for master password once per login session).
+  all items via `bitw get` (per ADR-0004; `bw` removed) and writes the cache.
+  Master password is read by `bitw` from libsecret internally (per ADR-0002,
+  `rbelem/bitw`'s `readLibsecretPassword()` at `crypto.go:98-105`), not via
+  `bw unlock`. (Phase 7c plan: `secrets-refresh` will also opportunistically
+  call `bitw sync` to refresh the stale-snapshot problem — see ADR-0005.)
 - **Fallback when `$XDG_RUNTIME_DIR` unset**: secrets not loaded. This
   only occurs in non-standard sessions (orphaned tmux, `su -`) where
   secrets are typically not needed.
@@ -69,7 +74,7 @@ All scripts live in `bin/` under the repo root, synced to
 |---|---|
 | **Direct `bw` calls in init_hook** | Adds ~5s to every shell start; `bw` may not be unlocked; prompts block |
 | **Auto-refresh on shell start** | Marginal benefit (secrets rarely change mid-session); adds latency for no gain |
-| **Keyring auto-unlock** | Stores master password in kwallet — retrievable by any same-user process |
+| **Keyring auto-unlock** | Stores master password in kwallet — retrievable by any same-user process (superseded-by [ADR-0002](./0002-keyring-master-password-cache.md) for the master-password cache; the threat model there is no worse than `BW_SESSION` exposure) |
 | **Secure Note item type** | Login type has a cleaner jq path (`.login.password`) and is more natural for secrets |
 | **`~/.cache/`** | Wiped by aggressive cache-cleaning; persistent on disk after logout |
 | **`~/.local/state/`** | Implies persistence that the regenerable cache doesn't need; caught by backups |
@@ -88,6 +93,16 @@ All scripts live in `bin/` under the repo root, synced to
   vault is populated. Rollback requires recreating files from vault values.
   The `secrets-setup` script is one-time only.
 
+## Related
+- Supersedes: nothing (foundation ADR)
+- Superseded-by: in part by [ADR-0002](./0002-keyring-master-password-cache.md) (keyring cache acceptance)
+- Amends: nothing
+
+## Forward references
+- Vault-item primary, libsecret fallback (API key dual-storage): see [ADR-0003](./0003-bitwarden-api-key-cache.md)
+- Daemon-mediated auth (Phase 7, forthcoming — not yet linked)
+
 ## Status
 
 Accepted.
+**Last-verified:** 2026-07-29 (post-Phase 0 ADR cleanup)

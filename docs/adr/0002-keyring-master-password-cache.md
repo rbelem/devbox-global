@@ -16,11 +16,16 @@ master password from the keyring during an unlocked session.
 Despite this explicit rejection, the implementation stores the master
 password in the keyring:
 
-- **`bin/secrets-setup:82`**: `echo "$master_pw" | secret-tool store --label="Bitwarden" bitwarden master-password`
-- **`bin/secrets-refresh:28`**: `master_pw="$(secret-tool lookup bitwarden master-password 2>/dev/null)"`
-- **`rbelem/bitw` fork** (`devbox.d/bitw/flake.nix:65`): unlocks the vault
+- **`bin/secrets-setup`** (writes via `secret-tool store --label="Bitwarden"
+  bitwarden master-password` — exact line drifts across script revisions;
+  never cite line numbers in this ADR)
+- **`bin/secrets-refresh`**: does **not** read the master password directly
+  (the prior `bin/secrets-refresh:28` claim is substantively false). The
+  `rbelem/bitw` fork reads it internally via `readLibsecretPassword()`
+  (`crypto.go:98-105`) when invoked by `secrets-refresh`.
+- **`rbelem/bitw` fork** (`crypto.go:98-105` — `readLibsecretPassword`): unlocks the vault
   from `secret-tool lookup bitwarden master-password` before falling back
-  to an interactive prompt.
+  to an interactive prompt via `passwordPrompt`.
 
 The practice was adopted for convenience (no repeated master-password
 prompts after first unlock) despite the ADR's reasoning. This ADR
@@ -39,28 +44,28 @@ process running as the same user can read the master password via
 ### Security analysis
 
 **Threat model**: any same-user process during an unlocked session can
-read the master password. This is **true**, but the threat surface is
-no worse than the existing `bw unlock` flow:
+read the master password. This is an **accepted trade-off**, justified
+on security merits independent of any comparison to other auth flows:
 
-1. **`bw unlock` writes `BW_SESSION` to env vars** — `BW_SESSION` is
-   readable by any same-user process via `/proc/<pid>/environ` or `ps e`.
-   The master password in the keyring has the **same exposure window**
-   (unlocked session) as `BW_SESSION`.
-
-2. **Keyring is locked at logout** — the master password is not persisted
+1. **Keyring is locked at logout** — the master password is not persisted
    across sessions. After logout, the keyring requires the login password
    to unlock. This is **better** than a plaintext cache file on disk.
 
-3. **`tmpfs`-backed `$XDG_RUNTIME_DIR`** — the secrets cache file
+2. **`tmpfs`-backed `$XDG_RUNTIME_DIR`** — the secrets cache file
    (`$XDG_RUNTIME_DIR/devbox-secrets.sh`) is on tmpfs (RAM-backed, not
-   written to disk) with 600 permissions. This is the same tmpfs that
-   holds `BW_SESSION` after `bw unlock`.
+   written to disk) with 600 permissions.
+
+3. **Same-user process isolation** — modern session infrastructure
+   (systemd --user, D-Bus session bus, gnome-keyring/kwallet) explicitly
+   trusts same-user access within an unlocked session as the right
+   granularity for desktop secrets. The devbox-global threat model
+   inherits that assumption.
 
 4. **Uniform threat surface** — the `rbelem/bitw` fork already uses this
    same keyring for vault unlock. The master password is already exposed
-   to same-user processes via bitw's libsecret path. The `secrets-setup`
-   and `secrets-refresh` scripts use the **same keyring entry**, so the
-   threat surface is uniform (not additive).
+   to same-user processes via bitw's `readLibsecretPassword` path. The
+   `secrets-setup` and `secrets-refresh` scripts use the **same keyring
+   entry**, so the threat surface is uniform (not additive).
 
 ### Mitigations
 
@@ -100,6 +105,15 @@ auto-unlock" in ADR-0001 was based on a threat model that is no worse
 than the existing `BW_SESSION` exposure. This ADR documents the actual
 security model and accepts the trade-off.
 
+## Forward references
+- Token-broker daemon (Phase 7, forthcoming ADR-0005): this cache is **kept** under the chosen architecture. The token broker doesn't hold the master key — the `bitwd` daemon only brokers access tokens via `GET_TOKEN`/`LOCK`/`STATUS` — so the libsecret master-password cache remains the path for `bitw`/`secrets-refresh` to decrypt the vault. The "delete this cache" alternative was the secrets-agent model (DECRYPT/ENCRYPT on the wire) — rejected in favor of the simpler token broker.
+
+## Related
+- Supersedes: ADR-0001 §Why-not-alternatives (rejection of "Keyring auto-unlock")
+- Superseded-by: nothing (cache retained under chosen architecture)
+- Amends: nothing
+
 ## Status
 
 Accepted.
+**Last-verified:** 2026-07-29 (post-Phase 0 ADR cleanup)
