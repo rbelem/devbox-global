@@ -1,19 +1,35 @@
 #!/usr/bin/env bash
 # bitw-login
-# Manual Bitwarden OAuth login via BW Personal API Keys (client_credentials grant).
+# Login to Bitwarden via bitw. Routing handled by bitw login itself:
+#   - BW_CLIENTID + BW_CLIENTSECRET set → client_credentials (silent)
+#   - Neither set → interactive (prompts for server, email, password, TOTP)
+#   - Exactly one set → bitw errors with actionable guidance
 #
-# bitw is the rbelem/bitw fork — a CLI client for Bitwarden (NOT a D-Bus Secret
-# Service provider; that direction was rejected per ADR-0004:123-125 and the
-# dbus.go path will be deleted in Phase 7). It reads BW_CLIENTID and
-# BW_CLIENTSECRET env vars at startup (crypto.go:111,127) and uses the
-# client_credentials OAuth grant (auth.go) for machine-to-machine auth.
-# This bypasses the captcha gate that broke the password grant flow.
+# As of Phase 2 (035ea4f), this script is a thin wrapper. The hard
+# BW_CLIENTID/BW_CLIENTSECRET requirement that previously lived here
+# was removed; bitw login now errors clearly with the same guidance
+# when exactly one env var is set. The master password is stored in
+# libsecret by bitw login (best-effort) when interactive, so subsequent
+# `bitw get` calls work without re-prompting.
 #
-# As of Phase 3a, client_credentials users no longer need to configure
-# $EMAIL (or have a synced profile email) — the email check + preLogin
-# fetch are skipped when BW_CLIENTID is set (auth.go:84).
+# For interactive password prompts, bitw uses a priority chain:
+#   1. zenity (GTK dialog)
+#   2. kdialog (KDE dialog)
+#   3. SSH_ASKPASS (if set; useful for non-TTY / scripted environments)
+#   4. terminal (/dev/tty)
 #
-# ── One-time setup ──
+# ── Usage ──
+#   # API key login (machine-to-machine, no prompts):
+#   export BW_CLIENTID='user.<uuid>'
+#   export BW_CLIENTSECRET='<secret>'
+#   devbox global run bitw-login
+#
+#   # Interactive login (password grant):
+#   unset BW_CLIENTID BW_CLIENTSECRET
+#   devbox global run bitw-login
+#   # → bitw prompts for: server (cloud/self), email, master password, TOTP
+#
+# ── One-time setup for API key users ──
 # Generate a BW Personal API Key:
 #   1. Log in to vault.bitwarden.com
 #   2. Settings → Security → Keys → API Key
@@ -27,19 +43,6 @@
 # custom field BW_CLIENTID = user.<uuid>) per ADR-0003, so new machines
 # self-heal on first `devbox global run secrets-refresh`.
 #
-# ── Usage ──
-#   export BW_CLIENTID='user.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-#   export BW_CLIENTSECRET='your-client-secret'
-#   devbox global run bitw-login
-#
-# ── What this does ──
-# Calls `bitw login`, which goes straight to client_credentials using
-# the env vars above (no password grant, no captcha gate, no $EMAIL needed).
-# The access_token lands in `~/.cache/bitw/data.json`
-# (fork writes data.json at crypto.go / main.go; read by `bitw sync`, `bitw get`,
-# `bitw create` etc.). Mirror to libsecret happens in the next
-# `devbox global run secrets-refresh` (per ADR-0003).
-#
 # ── Status check (after Phase 7a) ──
 #   devbox global run bitw status   # prints token source, expiry, LastSync
 #
@@ -47,46 +50,37 @@
 # ADR-0003 — Bitwarden Personal API Key dual-storage pattern
 # ADR-0004 — bw → bitw CLI parity migration
 # ADR-0005 — Phase 7 token-broker architecture (forthcoming)
-#
-# ── Removed (were stale, do NOT add back) ──
-#   bitw unlock    — does NOT exist as a bitw command (the master password
-#                    lives in libsecret and is read internally by bitw via
-#                    readLibsecretPassword() at crypto.go:98-105; you only
-#                    need to unlock the libsecret keyring itself, which your
-#                    DE handles at login).
-#   bitw serve     — was the D-Bus Secret Service path, deleted in Phase 7
-#                    (D-Bus name conflict with kwalletd5; not exposed to
-#                    third-party clients).
 set -euo pipefail
 
 # ── Colors ──
 RED=$'\033[0;31m'; GREEN=$'\033[0;32m'; YELLOW=$'\033[1;33m'; CYAN=$'\033[0;36m'; BOLD=$'\033[1m'; NC=$'\033[0m'
 
-# ── Preflight checks ──
+# ── Preflight: bitw must be installed ──
 if ! command -v bitw >/dev/null 2>&1; then
   echo "${RED}ERROR:${NC} bitw not found. Run: devbox global install" >&2
   exit 1
 fi
 
-if [ -z "${BW_CLIENTID:-}" ] || [ -z "${BW_CLIENTSECRET:-}" ]; then
-  echo "${RED}ERROR:${NC} BW_CLIENTID and BW_CLIENTSECRET must be set." >&2
-  echo "  Generate at: vault.bitwarden.com → Settings → Security → Keys → API Key" >&2
-  echo "  Then:" >&2
-  echo "    export BW_CLIENTID='user.<uuid>'" >&2
-  echo "    export BW_CLIENTSECRET='<secret>'" >&2
-  echo "    devbox global run bitw-login" >&2
-  exit 1
-fi
-
-# ── Sanity-check client_id format ──
-if [[ ! "$BW_CLIENTID" =~ ^user\.[0-9a-f-]{36}$ ]]; then
-  echo "${YELLOW}⚠${NC} BW_CLIENTID format looks unexpected: $BW_CLIENTID" >&2
-  echo "  Expected: user.<uuid> (e.g. user.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)" >&2
-  echo "  Continuing anyway — format may have changed server-side." >&2
+# ── Sanity-check client_id format (only if BW_CLIENTID is set) ──
+if [ -n "${BW_CLIENTID:-}" ]; then
+  if [[ ! "$BW_CLIENTID" =~ ^user\.[0-9a-f-]{36}$ ]]; then
+    echo "${YELLOW}⚠${NC} BW_CLIENTID format looks unexpected: $BW_CLIENTID" >&2
+    echo "  Expected: user.<uuid> (e.g. user.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)" >&2
+    echo "  Continuing anyway — format may have changed server-side." >&2
+  fi
 fi
 
 # ── Login ──
-echo "${CYAN}Logging in to Bitwarden via bitw (client_credentials grant)...${NC}"
+# bitw login handles path selection:
+#   - both env vars → client_credentials (silent)
+#   - exactly one env var → clear error
+#   - neither → interactive (prompts for server, email, password, TOTP)
+if [ -n "${BW_CLIENTID:-}" ] && [ -n "${BW_CLIENTSECRET:-}" ]; then
+  echo "${CYAN}Logging in to Bitwarden via bitw (client_credentials grant)...${NC}"
+else
+  echo "${CYAN}Logging in to Bitwarden via bitw (interactive)...${NC}"
+fi
+
 if bitw login; then
   echo ""
   echo "${GREEN}${BOLD}✓ bitw logged in${NC}"
@@ -96,7 +90,9 @@ if bitw login; then
 else
   echo ""
   echo "${RED}✗ bitw login failed.${NC}" >&2
-  echo "  Check BW_CLIENTID and BW_CLIENTSECRET are correct." >&2
-  echo "  Regenerate at: vault.bitwarden.com → Settings → Security → Keys → API Key" >&2
+  echo "  Common causes:" >&2
+  echo "    - For API key login: ensure BW_CLIENTID and BW_CLIENTSECRET are both set and correct." >&2
+  echo "    - For interactive login: ensure you have a TTY (or set FORCE_STDIN_PROMPTS=true) and SSH_ASKPASS if non-interactive." >&2
+  echo "  Regenerate API key at: vault.bitwarden.com → Settings → Security → Keys → API Key" >&2
   exit 1
 fi
