@@ -27,6 +27,16 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
+              # 7a0f56d (Phase 1 bitw cache: devbox-global's bin/secrets-refresh
+              #          shells out to bitw get 8x (one process per vault item,
+              #          each redoing Argon2id). Errors were masked by 2>/dev/null
+              #          and "bitw get failed", hiding MAC mismatch + KDF state.
+              #          bitw cache reads a manifest (~/.config/bitw/cache.ini),
+              #          decrypts all ciphers in one process, writes the cache
+              #          atomically. Errors surface with full context: cipher
+              #          name, field, error type, KDF state, email source. 8 tests
+              #          including TestCache_ErrorNotMasked regression guard.
+              #          No new dependencies).
               # 061eeb7 (Phase 3d JWT email fallback: secrets.email() now has a 4th
               #          fallback tier that extracts the email claim from the JWT
               #          access token. Lets client_credentials users decrypt without
@@ -56,8 +66,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "061eeb7989f8ca72dee7c8489942d5be2f7ff733";
-              hash = "sha256-vPSPoDxubDA2Qh1E5C4jISeq9nDKWZ+sGMusaaMdXoY=";
+              rev = "7a0f56d776c5294a5d42795982ddba79a23aa0d8";
+              hash = "sha256-nUt6vPxogBqHCN+hyu55rf8a412h6Oij5DT1pE9CMek=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
