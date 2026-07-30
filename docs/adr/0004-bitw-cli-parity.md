@@ -65,7 +65,7 @@ diagnostic text.
 
 | Script | Status |
 |---|---|
-| `bin/secrets-refresh` | Fully migrated to `bitw get` (default mode for ITEMS, field mode for CUSTOM_FIELDS) |
+| `bin/secrets-refresh` | Removed in Phase 4 — superseded by `bitw cache` (fork b82e2b4, which now syncs the vault first as part of the same single-process call). The `devbox global run secrets-refresh` entrypoint now invokes `bitw cache --mirror-libsecret=BW_CLIENTSECRET,BW_CLIENTID` via devbox.json. |
 | `bin/secrets-setup` | Migrated validation to `bitw get` (Option B: temporarily store in libsecret, validate, keep or clear) |
 | `bitw create` (native, fork) | Replaces `bin/secrets-add` entirely — use `bitw create <name> [--notes NOTES] [--field NAME=VALUE]...` directly. `bin/secrets-add` deleted in Phase 3. |
 
@@ -133,7 +133,8 @@ exit on failure) ensures eval safety.
 - ADR-0003 — BW Personal API Key dual-storage
 - Fork commit `488726f` — `feat(cli): add bitw get <name> command`
 - Fork commit `638e8fd` — `feat(create): add bitw create command for Login ciphers`
-- `bin/secrets-refresh`, `bin/secrets-setup` (`bin/secrets-add` removed in Phase 3)
+- Fork commit `b82e2b4` — `feat(cache): sync vault before building cache file`
+- `bin/secrets-setup` (`bin/secrets-add` removed in Phase 3; `bin/secrets-refresh` removed in Phase 4)
 
 ## Status
 

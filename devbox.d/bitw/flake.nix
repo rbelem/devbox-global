@@ -27,6 +27,16 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
+              # b82e2b4 (Phase 4 bitw cache sync: cmdCache now calls ensureToken
+              #          + sync at the start, mirroring the bash bin/secrets-refresh
+              #          preflight. Without sync, cmdCache only saw ciphers
+              #          present in data.json at startup — missing any created
+              #          since (via `bitw create` or the web UI). This makes
+              #          `bitw cache` a true drop-in for bin/secrets-refresh;
+              #          the bash wrapper is deleted in this devbox-global
+              #          commit. New TestCache_CallsSync is the regression
+              #          guard (asserts cmdCache calls /sync, not stale in-mem
+              #          data). 64/64 tests pass.
               # 638e8fd (Phase 3 bitw create: new `bitw create <name> [--notes
               #          NOTES] [--field NAME=VALUE]...` command. Replaces the
               #          deleted bash `bin/secrets-add` wrapper. Personal-vault
@@ -97,8 +107,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "638e8fdcd1ce6c93c9d4ef39aab2a7298b077092";
-              hash = "sha256-toW+jE5eoeLkDbWWbk7Il3Tv6Qg9UIptupIhCWmNeZ8=";
+              rev = "b82e2b4";
+              hash = "sha256-XvjJO+zHTYLXmunmeoJegCPwVca/HRD7OTeuiaoGQFg=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
