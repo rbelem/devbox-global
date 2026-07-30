@@ -67,7 +67,7 @@ diagnostic text.
 |---|---|
 | `bin/secrets-refresh` | Fully migrated to `bitw get` (default mode for ITEMS, field mode for CUSTOM_FIELDS) |
 | `bin/secrets-setup` | Migrated validation to `bitw get` (Option B: temporarily store in libsecret, validate, keep or clear) |
-| `bin/secrets-add` | Partially migrated — existence check via `bitw get`; item creation still uses `bw encode \| bw_sesh create item` |
+| `bitw create` (native, fork) | Replaces `bin/secrets-add` entirely — use `bitw create <name> [--notes NOTES] [--field NAME=VALUE]...` directly. `bin/secrets-add` deleted in Phase 3. |
 
 ## Security
 
@@ -102,11 +102,11 @@ exit on failure) ensures eval safety.
 
 | Old (`bw`) | New (`bitw get`) | Where |
 |---|---|---|
-| `bw login --check` | `bitw get <name> --field name` (success = vault accessible) | `bin/secrets-setup`, `bin/secrets-add` |
+| `bw login --check` | `bitw get <name> --field name` (success = vault accessible) | `bin/secrets-setup` |
 | `bw unlock --raw $pw` | (none — bitw reads from libsecret via Patch #N) | `bin/secrets-refresh`, `bin/secrets-setup` |
 | `bw get item <name>` | `bitw get <name> --env-name $VAR` (default mode) | `bin/secrets-refresh` ITEMS |
 | `bw get item <name> \| jq '.fields[] \| select(.name==...)' \| .value` | `bitw get <name> --field NAME` (field mode) | `bin/secrets-refresh` CUSTOM_FIELDS |
-| `bw encode \| bw create item` | (still `bw` — pending `bitw create` fork feature) | `bin/secrets-add` (partial) |
+| `bw encode \| bw create item` | `bitw create <name> [--notes NOTES] [--field NAME=VALUE]...` | direct (no script) |
 
 ## Consequences
 
@@ -116,10 +116,12 @@ exit on failure) ensures eval safety.
 - **Positive**: bitw's libsecret master-pw cache (ADR-0002) eliminates
   the `bw unlock --raw` round-trip on every refresh — bitw reads the
   master password from libsecret directly.
-- **Negative**: `bitw create` is a required future fork feature to
-  complete `bin/secrets-add` migration and enable removing
-  `bitwarden-cli@latest` from `devbox.json`. Until then, `bw` remains
-  a dependency for vault writes.
+- **Positive (Phase 3)**: `bitw create` shipped (fork `638e8fd`); the
+  previous `bin/secrets-add` bash wrapper is removed. `bw` is now only
+  needed for vault writes via `bw encode | bw create item` if the user
+  declines to use the native `bitw create`; `bitwarden-cli` can be
+  removed from `devbox.json` once `bitw create` is exercised against the
+  real vault.
 - **Negative**: bitw D-Bus server (the original direction explored)
   was rejected due to name conflict with kwalletd/gnome-keyring
   (Oracle review); we use bitw as a CLI client instead.
@@ -130,7 +132,8 @@ exit on failure) ensures eval safety.
 - ADR-0002 — master-password libsecret cache (enables bitw unlock)
 - ADR-0003 — BW Personal API Key dual-storage
 - Fork commit `488726f` — `feat(cli): add bitw get <name> command`
-- `bin/secrets-refresh`, `bin/secrets-setup`, `bin/secrets-add`
+- Fork commit `638e8fd` — `feat(create): add bitw create command for Login ciphers`
+- `bin/secrets-refresh`, `bin/secrets-setup` (`bin/secrets-add` removed in Phase 3)
 
 ## Status
 
