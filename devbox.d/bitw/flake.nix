@@ -62,7 +62,8 @@
               #          flow prompts for server (cloud/self-hosted with config
               #          override), email (if not configured), master password
               #          via zenity > kdialog > SSH_ASKPASS > terminal priority
-              #          chain (matches devbox-global/bin/secrets-setup pattern),
+              #          chain (matches the now-removed devbox-global/bin/secrets-setup
+              #          prompt pattern, kept for the historical priority order),
               #          and 2FA if enabled. Non-TTY environments get a clear
               #          error (overridable with FORCE_STDIN_PROMPTS=true).
               #          Captcha on password grant returns a clear error pointing

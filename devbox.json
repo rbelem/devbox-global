@@ -101,7 +101,6 @@
       ],
       "config-sync": "\"$(devbox global path)/bin/config-sync\" \"$@\"",
       "upload-flakes": "\"$(devbox global path)/bin/upload-flakes\" \"$@\"",
-      "secrets-setup": "\"$(devbox global path)/bin/secrets-setup\" \"$@\"",
       "secrets-refresh": "bitw cache --mirror-libsecret=BW_CLIENTSECRET,BW_CLIENTID \"$@\"",
       "bitw-login": "\"$(devbox global path)/bin/bitw-login\" \"$@\"",
       "first-install": [
