@@ -27,6 +27,13 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
+              # 638e8fd (Phase 3 bitw create: new `bitw create <name> [--notes
+              #          NOTES] [--field NAME=VALUE]...` command. Replaces the
+              #          bash secrets-add wrapper. Personal-vault Login ciphers
+              #          only — org-cipher creation deferred. Prompts for the
+              #          secret value via the zenity > kdialog > SSH_ASKPASS > tty
+              #          chain, refuses if the name already exists, re-syncs
+              #          after success. 12 new tests; 63/63 total pass.
               # f9f990d (Phase 2d login UX: added [1/4]-[4/4] progress indicators
               #          before each interactive prompt (server, email, master
               #          password, TOTP) so users know which step they're on.
@@ -89,8 +96,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "f9f990d637bdcfaa47c63404027b5f8c158a6fcf";
-              hash = "sha256-F9f/0WJtuxYc3jAOptZDiA4XaJOxUIkN7455q5uuBDM=";
+              rev = "638e8fdcd1ce6c93c9d4ef39aab2a7298b077092";
+              hash = "sha256-toW+jE5eoeLkDbWWbk7Il3Tv6Qg9UIptupIhCWmNeZ8=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
