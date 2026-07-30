@@ -27,6 +27,17 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
+              # f9f990d (Phase 2d login UX: added [1/4]-[4/4] progress indicators
+              #          before each interactive prompt (server, email, master
+              #          password, TOTP) so users know which step they're on.
+              #          Clearer prompt labels ("Bitwarden account email:",
+              #          "Master password: ", "Two-factor code (<provider>)").
+              #          Added passwordPromptInteractive that checks libsecret
+              #          first via readLibsecretPassword() — uses stored password
+              #          silently when present (with "(using stored master password
+              #          from libsecret)" feedback), otherwise falls through to
+              #          the GUI / SSH_ASKPASS / terminal priority chain. Fixed
+              #          %s format error in twoFactorPrompt. 51/51 tests pass).
               # 035ea4f (Phase 2 interactive login: login() dispatcher splits into
               #          client_credentials (both env vars set), clear error
               #          (exactly one set), or interactive (neither). Interactive
@@ -78,8 +89,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "035ea4fbd0dcd07424767eaa0b29aec9246c2427";
-              hash = "sha256-PMgwayeKncbXb0YnRvYfCQP3cMnG7M3ySDApKY6hVqA=";
+              rev = "f9f990d637bdcfaa47c63404027b5f8c158a6fcf";
+              hash = "sha256-F9f/0WJtuxYc3jAOptZDiA4XaJOxUIkN7455q5uuBDM=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
