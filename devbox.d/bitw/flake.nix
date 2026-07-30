@@ -27,6 +27,13 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
+              # 9bb2335 (Phase 3c KDF refresh on sync: client_credentials logins skip
+              #          prelogin (auth.go:116), so data.json's KDF block never
+              #          refreshed. After a vault re-key, initKeys derived the wrong
+              #          symmetric key and decrypt failed with "MAC mismatch"
+              #          (crypto.go:308). sync() now calls refreshKDF after /sync GET
+              #          so KDF stays in lockstep with the cipher blob. Non-fatal
+              #          when KDF cached; fatal when unset. 3 regression tests).
               # 8c4d06c (Phase 3b Auth-Email removal: the live Bitwarden identity
               #          server maps an invalid Auth-Email header to
               #          invalid_username_or_password, silently rejecting password
@@ -43,8 +50,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "8c4d06ce5fd71579cc225ecebf49ddd33f888360";
-              hash = "sha256-ftsgPLrmKxOxJG1BVLWBWNv38yvDPW0KKwlcmjyAUl8=";
+              rev = "9bb2335d88d9b3403a6bc0b6c855df89f95f6a84";
+              hash = "sha256-+mr49JbACWSl/a109SmT5JL9+WZSoRzci19Xs6In80Y=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
