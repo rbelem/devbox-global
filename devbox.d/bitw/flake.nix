@@ -27,6 +27,18 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
+              # 035ea4f (Phase 2 interactive login: login() dispatcher splits into
+              #          client_credentials (both env vars set), clear error
+              #          (exactly one set), or interactive (neither). Interactive
+              #          flow prompts for server (cloud/self-hosted with config
+              #          override), email (if not configured), master password
+              #          via zenity > kdialog > SSH_ASKPASS > terminal priority
+              #          chain (matches devbox-global/bin/secrets-setup pattern),
+              #          and 2FA if enabled. Non-TTY environments get a clear
+              #          error (overridable with FORCE_STDIN_PROMPTS=true).
+              #          Captcha on password grant returns a clear error pointing
+              #          to API key login (no recursive retry). 12 new tests.
+              #          Best-effort libsecret storage of the master password).
               # 7a0f56d (Phase 1 bitw cache: devbox-global's bin/secrets-refresh
               #          shells out to bitw get 8x (one process per vault item,
               #          each redoing Argon2id). Errors were masked by 2>/dev/null
@@ -66,8 +78,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "7a0f56d776c5294a5d42795982ddba79a23aa0d8";
-              hash = "sha256-nUt6vPxogBqHCN+hyu55rf8a412h6Oij5DT1pE9CMek=";
+              rev = "035ea4fbd0dcd07424767eaa0b29aec9246c2427";
+              hash = "sha256-PMgwayeKncbXb0YnRvYfCQP3cMnG7M3ySDApKY6hVqA=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
