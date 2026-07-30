@@ -27,6 +27,12 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
+              # 061eeb7 (Phase 3d JWT email fallback: secrets.email() now has a 4th
+              #          fallback tier that extracts the email claim from the JWT
+              #          access token. Lets client_credentials users decrypt without
+              #          configuring $EMAIL, a config file entry, or waiting for
+              #          /sync. Stdlib base64+json only, no new deps. 8 new subtests
+              #          in TestEmailFromAccessToken).
               # 9bb2335 (Phase 3c KDF refresh on sync: client_credentials logins skip
               #          prelogin (auth.go:116), so data.json's KDF block never
               #          refreshed. After a vault re-key, initKeys derived the wrong
@@ -50,8 +56,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "9bb2335d88d9b3403a6bc0b6c855df89f95f6a84";
-              hash = "sha256-+mr49JbACWSl/a109SmT5JL9+WZSoRzci19Xs6In80Y=";
+              rev = "061eeb7989f8ca72dee7c8489942d5be2f7ff733";
+              hash = "sha256-vPSPoDxubDA2Qh1E5C4jISeq9nDKWZ+sGMusaaMdXoY=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
