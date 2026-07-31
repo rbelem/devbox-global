@@ -102,7 +102,7 @@
             "output": 131072
           }
         },
-        "opencode-go-claude/qwen3.7-max": {
+        "opencode-go/qwen3.7-max": {
           "name": "Qwen 3.7 Max (Go free tier, reasoning specialist)",
           "reasoning": true,
           "tool_call": true,
