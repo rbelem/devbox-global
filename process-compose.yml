@@ -1,6 +1,6 @@
-# Devbox service: LiteLLM proxy — 100+ provider gateway with latency-based routing
-# Started with: devbox services up litellm
-# Stopped with:  devbox services stop litellm
+# Devbox service: Bifrost AI gateway — sub-ms overhead, multi-provider routing
+# Started with: devbox services up bifrost
+# Stopped with:  devbox services stop bifrost
 
 # Devbox service: wigolo HTTP daemon (REST + remote MCP on :3333)
 # Started with: devbox services up wigolo
@@ -9,8 +9,8 @@
 version: "0.5"
 
 processes:
-  litellm:
-    command: litellm --config $HOME/.config/litellm/config.yaml --port 4000 --num_workers 1
+  bifrost:
+    command: bifrost --app-dir $HOME/.config/bifrost --port 8080 --log-level info
     availability:
       restart: "always"
   wigolo:
