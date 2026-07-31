@@ -62,10 +62,19 @@ both values from cmdCache's internal decrypted map (not from `os.Getenv`
 see ADR-0004 for the rationale).
 
 The libsecret attribute scheme uses **stable semantic names**, not the
-env var names:
+env var names. `secret-tool store` reads the secret from STDIN (not
+from a positional argument), so the invocations are:
 
-- `secret-tool store --label="Bitwarden API key" bitwarden api-key-secret "$BW_CLIENTSECRET"`
-- `secret-tool store --label="Bitwarden API key" bitwarden api-key-client-id "$BW_CLIENTID"`
+```sh
+echo "$BW_CLIENTSECRET" | secret-tool store --label="Bitwarden API key" bitwarden api-key-secret
+echo "$BW_CLIENTID"      | secret-tool store --label="Bitwarden API key" bitwarden api-key-client-id
+```
+
+The Go mirror follows the same pattern as `storePasswordLibsecret`
+(`auth.go:323-325`): argv carries only the label + collection +
+attribute pair; the secret rides on `cmd.Stdin`. init-hook's
+`$(secret-tool lookup …)` strips trailing newlines from command
+substitution, so no newline normalization is needed.
 
 The env-var → semantic-name mapping is the single source of truth for
 the mirror-write side, and lives in the Go function
@@ -73,8 +82,12 @@ the mirror-write side, and lives in the Go function
 `api-key-secret` / `api-key-client-id` (`bin/init-hook:20,24`); the
 mapping must stay in sync with those literal strings. The Go mirror
 must NOT use the env var name (`BW_CLIENTSECRET` etc.) as the libsecret
-attribute — that was a regression introduced by the sync-preflight
-commit (`b82e2b4`) where the mirror read from `os.Getenv`; the B1 fix
+attribute, and must NOT pass the secret as a positional argv — both
+were regressions introduced by the sync-preflight commit (`b82e2b4`)
+where the mirror read from `os.Getenv` and passed the value as a
+positional. The B1 fix (`c46baf8`) corrected the read path, the
+attr-mapping fix (`60d5ac9`) corrected the write attribute, and the
+stdin-channel fix (`89951d8`) corrected the write channel.
 (`c46baf8`) corrected the read path but not the write attribute. The
 current code (post-Phase D follow-up) reads from the decrypted map AND
 uses the semantic attribute names.
@@ -252,10 +265,14 @@ authenticate with a dead credential and fail with a confusing error.
     lifecycle §above depends on it)
   - Fork commit `c46baf8` — `--mirror-libsecret` from decrypted
     map (B1 fix; closes init-hook env-empty hazard)
-  - Fork commit `<attr-mapping-fix>` — `--mirror-libsecret` writes
-    under semantic attr names (`api-key-secret` / `api-key-client-id`)
-    via `mirrorAttrFor` so the bash init-hook fallback finds what the
+  - Fork commit `60d5ac9` — `--mirror-libsecret` writes under semantic
+    attr names (`api-key-secret` / `api-key-client-id`) via
+    `mirrorAttrFor` so the bash init-hook fallback finds what the
     mirror stored
+  - Fork commit `89951d8` — `--mirror-libsecret` passes the secret via
+    `cmd.Stdin` (matching `storePasswordLibsecret`'s pattern); without
+    this fix the secret-tool call parsed the value as a dangling
+    attribute name and silently never stored the credential
   - Fork commit `094e2fc` — refinements: missing-key warning, custom-
     field mirror test, personal-vault success msg
 
