@@ -1,6 +1,6 @@
-# Devbox service: OmniRoute AI gateway
-# Started with: devbox services up omniroute
-# Stopped with:  devbox services stop omniroute
+# Devbox service: LiteLLM proxy — 100+ provider gateway with latency-based routing
+# Started with: devbox services up litellm
+# Stopped with:  devbox services stop litellm
 
 # Devbox service: wigolo HTTP daemon (REST + remote MCP on :3333)
 # Started with: devbox services up wigolo
@@ -9,8 +9,8 @@
 version: "0.5"
 
 processes:
-  omniroute:
-    command: omniroute --port 20128
+  litellm:
+    command: litellm --config $HOME/.config/litellm/config.yaml --port 4000 --num_workers 1
     availability:
       restart: "always"
   wigolo:
