@@ -39,12 +39,11 @@
           "!gh_grep",
           "!opencode-docs",
           "!openrouter",
-          "!omniroute",
           "!websearch"
         ]
       },
       "oracle": {
-        "model": "moonshotai/kimi-k3",
+        "model": "alibaba-token-plan/qwen3.8-max-preview",
         "variant": "max",
         "skills": [
           "simplify",
@@ -58,30 +57,19 @@
           "improve-codebase-architecture",
           "verification-planning"
         ],
-        "mcps": [
-          "codegraph"
-        ]
+        "mcps": ["codegraph"]
       },
       "librarian": {
         "model": "opencode-go/mimo-v2.5",
         "variant": "low",
-        "skills": [
-          "research"
-        ],
-        "mcps": [
-          "context7",
-          "gh_grep",
-          "firecrawl-mcp",
-          "opencode-docs"
-        ]
+        "skills": ["research"],
+        "mcps": ["context7", "gh_grep", "firecrawl-mcp", "opencode-docs"]
       },
       "explorer": {
         "model": "opencode-go/mimo-v2.5",
         "variant": "low",
         "skills": [],
-        "mcps": [
-          "codegraph"
-        ]
+        "mcps": ["codegraph"]
       },
       "designer": {
         "model": "zai-coding-plan/glm-5.2",
@@ -99,8 +87,8 @@
         "mcps": []
       },
       "fixer": {
-        "model": "moonshotai/kimi-k2.7-code",
-        "variant": "high",
+        "model": "alibaba-token-plan/qwen3.7-plus",
+        "variant": "max",
         "skills": [
           "git-commit",
           "devbox",
@@ -111,9 +99,7 @@
           "tdd",
           "verification-planning"
         ],
-        "mcps": [
-          "codegraph"
-        ]
+        "mcps": ["codegraph"]
       },
       "observer": {
         "model": "minimax/MiniMax-M3",
@@ -156,12 +142,11 @@
           "!gh_grep",
           "!opencode-docs",
           "!openrouter",
-          "!omniroute",
           "!websearch"
         ]
       },
       "oracle": {
-        "model": "moonshotai/kimi-k3",
+        "model": "alibaba-token-plan/qwen3.8-max-preview",
         "variant": "max",
         "skills": [
           "simplify",
@@ -171,30 +156,19 @@
           "zoom-out",
           "domain-modeling"
         ],
-        "mcps": [
-          "codegraph"
-        ]
+        "mcps": ["codegraph"]
       },
       "librarian": {
         "model": "opencode-go/mimo-v2.5",
         "variant": "low",
-        "skills": [
-          "research"
-        ],
-        "mcps": [
-          "context7",
-          "gh_grep",
-          "firecrawl-mcp",
-          "opencode-docs"
-        ]
+        "skills": ["research"],
+        "mcps": ["context7", "gh_grep", "firecrawl-mcp", "opencode-docs"]
       },
       "explorer": {
         "model": "opencode-go/mimo-v2.5",
         "variant": "low",
         "skills": [],
-        "mcps": [
-          "codegraph"
-        ]
+        "mcps": ["codegraph"]
       },
       "designer": {
         "model": "zai-coding-plan/glm-5.2",
@@ -209,7 +183,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "moonshotai/kimi-k2.7-code-highspeed",
+        "model": "alibaba-token-plan/qwen3.7-plus",
         "variant": "high",
         "skills": [
           "git-commit",
@@ -219,9 +193,7 @@
           "clonedeps",
           "tdd"
         ],
-        "mcps": [
-          "codegraph"
-        ]
+        "mcps": ["codegraph"]
       },
       "observer": {
         "model": "minimax/MiniMax-M3",
@@ -264,13 +236,12 @@
           "!gh_grep",
           "!opencode-docs",
           "!openrouter",
-          "!omniroute",
           "!websearch"
         ]
       },
       "oracle": {
-        "model": "zai-coding-plan/glm-5.2",
-        "variant": "high",
+        "model": "opencode-go/kimi-k2.7-code",
+        "variant": "low",
         "skills": [
           "simplify",
           "code-review",
@@ -279,30 +250,19 @@
           "zoom-out",
           "domain-modeling"
         ],
-        "mcps": [
-          "codegraph"
-        ]
+        "mcps": ["codegraph"]
       },
       "librarian": {
         "model": "opencode-go/mimo-v2.5",
         "variant": "low",
-        "skills": [
-          "research"
-        ],
-        "mcps": [
-          "context7",
-          "gh_grep",
-          "firecrawl-mcp",
-          "opencode-docs"
-        ]
+        "skills": ["research"],
+        "mcps": ["context7", "gh_grep", "firecrawl-mcp", "opencode-docs"]
       },
       "explorer": {
         "model": "opencode-go/mimo-v2.5",
         "variant": "low",
         "skills": [],
-        "mcps": [
-          "codegraph"
-        ]
+        "mcps": ["codegraph"]
       },
       "designer": {
         "model": "opencode-go/mimo-v2.5",
@@ -317,7 +277,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "opencode-go/mimo-v2.5-pro",
+        "model": "alibaba-token-plan/qwen3.7-plus",
         "variant": "high",
         "skills": [
           "git-commit",
@@ -327,13 +287,11 @@
           "clonedeps",
           "tdd"
         ],
-        "mcps": [
-          "codegraph"
-        ]
+        "mcps": ["codegraph"]
       },
       "observer": {
         "model": "minimax/MiniMax-M3",
-        "variant": "low",
+        "variant": "medium",
         "skills": [],
         "mcps": []
       },
@@ -372,24 +330,16 @@
     "presets": {
       "default": {
         "alpha": {
-          "model": "minimax/MiniMax-M3",
-          "variant": "max"
-        },
-        "beta": {
           "model": "zai-coding-plan/glm-5.2",
           "variant": "max"
         },
-        "gamma": {
-          "model": "opencode-go/qwen3.7-max",
-          "variant": "high"
-        },
-        "delta": {
-          "model": "moonshotai/kimi-k3",
+        "beta": {
+          "model": "alibaba-token-plan/qwen3.8-max-preview",
           "variant": "max"
         },
-        "zeta": {
-          "model": "opencode-go/mimo-v2.5-pro",
-          "variant": "high"
+        "gamma": {
+          "model": "openrouter/moonshotai/kimi-k3",
+          "variant": "max"
         }
       }
     }
