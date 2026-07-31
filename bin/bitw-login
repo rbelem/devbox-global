@@ -38,10 +38,10 @@
 #        client_id:     user.<uuid>  (format: user.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
 #        client_secret: one-time-shown string (save it — not shown again)
 #
-# Recommended: also stash BW_CLIENTSECRET as a vault item named
+# self-heal on first `bitw cache`.
 # `devbox-global/bitwarden-api-key` (Login type, .login.password = client_secret,
 # custom field BW_CLIENTID = user.<uuid>) per ADR-0003, so new machines
-# self-heal on first `devbox global run secrets-refresh`.
+# self-heal on first `bitw cache`.
 #
 # ── Status check (after Phase 7a) ──
 #   devbox global run bitw status   # prints token source, expiry, LastSync
@@ -85,7 +85,7 @@ if bitw login; then
   echo ""
   echo "${GREEN}${BOLD}✓ bitw logged in${NC}"
   echo ""
-  echo "Next: ${CYAN}devbox global run secrets-refresh${NC} to populate the cache file,"
+  echo "Next: ${CYAN}bitw cache${NC} to populate the cache file,"
   echo "      or ${CYAN}devbox global run bitw status${NC} for token source / expiry / LastSync"
 else
   echo ""

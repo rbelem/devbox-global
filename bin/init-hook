@@ -10,7 +10,7 @@
 XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}"
 if [ -n "$XDG_RUNTIME_DIR" ]; then
   _secrets_cache="$XDG_RUNTIME_DIR/devbox-secrets.sh"
-  [ -f "$_secrets_cache" ] || devbox global run secrets-refresh >/dev/null 2>&1
+  [ -f "$_secrets_cache" ] || bitw cache --mirror-libsecret=BW_CLIENTSECRET,BW_CLIENTID >/dev/null 2>&1
   [ -f "$_secrets_cache" ] && . "$_secrets_cache"
   unset _secrets_cache
 fi

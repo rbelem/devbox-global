@@ -65,7 +65,7 @@ diagnostic text.
 
 | Script | Status |
 |---|---|
-| `bin/secrets-refresh` | Removed in Phase 4 — superseded by `bitw cache` (fork b82e2b4, which now syncs the vault first as part of the same single-process call). The `devbox global run secrets-refresh` entrypoint now invokes `bitw cache --mirror-libsecret=BW_CLIENTSECRET,BW_CLIENTID` via devbox.json. |
+| `bin/secrets-refresh` | Removed in Phase 4 — superseded by `bitw cache` (fork b82e2b4, which now syncs the vault first as part of the same single-process call). The `devbox global run secrets-refresh` devbox alias was also removed in Phase 6; users run `bitw cache` directly. |
 | `bin/secrets-setup` | Removed in Phase 5 — the `~/.bashrc.d/` plaintext source files are gone (user confirmed all secrets should live in Bitwarden going forward). Master password libsecret storage is handled natively by `bitw login` (Phase 2). New items are created directly via `bitw create`. |
 | `bitw create` (native, fork) | Replaces `bin/secrets-add` entirely — use `bitw create <name> [--notes NOTES] [--field NAME=VALUE]...` directly. `bin/secrets-add` deleted in Phase 3. |
 
@@ -134,7 +134,7 @@ exit on failure) ensures eval safety.
 - Fork commit `488726f` — `feat(cli): add bitw get <name> command`
 - Fork commit `638e8fd` — `feat(create): add bitw create command for Login ciphers`
 - Fork commit `b82e2b4` — `feat(cache): sync vault before building cache file`
-- `bin/secrets-add` removed in Phase 3; `bin/secrets-refresh` removed in Phase 4; `bin/secrets-setup` removed in Phase 5 (all functionality native to bitw)
+- `bin/secrets-add` removed in Phase 3; `bin/secrets-refresh` removed in Phase 4; `bin/secrets-setup` removed in Phase 5; the `secrets-refresh` devbox alias also removed in Phase 6 (all functionality native to bitw)
 
 ## Status
 
