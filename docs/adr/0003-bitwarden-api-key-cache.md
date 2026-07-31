@@ -88,9 +88,6 @@ where the mirror read from `os.Getenv` and passed the value as a
 positional. The B1 fix (`c46baf8`) corrected the read path, the
 attr-mapping fix (`60d5ac9`) corrected the write attribute, and the
 stdin-channel fix (`89951d8`) corrected the write channel.
-(`c46baf8`) corrected the read path but not the write attribute. The
-current code (post-Phase D follow-up) reads from the decrypted map AND
-uses the semantic attribute names.
 
 Note: the Go binary never reads libsecret directly. The bash init-hook
 is what consumes the libsecret mirror and populates the shell env. The

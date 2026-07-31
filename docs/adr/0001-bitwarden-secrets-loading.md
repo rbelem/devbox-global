@@ -31,7 +31,7 @@ on `PATH` when init_hook runs.
   | Item | Env var |
   |---|---|
   | `devbox-global/github-token` | GITHUB_TOKEN (→ GH_TOKEN derived) |
-  | `devbox-global/bitwarden-api-key` | BW_CLIENTSECRET + BW_CLIENTID (custom field; per ADR-0003; bootstrap — excluded from `secrets-setup` create path because it stores the credentials needed to authenticate) |
+  | `devbox-global/bitwarden-api-key` | BW_CLIENTSECRET + BW_CLIENTID (custom field; per ADR-0003; bootstrap — the `secrets-setup` create path was excluded because it stored the credentials needed to authenticate; the modern replacement is `bitw create`, which has the same exclusion) |
   | `devbox-global/brave-api-key` | BRAVE_API_KEY |
   | `devbox-global/mistral-api-key` | MISTRAL_API_KEY |
   | `devbox-global/firecrawl-api-key` | FIRECRAWL_API_KEY |
@@ -46,12 +46,13 @@ on `PATH` when init_hook runs.
 - **Init_hook**: one line — `[ -f "$CACHE" ] && . "$CACHE"` — placed
   right after the non-interactive guard (line 89 of `devbox.json`).
   No `bw` call, no staleness check, no prompt.
-- **Refresh**: manual only. `devbox global run secrets-refresh` fetches
-  all items via `bitw get` (per ADR-0004; `bw` removed) and writes the cache.
-  Master password is read by `bitw` from libsecret internally (per ADR-0002,
-  `rbelem/bitw`'s `readLibsecretPassword()` at `crypto.go:98-105`), not via
-  `bw unlock`. (Phase 7c plan: `secrets-refresh` will also opportunistically
-  call `bitw sync` to refresh the stale-snapshot problem — see ADR-0005.)
+- **Refresh**: manual only. `bitw cache` (post-Phase 4 migration; was
+  `devbox global run secrets-refresh` until the alias was removed in
+  Phase 6) fetches all items via a single in-process call (per
+  ADR-0004) and writes the cache. Master password is read by `bitw`
+  from libsecret internally (per ADR-0002,
+  `rbelem/bitw`'s `readLibsecretPassword()` at `crypto.go:124-131`),
+  not via `bw unlock`.
 - **Fallback when `$XDG_RUNTIME_DIR` unset**: secrets not loaded. This
   only occurs in non-standard sessions (orphaned tmux, `su -`) where
   secrets are typically not needed.
@@ -65,8 +66,8 @@ All scripts live in `bin/` under the repo root, synced to
 |---|---|
 | `bin/config-sync` | (moved from repo root) bidirectional repo↔global sync |
 | `bin/update-flake` | (moved from repo root) check/update flake versions |
-| `bin/secrets-setup` | one-time migration: reads existing bashrc.d → creates vault items |
-| `bin/secrets-refresh` | fetches vault items → writes `$XDG_RUNTIME_DIR/devbox-secrets.sh` |
+| `bin/secrets-setup` | REMOVED Phase 5 — was a one-time migration: read existing bashrc.d → created vault items |
+| `bin/secrets-refresh` | REMOVED Phase 4 — fetched vault items → wrote `$XDG_RUNTIME_DIR/devbox-secrets.sh`. Replaced by `bitw cache`. |
 
 ## Why not alternatives
 
@@ -83,15 +84,17 @@ All scripts live in `bin/` under the repo root, synced to
 ## Consequences
 
 - **Positive**: secrets go from 644 to 600, vault becomes source of truth,
-  rotation becomes `bw edit → secrets-refresh`, no change to non-interactive
-  shells (same as current behavior).
+  rotation becomes `bw edit → bitw cache` (post-Phase 4 migration;
+  was `bw edit → secrets-refresh` until that script was removed), no
+  change to non-interactive shells.
 - **Negative**: once-per-login-session `bw unlock` required. Secrets unavailable
   in non-interactive sessions without explicit `source`. Cache is plaintext on
   tmpfs — no regression from current plaintext-in-bashrc.d, but not zero-disk
   either.
 - **Recovery risk**: removing `~/.bashrc.d/` files is destructive after the
   vault is populated. Rollback requires recreating files from vault values.
-  The `secrets-setup` script is one-time only.
+  The former `secrets-setup` bash script was one-time only (removed
+  in Phase 5; vault population is now done via `bitw create`).
 
 ## Related
 - Supersedes: nothing (foundation ADR)

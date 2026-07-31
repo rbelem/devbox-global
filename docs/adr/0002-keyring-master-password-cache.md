@@ -2,9 +2,11 @@
 
 Store the Bitwarden master password in the system keyring (via libsecret)
 to enable non-interactive vault unlock. ADR-0001 §Why-not-alternatives
-rejected keyring auto-unlock, but `bin/secrets-setup` implements exactly
-this. This ADR documents the actual security model and supersedes the
-rejection for the master-password cache specifically.
+rejected keyring auto-unlock, but the implementation (the now-removed
+`bin/secrets-setup` script, superseded in Phase 5 by `bitw create` +
+`bitw login`'s `storePasswordLibsecret` at `auth.go:316`) implements
+exactly this. This ADR documents the actual security model and
+supersedes the rejection for the master-password cache specifically.
 
 ## Context
 
@@ -16,16 +18,20 @@ master password from the keyring during an unlocked session.
 Despite this explicit rejection, the implementation stores the master
 password in the keyring:
 
-- **`bin/secrets-setup`** (writes via `secret-tool store --label="Bitwarden"
-  bitwarden master-password` — exact line drifts across script revisions;
-  never cite line numbers in this ADR)
-- **`bin/secrets-refresh`**: does **not** read the master password directly
-  (the prior `bin/secrets-refresh:28` claim is substantively false). The
+- **`bin/secrets-setup`** (REMOVED Phase 5 — referenced here for historical
+  context only): wrote the master password to libsecret via
+  `secret-tool store --label="Bitwarden" bitwarden master-password`.
+  The same operation is now done by `bitw login`'s
+  `storePasswordLibsecret` (`auth.go:316`).
+- **`bin/secrets-refresh`** (REMOVED Phase 4 — referenced here for historical
+  context only): did **not** read the master password directly. The
   `rbelem/bitw` fork reads it internally via `readLibsecretPassword()`
-  (`crypto.go:98-105`) when invoked by `secrets-refresh`.
-- **`rbelem/bitw` fork** (`crypto.go:98-105` — `readLibsecretPassword`): unlocks the vault
-  from `secret-tool lookup bitwarden master-password` before falling back
-  to an interactive prompt via `passwordPrompt`.
+  (`crypto.go:124-131`) when invoked by `bitw get` / `bitw cache` /
+  `bitw sync` (the modern replacement for the deleted
+  `bin/secrets-refresh` bash script).
+- **`rbelem/bitw` fork** (`crypto.go:124-131` — `readLibsecretPassword`): unlocks
+  the vault from `secret-tool lookup bitwarden master-password` before
+  falling back to an interactive prompt via `passwordPrompt`.
 
 The practice was adopted for convenience (no repeated master-password
 prompts after first unlock) despite the ADR's reasoning. This ADR
@@ -64,8 +70,9 @@ on security merits independent of any comparison to other auth flows:
 4. **Uniform threat surface** — the `rbelem/bitw` fork already uses this
    same keyring for vault unlock. The master password is already exposed
    to same-user processes via bitw's `readLibsecretPassword` path. The
-   `secrets-setup` and `secrets-refresh` scripts use the **same keyring
-   entry**, so the threat surface is uniform (not additive).
+   deleted `secrets-setup` and `secrets-refresh` bash scripts also used
+   the **same keyring entry**, so the threat surface is uniform
+   (not additive).
 
 ### Mitigations
 
@@ -87,7 +94,7 @@ unlock) outweighs the same-user-process risk, which is no worse than
 ## Consequences
 
 - **Positive**: no repeated master-password prompts after first unlock;
-  `secrets-refresh` and `bitw` can unlock non-interactively; uniform
+  `bitw` can unlock non-interactively (post-Phase 4 migration); uniform
   threat surface across all libsecret-based unlock paths.
 - **Negative**: compromise of the user session exposes the master
   password **and** `BW_SESSION`. An attacker with same-user access during
