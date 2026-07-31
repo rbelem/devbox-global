@@ -135,7 +135,7 @@ authenticate with a dead credential and fail with a confusing error.
 - ADR-0002 — master-password libsecret cache
 - `bin/secrets-refresh` (line 51-59 ITEMS, line 61-63 CUSTOM_FIELDS)
 - `bin/init-hook` (libsecret fallback block)
-- `bin/bitw-login` (manual first-run script)
+- `bin/bitw-login` (manual first-run script — removed in Phase 7; users now run `bitw login` directly)
 - `rbelem/bitw` fork: `crypto.go:111,127` (env var reads);
   `auth.go:115-134` (client_credentials grant)
 

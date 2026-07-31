@@ -101,7 +101,6 @@
       ],
       "config-sync": "\"$(devbox global path)/bin/config-sync\" \"$@\"",
       "upload-flakes": "\"$(devbox global path)/bin/upload-flakes\" \"$@\"",
-      "bitw-login": "\"$(devbox global path)/bin/bitw-login\" \"$@\"",
       "first-install": [
         "devbox global run setup-git",
         "devbox global run setup-tmux",

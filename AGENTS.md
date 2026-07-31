@@ -150,6 +150,7 @@ modified independently), shows what the opposite direction would change.
 | `devbox global run update-flake` | Run update-flake version checker |
 | `devbox global run config-sync` | Sync repo ↔ global with conflict detection (dry-run by default, add `--sync` to apply) |
 | `bitw cache` | Refresh Bitwarden secrets cache (run directly — there's no devbox wrapper) |
+| `bitw login` | Log in to Bitwarden (run directly — there's no devbox wrapper; replaced the deprecated `bin/bitw-login` script in Phase 7) |
 | `devbox global run python-install <pkg>` | pip install into managed venv |
 | `devbox global run python-update` | Upgrade all pip packages in venv |
 
