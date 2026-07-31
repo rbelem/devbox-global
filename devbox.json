@@ -23,7 +23,6 @@
     "tig@latest",
     "tree-sitter@latest",
     "chezmoi@latest",
-    "bitwarden-cli@latest",
     "atuin@latest",
     "nerd-fonts.hack@latest",
     "nerd-fonts.noto@latest",
