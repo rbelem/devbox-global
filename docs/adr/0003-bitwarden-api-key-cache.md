@@ -4,7 +4,7 @@ Store `BW_CLIENTID` and `BW_CLIENTSECRET` (Bitwarden Personal API Key)
 in the vault-item cache **and** mirror them to libsecret, so the
 `rbelem/bitw` fork can authenticate via `client_credentials` OAuth grant
 in any shell with libsecret access — not only shells that sourced the
-tmpfs cache after `secrets-refresh`.
+tmpfs cache after `bitw cache`.
 
 ## Context
 
@@ -53,15 +53,31 @@ on every shell start, making the env vars available to `rbelem/bitw`.
 
 ### Fallback: libsecret mirror
 
-After writing the cache, the bash `bin/init-hook` re-runs `bitw cache`
-with `--mirror-libsecret=BW_CLIENTSECRET,BW_CLIENTID`, which sources
-both values from cmdCache's internal decrypted map (not from
-`os.Getenv` — important because the mirror runs before the cache file
-is sourced; see ADR-0004 for the rationale) and writes them to
-libsecret via `secret-tool store`:
+`bin/init-hook` runs `bitw cache --mirror-libsecret=BW_CLIENTSECRET,BW_CLIENTID`
+on shell startup (conditional — only when the cache file is missing).
+This single invocation does both jobs in one process: writes the cache
+file AND mirrors the requested vars to libsecret. The mirror sources
+both values from cmdCache's internal decrypted map (not from `os.Getenv`
+— important because the mirror runs before the cache file is sourced;
+see ADR-0004 for the rationale).
+
+The libsecret attribute scheme uses **stable semantic names**, not the
+env var names:
 
 - `secret-tool store --label="Bitwarden API key" bitwarden api-key-secret "$BW_CLIENTSECRET"`
 - `secret-tool store --label="Bitwarden API key" bitwarden api-key-client-id "$BW_CLIENTID"`
+
+The env-var → semantic-name mapping is the single source of truth for
+the mirror-write side, and lives in the Go function
+`mirrorAttrFor` (`cache.go`). The bash init-hook fallback reads
+`api-key-secret` / `api-key-client-id` (`bin/init-hook:20,24`); the
+mapping must stay in sync with those literal strings. The Go mirror
+must NOT use the env var name (`BW_CLIENTSECRET` etc.) as the libsecret
+attribute — that was a regression introduced by the sync-preflight
+commit (`b82e2b4`) where the mirror read from `os.Getenv`; the B1 fix
+(`c46baf8`) corrected the read path but not the write attribute. The
+current code (post-Phase D follow-up) reads from the decrypted map AND
+uses the semantic attribute names.
 
 Note: the Go binary never reads libsecret directly. The bash init-hook
 is what consumes the libsecret mirror and populates the shell env. The
@@ -96,10 +112,8 @@ TTL but **no** refresh token (the server scopes the grant to
    - **Expired path**: `RefreshToken == ""` → `login(ctx)` →
      `loginApiKey()` → full client_credentials re-grant → new token
      stored.
-3. `bitw get` is **offline-only**: it reads `data.json` and never
-   makes a network call. No token needed. This is a feature (works
-   during outages) and a hazard (returns stale data after vault
-   changes without `bitw sync`).
+3. `bitw get` is offline-only (see §Known limitations for the feature/
+   hazard analysis).
 
 Credential resolution order: env `BW_CLIENTID` / `BW_CLIENTSECRET`
 (`buildApiKeyGrant` at `auth.go:338-339`) → `secrets.clientId()` /
@@ -124,16 +138,17 @@ mirror.
 
 ### Why dual-store
 
-Vault-item-only requires `secrets-refresh` to have run, which requires
-`bw unlock`, which requires the master password. If the master password
-is in libsecret (per ADR-0002), `secrets-refresh` is one keystroke away.
-But shells that don't source `bin/init-hook` (orphaned interactive tmux
-panes, interactive `su -`) won't have `BW_CLIENTSECRET` unless the
-libsecret fallback fires. The libsecret fallback also enables bitw to
-work in the time window between machine boot and `secrets-refresh` first
-run. (Cron jobs and other non-interactive shells short-circuit at
-`init-hook:6` and never reach the fallback — they must source the cache
-explicitly.)
+Vault-item-only requires `bitw cache` to have run, which requires
+master-password decryption (or libsecret-cached master password via
+ADR-0002). If the master password is in libsecret, `bitw cache` runs
+non-interactively on shell startup via `bin/init-hook`. But shells that
+don't source `bin/init-hook` (orphaned interactive tmux panes,
+interactive `su -`) won't have `BW_CLIENTSECRET` unless the libsecret
+fallback fires. The libsecret fallback also enables bitw to work in the
+time window between machine boot and the first `bitw cache` run. (Cron
+jobs and other non-interactive shells short-circuit at `init-hook:6`
+and never reach the fallback — they must source the cache explicitly,
+or set `BW_CLIENTID` / `BW_CLIENTSECRET` via some other mechanism.)
 
 ## Security
 
@@ -232,14 +247,25 @@ authenticate with a dead credential and fail with a confusing error.
     expired-token re-auth)
   - Fork commit `7a0f56d` — `bitw cache` (single-process refresh,
     replaces bash per-item loop)
+  - Fork commit `b82e2b4` — `feat(cache): sync vault before building
+    cache file` (preflight `ensureToken + sync`; the Runtime token
+    lifecycle §above depends on it)
   - Fork commit `c46baf8` — `--mirror-libsecret` from decrypted
     map (B1 fix; closes init-hook env-empty hazard)
+  - Fork commit `<attr-mapping-fix>` — `--mirror-libsecret` writes
+    under semantic attr names (`api-key-secret` / `api-key-client-id`)
+    via `mirrorAttrFor` so the bash init-hook fallback finds what the
+    mirror stored
   - Fork commit `094e2fc` — refinements: missing-key warning, custom-
     field mirror test, personal-vault success msg
 
 ## Status
 
-Accepted. Last updated: 2026-07-30 — drops dead `refresh_token` claim,
-adds runtime token lifecycle + failure modes + known limitations,
-corrects stale line refs, and replaces all references to the deleted
-`bin/secrets-refresh` / `bin/secrets-setup` / `bin/bitw-login` scripts.
+Accepted. Last updated: 2026-07-30 (Phase D follow-up) — drops dead
+`refresh_token` claim, adds runtime token lifecycle + failure modes +
+known limitations, corrects stale line refs, replaces body-text
+references to the deleted `bin/secrets-refresh` / `bin/secrets-setup` /
+`bin/bitw-login` scripts with `bitw cache` / `bitw create` / `bitw login`
+(pointed to throughout), and documents the `--mirror-libsecret`
+semantic-attr-name mapping (`mirrorAttrFor`) that aligns the mirror
+write side with the bash init-hook fallback read side.
