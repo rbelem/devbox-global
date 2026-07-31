@@ -77,7 +77,8 @@
     "path:devbox.d/wigolo",
     "path:devbox.d/jcode",
     "path:devbox.d/goose",
-    "path:devbox.d/bitw"
+    "path:devbox.d/bitw",
+    "redis@latest"
   ],
   "env": {
     "EDITOR": "vi",
