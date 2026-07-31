@@ -33,8 +33,11 @@ _Avoid_: Persistent cache locations, loading secrets from any other mechanism
 
 **Secrets refresh**:
 The act of fetching the current secret values from the Bitwarden vault
-and writing them to the secrets cache. Performed manually via
-`devbox global run secrets-refresh`, not on shell start.
+and writing them to the secrets cache. Run via `bitw cache` directly
+(formerly via the `secrets-refresh` devbox alias and the
+`bin/secrets-refresh` bash script — both removed in Phase 4/6 in favor
+of the native command). `bin/init-hook` regenerates the cache on shell
+startup if the file is missing.
 _Avoid_: Auto-refresh, staleness checks
 
 **Workspace identifier**:

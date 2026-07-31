@@ -1,5 +1,5 @@
 {
-  description = "OpenCode built from source (overlay on official nixpkgs)";
+  description = "OpenCode built from source (overlay on nixpkgs)";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -10,40 +10,19 @@
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      # ── Bun version ─────────────────────────────────────────────
-      # 1.3.13 baseline (no AVX — works on VirtualBox).
-      # 1.3.14 crashes on VMs and its build --compile is broken.
-      bunVersion = "1.3.13";
-      bunHash = "sha256-nYokKSpwaAkCBdqsCloiP19pc29Sh+N7+I07QDHtx1A=";
+      version = "1.18.9";
 
-      # Overlay that replaces nixpkgs' bun with 1.3.13 baseline.
-      bun-baseline-overlay = final: prev: {
-        bun = prev.bun.overrideAttrs (old: {
-          src = prev.fetchurl {
-            url = "https://github.com/oven-sh/bun/releases/download/bun-v${bunVersion}/bun-linux-x64-baseline.zip";
-            hash = bunHash;
-          };
-        });
-      };
+      # Hash capture workflow for srcHash / nodeModulesHash:
+      #   1. uncomment fakeHash lines and comment real hashes
+      #   2. devbox global update
+      #   3. paste sha256-... values back
+      srcHash = "sha256-uvKzjPquhjm5OdDdoqexJQfDkN0OOXOW8RbdSka12NQ=";
+      nodeModulesHash = "sha256-cXA4umq5rPApiQdpFGB8jGmFB+e1+WkoFZUXKak1za0=";
     in
     {
       packages = forAllSystems (system:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ bun-baseline-overlay ];
-          };
-          version = "1.18.3";
-
-          # Get the real hash:
-          #   cd ~/.local/share/devbox/global/current/devbox.d/opencode
-          #   uncomment the lines containing fakeHash and comment the lines containing real hashes
-          #   run the command "devbox global update"
-          # Then paste the sha256-... value below
-          # It will fail twice, for srcHash and nodeModulesHash
-          #
-          srcHash = "sha256-Wdkzms59oHw3M/Em2RH7BPhZME8AtLmtNFSnsUxO1V4=";
-          nodeModulesHash = "sha256-1NUtprMH8GnSUqQ+mHQSC+JLU7lwzHe6XXYHe129WmE=";
+          pkgs = nixpkgs.legacyPackages.${system};
 
           src = pkgs.fetchFromGitHub {
             owner = "anomalyco";
@@ -55,15 +34,19 @@
         {
           default = pkgs.opencode.overrideAttrs (oldAttrs: {
             inherit version src;
+
             patches = (oldAttrs.patches or []) ++ [
               ./fix-deepseek-reasoning-content.patch
             ];
-            node_modules = oldAttrs.node_modules.overrideAttrs (oldNode: {
-              inherit src version;
-              pname = "opencode-node_modules";
+
+            # The nixpkgs opencode package defines `node_modules` as a
+            # fixed-output sub-derivation whose outputHash is pinned to
+            # nixpkgs' version. When we override src/version, the
+            # node_modules sub-derivation is rebuilt against the new
+            # source but keeps the old hash. Override it here.
+            node_modules = oldAttrs.node_modules.overrideAttrs (_: {
+              inherit version src;
               outputHash = nodeModulesHash;
-              outputHashAlgo = "sha256";
-              outputHashMode = "recursive";
             });
           });
         }

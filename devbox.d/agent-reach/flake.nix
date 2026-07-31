@@ -23,7 +23,7 @@
           inherit system;
           config.allowUnfree = true;
         };
-        pythonPackages = pkgs.python312Packages;
+        pythonPackages = pkgs.python3Packages;
       in {
         default = pythonPackages.buildPythonApplication {
           pname = "agent-reach";

@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     docling-src = {
-      url = "github:docling-project/docling/v2.113.0";
+      url = "github:docling-project/docling/v2.114.0";
       flake = false;
     };
     docling-core-src = {
@@ -23,7 +23,7 @@
 
   outputs = { self, nixpkgs, docling-src, docling-core-src, doclang-src, docling-mcp-src }:
     let
-      version = "2.113.0";
+      version = "2.114.0";
 
       supportedSystems = [
         "x86_64-linux"

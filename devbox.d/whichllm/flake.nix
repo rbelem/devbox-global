@@ -22,17 +22,17 @@
         pkgs = nixpkgs.legacyPackages.${system};
 
         # dbgpu uses setuptools (no pyproject.toml)
-        dbgpu = pkgs.python312Packages.buildPythonPackage {
+        dbgpu = pkgs.python3Packages.buildPythonPackage {
           pname = "dbgpu";
           version = "2025.12";
-          src = pkgs.python312Packages.fetchPypi {
+          src = pkgs.python3Packages.fetchPypi {
             pname = "dbgpu";
             version = "2025.12";
             hash = "sha256-1KL9w2/1/yrzfo/Yo+B0CrKvc8xeD9oZn9/z1vFob04=";
           };
           pyproject = true;
-          build-system = [ pkgs.python312Packages.setuptools ];
-          propagatedBuildInputs = with pkgs.python312Packages; [
+          build-system = [ pkgs.python3Packages.setuptools ];
+          propagatedBuildInputs = with pkgs.python3Packages; [
             click
             pydantic
             thefuzz
@@ -45,7 +45,7 @@
         };
 
       in {
-        default = pkgs.python312Packages.buildPythonPackage {
+        default = pkgs.python3Packages.buildPythonPackage {
           pname = "whichllm";
           inherit version;
 
@@ -58,11 +58,11 @@
 
           pyproject = true;
 
-          nativeBuildInputs = with pkgs.python312Packages; [
+          nativeBuildInputs = with pkgs.python3Packages; [
             hatchling
           ];
 
-          propagatedBuildInputs = with pkgs.python312Packages; [
+          propagatedBuildInputs = with pkgs.python3Packages; [
             typer
             rich
             httpx

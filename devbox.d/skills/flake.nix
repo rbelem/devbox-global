@@ -12,12 +12,12 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          version = "1.5.19";
+          version = "1.5.20";
           src = pkgs.fetchFromGitHub {
             owner = "vercel-labs";
             repo = "skills";
             rev = "v${version}";
-            hash = "sha256-lxf2ODxgwin83JHRrDynMccTFtCo+tYFb053XrS1IqA=";
+            hash = "sha256-eet4kdHx69aX7fFLFSZ+I3DCLPPLt0M3AUof9J4q/5k=";
           };
 
         in
@@ -27,8 +27,16 @@
             pnpmDeps = pkgs.fetchPnpmDeps {
               pname = oldAttrs.pname;
               inherit version src;
-              fetcherVersion = 3;
-              hash = "sha256-wntHp5UT21wD1myxj8EQafQis5QMuQ9U2PKiKg2jalw=";
+              # Bumped fetcherVersion 3 → 4: pnpm_11 in current nixpkgs
+              # nixos-unstable rejects fetcherVersion 3 ("is no longer
+              # supported").
+              fetcherVersion = 4;
+              # Pin to pnpm_10: the skills v1.5.19 repo ships a
+              # pnpm-lock.yaml in v9 format. pnpm_11 (nixpkgs default)
+              # raises ERR_PNPM_LOCKFILE_CONFIG_MISMATCH on it.
+              # pnpm_9 is marked insecure in current nixpkgs.
+              pnpm = pkgs.pnpm_10;
+              hash = "sha256-37nAE0QQ6MWMEdm3pCebFe49QfPMvGtA23zNacECNA0=";
             };
           });
         }

@@ -25,7 +25,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.4.1-perl";
+      version = "1.5.0-perl";
       treeSitterPerlVersion = "1.2.0";
       treeSitterPerlOwner = "tree-sitter-perl";
       treeSitterPerlRepo = "tree-sitter-perl";
@@ -46,7 +46,7 @@
             #   1. Set to pkgs.lib.fakeHash
             #   2. Run: nix build "path:...#default"
             #   3. Replace with the hash from the error message
-            npmDepsHash = "sha256-xD2Mz5DWsiVxSDwEGW7KqqR8A7Pn4SLbip+ITfoHkBM=";
+            npmDepsHash = "sha256-HVd/0c0i0g+TjPE7hCXe2GPgbTwMb3nBoepTa3Dbkvo=";
 
             nodejs = pkgs.nodejs_22;
 
