@@ -106,7 +106,7 @@ than the existing `BW_SESSION` exposure. This ADR documents the actual
 security model and accepts the trade-off.
 
 ## Forward references
-- Token-broker daemon (Phase 7, forthcoming ADR-0005): this cache is **kept** under the chosen architecture. The token broker doesn't hold the master key — the `bitwd` daemon only brokers access tokens via `GET_TOKEN`/`LOCK`/`STATUS` — so the libsecret master-password cache remains the path for `bitw`/`secrets-refresh` to decrypt the vault. The "delete this cache" alternative was the secrets-agent model (DECRYPT/ENCRYPT on the wire) — rejected in favor of the simpler token broker.
+- Token-broker daemon (ADR-0005): **REJECTED** 2026-07-30. The "delete this cache" alternative (secrets-agent model, DECRYPT/ENCRYPT over the wire, daemon holds the master key) was also rejected. The libsecret master-password cache remains the path for `bitw` to decrypt the vault; the `bitw cache` single-process refresh (`b82e2b4`) and `ensureToken` fast path (`main.go:412-432`) together remove the multi-process contention the broker was designed for.
 
 ## Related
 - Supersedes: ADR-0001 §Why-not-alternatives (rejection of "Keyring auto-unlock")
