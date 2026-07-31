@@ -48,6 +48,14 @@
               #          the newer /ciphers endpoint. The old code sent fields
               #          at the top level and got "The Cipher field is required"
               #          from the server — create was broken for any args).
+              # 4d065e6 (fix(create): send null username instead of empty cipher
+              #          string. The server's [EncryptedString] validator rejects
+              #          "" with "Username is not a valid encrypted string"; nil
+              #          (JSON null) matches what bw sends and passes validation.
+              # 339d3e8 (feat(create): add --password-stdin to read the secret
+              #          from stdin, skipping the zenity/kdialog/SSH_ASKPASS/tty
+              #          prompt chain. Scriptable:
+              #          `key | bitw create --password-stdin NAME`.)
               # 638e8fd (Phase 3 bitw create: new `bitw create <name> [--notes
               #          NOTES] [--field NAME=VALUE]...` command. Replaces the
               #          deleted bash `bin/secrets-add` wrapper. Personal-vault
@@ -119,8 +127,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "83c63e6";
-              hash = "sha256-qCxfKgX1ibF3y5Ag/DOxVcjj/kyAyF8Iv/pcUcABg4A=";
+              rev = "339d3e8";
+              hash = "sha256-jRj1+X4/DQ/dNvFIibgp/GPmRc5LR5vBU1Y6Y2tlNT0=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
