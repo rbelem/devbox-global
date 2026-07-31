@@ -122,6 +122,9 @@ TTL but **no** refresh token (the server scopes the grant to
    - **Expired path**: `RefreshToken == ""` → `login(ctx)` →
      `loginApiKey()` → full client_credentials re-grant → new token
      stored.
+   - No stale-token snapshot: `httpDo` reads `globalData.AccessToken` live
+     (`api.go:75-76`), so a re-auth within the same command is honored by
+     subsequent API calls (fixed in fork `2abef68`).
 3. `bitw get` is offline-only (see §Known limitations for the feature/
    hazard analysis).
 
@@ -272,11 +275,16 @@ authenticate with a dead credential and fail with a confusing error.
     attribute name and silently never stored the credential
   - Fork commit `094e2fc` — refinements: missing-key warning, custom-
     field mirror test, personal-vault success msg
+  - Fork commit `2abef68` — `httpDo` reads `globalData.AccessToken` directly
+    instead of a `ctx` snapshot; `ensureToken` re-auth is now honored by
+    later API calls in the same command (closes the stale-token 401)
 
 ## Status
 
-Accepted. Last updated: 2026-07-30 (Phase D follow-up) — drops dead
-`refresh_token` claim, adds runtime token lifecycle + failure modes +
+Accepted. Last updated: 2026-07-30 (W2 follow-up) — adds
+runtime-token-lifecycle note on live `globalData.AccessToken` read
+and fork-commit reference (`2abef68`). Prior: Phase D follow-up —
+drops dead `refresh_token` claim, adds runtime token lifecycle + failure modes +
 known limitations, corrects stale line refs, replaces body-text
 references to the deleted `bin/secrets-refresh` / `bin/secrets-setup` /
 `bin/bitw-login` scripts with `bitw cache` / `bitw create` / `bitw login`
