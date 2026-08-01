@@ -10,14 +10,14 @@
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.18.9";
+      version = "1.18.10";
 
       # Hash capture workflow for srcHash / nodeModulesHash:
       #   1. uncomment fakeHash lines and comment real hashes
       #   2. devbox global update
       #   3. paste sha256-... values back
-      srcHash = "sha256-uvKzjPquhjm5OdDdoqexJQfDkN0OOXOW8RbdSka12NQ=";
-      nodeModulesHash = "sha256-cXA4umq5rPApiQdpFGB8jGmFB+e1+WkoFZUXKak1za0=";
+      srcHash = "sha256-S90dh9+Xvpqva2L+gfIFJfSoL+mobXZZWMNkeegEYRE=";
+      nodeModulesHash = "sha256-/+sT9E8+SqUKVAzEYQoKoO0LEh73QoSbsY8nsoeIUPg=";
     in
     {
       packages = forAllSystems (system:

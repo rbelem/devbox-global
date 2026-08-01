@@ -37,16 +37,16 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1783688754,
-        "narHash": "sha256-lvg10gpx6tB6eSv5iesqhUQqYqkVuU4hpSVfYy/f3bE=",
+        "lastModified": 1785288323,
+        "narHash": "sha256-mkwQQRjc/kWwhTj0pfJj264wIoL9FHb3B8flevyM8bs=",
         "owner": "Fission-AI",
         "repo": "OpenSpec",
-        "rev": "e1b51d111ab446b54dee2d6159ac245f0339ae52",
+        "rev": "4e16790d90d8f54d4773ad9a5e71a57cd9f1e86b",
         "type": "github"
       },
       "original": {
         "owner": "Fission-AI",
-        "ref": "v1.6.0",
+        "ref": "v1.7.0",
         "repo": "OpenSpec",
         "type": "github"
       }
