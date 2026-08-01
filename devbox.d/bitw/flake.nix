@@ -127,8 +127,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "4740f8a15d4f9f9e0fe7a1ecac9294b2ad151cca";
-              hash = "sha256-aN1zFNzsWnQpl5FuowERnCWBzNcD94KzMPxUKFt8OS4=";
+              rev = "71ae47ecd3bba75aa76c69cdc1f2dba304e4a0e0";
+              hash = "sha256-VHmknFCh/u7h3k+ksheJW/QK7tk12hgPDoKiL6YUYIk=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
