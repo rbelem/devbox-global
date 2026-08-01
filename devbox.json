@@ -73,9 +73,8 @@
     "path:devbox.d/hunk",
     "path:devbox.d/bifrost",
     "path:devbox.d/dcg",
+    "path:devbox.d/pdf-inspector",
     "path:devbox.d/wigolo",
-    "path:devbox.d/jcode",
-    "path:devbox.d/goose",
     "path:devbox.d/bitw",
     "redis@latest"
   ],
