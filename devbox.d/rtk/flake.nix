@@ -12,18 +12,18 @@
       packages = forAllSystems (pkgs: rec {
         rtk = pkgs.rustPlatform.buildRustPackage rec {
           pname = "rtk";
-          version = "0.44.1";
+          version = "0.44.2";
 
           src = pkgs.fetchFromGitHub {
             owner = "rtk-ai";
             repo = "rtk";
             rev = "v${version}";
             #hash = pkgs.lib.fakeHash;
-            hash = "sha256-5AN/sK0IOIqcLX0FviFPOJ9QX9xJpliSN1XY3isxyrA=";
+            hash = "sha256-qOWWHov0m3A8V48r/UGN2Hxz+/XraPRYhNPnZ+B+ZBY=";
           };
 
           #cargoHash = pkgs.lib.fakeHash;
-          cargoHash = "sha256-Hd8dy0atCeTie2rZ3nfpbwbTHrIueNlXo7kpmK6QQNU=";
+          cargoHash = "sha256-1nuCXZZjGDyA8kN6pFPclx8sIdD6QbGZDlTtyl+6Gow=";
 
           nativeBuildInputs = [ pkgs.pkg-config ];
 
