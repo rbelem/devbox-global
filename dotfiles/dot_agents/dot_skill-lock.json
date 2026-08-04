@@ -728,6 +728,24 @@
       "skillFolderHash": "",
       "installedAt": "2026-08-03T23:42:37.541Z",
       "updatedAt": "2026-08-04T05:56:29.309Z"
+    },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/blader/humanizer.git",
+      "skillPath": "SKILL.md",
+      "skillFolderHash": "523374dee72d67c7b2b5f858ea0094ffda49c3ac",
+      "installedAt": "2026-08-04T06:36:34.299Z",
+      "updatedAt": "2026-08-04T06:36:34.299Z"
+    },
+    "stop-slop": {
+      "source": "hardikpandya/stop-slop",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/hardikpandya/stop-slop.git",
+      "skillPath": "SKILL.md",
+      "skillFolderHash": "8da1f030185bdfe8471220585162991eaeb970e9",
+      "installedAt": "2026-08-04T06:36:40.741Z",
+      "updatedAt": "2026-08-04T06:36:40.741Z"
     }
   },
   "dismissed": {
