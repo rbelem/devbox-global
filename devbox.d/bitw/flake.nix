@@ -136,8 +136,14 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "b7ad3dafabc68dea70db4ac216f88e49920b93bf";
-              hash = "sha256-+9OM1kzupm7RF9vpQRbVvBVOg6TZQ1bVZm/lI9mYiM4=";
+              # 6b27277 (SM create + config token: `bitw sm create <key> <value>`
+              #          / `bitw sm create <key> --stdin`, jsonPOSTWithToken,
+              #          `sm_access_token` key in ~/.config/bitw/config with
+              #          env-first precedence. Needed for the assistant repo's
+              #          Secrets Manager migration. go.mod unchanged → vendorHash
+              #          preserved.)
+              rev = "6b272772d0df3c4909cb7beb9fda44ca86698020";
+              hash = "sha256-134zlrbkgdx119w2hf8vzx2jmm6j8m79zh25j1i9sdcv74rpk5x8";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
@@ -150,6 +156,19 @@
               runHook preCheck
               go vet ./...
               runHook postCheck
+            '';
+
+            nativeBuildInputs = [ pkgs.installShellFiles ];
+
+            # v0.1.1 ships a `bitw completions` subcommand (bash/zsh/fish);
+            # buildGoModule's default install only copies the binary, so
+            # without this the completion scripts never land in the store and
+            # init-hook's lazy XDG_DATA_DIRS loader finds nothing for bitw.
+            postInstall = ''
+              installShellCompletion --cmd bitw \
+                --bash <($out/bin/bitw completions bash) \
+                --zsh <($out/bin/bitw completions zsh) \
+                --fish <($out/bin/bitw completions fish)
             '';
 
             # Every dep is pure Go (godbus, x/crypto, uuid, ini, term, 2fa) — no cgo.

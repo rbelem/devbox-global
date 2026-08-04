@@ -9,12 +9,12 @@
 version: "0.5"
 
 processes:
-  redis:
-    command: redis-server --save "" --appendonly no --port 6379
+  valkey:
+    command: valkey-server --loadmodule /nix/store/y7kkmvdd5g96ma0xdcm4v8bwzvbg8szw-valkey-search-1.2.1/lib/libsearch.so --save "" --appendonly no --port 6379
     availability:
       restart: "always"
   bifrost:
-    command: bifrost --app-dir $HOME/.config/bifrost --port 8080 --log-level info
+    command: bifrost --app-dir $HOME/.config/bifrost --port 8081 --log-level info
     availability:
       restart: "always"
   wigolo:

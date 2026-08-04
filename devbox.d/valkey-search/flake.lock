@@ -1,0 +1,76 @@
+{
+  "nodes": {
+    "highwayhash-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660914225,
+        "narHash": "sha256-gQk5sUgRCNE9fY51yVNFP7EKHIFluVuzGcOhniQuZv8=",
+        "owner": "google",
+        "repo": "highwayhash",
+        "rev": "a422b896ce10aa14eb3e4266d4689e9945c85dd3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "google",
+        "ref": "a422b896ce10",
+        "repo": "highwayhash",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1785692966,
+        "narHash": "sha256-vUfIeBEfpbAfZ5zjgIkYk7eHBeVfCYVjLbWnMkseYnk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "643809054d65fdd466a63e3155b8c498cb483c04",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "highwayhash-src": "highwayhash-src",
+        "nixpkgs": "nixpkgs",
+        "vdeps": "vdeps",
+        "vsearch-src": "vsearch-src"
+      }
+    },
+    "vdeps": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-JSi3FCwrcoyQ3gh/cmBW+6eCua6q9lZVRDVfEsbrfL8=",
+        "type": "file",
+        "url": "https://github.com/valkey-io/valkey-search/releases/download/1.0.0-rc1/valkey-search-deps-ubuntu-noble-amd64.deb"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/valkey-io/valkey-search/releases/download/1.0.0-rc1/valkey-search-deps-ubuntu-noble-amd64.deb"
+      }
+    },
+    "vsearch-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783462994,
+        "narHash": "sha256-yRMDAB+gn8IqHJSlJJ2Yr9bKvDx2Q8MCGBdhQHsZqts=",
+        "owner": "valkey-io",
+        "repo": "valkey-search",
+        "rev": "788e8c90063abab69d0d3fff32206f8491c633ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "valkey-io",
+        "ref": "1.2.1",
+        "repo": "valkey-search",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
