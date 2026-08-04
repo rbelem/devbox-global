@@ -16,17 +16,26 @@
         rec {
           bitw = pkgs.buildGoModule {
             pname = "bitw";
-            # mvdan/bitw never published a tagged version. Use 0.1.0 as the
-            # implicit baseline for the nix package metadata. The wire-protocol
-            # Bitwarden-Client-Version header sent to BW servers (api.go) is a
-            # separate constant `clientVersion` in api.go (currently "2026.7.0",
-            # matching the upstream `bitwarden/clients` CLI per round-2 oracle review).
-            version = "0.1.0";
+            # rbelem/bitw now publishes tags; v0.1.1 is the first tagged
+            # release. The wire-protocol Bitwarden-Client-Version header sent
+            # to BW servers (api.go) is a separate constant `clientVersion`
+            # in api.go (currently "2026.7.0", matching the upstream
+            # `bitwarden/clients` CLI per round-2 oracle review).
+            version = "0.1.1";
 
             src = pkgs.fetchFromGitHub {
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
+              # b7ad3da (v0.1.1 — first tagged release. TOTP generation via
+              #          `bitw get totp` (raw base32 / otpauth:// / steam://),
+              #          list command (name, username, type + names index for
+              #          completion), interactive fuzzy picker for `bitw get`
+              #          with safe auto-select semantics, bash/zsh/fish
+              #          completions, read-only Secrets Manager (`sm list` /
+              #          `sm get`) with org-key decryption pinned by a real
+              #          Bitwarden fixture KAT. go.mod unchanged → vendorHash
+              #          preserved. Full suite green.)
               # b82e2b4 (Phase 4 bitw cache sync: cmdCache now calls ensureToken
               #          + sync at the start, mirroring the bash bin/secrets-refresh
               #          preflight. Without sync, cmdCache only saw ciphers
@@ -127,8 +136,8 @@
               #          is valid; fixes 'Cannot reach Bitwarden vault' for
               #          client_credentials users calling `bitw sync` from a subshell
               #          that lacks BW_CLIENTID/BW_CLIENTSECRET env vars).
-              rev = "71ae47ecd3bba75aa76c69cdc1f2dba304e4a0e0";
-              hash = "sha256-VHmknFCh/u7h3k+ksheJW/QK7tk12hgPDoKiL6YUYIk=";
+              rev = "b7ad3dafabc68dea70db4ac216f88e49920b93bf";
+              hash = "sha256-+9OM1kzupm7RF9vpQRbVvBVOg6TZQ1bVZm/lI9mYiM4=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).
