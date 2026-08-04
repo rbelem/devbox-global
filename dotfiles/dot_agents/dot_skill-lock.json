@@ -33,9 +33,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-help/SKILL.md",
-      "skillFolderHash": "b4f5ebc5f3ce9bfa652996b5161bbe3cc0b88297",
+      "skillFolderHash": "686974193bba1a8a12029032fcf730d03e5ffdea",
       "installedAt": "2026-04-25T08:27:55.239Z",
-      "updatedAt": "2026-06-25T01:48:31.185Z"
+      "updatedAt": "2026-08-04T05:55:56.865Z"
     },
     "caveman-review": {
       "source": "JuliusBrussee/caveman",
@@ -600,18 +600,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman/SKILL.md",
-      "skillFolderHash": "166040c027f7764d43df36abc5df0079bfc6394b",
+      "skillFolderHash": "3e4386ca694c65a65ba84024f0fe2646a8c9076a",
       "installedAt": "2026-07-11T16:36:24.346Z",
-      "updatedAt": "2026-07-11T16:36:24.346Z"
+      "updatedAt": "2026-08-04T05:56:01.819Z"
     },
     "caveman-compress": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-compress/SKILL.md",
-      "skillFolderHash": "1284ac809fbdaeb9e871f84ee850aebe10c85030",
+      "skillFolderHash": "0fca830ebfbf51481ebcf285fd5c67d892ad3ee5",
       "installedAt": "2026-07-11T16:36:24.349Z",
-      "updatedAt": "2026-07-11T16:36:24.349Z"
+      "updatedAt": "2026-08-04T05:56:05.930Z"
     },
     "static-analysis": {
       "source": "mohitmishra786/low-level-dev-skills",
@@ -727,7 +727,7 @@
       "sourceUrl": "https://openrouter.ai/.well-known/skills/spawn-ori-eval/SKILL.md",
       "skillFolderHash": "",
       "installedAt": "2026-08-03T23:42:37.541Z",
-      "updatedAt": "2026-08-03T23:42:37.541Z"
+      "updatedAt": "2026-08-04T05:56:29.309Z"
     }
   },
   "dismissed": {
