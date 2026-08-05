@@ -251,7 +251,7 @@ here and synced to `$(devbox global path)/bin/` via `config-sync`; small scripts
   **graphify**, run `$(devbox global path)/bin/merge-upstream-perl --repo <name>
   --version <X.Y.Z> --apply` before considering the update complete.
   Manual fallback procedure is in `update-flake-workflow` skill, Step 5.
-- `bitw sm get <key>` — fetch a secret from Bitwarden Secrets Manager by env-var name. The canonical read path after migrating from vault items to SM. `bitw sm create <key> <value>` creates a secret. `bin/init-hook` now reads from SM via `~/.config/bitw/sm.ini` manifest instead of calling `bitw cache`. Run `setup-bitw-sm` (in `bin/`) to generate `sm.ini` from the old `cache.ini` and print migration commands.
+- `bitw sm get <key>` — fetch a secret from Bitwarden Secrets Manager by env-var name. The canonical read path after migrating from vault items to SM. `bitw sm create <key> <value>` creates a secret. `bin/init-hook` now reads from SM via `~/.config/bitw/sm.ini` manifest instead of calling `bitw cache`. Migration is complete — SM is the source of truth.
 - `setup-git` — full git config (identity, aliases, delta, difftastic, credential helpers, includeif)
 - `setup-tmux` — clone gpakosz/.tmux + symlink local conf
 - `setup-nerd-fonts` — add Nerd Fonts dir to fontconfig
