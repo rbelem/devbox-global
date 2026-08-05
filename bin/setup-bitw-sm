@@ -1,0 +1,202 @@
+#!/usr/bin/env bash
+# setup-bitw-sm — migrate from bitw cache (vault items) to bitw sm (Secrets Manager)
+#
+# This script:
+#   1. Checks if bitw SM access token is configured
+#   2. Generates ~/.config/bitw/sm.ini from existing cache.ini
+#   3. Prints migration commands to create SM secrets
+#
+# After running this, you still need to:
+#   - Create SM secrets (see printed commands)
+#   - Reload shell to pick up new init-hook
+
+set -euo pipefail
+
+RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; CYAN='\033[0;36m'; NC='\033[0m'
+
+echo -e "${CYAN}=== Bitwarden Secrets Manager Setup ===${NC}"
+echo ""
+
+# ── Preflight ──
+command -v bitw >/dev/null 2>&1 || { echo -e "${RED}ERROR:${NC} bitw not found. Run \`devbox global install\` first."; exit 1; }
+
+CACHE_INI="$HOME/.config/bitw/cache.ini"
+SM_INI="$HOME/.config/bitw/sm.ini"
+CONFIG="$HOME/.config/bitw/config"
+
+# ── SM access token check ──
+TOKEN_OK=false
+if [ -n "${SM_ACCESS_TOKEN:-}" ]; then
+  echo -e "  ${GREEN}✓${NC} SM_ACCESS_TOKEN env var is set"
+  TOKEN_OK=true
+elif [ -f "$CONFIG" ] && grep -q '^sm_access_token=' "$CONFIG" 2>/dev/null; then
+  echo -e "  ${GREEN}✓${NC} sm_access_token found in $CONFIG"
+  TOKEN_OK=true
+else
+  echo -e "  ${YELLOW}⚠ SM access token not configured.${NC}"
+  echo ""
+  echo "  Steps to set up:"
+  echo "    1. Go to https://vault.bitwarden.com/#/organizations"
+  echo "    2. Select your org → Secrets → Access Tokens → Create"
+  echo "    3. Grant read access, copy the token"
+  echo ""
+  echo "  Then configure it:"
+  echo -e "    ${CYAN}echo 'sm_access_token=YOUR_TOKEN' >> $CONFIG${NC}"
+  echo ""
+  echo "  Or set the env var:"
+  echo -e "    ${CYAN}export SM_ACCESS_TOKEN=your-token${NC}"
+  echo ""
+fi
+
+# Validate token actually works
+if $TOKEN_OK; then
+  if bitw sm list >/dev/null 2>&1; then
+    echo -e "  ${GREEN}✓${NC} token validated — SM reachable"
+  else
+    echo -e "  ${YELLOW}⚠ token found but SM rejected the request — may be expired or wrong scope${NC}"
+    echo "  Update the token in $CONFIG (sm_access_token=...) or set the SM_ACCESS_TOKEN env var."
+    echo ""
+  fi
+fi
+
+# ── Migrate cache.ini → sm.ini ──
+HAS_CACHE_INI=false
+CACHE_ITEMS=()
+CACHE_FIELDS=()
+declare -A CACHE_ALIASES   # alias → canonical
+
+if [ -f "$CACHE_INI" ]; then
+  HAS_CACHE_INI=true
+
+  # Parse sections
+  current_section=""
+  while IFS= read -r line || [[ -n "$line" ]]; do
+    # Trim whitespace
+    line="${line// }"
+    [[ -z "$line" || "$line" == "#"* ]] && continue
+
+    if [[ "$line" =~ ^\[cache\]$ ]]; then current_section="cache"; continue; fi
+    if [[ "$line" =~ ^\[cache-fields\]$ ]]; then current_section="fields"; continue; fi
+    if [[ "$line" =~ ^\[cache-aliases\]$ ]]; then current_section="aliases"; continue; fi
+    if [[ "$line" =~ ^\[ ]]; then current_section=""; continue; fi
+
+    if [ "$current_section" = "cache" ] && [[ "$line" == *"="* ]]; then
+      env_var="${line#*=}"
+      CACHE_ITEMS+=("$env_var")
+    elif [ "$current_section" = "fields" ] && [[ "$line" == *"="* ]]; then
+      fields="${line#*=}"
+      IFS=',' read -ra field_list <<< "$fields"
+      for f in "${field_list[@]}"; do
+        f="${f// }"
+        [ -n "$f" ] && CACHE_FIELDS+=("$f")
+      done
+    elif [ "$current_section" = "aliases" ] && [[ "$line" == *"="* ]]; then
+      alias_name="${line%%=*}"
+      alias_canon="${line#*=}"
+      alias_name="${alias_name// }"
+      alias_canon="${alias_canon// }"
+      [ -n "$alias_name" ] && [ -n "$alias_canon" ] && CACHE_ALIASES[$alias_name]="$alias_canon"
+    fi
+  done < "$CACHE_INI"
+fi
+
+# Combine all SM secret names (items + fields, not aliases)
+declare -A seen
+ALL_NAMES=()
+for name in "${CACHE_ITEMS[@]}" "${CACHE_FIELDS[@]}"; do
+  name="${name// }"   # trim
+  [ -z "$name" ] && continue
+  [ -n "${seen[$name]:-}" ] && continue
+  seen[$name]=1
+  ALL_NAMES+=("$name")
+done
+
+# Write sm.ini (backup existing if any)
+if [ -f "$SM_INI" ]; then
+  cp "$SM_INI" "$SM_INI.bak.$$"
+  echo -e "  ${YELLOW}ℹ${NC} Backed up existing sm.ini → sm.ini.bak.$$"
+fi
+
+{
+  echo "# SM secrets manifest — auto-generated from $CACHE_INI"
+  echo "# Each line is an env var name matching a Bitwarden SM secret."
+  echo "# The [aliases] section maps third-party env vars to canonical SM secrets."
+  echo "# Add/remove entries as needed."
+  echo ""
+
+  if [ ${#CACHE_ITEMS[@]} -gt 0 ]; then
+    echo "# Migrated from cache.ini [cache]:"
+    for name in "${CACHE_ITEMS[@]}"; do
+      name="${name// }"
+      [ -n "$name" ] && echo "$name"
+    done
+    echo ""
+  fi
+
+  if [ ${#CACHE_FIELDS[@]} -gt 0 ]; then
+    echo "# Migrated from cache.ini [cache-fields]:"
+    for name in "${CACHE_FIELDS[@]}"; do
+      name="${name// }"
+      [ -n "$name" ] && echo "$name"
+    done
+    echo ""
+  fi
+
+  if [ ${#CACHE_ALIASES[@]} -gt 0 ]; then
+    echo "# Aliases — these are NOT separate SM secrets. init-hook maps them from the"
+    echo "# canonical SM secret after sourcing. Third-party tools (gh, SDKs) use these names."
+    echo "[aliases]"
+    for alias_name in "${!CACHE_ALIASES[@]}"; do
+      echo "${alias_name} = ${CACHE_ALIASES[$alias_name]}"
+    done
+  fi
+} > "$SM_INI"
+
+echo -e "  ${GREEN}✓${NC} Generated $SM_INI with ${#ALL_NAMES[@]} entries"
+
+# ── Print migration commands ──
+echo ""
+echo -e "${CYAN}=== Migration commands ===${NC}"
+echo ""
+echo "For each secret, create an SM entry with name=env_var:"
+echo ""
+
+if $HAS_CACHE_INI; then
+  echo "# Create SM secrets from cache.ini [cache] entries:"
+  echo "# NOTE: flags must come BEFORE the key (Go flag parsing stops at the first positional)."
+  echo "# NOTE: your SM access token is project-scoped — --project NAME is required."
+  while IFS='=' read -r item env_var; do
+    [[ -z "$item" || -z "$env_var" ]] && continue
+    item="${item// }"; env_var="${env_var// }"
+    [ -z "$item" ] || [ -z "$env_var" ] && continue
+    echo "bitw sm create --stdin --project devbox-global \"$env_var\" <<< \"\$(bitw get \"$item\" 2>/dev/null || echo 'REPLACE_ME')\""
+  done < <(awk -F= '/^\[cache\]$/{in_s=1; next} /^\[/{in_s=0} in_s && /=/' "$CACHE_INI" 2>/dev/null || true)
+
+  echo ""
+  echo "# Create SM secrets from cache.ini [cache-fields]:"
+  echo "# (Get field values manually, then:)"
+  while IFS='=' read -r item fields; do
+    [[ -z "$item" || -z "$fields" ]] && continue
+    IFS=',' read -ra field_list <<< "$fields"
+    for f in "${field_list[@]}"; do
+      f="${f// }"
+      [ -z "$f" ] && continue
+      echo "# bitw sm create --stdin --project devbox-global \"$f\" <<< \"<value>\""
+    done
+  done < <(awk -F= '/^\[cache-fields\]$/{in_s=1; next} /^\[/{in_s=0} in_s && /=/' "$CACHE_INI" 2>/dev/null || true)
+
+  echo ""
+  echo "# Aliases are mapped from canonical secrets by init-hook (no SM secrets needed)."
+  echo "# The [aliases] section in sm.ini tells init-hook how to map them."
+fi
+
+echo ""
+echo -e "${CYAN}=== Next steps ===${NC}"
+echo ""
+echo "  1. Create SM secrets (run the commands above)"
+echo "  2. Reload your shell: exec bash"
+echo "  3. Verify: echo \"\$GITHUB_TOKEN\"  (or another migrated secret)"
+echo ""
+echo "To refresh the SM secrets cache (e.g., after rotating a secret in Bitwarden):"
+echo -e "  ${CYAN}rm -f \$XDG_RUNTIME_DIR/devbox-secrets.sh && exec bash${NC}"
+echo ""

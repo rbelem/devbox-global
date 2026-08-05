@@ -149,8 +149,10 @@ modified independently), shows what the opposite direction would change.
 | `devbox global run config-edit` | Open devbox.json in $EDITOR |
 | `devbox global run update-flake` | Run update-flake version checker |
 | `devbox global run config-sync` | Sync repo ↔ global with conflict detection (dry-run by default, add `--sync` to apply) |
-| `bitw cache` | Refresh Bitwarden secrets cache (run directly — there's no devbox wrapper) |
-| `bitw login` | Log in to Bitwarden (run directly — there's no devbox wrapper; replaced the deprecated `bin/bitw-login` script in Phase 7) |
+| `bitw sm get <key>` | Fetch a secret from Bitwarden Secrets Manager by env-var name (run directly) |
+| `bitw sm create <key> <value>` | Create a secret in SM (run directly; flags first: `bitw sm create --stdin --project devbox-global KEY`) |
+| `bitw sm edit <key> --value <val>` | Update a secret in SM (run directly) |
+| `bitw login` | Log in to Bitwarden (run directly — replaces deprecated `bin/bitw-login`) |
 | `devbox global run python-install <pkg>` | pip install into managed venv |
 | `devbox global run python-update` | Upgrade all pip packages in venv |
 
@@ -249,7 +251,7 @@ here and synced to `$(devbox global path)/bin/` via `config-sync`; small scripts
   **graphify**, run `$(devbox global path)/bin/merge-upstream-perl --repo <name>
   --version <X.Y.Z> --apply` before considering the update complete.
   Manual fallback procedure is in `update-flake-workflow` skill, Step 5.
-- `bitw cache` — the canonical Bitwarden secrets refresh. Run directly; the bash `bin/secrets-setup` / `bin/secrets-refresh` scripts and the `secrets-refresh` devbox alias were all removed (Phase 4/5/6) in favor of this single native command. `bin/init-hook` calls it on shell startup if the cache file is missing.
+- `bitw sm get <key>` — fetch a secret from Bitwarden Secrets Manager by env-var name. The canonical read path after migrating from vault items to SM. `bitw sm create <key> <value>` creates a secret. `bin/init-hook` now reads from SM via `~/.config/bitw/sm.ini` manifest instead of calling `bitw cache`. Run `setup-bitw-sm` (in `bin/`) to generate `sm.ini` from the old `cache.ini` and print migration commands.
 - `setup-git` — full git config (identity, aliases, delta, difftastic, credential helpers, includeif)
 - `setup-tmux` — clone gpakosz/.tmux + symlink local conf
 - `setup-nerd-fonts` — add Nerd Fonts dir to fontconfig

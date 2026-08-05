@@ -27,7 +27,18 @@
               owner = "rbelem";
               repo = "bitw";
               # Bump together with the upstream commit SHA on rbelem/bitw master.
-# b7ad3da (v0.1.1 — first tagged release. TOTP generation via
+            # 0b0a3a2 (fix(sm): print decrypted key after create/edit — the
+            #          server-returned ciphertext was printed, useless for
+            #          verification; smList already printed decrypted keys.)
+            # 70e88b1 (fix(sm): resolve projects via dedicated GET /organizations/{orgId}/projects
+            #          endpoint — the list-secrets top-level projects array is only
+            #          populated when secrets reference them, so --project failed
+            #          with 'project not found' on an empty org.)
+            # ccacfeb (fix(sm): create via org-scoped endpoint POST /organizations/{orgId}/secrets
+            #          — the old POST /secrets 404'd. Fields must be valid EncStrings
+            #          incl. note (empty string rejected); encrypt always. 404s now
+            #          surface the server body.)
+            # b7ad3da (v0.1.1 — first tagged release. TOTP generation via
             #          `bitw get totp` (raw base32 / otpauth:// / steam://),
             #          list command (name, username, type + names index for
             #          completion), interactive fuzzy picker for `bitw get`
@@ -142,10 +153,12 @@
             #          env-first precedence. Needed for the assistant repo's
             #          Secrets Manager migration. go.mod unchanged → vendorHash
             #          preserved.)
-            # 87f2fb0 (feat(sm): encrypt writes, add edit subcommand, --project
-            #          filter. go.mod unchanged → vendorHash preserved.)
-            rev = "87f2fb03bb7692eb51c4dfed9cc4f61f7187df62";
-            hash = "sha256-4ANkhQFr/C/bW5E1pIUdfeHTKvBbzDzLBj+Dg2OwuPA=";
+            # 70e88b1 (fix(sm): resolve projects via dedicated GET /organizations/{orgId}/projects
+            #          endpoint — the list-secrets top-level projects array is only
+            #          populated when secrets reference them, so --project failed
+            #          with 'project not found' on an empty org.)
+            rev = "0b0a3a2eefebfefcd711cdea81b5698b900209a5";
+            hash = "sha256-SGZNHEjm+z/gi8WHdJOTp5QpPmr/zd7OoxJtG2aNm8Y=";
             };
 
             # bitw has no vendor/ dir, so vendorHash is required (not null).

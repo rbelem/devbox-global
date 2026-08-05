@@ -10,38 +10,29 @@ on any Linux machine via `devbox global pull`.
 A naming convention for organizing secrets in the Bitwarden vault.
 `devbox-global/` is reserved for this repo's secrets. Per-project
 namespaces (`project/<name>/`) can be defined separately.
-_Avoid_: `devbox/`, flat names without prefix
-
-**Vault item**:
-A Login-type record in the Bitwarden vault whose `password` field
-holds a secret (API key, token, auth cookie). The `name` follows the
-vault namespace convention (e.g. `devbox-global/github-token`). The
-`username` field is omitted.
-_Avoid_: Secure Note type
-
-**Custom vault field**:
-A key-value pair on a vault item for non-secret config associated with
-a secret. For example, `OPENAI_BASE_URL` and `OPENAI_MODEL` live as
-custom text fields on the `devbox-global/openai-api-key` item.
-_Avoid_: Separate vault items for config values
+**Secrets Manager secret**:
+A key-value pair in Bitwarden Secrets Manager. The *name* is the env
+var name (e.g. `GITHUB_TOKEN`, `OPENAI_API_KEY`), the *value* is the
+secret material. Replaces vault items as the canonical secret store.
+_Avoid_: Login-type vault items for env-var secrets
 
 **Secrets cache**:
 A regenerable file in tmpfs (`$XDG_RUNTIME_DIR/devbox-secrets.sh`)
-containing exported env vars. Populated on demand from the vault,
-sourced by devbox init_hook. Not the source of truth — the vault is.
+containing exported env vars. Populated on demand from SM via the
+`~/.config/bitw/sm.ini` manifest, sourced by devbox init_hook.
+Not the source of truth — SM is.
 _Avoid_: Persistent cache locations, loading secrets from any other mechanism
 
 **Secrets refresh**:
-The act of fetching the current secret values from the Bitwarden vault
-and writing them to the secrets cache. Run via `bitw cache` directly
-(formerly via the `secrets-refresh` devbox alias and the
-`bin/secrets-refresh` bash script — both removed in Phase 4/6 in favor
-of the native command). `bin/init-hook` regenerates the cache on shell
-startup if the file is missing.
+The act of fetching the current secret values from Bitwarden SM
+and writing them to the secrets cache. Run via `bitw sm get` per
+secret (or delete the cache and let init_hook regenerate it).
+`bin/init-hook` regenerates the cache on shell startup if the file
+is missing.
 _Avoid_: Auto-refresh, staleness checks
 
 **Workspace identifier**:
 An opaque routing identifier (e.g. `OPENCODE_GO_WORKSPACE_ID`) stored
-in the vault alongside secrets to keep account-specific identifiers
-out of the public repo.
+as an SM secret alongside the other env-var secrets to keep
+account-specific identifiers out of the public repo.
 _Avoid_: Hardcoding workspace IDs in `devbox.json` `env` block

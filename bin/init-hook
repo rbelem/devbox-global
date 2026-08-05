@@ -5,18 +5,61 @@
 # Non-interactive short-circuit
 [ "${-#*i}" == "$-" ] || [ ! -t 0 ] || [ -z "$PS1" ] || [ -n "$TOOLBOX_PATH" ] && return
 
-# Source Bitwarden secrets cache (fast, regenerable)
-# Auto-generate if missing (e.g., after reboot clears $XDG_RUNTIME_DIR)
+# Source SM secrets cache (fast, regenerable)
+# Reads from Bitwarden Secrets Manager via ~/.config/bitw/sm.ini manifest.
+# Auto-generate if missing (e.g., after reboot clears $XDG_RUNTIME_DIR).
+# Each line in sm.ini is an env var name matching a Bitwarden SM secret name.
+# [aliases] section maps third-party tool env vars (GH_TOKEN) → canonical names.
 XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}"
-if [ -n "$XDG_RUNTIME_DIR" ]; then
-  _secrets_cache="$XDG_RUNTIME_DIR/devbox-secrets.sh"
-  # --timeout guards against shell startup blocking indefinitely on a
-  # hung re-auth or slow /sync. The previous bash bin/secrets-refresh had
-  # no such guard (Phase F W1 fix). 60s is generous for a sync call.
-  [ -f "$_secrets_cache" ] || bitw cache --timeout=60s --mirror-libsecret=BW_CLIENTSECRET,BW_CLIENTID >/dev/null 2>&1
-  [ -f "$_secrets_cache" ] && . "$_secrets_cache"
-  unset _secrets_cache
+_sm_cache="${XDG_RUNTIME_DIR:+"$XDG_RUNTIME_DIR/devbox-secrets.sh"}"
+_sm_manifest="$HOME/.config/bitw/sm.ini"
+
+# Regenerate cache if missing — atomic write, 10s per-secret timeout
+# (SM token exchange + list can take ~3s on a cold network; 3s was too tight)
+if [ -n "$XDG_RUNTIME_DIR" ] && [ ! -f "$_sm_cache" ] && [ -f "$_sm_manifest" ] && command -v bitw >/dev/null 2>&1; then
+  _sm_tmp="$_sm_cache.$$"
+  (
+    umask 077
+    while IFS= read -r _sm_key || [[ -n "$_sm_key" ]]; do
+      _sm_key="${_sm_key%%#*}"           # strip inline comments
+      _sm_key="${_sm_key//[[:space:]]/}" # trim
+      [ -z "$_sm_key" ] && continue
+      [[ "$_sm_key" =~ ^\[ ]] && break  # secrets end at first [section] (e.g. [aliases])
+      _sm_val="$(timeout 10 bitw sm get "$_sm_key" 2>/dev/null)" || exit 1
+      printf 'export %s=%q\n' "$_sm_key" "$_sm_val" || exit 1
+    done < "$_sm_manifest" > "$_sm_tmp"
+  ) 2>/dev/null && mv -f "$_sm_tmp" "$_sm_cache" || rm -f "$_sm_tmp"
+  unset _sm_tmp
 fi
+
+[ -n "$XDG_RUNTIME_DIR" ] && [ -f "$_sm_cache" ] && . "$_sm_cache"
+
+# ── Post-source aliasing for SM secrets ──
+# Maps alias env vars (used by third-party tools like gh, SDKs) to canonical
+# SM secrets. Defined in [aliases] section of sm.ini.
+# Does NOT override if the alias is already set by the user.
+if [ -f "$_sm_manifest" ]; then
+  _in_aliases=false
+  while IFS= read -r _sm_line || [[ -n "$_sm_line" ]]; do
+    [[ "$_sm_line" =~ ^\[aliases\]$ ]] && _in_aliases=true && continue
+    [[ "$_sm_line" =~ ^\[ ]] && _in_aliases=false
+    $_in_aliases || continue
+    _sm_line="${_sm_line%%#*}"           # strip comments
+    [[ "$_sm_line" != *"="* ]] && continue
+    _alias="${_sm_line%%=*}"
+    _canon="${_sm_line#*=}"
+    _alias="${_alias//[[:space:]]/}"
+    _canon="${_canon//[[:space:]]/}"
+    [ -z "$_alias" ] || [ -z "$_canon" ] && continue
+    # Don't override if alias already set (e.g., user exported it before init)
+    [ -n "${!_alias:-}" ] && continue
+    # Only alias if canonical has a value
+    [ -n "${!_canon:-}" ] && export "$_alias=${!_canon}"
+  done < "$_sm_manifest"
+  unset _in_aliases _sm_line _alias _canon
+fi
+
+unset _sm_cache _sm_manifest
 
 # ── Defense-in-depth: fall back to libsecret if cache didn't set BW API key vars ──
 if [ -z "${BW_CLIENTSECRET:-}" ] && command -v secret-tool >/dev/null 2>&1; then
