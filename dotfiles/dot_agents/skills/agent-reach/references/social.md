@@ -35,16 +35,16 @@ opencli xiaohongshu user USER_ID -f yaml
 
 ```bash
 # 认证前先让用户用 Cookie-Editor 手工导出，再显式导入
-agent-reach configure xhs-cookies "导出的 Cookie Header String"
+agent-reach configure xhs-cookies
 
 # 只读检查当前状态
-mcporter call 'xiaohongshu.check_login_status()' --timeout 120000
+mcporter call xiaohongshu.check_login_status --timeout 120000
 
 # 搜索
-mcporter call 'xiaohongshu.search_feeds(keyword: "query")' --timeout 120000
+mcporter call xiaohongshu.search_feeds keyword="query" --timeout 120000
 
 # 笔记详情+评论（feed_id 和 xsec_token 从搜索结果取）
-mcporter call 'xiaohongshu.get_feed_detail(feed_id: "...", xsec_token: "...")' --timeout 120000
+mcporter call xiaohongshu.get_feed_detail feed_id="..." xsec_token="..." --timeout 120000
 ```
 
 > 首次调用会自动下载约 150MB 无头浏览器，务必带 `--timeout 120000`。
@@ -80,7 +80,7 @@ xhs feed                    # 推荐
 
 ### 认证前置条件
 
-`agent-reach configure twitter-cookies "..."` 保存的 Cookie 只供
+`agent-reach configure twitter-cookies` 通过隐藏输入保存的 Cookie 只供
 `agent-reach doctor` 检查显式凭据是否齐全。`doctor` 不执行上游
 `twitter status`，也不会设置当前 Shell。运行下面任何 `twitter` 命令前，
 必须在同一个 Shell 或子进程环境中显式提供：

@@ -6,19 +6,19 @@ LinkedIn。
 
 ```bash
 # 获取个人资料
-mcporter call 'linkedin-scraper.get_person_profile(linkedin_url: "https://linkedin.com/in/username")'
+mcporter call linkedin.get_person_profile linkedin_username="username" sections="experience,education"
 
 # 搜索人才
-mcporter call 'linkedin-scraper.search_people(keyword: "AI engineer", limit: 10)'
+mcporter call linkedin.search_people keywords="AI engineer" location="Shanghai"
 
 # 获取公司资料
-mcporter call 'linkedin-scraper.get_company_profile(linkedin_url: "https://linkedin.com/company/xxx")'
+mcporter call linkedin.get_company_profile company_name="openai" sections="posts,jobs"
 
 # 搜索职位
-mcporter call 'linkedin-scraper.search_jobs(keyword: "software engineer", limit: 10)'
+mcporter call linkedin.search_jobs keywords="software engineer" location="Remote" max_pages=2
 ```
 
-> **需要登录**: LinkedIn scraper 需要有效的登录态。
+> **需要登录**: 首次使用前运行 `uvx mcp-server-linkedin@latest --login`，保存有效登录态。
 
 ### Fallback 方案
 

@@ -17,8 +17,7 @@ description: >
   internet content); posting/commenting/liking (write operations); platforms
   that already have a dedicated skill installed (prefer that skill).
 metadata:
-  openclaw:
-    homepage: https://github.com/Panniantong/Agent-Reach
+  homepage: https://github.com/Panniantong/Agent-Reach
 ---
 
 # Agent Reach — internet capability router
@@ -29,8 +28,10 @@ these platforms — do not invent your own approach.**
 ## Standing rules (apply for the whole session)
 
 1. **Health-check before acting**: for multi-backend/login-backed platforms (XiaoHongShu /
-   Reddit / Bilibili / Twitter / Facebook / Instagram), run `agent-reach doctor --json` first and
-   pick the command group matching each platform's `active_backend`.
+   Reddit / Bilibili / Twitter / Facebook / Instagram), run `agent-reach doctor --json` first.
+   Use a populated `active_backend`; `active_backend: null` means Doctor deliberately skipped a
+   live probe to avoid browser-cookie reads or remote writes, not that no backend exists. Only when
+   the user's task requires that platform, run the reference's read-only command to verify it.
 2. **Announce what you use**: say "using agent-reach, platform X via backend Y"
    before starting.
 3. **On failure, follow the retry chains in references/** — never guess
@@ -55,12 +56,13 @@ these platforms — do not invent your own approach.**
 | GitHub / code | dev | [references/dev.md](references/dev.md) |
 | Web pages / articles / RSS | web | [references/web.md](references/web.md) |
 | YouTube / Bilibili / podcast transcripts | video | [references/video.md](references/video.md) |
+| Xueqiu / stock quotes | finance | [references/finance.md](references/finance.md) |
 
 ## Zero-config quick commands
 
 ```bash
 # Exa web search
-mcporter call 'exa.web_search_exa(query: "query", numResults: 5)'
+mcporter call exa.web_search_exa query="query" numResults=5
 
 # Read any web page
 curl -s "https://r.jina.ai/URL"
@@ -68,8 +70,8 @@ curl -s "https://r.jina.ai/URL"
 # GitHub search
 gh search repos "query" --sort stars --limit 10
 
-# YouTube subtitles (NOTE: never use yt-dlp for Bilibili — see video.md)
-yt-dlp --write-sub --skip-download -o "/tmp/%(id)s" "URL"
+# YouTube subtitles (never use yt-dlp for Bilibili; retry chain in video.md)
+yt-dlp --write-sub --write-auto-sub --skip-download -o "/tmp/%(id)s" "URL"
 
 # V2EX hot topics
 curl -s "https://www.v2ex.com/api/topics/hot.json" -H "User-Agent: agent-reach/1.0"
@@ -116,6 +118,13 @@ opencli instagram user USERNAME -f yaml        # recent posts from one user
 agent-reach doctor --json
 ```
 
+## Discovering OpenCLI adapters
+
+When the routing table lacks a needed platform or command, run `opencli list`,
+then inspect `opencli <platform> --help`. Discovery proves only that an adapter
+exists, not that authentication or target content works. Run read-only commands
+only when the user's task requires that platform, and require non-empty content.
+
 ## Workspace rules
 
 **Never create files in the agent workspace.** Use `/tmp/` for temporary
@@ -133,6 +142,7 @@ chains — note: reference docs are written in Chinese, commands are universal):
 - [Dev](references/dev.md) — GitHub CLI
 - [Web](references/web.md) — Jina Reader, RSS
 - [Video](references/video.md) — YouTube, Bilibili, Xiaoyuzhou
+- [Finance](references/finance.md) — Xueqiu quotes, search and market content
 
 ## Configure a channel
 

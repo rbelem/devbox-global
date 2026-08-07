@@ -18,26 +18,9 @@ description: >
   发帖/评论/点赞等写操作；已有专门 skill 的平台（先用专门 skill）。
 
   【路由方式】SKILL.md 包含路由表和常用命令，复杂场景需按需阅读对应分类的 references/*.md。
-  分类：search / social (小红书/推特/B站/V2EX/Reddit/Facebook/Instagram) / career(LinkedIn) / dev(github) / web(网页/文章/RSS) / video(YouTube/B站/播客)。
-triggers:
-  - research: 调研/全网调研/帮我调研/研究一下/research/深入了解
-  - search: 搜/查/找/search/搜索/查一下/帮我搜/看看大家怎么说
-  - social:
-    - 小红书: xiaohongshu/xhs/小红书/红书
-    - Twitter: twitter/推特/x.com/推文
-    - B站: bilibili/b站/哔哩哔哩
-    - V2EX: v2ex
-    - Reddit: reddit
-    - Facebook: facebook/fb/facebook groups
-    - Instagram: instagram/ig
-  - career: 招聘/职位/求职/linkedin/领英/找工作
-  - dev: github/代码/仓库/gh/issue/pr/分支/commit
-  - web: 网页/链接/文章/rss/读一下/打开这个
-  - video: youtube/视频/播客/字幕/小宇宙/转录/yt
-  - finance: 雪球/股票/stock/xueqiu/行情/基金
+  分类：search / social (小红书/推特/B站/V2EX/Reddit/Facebook/Instagram) / career(LinkedIn) / dev(github) / web(网页/文章/RSS) / video(YouTube/B站/播客) / finance(雪球/股票)。
 metadata:
-  openclaw:
-    homepage: https://github.com/Panniantong/Agent-Reach
+  homepage: https://github.com/Panniantong/Agent-Reach
 ---
 
 # Agent Reach — 互联网能力路由器
@@ -47,7 +30,9 @@ metadata:
 ## 常驻规则（全程适用）
 
 1. **动手前先体检**：多后端/登录态平台（小红书/Reddit/B站/Twitter/Facebook/Instagram）先跑
-   `agent-reach doctor --json`，按各平台 `active_backend` 字段选命令组。
+   `agent-reach doctor --json`。`active_backend` 有值时按它选命令组；`active_backend: null`
+   表示 Doctor 为避免触发浏览器 Cookie 读取或远端写入而没有做实时验证，不代表后端不存在。
+   只有用户任务明确需要该平台时，才按对应 reference 的只读命令手动验证。
 2. **声明你在用什么**：开始干活前说一句「使用 agent-reach 的 X 平台 / Y 后端」。
 3. **失败按 references 里的重试链处理**，不要瞎猜命令。
 4. **全网调研类任务**：组合多平台（Exa 搜索 + Twitter/Reddit 看讨论 + 小红书/B站看中文场景），并行收集再汇总。
@@ -67,12 +52,13 @@ metadata:
 | GitHub/代码 | dev | [references/dev.md](references/dev.md) |
 | 网页/文章/RSS | web | [references/web.md](references/web.md) |
 | YouTube/B站/播客字幕 | video | [references/video.md](references/video.md) |
+| 雪球/股票行情 | finance | [references/finance.md](references/finance.md) |
 
 ## 零配置快速命令
 
 ```bash
 # Exa 网页搜索
-mcporter call 'exa.web_search_exa(query: "query", numResults: 5)'
+mcporter call exa.web_search_exa query="query" numResults=5
 
 # 通用网页阅读
 curl -s "https://r.jina.ai/URL"
@@ -80,8 +66,8 @@ curl -s "https://r.jina.ai/URL"
 # GitHub 搜索
 gh search repos "query" --sort stars --limit 10
 
-# YouTube 字幕（注意：B站不要用 yt-dlp，见 video.md）
-yt-dlp --write-sub --skip-download -o "/tmp/%(id)s" "URL"
+# YouTube 字幕（注意：B站不要用 yt-dlp，失败重试链见 video.md）
+yt-dlp --write-sub --write-auto-sub --skip-download -o "/tmp/%(id)s" "URL"
 
 # V2EX 热门
 curl -s "https://www.v2ex.com/api/topics/hot.json" -H "User-Agent: agent-reach/1.0"
@@ -126,6 +112,12 @@ opencli instagram user USERNAME -f yaml        # 读指定用户最近帖子
 agent-reach doctor --json
 ```
 
+## OpenCLI 适配器发现
+
+路由表没有覆盖用户需要的平台或命令时，先用 `opencli list` 查已有适配器，再用
+`opencli <平台> --help` 查看公开命令。发现适配器只证明命令存在，不证明登录态或
+目标内容可用；仅在用户任务明确需要该平台时执行只读命令，并以实际非空内容验收。
+
 ## 工作区规则
 
 **不要在 agent workspace 创建文件。** 使用 `/tmp/` 存放临时输出，`~/.agent-reach/` 存放持久数据。
@@ -140,6 +132,7 @@ agent-reach doctor --json
 - [开发工具](references/dev.md) — GitHub CLI
 - [网页阅读](references/web.md) — Jina Reader, RSS
 - [视频播客](references/video.md) — YouTube, B站, 小宇宙
+- [金融行情](references/finance.md) — 雪球股票行情、搜索、热门内容
 
 ## 配置渠道
 

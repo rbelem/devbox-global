@@ -39,6 +39,20 @@ yt-dlp --dump-json "ytsearch5:query"
 > **字幕注意**: 手动上传的字幕提取可靠；自动生成字幕可能存在行间重复，需后处理。
 > **评论注意**: `--write-comments` 基于网页抓取（非 YouTube Data API），部分评论可能丢失。
 
+### 字幕失败时的重试链（按序执行，拿到实质内容即停）
+
+`doctor` 只确认 yt-dlp 本体与 JS runtime 能执行，不会请求具体视频；因此
+`active_backend: yt-dlp` 不等于目标视频的字幕已经通过实时验证。
+
+1. 先用上面的 `yt-dlp --write-sub --write-auto-sub` 命令。
+2. 若出现 bot 校验、字幕响应为空或没有生成字幕文件，且 OpenCLI 已连接：
+   `opencli youtube transcript "URL" -f yaml`。
+3. OpenCLI 若返回 `Caption URL returned empty response`，最多重试 3 次；这是带
+   过期时间的字幕 URL 偶发失效，不能把空响应当成“视频没有字幕”。
+4. 仍失败或视频本来就没有字幕：`agent-reach transcribe "URL"` 下载音频转写。
+
+成功标准是实际得到非空字幕/转录内容，不是命令退出码或 `doctor` 的版本探测结果。
+
 ### 无字幕兜底：Whisper 音频转写
 
 ```bash
@@ -48,8 +62,11 @@ agent-reach transcribe ./local_audio.mp3 -o /tmp/transcript.txt
 ```
 
 > `agent-reach transcribe` 只接收公开 http(s) URL 或本地音频文件。用 `ytsearch5:` 搜索时，先从 yt-dlp 结果里选出具体视频 URL，再转写。
-> 需要先配置 key：`agent-reach configure groq-key gsk_xxx`（免费，console.groq.com）
-> 或 `agent-reach configure openai-key sk-xxx`。默认 auto 模式：groq 失败自动降级 openai。
+> 需要先配置 key：`agent-reach configure groq-key`（隐藏输入；免费，console.groq.com）
+> 或 `agent-reach configure openai-key`。默认 auto 模式只使用第一个已配置服务商
+>（优先 Groq，否则 OpenAI），失败即停止，不会把音频自动发给另一家。
+> `--allow-provider-fallback` 会显式授权跨服务商降级；同一音频内容可能被 Groq 和
+> OpenAI 分别处理，并可能产生 OpenAI 费用，只应在确认内容可分享给两家后使用。
 
 ## B站 / Bilibili（bili-cli 为主，OpenCLI 补字幕）
 
@@ -109,8 +126,8 @@ curl -s -b /tmp/bili_ck.txt -A "$UA" -e "https://www.bilibili.com/" \
 
 1. **ffmpeg**: `brew install ffmpeg`
 2. **Groq API Key** (免费): https://console.groq.com/keys
-3. **配置 Key**: `agent-reach configure groq-key YOUR_KEY`
-4. **首次运行**: `agent-reach install --env=auto` 安装工具
+3. **配置 Key**: `agent-reach configure groq-key`（隐藏输入）
+4. **首次运行**: `agent-reach install --env=auto --system --channels=xiaoyuzhou`（需用户明确授权）
 
 ### 检查状态
 
@@ -124,7 +141,7 @@ agent-reach doctor
 
 | 场景 | 推荐工具 |
 |-----|---------|
-| YouTube 字幕 | yt-dlp |
+| YouTube 字幕 | yt-dlp；失败时 OpenCLI（最多 3 次）→ agent-reach transcribe |
 | B站视频详情/搜索 | bili-cli |
 | B站字幕 | opencli bilibili subtitle |
 | 播客转录 | 小宇宙 transcribe.sh |
