@@ -73,7 +73,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ```
 devbox.json              # global package + script declarations
 devbox.lock              # pinned nixpkgs versions (stale, 2023)
-devbox.d/<name>/         # 26 flake-based packages (referenced path:devbox.d/<name>)
+devbox.d/<name>/         # 25 flake-based packages (referenced path:devbox.d/<name>)
 dotfiles/                # chezmoi root (.chezmoiroot = dotfiles)
 bin/                     # 16 standalone scripts (synced to $(devbox global path)/bin/)
 ```
@@ -149,10 +149,10 @@ modified independently), shows what the opposite direction would change.
 | `devbox global run config-edit` | Open devbox.json in $EDITOR |
 | `devbox global run update-flake` | Run update-flake version checker |
 | `devbox global run config-sync` | Sync repo ↔ global with conflict detection (dry-run by default, add `--sync` to apply) |
-| `bitw sm get <key>` | Fetch a secret from Bitwarden Secrets Manager by env-var name (run directly) |
-| `bitw sm create <key> <value>` | Create a secret in SM (run directly; flags first: `bitw sm create --stdin --project devbox-global KEY`) |
-| `bitw sm edit <key> --value <val>` | Update a secret in SM (run directly) |
-| `bitw login` | Log in to Bitwarden (run directly — replaces deprecated `bin/bitw-login`) |
+| `bws secret list --output env` | List all SM secrets as KEY=VALUE (run directly) |
+| `bws secret create KEY VALUE PROJECT_ID` | Create a secret in SM under a project (get PROJECT_ID via `bws project list`) |
+| `bws secret edit SECRET_ID --key KEY --value VALUE` | Update a secret in SM (get SECRET_ID via `bws secret list`) |
+| `export BWS_ACCESS_TOKEN=...` | Authenticate bws with a machine account access token |
 | `devbox global run python-install <pkg>` | pip install into managed venv |
 | `devbox global run python-update` | Upgrade all pip packages in venv |
 
@@ -251,7 +251,7 @@ here and synced to `$(devbox global path)/bin/` via `config-sync`; small scripts
   **graphify**, run `$(devbox global path)/bin/merge-upstream-perl --repo <name>
   --version <X.Y.Z> --apply` before considering the update complete.
   Manual fallback procedure is in `update-flake-workflow` skill, Step 5.
-- `bitw sm get <key>` — fetch a secret from Bitwarden Secrets Manager by env-var name. The canonical read path after migrating from vault items to SM. `bitw sm create <key> <value>` creates a secret. `bin/init-hook` now reads from SM via `~/.config/bitw/sm.ini` manifest instead of calling `bitw cache`. Migration is complete — SM is the source of truth.
+- `bws secret list --output env` — list all SM secrets as KEY=VALUE. The canonical read path — `bin/init-hook` fetches all secrets via a single `bws` call and filters to the `~/.config/bitw/sm.ini` manifest. SM is the source of truth.
 - `setup-git` — full git config (identity, aliases, delta, difftastic, credential helpers, includeif)
 - `setup-tmux` — clone gpakosz/.tmux + symlink local conf
 - `setup-nerd-fonts` — add Nerd Fonts dir to fontconfig

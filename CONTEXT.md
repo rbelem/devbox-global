@@ -25,8 +25,8 @@ _Avoid_: Persistent cache locations, loading secrets from any other mechanism
 
 **Secrets refresh**:
 The act of fetching the current secret values from Bitwarden SM
-and writing them to the secrets cache. Run via `bitw sm get` per
-secret (or delete the cache and let init_hook regenerate it).
+and writing them to the secrets cache. Run via `bws secret list --output env`
+(or delete the cache and let init_hook regenerate it).
 `bin/init-hook` regenerates the cache on shell startup if the file
 is missing.
 _Avoid_: Auto-refresh, staleness checks

@@ -76,8 +76,8 @@
     "path:devbox.d/pdf-inspector",
     "path:devbox.d/wigolo",
     "path:devbox.d/valkey-search",
-    "path:devbox.d/bitw",
-    "valkey@latest"
+    "valkey@latest",
+    "bws@latest"
   ],
   "env": {
     "EDITOR": "vi",
