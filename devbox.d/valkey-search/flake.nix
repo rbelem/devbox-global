@@ -24,6 +24,10 @@
     let
       systems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      # valkey-search version — must be the first version attribute in the
+      # file so update-flake (which parses the first match) detects it.
+      version = "1.2.1";
     in
     {
       packages = forAllSystems (system:
@@ -34,6 +38,7 @@
           # WITH_SUBMODULES_SYSTEM=ON path (find_path libhighwayhash.a).
           # Not packaged in nixpkgs; replicate upstream Makefile's lib target
           # (SIP_OBJS + DISPATCHER_OBJS + hh_{portable,avx2,sse41} + c_bindings).
+          # Not detected by update-flake (declared after the main version).
           highwayhash = pkgs.stdenv.mkDerivation {
             pname = "highwayhash";
             version = "0-unstable-2026-08-04";
@@ -115,7 +120,7 @@
 
           default = pkgs.stdenv.mkDerivation {
             pname = "valkey-search";
-            version = "1.2.1";
+            inherit version;
             src = vsearch-src;
             nativeBuildInputs = [ pkgs.cmake pkgs.ninja pkgs.gcc pkgs.git pkgs.binutils pkgs.zstd pkgs.patchelf ];
             buildInputs = [
