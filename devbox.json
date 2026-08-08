@@ -77,7 +77,8 @@
     "path:devbox.d/wigolo",
     "path:devbox.d/valkey-search",
     "valkey@latest",
-    "bws@latest"
+    "bws@latest",
+    "bitwarden-cli@latest"
   ],
   "env": {
     "EDITOR": "vi",
