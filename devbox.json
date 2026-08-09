@@ -58,6 +58,7 @@
     "path:devbox.d/bun",
     "path:devbox.d/open-code-review",
     "path:devbox.d/opencode",
+    "path:devbox.d/opencode-v2",
     "path:devbox.d/graphify",
     "path:devbox.d/skills",
     "path:devbox.d/rtk",
@@ -77,6 +78,7 @@
     "path:devbox.d/wigolo",
     "path:devbox.d/valkey-search",
     "path:devbox.d/prime-agent",
+    "path:devbox.d/herdr",
     "valkey@latest",
     "bws@latest",
     "bitwarden-cli@latest"

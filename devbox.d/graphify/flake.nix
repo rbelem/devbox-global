@@ -49,7 +49,7 @@
         in rec {
         graphify = pythonPackages.buildPythonApplication rec {
           pname = "graphifyy";
-          version = "0.9.36";
+          version = "0.9.37";
           format = "pyproject";
 
           src = graphify-src;
