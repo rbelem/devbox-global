@@ -1,0 +1,33 @@
+# herdr config — Kanagawa Wave theme, vi keys, tmux-style behavior
+onboarding = false
+
+[theme]
+name = "kanagawa"
+
+[ui]
+# mirror ~/.tmux.conf.local: "set -g mouse on"
+mouse_capture = true
+# mirror tmux_conf_copy_to_os_clipboard=true
+copy_on_select = true
+
+[keys]
+# tmux-style prefix (matches ~/.tmux.conf: set -g prefix C-a)
+prefix = "ctrl+a"
+
+# vi movement — matches tmux prefix+h/j/k/l
+focus_pane_left  = "prefix+h"
+focus_pane_down  = "prefix+j"
+focus_pane_up    = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# swap panes vi-style
+swap_pane_left  = "prefix+shift+h"
+swap_pane_down  = "prefix+shift+j"
+swap_pane_up    = "prefix+shift+k"
+swap_pane_right = "prefix+shift+l"
+
+# navigate-mode vi keys (no prefix)
+navigate_pane_left  = "h"
+navigate_pane_down  = "j"
+navigate_pane_up    = "k"
+navigate_pane_right = "l"
