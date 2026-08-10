@@ -16,7 +16,7 @@
       # VirtualBox / older CPU compatibility. Bump the hash with:
       #   nix-prefetch-url https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline.zip
       canaryUrl = "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline.zip";
-      canarySha256 = "sha256-6Ptf1gu3z+CgYmqeTZL+nWEUWnSZ7SWtI3NnhE3n6QU=";
+      canarySha256 = "sha256-a8SaxflwyIKNS6NlslzhI886H42XQywjEbdrbTky528=";
     in
     {
       packages = forAllSystems (system:
