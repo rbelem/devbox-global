@@ -2,3 +2,6 @@ result
 
 # Devbox-generated AWS credential wrapper (machine-specific)
 .aws/
+
+# Devbox virtenv (generated, machine-specific)
+.devbox/
