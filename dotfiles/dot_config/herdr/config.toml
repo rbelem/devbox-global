@@ -39,3 +39,7 @@ navigate_pane_right = "l"
 # workspace picker (prefix+w): vim j/k to move selection
 navigate_workspace_down = "j"
 navigate_workspace_up   = "k"
+
+# agents: next/previous (prefix+n/p — free since tabs moved to prefix+ctrl+h/l)
+next_agent     = "prefix+n"
+previous_agent = "prefix+p"
