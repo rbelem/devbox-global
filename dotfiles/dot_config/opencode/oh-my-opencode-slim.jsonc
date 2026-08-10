@@ -218,7 +218,7 @@
     }
   },
   "multiplexer": {
-    "type": "tmux",
+    "type": "herdr",
     "layout": "main-vertical",
     "main_pane_size": 60
   },

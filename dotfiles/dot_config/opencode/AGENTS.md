@@ -197,56 +197,30 @@ Use codegraph for **structural** questions — what calls what, what would break
 The MCP server returns "not initialized." Ask the user: *"I notice this project doesn't have CodeGraph initialized. Want me to run `codegraph init -i` to build the index?"*
 <!-- CODEGRAPH_END -->
 
-<!-- TMUX_START -->
-## Tmux
+<!-- HERDR_START -->
+## Herdr
 
-This project has a libtmux-mcp MCP server (`tmux_*` tools) configured. It controls tmux sessions, windows, and panes — read output, send keystrokes, wait for text, and manage the terminal layout.
+Herdr is the terminal workspace manager (tmux replacement) — sessions → workspaces → tabs → panes, agent-aware. There is no herdr MCP server; agents drive it through the `herdr` CLI and socket API.
 
-**Safety:** `LIBTMUX_SAFETY=read+send` is set — you can read panes and send keys, but kill operations are blocked.
+The **herdr skill** (`herdr` in ~/.agents/skills, auto-loaded) teaches pane/workspace control — splitting panes, running commands without stealing focus, reading output, waiting on other agents. Load it when the task involves herdr panes.
 
-### When to use tmux tools
+**Context:** when opencode runs inside a herdr pane, `HERDR_ENV=1`, `HERDR_PANE_ID`, `HERDR_BIN_PATH`, and `HERDR_SOCKET_PATH` are set. The herdr-agent-state plugin (`~/.config/opencode/plugins/herdr-agent-state.js`) reports lifecycle state (idle/working/blocked) and session identity back to herdr.
 
-| Scenario | Tool |
+### Key CLI surface
+
+| Need | Command |
 |---|---|
-| List all sessions | `list_sessions` |
-| List windows in a session | `list_windows` with `session_id` |
-| List panes in a window | `list_panes` with `target` (e.g., `"mysession:1"`) |
-| Read pane content | `capture_pane` with `target` and optional `lines` |
-| Send keystrokes to a pane | `send_keys` with `target`, `keys`, and optional `enter` |
-| Wait for text to appear | `wait_for_text` with `target`, `text`, and optional `timeout` (blocks server-side, no polling needed) |
-| Wait for content change | `wait_for_content_change` with `target` and optional `timeout` |
-| Rich pane state (content+cursor+mode+scroll) | `snapshot_pane` with `target` |
-| Incremental read (since last capture) | `capture_since` with `target` and `cursor` |
-| Get pane info (PID, TTY, command) | `get_pane_info` with `target` |
-| Search all panes in a session | `search_panes` with `session_id` and `pattern` |
-| Split pane | `split_window` with `target` and optional `direction`, `size`, `command` |
-| Create new window | `create_window` with `session_id`, optional `name` and `command` |
-| Create new session | `create_session` with `name`, optional `command` |
-| Select/focus a pane | `select_pane` with `target` |
-| Resize pane | `resize_pane` with `target`, `direction`, `amount` |
-| Set pane title | `set_pane_title` with `target`, `title` |
-| Clear pane scrollback | `clear_pane` with `target` |
-| Enter/exit copy mode | `enter_copy_mode` / `exit_copy_mode` with `target` |
-| Pipe pane output to a command | `pipe_pane` with `target`, `command`, optional `open`/`close` |
-| Show/set tmux options | `show_option` / `set_option` with name/value |
-| Show/set environment | `show_environment` / `set_environment` with name/value |
-| Get server info | `get_server_info` |
+| Runtime status | `herdr status`, `herdr status server`, `herdr status client` |
+| What herdr sees (agents/panes) | `herdr agent list` |
+| Why a pane was classified a certain way | `herdr agent explain --json` |
+| Send keys to a pane | `herdr pane send-keys <pane_id> <text>` (see skill for exact usage) |
+| Read pane output | `herdr pane output <pane_id>` / `--follow` (see skill) |
+| Split pane / new tab / new workspace | `herdr pane split`, `herdr tab new`, `herdr workspace new` |
+| Report agent state (custom integrations) | `herdr pane report-agent <pane_id> --state working\|idle\|blocked --source <src>` |
+| Reload config | `herdr server reload-config` |
 
-### Target format
-
-All pane/window tools accept a `target` parameter. Formats:
-- `session:window.pane` — e.g., `"dev:1.2"`
-- `session:window` — e.g., `"dev:1"`
-- `session` — defaults to active window and pane
-- Omit → current session's active pane
-
-### Key patterns
-
-- **Use `wait_for_text` instead of polling** — it blocks server-side until the text appears, saving tokens and round-trips.
-- **Use `snapshot_pane` for rich diagnostics** — it returns content, cursor position, copy-mode state, and scroll offset in one typed call.
-- **Use `capture_since` for incremental reads** — pass the cursor from a previous capture to get only new/changed lines.
-- **Don't re-discover topology** — if you already have a session/window/pane ID from a prior call, reuse it directly instead of calling `list_sessions` → `list_windows` → `list_panes` again.
-<!-- TMUX_END -->
+Full reference: `herdr --help`, https://herdr.dev/docs/cli-reference/, and the herdr skill.
+<!-- HERDR_END -->
 
 ## Web Intelligence (wigolo)
 

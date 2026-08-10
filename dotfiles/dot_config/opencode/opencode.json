@@ -162,7 +162,13 @@
   },
   "subagent_depth": 2,
   "watcher": {
-    "ignore": ["node_modules", "dist", ".codegraph", ".next", "target"]
+    "ignore": [
+      "node_modules",
+      "dist",
+      ".codegraph",
+      ".next",
+      "target"
+    ]
   },
   "mcp": {
     "context7": {
@@ -180,34 +186,47 @@
     },
     "chrome-devtools": {
       "type": "local",
-      "command": ["bunx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"],
+      "command": [
+        "bunx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--autoConnect"
+      ],
       "enabled": true
     },
     "firefox-devtools": {
       "type": "local",
-      "command": ["bunx", "-y", "@mozilla/firefox-devtools-mcp@latest"],
+      "command": [
+        "bunx",
+        "-y",
+        "@mozilla/firefox-devtools-mcp@latest"
+      ],
       "enabled": true
-    },
-    "tmux": {
-      "type": "local",
-      "command": ["uvx", "libtmux-mcp"],
-      "environment": {
-        "LIBTMUX_SAFETY": "read+send"
-      }
     },
     "opencode-docs": {
       "type": "local",
-      "command": ["bunx", "-y", "opencode-docs-mcp@latest"],
+      "command": [
+        "bunx",
+        "-y",
+        "opencode-docs-mcp@latest"
+      ],
       "enabled": true
     },
     "agentmemory": {
       "type": "local",
-      "command": ["agentmemory", "mcp"],
+      "command": [
+        "agentmemory",
+        "mcp"
+      ],
       "enabled": true
     },
     "codegraph": {
       "type": "local",
-      "command": ["codegraph", "serve", "--mcp"],
+      "command": [
+        "codegraph",
+        "serve",
+        "--mcp"
+      ],
       "timeout": 600000,
       "enabled": true
     },
