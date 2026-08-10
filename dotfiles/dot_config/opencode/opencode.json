@@ -7,7 +7,7 @@
       "name": "Bifrost (local gateway)",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://localhost:8080/v1",
+        "baseURL": "http://localhost:8081/v1",
         "apiKey": "bifrost-local"
       },
       "models": {
@@ -128,6 +128,24 @@
             "context": 262144,
             "output": 16384
           }
+        },
+        "opencode-go/qwen3.8-max": {
+          "name": "Qwen 3.8 Max (OpenCode Go)",
+          "reasoning": true,
+          "tool_call": true,
+          "limit": {
+            "context": 262144,
+            "output": 16384
+          }
+        },
+        "opencode-go/qwen3.7-plus": {
+          "name": "Qwen 3.7 Plus (OpenCode Go)",
+          "reasoning": true,
+          "tool_call": true,
+          "limit": {
+            "context": 262144,
+            "output": 16384
+          }
         }
       }
     }
@@ -163,6 +181,11 @@
     "chrome-devtools": {
       "type": "local",
       "command": ["bunx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"],
+      "enabled": true
+    },
+    "firefox-devtools": {
+      "type": "local",
+      "command": ["bunx", "-y", "@mozilla/firefox-devtools-mcp@latest"],
       "enabled": true
     },
     "tmux": {

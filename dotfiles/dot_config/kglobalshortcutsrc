@@ -362,6 +362,12 @@ switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
 
+[services][jcode-launch-0.desktop]
+_launch=Meta+;
+
+[services][jcode-launch-1.desktop]
+_launch=Meta+'
+
 [services][org.kde.konsole.desktop]
 _launch=none
 

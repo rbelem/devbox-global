@@ -11,11 +11,10 @@
   "presets": {
     "quality": {
       "orchestrator": {
-        "model": "zai-coding-plan/glm-5.2",
+        "model": "bifrost/opencode-go/deepseek-v4-flash",
         "variant": "max",
         "skills": [
           "*",
-          "!find-skills",
           "!design-taste-frontend",
           "!high-end-visual-design",
           "!minimalist-ui",
@@ -43,8 +42,8 @@
         ]
       },
       "oracle": {
-        "model": "alibaba-token-plan/qwen3.8-max-preview",
-        "variant": "max",
+        "model": "bifrost/opencode-go/qwen3.8-max",
+        "variant": "xhigh",
         "skills": [
           "simplify",
           "code-review",
@@ -60,19 +59,20 @@
         "mcps": ["codegraph"]
       },
       "librarian": {
-        "model": "opencode-go/mimo-v2.5",
+        "model": "bifrost/opencode-go/mimo-v2.5",
         "variant": "low",
         "skills": ["research"],
         "mcps": ["context7", "gh_grep", "firecrawl-mcp", "opencode-docs"]
       },
       "explorer": {
-        "model": "opencode-go/mimo-v2.5",
-        "variant": "low",
+        "model": "bifrost/opencode-go/deepseek-v4-flash",
+        "variant": "max",
         "skills": [],
         "mcps": ["codegraph"]
       },
       "designer": {
-        "model": "zai-coding-plan/glm-5.2",
+        //"model": "bifrost/zai/glm-5.2",
+        "model": "bifrost/moonshotai/kimi-k3",
         "variant": "max",
         "skills": [
           "agent-browser",
@@ -87,7 +87,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "alibaba-token-plan/qwen3.7-plus",
+        "model": "bifrost/opencode-go/deepseek-v4-flash",
         "variant": "max",
         "skills": [
           "git-commit",
@@ -102,23 +102,22 @@
         "mcps": ["codegraph"]
       },
       "observer": {
-        "model": "minimax/MiniMax-M3",
+        "model": "bifrost/minimax/MiniMax-M3",
         "variant": "medium",
         "skills": [],
         "mcps": []
       },
       "council": {
-        "model": "zai-coding-plan/glm-5.2",
+        "model": "bifrost/zai/glm-5.2",
         "variant": "max"
       }
     },
     "value": {
       "orchestrator": {
-        "model": "minimax/MiniMax-M3",
+        "model": "bifrost/deepseek/deepseek-v4-flash",
         "variant": "max",
         "skills": [
           "*",
-          "!find-skills",
           "!design-taste-frontend",
           "!high-end-visual-design",
           "!minimalist-ui",
@@ -146,7 +145,7 @@
         ]
       },
       "oracle": {
-        "model": "alibaba-token-plan/qwen3.8-max-preview",
+        "model": "bifrost/zai/glm-5.2",
         "variant": "max",
         "skills": [
           "simplify",
@@ -156,22 +155,23 @@
           "zoom-out",
           "domain-modeling"
         ],
-        "mcps": ["codegraph"]
+        "mcps": ["codegraph", "cloudflare-api"]
       },
       "librarian": {
-        "model": "opencode-go/mimo-v2.5",
+        "model": "bifrost/opencode-go/mimo-v2.5",
         "variant": "low",
         "skills": ["research"],
         "mcps": ["context7", "gh_grep", "firecrawl-mcp", "opencode-docs"]
       },
       "explorer": {
-        "model": "opencode-go/mimo-v2.5",
+        "model": "bifrost/deepseek/deepseek-v4-flash",
         "variant": "low",
         "skills": [],
         "mcps": ["codegraph"]
       },
       "designer": {
-        "model": "zai-coding-plan/glm-5.2",
+        //"model": "bifrost/minimax/MiniMax-M3",
+        "model": "bifrost/moonshotai/kimi-k3",
         "variant": "max",
         "skills": [
           "agent-browser",
@@ -183,8 +183,8 @@
         "mcps": []
       },
       "fixer": {
-        "model": "alibaba-token-plan/qwen3.7-plus",
-        "variant": "high",
+        "model": "bifrost/deepseek/deepseek-v4-flash",
+        "variant": "max",
         "skills": [
           "git-commit",
           "devbox",
@@ -196,114 +196,20 @@
         "mcps": ["codegraph"]
       },
       "observer": {
-        "model": "minimax/MiniMax-M3",
+        "model": "bifrost/minimax/MiniMax-M3",
         "variant": "medium",
         "skills": [],
         "mcps": []
       },
       "council": {
-        "model": "zai-coding-plan/glm-5.2",
-        "variant": "max"
-      }
-    },
-    "cheap": {
-      "orchestrator": {
-        "model": "minimax/MiniMax-M3",
-        "variant": "medium",
-        "skills": [
-          "*",
-          "!find-skills",
-          "!design-taste-frontend",
-          "!high-end-visual-design",
-          "!minimalist-ui",
-          "!industrial-brutalist-ui",
-          "!mobile-android-design",
-          "!brandkit",
-          "!redesign-existing-projects",
-          "!imagegen-frontend-web",
-          "!imagegen-frontend-mobile",
-          "!gpt-taste",
-          "!stitch-design-taste",
-          "!image-to-code",
-          "!prototype"
-        ],
-        "mcps": [
-          "*",
-          "!chrome-devtools",
-          "!browsermcp",
-          "!firecrawl-mcp",
-          "!context7",
-          "!gh_grep",
-          "!opencode-docs",
-          "!openrouter",
-          "!websearch"
-        ]
-      },
-      "oracle": {
-        "model": "opencode-go/kimi-k2.7-code",
-        "variant": "low",
-        "skills": [
-          "simplify",
-          "code-review",
-          "diagnosing-bugs",
-          "codebase-design",
-          "zoom-out",
-          "domain-modeling"
-        ],
-        "mcps": ["codegraph"]
-      },
-      "librarian": {
-        "model": "opencode-go/mimo-v2.5",
-        "variant": "low",
-        "skills": ["research"],
-        "mcps": ["context7", "gh_grep", "firecrawl-mcp", "opencode-docs"]
-      },
-      "explorer": {
-        "model": "opencode-go/mimo-v2.5",
-        "variant": "low",
-        "skills": [],
-        "mcps": ["codegraph"]
-      },
-      "designer": {
-        "model": "opencode-go/mimo-v2.5",
-        "variant": "high",
-        "skills": [
-          "agent-browser",
-          "design-taste-frontend",
-          "high-end-visual-design",
-          "image-to-code",
-          "prototype"
-        ],
-        "mcps": []
-      },
-      "fixer": {
-        "model": "alibaba-token-plan/qwen3.7-plus",
-        "variant": "high",
-        "skills": [
-          "git-commit",
-          "devbox",
-          "full-output-enforcement",
-          "graphify",
-          "clonedeps",
-          "tdd"
-        ],
-        "mcps": ["codegraph"]
-      },
-      "observer": {
-        "model": "minimax/MiniMax-M3",
-        "variant": "medium",
-        "skills": [],
-        "mcps": []
-      },
-      "council": {
-        "model": "opencode-go/mimo-v2.5",
-        "variant": "max"
+        "model": "bifrost/opencode-go/qwen3.8-max",
+        "variant": "xhigh"
       }
     }
   },
   "agents": {
     "fast-generic": {
-      "model": "opencode-go/deepseek-v4-flash",
+      "model": "bifrost/opencode-go/mimo-v2.5",
       "variant": "low",
       "prompt": "You are a fast generic execution agent for routine mechanical command work. Run requested shell commands, inspect results, and report concise outcomes. For git commits or pushes, inspect git status, git diff, and recent log first; stage only intended files; avoid secrets; preserve repository commit-message style; never amend, rebase, reset --hard, clean, force-push, delete branches, or perform destructive history operations unless the user explicitly requested that exact operation. Do not edit code or make architecture/design decisions.",
       "orchestratorPrompt": "Delegate to @fast-generic for routine mechanical command work: git status/diff/log reconnaissance, normal commit preparation, creating commits, pushing commits, and no-edit command validation such as lint, typecheck, static verification, tests, builds, or package-manager equivalents. Ask it to inspect diffs before committing, stage only intended files, avoid secrets, preserve repository commit-message style, and report final commit hashes or push results. Do not use it for code edits, design work, architecture, debugging strategy, docs research, or destructive git history operations such as amend, rebase, reset --hard, clean, force-push, or deleting branches unless the user explicitly requested that exact operation.",
@@ -318,11 +224,7 @@
   },
   "fallback": {
     "enabled": true,
-    "timeoutMs": 15000,
-    "retryDelayMs": 500,
-    "maxRetries": 3,
-    "retry_on_empty": true,
-    "runtimeOverride": true
+    "maxRetries": 3
   },
   "council": {
     "timeout": 600000,
@@ -330,15 +232,15 @@
     "presets": {
       "default": {
         "alpha": {
-          "model": "zai-coding-plan/glm-5.2",
+          "model": "bifrost/zai/glm-5.2",
           "variant": "max"
         },
         "beta": {
-          "model": "alibaba-token-plan/qwen3.8-max-preview",
-          "variant": "max"
+          "model": "bifrost/opencode-go/qwen3.8-max",
+          "variant": "xhigh"
         },
         "gamma": {
-          "model": "openrouter/moonshotai/kimi-k3",
+          "model": "bifrost/moonshotai/kimi-k3",
           "variant": "max"
         }
       }
