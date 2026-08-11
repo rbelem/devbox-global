@@ -148,7 +148,15 @@
           }
         }
       }
-    }
+    },
+    "copilot": {},
+    "openai": {},
+    "openrouter": {},
+    "zai": {},
+    "zhipu": {},
+    "minimax-coding-plan": {},
+    "deepseek": {},
+    "opencode-go": {}
   },
   "experimental": {
     "disable_paste_summary": true,
@@ -233,6 +241,11 @@
     "wigolo": {
       "type": "remote",
       "url": "http://127.0.0.1:3333/mcp",
+      "enabled": true
+    },
+    "bifrost": {
+      "type": "remote",
+      "url": "http://127.0.0.1:8081/mcp",
       "enabled": true
     }
   },
