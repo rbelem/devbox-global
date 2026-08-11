@@ -4,6 +4,13 @@ Type: implementation
 Status: P8.1-P8.5 DONE (workstation flip, cold-machine test PASSED, legacy bucket frozen) — commits 92c8043 + 66df908 + dade244; remaining machines flip deferred by user; P8.6 cleanup gated ≥30d
 Blocked by: 07 (server-side deployed + smoke-passed)
 
+## Post-cutover (2026-08-11)
+
+- Q6 (SQLite backup) DONE: `ansible/playbooks/attic-backup.yml` + `templates/attic-backup.sh.j2` (zet commit 4193d0d) — daily 04:30 systemd timer, sqlite3 .backup, 14d retention, self-test; verified on VPS (49MB backup). Workstation pull = manual scp (documented).
+- Q7 (Kuma probe) DONE: monitors-as-code (zet commit 1c324e7) — scripts/kuma/monitors.json source of truth + scripts/kuma-provision.sh (socket.io reconcile, idempotent upsert, never deletes manual monitors, --check dry-run). 5 monitors UP incl. Attic cache (200 with Authorization Bearer ATTIC_PULL_JWT injected from SM) + Legacy S3 (403 healthy). Kuma admin creds created via socket.io setup + saved to SM as KUMA_ADMIN_USER/KUMA_ADMIN_PASSWORD (Kuma had NO admin — setup never done).
+- Kuma CrashLoopBackOff (securityContext drift) fixed + orphan headroom/uptime-kuma.yaml quarantined on VPS.
+- Integration fixes: getMonitorList = monitorList event (object keyed by id); Kuma headers stored as JSON STRING (object → '[object Object]', header silently dropped).
+
 ## Cutover evidence (2026-08-11)
 
 - Pre-flip upload: full devbox-global closure pushed to attic:devbox (47 cached + 8 new; 1351 paths skipped via upstream cache filter).
