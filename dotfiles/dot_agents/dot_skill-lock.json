@@ -271,15 +271,6 @@
       "installedAt": "2026-07-09T22:30:54.435Z",
       "updatedAt": "2026-08-07T18:25:50.276Z"
     },
-    "writing-great-skills": {
-      "source": "mattpocock/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "skills/productivity/writing-great-skills/SKILL.md",
-      "skillFolderHash": "81d36946d48842f90358d8af54e3cdcc141f8e01",
-      "installedAt": "2026-07-09T22:30:54.436Z",
-      "updatedAt": "2026-07-19T00:39:30.857Z"
-    },
     "brandkit": {
       "source": "Leonxlnx/taste-skill",
       "sourceType": "github",
@@ -576,24 +567,6 @@
       "skillFolderHash": "dcc584ff84c4f040ea12742fcb46b7c3ad7070bd",
       "installedAt": "2026-07-11T16:31:47.073Z",
       "updatedAt": "2026-07-19T00:39:54.606Z"
-    },
-    "edit-article": {
-      "source": "mattpocock/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "skills/personal/edit-article/SKILL.md",
-      "skillFolderHash": "19ce34c6f4afcb58788e8e525dbb80c79a45a4a0",
-      "installedAt": "2026-07-11T16:31:47.074Z",
-      "updatedAt": "2026-07-19T00:39:58.206Z"
-    },
-    "obsidian-vault": {
-      "source": "mattpocock/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "skills/personal/obsidian-vault/SKILL.md",
-      "skillFolderHash": "5fdd257588fefa400e8a0d505aac555a0b52311a",
-      "installedAt": "2026-07-11T16:31:47.074Z",
-      "updatedAt": "2026-07-19T00:40:01.415Z"
     },
     "caveman": {
       "source": "JuliusBrussee/caveman",
