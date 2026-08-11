@@ -312,6 +312,7 @@
   "formatter": true,
   "lsp": true,
   "instructions": [
-    "/home/rodrigo/.autolearn/personas/default/memory.context.md"
+    "/home/rodrigo/.autolearn/personas/default/memory.context.md",
+    "/home/rodrigob/.autolearn/personas/default/memory.context.md"
   ]
 }
