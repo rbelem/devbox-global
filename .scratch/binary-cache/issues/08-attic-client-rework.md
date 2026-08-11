@@ -1,8 +1,16 @@
 # 08 - bin/cache rework to Attic + cutover (devbox-global)
 
 Type: implementation
-Status: P8.1-P8.5(workstation) DONE — commits 92c8043 + 66df908; remaining machines + cold-machine test pending (user deferred); P8.6 cleanup gated ≥30d
+Status: P8.1-P8.5 DONE (workstation flip, cold-machine test PASSED, legacy bucket frozen) — commits 92c8043 + 66df908 + dade244; remaining machines flip deferred by user; P8.6 cleanup gated ≥30d
 Blocked by: 07 (server-side deployed + smoke-passed)
+
+## Cutover evidence (2026-08-11)
+
+- Pre-flip upload: full devbox-global closure pushed to attic:devbox (47 cached + 8 new; 1351 paths skipped via upstream cache filter).
+- Workstation flip: `bin/cache configure` → marker block (extra-substituters attic + trusted-public-keys cache.nixos.org-1 + devbox pubkey + fallback=true + netrc-file), netrc 0600, attic login ok; `bin/cache upload` → 29 flakes + closure ✓ (exit 0).
+- Soak: `nix path-info --store https://attic.zet.rclb.dev/devbox <profile>` ok; `nix build nixpkgs#hello` ok.
+- Cold-machine test (B9): hello deleted from local store; rebuilt with `NIX_USER_CONF_FILES=/dev/null`, substituters = attic ONLY (no cache.nixos.org), pull JWT hand-carried in a temp netrc → `copying path '...hello-2.12.3' from 'https://attic.zet.rclb.dev/devbox'` (exit 0).
+- Legacy freeze: `cache.zet.rclb.dev` anon GET/LIST = 403 (frozen); attic unauth = 401 (private as designed).
 
 ## Goal
 
