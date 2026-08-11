@@ -33,9 +33,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-help/SKILL.md",
-      "skillFolderHash": "686974193bba1a8a12029032fcf730d03e5ffdea",
+      "skillFolderHash": "b4f5ebc5f3ce9bfa652996b5161bbe3cc0b88297",
       "installedAt": "2026-04-25T08:27:55.239Z",
-      "updatedAt": "2026-08-04T05:55:56.865Z"
+      "updatedAt": "2026-08-11T21:24:40.017Z"
     },
     "caveman-review": {
       "source": "JuliusBrussee/caveman",
@@ -105,9 +105,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/alibaba/open-code-review.git",
       "skillPath": "skills/open-code-review/SKILL.md",
-      "skillFolderHash": "162e96f55a04f56aae9762b9de99f39e5e8081c6",
+      "skillFolderHash": "f5a1d5fd103638527059fe6520c1e05539edd1ee",
       "installedAt": "2026-06-08T02:03:32.616Z",
-      "updatedAt": "2026-06-25T01:49:22.670Z"
+      "updatedAt": "2026-08-11T21:24:49.385Z"
     },
     "ask-matt": {
       "source": "mattpocock/skills",
@@ -609,9 +609,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-compress/SKILL.md",
-      "skillFolderHash": "0fca830ebfbf51481ebcf285fd5c67d892ad3ee5",
+      "skillFolderHash": "b251ec60119a86c4d0da6651b0d2b0cbe06d3c97",
       "installedAt": "2026-07-11T16:36:24.349Z",
-      "updatedAt": "2026-08-04T05:56:05.930Z"
+      "updatedAt": "2026-08-11T21:24:44.575Z"
     },
     "static-analysis": {
       "source": "mohitmishra786/low-level-dev-skills",
