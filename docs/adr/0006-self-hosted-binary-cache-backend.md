@@ -1,8 +1,11 @@
 # ADR 0006: Self-hosted binary cache backend — RustFS on the zet VPS
 
-> **Status: Accepted 2026-08-10.** Backend lane of the binary-cache
-> effort (map: `.scratch/binary-cache/map.md`, tickets 01-05). This ADR
-> records the concrete deployment facts the `bin/cache` script consumes.
+> **Status: Superseded 2026-08-10 by [ADR 0007](./0007-attic-cache-frontend.md)**
+> (Attic frontend on the RustFS backend). Originally accepted 2026-08-10
+> as the backend lane of the binary-cache effort (map:
+> `.scratch/binary-cache/map.md`, tickets 01-05). This ADR records the
+> concrete deployment facts the `bin/cache` script consumed; the RustFS
+> deployment remains in service as Attic's storage backend (see 0007).
 
 ## Context
 
@@ -125,5 +128,9 @@ replace a good one.
 
 ## Status
 
-Accepted 2026-08-10. Backend lane deliverable complete; script lane
-(04/05) consumes these facts.
+**Superseded 2026-08-10 by [ADR 0007](./0007-attic-cache-frontend.md)** —
+the Attic frontend replaces the S3-direct client path. The RustFS
+deployment facts above remain valid as Attic's storage backend (new
+bucket `attic-cache` via in-cluster `rustfs-service.cache.svc:9000`)
+until the ≥30d cleanup; the S3 vhost `cache.zet.rclb.dev` stays live
+through the 30-day coexistence window, then closes.

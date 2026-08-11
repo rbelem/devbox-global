@@ -1,0 +1,616 @@
+#!/usr/bin/env bash
+# bin/cache — self-hosted Attic binary cache for devbox-global.
+#
+# Replaces the removed upstream `devbox cache` commands. One script, git-style
+# subcommands:
+#
+#   configure  Write nix.conf + netrc so this machine uses the cache (pull via
+#              JWT in netrc; push via `attic login`). Restarts nix-daemon when
+#              possible.
+#   upload     Push every enabled devbox.d/<name> flake plus the full global
+#              closure to the cache via `attic push`. Idempotent: attic skips
+#              paths already cached server-side.
+#   status     Show cache config, whether configure ran, netrc state, and
+#              attic login state.
+#   help       This text.
+#
+# Config precedence: env > devbox.json (nix.cache.*) > defaults.
+#   type           DEVBOX_CACHE_TYPE          nix.cache.type          (attic)
+#   endpoint       DEVBOX_CACHE_ENDPOINT      nix.cache.endpoint      (required)
+#   cache          DEVBOX_CACHE_CACHE         nix.cache.cache         (required)
+#   server         DEVBOX_CACHE_SERVER        nix.cache.server_name   (attic)
+#   pubkey         DEVBOX_CACHE_PUBKEY        nix.cache.public_key    (required)
+#   push_token_env DEVBOX_CACHE_PUSH_TOKEN_ENV nix.cache.push_token_env (ATTIC_PUSH_JWT)
+#   pull_token_env DEVBOX_CACHE_PULL_TOKEN_ENV nix.cache.pull_token_env (ATTIC_PULL_JWT)
+#
+# The nix substituter is $ENDPOINT/$CACHE (e.g. https://attic.zet.rclb.dev/devbox).
+# Tokens come from the env vars named by push_token_env/pull_token_env — never
+# argv. They are normally exported by the devbox init-hook from Bitwarden SM;
+# `bws secret list` is the standalone fallback (SM secret names match the env
+# names). The public key is committed in devbox.json on purpose: it is public
+# and acts as the recovery artifact.
+#
+# Every pulling machine must run `configure`; pusher machines additionally
+# hold the push JWT (configure runs `attic login` when it is present). On
+# NixOS, prefer nix.settings in configuration.nix — a managed block in
+# /etc/nix/nix.conf is overwritten on rebuilds.
+set -euo pipefail
+
+RED=$'\033[0;31m'; GREEN=$'\033[0;32m'; YELLOW=$'\033[1;33m'
+CYAN=$'\033[0;36m'; BOLD=$'\033[1m'; NC=$'\033[0m'
+
+MARKER_BEGIN='# BEGIN devbox-global-cache'
+MARKER_END='# END devbox-global-cache'
+
+# Globals (initialized so the script is safe to source for unit tests)
+MULTI_USER=0
+ROOT_MODE=0
+SUDO_PREFIX=""
+SUDO_CMD=()
+NIX_CONF_FILE=""
+NETRC_FILE=""
+JSON_FILE=""
+CACHE_TYPE=""
+CACHE_ENDPOINT=""
+CACHE_NAME=""
+CACHE_SERVER=""
+CACHE_PUBKEY=""
+CACHE_PUSH_TOKEN_ENV=""
+CACHE_PULL_TOKEN_ENV=""
+CACHE_ENDPOINT_URL=""
+CACHE_URI=""
+
+# Well-known cache.nixos.org key: always kept in the managed block so the
+# default public cache is never lost when an explicit trusted-public-keys
+# line is written (nix's implicit default only applies with no line at all).
+NIXOS_CACHE_KEY='cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY='
+
+# ── tiny helpers ────────────────────────────────────────────────────────────
+
+die() { echo "${RED}ERROR${NC}: $*" >&2; exit 1; }
+warn() { echo "${YELLOW}WARNING${NC}: $*" >&2; }
+
+# Run a command, silencing stdout+stderr unless DEVBOX_CACHE_DEBUG=1.
+# (Upload failures print nothing per-flake, mirroring upload-flakes; set
+# DEVBOX_CACHE_DEBUG=1 to see what failed.)
+silent() {
+  if [[ "${DEVBOX_CACHE_DEBUG:-}" == "1" ]]; then
+    "$@"
+  else
+    "$@" >/dev/null 2>&1
+  fi
+}
+
+# ── config resolution (env > devbox.json > defaults) ─────────────────────────
+
+devbox_json_file() {
+  if [[ -n "${DEVBOX_JSON_PATH:-}" ]]; then
+    printf '%s' "$DEVBOX_JSON_PATH"
+    return 0
+  fi
+  printf '%s/devbox.json' "$(devbox global path)"
+}
+
+load_json() {
+  JSON_FILE="$(devbox_json_file)"
+  [[ -f "$JSON_FILE" ]] || die "devbox.json not found at $JSON_FILE"
+  if ! jq -e . "$JSON_FILE" >/dev/null 2>&1; then
+    die "cannot parse $JSON_FILE (devbox.json is huJSON — keep it valid JSON for this script)"
+  fi
+}
+
+json_get() {
+  jq -r "$1 // \"\"" "$JSON_FILE"
+}
+
+# Sets CACHE_* globals. Derived: CACHE_ENDPOINT_URL (scheme included) and
+# CACHE_URI (the nix substituter: $ENDPOINT/$CACHE).
+resolve_config() {
+  CACHE_TYPE="${DEVBOX_CACHE_TYPE:-$(json_get '.nix.cache.type')}"
+  [[ -n "$CACHE_TYPE" ]] || CACHE_TYPE="attic"
+  if [[ "$CACHE_TYPE" != "attic" ]]; then
+    die "unsupported cache type '$CACHE_TYPE' — bin/cache currently implements only 'attic'"
+  fi
+
+  CACHE_ENDPOINT="${DEVBOX_CACHE_ENDPOINT:-$(json_get '.nix.cache.endpoint')}"
+  CACHE_NAME="${DEVBOX_CACHE_CACHE:-$(json_get '.nix.cache.cache')}"
+  CACHE_SERVER="${DEVBOX_CACHE_SERVER:-$(json_get '.nix.cache.server_name')}"
+  [[ -n "$CACHE_SERVER" ]] || CACHE_SERVER="attic"
+  CACHE_PUBKEY="${DEVBOX_CACHE_PUBKEY:-$(json_get '.nix.cache.public_key')}"
+  CACHE_PUSH_TOKEN_ENV="${DEVBOX_CACHE_PUSH_TOKEN_ENV:-$(json_get '.nix.cache.push_token_env')}"
+  [[ -n "$CACHE_PUSH_TOKEN_ENV" ]] || CACHE_PUSH_TOKEN_ENV="ATTIC_PUSH_JWT"
+  CACHE_PULL_TOKEN_ENV="${DEVBOX_CACHE_PULL_TOKEN_ENV:-$(json_get '.nix.cache.pull_token_env')}"
+  [[ -n "$CACHE_PULL_TOKEN_ENV" ]] || CACHE_PULL_TOKEN_ENV="ATTIC_PULL_JWT"
+
+  if [[ "$CACHE_ENDPOINT" =~ ^https?:// ]]; then
+    CACHE_ENDPOINT_URL="$CACHE_ENDPOINT"
+  else
+    CACHE_ENDPOINT_URL="https://$CACHE_ENDPOINT"
+  fi
+
+  CACHE_URI="$CACHE_ENDPOINT_URL/$CACHE_NAME"
+}
+
+require_endpoint_cache() {
+  [[ -n "$CACHE_ENDPOINT" ]] || \
+    die "cache endpoint not set — configure nix.cache.endpoint in devbox.json or set DEVBOX_CACHE_ENDPOINT"
+  [[ -n "$CACHE_NAME" ]] || \
+    die "cache name not set — configure nix.cache.cache in devbox.json or set DEVBOX_CACHE_CACHE"
+  [[ -n "$CACHE_PUBKEY" ]] || \
+    die "cache public key not set — configure nix.cache.public_key in devbox.json or set DEVBOX_CACHE_PUBKEY"
+}
+
+# Enabled devbox.d flakes: packages whose name is path:devbox.d/<name>, in
+# both map ({}) and string ("latest") package forms. Prints names, one per
+# line, to stdout.
+enabled_flake_names() {
+  jq -r \
+    '(.packages // {}) | to_entries[] | select(.key | startswith("path:devbox.d/")) | .key | ltrimstr("path:devbox.d/")' \
+    "$1"
+}
+
+# ── machine mode: single- vs multi-user nix, sudo availability ───────────────
+
+# Empty `build-users-group` = single-user nix (no daemon).
+is_multi_user() {
+  nix show-config 2>/dev/null | grep -qE '^build-users-group[[:space:]]*=[[:space:]]*\S'
+}
+
+# Sets MULTI_USER (0/1), ROOT_MODE (1 = write root-owned configs), and the
+# SUDO_* helpers.
+resolve_mode() {
+  MULTI_USER=0
+  ROOT_MODE=0
+  SUDO_PREFIX=""
+  SUDO_CMD=()
+  if is_multi_user; then
+    MULTI_USER=1
+  fi
+  if [[ $EUID -ne 0 ]] && command -v sudo >/dev/null 2>&1; then
+    SUDO_PREFIX="sudo"
+    SUDO_CMD=(sudo)
+  fi
+  if [[ "$MULTI_USER" == 1 && -n "$SUDO_PREFIX" ]]; then
+    ROOT_MODE=1
+  fi
+}
+
+nix_conf_path() {
+  if [[ "$ROOT_MODE" == 1 ]]; then printf '/etc/nix/nix.conf'; else printf '%s/.config/nix/nix.conf' "$HOME"; fi
+}
+netrc_path() {
+  if [[ "$ROOT_MODE" == 1 ]]; then printf '/etc/nix/netrc'; else printf '%s/.config/nix/netrc' "$HOME"; fi
+}
+
+is_root_path() { [[ "$1" == /root/* || "$1" == /etc/* ]]; }
+
+cat_file() {
+  local file="$1" out=""
+  if [[ -n "$SUDO_PREFIX" ]] && is_root_path "$file"; then
+    out="$("${SUDO_CMD[@]}" cat "$file" 2>/dev/null || true)"
+  else
+    out="$(cat "$file" 2>/dev/null || true)"
+  fi
+  printf '%s' "$out"
+}
+
+write_file() {
+  local file="$1" tmp="$2" mode="${3:-0644}"
+  local dir
+  dir="$(dirname "$file")"
+  if [[ -n "$SUDO_PREFIX" ]] && is_root_path "$file"; then
+    "${SUDO_CMD[@]}" install -d -m 0755 "$dir"
+    "${SUDO_CMD[@]}" install -m "$mode" "$tmp" "$file"
+  else
+    install -d -m 0755 "$dir"
+    install -m "$mode" "$tmp" "$file"
+  fi
+  rm -f "$tmp"
+}
+
+# ── managed marker blocks (idempotent; never bare `>>`) ──────────────────────
+
+# Last non-block value of a nix.conf list setting (extra-substituters,
+# trusted-public-keys) so the managed block merges with, not clobbers,
+# pre-existing values (e.g. cache.nixos.org).
+existing_value() {
+  local key="$1" file="$2"
+  cat_file "$file" | awk -v b="$MARKER_BEGIN" -v e="$MARKER_END" -v k="$key" '
+    $0 == b { inblock=1 }
+    inblock && $0 == e { inblock=0; next }
+    !inblock && $0 ~ "^[[:space:]]*" k "[[:space:]]*=" {
+      line=$0
+      sub(/^[^=]*=[[:space:]]*/, "", line)
+      last=line
+    }
+    END { if (last != "") print last }
+  '
+}
+
+# Rewrite FILE so it contains exactly `block` between the marker lines
+# (appended if absent, replaced in place otherwise). Emits via write_file,
+# which handles sudo + atomic install.
+rewrite_managed_block() {
+  local file="$1" block="$2" mode="${3:-0644}"
+  local existing tmp
+  existing="$(cat_file "$file")"
+  tmp="$(mktemp)"
+  if [[ "$existing" == *"$MARKER_BEGIN"* ]]; then
+    printf '%s\n' "$existing" | awk -v b="$MARKER_BEGIN" -v e="$MARKER_END" '
+      $0 == b { inblock=1; next }
+      inblock && $0 == e { inblock=0; next }
+      !inblock { print }
+    ' > "$tmp"
+  elif [[ -n "$existing" ]]; then
+    printf '%s\n' "$existing" > "$tmp"
+  fi
+  printf '%s\n' "$block" >> "$tmp"
+  write_file "$file" "$tmp" "$mode"
+}
+
+# ── token resolution (env > Bitwarden SM via bws; never argv, never echoed) ──
+
+# $1 = env var name. Returns the token from env or from SM (bws). Never echoes
+# it. Tokens are normally already in env because the init-hook evals
+# `bws secret list --output env`; the bws lookup is the standalone fallback
+# (SM secret names match the env names: ATTIC_PUSH_JWT, ATTIC_PULL_JWT).
+resolve_token() {
+  local env_name="$1" tok=""
+  tok="${!env_name:-}"
+  if [[ -z "$tok" ]] && command -v bws >/dev/null 2>&1; then
+    tok="$(bws secret list --output json 2>/dev/null | jq -r --arg k "$env_name" '.[] | select(.key == $k) | .value' | head -n1 || true)"
+  fi
+  printf '%s' "$tok"
+}
+
+# ── config block builder ────────────────────────────────────────────────────
+
+nix_block() {
+  local existing_sub existing_keys
+  existing_sub="$(existing_value extra-substituters "$NIX_CONF_FILE")"
+  existing_keys="$(existing_value trusted-public-keys "$NIX_CONF_FILE")"
+  if [[ " $existing_keys " != *" $NIXOS_CACHE_KEY "* ]]; then
+    existing_keys="${existing_keys:+$existing_keys }$NIXOS_CACHE_KEY"
+  fi
+  printf '%s\n' "$MARKER_BEGIN"
+  printf 'extra-substituters = %s\n' "${existing_sub:+$existing_sub }$CACHE_URI"
+  printf 'trusted-public-keys = %s\n' "${existing_keys:+$existing_keys }$CACHE_PUBKEY"
+  printf 'fallback = true\n'
+  printf 'netrc-file = %s\n' "$NETRC_FILE"
+  printf '%s\n' "$MARKER_END"
+}
+
+# ── daemon + trust ───────────────────────────────────────────────────────────
+
+restart_daemon() {
+  [[ "$MULTI_USER" == 1 ]] || return 0
+  if [[ -z "$SUDO_PREFIX" ]]; then
+    return 0
+  fi
+  if ! command -v systemctl >/dev/null 2>&1; then
+    warn "nix-daemon not restarted (systemctl unavailable) — restart it to apply the new config"
+    return 0
+  fi
+  if "${SUDO_CMD[@]}" systemctl restart nix-daemon 2>/dev/null; then
+    echo "Restarted nix-daemon (config now live)."
+  else
+    warn "could not restart nix-daemon — restart it manually or uploads may silently fail"
+  fi
+}
+
+warn_if_untrusted() {
+  [[ "$MULTI_USER" == 1 ]] || return 0
+  local user trusted
+  user="$(id -un)"
+  trusted="$(nix show-config 2>/dev/null | awk -F= '/^trusted-users/ {
+    v=$0; sub(/^[^=]*=[[:space:]]*/, "", v); print v; exit
+  }')"
+  if [[ -n "$trusted" ]] && ! grep -qw "$user" <<<"$trusted" && ! grep -qw '@wheel' <<<"$trusted"; then
+    warn "user '$user' is not in nix trusted-users — uploads may silently fail. Ask an admin to add it."
+  fi
+}
+
+preflight() {
+  command -v nix >/dev/null 2>&1 || die "nix not found on PATH"
+  command -v devbox >/dev/null 2>&1 || die "devbox not found on PATH"
+  command -v jq >/dev/null 2>&1 || die "jq not found — run inside the devbox shell (devbox global run cache ...)"
+  command -v attic >/dev/null 2>&1 || die "attic-client missing — run 'devbox global pull'"
+}
+
+# ── subcommands ──────────────────────────────────────────────────────────────
+
+cmd_configure() {
+  preflight
+  load_json
+  resolve_config
+  require_endpoint_cache
+  resolve_mode
+  NIX_CONF_FILE="$(nix_conf_path)"
+  NETRC_FILE="$(netrc_path)"
+
+  # Multi-user nix without sudo: write a user-level hint, do not pretend success.
+  if [[ "$MULTI_USER" == 1 && "$ROOT_MODE" == 0 ]]; then
+    NIX_CONF_FILE="$HOME/.config/nix/nix.conf"
+    rewrite_managed_block "$NIX_CONF_FILE" "$(nix_block)"
+    echo "This host runs multi-user nix, but sudo is unavailable." >&2
+    echo "Wrote a hint to $NIX_CONF_FILE (extra-substituters + trusted-public-keys)." >&2
+    echo "Ask an admin to run: sudo $(devbox global path)/bin/cache configure" >&2
+    exit 1
+  fi
+
+  # Pull token → netrc. The netrc file is dedicated to this cache and fully
+  # rewritten (no marker blocks — netrc has no reliable comment semantics
+  # across parsers).
+  local pull_tok host netrc_tmp
+  pull_tok="$(resolve_token "$CACHE_PULL_TOKEN_ENV")"
+  if [[ -z "$pull_tok" ]]; then
+    die "pull token not available — set $CACHE_PULL_TOKEN_ENV or run inside the devbox shell (init-hook exports SM secrets)"
+  fi
+  host="${CACHE_ENDPOINT_URL#https://}"
+  host="${host#http://}"
+  netrc_tmp="$(mktemp)"
+  printf 'machine %s password %s\n' "$host" "$pull_tok" > "$netrc_tmp"
+  write_file "$NETRC_FILE" "$netrc_tmp" 0600
+  echo "Wrote $NETRC_FILE (pull JWT for $host, 0600)."
+
+  # Push token → `attic login` (stored client auth; `attic push` does NOT read
+  # netrc). Server + cache name come from config (target: $CACHE_SERVER:$CACHE_NAME).
+  local push_tok
+  push_tok="$(resolve_token "$CACHE_PUSH_TOKEN_ENV")"
+  if [[ -n "$push_tok" ]]; then
+    if silent attic login "$CACHE_SERVER" "$CACHE_ENDPOINT_URL" "$push_tok" --set-default; then
+      echo "Logged in to attic at $CACHE_ENDPOINT_URL (server '$CACHE_SERVER')."
+    else
+      warn "attic login failed — pushes will not work (set DEVBOX_CACHE_DEBUG=1 for details)"
+    fi
+  else
+    warn "pull-only machine — no push token ($CACHE_PUSH_TOKEN_ENV not set)"
+  fi
+
+  rewrite_managed_block "$NIX_CONF_FILE" "$(nix_block)"
+  echo "Wrote $NIX_CONF_FILE (extra-substituters + trusted-public-keys + fallback + netrc-file)."
+
+  restart_daemon
+
+  echo
+  echo "Configured cache: $CACHE_URI"
+  echo "Public key (committed in devbox.json — recovery artifact): $CACHE_PUBKEY"
+  echo "netrc: $NETRC_FILE"
+  echo
+  echo "Next: pusher machines run 'upload'; every pulling machine runs 'configure'."
+}
+
+cmd_upload() {
+  preflight
+  load_json
+  resolve_config
+  require_endpoint_cache
+  resolve_mode
+  warn_if_untrusted
+
+  local push_tok
+  push_tok="$(resolve_token "$CACHE_PUSH_TOKEN_ENV")"
+  if [[ -z "$push_tok" ]]; then
+    die "push token not available — set $CACHE_PUSH_TOKEN_ENV or run inside the devbox shell"
+  fi
+
+  local json global_path
+  json="$(devbox_json_file)"
+  global_path="$(devbox global path)"
+
+  # Enabled flakes: packages whose name is path:devbox.d/<name> (map and
+  # string forms both handled by jq to_entries).
+  local -a enabled=()
+  readarray -t enabled < <(enabled_flake_names "$json")
+
+  echo "${BOLD}${CYAN}Uploading devbox.d/* flakes to $CACHE_URI...${NC} (idempotent — attic skips paths already cached server-side)"
+  echo
+
+  local uploaded=0 skipped=0 failed=0
+  local -a FAILED_NAMES=()
+  local name d flake out
+  for name in "${enabled[@]}"; do
+    d="$global_path/devbox.d/$name/"
+    [[ -f "$d/flake.nix" ]] || { skipped=$((skipped + 1)); continue; }
+    flake="path:$d"
+    printf "  → %-30s " "$name"
+
+    if ! silent nix build --no-link "$flake"; then
+      printf "${RED}✗${NC}\n"
+      failed=$((failed + 1)); FAILED_NAMES+=("$name"); continue
+    fi
+    if ! out="$(nix path-info "$flake" 2>/dev/null | head -n1)"; then
+      printf "${RED}✗${NC}\n"
+      failed=$((failed + 1)); FAILED_NAMES+=("$name"); continue
+    fi
+    [[ -n "$out" ]] || { printf "${RED}✗${NC}\n"; failed=$((failed + 1)); FAILED_NAMES+=("$name"); continue; }
+
+    # attic computes the closure and skips what's already cached server-side
+    # (upstream cache filter) — no client-side pre-check needed.
+    if silent attic push "$CACHE_SERVER:$CACHE_NAME" -j 8 -- "$out"; then
+      printf "${GREEN}✓${NC}\n"
+      uploaded=$((uploaded + 1))
+    else
+      printf "${RED}✗${NC}\n"
+      failed=$((failed + 1)); FAILED_NAMES+=("$name")
+    fi
+  done
+
+  # Full global closure (mirrors the old `devbox cache upload -c <path>`).
+  echo
+  echo "${BOLD}${CYAN}Uploading global closure...${NC}"
+
+  local profile_link="$global_path/.devbox/nix/profile"
+  local closure_failed=0
+  if [[ -e "$profile_link" ]]; then
+    local real_profile
+    real_profile="$(readlink -f "$profile_link")"
+    printf "  closure root: %s\n" "$real_profile"
+    if silent attic push "$CACHE_SERVER:$CACHE_NAME" -j 8 -- "$real_profile"; then
+      printf "${GREEN}✓${NC} closure uploaded\n"
+    else
+      printf "${RED}✗${NC} closure upload failed\n"
+      closure_failed=1
+    fi
+  else
+    warn "no global profile at $profile_link — skipped closure upload"
+  fi
+
+  echo
+  printf "${BOLD}Flakes:${NC} ${GREEN}%d uploaded${NC}, %d skipped, %d failed\n" \
+    "$uploaded" "$skipped" "$failed"
+  if (( failed > 0 )); then
+    printf "  ${RED}failed:${NC} %s\n" "${FAILED_NAMES[*]}"
+  fi
+  if (( closure_failed > 0 )); then
+    echo "  ${RED}closure upload failed${NC}"
+  fi
+  echo
+  if (( failed == 0 && closure_failed == 0 )); then
+    echo "${GREEN}${BOLD}✓ All done.${NC} Other machines can now pull after running 'configure'."
+    return 0
+  fi
+  echo "${YELLOW}!${NC} Some uploads failed (set DEVBOX_CACHE_DEBUG=1 to see details)."
+  return 1
+}
+
+cmd_status() {
+  preflight
+  load_json
+  resolve_config
+  require_endpoint_cache
+  resolve_mode  # read-only: no sudo is invoked from status
+
+  local nixconf_user="$HOME/.config/nix/nix.conf"
+  local nixconf_root=/etc/nix/nix.conf
+  local netrc_user="$HOME/.config/nix/netrc"
+  local netrc_root=/etc/nix/netrc
+
+  echo "${BOLD}Cache:${NC}"
+  echo "  Type:     $CACHE_TYPE"
+  echo "  Server:   $CACHE_SERVER"
+  echo "  Endpoint: $CACHE_ENDPOINT_URL"
+  echo "  URI:      $CACHE_URI"
+  echo "  Pubkey:   $CACHE_PUBKEY"
+  echo
+
+  echo "${BOLD}Configured (managed block present):${NC}"
+  local found="" f
+  for f in "$nixconf_user" "$nixconf_root"; do
+    if [[ -f "$f" ]] && grep -q "$MARKER_BEGIN" "$f" 2>/dev/null; then
+      echo "  yes — $f"
+      found="$f"
+    fi
+  done
+  if [[ -n "$found" ]]; then
+    echo "  Substituter:"
+    grep -E '^extra-substituters' "$found" | tail -n1 | sed 's/^/    /'
+  else
+    echo "  no — run 'bin/cache configure'"
+  fi
+  echo
+
+  echo "${BOLD}netrc (pull auth):${NC}"
+  local host="${CACHE_ENDPOINT_URL#https://}"
+  host="${host#http://}"
+  local netrc_found=""
+  for f in "$netrc_user" "$netrc_root"; do
+    if [[ -f "$f" ]] && grep -q "^machine $host " "$f" 2>/dev/null; then
+      echo "  yes — $f (contains $host)"
+      netrc_found="$f"
+    fi
+  done
+  [[ -n "$netrc_found" ]] || echo "  no — run 'bin/cache configure'"
+  echo
+
+  echo "${BOLD}attic login (push auth):${NC}"
+  local push_tok info_ok=0
+  push_tok="$(resolve_token "$CACHE_PUSH_TOKEN_ENV")"
+  if [[ -z "$push_tok" ]]; then
+    echo "  pull-only — no push token ($CACHE_PUSH_TOKEN_ENV); pulls work via netrc"
+  elif silent attic cache info "$CACHE_SERVER:$CACHE_NAME"; then
+    echo "  ok — 'attic cache info $CACHE_SERVER:$CACHE_NAME' succeeded"
+    info_ok=1
+  else
+    echo "  no — cache info failed (push may not work)"
+  fi
+  # Liveness fallback: pull-only machines (no client auth → cache info would
+  # fail) and push machines whose cache info failed.
+  if [[ "$info_ok" == 0 ]]; then
+    if command -v curl >/dev/null 2>&1; then
+      local code
+      code="$(curl -s -o /dev/null -w '%{http_code}' \
+        -H "Authorization: Bearer $(resolve_token "$CACHE_PULL_TOKEN_ENV")" \
+        "$CACHE_URI/nix-cache-info" 2>/dev/null || true)"
+      echo "  liveness: $CACHE_URI/nix-cache-info → HTTP ${code:-unreachable}"
+    else
+      echo "  (curl unavailable — install curl for the liveness check)"
+    fi
+  fi
+}
+
+usage() {
+  cat <<'EOF'
+devbox-global cache — self-hosted Attic binary cache (configure/upload/status)
+
+Usage:
+  bin/cache <command> [args]
+
+Commands:
+  configure   Write nix.conf (extra-substituters, trusted-public-keys,
+              fallback, netrc-file) and the netrc file (pull JWT) so this
+              machine uses the cache. Runs `attic login` when a push token is
+              available. Restarts nix-daemon when possible.
+  upload      Push every enabled devbox.d/<name> flake plus the full global
+              closure to the cache via `attic push`. Idempotent: attic skips
+              paths already cached server-side.
+  status      Show cache config, whether configure ran, netrc state, and
+              attic login state.
+  help        This text.
+
+Configuration (precedence: env > devbox.json > defaults):
+  type            DEVBOX_CACHE_TYPE           nix.cache.type           (default attic)
+  endpoint        DEVBOX_CACHE_ENDPOINT       nix.cache.endpoint       (required)
+  cache           DEVBOX_CACHE_CACHE          nix.cache.cache          (required)
+  server          DEVBOX_CACHE_SERVER         nix.cache.server_name    (default attic)
+  pubkey          DEVBOX_CACHE_PUBKEY         nix.cache.public_key     (required)
+  push_token_env  DEVBOX_CACHE_PUSH_TOKEN_ENV nix.cache.push_token_env (default ATTIC_PUSH_JWT)
+  pull_token_env  DEVBOX_CACHE_PULL_TOKEN_ENV nix.cache.pull_token_env (default ATTIC_PULL_JWT)
+
+The nix substituter is $ENDPOINT/$CACHE (e.g. https://attic.zet.rclb.dev/devbox).
+Tokens are read from the env vars named by push_token_env/pull_token_env —
+never from argv. Normally exported by the devbox init-hook from Bitwarden SM;
+`bws secret list` is the standalone fallback. The public key is committed in
+devbox.json on purpose: it is public and acts as the recovery artifact.
+
+Every pulling machine must run 'configure'; pusher machines additionally hold
+the push JWT (configure runs `attic login` when it is present). On NixOS,
+prefer nix.settings in configuration.nix — a managed block in /etc/nix/nix.conf
+is overwritten on rebuilds.
+
+Run via: devbox global run cache <command>
+     or: "$(devbox global path)/bin/cache" <command>
+EOF
+}
+
+# ── dispatch ─────────────────────────────────────────────────────────────────
+
+main() {
+  local cmd="${1:-help}"
+  case "$cmd" in
+    configure) cmd_configure ;;
+    upload) cmd_upload ;;
+    status) cmd_status ;;
+    help|-h|--help) usage ;;
+    *)
+      warn "unknown command: $cmd"
+      usage >&2
+      exit 1
+      ;;
+  esac
+}
+
+# Sourceable for tests (ticket 05): only run main when executed, not sourced.
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+  main "$@"
+fi
