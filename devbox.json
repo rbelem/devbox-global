@@ -143,7 +143,7 @@
       ],
       "setup-nerd-fonts": "\"$(devbox global path)/bin/setup-nerd-fonts\" \"$@\"",
       "setup-neovim": [
-        "git clone https://github.com/rbelem/nvchad-custom $HOME/.config/nvim"
+        "git clone https://github.com/rbelem/lazyvim-starter $HOME/.config/nvim"
       ],
       "setup-devbox": "\"$(devbox global path)/bin/setup-devbox\" \"$@\"",
       "setup-devbox-bashrc": "\"$(devbox global path)/bin/setup-devbox-bashrc\" \"$@\"",
