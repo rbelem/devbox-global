@@ -1,0 +1,323 @@
+{
+  "$schema": "https://www.getbifrost.ai/schema",
+  "source_of_truth": "config.json",
+
+  "config_store": {
+    "enabled": true,
+    "type": "sqlite",
+    "config": { "path": "/home/rodrigo/.local/share/bifrost/config.db" }
+  },
+  "logs_store": {
+    "enabled": true,
+    "type": "sqlite",
+    "config": { "path": "/home/rodrigo/.local/share/bifrost/logs.db" }
+  },
+
+  "vector_store": {
+    "enabled": true,
+    "type": "redis",
+    "config": { "addr": "localhost:6379" }
+  },
+
+  "load_balancer_config": {
+    "append_fallbacks_to_pinned": true,
+    "prune_failed_fallbacks": true
+  },
+
+  "client": {
+    "compat": {
+      "should_drop_params": true,
+      "should_convert_params": true
+    }
+  },
+
+  "circuit_breaker_config": {
+    "policies": [
+      {
+        "provider": "zai",
+        "model": "glm-5.2",
+        "fallback_provider": "alibaba-token-plan",
+        "fallback_model": "glm-5.2"
+      },
+      {
+        "provider": "moonshotai",
+        "model": "kimi-k3",
+        "fallback_provider": "opencode-go",
+        "fallback_model": "kimi-k3"
+      },
+      {
+        "provider": "minimax",
+        "model": "MiniMax-M3",
+        "fallback_provider": "opencode-go",
+        "fallback_model": "minimax-m3"
+},
+      {
+        "provider": "deepseek",
+        "model": "deepseek-v4-pro",
+        "fallback_provider": "opencode-go",
+        "fallback_model": "deepseek-v4-pro"
+      },
+      {
+        "provider": "alibaba-token-plan",
+        "model": "deepseek-v4-flash-0731",
+        "fallback_provider": "opencode-go",
+        "fallback_model": "deepseek-v4-flash"
+      }
+    ]
+  },
+
+  "providers": {
+    "zai": {
+      "custom_provider_config": {
+        "base_provider_type": "openai",
+        "request_path_overrides": {
+          "chat_completion": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+          "chat_completion_stream": "https://api.z.ai/api/coding/paas/v4/chat/completions"
+        }
+      },
+      "network_config": {
+        "base_url": "https://api.z.ai/api/coding/paas/v4",
+        "extra_headers": {
+          "Accept-Language": "en-US,en"
+        },
+        "max_retries": 3,
+        "retry_backoff_initial": 500,
+        "retry_backoff_max": 5000
+      },
+      "keys": [
+        {
+          "name": "zai-key",
+          "value": "env.ZAI_API_KEY",
+          "models": ["glm-5.2", "glm-4.7"],
+          "weight": 1
+        }
+      ]
+    },
+
+    "moonshotai": {
+      "custom_provider_config": { "base_provider_type": "openai" },
+      "network_config": {
+        "base_url": "https://api.moonshot.ai",
+        "max_retries": 3,
+        "retry_backoff_initial": 500,
+        "retry_backoff_max": 5000
+      },
+      "keys": [
+        {
+          "name": "moonshot-key",
+          "value": "env.MOONSHOT_API_KEY",
+          "models": ["kimi-k3", "kimi-k2.7-code", "kimi-k2.7-code-highspeed"],
+          "weight": 1
+        }
+      ]
+    },
+
+    "minimax": {
+      "custom_provider_config": { "base_provider_type": "openai" },
+      "network_config": {
+        "base_url": "https://api.minimax.io",
+        "max_retries": 3,
+        "retry_backoff_initial": 500,
+        "retry_backoff_max": 5000
+      },
+      "keys": [
+        {
+          "name": "minimax-key",
+          "value": "env.MINIMAX_API_KEY",
+          "models": ["MiniMax-M3"],
+          "weight": 1
+        }
+      ]
+    },
+
+    "openrouter": {
+      "network_config": {
+        "base_url": "https://openrouter.ai/api",
+        "max_retries": 3
+      },
+      "keys": [
+        {
+          "name": "openrouter-key",
+          "value": "env.OPENROUTER_API_KEY",
+          "models": [
+            "z-ai/glm-5.2",
+            "moonshotai/kimi-k3",
+            "minimax/minimax-m3",
+            "deepseek/deepseek-v4-pro",
+"deepseek/deepseek-v4-flash",
+            "deepseek/deepseek-v4-flash-0731",
+            "xiaomi/mimo-v2.5",
+            "xiaomi/mimo-v2.5-pro",
+            "moonshotai/kimi-k2.7-code"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+
+    "opencode-go": {
+      "network_config": {
+        "max_retries": 3,
+        "retry_backoff_initial": 500,
+        "retry_backoff_max": 5000
+      },
+      "keys": [
+        {
+          "name": "go-key",
+          "value": "env.OPENCODE_GO_API_KEY",
+          "models": ["*"],
+          "weight": 1
+        }
+      ]
+    },
+
+    "alibaba-token-plan": {
+      "custom_provider_config": { "base_provider_type": "openai" },
+      "network_config": {
+        "base_url": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode",
+        "max_retries": 3,
+        "retry_backoff_initial": 500,
+        "retry_backoff_max": 5000
+      },
+      "keys": [
+        {
+          "name": "alibaba-token-plan-key",
+          "value": "env.ALIBABA_TOKEN_PLAN_API_KEY",
+          "models": [
+            "MiniMax-M2.5",
+            "deepseek-v3.2",
+            "deepseek-v4-flash",
+            "deepseek-v4-flash-0731",
+            "deepseek-v4-pro",
+            "glm-5",
+            "glm-5.1",
+            "glm-5.2",
+            "happyhorse-1.1-i2v",
+            "happyhorse-1.1-r2v",
+            "happyhorse-1.1-t2v",
+            "kimi-k2.5",
+            "kimi-k2.6",
+            "kimi-k2.7-code",
+            "qwen-image-2.0",
+            "qwen-image-2.0-pro",
+            "qwen3.6-flash",
+            "qwen3.6-plus",
+            "qwen3.7-max",
+            "qwen3.7-plus",
+            "qwen3.8-max",
+            "wan2.7-image",
+            "wan2.7-image-pro"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+
+    "deepseek": {
+      "network_config": {
+        "max_retries": 3,
+        "retry_backoff_initial": 500,
+        "retry_backoff_max": 5000
+      },
+      "keys": [
+        {
+          "name": "deepseek-key",
+          "value": "env.DEEPSEEK_API_KEY",
+          "models": ["deepseek-v4-pro", "deepseek-v4-flash"],
+          "weight": 1
+        }
+      ]
+    }
+  },
+
+  "governance": {
+    "routing_rules": [
+      {
+        "id": "glm-5.2-failover-chain",
+        "name": "GLM-5.2 failover chain",
+        "description": "GLM-5.2: zai primary → alibaba-token-plan → opencode-go",
+        "cel_expression": "model == 'glm-5.2'",
+        "targets": [
+          { "provider": "zai", "model": "glm-5.2", "weight": 1 }
+        ],
+        "fallbacks": [
+          "alibaba-token-plan/glm-5.2",
+          "opencode-go/glm-5.2"
+        ],
+        "priority": 1,
+        "enabled": true
+      },
+      {
+        "id": "kimi-k3-failover-chain",
+        "name": "Kimi K3 failover chain",
+        "description": "Kimi K3: moonshot primary → opencode-go → openrouter",
+        "cel_expression": "model == 'kimi-k3'",
+        "targets": [
+          { "provider": "moonshotai", "model": "kimi-k3", "weight": 1 }
+        ],
+        "fallbacks": ["opencode-go/kimi-k3", "openrouter/moonshotai/kimi-k3"],
+        "priority": 2,
+        "enabled": true
+      },
+      {
+        "id": "minimax-m3-failover-chain",
+        "name": "MiniMax-M3 failover chain",
+        "description": "MiniMax-M3: minimax primary → opencode-go → openrouter",
+        "cel_expression": "model == 'MiniMax-M3'",
+        "targets": [
+          { "provider": "minimax", "model": "MiniMax-M3", "weight": 1 }
+        ],
+        "fallbacks": [
+          "opencode-go/minimax-m3",
+          "openrouter/minimax/minimax-m3"
+        ],
+        "priority": 3,
+        "enabled": true
+      },
+      {
+        "id": "deepseek-v4-pro-failover-chain",
+        "name": "DeepSeek V4 Pro failover chain",
+        "description": "DeepSeek V4 Pro: deepseek primary → opencode-go → openrouter",
+        "cel_expression": "model == 'deepseek-v4-pro'",
+        "targets": [
+          { "provider": "deepseek", "model": "deepseek-v4-pro", "weight": 1 }
+        ],
+        "fallbacks": [
+          "opencode-go/deepseek-v4-pro",
+          "openrouter/deepseek/deepseek-v4-pro"
+        ],
+        "priority": 4,
+        "enabled": true
+      },
+{
+        "id": "deepseek-v4-flash-failover-chain",
+        "name": "DeepSeek V4 Flash failover chain",
+        "description": "DeepSeek V4 Flash 0731: alibaba-token-plan primary → opencode-go → deepseek → openrouter",
+        "cel_expression": "model == 'deepseek-v4-flash'",
+        "targets": [
+          { "provider": "alibaba-token-plan", "model": "deepseek-v4-flash-0731", "weight": 1 }
+        ],
+        "fallbacks": [
+          "opencode-go/deepseek-v4-flash",
+          "deepseek/deepseek-v4-flash",
+          "openrouter/deepseek/deepseek-v4-flash-0731"
+        ],
+        "priority": 5,
+        "enabled": true
+      }
+    ]
+  },
+
+  "plugins": [
+    {
+      "name": "semantic_cache",
+      "enabled": true,
+      "config": {
+        "mode": "direct",
+        "dimension": 1,
+        "ttl_seconds": 3600,
+        "default_cache_key": "auto"
+      }
+    }
+  ]
+}
