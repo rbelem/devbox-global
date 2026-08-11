@@ -149,6 +149,7 @@ run_tests() {
     test_netrc_path_both_modes
     test_unknown_type_fails
     test_provider_config_parse
+    test_jsonc_devbox_json
   )
   local t
   for t in "${tests[@]}"; do
@@ -437,12 +438,38 @@ test_provider_config_parse() {
   assert_eq 'devbox:CyW2CoFfBHdpRM4tWqnerpYK5aloECxoeWRULi0gsmo=' "$CACHE_PUBKEY"
   assert_eq 'ATTIC_PUSH_JWT' "$CACHE_PUSH_TOKEN_ENV" 'push token env default'
   assert_eq 'ATTIC_PULL_JWT' "$CACHE_PULL_TOKEN_ENV" 'pull token env default'
-
   write_json '{"nix":{"cache":{"type":"attic","endpoint":"https://attic.zet.rclb.dev","cache":"devbox","server_name":"staging","public_key":"devbox:AAAA","push_token_env":"MY_PUSH","pull_token_env":"MY_PULL"}}}'
   load_json; resolve_config
   assert_eq 'staging' "$CACHE_SERVER" 'server from json'
   assert_eq 'MY_PUSH' "$CACHE_PUSH_TOKEN_ENV" 'push token env override'
   assert_eq 'MY_PULL' "$CACHE_PULL_TOKEN_ENV" 'pull token env override'
+  return "$TESTS_FAILED"
+}
+
+# devbox accepts huJSON (JSONC: // comments + trailing commas); jq does not.
+# load_json must strip JSONC into a temp file (python3 fallback) instead of
+# dying — a shared/hand-edited devbox.json is the common case on other boxes.
+test_jsonc_devbox_json() {
+  write_json '{"nix":{"cache":{"type":"attic","endpoint":"https://attic.zet.rclb.dev","cache":"devbox","public_key":"devbox:AAAA"}},"packages":{"fzf":"latest"}}'
+  # re-write the fixture with JSONC syntax ($DEVBOX_JSON, not $JSON_FILE —
+  # load_json has not run yet, so JSON_FILE is unset)
+  cat > "$DEVBOX_JSON" <<'EOF'
+{
+  // huJSON: comment line
+  "nix": {
+    "cache": {
+      "type": "attic",
+      "endpoint": "https://attic.zet.rclb.dev",
+      "cache": "devbox",
+      "public_key": "devbox:AAAA",
+    }, // trailing comma
+  },
+  "packages": {"fzf": "latest",},
+}
+EOF
+  load_json; resolve_config
+  assert_eq 'attic' "$CACHE_TYPE" 'type parsed from JSONC'
+  assert_eq 'https://attic.zet.rclb.dev/devbox' "$CACHE_URI" 'uri parsed from JSONC'
   return "$TESTS_FAILED"
 }
 

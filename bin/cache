@@ -95,6 +95,43 @@ load_json() {
   JSON_FILE="$(devbox_json_file)"
   [[ -f "$JSON_FILE" ]] || die "devbox.json not found at $JSON_FILE"
   if ! jq -e . "$JSON_FILE" >/dev/null 2>&1; then
+    # devbox.json is huJSON (JSONC): comments and trailing commas are legal
+    # for devbox but not for jq. Strip them with python3 into a temp file so
+    # json_get() works unchanged. (Common on shared/hand-edited devbox.json
+    # files — this bin/cache must not reject what devbox itself accepts.)
+    if command -v python3 >/dev/null 2>&1; then
+      local cleaned
+      cleaned="$(mktemp)"
+      trap 'rm -f "$JSON_CLEANED"' EXIT
+      JSON_CLEANED="$cleaned"
+      if python3 - "$JSON_FILE" >"$cleaned" 2>/dev/null <<'PYEOF'
+import json, re, sys
+src = open(sys.argv[1], encoding="utf-8").read()
+# strip // comments (respecting strings) and trailing commas
+out = []
+in_str = False
+i = 0
+while i < len(src):
+    c = src[i]
+    if c == '"' and (i == 0 or src[i-1] != "\\"):
+        in_str = not in_str
+    elif not in_str and c == "/" and i + 1 < len(src) and src[i+1] == "/":
+        while i < len(src) and src[i] != "\n":
+            i += 1
+        continue
+    out.append(c)
+    i += 1
+s = re.sub(r",\s*([}\]])", r"\1", "".join(out))
+json.loads(s)  # validate before we trust it
+sys.stdout.write(s)
+PYEOF
+      then
+        if jq -e . "$cleaned" >/dev/null 2>&1; then
+          JSON_FILE="$cleaned"
+          return 0
+        fi
+      fi
+    fi
     die "cannot parse $JSON_FILE (devbox.json is huJSON — keep it valid JSON for this script)"
   fi
 }
