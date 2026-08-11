@@ -19,7 +19,7 @@ _Avoid_: Login-type vault items for env-var secrets
 **Secrets cache**:
 A regenerable file in tmpfs (`$XDG_RUNTIME_DIR/devbox-secrets.sh`)
 containing exported env vars. Populated on demand from SM via the
-`~/.config/bitw/sm.ini` manifest, sourced by devbox init_hook.
+`~/.config/bws/sm.ini` manifest, sourced by devbox init_hook.
 Not the source of truth — SM is.
 _Avoid_: Persistent cache locations, loading secrets from any other mechanism
 

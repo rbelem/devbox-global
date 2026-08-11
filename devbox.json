@@ -126,6 +126,7 @@
       "upload-flakes": "\"$(devbox global path)/bin/upload-flakes\" \"$@\"",
       "cache": "\"$(devbox global path)/bin/cache\" \"$@\"",
       "first-install": [
+        "devbox global run setup-bws",
         "devbox global run setup-git",
         "devbox global run setup-tmux",
         "devbox global run setup-nerd-fonts",
@@ -150,6 +151,7 @@
       "fix-flatpak-fonts": "\"$(devbox global path)/bin/fix-flatpak-fonts\" \"$@\"",
       "fix-protonvpn-fonts": "\"$(devbox global path)/bin/fix-protonvpn-fonts\" \"$@\"",
       "setup-git": "\"$(devbox global path)/bin/setup-git\" \"$@\"",
+      "setup-bws": "\"$(devbox global path)/bin/setup-bws\" \"$@\"",
       "setup-podman": "\"$(devbox global path)/bin/setup-podman\" \"$@\"",
       "setup-themes": "\"$(devbox global path)/bin/setup-themes\" \"$@\"",
       "setup-tmux": "\"$(devbox global path)/bin/setup-tmux\" \"$@\"",

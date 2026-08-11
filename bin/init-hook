@@ -6,26 +6,31 @@
 [ "${-#*i}" == "$-" ] || [ ! -t 0 ] || [ -z "$PS1" ] || [ -n "$TOOLBOX_PATH" ] && return
 
 # Source SM secrets cache (fast, regenerable)
-# Reads from Bitwarden Secrets Manager via ~/.config/bitw/sm.ini manifest.
+# Reads from Bitwarden Secrets Manager via ~/.config/bws/sm.ini manifest.
 # Auto-generate if missing (e.g., after reboot clears $XDG_RUNTIME_DIR).
 # Each line in sm.ini is an env var name matching a Bitwarden SM secret name.
 # [aliases] section maps third-party tool env vars (GH_TOKEN) → canonical names.
 # Uses bws (official Bitwarden Secrets Manager CLI) with BWS_ACCESS_TOKEN.
 XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-}"
 _sm_cache="${XDG_RUNTIME_DIR:+"$XDG_RUNTIME_DIR/devbox-secrets.sh"}"
-_sm_manifest="$HOME/.config/bitw/sm.ini"
+_sm_manifest="$HOME/.config/bws/sm.ini"
+# Legacy pre-bws path (bitw era) — fallback for machines not yet migrated
+[ -f "$_sm_manifest" ] || _sm_manifest="$HOME/.config/bitw/sm.ini"
 
 # Regenerate cache if missing — atomic write, single bws call
-if [ -n "$XDG_RUNTIME_DIR" ] && [ ! -f "$_sm_cache" ] && [ -f "$_sm_manifest" ] && command -v bws >/dev/null 2>&1; then
-  # Ensure BWS_ACCESS_TOKEN is available (libsecret fallback for headless
-  # environments). Store via: secret-tool store --label='bws SM token' bitwarden sm-access-token
-  if [ -z "${BWS_ACCESS_TOKEN:-}" ] && command -v secret-tool >/dev/null 2>&1; then
-    _bws_token="$(secret-tool lookup bitwarden sm-access-token 2>/dev/null || true)"
-    [ -n "$_bws_token" ] && export BWS_ACCESS_TOKEN="$_bws_token"
-    unset _bws_token
-  fi
+if [ -n "$XDG_RUNTIME_DIR" ] && [ ! -f "$_sm_cache" ] && command -v bws >/dev/null 2>&1; then
+  if [ ! -f "$_sm_manifest" ]; then
+    echo "init-hook: SM manifest missing ($HOME/.config/bws/sm.ini) — run 'devbox global run setup-bws' to enable secrets loading" >&2
+  else
+    # Ensure BWS_ACCESS_TOKEN is available (libsecret fallback for headless
+    # environments). Store via: secret-tool store --label='bws SM token' bitwarden sm-access-token
+    if [ -z "${BWS_ACCESS_TOKEN:-}" ] && command -v secret-tool >/dev/null 2>&1; then
+      _bws_token="$(secret-tool lookup bitwarden sm-access-token 2>/dev/null || true)"
+      [ -n "$_bws_token" ] && export BWS_ACCESS_TOKEN="$_bws_token"
+      unset _bws_token
+    fi
 
-  if [ -n "${BWS_ACCESS_TOKEN:-}" ]; then
+    if [ -n "${BWS_ACCESS_TOKEN:-}" ]; then
     _sm_tmp="$_sm_cache.$$"
     (
       umask 077
@@ -49,14 +54,25 @@ if [ -n "$XDG_RUNTIME_DIR" ] && [ ! -f "$_sm_cache" ] && [ -f "$_sm_manifest" ] 
       # Source bws output directly — --output env is designed for eval.
       # Handles multi-line values (SSH keys, PEM certs) correctly,
       # unlike a line-oriented grep+read pipeline.
-      eval "$(bws secret list --output env 2>/dev/null)" || exit 1
+      _sm_bws_err="$_sm_tmp.bws.err"
+      if ! _sm_env="$(bws secret list --output env 2>"$_sm_bws_err")"; then
+        _sm_last="$(tail -n 1 "$_sm_bws_err" 2>/dev/null || true)"
+        echo "init-hook: bws secret list failed — ${_sm_last:-unknown error}" >&2
+        rm -f "$_sm_bws_err"
+        exit 1
+      fi
+      rm -f "$_sm_bws_err"
+      eval "$_sm_env"
 
       # Re-export only manifest keys with safe quoting
       for _k in $_sm_keys; do
         [ -n "${!_k:-}" ] && printf 'export %s=%q\n' "$_k" "${!_k}"
       done
-    ) 2>/dev/null > "$_sm_tmp" && mv -f "$_sm_tmp" "$_sm_cache" || rm -f "$_sm_tmp"
-    unset _sm_tmp _sm_keys _in_secrets
+    ) > "$_sm_tmp" && mv -f "$_sm_tmp" "$_sm_cache" || rm -f "$_sm_tmp"
+    unset _sm_tmp _sm_keys _in_secrets _sm_bws_err _sm_env _sm_last
+  else
+    echo "init-hook: BWS_ACCESS_TOKEN not found (env or libsecret 'bitwarden sm-access-token') — run 'devbox global run setup-bws'" >&2
+  fi
   fi
 fi
 

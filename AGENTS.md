@@ -251,8 +251,9 @@ here and synced to `$(devbox global path)/bin/` via `config-sync`; small scripts
   **graphify**, run `$(devbox global path)/bin/merge-upstream-perl --repo <name>
   --version <X.Y.Z> --apply` before considering the update complete.
   Manual fallback procedure is in `update-flake-workflow` skill, Step 5.
-- `bws secret list --output env` — list all SM secrets as KEY=VALUE. The canonical read path — `bin/init-hook` fetches all secrets via a single `bws` call and filters to the `~/.config/bitw/sm.ini` manifest. SM is the source of truth.
+- `bws secret list --output env` — list all SM secrets as KEY=VALUE. The canonical read path — `bin/init-hook` fetches all secrets via a single `bws` call and filters to the `~/.config/bws/sm.ini` manifest. SM is the source of truth.
 - `setup-git` — full git config (identity, aliases, delta, difftastic, credential helpers, includeif)
+- `setup-bws` — store BWS_ACCESS_TOKEN in libsecret + create `~/.config/bws/sm.ini` manifest (migrates legacy `~/.config/bitw/sm.ini` if present). Run on new machines / when init-hook warns.
 - `setup-tmux` — clone gpakosz/.tmux + symlink local conf
 - `setup-nerd-fonts` — add Nerd Fonts dir to fontconfig
 - `setup-themes` — clone Gogh, install Kanagawa terminal theme
