@@ -1,7 +1,7 @@
 # 08 - bin/cache rework to Attic + cutover (devbox-global)
 
 Type: implementation
-Status: open — REVISED 2026-08-10 after oracle review (ora-2)
+Status: P8.1-P8.5(workstation) DONE — commits 92c8043 + 66df908; remaining machines + cold-machine test pending (user deferred); P8.6 cleanup gated ≥30d
 Blocked by: 07 (server-side deployed + smoke-passed)
 
 ## Goal
