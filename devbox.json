@@ -80,6 +80,7 @@
     "path:devbox.d/valkey-search": {},
     "path:devbox.d/prime-agent": {},
     "path:devbox.d/herdr": {},
+    "path:devbox.d/pi": {},
     "valkey": {
       "version": "latest",
       "disable_plugin": true
