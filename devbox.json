@@ -86,7 +86,8 @@
     },
     "bws": "latest",
     "bitwarden-cli": "latest",
-    "attic-client": "latest"
+    "attic-client": "latest",
+    "geminicommit":  "latest"
   },
   "env": {
     "EDITOR": "vi",
