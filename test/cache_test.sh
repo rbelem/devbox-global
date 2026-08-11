@@ -310,13 +310,20 @@ test_configure_idempotent() {
 test_configure_missing_attic_fails() {
   make_stub nix ''
   make_stub devbox 'printf %s\\n "$SANDBOX/global"'
+  make_stub jq 'exit 0'
   make_stub bws 'exit 1'
   # drop any attic stub left behind by earlier tests in this shared sandbox
   rm -f "$SANDBOX/bin/attic" "$SANDBOX/attic.calls"
   write_json "$FIXTURE_ATTIC"
   export ATTIC_PULL_JWT='test-pull-token'
-  # no attic stub on PATH → preflight dies before anything is written
-  assert_failure with_stub_path cmd_configure
+  # hermetic PATH: only stubs — the real attic may be on the host PATH now
+  # (oracle N2); with nix/devbox/jq stubbed, the missing attic is the only
+  # preflight failure → preflight dies with the attic-client message.
+  assert_failure env PATH="$SANDBOX/bin" cmd_configure
+  # clean up the jq stub — later tests rely on the REAL jq (load_json) and the
+  # sandbox is shared across tests; an exit-0 jq stub would silently empty
+  # every json_get and break require_endpoint_cache in upload/status tests.
+  rm -f "$SANDBOX/bin/jq" "$SANDBOX/jq.calls"
   return "$TESTS_FAILED"
 }
 

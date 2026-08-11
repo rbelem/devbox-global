@@ -149,6 +149,26 @@ enabled_flake_names() {
     "$1"
 }
 
+# Resolve a devbox global profile path to a nix store path. The profile
+# directory wraps a symlink (e.g. .devbox/nix/profile/default → default-173-link
+# → /nix/store/<hash>-profile); `readlink -f` on the directory itself returns
+# the directory, which attic rejects ("Path is not in store directory").
+profile_store_path() {
+  local p="$1"
+  if [[ -d "$p" && ! -L "$p" ]]; then
+    local cand
+    for cand in "$p"/*; do
+      if [[ -L "$cand" ]]; then
+        p="$(readlink -f "$cand")"
+        break
+      fi
+    done
+  else
+    p="$(readlink -f "$p")"
+  fi
+  printf '%s' "$p"
+}
+
 # ── machine mode: single- vs multi-user nix, sudo availability ───────────────
 
 # Empty `build-users-group` = single-user nix (no daemon).
@@ -444,7 +464,7 @@ cmd_upload() {
   local closure_failed=0
   if [[ -e "$profile_link" ]]; then
     local real_profile
-    real_profile="$(readlink -f "$profile_link")"
+    real_profile="$(profile_store_path "$profile_link")"
     printf "  closure root: %s\n" "$real_profile"
     if silent attic push "$CACHE_SERVER:$CACHE_NAME" -j 8 -- "$real_profile"; then
       printf "${GREEN}✓${NC} closure uploaded\n"
