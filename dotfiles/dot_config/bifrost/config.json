@@ -113,12 +113,13 @@
     },
 
     "minimax": {
-      "custom_provider_config": { "base_provider_type": "openai" },
+      "custom_provider_config": { "base_provider_type": "openai", "sends_done_marker": false },
       "network_config": {
         "base_url": "https://api.minimax.io",
         "max_retries": 3,
         "retry_backoff_initial": 500,
-        "retry_backoff_max": 5000
+        "retry_backoff_max": 5000,
+        "stream_idle_timeout_in_seconds": 60
       },
       "keys": [
         {
