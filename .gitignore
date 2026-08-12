@@ -5,3 +5,11 @@ result
 
 # Devbox virtenv (generated, machine-specific)
 .devbox/
+
+# Bifrost runtime sqlite databases (regenerated per-machine; never commit)
+config.db
+config.db-shm
+config.db-wal
+logs.db
+logs.db-shm
+logs.db-wal

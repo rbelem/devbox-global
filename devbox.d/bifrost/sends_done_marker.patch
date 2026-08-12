@@ -1,0 +1,129 @@
+diff --git a/core/providers/openai/openai.go b/core/providers/openai/openai.go
+index dae76f7..424d90f 100644
+--- a/core/providers/openai/openai.go
++++ b/core/providers/openai/openai.go
+@@ -402,6 +402,8 @@ func (provider *OpenAIProvider) TextCompletionStream(ctx *schemas.BifrostContext
+ 	if err := providerUtils.CheckOperationAllowed(schemas.OpenAI, provider.customProviderConfig, schemas.TextCompletionStreamRequest); err != nil {
+ 		return nil, err
+ 	}
++	// Store custom provider config in context so streaming handler can check SendsDoneMarker
++	ctx.SetValue(schemas.BifrostContextKeyCustomProviderConfig, provider.customProviderConfig)
+ 	return HandleOpenAITextCompletionStreaming(
+ 		ctx,
+ 		provider.streamingClient,
+@@ -586,6 +588,15 @@ func HandleOpenAITextCompletionStreaming(
+ 
+ 		sseReader := providerUtils.GetSSEDataReader(ctx, reader)
+ 
++		// Resolve sends_done_marker once before the loop (custom config overrides provider default)
++		var customCfg *schemas.CustomProviderConfig
++		if v := ctx.Value(schemas.BifrostContextKeyCustomProviderConfig); v != nil {
++			if c, ok := v.(*schemas.CustomProviderConfig); ok {
++				customCfg = c
++			}
++		}
++		providerSendsDoneMarker := providerUtils.ProviderSendsDoneMarker(providerName, customCfg)
++
+ 		chunkIndex := -1
+ 		usage := &schemas.BifrostLLMUsage{}
+ 		// Register the accumulating usage handle so a mid-stream
+@@ -730,7 +741,7 @@ func HandleOpenAITextCompletionStreaming(
+ 			}
+ 
+ 			// For providers that don't send [DONE] marker break on finish_reason
+-			if !providerUtils.ProviderSendsDoneMarker(providerName) && finishReason != nil {
++			if !providerSendsDoneMarker && finishReason != nil {
+ 				break
+ 			}
+ 		}
+@@ -948,6 +959,8 @@ func (provider *OpenAIProvider) ChatCompletionStream(ctx *schemas.BifrostContext
+ 	if err := providerUtils.CheckOperationAllowed(schemas.OpenAI, provider.customProviderConfig, schemas.ChatCompletionStreamRequest); err != nil {
+ 		return nil, err
+ 	}
++	// Store custom provider config in context so streaming handler can check SendsDoneMarker
++	ctx.SetValue(schemas.BifrostContextKeyCustomProviderConfig, provider.customProviderConfig)
+ 	if provider.disableStore {
+ 		if request.Params == nil {
+ 			request.Params = &schemas.ChatParameters{}
+@@ -1174,6 +1187,15 @@ func HandleOpenAIChatCompletionStreaming(
+ 
+ 		sseReader := providerUtils.GetSSEDataReader(ctx, reader)
+ 
++		// Resolve sends_done_marker once before the loop (custom config overrides provider default)
++		var customCfg *schemas.CustomProviderConfig
++		if v := ctx.Value(schemas.BifrostContextKeyCustomProviderConfig); v != nil {
++			if c, ok := v.(*schemas.CustomProviderConfig); ok {
++				customCfg = c
++			}
++		}
++		providerSendsDoneMarker := providerUtils.ProviderSendsDoneMarker(providerName, customCfg)
++
+ 		chunkIndex := -1
+ 		usage := &schemas.BifrostLLMUsage{}
+ 		// Register the accumulating usage handle so a mid-stream
+@@ -1413,7 +1435,7 @@ func HandleOpenAIChatCompletionStreaming(
+ 				}
+ 
+ 				// For providers that don't send [DONE] marker break on finish_reason
+-				if !providerUtils.ProviderSendsDoneMarker(providerName) && finishReason != nil {
++				if !providerSendsDoneMarker && finishReason != nil {
+ 					break
+ 				}
+ 			}
+diff --git a/core/providers/utils/utils.go b/core/providers/utils/utils.go
+index eb479a5..9fdfb53 100644
+--- a/core/providers/utils/utils.go
++++ b/core/providers/utils/utils.go
+@@ -2971,7 +2971,12 @@ func GetProviderName(defaultProvider schemas.ModelProvider, customConfig *schema
+ // ProviderSendsDoneMarker returns true if the provider sends the [DONE] marker in streaming responses.
+ // Some OpenAI-compatible providers (like Cerebras) don't send [DONE] and instead end the stream
+ // after sending the finish_reason. This function helps determine the correct stream termination logic.
+-func ProviderSendsDoneMarker(providerName schemas.ModelProvider) bool {
++// If customConfig is provided and SendsDoneMarker is set, it overrides the provider default.
++func ProviderSendsDoneMarker(providerName schemas.ModelProvider, customConfig *schemas.CustomProviderConfig) bool {
++	// Check custom provider config override first
++	if customConfig != nil && customConfig.SendsDoneMarker != nil {
++		return *customConfig.SendsDoneMarker
++	}
+ 	switch providerName {
+ 	case schemas.Cerebras, schemas.Perplexity, schemas.HuggingFace, schemas.Bedrock:
+ 		// Cerebras, Perplexity, HuggingFace, and Bedrock mantle don't send [DONE] marker, ends stream after finish_reason
+diff --git a/core/schemas/bifrost.go b/core/schemas/bifrost.go
+index 216b22c..d185323 100644
+--- a/core/schemas/bifrost.go
++++ b/core/schemas/bifrost.go
+@@ -311,6 +311,7 @@ const (
+ 	BifrostContextKeyShouldStoreRawInLogs                BifrostContextKey = "bifrost-should-store-raw-in-logs"                 // bool (set by bifrost - DO NOT SET THIS MANUALLY) — true when raw request/response should be persisted in log records
+ 	BifrostContextKeyRetryDBFetch                        BifrostContextKey = "bifrost-retry-db-fetch"                           // bool (set by bifrost - DO NOT SET THIS MANUALLY)
+ 	BifrostContextKeyIsCustomProvider                    BifrostContextKey = "bifrost-is-custom-provider"                       // bool (set by bifrost - DO NOT SET THIS MANUALLY)
++	BifrostContextKeyCustomProviderConfig                BifrostContextKey = "bifrost-custom-provider-config"                   // *CustomProviderConfig (set by provider methods for streaming handlers)
+ 	BifrostContextKeyHTTPRequestType                     BifrostContextKey = "bifrost-http-request-type"                        // RequestType (set by bifrost - DO NOT SET THIS MANUALLY)
+ 	BifrostContextKeyHTTPRoute                           BifrostContextKey = "bifrost-http-route"                               // string (set by bifrost - DO NOT SET THIS MANUALLY — matched route template, set by HTTP transport; used as the low-cardinality metrics `path` label)
+ 	BifrostContextKeyPassthroughExtraParams              BifrostContextKey = "bifrost-passthrough-extra-params"                 // bool
+diff --git a/core/schemas/provider.go b/core/schemas/provider.go
+index 5735223..058c229 100644
+--- a/core/schemas/provider.go
++++ b/core/schemas/provider.go
+@@ -523,6 +523,7 @@ type CustomProviderConfig struct {
+ 	BaseProviderType     ModelProvider          `json:"base_provider_type"`               // Base provider type
+ 	AllowedRequests      *AllowedRequests       `json:"allowed_requests,omitempty"`       // Allowed requests for the custom provider
+ 	RequestPathOverrides map[RequestType]string `json:"request_path_overrides,omitempty"` // Mapping of request type to its custom path which will override the default path of the provider (not allowed for Bedrock)
++	SendsDoneMarker      *bool                  `json:"sends_done_marker,omitempty"`      // Whether the provider sends [DONE] in SSE streams. nil = use provider default. false = break on finish_reason instead of waiting for [DONE].
+ }
+ 
+ // IsOperationAllowed checks if a specific operation is allowed for this custom provider
+diff --git a/transports/config.schema.json b/transports/config.schema.json
+index 6326295..e680d14 100644
+--- a/transports/config.schema.json
++++ b/transports/config.schema.json
+@@ -7284,6 +7284,10 @@
+             }
+           },
+           "additionalProperties": false
++        },
++        "sends_done_marker": {
++          "type": "boolean",
++          "description": "Whether the provider sends the [DONE] SSE marker in streaming responses. Set to false for providers that close the stream after finish_reason without sending [DONE]. When omitted, the provider default is used (true for most providers, false for Cerebras/Perplexity/HuggingFace)."
+         }
+       },
+       "required": ["base_provider_type"],
