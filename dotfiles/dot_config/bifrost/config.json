@@ -40,8 +40,8 @@
         "fallback_model": "glm-5.2"
       },
       {
-        "provider": "moonshotai",
-        "model": "kimi-k3",
+        "provider": "kimi-for-coding",
+        "model": "k3",
         "fallback_provider": "opencode-go",
         "fallback_model": "kimi-k3"
       },
@@ -58,9 +58,9 @@
         "fallback_model": "deepseek-v4-pro"
       },
       {
-        "provider": "alibaba-token-plan",
-        "model": "deepseek-v4-flash-0731",
-        "fallback_provider": "opencode-go",
+        "provider": "opencode-go",
+        "model": "deepseek-v4-flash",
+        "fallback_provider": "deepseek",
         "fallback_model": "deepseek-v4-flash"
       }
     ]
@@ -107,6 +107,24 @@
           "name": "moonshot-key",
           "value": "env.MOONSHOT_API_KEY",
           "models": ["kimi-k3", "kimi-k2.7-code", "kimi-k2.7-code-highspeed"],
+          "weight": 1
+        }
+      ]
+    },
+
+    "kimi-for-coding": {
+      "custom_provider_config": { "base_provider_type": "openai" },
+      "network_config": {
+        "base_url": "https://api.kimi.com/coding",
+        "max_retries": 3,
+        "retry_backoff_initial": 500,
+        "retry_backoff_max": 5000
+      },
+      "keys": [
+        {
+          "name": "kimi-for-coding-key",
+          "value": "env.KIMI_API_KEY",
+          "models": ["k3", "k3-256k", "kimi-for-coding", "kimi-for-coding-highspeed"],
           "weight": 1
         }
       ]
@@ -251,12 +269,12 @@
       {
         "id": "kimi-k3-failover-chain",
         "name": "Kimi K3 failover chain",
-        "description": "Kimi K3: moonshot primary → opencode-go → openrouter",
-        "cel_expression": "model == 'kimi-k3'",
+        "description": "Kimi K3: kimi-for-coding primary → openrouter",
+        "cel_expression": "model == 'kimi-k3' || model == 'k3'",
         "targets": [
-          { "provider": "moonshotai", "model": "kimi-k3", "weight": 1 }
+          { "provider": "kimi-for-coding", "model": "k3", "weight": 1 }
         ],
-        "fallbacks": ["opencode-go/kimi-k3", "openrouter/moonshotai/kimi-k3"],
+        "fallbacks": ["openrouter/moonshotai/kimi-k3"],
         "priority": 2,
         "enabled": true
       },
@@ -293,13 +311,12 @@
 {
         "id": "deepseek-v4-flash-failover-chain",
         "name": "DeepSeek V4 Flash failover chain",
-        "description": "DeepSeek V4 Flash 0731: alibaba-token-plan primary → opencode-go → deepseek → openrouter",
+        "description": "DeepSeek V4 Flash 0731: opencode-go primary → deepseek → openrouter",
         "cel_expression": "model == 'deepseek-v4-flash'",
         "targets": [
-          { "provider": "alibaba-token-plan", "model": "deepseek-v4-flash-0731", "weight": 1 }
+          { "provider": "opencode-go", "model": "deepseek-v4-flash", "weight": 1 }
         ],
         "fallbacks": [
-          "opencode-go/deepseek-v4-flash",
           "deepseek/deepseek-v4-flash",
           "openrouter/deepseek/deepseek-v4-flash-0731"
         ],
