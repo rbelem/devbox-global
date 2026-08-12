@@ -162,8 +162,8 @@
             "z-ai/glm-5.2",
             "moonshotai/kimi-k3",
             "minimax/minimax-m3",
-            "deepseek/deepseek-v4-pro",
-"deepseek/deepseek-v4-flash",
+            "deepseek/deepseek-v4-pro-0813",
+            "deepseek/deepseek-v4-flash",
             "deepseek/deepseek-v4-flash-0731",
             "xiaomi/mimo-v2.5",
             "xiaomi/mimo-v2.5-pro",
@@ -303,7 +303,7 @@
         ],
         "fallbacks": [
           "opencode-go/deepseek-v4-pro",
-          "openrouter/deepseek/deepseek-v4-pro"
+          "openrouter/deepseek/deepseek-v4-pro-0813"
         ],
         "priority": 4,
         "enabled": true
