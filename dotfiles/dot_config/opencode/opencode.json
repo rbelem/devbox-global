@@ -20,6 +20,44 @@
             "output": 131072
           }
         },
+        "kimi-for-coding/k3": {
+          "name": "Kimi K3 (Kimi for Coding)",
+          "reasoning": true,
+          "tool_call": true,
+          "temperature": false,
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          }
+        },
+        "kimi-for-coding/k3-256k": {
+          "name": "Kimi K3 256k (Kimi for Coding)",
+          "reasoning": true,
+          "tool_call": true,
+          "temperature": false,
+          "limit": {
+            "context": 262144,
+            "output": 131072
+          }
+        },
+        "kimi-for-coding/kimi-for-coding": {
+          "name": "Kimi K2.7 Coding (Kimi for Coding)",
+          "reasoning": true,
+          "tool_call": true,
+          "limit": {
+            "context": 262144,
+            "output": 131072
+          }
+        },
+        "kimi-for-coding/kimi-for-coding-highspeed": {
+          "name": "Kimi K2.7 Coding Highspeed (Kimi for Coding)",
+          "reasoning": true,
+          "tool_call": true,
+          "limit": {
+            "context": 262144,
+            "output": 131072
+          }
+        },
         "moonshotai/kimi-k3": {
           "name": "Kimi K3 (Moonshot direct)",
           "reasoning": true,
