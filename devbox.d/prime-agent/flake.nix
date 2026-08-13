@@ -8,7 +8,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "0.7.1";
+      version = "0.7.2";
     in
     {
       packages = forAllSystems (system:
@@ -19,13 +19,13 @@
           #   1. Set npmDepsHash to pkgs.lib.fakeHash
           #   2. Run: devbox global install
           #   3. Replace with the hash from the error message
-          npmDepsHash = "sha256-cbWtDijm3gFlERFeajsN7+jV+LeFxgZPwxVii2JHF4A=";
+          npmDepsHash = "sha256-loS92JlxId6iKeQUTykqC4bwbgo2U5+FR4V7d7u3aj0=";
 
           src0 = pkgs.fetchFromGitHub {
             owner = "PrimeIntellect-ai";
             repo = "prime-agent";
             rev = "v${version}";
-            hash = "sha256-TaDa5Iflg6eGW9Hzd6alAcwF8PU0SBG2MCLiM313YqY=";
+            hash = "sha256-rOKFkKoV2Mfg2wHioZ+2Eo3Js6C4489hxTxVu38cgbA=";
           };
 
           # Upstream package-lock.json is missing `resolved`/`integrity` for
