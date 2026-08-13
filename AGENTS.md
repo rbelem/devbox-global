@@ -73,7 +73,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ```
 devbox.json              # global package + script declarations
 devbox.lock              # pinned nixpkgs versions (stale, 2023)
-devbox.d/<name>/         # 25 flake-based packages (referenced path:devbox.d/<name>)
+devbox.d/<name>/         # 41 flake-based packages (referenced path:devbox.d/<name>)
 dotfiles/                # chezmoi root (.chezmoiroot = dotfiles)
 bin/                     # 16 standalone scripts (synced to $(devbox global path)/bin/)
 ```
@@ -158,12 +158,21 @@ modified independently), shows what the opposite direction would change.
 
 ## devbox.d/ flakes
 
-26 local flake packages. Patterns found in their flake.nix files:
+41 local flake packages. Patterns found in their flake.nix files:
 
 - **Simple fetch + install** (blesh, agent-browser): fetch tarball
   from GitHub releases, copy to store, provide helper script.
 - **Npm build** (aicommits): `fetchFromGitHub` + `buildNpmPackage`. Uses
   `dontNpmInstall = true` + manual installPhase because `prepack` needs pnpm.
+- **Pnpm monorepo + vendored lockfile** (deepsec): `fetchFromGitHub` +
+  `fetchPnpmDeps` (pnpm_10, fetcherVersion 4) + `pnpmConfigHook`. Upstream
+  ships a pnpm-8-era v6.0 lockfile that pnpm_10 rejects
+  (ERR_PNPM_LOCKFILE_BREAKING_CHANGE) — vendor a pnpm-10-regenerated
+  pnpm-lock.yaml and overlay it via fetchFromGitHub `postFetch`. Build via
+  `pnpm --filter deepsec bundle` (esbuild); install copies dist + prod-only
+  node_modules, preserving pnpm's relative symlinks (virtual store as a
+  sibling, workspace `packages/` tree for the file: links). No upstream
+  tags: pins a main commit, update-flake shows it as `??`.
 - **Overlay on nixpkgs** (bun): replace nixpkgs' bun with baseline build (no AVX)
   for VirtualBox compat.
 - **Wrap nixpkgs** (neovim): neovim-nightly-overlay + wrapNeovim for Lua/Python/Ruby/Node.
