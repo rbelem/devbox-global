@@ -7,7 +7,7 @@
     supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
     forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-    version = "17.2.15";
+    version = "17.3.0";
 
     # Prebuilt bare executables (bun build --compile; linux-x64 uses the
     # bun-linux-x64-baseline target, no AVX — VirtualBox compatible).
@@ -18,8 +18,8 @@
     };
 
     systemToHash = {
-      "x86_64-linux"  = "sha256-+ohJQfky9PXSBGrLqXF5Cuaq4Y/UgGRysB8EHeZwNoo=";
-      "aarch64-linux" = "sha256-NlB7o9mDMvUmSdIgCerYbxVKsAfLFp1oaQ+isBEXaa0=";
+      "x86_64-linux"  = "sha256-KH8HNm8piW7x40VCPat5uCqNwMFZM4PiDf3WKp3S55k=";
+      "aarch64-linux" = "sha256-j/1tTQuAA7Qiirzazo7TiC2pgeltmubBklXMRLZ/jzc=";
     };
   in {
     packages = forAllSystems (pkgs: rec {
