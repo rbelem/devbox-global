@@ -1,0 +1,149 @@
+{
+  "providers": {
+    "bifrost": {
+      "name": "Bifrost (local gateway)",
+      "baseUrl": "http://localhost:8081/v1",
+      "api": "openai-completions",
+      "apiKey": "bifrost-local",
+      "authHeader": true,
+      "compat": {
+        "supportsDeveloperRole": false
+      },
+      "models": [
+        {
+          "id": "zai/glm-5.2",
+          "name": "GLM-5.2 (z.ai direct)",
+          "reasoning": true,
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "kimi-for-coding/k3",
+          "name": "Kimi K3 (Kimi for Coding)",
+          "reasoning": true,
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "kimi-for-coding/k3-256k",
+          "name": "Kimi K3 256k (Kimi for Coding)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "kimi-for-coding/kimi-for-coding",
+          "name": "Kimi K2.7 Coding (Kimi for Coding)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "kimi-for-coding/kimi-for-coding-highspeed",
+          "name": "Kimi K2.7 Coding Highspeed (Kimi for Coding)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "moonshotai/kimi-k3",
+          "name": "Kimi K3 (Moonshot direct)",
+          "reasoning": true,
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "minimax/MiniMax-M3",
+          "name": "MiniMax-M3 (MiniMax direct)",
+          "reasoning": true,
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "opencode-go/deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro (OpenCode Go)",
+          "reasoning": true,
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        {
+          "id": "opencode-go/deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash (OpenCode Go)",
+          "reasoning": true,
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        {
+          "id": "deepseek/deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro (DeepSeek direct)",
+          "reasoning": true,
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash (DeepSeek direct)",
+          "reasoning": true,
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        {
+          "id": "opencode-go/mimo-v2.5",
+          "name": "Mimo v2.5 (OpenCode Go)",
+          "reasoning": false,
+          "contextWindow": 131072,
+          "maxTokens": 16384
+        },
+        {
+          "id": "opencode-go/mimo-v2.5-pro",
+          "name": "Mimo v2.5 Pro (OpenCode Go)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 16384
+        },
+        {
+          "id": "opencode-go/kimi-k2.7-code",
+          "name": "Kimi K2.7 Code (OpenCode Go)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "zai/glm-4.7",
+          "name": "GLM-4.7 (z.ai Coding Pro subscription, 1x quota - preferred for routine)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "moonshotai/kimi-k2.7-code-highspeed",
+          "name": "Kimi K2.7 Code Highspeed (Moonshot direct, speed-optimized coding)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "opencode-go/qwen3.7-max",
+          "name": "Qwen 3.7 Max (Go free tier, reasoning specialist)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 16384
+        },
+        {
+          "id": "opencode-go/qwen3.8-max",
+          "name": "Qwen 3.8 Max (OpenCode Go)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 16384
+        },
+        {
+          "id": "opencode-go/qwen3.7-plus",
+          "name": "Qwen 3.7 Plus (OpenCode Go)",
+          "reasoning": true,
+          "contextWindow": 262144,
+          "maxTokens": 16384
+        }
+      ]
+    }
+  }
+}

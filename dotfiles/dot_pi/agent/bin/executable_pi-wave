@@ -1,0 +1,149 @@
+#!/usr/bin/env bash
+# pi-wave — parallel pi worker harness on herdr, all workers routed through
+# the local bifrost gateway (provider "bifrost", http://localhost:8081/v1).
+#
+# Usage:
+#   pi-wave up [name:model[:thinking] ...]   create/start the wave (default 4 workers)
+#   pi-wave worker <name> <model> [thinking] run a worker loop (internal; used by `up`)
+#   pi-wave status                           show workers, panes, pending/done tasks
+#   pi-wave down                             close the herdr workspace (keeps inbox dirs)
+#
+# Protocol: drop <slug>.task.md into ~/.pi-wave/<worker>/in/ -> the worker pi
+# runs it and writes <slug>.out.md into ~/.pi-wave/<worker>/out/.
+set -euo pipefail
+
+WAVE_DIR="$HOME/.pi-wave"
+SELF="$(readlink -f "$0")"
+
+DEFAULT_SPECS=(
+  "w1:deepseek/deepseek-v4-flash:max"
+  "w2:kimi-for-coding/k3"
+  "w3:opencode-go/qwen3.8-max"
+  "w4:zai/glm-4.7"
+)
+
+jget() { python3 -c "import json,sys; d=json.load(sys.stdin); print(eval(sys.argv[1]) or '')" "$1"; }
+
+# ---------------------------------------------------------------- worker loop
+worker() {
+  local name="$1" model="$2" thinking="${3:-}"
+  local inbox="$WAVE_DIR/$name/in" outbox="$WAVE_DIR/$name/out"
+  mkdir -p "$inbox" "$outbox"
+  echo "pi-wave worker ready: $name ($model)"
+  while true; do
+    local job
+    job="$(ls "$inbox"/*.task.md 2>/dev/null | head -1 || true)"
+    if [ -n "$job" ]; then
+      local slug lock task out
+      slug="$(basename "$job" .task.md)"
+      lock="$inbox/$slug.lock.md"
+      mv "$job" "$lock"
+      task="$(cat "$lock")"
+      out="$outbox/$slug.out.md"
+      echo "== $name: running $slug ($(date +%H:%M:%S))"
+      {
+        echo "# pi-wave worker: $name ($model)"
+        echo
+        echo "## Task"
+        echo
+        echo "$task"
+        echo
+        echo "## Result"
+        echo
+      } > "$out"
+      local args=(-p --no-session -a --provider bifrost --model "$model")
+      if [ -n "$thinking" ]; then
+        args+=(--thinking "$thinking")
+      fi
+      pi "${args[@]}" "$task" >> "$out" 2>&1 || echo "[worker: pi exited nonzero]" >> "$out"
+      echo "== $name: done $slug ($(date +%H:%M:%S))"
+      rm -f "$lock"
+    fi
+    sleep 2
+  done
+}
+
+# ------------------------------------------------------------ find/create wave
+wave_id() {
+  herdr workspace list 2>/dev/null | jget "next((w for w in d.get('result',{}).get('workspaces',[]) if w.get('label')=='pi-wave'), {}).get('workspace_id')" || true
+}
+
+# ------------------------------------------------------------------------ up
+up() {
+  local specs=("$@")
+  if [ "${#specs[@]}" -eq 0 ]; then specs=("${DEFAULT_SPECS[@]}"); fi
+
+  local ws tab root
+  ws="$(wave_id)"
+  if [ -z "$ws" ]; then
+    local created
+    created="$(herdr workspace create --label pi-wave --no-focus)"
+    ws="$(echo "$created" | jget "d['result']['workspace']['workspace_id']")"
+    tab="$(echo "$created" | jget "d['result']['tab']['tab_id']")"
+    root="$(echo "$created" | jget "d['result']['root_pane']['pane_id']")"
+    echo "created herdr workspace pi-wave ($ws)"
+  else
+    tab="$(herdr tab list --workspace "$ws" 2>/dev/null | jget "d['result']['tabs'][0]['tab_id']")"
+    root="$(herdr pane list --tab "$tab" 2>/dev/null | jget "d['result']['panes'][0]['pane_id']")"
+  fi
+
+  local prev="$root" i=0 pane
+  for spec in "${specs[@]}"; do
+    local name model thinking="" rest
+    name="${spec%%:*}"
+    rest="${spec#*:}"
+    model="${rest%%:*}"
+    [[ "$rest" == *:* ]] && thinking="${rest#*:}"
+    if [ "$i" -gt 0 ]; then
+      pane="$(herdr pane split --pane "$prev" --direction right --ratio 0.5 --no-focus 2>/dev/null | jget "d['result']['pane']['pane_id']")"
+      prev="$pane"
+    else
+      pane="$root"
+    fi
+    i=$((i + 1))
+    herdr pane run "$pane" "$SELF" worker "$name" "$model" "$thinking"
+    herdr pane wait-output "$pane" --match "pi-wave worker ready" --timeout 60000 >/dev/null 2>&1 \
+      && echo "worker $name ($model${thinking:+ thinking=$thinking}) ready on pane $pane" \
+      || echo "worker $name: no ready banner (check pane $pane)"
+  done
+  echo
+  echo "wave up. drop tasks into ~/.pi-wave/<worker>/in/<slug>.task.md"
+}
+
+# ------------------------------------------------------------------- status
+status() {
+  local ws
+  ws="$(wave_id)"
+  echo "workspace: ${ws:-not running}  (dir: $WAVE_DIR)"
+  for d in "$WAVE_DIR"/*/; do
+    [ -d "$d" ] || continue
+    local name in_n out_n
+    name="$(basename "$d")"
+    in_n="$(ls "$d/in"/*.task.md 2>/dev/null | wc -l || true)"
+    out_n="$(ls "$d/out"/*.out.md 2>/dev/null | wc -l || true)"
+    printf '  %-4s pending=%-3s done=%s\n' "$name" "$in_n" "$out_n"
+  done
+  if [ -n "$ws" ]; then
+    herdr pane list --workspace "$ws" 2>/dev/null | jget "[p['pane_id'] for p in d['result']['panes']]" | tr -d '[]'"'"' ' | sed 's/,/, /g' | sed 's/^/  panes: /'
+  fi
+}
+
+# --------------------------------------------------------------------- down
+down() {
+  local ws
+  ws="$(wave_id)"
+  if [ -n "$ws" ]; then
+    herdr workspace close "$ws" >/dev/null
+    echo "closed herdr workspace $ws (inbox dirs kept under $WAVE_DIR)"
+  else
+    echo "no pi-wave workspace running"
+  fi
+}
+
+case "${1:-}" in
+  worker) shift; worker "$@" ;;
+  up)     shift; up "$@" ;;
+  status) status ;;
+  down)   down ;;
+  *) echo "usage: pi-wave {up [name:model[:thinking] ...] | status | down}" >&2; exit 2 ;;
+esac

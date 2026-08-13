@@ -1,0 +1,19 @@
+{
+  "lastChangelogVersion": "0.84.1",
+  "theme": "dark",
+  "defaultProvider": "bifrost",
+  "defaultModel": "minimax/MiniMax-M3",
+  "defaultProjectTrust": "always",
+  "enabledModels": [
+    "zai/glm-5.2",
+    "minimax/MiniMax-M3",
+    "deepseek/deepseek-v4-pro",
+    "deepseek/deepseek-v4-flash",
+    "opencode-go/deepseek-v4-flash",
+    "opencode-go/qwen3.8-max",
+    "opencode-go/qwen3.7-max",
+    "kimi-for-coding/k3",
+    "zai/glm-4.7",
+    "opencode-go/mimo-v2.5"
+  ]
+}
