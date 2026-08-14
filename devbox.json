@@ -54,12 +54,9 @@
     "path:devbox.d/neovim": {},
     "path:devbox.d/tree-sitter-perl": {},
     "path:devbox.d/blesh": {},
-    "path:devbox.d/openspec": {},
     "path:devbox.d/bun": {},
     "path:devbox.d/open-code-review": {},
     "path:devbox.d/opencode": {},
-    "path:devbox.d/opencode-v2": {},
-    "path:devbox.d/oh-my-pi": {},
     "path:devbox.d/graphify": {},
     "path:devbox.d/skills": {},
     "path:devbox.d/rtk": {},
@@ -82,6 +79,7 @@
     "path:devbox.d/prime-agent": {},
     "path:devbox.d/herdr": {},
     "path:devbox.d/pi": {},
+    "path:devbox.d/goose": {},
     "valkey": {
       "version": "latest",
       "disable_plugin": true
@@ -90,7 +88,8 @@
     "bitwarden-cli": "latest",
     "attic-client": "latest",
     "geminicommit":  "latest",
-    "sqlite": "latest"
+    "sqlite": "latest",
+    "wtype": "latest"
   },
   "env": {
     "EDITOR": "vi",
