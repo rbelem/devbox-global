@@ -11,6 +11,15 @@
         "apiKey": "bifrost-local"
       },
       "models": {
+        "zai/glm-5.3": {
+          "name": "GLM-5.3 (z.ai direct)",
+          "reasoning": true,
+          "tool_call": true,
+          "limit": {
+            "context": 1000000,
+            "output": 131072
+          }
+        },
         "zai/glm-5.2": {
           "name": "GLM-5.2 (z.ai direct)",
           "reasoning": true,
@@ -300,10 +309,10 @@
       "*": "ask",
       "~/.agents/*": "allow",
       "~/.config/opencode/skills/*": "allow",
-      "~/.local/share/devbox/global/default": "allow",
+      "~/.local/share/devbox/*": "allow",
       "~/Workspace/rbelem/*": "allow",
-      "~/Workspace/github.com/rbelem/*": "allow",
-      "/tmp/*": "allow"
+      "~/Workspace/github.com/*": "allow",
+      "/tmp/*": "allow",
     },
     "lsp": "allow",
     "question": "allow",
@@ -314,6 +323,7 @@
     "webfetch": "deny",
     "websearch": "deny",
     "read": {
+      "/nix/*": "allow",
       "~/.config/opencode/get-shit-done/*": "allow"
     },
     "doom_loop": "deny"

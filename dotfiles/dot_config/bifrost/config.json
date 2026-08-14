@@ -35,6 +35,12 @@
     "policies": [
       {
         "provider": "zai",
+        "model": "glm-5.3",
+        "fallback_provider": "alibaba-token-plan",
+        "fallback_model": "glm-5.2"
+      },
+      {
+        "provider": "zai",
         "model": "glm-5.2",
         "fallback_provider": "alibaba-token-plan",
         "fallback_model": "glm-5.2"
@@ -88,7 +94,7 @@
         {
           "name": "zai-key",
           "value": "env.ZAI_API_KEY",
-          "models": ["glm-5.2", "glm-4.7"],
+          "models": ["glm-5.3", "glm-5.2", "glm-4.7"],
           "weight": 1
         }
       ]
@@ -251,6 +257,21 @@
 
   "governance": {
     "routing_rules": [
+      {
+        "id": "glm-5.3-failover-chain",
+        "name": "GLM-5.3 failover chain",
+        "description": "GLM-5.3: zai primary → alibaba-token-plan/glm-5.2 → opencode-go/glm-5.2 (5.3 not yet on fallback providers)",
+        "cel_expression": "model == 'glm-5.3'",
+        "targets": [
+          { "provider": "zai", "model": "glm-5.3", "weight": 1 }
+        ],
+        "fallbacks": [
+          "alibaba-token-plan/glm-5.2",
+          "opencode-go/glm-5.2"
+        ],
+        "priority": 6,
+        "enabled": true
+      },
       {
         "id": "glm-5.2-failover-chain",
         "name": "GLM-5.2 failover chain",
