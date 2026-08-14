@@ -10,7 +10,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "3.5.0";
+      version = "3.6.0";
     in
     {
       packages = forAllSystems (system:
@@ -21,7 +21,7 @@
             owner = "pbakaus";
             repo = "impeccable";
             rev = "cli-v${version}";
-            hash = "sha256-LDAET4WY71xcIHXekmVFJ3VAJnytnGMPW5OhuBUkR6o=";
+            hash = "sha256-LWcsrWoOqKCAi4N7J73X0zhFZ0fF0ZsHPe4mD9G2iVQ=";
           };
 
           # Inject the package-lock.json (generated from bun.lock) into source.
