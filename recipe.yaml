@@ -1,0 +1,134 @@
+version: 1.0.0
+title: Diagnosing and fixing goose extension type errors
+description: A recipe for diagnosing why goose extensions fail to load and correcting malformed config entries.
+instructions: When goose extensions silently fail to load, inspect the user's config.yaml and check logs for 'unknown variant' errors listing the accepted extension types. Verify accepted values (e.g. streamable_http, stdio, sse, builtin, platform) against the official goose docs before recommending a fix, then apply the corrected type values. Also audit common dev tools availability when relevant. Restart goose after config changes to load the fixed extensions.
+extensions:
+- type: builtin
+  name: developer
+  description: Write and edit files, and execute shell commands
+  display_name: Developer
+  timeout: null
+  bundled: true
+- type: builtin
+  name: computercontroller
+  description: ''
+  display_name: null
+  timeout: null
+  bundled: null
+- type: builtin
+  name: memory
+  description: ''
+  display_name: null
+  timeout: null
+  bundled: null
+- type: stdio
+  name: chrome-devtools
+  description: ''
+  cmd: bunx
+  args:
+  - -y
+  - chrome-devtools-mcp@latest
+  - --autoConnect
+  envs: {}
+  env_keys: []
+  timeout: null
+  cwd: null
+  bundled: null
+- type: stdio
+  name: tmux
+  description: ''
+  cmd: uvx
+  args:
+  - libtmux-mcp
+  envs:
+    LIBTMUX_SAFETY: read+send
+  env_keys: []
+  timeout: null
+  cwd: null
+  bundled: null
+- type: stdio
+  name: opencode-docs
+  description: ''
+  cmd: bunx
+  args:
+  - -y
+  - opencode-docs-mcp@latest
+  envs: {}
+  env_keys: []
+  timeout: null
+  cwd: null
+  bundled: null
+- type: stdio
+  name: agentmemory
+  description: ''
+  cmd: agentmemory
+  args:
+  - mcp
+  envs: {}
+  env_keys: []
+  timeout: null
+  cwd: null
+  bundled: null
+- type: stdio
+  name: codegraph
+  description: ''
+  cmd: codegraph
+  args:
+  - serve
+  - --mcp
+  envs: {}
+  env_keys: []
+  timeout: 600000
+  cwd: null
+  bundled: null
+- type: platform
+  name: todo
+  description: Enable a todo list for goose so it can keep track of what it is doing
+  display_name: Todo
+  bundled: true
+- type: platform
+  name: Extension Manager
+  description: Enable extension management tools for discovering, enabling, and disabling extensions
+  display_name: Extension Manager
+  bundled: true
+- type: platform
+  name: skills
+  description: Discover and provide skill instructions from filesystem and builtins
+  display_name: Skills
+  bundled: true
+- type: platform
+  name: tom
+  description: Inject custom context into every turn via GOOSE_MOIM_MESSAGE_TEXT and GOOSE_MOIM_MESSAGE_FILE environment variables
+  display_name: Top Of Mind
+  bundled: true
+- type: platform
+  name: apps
+  description: Create and manage custom Goose apps through chat. Apps are HTML/CSS/JavaScript and run in sandboxed windows.
+  display_name: Apps
+  bundled: true
+- type: platform
+  name: analyze
+  description: 'Analyze code structure with tree-sitter: directory overviews, file details, symbol call graphs'
+  display_name: Analyze
+  bundled: true
+- type: platform
+  name: summon
+  description: Load knowledge and delegate tasks to subagents
+  display_name: Summon
+  bundled: true
+- type: platform
+  name: scheduler
+  description: Create and manage scheduled recipe execution
+  display_name: Scheduler
+  bundled: true
+settings:
+  goose_provider: bifrost
+  goose_model: opencode-go/deepseek-v4-pro
+  temperature: 0.0
+activities:
+- 'Fix type: http to streamable_http'
+- check config.yaml for unknown variant
+- audit dev tools availability
+- verify extension type against docs
+author:
+  contact: rodrigo
