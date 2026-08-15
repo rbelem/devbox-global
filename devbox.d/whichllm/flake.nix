@@ -15,7 +15,7 @@
     #   run the command "devbox global update"
     # Then paste the sha256-... value below
     #
-    srcHash = "sha256-1KL9w2/1/yrzfo/Yo+B0CrKvc8xeD9oZn9/z1vFob04=";
+    srcHash = "sha256-yi3XK1VvbUHpiXt0TNT0EiXdoHKl6xR9LgS+OTQvtbg=";
   in {
     packages = forAllSystems (system:
       let

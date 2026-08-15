@@ -20,7 +20,7 @@
 
       # Set each to the fake hash string when updating, then build and capture.
       perArchSha256 = {
-        x86_64-linux   = "sha256-Fe1gUwX8Z5YE7Q9fqHFdtQWvgcEOy4p4RtVkK85Lg04=";
+        x86_64-linux   = "sha256-1JSBK5ujFqNLsI77rr+HGrEGnoP1iSxdh9k6twNiaDg=";
         aarch64-linux  = "sha256-cAFL0ZcWguHHAt5HFfzQqaLQBm4Qbh8gw9ifEEdPiJ8=";
         x86_64-darwin  = "sha256-g20rvrSuwZzkIOul/rJuIDq3Udr/2nxJX2De5YfG1ko=";
         aarch64-darwin = "sha256-n1jtr8wySvU/71SzpaRRw4rqagczgbSZvnTeS4GhACQ=";
