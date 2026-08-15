@@ -5,6 +5,8 @@ onboarding = false
 name = "kanagawa"
 
 [ui]
+# don't prompt for a tab name on every new tab
+prompt_new_tab_name = false
 # mirror ~/.tmux.conf.local: "set -g mouse on"
 mouse_capture = true
 # mirror tmux_conf_copy_to_os_clipboard=true
@@ -30,6 +32,9 @@ swap_pane_right = "prefix+shift+l"
 previous_tab = "prefix+ctrl+h"
 next_tab     = "prefix+ctrl+l"
 
+# tmux-style detach (default is prefix+q; plain prefix+d is free)
+detach = "prefix+d"
+
 # navigate-mode vi keys (no prefix)
 navigate_pane_left  = "h"
 navigate_pane_down  = "j"
@@ -43,3 +48,10 @@ navigate_workspace_up   = "k"
 # agents: next/previous (prefix+n/p — free since tabs moved to prefix+ctrl+h/l)
 next_agent     = "prefix+n"
 previous_agent = "prefix+p"
+
+# herdr-navigator plugin: fuzzy jump to workspaces/agents/sessions/remotes
+[[keys.command]]
+key = "prefix+t"
+type = "plugin_action"
+command = "herdr-navigator.open"
+description = "jump to anything"
