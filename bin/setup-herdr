@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install herdr plugins once per machine (chezmoi run_once script).
+# Install herdr plugins (devbox setup script, formerly chezmoi run_once_herdr-plugins.sh).
 # The keybinding lives in dot_config/herdr/config.toml ([[keys.command]]),
 # which chezmoi syncs everywhere; this script installs the plugin itself.
 # Plugin updates: bump --ref here, or `herdr plugin install <src> --ref <tag> --yes` manually.

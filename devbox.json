@@ -133,6 +133,7 @@
         "devbox global run setup-bws",
         "devbox global run setup-git",
         "devbox global run setup-tmux",
+        "devbox global run setup-herdr",
         "devbox global run setup-nerd-fonts",
         "devbox global run setup-themes",
         "devbox global run setup-neovim"
@@ -159,6 +160,7 @@
       "setup-podman": "\"$(devbox global path)/bin/setup-podman\" \"$@\"",
       "setup-themes": "\"$(devbox global path)/bin/setup-themes\" \"$@\"",
       "setup-tmux": "\"$(devbox global path)/bin/setup-tmux\" \"$@\"",
+      "setup-herdr": "\"$(devbox global path)/bin/setup-herdr\" \"$@\"",
       "setup-kde-secrets-service": "\"$(devbox global path)/bin/setup-kde-secrets-service\" \"$@\"",
       "nix-store-gc": "nix store gc"
     }
