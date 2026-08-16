@@ -335,7 +335,8 @@
     "./plugins/agentmemory-capture.ts",
     "./plugins/autolearn.js",
     "./plugins/dcg-guard.ts",
-    "oh-my-opencode-slim"
+    "oh-my-opencode-slim",
+    "@dietrichgebert/ponytail"
   ],
   "agent": {
     "explore": {
