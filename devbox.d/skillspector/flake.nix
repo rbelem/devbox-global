@@ -8,7 +8,7 @@
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
     # Tracking tagged releases — bump rev + version + srcHash together.
-    version = "2.9.4";
+    version = "2.9.5";
     rev = "v${version}";
 
     # Get the real hash:
@@ -17,7 +17,7 @@
     #   run the command "devbox global update"
     # Then paste the sha256-... value below
     #
-    srcHash = "sha256-SCwGYZxKJ5Aa/N2o19heOBayUF5C0nS411Dsm9zqA5M=";
+    srcHash = "sha256-AxJFAXc3AwQIRCaSyamSS8D5ilRH7Y46wV1jEtEPSSw=";
   in {
     packages = forAllSystems (system:
       let
@@ -72,6 +72,7 @@
             langgraph-cli
             langchain-core
             langchain-openai
+            langchain-anthropic
             langsmith
             yara-python
           ];
