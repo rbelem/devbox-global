@@ -71,8 +71,7 @@
         "mcps": ["codegraph"]
       },
       "designer": {
-        //"model": "bifrost/zai/glm-5.2",
-        "model": "bifrost/moonshotai/kimi-k3",
+        "model": "bifrost/kimi-for-coding/k3-256k",
         "variant": "max",
         "skills": [
           "agent-browser",
@@ -108,7 +107,7 @@
         "mcps": []
       },
       "council": {
-        "model": "bifrost/zai/glm-5.2",
+        "model": "bifrost/zai/glm-5.3",
         "variant": "max"
       }
     },
@@ -145,7 +144,7 @@
         ]
       },
       "oracle": {
-        "model": "bifrost/zai/glm-5.2",
+        "model": "bifrost/zai/glm-5.3",
         "variant": "max",
         "skills": [
           "simplify",
@@ -170,8 +169,7 @@
         "mcps": ["codegraph"]
       },
       "designer": {
-        //"model": "bifrost/minimax/MiniMax-M3",
-        "model": "bifrost/moonshotai/kimi-k3",
+        "model": "bifrost/kimi-for-coding/k3-256k",
         "variant": "max",
         "skills": [
           "agent-browser",
@@ -232,7 +230,7 @@
     "presets": {
       "default": {
         "alpha": {
-          "model": "bifrost/zai/glm-5.2",
+          "model": "bifrost/zai/glm-5.3",
           "variant": "max"
         },
         "beta": {
@@ -240,7 +238,7 @@
           "variant": "xhigh"
         },
         "gamma": {
-          "model": "bifrost/moonshotai/kimi-k3",
+          "model": "bifrost/kimi-for-coding/k3",
           "variant": "max"
         }
       }
