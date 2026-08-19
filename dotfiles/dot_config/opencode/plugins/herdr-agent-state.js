@@ -1,9 +1,19 @@
-// installed by herdr
-// managed by herdr; reinstalling or updating the integration overwrites this file.
-// add custom hooks/plugins beside this file instead of editing it.
-// HERDR_INTEGRATION_ID=opencode
-// HERDR_INTEGRATION_VERSION=9
+// herdr agent-state plugin — LOCAL V2 PORT of herdr's managed integration.
+// Upstream (herdr src/integration/assets/opencode, INTEGRATION_VERSION 9-10)
+// still ships the V1 plugin API; this port bridges to V2 until herdr ships
+// native opencode2 support. A `herdr plugin install/update` of the opencode
+// integration will overwrite this file with V1 code — re-port or wait for
+// upstream V2 then.
+//
+// Reports opencode lifecycle state (working/idle/blocked) and session ids to
+// the herdr pane over the herdr socket API.
+//
+// ponytail: V2 loads global plugins in the shared background service, so
+// HERDR_PANE_ID is inherited from whichever pane started the service. With
+// multiple opencode2 panes on one service, state may attribute to the first
+// pane. Acceptable (cosmetic) until herdr ships native V2 support.
 
+import { Plugin } from "@opencode-ai/plugin";
 import net from "node:net";
 
 const SOURCE = "herdr:opencode";
@@ -13,43 +23,20 @@ let requestChain = Promise.resolve();
 let reportedRootSessionID;
 
 // Track child sessions so their events cannot replace the pane's root session.
-// Their user prompts still project state without attaching the child session id.
+// Their permission/form events still project state without attaching the
+// child session id.
 const childSessions = new Set();
 const CHILD_EVENT_STATES = new Map([
   ["permission.asked", "blocked"],
-  ["question.asked", "blocked"],
+  ["form.created", "blocked"],
   ["permission.replied", "working"],
-  ["question.replied", "working"],
-  ["question.rejected", "working"],
+  ["form.replied", "working"],
+  ["form.cancelled", "working"],
 ]);
 
 function nextReportSeq() {
   reportSeq += 1;
   return reportSeq;
-}
-
-function sessionIDFromProperties(properties) {
-  return typeof properties?.sessionID === "string" && properties.sessionID
-    ? properties.sessionID
-    : undefined;
-}
-
-const SESSION_STATE_BY_STATUS = new Map([
-  ["idle", "idle"],
-  ["active", "working"],
-  ["busy", "working"],
-  ["pending", "working"],
-  ["retry", "working"],
-  ["running", "working"],
-  ["streaming", "working"],
-  ["working", "working"],
-]);
-
-function stateFromSessionStatus(status) {
-  const kind = typeof status === "string" ? status : status?.type;
-  return typeof kind === "string"
-    ? SESSION_STATE_BY_STATUS.get(kind.toLowerCase())
-    : undefined;
 }
 
 function request(method, params) {
@@ -122,81 +109,84 @@ function reportState(state, sessionID) {
   return request("pane.report_agent", params);
 }
 
-export const HerdrAgentStatePlugin = async () => {
-  if (
-    process.env.HERDR_ENV !== "1" ||
-    !process.env.HERDR_SOCKET_PATH ||
-    !process.env.HERDR_PANE_ID
-  ) {
-    return {};
+export default Plugin.define({
+  id: "local.herdr-agent-state",
+  setup: async (ctx) => {
+    if (
+      process.env.HERDR_ENV !== "1" ||
+      !process.env.HERDR_SOCKET_PATH ||
+      !process.env.HERDR_PANE_ID
+    ) {
+      return;
+    }
+
+    const stream = await Promise.resolve(ctx.event.subscribe());
+    void (async () => {
+      try {
+        for await (const ev of stream) {
+          try {
+            await handleEvent(ev);
+          } catch {
+            // never let reporting break the stream loop
+          }
+        }
+      } catch {
+        // stream closed (plugin unload / server shutdown)
+      }
+    })();
+  },
+});
+
+async function handleEvent(ev) {
+  const type = ev?.type;
+  const data = ev?.data ?? {};
+  const sessionID = typeof data.sessionID === "string" ? data.sessionID : undefined;
+
+  // Track child sessions so they cannot replace the pane's root session.
+  if (type === "session.created" && data.parentID) {
+    childSessions.add(sessionID);
   }
 
-  return {
-    "chat.message": async ({ sessionID }) => {
-      if (sessionID && childSessions.has(sessionID)) {
-        return;
+  if (sessionID && childSessions.has(sessionID)) {
+    const state = CHILD_EVENT_STATES.get(type);
+    if (state) {
+      await reportState(state);
+    }
+    return;
+  }
+
+  switch (type) {
+    case "session.created":
+      // A root session.created is a genuine new-session start (subagent
+      // creates are dropped above). Signal it so herdr replaces the pane's
+      // prior session id instead of treating the change as cross-talk.
+      await reportSession(sessionID, "new");
+      break;
+    case "session.renamed":
+      if (sessionID && sessionID !== reportedRootSessionID) {
+        await reportSession(sessionID);
       }
+      break;
+    // Working: execution/step/tool/compaction activity, replies.
+    case "session.execution.started":
+    case "session.step.started":
+    case "session.tool.called":
+    case "session.compaction.ended":
+    case "permission.replied":
+    case "form.replied":
+    case "form.cancelled":
       await reportState("working", sessionID);
-    },
-    event: async ({ event }) => {
-      const type = event?.type;
-      const properties = event?.properties ?? {};
-      const sessionID = sessionIDFromProperties(properties);
-
-      const info = properties.info;
-      if (info?.id && info.parentID) {
-        childSessions.add(info.id);
-      }
-      if (sessionID && childSessions.has(sessionID)) {
-        const state = CHILD_EVENT_STATES.get(type);
-        if (state) {
-          await reportState(state);
-        }
-        return;
-      }
-
-      switch (type) {
-        case "session.created":
-          // A root session.created is a genuine new-session start (subagent
-          // creates are dropped above). Signal it so herdr replaces the pane's
-          // prior session id instead of treating the change as cross-talk.
-          await reportSession(sessionID, "new");
-          break;
-        case "session.updated":
-          if (sessionID && sessionID !== reportedRootSessionID) {
-            await reportSession(sessionID);
-          }
-          break;
-        case "session.status": {
-          const state = stateFromSessionStatus(properties.status);
-          if (state) {
-            await reportState(state, sessionID);
-          } else {
-            await reportSession(sessionID);
-          }
-          break;
-        }
-        case "tool.execute.before":
-        case "tool.execute.after":
-        case "permission.replied":
-        case "question.replied":
-        case "question.rejected":
-        case "session.compacted":
-          await reportState("working", sessionID);
-          break;
-        case "permission.asked":
-        case "question.asked":
-        case "session.error":
-          await reportState("blocked", sessionID);
-          break;
-        case "session.idle":
-          await reportState("idle", sessionID);
-          break;
-        case "session.deleted":
-          break;
-        default:
-          break;
-      }
-    },
-  };
-};
+      break;
+    // Blocked: waiting on user or failed.
+    case "permission.asked":
+    case "form.created":
+    case "session.execution.failed":
+      await reportState("blocked", sessionID);
+      break;
+    case "session.idle":
+      await reportState("idle", sessionID);
+      break;
+    default:
+      break;
+  }
+}
