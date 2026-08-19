@@ -66,6 +66,7 @@
     "path:devbox.d/codeburn": {},
     "path:devbox.d/codegraph": {},
     "path:devbox.d/whichllm": {},
+    "path:devbox.d/llm-verifier": {},
     "path:devbox.d/agentmemory": {},
     "path:devbox.d/impeccable": {},
     "path:devbox.d/skillspector": {},
