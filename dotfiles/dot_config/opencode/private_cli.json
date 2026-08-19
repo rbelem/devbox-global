@@ -1,0 +1,17 @@
+{
+  "theme": {
+    "name": "kanagawa"
+  },
+  "plugins": [
+    "./plugins/opencode-quota/tui.mjs"
+  ],
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "auto",
+    "scrollbar": false,
+    "thinking": "show"
+  },
+  "animations": true
+}
