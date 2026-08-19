@@ -18,7 +18,7 @@
       # global dir. NOTE: the canary URL always serves the newest build, so
       # the hash must be refreshed whenever devbox.d/bun's hash is bumped.
       bunCanaryUrl = "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline.zip";
-      bunCanarySha256 = "sha256-BYuP7Urm2EJzlhkHzLgqYLyXD+1pGh2I7Nxq7cOkoqI=";
+      bunCanarySha256 = "sha256-3toIdoCA26XenRD6J7KFrhtffoP1J3QrQNV6rUoYvso=";
 
       # Built from the repo's v2 branch (packages/cli → binary "opencode2",
       # published as @opencode-ai/cli next builds). Follows the same recipe
@@ -32,10 +32,10 @@
       #   2. bump the version date (upstream next builds are 0.0.0-next-<n>;
       #      package.json's own 1.18.4 collides with the v1 version line)
       #   3. clear nodeModulesHash (fakeHash) → build → paste real hash
-      version = "0.0.0-next-20260813"; # v2 branch, next-channel naming
-      rev = "b66f01b37c3038502b7708093b8b726086554190";
-      srcHash = "sha256-2F87e6q2+S6/mQF7Q6sI+vZDAUAAMDkXnbzjUfZVi6o=";
-      nodeModulesHash = "sha256-22I2nsJCiTIsPOMtDnilp+7qVIYBacCMBDoCrrmZZ1I=";
+      version = "0.0.0-next-20260819"; # v2 branch, next-channel naming
+      rev = "e0be1c0e13e389a3683f317ebf3ff38a7f7bbef5";
+      srcHash = "sha256-wv4rCtN8Hhv8PQAI0JMohhbkXMGyqgeWzGXnEUUcI98=";
+      nodeModulesHash = "sha256-k/k5hT5KPCaiFrw9w3hfLMc/r7NyOLas/N3mJwjQUf8=";
 
       # Workspace packages packages/cli depends on (deps + devDeps); the
       # fixed-output install is filtered to these to keep the hash small.

@@ -1,5 +1,5 @@
 {
-  description = "Bifrost — fastest AI gateway (50x faster than LiteLLM) with sub-ms overhead. Built from source (v1.6.7) + sends_done_marker patch (upstream PR #2909) fixing MiniMax/Synthetic SSE [DONE] stream hangs.";
+  description = "Bifrost — fastest AI gateway (50x faster than LiteLLM) with sub-ms overhead. Built from source (v1.6.11) + sends_done_marker patch (upstream PR #2909) fixing MiniMax/Synthetic SSE [DONE] stream hangs.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -9,7 +9,7 @@
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      version = "v1.6.7";
+      version = "v1.6.11";
     in
     {
       packages = forAllSystems (system:
@@ -18,8 +18,8 @@
           lib = pkgs.lib;
 
           src = pkgs.fetchzip {
-            url = "https://github.com/maximhq/bifrost/archive/refs/tags/transports/v1.6.7.tar.gz";
-            sha256 = "sha256-UoxDboWXBOuW1aJcfZWK9fOB20z4y8pKGq3jd6KGwQQ=";
+            url = "https://github.com/maximhq/bifrost/archive/refs/tags/transports/v1.6.11.tar.gz";
+            sha256 = "sha256-Fjw1rUCqbn14lA4PSJo8EFPUotx14bpzVwTmuWSMJfw=";
             stripRoot = true;
           };
 
@@ -40,7 +40,7 @@
             src = src;
             sourceRoot = "source/ui";
 
-            npmDepsHash = "sha256-XfDqqwsrWRRxBw7MEEsfVjbhur0TVBkjN5/Pa016onQ=";
+            npmDepsHash = "sha256-aM+yPpvVoc0UtMcJH4hhJWHfApAkBcKdJB+EbI3BFCA=";
 
             # vite build + tsc typecheck; strip the copy-build step (writes
             # outside $PWD into ../transports/bifrost-http/ui — we copy from
@@ -90,7 +90,7 @@
 
             modRoot = "transports";
             subPackages = [ "bifrost-http" ];
-            vendorHash = "sha256-K5S2VI3EWbAbFTTg30L15We0wJQSJ5Mghr84eKreVTo=";
+            vendorHash = "sha256-iTV4d4o9kjVNzEZ5Ekzfoj/qXzsiOrgiNkgAP8NpknI=";
 
             doCheck = false;
 
