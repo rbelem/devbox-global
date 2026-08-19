@@ -18,8 +18,8 @@
       packages = forAllSystems (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-        in {
-          default = pkgs.python3Packages.buildPythonPackage {
+
+          llm-verifier = pkgs.python3Packages.buildPythonPackage {
             pname = "llm-verifier";
             inherit version;
 
@@ -55,6 +55,12 @@
               platforms = pkgs.lib.platforms.linux;
             };
           };
+
+          # Library-only (no CLI): expose via withPackages so the whole dep
+          # closure (openai/google-genai/tqdm) lands in one site-packages,
+          # matching devbox.json's PYTHONPATH to lib/python3.14/site-packages.
+        in {
+          default = pkgs.python3.withPackages (ps: [ llm-verifier ]);
         });
     };
 }
