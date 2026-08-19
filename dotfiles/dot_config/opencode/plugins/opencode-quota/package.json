@@ -1,0 +1,61 @@
+{
+  "name": "@slkiser/opencode-quota",
+  "version": "4.8.2",
+  "description": "OpenCode quota & tokens usage with zero context window pollution. Supports GitHub Copilot, OpenAI (Plus/Pro), Qwen Code, Chutes AI, Synthetic, Google Antigravity, Z.ai coding plan and more.",
+  "type": "module",
+  "keywords": [
+    "opencode",
+    "plugin",
+    "quota",
+    "toast",
+    "github",
+    "copilot",
+    "google",
+    "antigravity",
+    "gemini",
+    "claude"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slkiser/opencode-quota.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slkiser/opencode-quota/issues"
+  },
+  "homepage": "https://github.com/slkiser/opencode-quota#readme",
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-typescript": "^7.27.1",
+    "@biomejs/biome": "2.3.11",
+    "@opencode-ai/plugin": "1.18.11",
+    "@opentelemetry/sdk-metrics": "2.10.0",
+    "@opentui/keymap": "^0.5.4",
+    "@types/node": "^22.0.0",
+    "babel-preset-solid": "^1.9.12",
+    "lefthook": "2.0.15",
+    "solid-js": "^1.9.15",
+    "typescript": "7.0.2",
+    "vitest": "^4.0.17",
+    "yaml": "^2.8.3"
+  },
+  "dependencies": {
+    "comment-json": "^5.0.0",
+    "jsonc-parser": "^3.3.1",
+    "xdg-basedir": "^5.1.0",
+    "@opencode-ai/plugin": "beta"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^12.10.0"
+  },
+  "peerDependencies": {
+    "@opencode-ai/plugin": "^1.4.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "resolutions": {
+    "@opencode-ai/plugin": "beta"
+  }
+}
