@@ -81,6 +81,7 @@
     "path:devbox.d/herdr": {},
     "path:devbox.d/pi": {},
     "path:devbox.d/goose": {},
+    "path:devbox.d/fx": {},
     "valkey": {
       "version": "latest",
       "disable_plugin": true
