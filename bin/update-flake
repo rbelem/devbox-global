@@ -131,7 +131,7 @@ done < <(grep -oP '"path:devbox\.d/[^"]+"|"[^"]+@latest"' "$DEVBOX_JSON" | tr -d
 
 # ── For each flake, extract GitHub source + version from flake.nix ──
 declare -A FLAKE_OWNER FLAKE_REPO FLAKE_VERSION FLAKE_TYPE \
-         FLAKE_UPSTREAM FLAKE_FORK_SUFFIX FLAKE_RELEASE_PREFIX
+         FLAKE_UPSTREAM FLAKE_FORK_SUFFIX FLAKE_RELEASE_PREFIX FLAKE_BRANCH_TRACKING
 
 for name in "${FLAKES[@]}"; do
     flake_nix="$DEVBOX_D/$name/flake.nix"
@@ -209,12 +209,16 @@ for name in "${FLAKES[@]}"; do
     #   # upstream: owner/repo       → check this repo for new releases
     #   # fork-suffix: -perl         → appended to upstream version for fork version
     #   # release-prefix: cli-v      → filter tags by this prefix (e.g. cli-v, skill-v)
+    #   # branch-tracking: <branch>  → no comparable tags (builds track a branch);
+    #                                  resolve "latest" to the branch, never auto-update
     upstream_comment="$(grep -oP '^[[:space:]]*#\s*upstream:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
     fork_suffix_comment="$(grep -oP '^[[:space:]]*#\s*fork-suffix:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
     release_prefix_comment="$(grep -oP '^[[:space:]]*#\s*release-prefix:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
+    branch_tracking_comment="$(grep -oP '^[[:space:]]*#\s*branch-tracking:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
     [[ -n "$upstream_comment" ]] && FLAKE_UPSTREAM["$name"]="$upstream_comment"
     [[ -n "$fork_suffix_comment" ]] && FLAKE_FORK_SUFFIX["$name"]="$fork_suffix_comment"
     [[ -n "$release_prefix_comment" ]] && FLAKE_RELEASE_PREFIX["$name"]="$release_prefix_comment"
+    [[ -n "$branch_tracking_comment" ]] && FLAKE_BRANCH_TRACKING["$name"]="$branch_tracking_comment"
 done
 
 # ── Check latest GitHub version ──
@@ -233,6 +237,17 @@ for name in "${FLAKES[@]}"; do
     if [[ -n "${FLAKE_UPSTREAM[$name]:-}" ]]; then
         owner="${FLAKE_UPSTREAM[$name]%/*}"
         repo="${FLAKE_UPSTREAM[$name]#*/}"
+    fi
+
+    # Branch-tracking flakes have no comparable release tags — e.g.
+    # opencode-v2 tracks the repo's v2 branch while its releases are the v1
+    # line — so comparing against "latest release" would falsely flag ↓ and
+    # auto-"downgrade" to the wrong version line. Resolve to the branch,
+    # show as ahead, and let the branch:* guards below skip auto-update
+    # (these are bumped manually via the flake's own bump recipe).
+    if [[ -n "${FLAKE_BRANCH_TRACKING[$name]:-}" ]]; then
+        LATEST["$name"]="branch:${FLAKE_BRANCH_TRACKING[$name]}"
+        continue
     fi
 
     release_prefix="${FLAKE_RELEASE_PREFIX[$name]:-}"
@@ -478,7 +493,11 @@ for name in "${FLAKES[@]}"; do
     fi
 
     # Determine status (semver-aware: ↓ if installed is older than latest, ↑ if installed is ahead of upstream, e.g. fork)
-    if [[ "$latest" == "unknown" || "$installed" == "unknown" || "$latest" == branch:* ]]; then
+    if [[ -n "${FLAKE_BRANCH_TRACKING[$name]:-}" && "$installed" != "unknown" ]]; then
+        # Branch-tracking build — ahead of the tagged release line by design
+        # (dev "next" channel), bumped manually, never auto-updated.
+        status="${YELLOW}↑${NC}"
+    elif [[ "$latest" == "unknown" || "$installed" == "unknown" || "$latest" == branch:* ]]; then
         status="${YELLOW}??${NC}"
     elif semver_gt "$latest" "$compare_installed"; then
         status="${RED}↓${NC}"

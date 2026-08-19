@@ -27,11 +27,16 @@
       # canonicalize-node-modules, then a plain build derivation that
       # compiles with `bun build --compile`.
       #
-      # Branch has no tags → update-flake shows this as "??", bump manually:
+      # No comparable tags — the repo's releases are the v1 line, so
+      # update-flake must not compare against them (it would flag ↓ and
+      # auto-"downgrade" to v1). The `# branch-tracking:` directive below
+      # makes update-flake resolve "latest" to this branch, show ↑ (ahead),
+      # and never auto-update. Bump manually:
       #   1. update rev (v2 HEAD) + srcHash (nix-prefetch-github)
       #   2. bump the version date (upstream next builds are 0.0.0-next-<n>;
       #      package.json's own 1.18.4 collides with the v1 version line)
       #   3. clear nodeModulesHash (fakeHash) → build → paste real hash
+# branch-tracking: v2
       version = "0.0.0-next-20260819"; # v2 branch, next-channel naming
       rev = "e0be1c0e13e389a3683f317ebf3ff38a7f7bbef5";
       srcHash = "sha256-wv4rCtN8Hhv8PQAI0JMohhbkXMGyqgeWzGXnEUUcI98=";
