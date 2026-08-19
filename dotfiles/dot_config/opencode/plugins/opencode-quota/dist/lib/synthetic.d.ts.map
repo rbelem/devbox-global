@@ -1,0 +1,1 @@
+{"version":3,"file":"synthetic.d.ts","sourceRoot":"","sources":["../../src/lib/synthetic.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AAWH,OAAO,KAAK,EAAoC,eAAe,EAAE,MAAM,YAAY,CAAC;AAKpF,OAAO,EACL,0BAA0B,EAC1B,kBAAkB,IAAI,4BAA4B,EAClD,KAAK,kBAAkB,GACxB,MAAM,uBAAuB,CAAC;AAsI/B,wBAAsB,mBAAmB,CACvC,OAAO,GAAE;IAAE,gBAAgB,CAAC,EAAE,MAAM,CAAA;CAAO,GAC1C,OAAO,CAAC,eAAe,CAAC,CAwD1B"}

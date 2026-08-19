@@ -1,0 +1,1 @@
+{"version":3,"file":"quota-providers.d.ts","sourceRoot":"","sources":["../../src/providers/quota-providers.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EACV,aAAa,EAKd,MAAM,mBAAmB,CAAC;AAM3B,OAAO,EAIL,sCAAsC,EACvC,MAAM,2BAA2B,CAAC;AAYnC,eAAO,MAAM,2BAA2B,oBAA+B,CAAC;AACxE,eAAO,MAAM,4BAA4B,+CAAyC,CAAC;AAsOnF,eAAO,MAAM,sBAAsB,EAAE,aAsFpC,CAAC"}

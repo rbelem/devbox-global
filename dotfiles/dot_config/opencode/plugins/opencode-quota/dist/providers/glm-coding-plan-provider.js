@@ -1,0 +1,62 @@
+import { isCanonicalProviderAvailable } from "../lib/provider-availability.js";
+import { apiKeyStatusDetails, attemptedResult, groupedPercentWindowEntries, mapNullableProviderResult, statusDetailsFromRecord, withStatusDetails, } from "./result-helpers.js";
+export function createGlmCodingPlanProvider(params) {
+    return {
+        id: params.id,
+        async isAvailable(ctx) {
+            const providerAvailable = await isCanonicalProviderAvailable({
+                ctx,
+                providerId: params.providerId,
+                fallbackOnError: false,
+            });
+            if (!providerAvailable)
+                return false;
+            const auth = await params.resolveAuth({ maxAgeMs: params.authCacheMaxAgeMs });
+            return auth.state === "configured" || auth.state === "invalid";
+        },
+        matchesCurrentModel: params.matchesCurrentModel,
+        async fetch(ctx) {
+            const diagnostics = await params.getAuthDiagnostics({ maxAgeMs: params.authCacheMaxAgeMs });
+            const authDetails = apiKeyStatusDetails(diagnostics);
+            const result = await params.queryQuota({ requestTimeoutMs: ctx.config?.requestTimeoutMs });
+            const providerResult = mapNullableProviderResult(result, {
+                errorLabel: params.errorLabel,
+                onSuccess: (quota) => attemptedResult(groupedPercentWindowEntries({
+                    group: quota.label,
+                    accounting: {
+                        resultType: "quota",
+                        acquisitionMethod: "remote_api",
+                        ownership: "maintained",
+                        authority: "provider_reported",
+                    },
+                    windows: [
+                        { window: quota.windows.fiveHour, suffix: "5h", label: "5h:" },
+                        { window: quota.windows.weekly, suffix: "Weekly", label: "Weekly:" },
+                        { window: quota.windows.mcp, suffix: "MCP", label: "MCP:" },
+                    ],
+                }), [], { singleWindowDisplayName: quota.label }),
+            });
+            const windows = result?.success ? result.windows : {};
+            const formatWindow = (window) => window
+                ? `${window.percentRemaining}% reset_at=${window.resetTimeIso ?? "(none)"}`
+                : undefined;
+            return withStatusDetails(providerResult, [
+                ...authDetails,
+                ...statusDetailsFromRecord({
+                    live_fetch_error: !result
+                        ? `${params.errorLabel} API key became unavailable before fetch`
+                        : result.success
+                            ? undefined
+                            : result.error,
+                    five_hour_remaining: formatWindow(windows.fiveHour),
+                    weekly_remaining: formatWindow(windows.weekly),
+                    mcp_remaining: formatWindow(windows.mcp),
+                    live_state: result?.success && !windows.fiveHour && !windows.weekly && !windows.mcp
+                        ? `no reportable ${params.errorLabel} quota windows`
+                        : undefined,
+                }),
+            ]);
+        },
+    };
+}
+//# sourceMappingURL=glm-coding-plan-provider.js.map

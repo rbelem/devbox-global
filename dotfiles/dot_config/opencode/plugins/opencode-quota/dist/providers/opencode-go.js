@@ -1,0 +1,97 @@
+import { queryOpenCodeGoQuota } from "../lib/opencode-go.js";
+import { DEFAULT_OPENCODE_GO_AUTH_CACHE_MAX_AGE_MS, getOpenCodeGoAuthDiagnostics, resolveOpenCodeGoAuthCached, } from "../lib/opencode-go-auth.js";
+import { normalizeQuotaProviderId } from "../lib/provider-metadata.js";
+import { attemptedErrorResult, attemptedResult, notAttemptedResult, statusDetailsFromRecord, withStatusDetails, } from "./result-helpers.js";
+const OPENCODE_GO_PROVIDER_LABEL = "OpenCode Go";
+const OPENCODE_GO_WINDOW_ORDER = ["rolling", "weekly", "monthly"];
+const OPENCODE_GO_WINDOW_LABELS = {
+    rolling: { name: `${OPENCODE_GO_PROVIDER_LABEL} 5h`, label: "5h:" },
+    weekly: { name: `${OPENCODE_GO_PROVIDER_LABEL} Weekly`, label: "Weekly:" },
+    monthly: { name: `${OPENCODE_GO_PROVIDER_LABEL} Monthly`, label: "Monthly:" },
+};
+function authStatusDetails(diagnostics) {
+    return statusDetailsFromRecord({
+        auth_state: diagnostics.state,
+        auth_source: diagnostics.source ?? "(none)",
+        auth_checked_paths: diagnostics.checkedPaths.join(" | ") || "(none)",
+        auth_paths: diagnostics.authPaths.join(" | ") || "(none)",
+        auth_error: diagnostics.state === "invalid" ? diagnostics.error : undefined,
+    });
+}
+function buildOpenCodeGoEntries(result, selectedWindows) {
+    const selected = new Set(selectedWindows);
+    const entries = [];
+    for (const window of OPENCODE_GO_WINDOW_ORDER) {
+        if (!selected.has(window))
+            continue;
+        const usage = result[window];
+        const labels = OPENCODE_GO_WINDOW_LABELS[window];
+        entries.push({
+            accounting: {
+                resultType: "quota",
+                acquisitionMethod: "remote_api",
+                ownership: "maintained",
+                authority: "provider_reported",
+            },
+            name: labels.name,
+            group: OPENCODE_GO_PROVIDER_LABEL,
+            label: labels.label,
+            percentRemaining: usage.percentRemaining,
+            resetTimeIso: usage.resetTimeIso,
+        });
+    }
+    return entries;
+}
+export const opencodeGoProvider = {
+    id: "opencode-go",
+    async isAvailable(_ctx) {
+        const auth = await resolveOpenCodeGoAuthCached({
+            maxAgeMs: DEFAULT_OPENCODE_GO_AUTH_CACHE_MAX_AGE_MS,
+        });
+        return auth.state === "configured";
+    },
+    matchesCurrentModel(model) {
+        const [provider] = model.toLowerCase().split("/", 2);
+        return normalizeQuotaProviderId(provider) === "opencode-go";
+    },
+    async fetch(ctx) {
+        const diagnostics = await getOpenCodeGoAuthDiagnostics({
+            maxAgeMs: DEFAULT_OPENCODE_GO_AUTH_CACHE_MAX_AGE_MS,
+        });
+        const windows = ctx.config.opencodeGoWindows ?? OPENCODE_GO_WINDOW_ORDER;
+        const statusDetails = [
+            ...authStatusDetails(diagnostics),
+            { key: "selected_windows", value: windows.join(",") },
+        ];
+        const auth = await resolveOpenCodeGoAuthCached({
+            maxAgeMs: DEFAULT_OPENCODE_GO_AUTH_CACHE_MAX_AGE_MS,
+        });
+        if (auth.state === "none") {
+            return withStatusDetails(notAttemptedResult(), statusDetails);
+        }
+        if (auth.state === "invalid") {
+            return withStatusDetails(attemptedErrorResult(OPENCODE_GO_PROVIDER_LABEL, auth.error), statusDetails);
+        }
+        const result = await queryOpenCodeGoQuota(auth.apiKey, {
+            requestTimeoutMs: ctx.config.requestTimeoutMs,
+        });
+        if (!result.success) {
+            return withStatusDetails(attemptedErrorResult(OPENCODE_GO_PROVIDER_LABEL, result.error), [
+                ...statusDetails,
+                { key: "live_fetch_error", value: result.error },
+            ]);
+        }
+        const liveDetails = OPENCODE_GO_WINDOW_ORDER.map((window) => {
+            const usage = result[window];
+            return {
+                key: `${window}_usage`,
+                value: `status=${usage.status} percent_used=${usage.usagePercent} percent_remaining=${usage.percentRemaining} reset_at=${usage.resetTimeIso}`,
+            };
+        });
+        return withStatusDetails(attemptedResult(buildOpenCodeGoEntries(result, windows)), [
+            ...statusDetails,
+            ...liveDetails,
+        ]);
+    },
+};
+//# sourceMappingURL=opencode-go.js.map

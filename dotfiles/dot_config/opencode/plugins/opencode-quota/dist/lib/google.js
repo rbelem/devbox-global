@@ -1,0 +1,541 @@
+/**
+ * Google Antigravity quota fetcher
+ *
+ * Uses OpenCode's antigravity-accounts.json at ~/.config/opencode/antigravity-accounts.json.
+ * Requires the user to have opencode-antigravity-auth installed and logged in.
+ */
+import { existsSync } from "fs";
+import { readFile } from "fs/promises";
+import { join } from "path";
+import { inspectAntigravityCompanionPresence, resolveAntigravityClientCredentials, } from "./google-antigravity-companion.js";
+import { getOpencodeRuntimeDirCandidates } from "./opencode-runtime-paths.js";
+// NOTE: Google Antigravity auth differs intentionally from Qwen:
+// - Qwen reads OpenCode auth.json key "qwen-code" first, then falls back to
+//   legacy key "opencode-qwencode-auth", and uses local quota state.
+// - Google refresh flow requires upstream OAuth client credentials from
+//   opencode-antigravity-auth to match that plugin's runtime behavior.
+import { getCachedAccessToken, makeAccountCacheKey, setCachedAccessToken, } from "./google-token-cache.js";
+import { fetchWithTimeout } from "./http.js";
+import { mapWithConcurrency } from "./map-with-concurrency.js";
+import { GOOGLE_MODEL_KEYS } from "./types.js";
+// =============================================================================
+// Constants
+// =============================================================================
+const GOOGLE_QUOTA_API_URL = "https://cloudcode-pa.googleapis.com/v1internal:fetchAvailableModels";
+const USER_AGENT = "antigravity/1.11.9 darwin/arm64";
+const GOOGLE_TOKEN_REFRESH_URL = "https://oauth2.googleapis.com/token";
+// Network timeouts tuned for reliability.
+const GOOGLE_TOKEN_TIMEOUT_MS = 8000;
+const GOOGLE_QUOTA_TIMEOUT_MS = 6000;
+// Multi-account fetching concurrency (reliability > speed).
+const GOOGLE_ACCOUNTS_CONCURRENCY = 3;
+function getCompanionQuotaError(state) {
+    return state === "missing"
+        ? "Google Antigravity requires the opencode-antigravity-auth plugin"
+        : "Installed opencode-antigravity-auth package is incompatible";
+}
+export function getAntigravityAccountsCandidatePaths() {
+    // Prefer OpenCode runtime dirs (xdg-basedir semantics), but include both
+    // config and data as candidates for compatibility with older variants.
+    const { configDirs, dataDirs } = getOpencodeRuntimeDirCandidates();
+    const candidates = [
+        ...configDirs.map((d) => join(d, "antigravity-accounts.json")),
+        ...dataDirs.map((d) => join(d, "antigravity-accounts.json")),
+    ];
+    // Unique + stable order.
+    return Array.from(new Set(candidates));
+}
+export function pickAntigravityAccountsPath() {
+    for (const p of getAntigravityAccountsCandidatePaths()) {
+        if (existsSync(p))
+            return p;
+    }
+    // Default to the first candidate for error/debug messaging.
+    return getAntigravityAccountsCandidatePaths()[0];
+}
+async function readAntigravityAccountsFile(path) {
+    try {
+        const content = await readFile(path, "utf-8");
+        const file = JSON.parse(content);
+        if (!Array.isArray(file.accounts)) {
+            return {
+                state: "invalid",
+                path,
+                error: "accounts file is missing an accounts array",
+            };
+        }
+        const validAccounts = file.accounts.filter((account) => typeof account.refreshToken === "string" && account.refreshToken.trim().length > 0);
+        return {
+            state: "present",
+            path,
+            file,
+            validAccounts,
+        };
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        return {
+            state: "invalid",
+            path,
+            error: message,
+        };
+    }
+}
+/**
+ * Read Antigravity accounts from storage
+ */
+export async function readAntigravityAccounts() {
+    for (const path of getAntigravityAccountsCandidatePaths()) {
+        if (!existsSync(path)) {
+            continue;
+        }
+        const result = await readAntigravityAccountsFile(path);
+        if (result.state === "invalid") {
+            continue;
+        }
+        if (result.file.accounts.length === 0) {
+            continue;
+        }
+        return result.validAccounts.length > 0 ? result.validAccounts : null;
+    }
+    return null;
+}
+export async function inspectAntigravityAccountsPresence() {
+    const candidatePaths = getAntigravityAccountsCandidatePaths();
+    const presentPaths = candidatePaths.filter((path) => existsSync(path));
+    if (presentPaths.length === 0) {
+        return {
+            state: "missing",
+            presentPaths,
+            candidatePaths,
+            accountCount: 0,
+            validAccountCount: 0,
+        };
+    }
+    let firstInvalid = null;
+    for (const path of presentPaths) {
+        const result = await readAntigravityAccountsFile(path);
+        if (result.state === "invalid") {
+            if (!firstInvalid) {
+                firstInvalid = { path: result.path, error: result.error };
+            }
+            continue;
+        }
+        if (result.file.accounts.length === 0) {
+            continue;
+        }
+        return {
+            state: "present",
+            selectedPath: result.path,
+            presentPaths,
+            candidatePaths,
+            accountCount: result.file.accounts.length,
+            validAccountCount: result.validAccounts.length,
+        };
+    }
+    return {
+        state: "invalid",
+        selectedPath: firstInvalid?.path,
+        presentPaths,
+        candidatePaths,
+        accountCount: 0,
+        validAccountCount: 0,
+        error: firstInvalid?.error,
+    };
+}
+export async function hasAntigravityAccountsConfigured() {
+    const presence = await inspectAntigravityAccountsPresence();
+    return presence.state === "present" && presence.validAccountCount > 0;
+}
+export async function hasAntigravityQuotaRuntimeAvailable() {
+    const [authPresence, companionPresence] = await Promise.all([
+        inspectAntigravityAccountsPresence(),
+        inspectAntigravityCompanionPresence(),
+    ]);
+    return (authPresence.state === "present" &&
+        authPresence.validAccountCount > 0 &&
+        companionPresence.state === "present");
+}
+/**
+ * Refresh Google access token
+ */
+async function refreshAccessToken(params) {
+    try {
+        const body = new URLSearchParams({
+            client_id: params.clientId,
+            client_secret: params.clientSecret,
+            refresh_token: params.refreshToken,
+            grant_type: "refresh_token",
+        });
+        return await fetchWithTimeout(GOOGLE_TOKEN_REFRESH_URL, {
+            request: {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body,
+            },
+            timeoutMs: params.timeoutMs ?? GOOGLE_TOKEN_TIMEOUT_MS,
+            consume: async (response, timeoutSignal) => {
+                if (!response.ok) {
+                    // Try to extract error code from response
+                    try {
+                        const errorData = (await response.json());
+                        if (errorData.error === "invalid_grant") {
+                            return { error: "Token revoked" };
+                        }
+                        return {
+                            error: errorData.error_description || `HTTP ${response.status}`,
+                        };
+                    }
+                    catch (error) {
+                        if (timeoutSignal.aborted)
+                            throw error;
+                        return { error: `HTTP ${response.status}` };
+                    }
+                }
+                const data = (await response.json());
+                return {
+                    accessToken: data.access_token,
+                    expiresIn: data.expires_in,
+                };
+            },
+        });
+    }
+    catch (err) {
+        if (err instanceof Error && err.message.includes("timeout")) {
+            return { error: "Token refresh timeout" };
+        }
+        return { error: "Token refresh failed" };
+    }
+}
+async function refreshAccessTokenWithCache(params) {
+    const skewMs = params.skewMs ?? 2 * 60_000;
+    const key = makeAccountCacheKey({
+        refreshToken: params.refreshToken,
+        projectId: params.projectId,
+        email: params.email,
+    });
+    if (!params.force) {
+        const cached = await getCachedAccessToken({ key, skewMs });
+        if (cached)
+            return { accessToken: cached.accessToken };
+    }
+    const refreshed = await refreshAccessToken({
+        refreshToken: params.refreshToken,
+        clientId: params.credentials.clientId,
+        clientSecret: params.credentials.clientSecret,
+        timeoutMs: params.timeoutMs,
+    });
+    if ("error" in refreshed)
+        return refreshed;
+    await setCachedAccessToken({
+        key,
+        entry: {
+            accessToken: refreshed.accessToken,
+            expiresAt: Date.now() + Math.max(1, refreshed.expiresIn) * 1000,
+            projectId: params.projectId,
+            email: params.email,
+        },
+    });
+    return { accessToken: refreshed.accessToken };
+}
+export async function refreshGoogleTokensForAllAccounts(params) {
+    const accounts = await readAntigravityAccounts();
+    if (!accounts || accounts.length === 0)
+        return null;
+    const valid = accounts.filter((a) => !!a.refreshToken);
+    if (valid.length === 0)
+        return null;
+    const credentials = await resolveAntigravityClientCredentials();
+    if (credentials.state !== "configured") {
+        const error = getCompanionQuotaError(credentials.state);
+        return {
+            total: valid.length,
+            successCount: 0,
+            failures: valid.map((account) => ({
+                email: account.email,
+                error,
+            })),
+        };
+    }
+    const results = await mapWithConcurrency(valid, GOOGLE_ACCOUNTS_CONCURRENCY, async (account) => {
+        const email = account.email;
+        const projectId = getProjectId(account);
+        if (!projectId)
+            return { ok: false, email, error: "No projectId" };
+        const token = await refreshAccessTokenWithCache({
+            refreshToken: account.refreshToken,
+            projectId,
+            email,
+            skewMs: params?.skewMs,
+            force: params?.force,
+            credentials,
+        });
+        if ("error" in token)
+            return { ok: false, email, error: token.error };
+        return { ok: true, email };
+    });
+    const failures = results.filter((r) => !r.ok).map((r) => ({ email: r.email, error: r.error }));
+    const successCount = results.filter((r) => r.ok).length;
+    return {
+        total: valid.length,
+        successCount,
+        failures,
+    };
+}
+/**
+ * Fetch quota from Google API
+ */
+async function fetchGoogleQuota(accessToken, projectId, timeoutMs = GOOGLE_QUOTA_TIMEOUT_MS) {
+    return await fetchWithTimeout(GOOGLE_QUOTA_API_URL, {
+        request: {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`,
+                "User-Agent": USER_AGENT,
+            },
+            body: JSON.stringify({ project: projectId }),
+        },
+        timeoutMs,
+        consume: async (response) => {
+            if (!response.ok) {
+                if (response.status === 401 || response.status === 403) {
+                    throw new Error(`Google API auth error: ${response.status}`);
+                }
+                throw new Error(`Google API error: ${response.status}`);
+            }
+            return (await response.json());
+        },
+    });
+}
+function getModelKeyAliases(modelConfig) {
+    return [
+        modelConfig.key,
+        ...(modelConfig.altKey
+            ?.split("|")
+            .map((key) => key.trim())
+            .filter(Boolean) ?? []),
+    ];
+}
+/**
+ * Map configured models to the companion plugin's persisted rate-limit keys.
+ */
+function getRateLimitResetKeys(modelConfig) {
+    if (modelConfig.key.includes("claude"))
+        return ["claude"];
+    // This provider reports Antigravity quota only; Gemini CLI quota is handled separately.
+    return [
+        "gemini",
+        "gemini-antigravity",
+        ...getModelKeyAliases(modelConfig).map((key) => `gemini-antigravity:${key}`),
+    ];
+}
+function getActiveRateLimitResetTime(account, modelConfig) {
+    const resetTimes = account.rateLimitResetTimes;
+    if (!resetTimes)
+        return undefined;
+    const now = Date.now();
+    let activeResetTime;
+    for (const key of getRateLimitResetKeys(modelConfig)) {
+        const resetTime = resetTimes[key];
+        if (typeof resetTime !== "number" || resetTime <= now)
+            continue;
+        activeResetTime =
+            activeResetTime === undefined ? resetTime : Math.max(activeResetTime, resetTime);
+    }
+    return activeResetTime;
+}
+/**
+ * Extract model quotas from API response
+ */
+function extractModelQuotas(data, modelIds, account) {
+    const quotas = [];
+    const accountEmail = account.email || "Unknown";
+    for (const modelId of modelIds) {
+        const modelConfig = GOOGLE_MODEL_KEYS[modelId];
+        if (!modelConfig)
+            continue;
+        let modelInfo = data.models[modelConfig.key];
+        // Try alternate keys (pipe-separated) if primary not found
+        if (!modelInfo && modelConfig.altKey) {
+            const altKeys = modelConfig.altKey.split("|");
+            for (const altKey of altKeys) {
+                modelInfo = data.models[altKey.trim()];
+                if (modelInfo)
+                    break;
+            }
+        }
+        const activeResetTime = getActiveRateLimitResetTime(account, modelConfig);
+        if (modelInfo) {
+            let remainingFraction = modelInfo.quotaInfo?.remainingFraction ?? 0;
+            let resetTimeIso = modelInfo.quotaInfo?.resetTime;
+            if (activeResetTime) {
+                remainingFraction = 0;
+                resetTimeIso = new Date(activeResetTime).toISOString();
+            }
+            quotas.push({
+                modelId,
+                displayName: modelConfig.display,
+                percentRemaining: Math.round(remainingFraction * 100),
+                resetTimeIso,
+                accountEmail,
+            });
+        }
+        else if (activeResetTime) {
+            quotas.push({
+                modelId,
+                displayName: modelConfig.display,
+                percentRemaining: 0,
+                resetTimeIso: new Date(activeResetTime).toISOString(),
+                accountEmail,
+            });
+        }
+    }
+    return quotas;
+}
+/**
+ * Fetch quota for a single account
+ */
+function getProjectId(account) {
+    return (account.managedProjectId ||
+        account.quotaProjectId ||
+        account.projectId ||
+        account.projectID);
+}
+// NOTE: This plugin treats Google Antigravity as truly multi-account.
+// Each account gets its own access token derived from its refresh token.
+async function fetchAccountQuotaWithAntigravityRefresh(params) {
+    const email = params.account.email || "Unknown";
+    const projectId = getProjectId(params.account);
+    if (!projectId) {
+        return { success: false, error: "No projectId", accountEmail: email };
+    }
+    try {
+        const tokenResult = await refreshAccessTokenWithCache({
+            refreshToken: params.account.refreshToken,
+            projectId,
+            email,
+            credentials: params.credentials,
+            timeoutMs: params.timeoutMs,
+        });
+        if ("error" in tokenResult)
+            return { success: false, error: tokenResult.error, accountEmail: email };
+        let data;
+        try {
+            data = await fetchGoogleQuota(tokenResult.accessToken, projectId, params.timeoutMs);
+        }
+        catch (err) {
+            // One auth retry: refresh token then retry quota call.
+            if (err instanceof Error && err.message.includes("auth error")) {
+                const retryToken = await refreshAccessToken({
+                    refreshToken: params.account.refreshToken,
+                    clientId: params.credentials.clientId,
+                    clientSecret: params.credentials.clientSecret,
+                    timeoutMs: params.timeoutMs,
+                });
+                if ("error" in retryToken) {
+                    return { success: false, error: retryToken.error, accountEmail: email };
+                }
+                await setCachedAccessToken({
+                    key: makeAccountCacheKey({ refreshToken: params.account.refreshToken, projectId, email }),
+                    entry: {
+                        accessToken: retryToken.accessToken,
+                        expiresAt: Date.now() + Math.max(1, retryToken.expiresIn) * 1000,
+                        projectId,
+                        email,
+                    },
+                });
+                data = await fetchGoogleQuota(retryToken.accessToken, projectId, params.timeoutMs);
+            }
+            else {
+                throw err;
+            }
+        }
+        const models = extractModelQuotas(data, params.modelIds, params.account);
+        return { success: true, models, accountEmail: email };
+    }
+    catch (err) {
+        if (err instanceof Error && err.message.includes("timeout")) {
+            return { success: false, error: "API timeout", accountEmail: email };
+        }
+        return {
+            success: false,
+            error: err instanceof Error ? err.message : String(err),
+            accountEmail: email,
+        };
+    }
+}
+// =============================================================================
+// Export
+// =============================================================================
+/**
+ * Query Google Antigravity quota for ALL accounts
+ *
+ * Reads accounts from ~/.config/opencode/antigravity-accounts.json.
+ * Refreshes access tokens and fetches quota for all accounts in parallel.
+ *
+ * @param modelIds - Model IDs to fetch quota for
+ * @returns Quota result with all models and any errors, or null if not configured
+ */
+export async function queryGoogleQuota(modelIds, options = {}) {
+    const accounts = await readAntigravityAccounts();
+    if (!accounts || accounts.length === 0) {
+        return null;
+    }
+    const credentials = await resolveAntigravityClientCredentials();
+    if (credentials.state !== "configured") {
+        return {
+            success: false,
+            error: getCompanionQuotaError(credentials.state),
+        };
+    }
+    // Query accounts with bounded concurrency (reliability > speed).
+    const results = await mapWithConcurrency(accounts, GOOGLE_ACCOUNTS_CONCURRENCY, async (account) => fetchAccountQuotaWithAntigravityRefresh({
+        account,
+        modelIds,
+        credentials,
+        timeoutMs: options.requestTimeoutMs,
+    }));
+    // Collect all successful models and errors
+    const allModels = [];
+    const errors = [];
+    for (const result of results) {
+        if (result.success && result.models && result.models.length > 0) {
+            allModels.push(...result.models);
+        }
+        else if (!result.success && result.error && result.accountEmail) {
+            errors.push({ email: result.accountEmail, error: result.error });
+        }
+    }
+    // Return combined result
+    if (allModels.length === 0 && errors.length === 0) {
+        return {
+            success: false,
+            error: "No quota data available",
+        };
+    }
+    return {
+        success: true,
+        models: allModels,
+        errors: errors.length > 0 ? errors : undefined,
+    };
+}
+/**
+ * Format Google quota for toast display
+ *
+ * @param result - Google quota result
+ * @returns Formatted string like "G3Pro 100% * G3Flash 100% * Claude 0%" or null
+ */
+export function formatGoogleQuota(result) {
+    if (!result) {
+        return null;
+    }
+    if (!result.success) {
+        return null;
+    }
+    if (result.models.length === 0) {
+        return null;
+    }
+    return result.models.map((m) => `${m.displayName} ${m.percentRemaining}%`).join(" \u2022 ");
+}
+//# sourceMappingURL=google.js.map

@@ -1,0 +1,304 @@
+import { resolve } from "path";
+import { hasAnthropicCredentialsConfigured } from "./anthropic.js";
+import { findGitWorktreeRoot, getEffectiveConfigRoot } from "./config-file-utils.js";
+import { sanitizeQuotaRenderData } from "./display-sanitize.js";
+import { formatQuotaRows } from "./format.js";
+import { DEFAULT_KIMI_AUTH_CACHE_MAX_AGE_MS, resolveKimiAuthCached } from "./kimi-auth.js";
+import { loadConfiguredOpenCodeConfig, loadConfiguredProviderIds, } from "./opencode-config-providers.js";
+import { getQuotaProviderShape } from "./provider-metadata.js";
+import { buildQuotaExport, createExportProviderContext } from "./quota-export.js";
+import { resolveQuotaFormatStyle } from "./quota-format-style.js";
+import { collectQuotaRenderData } from "./quota-render-data.js";
+import { createQuotaRuntimeRequestContext, resolveQuotaRuntimeContext, } from "./quota-runtime-context.js";
+import { getPackageVersion } from "./version.js";
+const SHOW_USAGE = [
+    "Usage:",
+    "  npx @slkiser/opencode-quota show [--provider <provider-id>] [--json] [--threshold <pct>]",
+    "",
+    "Options:",
+    "  --provider <provider-id>  Show quota for one provider",
+    "  --json                    Machine-readable JSON output (reads from cache)",
+    "  --threshold <pct>         With --json, exit 1 if any complete cached percentage is below",
+    "                            <pct>% remaining (exit 2 if data is incomplete or not comparable)",
+    "  --help, -h                Show help",
+].join("\n");
+function parseShowArgs(argv) {
+    let providerId;
+    let json = false;
+    let threshold;
+    for (let index = 0; index < argv.length; index++) {
+        const arg = argv[index];
+        if (arg === "--help" || arg === "-h") {
+            return { ok: true, help: true, json: false };
+        }
+        if (arg === "--json") {
+            json = true;
+            continue;
+        }
+        if (arg === "--threshold" || arg.startsWith("--threshold=")) {
+            let value;
+            if (arg === "--threshold") {
+                value = argv[index + 1];
+                if (!value || value.startsWith("-")) {
+                    return { ok: false, error: "Missing value for --threshold." };
+                }
+                index += 1;
+            }
+            else {
+                value = arg.slice("--threshold=".length).trim();
+                if (!value) {
+                    return { ok: false, error: "Missing value for --threshold." };
+                }
+            }
+            const num = Number(value);
+            if (!Number.isFinite(num) || num <= 0) {
+                return { ok: false, error: "--threshold must be a positive finite number." };
+            }
+            threshold = num;
+            continue;
+        }
+        if (arg === "--provider") {
+            const value = argv[index + 1];
+            if (!value || value.startsWith("-")) {
+                return { ok: false, error: "Missing value for --provider." };
+            }
+            if (providerId) {
+                return { ok: false, error: "Specify --provider only once." };
+            }
+            providerId = value;
+            index += 1;
+            continue;
+        }
+        if (arg.startsWith("--provider=")) {
+            const value = arg.slice("--provider=".length).trim();
+            if (!value) {
+                return { ok: false, error: "Missing value for --provider." };
+            }
+            if (providerId) {
+                return { ok: false, error: "Specify --provider only once." };
+            }
+            providerId = value;
+            continue;
+        }
+        if (arg.startsWith("-")) {
+            return { ok: false, error: `Unknown option: ${arg}` };
+        }
+        return { ok: false, error: `Unexpected argument: ${arg}` };
+    }
+    if (threshold !== undefined && !json) {
+        return { ok: false, error: "--threshold requires --json." };
+    }
+    return { ok: true, providerId, help: false, json, threshold };
+}
+function cloneCliConfig(config) {
+    return {
+        ...config,
+        enabledProviders: Array.isArray(config.enabledProviders)
+            ? [...config.enabledProviders]
+            : config.enabledProviders,
+        googleModels: [...config.googleModels],
+        opencodeGoWindows: [...config.opencodeGoWindows],
+        pricingSnapshot: { ...config.pricingSnapshot },
+        layout: { ...config.layout },
+        showSessionTokens: false,
+    };
+}
+export function resolveCliRoots(cwd) {
+    const fallbackDirectory = resolve(cwd);
+    const worktreeRoot = findGitWorktreeRoot(fallbackDirectory) ?? fallbackDirectory;
+    const configRoot = getEffectiveConfigRoot(worktreeRoot);
+    return {
+        workspaceRoot: worktreeRoot,
+        configRoot,
+        fallbackDirectory,
+    };
+}
+function isRecord(value) {
+    return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+async function loadCliAuthenticatedProviderIds(config) {
+    const experimental = isRecord(config.experimental) ? config.experimental : undefined;
+    const quotaToast = isRecord(experimental?.quotaToast) ? experimental.quotaToast : undefined;
+    const anthropicBinaryPath = typeof quotaToast?.anthropicBinaryPath === "string"
+        ? quotaToast.anthropicBinaryPath
+        : undefined;
+    const [anthropicConfigured, kimiAuth] = await Promise.all([
+        hasAnthropicCredentialsConfigured({ binaryPath: anthropicBinaryPath }),
+        resolveKimiAuthCached({ maxAgeMs: DEFAULT_KIMI_AUTH_CACHE_MAX_AGE_MS }),
+    ]);
+    return [
+        ...(anthropicConfigured ? ["anthropic"] : []),
+        ...(kimiAuth.state === "configured" ? ["kimi-for-coding"] : []),
+    ];
+}
+export function createCliQuotaClient(params) {
+    let configPromise;
+    let providerIdsPromise;
+    return {
+        config: {
+            get: async () => {
+                configPromise ??= loadConfiguredOpenCodeConfig({
+                    configRootDir: params.configRootDir,
+                });
+                return {
+                    data: (await configPromise),
+                };
+            },
+            providers: async () => {
+                providerIdsPromise ??= (async () => {
+                    configPromise ??= loadConfiguredOpenCodeConfig({
+                        configRootDir: params.configRootDir,
+                    });
+                    const [configuredIds, authenticatedIds] = await Promise.all([
+                        loadConfiguredProviderIds({ configRootDir: params.configRootDir }),
+                        configPromise.then(loadCliAuthenticatedProviderIds),
+                    ]);
+                    return [...new Set([...configuredIds, ...authenticatedIds])];
+                })();
+                const ids = await providerIdsPromise;
+                return {
+                    data: {
+                        providers: ids.map((id) => ({ id })),
+                    },
+                };
+            },
+        },
+    };
+}
+function writeLine(stream, message) {
+    stream.write(message.endsWith("\n") ? message : `${message}\n`);
+}
+async function runCliShowJsonOutput(params) {
+    const { runtime, providerId, threshold, stdout } = params;
+    const config = cloneCliConfig(runtime.config);
+    if (providerId) {
+        config.enabledProviders = [providerId];
+    }
+    const allProviders = runtime.providers.filter((p) => {
+        if (config.enabledProviders === "auto")
+            return true;
+        return config.enabledProviders.includes(p.id);
+    });
+    // Read cached quota through the shared export context so the cache key
+    // matches the one the TUI background writer used. Without this, a user with
+    // onlyCurrentModel:true would compute a different key and every provider
+    // would read back as "unavailable".
+    const ctx = createExportProviderContext(runtime);
+    const exportData = await buildQuotaExport({
+        providers: allProviders,
+        ctx,
+        ttlMs: config.minIntervalMs,
+        fromCache: true,
+    });
+    writeLine(stdout, JSON.stringify(exportData, null, 2));
+    if (threshold !== undefined) {
+        const providerResults = Object.values(exportData.providers);
+        if (providerResults.some((provider) => provider.status !== "ok")) {
+            return 2;
+        }
+        const okProviders = providerResults.filter((p) => p.status === "ok");
+        if (okProviders.length === 0) {
+            // No cached quota to compare against: distinct from "below threshold" (1).
+            return 2;
+        }
+        let hasComparablePercent = false;
+        for (const provider of okProviders) {
+            const percents = provider.entries
+                .filter((entry) => entry.renderType === "percent")
+                .map((entry) => entry.percentRemaining);
+            if (percents.length === 0)
+                continue;
+            hasComparablePercent = true;
+            const minPercent = Math.min(...percents);
+            if (minPercent < threshold) {
+                return 1;
+            }
+        }
+        if (!hasComparablePercent) {
+            return 2;
+        }
+    }
+    return 0;
+}
+export async function runCliShowCommand(options = {}) {
+    const argv = options.argv ?? process.argv.slice(3);
+    const stdout = options.stdout ?? process.stdout;
+    const stderr = options.stderr ?? process.stderr;
+    const parsed = parseShowArgs(argv);
+    if (!parsed.ok) {
+        writeLine(stderr, parsed.error);
+        writeLine(stderr, SHOW_USAGE);
+        return 1;
+    }
+    if (parsed.help) {
+        writeLine(stdout, SHOW_USAGE);
+        return 0;
+    }
+    const providerId = parsed.providerId ? getQuotaProviderShape(parsed.providerId)?.id : undefined;
+    if (parsed.providerId && !providerId) {
+        writeLine(stderr, `Unknown provider: ${parsed.providerId}`);
+        return 1;
+    }
+    try {
+        const roots = resolveCliRoots(options.cwd ?? process.cwd());
+        const client = createCliQuotaClient({ configRootDir: roots.configRoot });
+        const runtime = await resolveQuotaRuntimeContext({
+            client,
+            roots,
+            includeSessionMeta: false,
+        });
+        if (!runtime.config.enabled) {
+            writeLine(stderr, "Quota disabled in config (enabled: false).");
+            return 1;
+        }
+        if (parsed.json) {
+            return runCliShowJsonOutput({
+                runtime,
+                providerId,
+                threshold: parsed.threshold,
+                stdout,
+            });
+        }
+        const config = cloneCliConfig(runtime.config);
+        if (providerId) {
+            config.enabledProviders = [providerId];
+        }
+        const result = await collectQuotaRenderData({
+            client: runtime.client,
+            resolveRuntimeProviderIds: runtime.resolveRuntimeProviderIds,
+            config,
+            configMeta: runtime.configMeta,
+            request: createQuotaRuntimeRequestContext(runtime),
+            surfaceExplicitProviderIssues: true,
+            formatStyle: resolveQuotaFormatStyle(config.formatStyle),
+            providers: runtime.providers,
+        });
+        if (!result.data) {
+            writeLine(stderr, "No provider data available.");
+            return 1;
+        }
+        const data = sanitizeQuotaRenderData(result.data);
+        const version = (await getPackageVersion()) ?? "";
+        const output = formatQuotaRows({
+            version,
+            layout: config.layout,
+            entries: data.entries,
+            errors: data.errors,
+            style: resolveQuotaFormatStyle(config.formatStyle),
+            percentDisplayMode: config.percentDisplayMode,
+            resetTimeDecimals: config.resetTimeDecimals,
+        });
+        if (!output.trim()) {
+            writeLine(stderr, "No provider data available.");
+            return 1;
+        }
+        writeLine(stdout, output);
+        return data.entries.length > 0 ? 0 : 1;
+    }
+    catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        writeLine(stderr, `Failed to show quota: ${message}`);
+        return 1;
+    }
+}
+//# sourceMappingURL=cli-show.js.map
