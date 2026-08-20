@@ -1,0 +1,14 @@
+{
+  "name": "llm-verifier",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./server": "./index.ts"
+  },
+  "dependencies": {
+    "@opencode-ai/client": "*",
+    "@opencode-ai/plugin": "*"
+  }
+}

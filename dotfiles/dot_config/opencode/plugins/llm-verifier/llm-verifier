@@ -1,0 +1,256 @@
+#!/usr/bin/env python3
+"""llm-verifier — thin CLI over the llm_verifier library (LLM-as-a-Verifier).
+
+Wraps llm_verifier for the opencode `llm-verifier` plugin and for manual /
+scripted use. llm_verifier is a library (no binary), so this is the CLI face.
+
+Ships inside the plugin bundle: dotfiles/dot_config/opencode/plugins/
+llm-verifier/llm-verifier. Standalone: when run under a python that cannot
+import llm_verifier, it re-executes itself inside `devbox global run python`
+(which sets the devbox PYTHONPATH). No shim required.
+
+Backend is env-driven, same as create_client(): OPENAI_BASE_URL (+
+OPENAI_API_KEY or DEEPSEEK_API_KEY), else DEEPSEEK_API_KEY, else
+VERTEX_API_KEY. The backend must return token-level logprobs (e.g. a vLLM
+server, DeepSeek, or Vertex Gemini).
+
+All output is JSON on stdout. Exit codes: 0 ok, 1 runtime error (JSON
+{"error": ...}), 2 usage error.
+
+Subcommands:
+  progress  — score one trajectory's progress (0..1) at its checkpoints.
+               Does not need --criteria (the progress prompt is fixed).
+  select    — best-of-N selection over N candidate trajectories. Needs
+               --criteria (bench name, .md path, or inline JSON dict).
+  compare   — raw pairwise reward (R_a, R_b) in [0, 1]. Needs --criteria.
+
+Trajectory file format (progress): JSONL, one JSON string per line, each
+line one agent step (action + observed output). Plain lines are accepted as
+a fallback (one line = one step). For select, each --candidates file holds
+the steps of one candidate (same JSONL format) or a single plain-text
+trajectory; the steps are joined into one trajectory string.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+
+try:
+    import llm_verifier
+except ImportError:
+    # Standalone execution: re-exec under `devbox global run python`, which
+    # sets the PYTHONPATH making llm_verifier (and openai/google-genai/tqdm)
+    # importable. Guarded against infinite re-exec loops.
+    import os
+
+    if os.environ.get("LLM_VERIFIER_REEXEC"):
+        raise SystemExit(
+            "llm_verifier not importable even under `devbox global run python` "
+            "(devbox PYTHONPATH broken?)"
+        )
+    os.environ["LLM_VERIFIER_REEXEC"] = "1"
+    try:
+        os.execvp(
+            "devbox",
+            ["devbox", "global", "run", "python", "--",
+             os.path.abspath(__file__)] + sys.argv[1:],
+        )
+    except OSError:
+        raise SystemExit(
+            "llm_verifier not importable by this python and `devbox` is not "
+            "on PATH; run `devbox global run python -- <this-file>`"
+        ) from None
+
+
+def emit(obj: dict, code: int = 0) -> None:
+    json.dump(obj, sys.stdout)
+    sys.stdout.write("\n")
+    sys.stdout.flush()
+    sys.exit(code)
+
+
+def fail(message: str, code: int = 2) -> None:
+    emit({"error": message}, code=code)
+
+
+def _read(path: str) -> str:
+    if path == "-":
+        return sys.stdin.read()
+    with open(path, encoding="utf-8") as f:
+        return f.read()
+
+
+def read_steps(path: str) -> list[str]:
+    """JSONL of step strings; falls back to one plain line = one step."""
+    data = _read(path)
+    if not data.strip():
+        return []
+    try:
+        entries = [json.loads(line) for line in data.splitlines()]
+        if all(isinstance(x, str) for x in entries):
+            return [x for x in entries]
+        return entries
+    except json.JSONDecodeError:
+        return [line for line in data.splitlines() if line.strip()]
+
+
+def candidate_text(path: str) -> str:
+    """One candidate trajectory: JSONL-of-steps joined, or whole-file text."""
+    data = _read(path).strip()
+    if not data:
+        return ""
+    try:
+        entries = [json.loads(line) for line in data.splitlines()]
+        if all(isinstance(x, str) for x in entries):
+            return "\n\n".join(entries)
+    except json.JSONDecodeError:
+        pass
+    return data
+
+
+def parse_criteria(value: str):
+    value = value.strip()
+    if value.startswith("{"):
+        try:
+            return json.loads(value)
+        except json.JSONDecodeError:
+            fail(f"invalid inline criteria JSON: {value}")
+    return value
+
+
+def cmd_progress(args: argparse.Namespace) -> None:
+    steps = read_steps(args.trajectory)
+    if not steps:
+        fail("trajectory is empty")
+    checkpoints = None
+    if args.checkpoints:
+        try:
+            checkpoints = [int(x) for x in args.checkpoints.split(",")]
+        except ValueError:
+            fail(f"invalid --checkpoints: {args.checkpoints}")
+        if any(c < 1 for c in checkpoints):
+            fail("--checkpoints are 1-indexed and must be >= 1")
+    kw = {"n_evaluations": args.evals}
+    if args.model:
+        kw["model"] = args.model
+    try:
+        res = llm_verifier.track(
+            args.problem, steps, checkpoint_steps=checkpoints, **kw
+        )
+    except Exception as e:  # MissingAPIKeyError, provider errors, ...
+        emit({"error": f"{type(e).__name__}: {e}"}, code=1)
+    emit({"steps": res.steps, "scores": res.scores, "final": res.final})
+
+
+def cmd_select(args: argparse.Namespace) -> None:
+    candidates = []
+    for path in args.candidates.split(","):
+        text = candidate_text(path.strip())
+        if text:
+            candidates.append(text)
+    if len(candidates) < 2:
+        fail(
+            "select needs >= 2 non-empty candidate trajectories "
+            f"(got {len(candidates)})"
+        )
+    kw = {"n_evaluations": args.evals, "pivots": args.pivots}
+    if args.model:
+        kw["model"] = args.model
+    try:
+        res = llm_verifier.select(
+            args.problem, candidates, criteria=parse_criteria(args.criteria), **kw
+        )
+    except Exception as e:
+        emit({"error": f"{type(e).__name__}: {e}"}, code=1)
+    emit(
+        {
+            "index": res.index,
+            "best": res.best,
+            "scores": res.scores,
+            "ranking": res.ranking,
+            "n_comparisons": res.n_comparisons,
+            "criteria": res.criteria,
+        }
+    )
+
+
+def cmd_compare(args: argparse.Namespace) -> None:
+    a, b = candidate_text(args.trace_a), candidate_text(args.trace_b)
+    if not a or not b:
+        fail("both traces must be non-empty")
+    kw = {"n_evaluations": args.evals}
+    if args.model:
+        kw["model"] = args.model
+    try:
+        ra, rb = llm_verifier.compare(
+            args.problem, a, b, criteria=parse_criteria(args.criteria), **kw
+        )
+    except Exception as e:
+        emit({"error": f"{type(e).__name__}: {e}"}, code=1)
+    emit({"score_a": ra, "score_b": rb})
+
+
+def add_common(p: argparse.ArgumentParser) -> None:
+    p.add_argument(
+        "--evals", type=int, default=2, help="verifier repeats K (default 2)"
+    )
+    p.add_argument(
+        "--model",
+        default=None,
+        help="verifier model name (default: library default, backend-dependent)",
+    )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        prog="llm-verify",
+        description="Thin CLI over llm_verifier (LLM-as-a-Verifier). "
+        "Output is JSON on stdout.",
+    )
+    sub = parser.add_subparsers(dest="cmd", required=True)
+
+    p = sub.add_parser("progress", help="score trajectory progress 0..1")
+    add_common(p)
+    p.add_argument("--problem", required=True, help="task instruction")
+    p.add_argument(
+        "--trajectory", required=True, help="JSONL of steps, or '-' for stdin"
+    )
+    p.add_argument(
+        "--checkpoints",
+        default=None,
+        help="comma-separated 1-indexed step numbers to score",
+    )
+    p.set_defaults(func=cmd_progress)
+
+    p = sub.add_parser("select", help="best-of-N over candidate trajectories")
+    add_common(p)
+    p.add_argument("--problem", required=True)
+    p.add_argument(
+        "--candidates",
+        required=True,
+        help="comma-separated trajectory files (JSONL of steps)",
+    )
+    p.add_argument(
+        "--criteria",
+        required=True,
+        help="bench name, criteria .md path, or inline JSON dict",
+    )
+    p.add_argument("--pivots", type=int, default=2)
+    p.set_defaults(func=cmd_select)
+
+    p = sub.add_parser("compare", help="raw pairwise reward")
+    add_common(p)
+    p.add_argument("--problem", required=True)
+    p.add_argument("--trace-a", required=True)
+    p.add_argument("--trace-b", required=True)
+    p.add_argument("--criteria", required=True)
+    p.set_defaults(func=cmd_compare)
+
+    args = parser.parse_args()
+    args.func(args)
+
+
+if __name__ == "__main__":
+    main()
