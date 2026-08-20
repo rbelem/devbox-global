@@ -21,7 +21,7 @@
       #   2. nix build "path:devbox.d/deepseek-harness#default"
       #   3. paste the sha256-... values from the error messages
       srcHash = "sha256-ZPGCNoPXVjP76Tm/tFPDX2X95cd83M4iHLmVP5dR+Ps=";
-      pnpmDepsHash = "sha256-n+OEGIARh1l0gM0Jz1iK0y5pqlWJGZGLAtMsambYG7k=";
+      pnpmDepsHash = "sha256-aySHq0ywTMM5q7YuGHZrV3yQE3bwppgGfWH3wRnHCXk=";
     in
     {
       packages = forAllSystems (system:
