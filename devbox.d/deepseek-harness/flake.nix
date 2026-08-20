@@ -21,7 +21,7 @@
       #   2. nix build "path:devbox.d/deepseek-harness#default"
       #   3. paste the sha256-... values from the error messages
       srcHash = "sha256-ZPGCNoPXVjP76Tm/tFPDX2X95cd83M4iHLmVP5dR+Ps=";
-      pnpmDepsHash = "sha256-aySHq0ywTMM5q7YuGHZrV3yQE3bwppgGfWH3wRnHCXk=";
+      pnpmDepsHash = "sha256-n+OEGIARh1l0gM0Jz1iK0y5pqlWJGZGLAtMsambYG7k=";
     in
     {
       packages = forAllSystems (system:
@@ -176,6 +176,22 @@
                     os.makedirs(os.path.dirname(link), exist_ok=True)
                     os.symlink(os.path.relpath(dirpath, os.path.dirname(link)), link)
             PYEOF
+
+              # Remove symlinks to unresolvable optional platform binary deps
+              # before fixupPhase's noBrokenSymlinks check (they are runtime-
+              # optional — the harness spawns them lazily per provider). pnpm
+              # links @openai/codex-linux-x64 even though that package has NO
+              # versions on the npm registry (upstream declares it but never
+              # publishes it), and under offline fetch it also skips the glibc
+              # @anthropic-ai/claude-agent-sdk-linux-x64 while pulling the
+              # musl/arm64 siblings, so both land as dangling links whose
+              # targets were never extracted. Match them by -name (each is the
+              # only symlink of that name in the tree) instead of an -L deref
+              # walk, which crawls this ~100k-link virtual store for minutes.
+              # Any other dangling link still trips noBrokenSymlinks loudly.
+              find "$out/lib/dsh/node_modules" -type l \
+                \( -name 'codex-linux-x64' -o -name 'claude-agent-sdk-linux-x64' \) \
+                -print -delete | sed 's#^#  removed platform dep link: #'
 
               mkdir -p $out/bin
               makeWrapper ${finalAttrs.nodejs}/bin/node \

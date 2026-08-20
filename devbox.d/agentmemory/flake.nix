@@ -15,7 +15,7 @@
       #   1. Set npmDepsHash to lib.fakeHash
       #   2. Run: nix build "path:...#default"
       #   3. Replace with the hash from the error message
-      npmDepsHash = "sha256-FyZsLmtKdFGbxk7jAlGNIswkIXQ0tGz5LAC0Bio5vqE=";
+      npmDepsHash = "sha256-xrexGxMROgXfrV8LKfkbCB7ixEnIZZKWvSXNgO0Z1dw=";
 
       # ── iii-engine runtime ───────────────────────────────────────
       # Pre-built Rust binary from GitHub releases. Downloaded here
