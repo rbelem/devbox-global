@@ -1,5 +1,5 @@
 {
-  description = "Bun canary (latest main-branch build, x64 baseline for VirtualBox compat)";
+  description = "Bun (latest release, x64 baseline for VirtualBox compat)";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -10,13 +10,13 @@
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      # Bun's CI publishes canary builds (latest main-branch HEAD) as
-      # pre-compiled zips at this URL. The "baseline" variant targets
-      # Nehalem (2008) ISA — no AVX/AVX2 — which is what we want for
-      # VirtualBox / older CPU compatibility. Bump the hash with:
-      #   nix-prefetch-url https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline.zip
-      canaryUrl = "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline.zip";
-      canarySha256 = "sha256-3toIdoCA26XenRD6J7KFrhtffoP1J3QrQNV6rUoYvso=";
+      version = "1.4.0";
+
+      # Bun publishes pre-compiled release zips at this URL. The
+      # "baseline" variant targets Nehalem (2008) ISA — no AVX/AVX2 —
+      # which is what we want for VirtualBox / older CPU compatibility.
+      # Pin the hash with: nix-prefetch-url <releaseUrl>
+      releaseUrl = "https://github.com/oven-sh/bun/releases/download/bun-v\${version}/bun-linux-x64-baseline.zip";
     in
     {
       packages = forAllSystems (system:
@@ -26,11 +26,11 @@
         {
           default = pkgs.stdenvNoCC.mkDerivation {
             pname = "bun";
-            version = "1.4.0-canary";
+            inherit version;
 
             src = pkgs.fetchurl {
-              url = canaryUrl;
-              sha256 = canarySha256;
+              url = releaseUrl;
+              sha256 = "sha256-GE+0WV8NQBohfPfHjBvEMLqDMU2reouUgFurv3+nCX8=";
             };
 
             nativeBuildInputs = [
@@ -63,14 +63,13 @@
             '';
 
             meta = {
-              description = "Incredibly fast JavaScript runtime, bundler, test runner, and package manager (canary / main branch)";
+              description = "Incredibly fast JavaScript runtime, bundler, test runner, and package manager";
               longDescription = ''
-                Bun canary build (latest main-branch HEAD) from
-                oven-sh/bun's GitHub releases. Pre-compiled, x86-64
-                baseline ISA (Nehalem / no AVX) for VirtualBox and
-                older CPU compatibility. Hash pins the exact canary
-                artifact that was verified; bump with `nix-prefetch-url`
-                to track main.
+                Bun ${version} release build from oven-sh/bun's GitHub
+                releases. Pre-compiled, x86-64 baseline ISA (Nehalem /
+                no AVX) for VirtualBox and older CPU compatibility.
+                Hash pins the exact release artifact that was verified;
+                bump with `nix-prefetch-url <releaseUrl>`.
               '';
               homepage = "https://bun.sh";
               license = pkgs.lib.licenses.mit;
