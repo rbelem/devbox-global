@@ -16,7 +16,7 @@
       # "baseline" variant targets Nehalem (2008) ISA — no AVX/AVX2 —
       # which is what we want for VirtualBox / older CPU compatibility.
       # Pin the hash with: nix-prefetch-url <releaseUrl>
-      releaseUrl = "https://github.com/oven-sh/bun/releases/download/bun-v\${version}/bun-linux-x64-baseline.zip";
+      releaseUrl = "https://github.com/oven-sh/bun/releases/download/bun-v${version}/bun-linux-x64-baseline.zip";
     in
     {
       packages = forAllSystems (system:
