@@ -241,7 +241,7 @@ Full reference: `herdr --help`, https://herdr.dev/docs/cli-reference/, and the h
 
 The MCP daemon runs at `http://127.0.0.1:3333/mcp` (devbox global service, `restart=always`). Every result is cached under `~/.wigolo/` — re-queries are instant and free. No API key needed for the core tools; set `WIGOLO_LLM_PROVIDER` + `GEMINI_API_KEY` only if you want `wigolo_research` / `wigolo_agent` to synthesize cited answers.
 
-The built-in `websearch` and `webfetch` tools are disabled in `opencode.json` (`permission.webfetch: deny`, `permission.websearch: deny`) — wigolo is the only web surface.
+The built-in `websearch` and `webfetch` tools both route through wigolo (`plugins/wigolo-search.js` registers the search provider and overrides `webfetch` with wigolo's cached/JS-rendered fetch) — wigolo is the only web surface.
 
 Skill packs (`wigolo-*` in `~/.agents/skills/`) provide per-tool usage guidance; load them when you need flag-level detail for a specific tool.
 

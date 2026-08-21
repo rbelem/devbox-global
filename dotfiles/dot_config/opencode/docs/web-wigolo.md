@@ -24,9 +24,12 @@ are instant and free. No API key needed for the core tools; set
 `WIGOLO_LLM_PROVIDER` + `GEMINI_API_KEY` only if you want
 `wigolo_research` / `wigolo_agent` to synthesize cited answers.
 
-The built-in `websearch` and `webfetch` tools are disabled in
-`opencode.json` (`permission.webfetch: deny`, `permission.websearch:
-deny`) — wigolo is the only web surface.
+The built-in `websearch` and `webfetch` tools both route through wigolo:
+`plugins/wigolo-search.js` registers the `wigolo` search provider and
+overrides the built-in `webfetch` tool with wigolo's `fetch` (cached,
+JS-rendered, anti-bot). Permissions in `opencode.json` allow both — keep it
+that way, since plugin tools only honor deny rules. wigolo is the only web
+surface.
 
 Skill packs (`wigolo-*` in `~/.agents/skills/`) provide per-tool usage
 guidance; load them when you need flag-level detail for a specific tool.
