@@ -13,15 +13,15 @@
       # No upstream tags/releases: pin to a master commit. update-flake
       # shows this as "??" and never auto-updates it — bump manually by
       # updating rev + both hashes below.
-      version = "0.1.0-rc.5"; # mirrors root package.json version
-      rev = "47f943859bef60e4160492346772ded9b24f765a"; # master 2026-08-13
+      version = "dsh-v0.1.1-rc.2"; # mirrors root package.json version
+      rev = "b150a551b8d465e31e418e1b2eaf5e79bbb7d28e"; # tag dsh-v0.1.1-rc.2
 
       # Hash capture workflow:
       #   1. set srcHash / pnpmDepsHash to pkgs.lib.fakeHash
       #   2. nix build "path:devbox.d/deepseek-harness#default"
       #   3. paste the sha256-... values from the error messages
-      srcHash = "sha256-ZPGCNoPXVjP76Tm/tFPDX2X95cd83M4iHLmVP5dR+Ps=";
-      pnpmDepsHash = "sha256-aySHq0ywTMM5q7YuGHZrV3yQE3bwppgGfWH3wRnHCXk=";
+      srcHash = "sha256-rrjXoyccTxKIbZ00Z4Vy7EA9tGZ15WUqLBFnZSgw1YE=";
+      pnpmDepsHash = "sha256-+PsdK9u3ZKv4XtSc8tBKKP48J/95/CGTMIUf8Q8dbok=";
     in
     {
       packages = forAllSystems (system:
@@ -71,6 +71,11 @@
             # pnpm-workspace.yaml; CI=1 turns it into a no-op (it only installs
             # git hooks, which a read-only Nix store cannot use anyway).
             env.CI = "1";
+
+            # scripts/build.ts embeds the commit hash; fetchFromGitHub strips
+            # .git so `git rev-parse HEAD` fails. This env var is the upstream
+            # escape hatch (client-build-environment.ts).
+            env.DSH_CLIENT_COMMIT_HASH = rev;
 
             # The root postinstall (install-lefthook.mjs) imports the 'lefthook'
             # devDependency — it breaks the production reinstall in installPhase
