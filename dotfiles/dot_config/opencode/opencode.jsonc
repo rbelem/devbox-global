@@ -90,7 +90,18 @@
         "opencode-go/qwen3.8-max": {
           "name": "Qwen 3.8 Max (OpenCode Go)",
           "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
-          "limit": { "context": 262144, "output": 16384 },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "alibaba-token-plan/qwen3.8-max": {
+          "name": "Qwen 3.8 Max (Alibaba Token Plan)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
           "variants": [
             { "id": "low", "body": { "reasoning_effort": "low" } },
             { "id": "medium", "body": { "reasoning_effort": "medium" } },
