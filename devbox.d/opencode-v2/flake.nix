@@ -3,22 +3,19 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # Our bun package (devbox.d/bun, x64-baseline for VirtualBox compat).
+    # Referenced via this repo's GitHub tree with `dir=` because relative
+    # path inputs only resolve from git worktrees, not from devbox's plain
+    # global dir. The lock pins a commit, so builds stay reproducible;
+    # refresh with `nix flake lock --update-input opencode-bun` after
+    # pushing bun changes to main.
+    opencode-bun.url = "github:rbelem/devbox-global/main?dir=devbox.d/bun";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, opencode-bun }:
     let
       supportedSystems = [ "x86_64-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
-
-      # Our bun: canary x64-baseline (no AVX) — the SAME artifact devbox.d/bun
-      # pins (keep url+hash in sync with it). Building the CLI with it means
-      # the compiled standalone binary embeds OUR runtime, not upstream's.
-      # Vendored here (instead of a path:../bun flake input) because relative
-      # path inputs only resolve from git worktrees, not from devbox's plain
-      # global dir. NOTE: the canary URL always serves the newest build, so
-      # the hash must be refreshed whenever devbox.d/bun's hash is bumped.
-      bunCanaryUrl = "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline.zip";
-      bunCanarySha256 = "sha256-3toIdoCA26XenRD6J7KFrhtffoP1J3QrQNV6rUoYvso=";
 
       # Built from the repo's v2 branch (packages/cli → binary "opencode2",
       # published as @opencode-ai/cli next builds). Follows the same recipe
@@ -37,10 +34,10 @@
       #      package.json's own 1.18.4 collides with the v1 version line)
       #   3. clear nodeModulesHash (fakeHash) → build → paste real hash
 # branch-tracking: v2
-      version = "0.0.0-next-20260819"; # v2 branch, next-channel naming
-      rev = "e0be1c0e13e389a3683f317ebf3ff38a7f7bbef5";
-      srcHash = "sha256-wv4rCtN8Hhv8PQAI0JMohhbkXMGyqgeWzGXnEUUcI98=";
-      nodeModulesHash = "sha256-k/k5hT5KPCaiFrw9w3hfLMc/r7NyOLas/N3mJwjQUf8=";
+      version = "0.0.0-next-20260821"; # v2 branch, next-channel naming
+      rev = "ea3e0dde197376883e95a0695326fc9ae88a26e3";
+      srcHash = "sha256-nq7UxPCE0QwAPhZ0dVat4fBUE/zmsFmPyIE8nghU7+Y=";
+      nodeModulesHash = "sha256-OyIfghYSVVikbEVTGlu5tC5sC8h6fWrXlO4GNWEJq+0=";
 
       # Workspace packages packages/cli depends on (deps + devDeps); the
       # fixed-output install is filtered to these to keep the hash small.
@@ -55,37 +52,10 @@
         let
           system = pkgs.system;
 
-          # Compiled from the same canary baseline zip as devbox.d/bun.
-          ourBun = pkgs.stdenvNoCC.mkDerivation {
-            pname = "bun";
-            version = "1.4.0-canary";
-
-            src = pkgs.fetchurl {
-              url = bunCanaryUrl;
-              sha256 = bunCanarySha256;
-            };
-
-            nativeBuildInputs = [
-              pkgs.unzip
-              pkgs.autoPatchelfHook
-            ];
-
-            buildInputs = [
-              pkgs.zlib
-              pkgs.gcc.cc.lib
-            ];
-
-            dontUnpack = true;
-            dontConfigure = true;
-            dontBuild = true;
-
-            installPhase = ''
-              runHook preInstall
-              unzip $src
-              install -Dm755 bun-linux-x64-baseline/bun $out/bin/bun
-              runHook postInstall
-            '';
-          };
+          # From the devbox.d/bun flake (stable 1.4.0 x64-baseline release).
+          # `bun build --compile` with target "bun-linux-x64" embeds the
+          # running bun's OWN runtime — i.e. this baseline build, no AVX.
+          ourBun = opencode-bun.packages.${system}.default;
 
           src = pkgs.fetchFromGitHub {
             owner = "anomalyco";

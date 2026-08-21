@@ -16,9 +16,47 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1784497964,
+        "narHash": "sha256-vlHUuqAcbcH2RKmHbPiuQzbv1pnzzavXnI62RD0bqCU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "241313f4e8e508cb9b13278c2b0fa25b9ca27163",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "opencode-bun": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "dir": "devbox.d/bun",
+        "lastModified": 1787329203,
+        "narHash": "sha256-qLMeoViEOX9tZodlwCWu5E9OYU51pBG6UYBDetJPc2s=",
+        "owner": "rbelem",
+        "repo": "devbox-global",
+        "rev": "e043581ff61980be47afee1cfe12af16b26ae5e3",
+        "type": "github"
+      },
+      "original": {
+        "dir": "devbox.d/bun",
+        "owner": "rbelem",
+        "ref": "main",
+        "repo": "devbox-global",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "opencode-bun": "opencode-bun"
       }
     }
   },
