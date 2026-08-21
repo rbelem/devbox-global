@@ -173,7 +173,9 @@
             "deepseek/deepseek-v4-flash-0731",
             "xiaomi/mimo-v2.5",
             "xiaomi/mimo-v2.5-pro",
-            "moonshotai/kimi-k2.7-code"
+            "moonshotai/kimi-k2.7-code",
+            "deepseek/deepseek-v4-flash-vision-exp",
+            "stealth/ox-alpha"
           ],
           "weight": 1
         }
@@ -248,7 +250,7 @@
         {
           "name": "deepseek-key",
           "value": "env.DEEPSEEK_API_KEY",
-          "models": ["deepseek-v4-pro", "deepseek-v4-flash"],
+          "models": ["deepseek-v4-pro", "deepseek-v4-flash", "deepseek-v4-flash-vision-exp"],
           "weight": 1
         }
       ]
@@ -342,6 +344,35 @@
           "openrouter/deepseek/deepseek-v4-flash-0731"
         ],
         "priority": 5,
+        "enabled": true
+      },
+      {
+        "id": "deepseek-v4-flash-vision-failover-chain",
+        "name": "DeepSeek V4 Flash Vision failover chain",
+        "description": "DeepSeek V4 Flash Vision (exp, multimodal): deepseek primary → openrouter (OR endpoint currently blocked by account guardrail)",
+        "cel_expression": "model == 'deepseek-v4-flash-vision-exp'",
+        "targets": [
+          { "provider": "deepseek", "model": "deepseek-v4-flash-vision-exp", "weight": 1 }
+        ],
+        "fallbacks": [
+          "opencode-go/deepseek-v4-flash-vision-exp",
+          "openrouter/deepseek/deepseek-v4-flash-vision-exp"
+        ],
+        "priority": 7,
+        "enabled": true
+      },
+      {
+        "id": "ox-alpha-failover-chain",
+        "name": "Ox Alpha failover chain",
+        "description": "Ox Alpha: opencode-go (free pool, ox-alpha-free) primary → openrouter (PAYG)",
+        "cel_expression": "model == 'ox-alpha' || model == 'stealth/ox-alpha'",
+        "targets": [
+          { "provider": "opencode-go", "model": "ox-alpha-free", "weight": 1 }
+        ],
+        "fallbacks": [
+          "openrouter/stealth/ox-alpha"
+        ],
+        "priority": 8,
         "enabled": true
       }
     ]
