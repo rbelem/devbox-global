@@ -15,9 +15,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "037e8078db4b20b4aa25c04f21c6de7d335ec449",
+      "skillFolderHash": "82def67855a0d2aad7794207951820fa5422fdb0",
       "installedAt": "2026-04-25T07:48:46.777Z",
-      "updatedAt": "2026-08-01T14:21:53.485Z"
+      "updatedAt": "2026-08-25T23:45:48.524Z"
     },
     "caveman-commit": {
       "source": "JuliusBrussee/caveman",
@@ -168,9 +168,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/grilling/SKILL.md",
-      "skillFolderHash": "0d40d978f1a588971a11ea7ae85b208e78102dc3",
+      "skillFolderHash": "f0732035b8b1b60ae39454e4191caef32fa91903",
       "installedAt": "2026-07-09T22:30:54.420Z",
-      "updatedAt": "2026-08-19T18:38:58.514Z"
+      "updatedAt": "2026-08-25T23:50:21.533Z"
     },
     "implement": {
       "source": "mattpocock/skills",
@@ -573,18 +573,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman/SKILL.md",
-      "skillFolderHash": "bdf0c87a2bdd47fc7fe9008c40cc6491ee801b81",
+      "skillFolderHash": "75d927c628bcb304f061e193c80c21d617a314e5",
       "installedAt": "2026-07-11T16:36:24.346Z",
-      "updatedAt": "2026-08-19T18:38:32.384Z"
+      "updatedAt": "2026-08-25T23:49:04.422Z"
     },
     "caveman-compress": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-compress/SKILL.md",
-      "skillFolderHash": "19b670a696e5a91aba40758b1a97f0ca4783caee",
+      "skillFolderHash": "93f72d3b21f227a8cc9d851325d474886e16dc0b",
       "installedAt": "2026-07-11T16:36:24.349Z",
-      "updatedAt": "2026-08-19T18:38:35.876Z"
+      "updatedAt": "2026-08-25T23:50:18.568Z"
     },
     "static-analysis": {
       "source": "mohitmishra786/low-level-dev-skills",
@@ -699,8 +699,10 @@
       "sourceType": "well-known",
       "sourceUrl": "https://openrouter.ai/.well-known/skills/spawn-ori-eval/SKILL.md",
       "skillFolderHash": "",
+      "sourceBaseUrl": "https://openrouter.ai",
+      "wellKnownDigest": "sha256:d8b0dd7f829762765c945950c2c9d495c8e6730eb69607d6a6f3f1027bde662d",
       "installedAt": "2026-08-03T23:42:37.541Z",
-      "updatedAt": "2026-08-04T05:56:29.309Z"
+      "updatedAt": "2026-08-25T23:54:28.218Z"
     },
     "humanizer": {
       "source": "blader/humanizer",
