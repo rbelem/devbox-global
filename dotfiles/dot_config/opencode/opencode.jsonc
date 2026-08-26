@@ -21,6 +21,17 @@
             { "id": "max", "body": { "reasoning_effort": "max" } }
           ]
         },
+        "zai/glm-5.3-flash": {
+          "name": "GLM-5.3-Flash (z.ai direct, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
         "kimi-for-coding/k3": {
           "name": "Kimi K3 (Kimi for Coding)",
           "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
@@ -91,6 +102,292 @@
           "name": "Qwen 3.8 Max (OpenCode Go)",
           "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
           "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/longcat-2.0": {
+          "name": "LongCat-2.0 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/hy3": {
+          "name": "Hy3 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 131072, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/grok-4.5": {
+          "name": "Grok 4.5 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/minimax-m2.7": {
+          "name": "MiniMax M2.7 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/deepseek-v4-flash-vision-exp": {
+          "name": "DeepSeek V4 Flash Vision Exp (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/kimi-k3": {
+          "name": "Kimi K3 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1048576, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/glm-5.3-flash": {
+          "name": "GLM-5.3-Flash (OpenCode Go, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/mimo-v2.5-pro": {
+          "name": "Mimo v2.5 Pro (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/kimi-k2.7-code": {
+          "name": "Kimi K2.7 Code (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "deepseek/deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro (DeepSeek direct)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "deepseek/deepseek-v4-flash-vision-exp": {
+          "name": "DeepSeek V4 Flash Vision Exp (DeepSeek direct)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/z-ai/glm-5.3": {
+          "name": "GLM-5.3 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/z-ai/glm-5.3-flash": {
+          "name": "GLM-5.3-Flash (OpenRouter, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/moonshotai/kimi-k2.6": {
+          "name": "Kimi K2.6 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/minimax/minimax-m2.7": {
+          "name": "MiniMax M2.7 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/minimax/minimax-m2.5": {
+          "name": "MiniMax M2.5 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/deepseek/deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/qwen/qwen3.8-max": {
+          "name": "Qwen 3.8 Max (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/qwen/qwen3.7-max": {
+          "name": "Qwen 3.7 Max (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/qwen/qwen3.7-plus": {
+          "name": "Qwen 3.7 Plus (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/meituan/longcat-2.0": {
+          "name": "LongCat-2.0 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/tencent/hy3": {
+          "name": "Hy3 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 131072, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/x-ai/grok-4.5": {
+          "name": "Grok 4.5 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/openai/gpt-5.6-luna": {
+          "name": "GPT-5.6 Luna (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/meta/muse-spark-1.2-contributor": {
+          "name": "Muse Spark 1.2 Contributor (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 131072, "output": 16384 },
           "variants": [
             { "id": "low", "body": { "reasoning_effort": "low" } },
             { "id": "medium", "body": { "reasoning_effort": "medium" } },

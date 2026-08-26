@@ -1,36 +1,37 @@
 {
   "$schema": "https://www.getbifrost.ai/schema",
   "source_of_truth": "config.json",
-
   "config_store": {
     "enabled": true,
     "type": "sqlite",
-    "config": { "path": "config.db" }
+    "config": {
+      "path": "config.db"
+    }
   },
   "logs_store": {
     "enabled": true,
     "type": "sqlite",
-    "config": { "path": "logs.db" }
+    "config": {
+      "path": "logs.db"
+    }
   },
-
   "vector_store": {
     "enabled": true,
     "type": "redis",
-    "config": { "addr": "localhost:6379" }
+    "config": {
+      "addr": "localhost:6379"
+    }
   },
-
   "load_balancer_config": {
     "append_fallbacks_to_pinned": true,
     "prune_failed_fallbacks": true
   },
-
   "client": {
     "compat": {
       "should_drop_params": true,
       "should_convert_params": true
     }
   },
-
   "circuit_breaker_config": {
     "policies": [
       {
@@ -56,7 +57,7 @@
         "model": "MiniMax-M3",
         "fallback_provider": "opencode-go",
         "fallback_model": "minimax-m3"
-},
+      },
       {
         "provider": "deepseek",
         "model": "deepseek-v4-pro",
@@ -71,7 +72,6 @@
       }
     ]
   },
-
   "providers": {
     "zai": {
       "custom_provider_config": {
@@ -94,14 +94,20 @@
         {
           "name": "zai-key",
           "value": "env.ZAI_API_KEY",
-          "models": ["glm-5.3", "glm-5.2", "glm-4.7"],
+          "models": [
+            "glm-5.3",
+            "glm-5.3-flash",
+            "glm-5.2",
+            "glm-4.7"
+          ],
           "weight": 1
         }
       ]
     },
-
     "moonshotai": {
-      "custom_provider_config": { "base_provider_type": "openai" },
+      "custom_provider_config": {
+        "base_provider_type": "openai"
+      },
       "network_config": {
         "base_url": "https://api.moonshot.ai",
         "max_retries": 3,
@@ -112,14 +118,19 @@
         {
           "name": "moonshot-key",
           "value": "env.MOONSHOT_API_KEY",
-          "models": ["kimi-k3", "kimi-k2.7-code", "kimi-k2.7-code-highspeed"],
+          "models": [
+            "kimi-k3",
+            "kimi-k2.7-code",
+            "kimi-k2.7-code-highspeed"
+          ],
           "weight": 1
         }
       ]
     },
-
     "kimi-for-coding": {
-      "custom_provider_config": { "base_provider_type": "openai" },
+      "custom_provider_config": {
+        "base_provider_type": "openai"
+      },
       "network_config": {
         "base_url": "https://api.kimi.com/coding",
         "max_retries": 3,
@@ -130,14 +141,21 @@
         {
           "name": "kimi-for-coding-key",
           "value": "env.KIMI_API_KEY",
-          "models": ["k3", "k3-256k", "kimi-for-coding", "kimi-for-coding-highspeed"],
+          "models": [
+            "k3",
+            "k3-256k",
+            "kimi-for-coding",
+            "kimi-for-coding-highspeed"
+          ],
           "weight": 1
         }
       ]
     },
-
     "minimax": {
-      "custom_provider_config": { "base_provider_type": "openai", "sends_done_marker": false },
+      "custom_provider_config": {
+        "base_provider_type": "openai",
+        "sends_done_marker": false
+      },
       "network_config": {
         "base_url": "https://api.minimax.io",
         "max_retries": 3,
@@ -149,12 +167,13 @@
         {
           "name": "minimax-key",
           "value": "env.MINIMAX_API_KEY",
-          "models": ["MiniMax-M3"],
+          "models": [
+            "MiniMax-M3"
+          ],
           "weight": 1
         }
       ]
     },
-
     "openrouter": {
       "network_config": {
         "base_url": "https://openrouter.ai/api",
@@ -175,7 +194,7 @@
             "xiaomi/mimo-v2.5-pro",
             "moonshotai/kimi-k2.7-code",
             "deepseek/deepseek-v4-flash-vision-exp",
-            "stealth/ox-alpha",
+            "z-ai/glm-5.3-flash",
             "z-ai/glm-5.3",
             "moonshotai/kimi-k2.6",
             "minimax/minimax-m2.7",
@@ -194,7 +213,6 @@
         }
       ]
     },
-
     "opencode-go": {
       "network_config": {
         "max_retries": 3,
@@ -205,12 +223,13 @@
         {
           "name": "go-key",
           "value": "env.OPENCODE_GO_API_KEY",
-          "models": ["*"],
+          "models": [
+            "*"
+          ],
           "weight": 1
         }
       ]
     },
-
     "alibaba-token-plan": {
       "custom_provider_config": {
         "base_provider_type": "openai",
@@ -244,21 +263,19 @@
             "kimi-k2.5",
             "kimi-k2.6",
             "kimi-k2.7-code",
-            "qwen-image-2.0",
-            "qwen-image-2.0-pro",
             "qwen3.6-flash",
             "qwen3.6-plus",
             "qwen3.7-max",
             "qwen3.7-plus",
             "qwen3.8-max",
             "wan2.7-image",
-            "wan2.7-image-pro"
+            "wan2.7-image-pro",
+            "qwen-image-3.0-pro"
           ],
           "weight": 1
         }
       ]
     },
-
     "deepseek": {
       "network_config": {
         "max_retries": 3,
@@ -269,13 +286,16 @@
         {
           "name": "deepseek-key",
           "value": "env.DEEPSEEK_API_KEY",
-          "models": ["deepseek-v4-pro", "deepseek-v4-flash", "deepseek-v4-flash-vision-exp"],
+          "models": [
+            "deepseek-v4-pro",
+            "deepseek-v4-flash",
+            "deepseek-v4-flash-vision-exp"
+          ],
           "weight": 1
         }
       ]
     }
   },
-
   "governance": {
     "routing_rules": [
       {
@@ -284,7 +304,11 @@
         "description": "GLM-5.3: zai primary → alibaba-token-plan/glm-5.2 → opencode-go/glm-5.2 (5.3 not yet on fallback providers)",
         "cel_expression": "model == 'glm-5.3'",
         "targets": [
-          { "provider": "zai", "model": "glm-5.3", "weight": 1 }
+          {
+            "provider": "zai",
+            "model": "glm-5.3",
+            "weight": 1
+          }
         ],
         "fallbacks": [
           "alibaba-token-plan/glm-5.2",
@@ -299,7 +323,11 @@
         "description": "GLM-5.2: zai primary → alibaba-token-plan → opencode-go",
         "cel_expression": "model == 'glm-5.2'",
         "targets": [
-          { "provider": "zai", "model": "glm-5.2", "weight": 1 }
+          {
+            "provider": "zai",
+            "model": "glm-5.2",
+            "weight": 1
+          }
         ],
         "fallbacks": [
           "alibaba-token-plan/glm-5.2",
@@ -314,9 +342,15 @@
         "description": "Kimi K3: kimi-for-coding primary → openrouter",
         "cel_expression": "model == 'kimi-k3' || model == 'k3'",
         "targets": [
-          { "provider": "kimi-for-coding", "model": "k3", "weight": 1 }
+          {
+            "provider": "kimi-for-coding",
+            "model": "k3",
+            "weight": 1
+          }
         ],
-        "fallbacks": ["openrouter/moonshotai/kimi-k3"],
+        "fallbacks": [
+          "openrouter/moonshotai/kimi-k3"
+        ],
         "priority": 2,
         "enabled": true
       },
@@ -326,7 +360,11 @@
         "description": "MiniMax-M3: minimax primary → opencode-go → openrouter",
         "cel_expression": "model == 'MiniMax-M3'",
         "targets": [
-          { "provider": "minimax", "model": "MiniMax-M3", "weight": 1 }
+          {
+            "provider": "minimax",
+            "model": "MiniMax-M3",
+            "weight": 1
+          }
         ],
         "fallbacks": [
           "opencode-go/minimax-m3",
@@ -341,7 +379,11 @@
         "description": "DeepSeek V4 Pro: deepseek primary → opencode-go → openrouter",
         "cel_expression": "model == 'deepseek-v4-pro'",
         "targets": [
-          { "provider": "deepseek", "model": "deepseek-v4-pro", "weight": 1 }
+          {
+            "provider": "deepseek",
+            "model": "deepseek-v4-pro",
+            "weight": 1
+          }
         ],
         "fallbacks": [
           "opencode-go/deepseek-v4-pro",
@@ -350,13 +392,17 @@
         "priority": 4,
         "enabled": true
       },
-{
+      {
         "id": "deepseek-v4-flash-failover-chain",
         "name": "DeepSeek V4 Flash failover chain",
         "description": "DeepSeek V4 Flash 0731: opencode-go primary → deepseek → openrouter",
         "cel_expression": "model == 'deepseek-v4-flash'",
         "targets": [
-          { "provider": "opencode-go", "model": "deepseek-v4-flash", "weight": 1 }
+          {
+            "provider": "opencode-go",
+            "model": "deepseek-v4-flash",
+            "weight": 1
+          }
         ],
         "fallbacks": [
           "deepseek/deepseek-v4-flash",
@@ -371,7 +417,11 @@
         "description": "DeepSeek V4 Flash Vision (exp, multimodal): deepseek primary → openrouter (OR endpoint currently blocked by account guardrail)",
         "cel_expression": "model == 'deepseek-v4-flash-vision-exp'",
         "targets": [
-          { "provider": "deepseek", "model": "deepseek-v4-flash-vision-exp", "weight": 1 }
+          {
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash-vision-exp",
+            "weight": 1
+          }
         ],
         "fallbacks": [
           "opencode-go/deepseek-v4-flash-vision-exp",
@@ -381,22 +431,26 @@
         "enabled": true
       },
       {
-        "id": "ox-alpha-failover-chain",
-        "name": "Ox Alpha failover chain",
-        "description": "Ox Alpha: opencode-go (free pool, ox-alpha-free) primary → openrouter (PAYG)",
-        "cel_expression": "model == 'ox-alpha' || model == 'stealth/ox-alpha'",
+        "id": "glm-5.3-flash-failover-chain",
+        "name": "GLM-5.3-Flash failover chain",
+        "description": "GLM-5.3-Flash (Aug 26, MIT): zai coding-plan primary (3x quota vs 5.3, off-peak 50%) → opencode-go (Go $15 usage) → deepseek vision-exp (multimodal-capable, different family)",
+        "cel_expression": "model == 'glm-5.3-flash'",
         "targets": [
-          { "provider": "opencode-go", "model": "ox-alpha-free", "weight": 1 }
+          {
+            "provider": "zai",
+            "model": "glm-5.3-flash",
+            "weight": 1
+          }
         ],
         "fallbacks": [
-          "openrouter/stealth/ox-alpha"
+          "opencode-go/glm-5.3-flash",
+          "deepseek/deepseek-v4-flash-vision-exp"
         ],
-        "priority": 8,
+        "priority": 9,
         "enabled": true
       }
     ]
   },
-
   "plugins": [
     {
       "name": "semantic_cache",

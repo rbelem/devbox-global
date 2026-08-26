@@ -14,7 +14,7 @@
   "presets": {
     "quality": {
       "orchestrator": {
-        "model": "bifrost/opencode-go/deepseek-v4-flash",
+        "model": "bifrost/opencode-go/glm-5.3-flash",
         "variant": "max",
         "skills": [
           "*",
@@ -88,7 +88,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "bifrost/opencode-go/deepseek-v4-flash",
+        "model": "bifrost/opencode-go/glm-5.3-flash",
         "variant": "max",
         "skills": [
           "git-commit",
@@ -103,8 +103,8 @@
         "mcps": ["codegraph"]
       },
       "observer": {
-        "model": "bifrost/minimax/MiniMax-M3",
-        "variant": "medium",
+        "model": "bifrost/opencode-go/glm-5.3-flash",
+        "variant": "max",
         "skills": [],
         "mcps": []
       },
@@ -115,7 +115,7 @@
     },
     "value": {
       "orchestrator": {
-        "model": "bifrost/deepseek/deepseek-v4-flash",
+        "model": "bifrost/zai/glm-5.3-flash",
         "variant": "max",
         "skills": [
           "*",
@@ -183,7 +183,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "bifrost/deepseek/deepseek-v4-flash",
+        "model": "bifrost/zai/glm-5.3-flash",
         "variant": "max",
         "skills": [
           "git-commit",
@@ -196,14 +196,14 @@
         "mcps": ["codegraph"]
       },
       "observer": {
-        "model": "bifrost/minimax/MiniMax-M3",
-        "variant": "medium",
+        "model": "bifrost/zai/glm-5.3-flash",
+        "variant": "max",
         "skills": [],
         "mcps": []
       },
       "council": {
-        "model": "bifrost/opencode-go/qwen3.8-max",
-        "variant": "xhigh"
+        "model": "bifrost/zai/glm-5.3",
+        "variant": "max"
       }
     }
   },
