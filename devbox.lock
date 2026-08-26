@@ -879,6 +879,44 @@
         }
       }
     },
+    "geminicommit@latest": {
+      "last_modified": "2026-08-12T11:28:58Z",
+      "resolved": "github:NixOS/nixpkgs/044bfe75bfe4c7bbe043dc17b5e42ea823b84a09#geminicommit",
+      "source": "devbox-search",
+      "version": "0.8.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/89wj6pm0rhig5fpvgflx8k317wj8ad1l-geminicommit-0.8.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/89wj6pm0rhig5fpvgflx8k317wj8ad1l-geminicommit-0.8.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1nif2n7p423drbxgrz453yprvzxi937b-geminicommit-0.8.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/1nif2n7p423drbxgrz453yprvzxi937b-geminicommit-0.8.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/fsn6l9z68kw83887pc29w0lbh91hpyvf-geminicommit-0.8.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/fsn6l9z68kw83887pc29w0lbh91hpyvf-geminicommit-0.8.0"
+        }
+      }
+    },
     "gh@latest": {
       "last_modified": "2026-06-27T07:37:20Z",
       "resolved": "github:NixOS/nixpkgs/3d46470bb3030020f7e1361f33514854f5bfa86d#gh",
@@ -2074,14 +2112,6 @@
       "last_modified": "2026-07-07T18:02:48Z",
       "resolved": "path:devbox.d/open-code-review?lastModified=1783447368&narHash=sha256-zbUBib%2BxukXJ%2BXhDhUD71CNyva87xMKl2TIHNXmr8Os%3D"
     },
-    "path:devbox.d/opencode": {
-      "last_modified": "2026-07-07T18:02:48Z",
-      "resolved": "path:devbox.d/opencode?lastModified=1783447368&narHash=sha256-X1ZrH%2FwpXagstZmmueUHZg1xJHlavFXhYIXbBuihahQ%3D"
-    },
-    "path:devbox.d/openspec": {
-      "last_modified": "2026-07-01T17:11:00Z",
-      "resolved": "path:devbox.d/openspec?lastModified=1782925860&narHash=sha256-TwRA6fVobkWDM6PLEJnmbSGpdG9%2Bhn1GXyUSsa73opM%3D"
-    },
     "path:devbox.d/playwright-cli": {
       "last_modified": "2026-07-01T17:11:00Z",
       "resolved": "path:devbox.d/playwright-cli?lastModified=1782925860&narHash=sha256-d1vAMs14zALUZwLp9JcThJq5%2BrMFDbkmu3FgWrGUEA8%3D"
@@ -2362,6 +2392,103 @@
             }
           ],
           "store_path": "/nix/store/idgw5cfv4l0s1923186x9z7rvdfqsplq-sesh-2.26.2"
+        }
+      }
+    },
+    "sqlite@latest": {
+      "last_modified": "2026-08-17T10:51:46Z",
+      "resolved": "github:NixOS/nixpkgs/f4b6996c4e8b9ee06ce147ec344c885f51071b14#sqlite",
+      "source": "devbox-search",
+      "version": "3.53.3",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "bin",
+              "path": "/nix/store/bmcn99v7cc9adw8k80smmsjwq9r3jl82-sqlite-3.53.3-bin",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/hw08sj1vynnqgawdj5m9irlj2v99s9j1-sqlite-3.53.3-man",
+              "default": true
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/043n6k85rwc46093m2pclpz8wjk3rk8v-sqlite-3.53.3-dev"
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/gkh3pzzy7dv8xbjfwzifbvsg88q09a58-sqlite-3.53.3-doc"
+            },
+            {
+              "name": "out",
+              "path": "/nix/store/lf2jf0ybr329dw3sfi15hd1brm1k0d2v-sqlite-3.53.3"
+            }
+          ],
+          "store_path": "/nix/store/bmcn99v7cc9adw8k80smmsjwq9r3jl82-sqlite-3.53.3-bin"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "bin",
+              "path": "/nix/store/947psdd7hsirjhg4vzjsakqck6dfy7z0-sqlite-3.53.3-bin",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/gv4ypci70z7vixwydd2fbpwv245pyid8-sqlite-3.53.3-man",
+              "default": true
+            },
+            {
+              "name": "out",
+              "path": "/nix/store/p1zamvivw0l5zf4crr82v6f6rpg014fm-sqlite-3.53.3"
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/nm7njbwsblsxkviki08pn5i9aq6b2gra-sqlite-3.53.3-debug"
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/16rny3zmsdad30dyivimcifkdvpqqwyh-sqlite-3.53.3-dev"
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/adb0y3rknmpk484zpxy4jrfp7mcqs5w3-sqlite-3.53.3-doc"
+            }
+          ],
+          "store_path": "/nix/store/947psdd7hsirjhg4vzjsakqck6dfy7z0-sqlite-3.53.3-bin"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "bin",
+              "path": "/nix/store/mn1yslb8qw6nj6mm3vr7ji7pqfyjfmv2-sqlite-3.53.3-bin",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/lkp7zqy12360lrak3qvs4l8hxyb3yg0z-sqlite-3.53.3-man",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/p4pyxx3b5870qgscsxnjfvkipr2csph4-sqlite-3.53.3-doc"
+            },
+            {
+              "name": "out",
+              "path": "/nix/store/fqkp26idpnpqk5l2cjfb51jdn6nj5bam-sqlite-3.53.3"
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/36ssswfdzx827rp8pfdg3qgvy698d4fx-sqlite-3.53.3-debug"
+            },
+            {
+              "name": "dev",
+              "path": "/nix/store/3jcwbrr7fg5jmyiw8xw02i3lw978mgq1-sqlite-3.53.3-dev"
+            }
+          ],
+          "store_path": "/nix/store/mn1yslb8qw6nj6mm3vr7ji7pqfyjfmv2-sqlite-3.53.3-bin"
         }
       }
     },
@@ -2888,6 +3015,34 @@
             }
           ],
           "store_path": "/nix/store/i78g4fx5f5hqn866hdmwk7z99pi2hb2h-wl-clipboard-2.3.0"
+        }
+      }
+    },
+    "wtype@latest": {
+      "last_modified": "2026-08-12T11:28:58Z",
+      "resolved": "github:NixOS/nixpkgs/044bfe75bfe4c7bbe043dc17b5e42ea823b84a09#wtype",
+      "source": "devbox-search",
+      "version": "0.4",
+      "systems": {
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/bg0azvba89hpw5pmn0h14z3hvh2h473d-wtype-0.4",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/bg0azvba89hpw5pmn0h14z3hvh2h473d-wtype-0.4"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/vp2b943c22kf41ij318x5wxa8b1pzs2h-wtype-0.4",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/vp2b943c22kf41ij318x5wxa8b1pzs2h-wtype-0.4"
         }
       }
     },
