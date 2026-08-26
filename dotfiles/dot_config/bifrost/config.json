@@ -175,7 +175,20 @@
             "xiaomi/mimo-v2.5-pro",
             "moonshotai/kimi-k2.7-code",
             "deepseek/deepseek-v4-flash-vision-exp",
-            "stealth/ox-alpha"
+            "stealth/ox-alpha",
+            "z-ai/glm-5.3",
+            "moonshotai/kimi-k2.6",
+            "minimax/minimax-m2.7",
+            "minimax/minimax-m2.5",
+            "deepseek/deepseek-v4-pro",
+            "qwen/qwen3.8-max",
+            "qwen/qwen3.7-max",
+            "qwen/qwen3.7-plus",
+            "meituan/longcat-2.0",
+            "tencent/hy3",
+            "x-ai/grok-4.5",
+            "openai/gpt-5.6-luna",
+            "meta/muse-spark-1.2-contributor"
           ],
           "weight": 1
         }
@@ -199,7 +212,13 @@
     },
 
     "alibaba-token-plan": {
-      "custom_provider_config": { "base_provider_type": "openai" },
+      "custom_provider_config": {
+        "base_provider_type": "openai",
+        "request_path_overrides": {
+          "chat_completion": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/chat/completions",
+          "chat_completion_stream": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/chat/completions"
+        }
+      },
       "network_config": {
         "base_url": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode",
         "max_retries": 3,
