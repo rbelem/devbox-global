@@ -545,7 +545,11 @@
   ],
   "plugins": [
     "oh-my-opencode-slim@latest",
-    "@prevalentware/opencode-goal-plugin"
+    // @prevalentware/opencode-goal-plugin: DISABLED — breaks opencode2 (v2):
+    // its context.command.transform calls draft.get/draft.update, removed in
+    // the v2 Command Draft (only .add exists). Each die() kills the shared
+    // runtime whose flush() the model.catalog bootstrap awaits → every
+    // CLI/TUI command failed with "Model catalog initialization timed out".
     // ponytail: local V2 port at plugins/ponytail
     // model-announcer / dcg-guard / agentmemory-capture / autolearn: local V2
     //   ports, direct files in plugins/ (auto-discovered)
