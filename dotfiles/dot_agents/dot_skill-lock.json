@@ -631,15 +631,6 @@
       "installedAt": "2026-07-11T16:37:23.224Z",
       "updatedAt": "2026-07-11T16:37:23.224Z"
     },
-    "thermo-nuclear-code-quality-review": {
-      "source": "gitbobobo/skills",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/gitbobobo/skills.git",
-      "skillPath": "skills/thermo-nuclear-code-quality-review/SKILL.md",
-      "skillFolderHash": "d9c8935dd560b3b6f5941247d04a1843f8c7cc35",
-      "installedAt": "2026-07-11T16:37:37.868Z",
-      "updatedAt": "2026-07-11T16:37:37.868Z"
-    },
     "shay-mwa": {
       "source": "fonnesbeck/shay-mwa",
       "sourceType": "github",
