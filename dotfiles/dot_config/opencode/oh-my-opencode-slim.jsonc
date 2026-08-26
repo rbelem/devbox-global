@@ -1,5 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/alvinunreal/oh-my-opencode-slim/master/oh-my-opencode-slim.schema.json",
+  "webfetch": {
+    "enabled": false
+  },
   "disabled_agents": [],
   "showStartupToast": true,
   "companion": {

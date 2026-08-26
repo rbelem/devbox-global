@@ -203,6 +203,7 @@ const WEBFETCH_INPUT = {
     timeout: { type: "number", description: "Optional timeout in seconds (maximum: 120)" },
   },
   required: ["url"],
+  additionalProperties: false,
 };
 
 const WEBFETCH_OUTPUT = {
