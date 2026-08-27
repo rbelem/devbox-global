@@ -6,7 +6,7 @@
   "disabled_agents": [],
   "showStartupToast": true,
   "companion": {
-    "enabled": true,
+    "enabled": false,
     "position": "bottom-left",
     "size": "small"
   },
