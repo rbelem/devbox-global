@@ -153,6 +153,7 @@ modified independently), shows what the opposite direction would change.
 | `bws secret create KEY VALUE PROJECT_ID` | Create a secret in SM under a project (get PROJECT_ID via `bws project list`) |
 | `bws secret edit SECRET_ID --key KEY --value VALUE` | Update a secret in SM (get SECRET_ID via `bws secret list`) |
 | `export BWS_ACCESS_TOKEN=...` | Authenticate bws with a machine account access token |
+| `devbox global services restart <name>` | Restart a global service (`bifrost`, `wigolo`, `valkey`; list with `devbox global services ls`). **Agents: use this instead of `systemctl --user`** — services run in process-compose, not systemd |
 | `devbox global run python-install <pkg>` | pip install into managed venv |
 | `devbox global run python-update` | Upgrade all pip packages in venv |
 
