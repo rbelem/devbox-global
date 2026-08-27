@@ -73,7 +73,7 @@ fi
 # ── Fork registry: maps repo → (perl branch, upstream remote repo) ──
 case "$REPO" in
     codegraph)
-        PERL_BRANCH="v1.4.x-perl"   # update this when upstream major.minor series advances
+        PERL_BRANCH="v1.6.x-perl"   # update this when upstream major.minor series advances
         UPSTREAM_OWNER="colbymchenry"
         ;;
     graphify)
