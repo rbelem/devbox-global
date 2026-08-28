@@ -69,6 +69,11 @@ Before implementing:
 
 Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
 
+**Complexity gate:** every function ≤ cyclomatic complexity 10. The
+`complexity-guard` plugin appends violations to every `write`/`edit` result —
+when you see `[complexity-guard]`, split the named functions into smaller
+helpers in the same response, before finishing.
+
 ## 3. Surgical Changes
 
 **Touch only what you must. Clean up only your own mess.**
