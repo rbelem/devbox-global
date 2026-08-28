@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "minimax/MiniMax-M3",
+  "model": "bifrost/zai/glm-5.3-flash",
   "providers": {
     "bifrost": {
       "name": "Bifrost (local gateway)",

@@ -3,19 +3,19 @@
   "webfetch": {
     "enabled": false
   },
-  "disabled_agents": [],
+  "disabled_agents": ["observer"],
   "showStartupToast": true,
   "companion": {
     "enabled": false,
     "position": "bottom-left",
     "size": "small"
   },
-  "preset": "value",
+  "preset": "quality",
   "presets": {
     "quality": {
       "orchestrator": {
-        "model": "bifrost/opencode-go/glm-5.3-flash",
-        "variant": "max",
+        "model": "bifrost/zai/glm-5.3-flash",
+        "variant": "xhigh",
         "skills": [
           "*",
           "!design-taste-frontend",
@@ -45,7 +45,7 @@
         ]
       },
       "oracle": {
-        "model": "bifrost/opencode-go/qwen3.8-max",
+        "model": "bifrost/alibaba-token-plan/qwen3.8-max",
         "variant": "xhigh",
         "skills": [
           "simplify",
@@ -88,8 +88,8 @@
         "mcps": []
       },
       "fixer": {
-        "model": "bifrost/opencode-go/glm-5.3-flash",
-        "variant": "max",
+        "model": "bifrost/zai/glm-5.3-flash",
+        "variant": "xhigh",
         "skills": [
           "git-commit",
           "devbox",
@@ -103,107 +103,14 @@
         "mcps": ["codegraph"]
       },
       "observer": {
-        "model": "bifrost/opencode-go/glm-5.3-flash",
-        "variant": "max",
+        "model": "bifrost/zai/glm-5.3-flash",
+        "variant": "xhigh",
         "skills": [],
         "mcps": []
       },
       "council": {
-        "model": "bifrost/zai/glm-5.3",
-        "variant": "max"
-      }
-    },
-    "value": {
-      "orchestrator": {
         "model": "bifrost/zai/glm-5.3-flash",
-        "variant": "max",
-        "skills": [
-          "*",
-          "!design-taste-frontend",
-          "!high-end-visual-design",
-          "!minimalist-ui",
-          "!industrial-brutalist-ui",
-          "!mobile-android-design",
-          "!brandkit",
-          "!redesign-existing-projects",
-          "!imagegen-frontend-web",
-          "!imagegen-frontend-mobile",
-          "!gpt-taste",
-          "!stitch-design-taste",
-          "!image-to-code",
-          "!prototype"
-        ],
-        "mcps": [
-          "*",
-          "!chrome-devtools",
-          "!browsermcp",
-          "!firecrawl-mcp",
-          "!context7",
-          "!gh_grep",
-          "!opencode-docs",
-          "!openrouter",
-          "!websearch"
-        ]
-      },
-      "oracle": {
-        "model": "bifrost/zai/glm-5.3",
-        "variant": "max",
-        "skills": [
-          "simplify",
-          "code-review",
-          "diagnosing-bugs",
-          "codebase-design",
-          "zoom-out",
-          "domain-modeling"
-        ],
-        "mcps": ["codegraph", "cloudflare-api"]
-      },
-      "librarian": {
-        "model": "bifrost/opencode-go/mimo-v2.5",
-        "variant": "low",
-        "skills": ["research"],
-        "mcps": ["context7", "gh_grep", "firecrawl-mcp", "opencode-docs"]
-      },
-      "explorer": {
-        "model": "bifrost/deepseek/deepseek-v4-flash",
-        "variant": "low",
-        "skills": [],
-        "mcps": ["codegraph"]
-      },
-      "designer": {
-        "model": "bifrost/kimi-for-coding/k3-256k",
-        "variant": "max",
-        "skills": [
-          "agent-browser",
-          "design-taste-frontend",
-          "high-end-visual-design",
-          "image-to-code",
-          "prototype"
-        ],
-        "mcps": []
-      },
-      "fixer": {
-        "model": "bifrost/zai/glm-5.3-flash",
-        "variant": "max",
-        "skills": [
-          "git-commit",
-          "devbox",
-          "full-output-enforcement",
-          "graphify",
-          "clonedeps",
-          "tdd"
-        ],
-        "mcps": ["codegraph"]
-      },
-      "observer": {
-        "model": "bifrost/zai/glm-5.3-flash",
-        "variant": "max",
-        "skills": [],
-        "mcps": []
-      },
-      "council": {
-        "model": "bifrost/zai/glm-5.3",
-        "variant": "max"
+        "variant": "xhigh"
       }
     }
   },
