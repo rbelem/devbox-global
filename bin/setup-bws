@@ -5,8 +5,9 @@
 #   1. Store BWS_ACCESS_TOKEN in libsecret so init-hook can load secrets on
 #      every shell start (headless-safe, survives reboots).
 #   2. Ensure the SM manifest exists at ~/.config/bws/sm.ini — migrates the
-#      legacy bitw-era path (~/.config/bitw/sm.ini) or seeds a default list
-#      of known devbox-global secret names.
+#      legacy bitw-era path (~/.config/bitw/sm.ini), seeds a default list
+#      of known devbox-global secret names, and merges any missing seed
+#      entries into an existing manifest (idempotent re-runs).
 #
 # Usage: devbox global run setup-bws
 #   Uses $BWS_ACCESS_TOKEN if set, else the libsecret copy, else prompts.
@@ -63,52 +64,77 @@ fi
 
 # ── 2. Manifest ──
 # 0700 dir / 0600 file — the manifest lists API-key service names (mild PII).
-(
-  umask 077
-  mkdir -p "$HOME/.config/bws"
-  if [ -f "$SM_INI" ]; then
-    echo -e "  ${GREEN}✓${NC} Manifest exists: $SM_INI"
-  elif [ -f "$LEGACY_INI" ]; then
-    cp "$LEGACY_INI" "$SM_INI"
-    echo -e "  ${GREEN}✓${NC} Migrated manifest from legacy $LEGACY_INI"
-    echo -e "  ${YELLOW}ℹ${NC} Once verified, remove the legacy file: rm $LEGACY_INI"
-  else
-    cat > "$SM_INI" <<'EOF'
-# SM secrets manifest — one env var name per line, matching a Bitwarden SM
-# secret. init-hook exports only these from `bws secret list --output env`.
-# [aliases] maps third-party tool env vars (GH_TOKEN) → canonical secrets.
-# Add/remove entries as needed.
-
-GITHUB_TOKEN
-BRAVE_API_KEY
-MISTRAL_API_KEY
-FIRECRAWL_API_KEY
-OPENAI_API_KEY
-OPENCODE_GO_AUTH_COOKIE
-OPENCODE_GO_WORKSPACE_ID
-ZAI_API_KEY
-MOONSHOT_API_KEY
-KIMI_API_KEY
-MINIMAX_API_KEY
-OPENROUTER_API_KEY
-OPENCODE_GO_API_KEY
-DEEPSEEK_API_KEY
-ALIBABA_TOKEN_PLAN_API_KEY
-GEMINI_API_KEY
-OPENCODE_API_KEY
-OPENAI_BASE_URL
-OPENAI_MODEL
-
-# Aliases — NOT separate SM secrets. init-hook maps them from the canonical
-# secret after sourcing. Third-party tools (gh, SDKs) use these names.
-[aliases]
-GH_TOKEN = GITHUB_TOKEN
-WIGOLO_GITHUB_TOKEN = GITHUB_TOKEN
-ZHIPU_API_KEY = ZAI_API_KEY
-EOF
-    echo -e "  ${GREEN}✓${NC} Created $SM_INI from default secret list (edit to customize)"
-  fi
+# The seed list doubles as the merge set: re-running setup-bws adds missing
+# entries to an existing manifest — no delete-and-recreate needed.
+SEED_KEYS=(
+  GITHUB_TOKEN BRAVE_API_KEY MISTRAL_API_KEY FIRECRAWL_API_KEY
+  OPENAI_API_KEY OPENCODE_GO_AUTH_COOKIE OPENCODE_GO_WORKSPACE_ID
+  ZAI_API_KEY MOONSHOT_API_KEY KIMI_API_KEY MINIMAX_API_KEY
+  OPENROUTER_API_KEY OPENCODE_GO_API_KEY DEEPSEEK_API_KEY
+  ALIBABA_TOKEN_PLAN_API_KEY GEMINI_API_KEY OPENCODE_API_KEY
+  OPENAI_BASE_URL OPENAI_MODEL
 )
+SEED_ALIASES=(
+  "GH_TOKEN = GITHUB_TOKEN"
+  "WIGOLO_GITHUB_TOKEN = GITHUB_TOKEN"
+  "ZHIPU_API_KEY = ZAI_API_KEY"
+)
+
+_changed=0
+_old_umask="$(umask)"
+umask 077
+mkdir -p "$HOME/.config/bws"
+
+if [ ! -f "$SM_INI" ] && [ -f "$LEGACY_INI" ]; then
+  cp "$LEGACY_INI" "$SM_INI"
+  echo -e "  ${GREEN}✓${NC} Migrated manifest from legacy $LEGACY_INI"
+  echo -e "  ${YELLOW}ℹ${NC} Once verified, remove the legacy file: rm $LEGACY_INI"
+fi
+
+if [ -f "$SM_INI" ]; then
+  # Merge: append any seed entries missing from the existing manifest.
+  # Keys must land in the secrets section (before [aliases]) to be picked up.
+  grep -q '^\[aliases\]' "$SM_INI" || printf '\n[aliases]\n' >> "$SM_INI"
+  for k in "${SEED_KEYS[@]}"; do
+    if ! grep -qx "$k" "$SM_INI"; then
+      sed -i "/^\[aliases\]$/i $k" "$SM_INI"
+      echo -e "  ${GREEN}+${NC} added to manifest: $k"
+      _changed=1
+    fi
+  done
+  for a in "${SEED_ALIASES[@]}"; do
+    if ! grep -qxF "$a" "$SM_INI"; then
+      printf '%s\n' "$a" >> "$SM_INI"
+      echo -e "  ${GREEN}+${NC} added alias: $a"
+      _changed=1
+    fi
+  done
+  if [ "$_changed" = 0 ]; then
+    echo -e "  ${GREEN}✓${NC} Manifest up to date: $SM_INI"
+  fi
+# Always bust the init-hook secrets cache: setup-bws is a manual "make it
+# right" command, and fresh shells must load the manifest state it produced
+# (stale cache would keep removed/new keys out of env).
+[ -n "${XDG_RUNTIME_DIR:-}" ] && rm -f "$XDG_RUNTIME_DIR/devbox-secrets.sh"
+else
+  {
+    printf '%s\n' \
+      '# SM secrets manifest — one env var name per line, matching a Bitwarden SM' \
+      '# secret. init-hook exports only these from `bws secret list --output env`.' \
+      '# [aliases] maps third-party tool env vars (GH_TOKEN) → canonical secrets.' \
+      '# Add/remove entries as needed.' \
+      ''
+    printf '%s\n' "${SEED_KEYS[@]}"
+    printf '\n%s\n' \
+      '# Aliases — NOT separate SM secrets. init-hook maps them from the canonical' \
+      '# secret after sourcing. Third-party tools (gh, SDKs) use these names.' \
+      '[aliases]'
+    printf '%s\n' "${SEED_ALIASES[@]}"
+  } > "$SM_INI"
+  echo -e "  ${GREEN}✓${NC} Created $SM_INI from default secret list (edit to customize)"
+fi
+umask "$_old_umask"
+unset _changed _old_umask
 
 echo ""
 echo -e "${CYAN}=== Next steps ===${NC}"
