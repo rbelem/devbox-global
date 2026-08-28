@@ -8,7 +8,7 @@
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
     # Tracking tagged releases — bump rev + version + srcHash together.
-    version = "2.10.0";
+    version = "2.11.0";
     rev = "v${version}";
 
     # Get the real hash:
@@ -17,7 +17,7 @@
     #   run the command "devbox global update"
     # Then paste the sha256-... value below
     #
-    srcHash = "sha256-yh4QJLgxF5FdepGK8u+qxrxuxDsgbbbhjGNDn1RwFb4=";
+    srcHash = "sha256-THpMxb4zv10YJyUPTj8Xx48iCgjvb/sfOh8qMlZuYYE=";
   in {
     packages = forAllSystems (system:
       let
@@ -44,11 +44,40 @@
           ];
         };
         pythonPackages = pkgs.python3Packages;
+
+        # New in upstream 2.11.0 (pyproject dependencies) — not in nixpkgs.
+        # hatch-vcs derives version from git; pin it for the sdist build.
+        pywhatwgurl = pythonPackages.buildPythonPackage rec {
+          pname = "pywhatwgurl";
+          version = "0.1.1";
+          pyproject = true;
+
+          src = pkgs.fetchurl {
+            url = "https://files.pythonhosted.org/packages/c0/d2/ce0fffb9eb66ea2f88d20d7c3841b017d25559b6b617bce566811fe0bb48/pywhatwgurl-0.1.1.tar.gz";
+            hash = "sha256-Zchdo1NnURwSpN2H/srwiqOuVkJZBVs3tK5TQpKJ/PY=";
+          };
+
+          nativeBuildInputs = with pythonPackages; [
+            hatchling
+            hatch-vcs
+          ];
+
+          propagatedBuildInputs = [ pythonPackages.idna ];
+
+          env.SETUPTOOLS_SCM_PRETEND_VERSION = version;
+          env.SETUPTOOLS_SCM_PRETEND_VERSION_FOR_HATCH_VCS = version;
+
+          doCheck = false;
+        };
       in {
         default = pythonPackages.buildPythonApplication {
           pname = "skillspector";
           inherit version;
           format = "pyproject";
+
+          nativeBuildInputs = with pythonPackages; [
+            hatchling
+          ];
 
           src = pkgs.fetchFromGitHub {
             owner = "NVIDIA";
@@ -56,10 +85,6 @@
             rev = rev;
             hash = srcHash;
           };
-
-          nativeBuildInputs = with pythonPackages; [
-            hatchling
-          ];
 
           propagatedBuildInputs = with pythonPackages; [
             typer
@@ -75,6 +100,8 @@
             langchain-anthropic
             langsmith
             yara-python
+            regex
+            pywhatwgurl
           ];
 
           # All deps are listed above — keep this flag in case nixpkgs lags

@@ -53,6 +53,7 @@
     "file": "latest",
     "path:devbox.d/neovim": {},
     "path:devbox.d/tree-sitter-perl": {},
+    "path:devbox.d/anydoc": {},
     "path:devbox.d/blesh": {},
     "path:devbox.d/bun": {},
     "path:devbox.d/open-code-review": {},
