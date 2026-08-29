@@ -13,8 +13,12 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      packages = forAllSystems (system: {
+      packages = forAllSystems (system: rec {
         default = hermes-agent.packages.${system}.default;
+        # Electron desktop app (hermes-desktop binary + XDG launcher).
+        # The `hermes desktop` CLI subcommand is source-checkout-only;
+        # upstream's nix build ships the GUI as this separate package.
+        desktop = hermes-agent.packages.${system}.desktop;
       });
     };
 }
