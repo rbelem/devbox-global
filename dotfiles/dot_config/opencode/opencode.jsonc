@@ -109,6 +109,17 @@
             { "id": "max", "body": { "reasoning_effort": "max" } }
           ]
         },
+        "alibaba-token-plan/qwen3.8-max": {
+          "name": "Qwen 3.8 Max (Alibaba Token Plan via Bifrost)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 983616, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "xhigh" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
         "opencode-go/longcat-2.0": {
           "name": "LongCat-2.0 (OpenCode Go)",
           "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
@@ -395,16 +406,22 @@
             { "id": "max", "body": { "reasoning_effort": "max" } }
           ]
         },
-        "alibaba-token-plan/qwen3.8-max": {
-          "name": "Qwen 3.8 Max (Alibaba Token Plan)",
-          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
-          "limit": { "context": 1000000, "output": 16384 },
-          "variants": [
-            { "id": "low", "body": { "reasoning_effort": "low" } },
-            { "id": "medium", "body": { "reasoning_effort": "medium" } },
-            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
-            { "id": "max", "body": { "reasoning_effort": "max" } }
-          ]
+      }
+    },
+    "alibaba-token-plan": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Alibaba Cloud Model Studio (Token Plan, Anthropic-compat)",
+      "options": {
+        "baseURL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic/v1",
+        "apiKey": "{env:ALIBABA_TOKEN_PLAN_API_KEY}"
+      },
+      "models": {
+        "qwen3.8-max": {
+          "name": "Qwen3.8 Max (Token Plan)",
+          "reasoning": true,
+          "limit": { "context": 983616, "output": 131072 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "options": { "effort": "xhigh" }
         }
       }
     },
@@ -564,7 +581,7 @@
       "disabled": true
     },
     "title": {
-      "model": "opencode-go/mimo-v2.5"
+      "model": "bifrost/opencode-go/mimo-v2.5"
     },
     "autolearn-reviewer": {
       "description": "Reviews past conversations for self-improvement opportunities",
@@ -592,7 +609,6 @@
   "formatter": true,
   "lsp": true,
   "instructions": [
-    "/home/rodrigo/.autolearn/personas/default/memory.context.md",
-    "/home/rodrigob/.autolearn/personas/default/memory.context.md"
+    "~/.autolearn/personas/default/memory.context.md"
   ]
 }

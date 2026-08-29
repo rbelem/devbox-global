@@ -5,14 +5,14 @@
     "enabled": true,
     "type": "sqlite",
     "config": {
-      "path": "config.db"
+      "path": "/home/rodrigob/.config/bifrost/config.db"
     }
   },
   "logs_store": {
     "enabled": true,
     "type": "sqlite",
     "config": {
-      "path": "logs.db"
+      "path": "/home/rodrigob/.config/bifrost/logs.db"
     }
   },
   "vector_store": {
@@ -232,14 +232,11 @@
     },
     "alibaba-token-plan": {
       "custom_provider_config": {
-        "base_provider_type": "openai",
-        "request_path_overrides": {
-          "chat_completion": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/chat/completions",
-          "chat_completion_stream": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/chat/completions"
-        }
+        "is_key_less": false,
+        "base_provider_type": "anthropic"
       },
       "network_config": {
-        "base_url": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode",
+        "base_url": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic",
         "max_retries": 3,
         "retry_backoff_initial": 500,
         "retry_backoff_max": 5000
@@ -301,7 +298,7 @@
       {
         "id": "glm-5.3-failover-chain",
         "name": "GLM-5.3 failover chain",
-        "description": "GLM-5.3: zai primary → alibaba-token-plan/glm-5.2 → opencode-go/glm-5.2 (5.3 not yet on fallback providers)",
+        "description": "GLM-5.3: zai primary \u2192 alibaba-token-plan/glm-5.2 \u2192 opencode-go/glm-5.2 (5.3 not yet on fallback providers)",
         "cel_expression": "model == 'glm-5.3'",
         "targets": [
           {
@@ -320,7 +317,7 @@
       {
         "id": "glm-5.2-failover-chain",
         "name": "GLM-5.2 failover chain",
-        "description": "GLM-5.2: zai primary → alibaba-token-plan → opencode-go",
+        "description": "GLM-5.2: zai primary \u2192 alibaba-token-plan \u2192 opencode-go",
         "cel_expression": "model == 'glm-5.2'",
         "targets": [
           {
@@ -339,7 +336,7 @@
       {
         "id": "kimi-k3-failover-chain",
         "name": "Kimi K3 failover chain",
-        "description": "Kimi K3: kimi-for-coding primary → openrouter",
+        "description": "Kimi K3: kimi-for-coding primary \u2192 openrouter",
         "cel_expression": "model == 'kimi-k3' || model == 'k3'",
         "targets": [
           {
@@ -357,7 +354,7 @@
       {
         "id": "minimax-m3-failover-chain",
         "name": "MiniMax-M3 failover chain",
-        "description": "MiniMax-M3: minimax primary → opencode-go → openrouter",
+        "description": "MiniMax-M3: minimax primary \u2192 opencode-go \u2192 openrouter",
         "cel_expression": "model == 'MiniMax-M3'",
         "targets": [
           {
@@ -376,7 +373,7 @@
       {
         "id": "deepseek-v4-pro-failover-chain",
         "name": "DeepSeek V4 Pro failover chain",
-        "description": "DeepSeek V4 Pro: deepseek primary → opencode-go → openrouter",
+        "description": "DeepSeek V4 Pro: deepseek primary \u2192 opencode-go \u2192 openrouter",
         "cel_expression": "model == 'deepseek-v4-pro'",
         "targets": [
           {
@@ -395,7 +392,7 @@
       {
         "id": "deepseek-v4-flash-failover-chain",
         "name": "DeepSeek V4 Flash failover chain",
-        "description": "DeepSeek V4 Flash 0731: opencode-go primary → deepseek → openrouter",
+        "description": "DeepSeek V4 Flash 0731: opencode-go primary \u2192 deepseek \u2192 openrouter",
         "cel_expression": "model == 'deepseek-v4-flash'",
         "targets": [
           {
@@ -414,7 +411,7 @@
       {
         "id": "deepseek-v4-flash-vision-failover-chain",
         "name": "DeepSeek V4 Flash Vision failover chain",
-        "description": "DeepSeek V4 Flash Vision (exp, multimodal): deepseek primary → openrouter (OR endpoint currently blocked by account guardrail)",
+        "description": "DeepSeek V4 Flash Vision (exp, multimodal): deepseek primary \u2192 openrouter (OR endpoint currently blocked by account guardrail)",
         "cel_expression": "model == 'deepseek-v4-flash-vision-exp'",
         "targets": [
           {
@@ -433,7 +430,7 @@
       {
         "id": "glm-5.3-flash-failover-chain",
         "name": "GLM-5.3-Flash failover chain",
-        "description": "GLM-5.3-Flash (Aug 26, MIT): zai coding-plan primary (3x quota vs 5.3, off-peak 50%) → opencode-go (Go $15 usage) → deepseek vision-exp (multimodal-capable, different family)",
+        "description": "GLM-5.3-Flash (Aug 26, MIT): zai coding-plan primary (3x quota vs 5.3, off-peak 50%) \u2192 opencode-go (Go $15 usage) \u2192 deepseek vision-exp (multimodal-capable, different family)",
         "cel_expression": "model == 'glm-5.3-flash'",
         "targets": [
           {
