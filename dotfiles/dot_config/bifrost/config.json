@@ -5,14 +5,14 @@
     "enabled": true,
     "type": "sqlite",
     "config": {
-      "path": "/home/rodrigob/.config/bifrost/config.db"
+      "path": "~/.config/bifrost/config.db"
     }
   },
   "logs_store": {
     "enabled": true,
     "type": "sqlite",
     "config": {
-      "path": "/home/rodrigob/.config/bifrost/logs.db"
+      "path": "~/.config/bifrost/logs.db"
     }
   },
   "vector_store": {
