@@ -83,6 +83,7 @@
     "path:devbox.d/hermes-agent": {},
     "path:devbox.d/hermes-agent#desktop": {},
     "path:devbox.d/pi": {},
+    "path:devbox.d/firecrawl": {},
     "valkey": {
       "version": "latest",
       "disable_plugin": true
