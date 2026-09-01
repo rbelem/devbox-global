@@ -45,7 +45,7 @@
         ]
       },
       "oracle": {
-        "model": "alibaba-token-plan/qwen3.8-max",
+        "model": "bifrost/alibaba-token-plan/qwen3.8-max",
         "variant": "xhigh",
         "skills": [
           "simplify",
@@ -143,7 +143,7 @@
           "variant": "max"
         },
         "beta": {
-          "model": "alibaba-token-plan/qwen3.8-max",
+          "model": "bifrost/alibaba-token-plan/qwen3.8-max",
           "variant": "xhigh"
         },
         "gamma": {

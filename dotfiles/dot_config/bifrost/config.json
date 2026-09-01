@@ -239,7 +239,8 @@
         "base_url": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic",
         "max_retries": 3,
         "retry_backoff_initial": 500,
-        "retry_backoff_max": 5000
+        "retry_backoff_max": 5000,
+        "stream_idle_timeout_in_seconds": 600
       },
       "keys": [
         {
