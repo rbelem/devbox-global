@@ -131,7 +131,13 @@ done < <(grep -oP '"path:devbox\.d/[^"]+"|"[^"]+@latest"' "$DEVBOX_JSON" | tr -d
 
 # ── For each flake, extract GitHub source + version from flake.nix ──
 declare -A FLAKE_OWNER FLAKE_REPO FLAKE_VERSION FLAKE_TYPE \
-         FLAKE_UPSTREAM FLAKE_FORK_SUFFIX FLAKE_RELEASE_PREFIX FLAKE_BRANCH_TRACKING
+         FLAKE_UPSTREAM FLAKE_FORK_SUFFIX FLAKE_RELEASE_PREFIX FLAKE_BRANCH_TRACKING \
+         FLAKE_INPUT_NAME
+
+# Flakes whose flake.lock the updater re-resolved this run. The global copy's
+# lock is fresh but the repo copy's is still stale, so a reverse config-sync is
+# required before committing. Reported at the end so it isn't forgotten.
+declare -a LOCK_REFRESHED=()
 
 for name in "${FLAKES[@]}"; do
     flake_nix="$DEVBOX_D/$name/flake.nix"
@@ -172,6 +178,10 @@ for name in "${FLAKES[@]}"; do
             FLAKE_OWNER["$name"]="$owner"
             FLAKE_REPO["$name"]="$repo"
             FLAKE_TYPE["$name"]="github-input"
+            # Input *attribute* name (e.g. `hermes-agent.url = "github:..."`),
+            # needed to re-resolve just this input: `nix flake update <input>`.
+            # Without it, bumping the URL leaves flake.lock pinning the old rev.
+            FLAKE_INPUT_NAME["$name"]="$(grep -oP '^\s*\K\S+(?=\.url\s*=\s*"github:)' "$flake_nix" | grep -v '^nixpkgs$' | head -1 || true)"
             found_source=true
         fi
     fi
@@ -349,19 +359,64 @@ update_flake() {
     # Escape dots for sed
     old_ver_escaped="${old_ver//\./\\.}"
 
+    # Two independent places a version can live, and a flake may use either or
+    # both:
+    #   (a) a `version = "..."` attribute
+    #   (b) the ref of a github input URL — `github:owner/repo/v1.2.3`
+    # URL-pinned flakes (e.g. hermes-agent) have NO `version =` attribute at
+    # all: the URL ref *is* the version. Requiring (a) made those flakes
+    # report "Could not find version = ... — skipping" and never update, even
+    # though the table above correctly detected the new release. So track
+    # whether *either* write landed and only bail if neither did.
+    local updated=false
+
     # 1. Update version field
     if grep -qP "\\bversion\\s*=\\s*\"$old_ver_escaped\"" "$flake_nix"; then
         sed -ri "s/(\\bversion\\s*=\\s*)\"$old_ver_escaped\"/\\1\"$update_ver\"/" "$flake_nix"
         echo "    ✓ version field updated"
-    else
-        echo "    ! Could not find version = \"$old_ver\" in flake.nix — skipping"
+        updated=true
+    fi
+
+    # 2. Update input URL refs (e.g. github:owner/repo/v1.2.3).
+    #    NOT gated on FLAKE_TYPE == github-input: source detection picks its
+    #    strategy independently of where the version lives, so a URL-pinned
+    #    flake whose owner/repo was detected via fetchFromGitHub/homepage attrs
+    #    would never get its ref bumped. Match on the ref actually present
+    #    instead — if a `.../v<old>` or `.../<old>"` URL exists, bump it.
+    #    `old_ver` has no `v` prefix (stripped during detection), so both the
+    #    v-prefixed and bare forms are handled.
+    if grep -qE "(/v|/)$old_ver_escaped\"" "$flake_nix"; then
+        sed -ri "s|(/v)${old_ver_escaped}\"|\\1${update_ver}\"|g; s|(/)${old_ver_escaped}\"|\\1${update_ver}\"|g" "$flake_nix"
+        echo "    ✓ input URL ref updated"
+        updated=true
+    fi
+
+    if ! $updated; then
+        echo "    ! Could not find version \"$old_ver\" in flake.nix — neither a"
+        echo "      version = attribute nor an input URL ref matched — skipping"
         return 1
     fi
 
-    # 2. Update input URL refs for github-input type flakes (e.g. github:owner/repo/v1.2.3)
-    if [[ "${FLAKE_TYPE[$name]:-}" == "github-input" ]]; then
-        sed -ri "s|(/v)$old_ver_escaped\"|\1$update_ver\"|g; s|(/)${old_ver_escaped}\"|\1${update_ver}\"|g" "$flake_nix"
-        echo "    ✓ input URL ref updated"
+    # 2b. Refresh the lockfile for the bumped input.
+    #     Editing the URL only changes the input's *original* ref; flake.lock
+    #     keeps pinning the OLD rev until it is re-resolved. Nix then builds a
+    #     derivation named for the new version filled with the OLD source, so
+    #     the store path claims 2026.8.31 while `hermes --version` answers
+    #     2026.8.27. Always verify with the binary, never the store path.
+    local input_name="${FLAKE_INPUT_NAME[$name]:-}"
+    if [[ -n "$input_name" ]]; then
+        local lock_output
+        if lock_output=$(cd "$DEVBOX_D/$name" && nix flake update "$input_name" 2>&1); then
+            echo "    ✓ flake.lock re-resolved for input '$input_name'"
+            # The lockfile in the *repo* copy is still stale after this —
+            # pull it back with: devbox global run config-sync -- --reverse --sync
+            LOCK_REFRESHED+=("$name")
+        else
+            echo "    ${YELLOW}!${NC} nix flake update '$input_name' failed:"
+            echo "$lock_output" | grep -E '(error:|Error:)' | head -3 | sed 's/^/      /'
+            echo "      flake.lock may still pin the old revision — refresh it manually"
+            return 1
+        fi
     fi
 
     # 3. Reset hashes to a literal fake hash (no pkgs dependency, works in any scope)
@@ -607,6 +662,16 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
         done
         echo ""
         echo "${BOLD}${GREEN}All updates applied.${NC}"
+
+        # Refreshing a lockfile only touched the GLOBAL copy. The repo copy is
+        # still pinning the old rev, so the next forward sync would clobber the
+        # fix and the commit would ship a stale lock. Say so explicitly.
+        if [[ ${#LOCK_REFRESHED[@]} -gt 0 ]]; then
+            echo ""
+            printf "${YELLOW}! flake.lock re-resolved in the global copy for: %s${NC}\n" "${LOCK_REFRESHED[*]}"
+            echo "  Pull it back into the repo before committing:"
+            echo "    devbox global run config-sync -- --reverse --sync"
+        fi
         echo ""
         echo "→ Running post-install hooks..."
         "$DEVBOX_GLOBAL_PATH/bin/post-install"
