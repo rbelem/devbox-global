@@ -4,7 +4,7 @@
     # Pin to a tag (not main) so update-flake can parse the version from
     # the input URL and detect updates. Upstream builds via uv2nix and
     # exports packages.default (full build), minimal, messaging, tui, web.
-    hermes-agent.url = "github:NousResearch/hermes-agent/v2026.8.27";
+    hermes-agent.url = "github:NousResearch/hermes-agent/v2026.8.31";
   };
 
   outputs = { self, nixpkgs, hermes-agent, ... }:
