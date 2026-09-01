@@ -1,4 +1,15 @@
+# Nix build output symlinks. `nix build` writes ./result; multi-output
+# derivations write ./result-<output> (result-bin, result-lib, ...) and a
+# collision writes ./result-<n>. A bare `result` rule matches only the exact
+# name and lets every suffixed variant show up as untracked.
+#
+# Scoped to devbox.d/ on purpose: a bare `result-*` at the root would also
+# match dotfiles/.../dist/providers/result-helpers.*, and those are tracked
+# source files. Tracked files are immune to ignore rules today, so it would
+# not break anything immediately — but the first `git rm --cached` or
+# force-add would silently drop them from a commit.
 result
+devbox.d/*/result-*
 
 # Devbox-generated AWS credential wrapper (machine-specific)
 .aws/
