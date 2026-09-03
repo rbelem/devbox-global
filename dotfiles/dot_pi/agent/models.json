@@ -11,8 +11,8 @@
       },
       "models": [
         {
-          "id": "zai/glm-5.2",
-          "name": "GLM-5.2 (z.ai direct)",
+          "id": "zai/glm-5.3-flash",
+          "name": "GLM-5.3 Flash (z.ai direct)",
           "reasoning": true,
           "contextWindow": 1000000,
           "maxTokens": 131072

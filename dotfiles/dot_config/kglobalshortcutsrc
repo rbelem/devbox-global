@@ -371,6 +371,10 @@ _launch=Meta+'
 [services][org.kde.konsole.desktop]
 _launch=none
 
+[services][org.kde.spectacle.desktop]
+CurrentMonitorScreenShot=none
+OpenWithoutScreenshot=none
+
 [services][org.kde.touchpadshortcuts.desktop]
 ToggleTouchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku
 

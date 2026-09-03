@@ -1,11 +1,11 @@
 {
-  "lastChangelogVersion": "0.84.2",
+  "lastChangelogVersion": "0.84.3",
   "theme": "dark",
   "defaultProvider": "bifrost",
-  "defaultModel": "minimax/MiniMax-M3",
+  "defaultModel": "zai/glm-5.3-flash",
   "defaultProjectTrust": "always",
   "enabledModels": [
-    "zai/glm-5.2",
+    "zai/glm-5.3-flash",
     "minimax/MiniMax-M3",
     "deepseek/deepseek-v4-pro",
     "deepseek/deepseek-v4-flash",
