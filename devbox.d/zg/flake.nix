@@ -5,7 +5,10 @@
 
   outputs = { self, nixpkgs }:
     let
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      # x86_64-linux only: native-heavy package (onnxruntime, napi bindings,
+      # prebuilt GPU backends); arm64 musl ignore-list entries and darwin
+      # dylib resolution are unverified. Same restriction as devbox.d/wigolo.
+      systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       version = "0.2.1";
@@ -15,18 +18,20 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
-          # Get the real npmDepsHash:
-          #   1. Set npmDepsHash to pkgs.lib.fakeHash
-          #   2. Run: nix build "path:...#default"
-          #   3. Replace with the hash from the error message
-          npmDepsHash = "sha256-pc04qzhnYaS0xpQAYwN6HEG8oPEqoBIBMVKC1OZ0L+8=";
-
           src = pkgs.fetchFromGitHub {
             owner = "zvec-ai";
             repo = "zvec-grep";
             rev = "v${version}";
             hash = "sha256-8bP+w2YSzWlTJbipmF8ighraZRDye0uiZmd8+Pz4WE8=";
           };
+
+          # Get the real npmDepsHash:
+          #   1. Set npmDepsHash to pkgs.lib.fakeHash
+          #   2. Run: nix build "path:...#default"
+          #   3. Replace with the hash from the error message
+          # Keep this AFTER src: nix fails src first, and update-flake pastes
+          # each "got:" hash into the first remaining fakeHash in file order.
+          npmDepsHash = "sha256-pc04qzhnYaS0xpQAYwN6HEG8oPEqoBIBMVKC1OZ0L+8=";
         in
         {
           default = pkgs.buildNpmPackage {
@@ -44,9 +49,10 @@
             #     ships bin/rg, and zg also falls back to `rg` on PATH)
             #   - @zvec/zvec install.js only validates; the binding is
             #     loaded at require-time from @zvec/bindings-linux-x64
-            #   - node-llama-cpp (optional dep) compiles llama.cpp via cmake
-            #     here; zg dynamic-imports it and errors gracefully, so
-            #     local GGUF embedding models are unavailable in this build
+            #   - node-llama-cpp (optional dep): its prebuilt CUDA/Vulkan
+            #     backend packages cannot resolve libcuda/libvulkan here;
+            #     zg dynamic-imports it in try/catch, so postInstall prunes
+            #     it and local GGUF embedding models are unavailable
             npmFlags = [ "--ignore-scripts" ];
 
             # Patch prebuilt native modules in the shipped node_modules tree
@@ -67,6 +73,19 @@
               "libcublas.so.13"
               "libcuda.so.1"
             ];
+
+            # Drop node_modules trees that can never load on glibc x86_64 —
+            # dead weight in the closure: musl sharp/libvips/reflink variants
+            # and the node-llama-cpp GPU backends + JS glue. Globs that match
+            # nothing are no-ops under `rm -rf`; the find cleans up .bin
+            # shims left dangling by the removals.
+            postInstall = ''
+              rm -rf $out/lib/node_modules/@zvec/zvec-grep/node_modules/@node-llama-cpp \
+                $out/lib/node_modules/@zvec/zvec-grep/node_modules/node-llama-cpp \
+                $out/lib/node_modules/@zvec/zvec-grep/node_modules/@img/sharp-*linuxmusl-* \
+                $out/lib/node_modules/@zvec/zvec-grep/node_modules/@reflink/*-musl
+              find $out/lib/node_modules/@zvec/zvec-grep -xtype l -delete
+            '';
 
             meta = with pkgs.lib; {
               description = "Local-first search across your workspace, built for humans and AI agents";
