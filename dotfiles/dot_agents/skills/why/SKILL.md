@@ -97,7 +97,7 @@ Capture this as seed context (file paths, symbols, commits, PR numbers, linked t
 
 ### Discovery
 
-Before spawning investigators, list the available MCPs from the OpenCode environment. Use the available-tools map when present. Otherwise inspect the MCP configuration OpenCode exposes for enabled MCP servers.
+Before spawning investigators, list the available MCPs from the Cursor environment. Use the available-tools map when present. Otherwise inspect the `mcps/` directory Cursor exposes for enabled MCP servers.
 
 Map each available MCP to one evidence category:
 
@@ -163,7 +163,7 @@ If your scope assessment suggests a single-commit trivial target where the PR de
 Spawn one synthesizer subagent:
 
 - `subagent_type`: `general`
-- `model`: your configured why-synthesizer model (default `claude-fable-5-thinking-max`)
+- `model`: your configured why-synthesizer model (default `claude-fable-5-1-thinking-max`)
 - `readonly`: `false` (agent mode). The synthesizer's quality check spot-verifies citations, which can require MCP access. Readonly/Ask mode strips MCPs and defeats that.
 
 The synthesizer gets:
