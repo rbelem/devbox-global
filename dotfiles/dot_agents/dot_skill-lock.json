@@ -10,15 +10,6 @@
       "installedAt": "2026-04-25T07:47:43.898Z",
       "updatedAt": "2026-07-11T15:51:59.769Z"
     },
-    "agent-browser": {
-      "source": "vercel-labs/agent-browser",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
-      "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "82def67855a0d2aad7794207951820fa5422fdb0",
-      "installedAt": "2026-04-25T07:48:46.777Z",
-      "updatedAt": "2026-08-25T23:45:48.524Z"
-    },
     "caveman-commit": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
@@ -1172,6 +1163,15 @@
       "skillFolderHash": "0bdb821a21e793a4f6f82a7078c052154447e5cc",
       "installedAt": "2026-09-04T16:42:14.453Z",
       "updatedAt": "2026-09-04T16:42:54.269Z"
+    },
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
+      "skillPath": "skills/agent-browser/SKILL.md",
+      "skillFolderHash": "1af376a8f8cbf10e28cd3089ca0a8aa633e26b1b",
+      "installedAt": "2026-09-04T19:05:39.538Z",
+      "updatedAt": "2026-09-04T19:16:47.000Z"
     }
   },
   "dismissed": {
