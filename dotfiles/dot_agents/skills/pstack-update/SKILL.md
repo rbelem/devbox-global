@@ -73,6 +73,9 @@ description: Update the rbelem/skills pstack fork (OpenCode port of poteto's pst
    skills update <changed skill names> -g -y   # or: skills update -g -y for all
    ```
 
+- After a `cp`/re-port, re-check BOTH the slug rule AND frontmatter regressions: upstream v0.14.8+ ships title-case `name:` ("Make Bot UI") instead of slugs, and re-copying clobbers fork-specific frontmatter (`unslop`'s `metadata: opencode/autoinvoke: "true"`, `pstack-tdd`/`pstack-teach` names).
+- Mechanical regexes can't recover the fork's hand-written adaptation phrasings. Before copying over, extract the old fork's phrasing from `git show HEAD:pstack/...` for: `agent-transcripts/`/`~/.cursor/projects` lines, `control-cli`/`control-ui` lines, `deslop`/`cursor-team-kit` lines, `create-skill` lines, `Cursor cloud agent`/dashboard lines, `/loop` lines. Re-apply them verbatim in a second pass, then residue-grep the `.md` files (leave `api2.cursor.sh` webhook URL in make-bot-ui and `environment: "cloud"` in swarm + worktree-audit.sh — fork precedent).
+
 ## Gotchas
 
 - **dcg blocks `rm -rf`** on skill dirs — overwrite with `cp`/`mv` instead; scratch work lives in `/tmp/opencode/`.
