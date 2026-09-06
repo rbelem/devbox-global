@@ -7,7 +7,7 @@
     supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-    version = "0.85.0";
+    version = "0.85.1";
 
     # Node-style asset naming (bun build --compile).
     systemToTarget = {
@@ -19,10 +19,10 @@
 
     # Hashes from GitHub release API asset digests, converted to SRI.
     systemToHash = {
-      "x86_64-linux"  = "sha256-p+fGXx3FKNLhfn2UatK2HfDisPmVL67neAfCSEtGTW4=";
-      "aarch64-linux" = "sha256-ghdQ4Kxr9uEMNbk92riKRPLQ74QRr56k6P/mIPYhMN8=";
-      "x86_64-darwin" = "sha256-YRKQ4DKkfxVGvTDhLBSlmmAKJGYtUjnAwVnvPHoMo7A=";
-      "aarch64-darwin" = "sha256-sKGjq5cIBH4xt2onkR6LRFs+Sjji9GoItmNd9180mcA=";
+      "x86_64-linux"  = "sha256-SU5Jj0fXTSH0CzOG9qXpIaPUlTGhacq1W72soOof4lo=";
+      "aarch64-linux" = "sha256-BC0grohe5POxAoFfMoC5YsN3sun7RN5AN5CMxTDq5NQ=";
+      "x86_64-darwin" = "sha256-rbkYuEViXxhNi+pAjVXqyvIaqHI4eTwPW087lze85is=";
+      "aarch64-darwin" = "sha256-1fcOPAz3OY6sI5/QJh7gdNmLe6f2tD/jYX8FLtW3nQY=";
     };
   in {
     packages = forAllSystems (pkgs: rec {
