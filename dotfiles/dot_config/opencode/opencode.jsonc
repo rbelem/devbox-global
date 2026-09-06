@@ -115,10 +115,10 @@
           "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
           "limit": { "context": 983616, "output": 131072 },
           "variants": [
-            { "id": "low", "body": { "reasoning_effort": "low" } },
-            { "id": "medium", "body": { "reasoning_effort": "medium" } },
-            { "id": "xhigh", "body": { "reasoning_effort": "xhigh" } },
-            { "id": "max", "body": { "reasoning_effort": "max" } }
+            { "id": "low", "body": { "reasoning_effort": "low", "max_tokens": 32768 } },
+            { "id": "medium", "body": { "reasoning_effort": "medium", "max_tokens": 32768 } },
+            { "id": "xhigh", "body": { "reasoning_effort": "xhigh", "max_tokens": 32768 } },
+            { "id": "max", "body": { "reasoning_effort": "max", "max_tokens": 32768 } }
           ]
         },
         "opencode-go/longcat-2.0": {
