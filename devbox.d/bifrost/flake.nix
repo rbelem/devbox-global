@@ -1,5 +1,5 @@
 {
-  description = "Bifrost — fastest AI gateway (50x faster than LiteLLM) with sub-ms overhead. Built from source (v1.6.11) + sends_done_marker patch (upstream PR #2909) fixing MiniMax/Synthetic SSE [DONE] stream hangs.";
+  description = "Bifrost — fastest AI gateway (50x faster than LiteLLM) with sub-ms overhead. Built from source (v2.0.0) + sends_done_marker patch (upstream PR #2909, still open) fixing MiniMax/Synthetic SSE [DONE] stream hangs.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -9,7 +9,7 @@
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      version = "v1.6.11";
+      version = "v2.0.0";
     in
     {
       packages = forAllSystems (system:
@@ -18,8 +18,8 @@
           lib = pkgs.lib;
 
           src = pkgs.fetchzip {
-            url = "https://github.com/maximhq/bifrost/archive/refs/tags/transports/v1.6.11.tar.gz";
-            sha256 = "sha256-Fjw1rUCqbn14lA4PSJo8EFPUotx14bpzVwTmuWSMJfw=";
+            url = "https://github.com/maximhq/bifrost/archive/refs/tags/transports/v2.0.0.tar.gz";
+            sha256 = "sha256-scOAEWRrKEx6sz74scjJAbiW6EYaW6EaZPdyQUkVqqE=";
             stripRoot = true;
           };
 
@@ -40,7 +40,7 @@
             src = src;
             sourceRoot = "source/ui";
 
-            npmDepsHash = "sha256-aM+yPpvVoc0UtMcJH4hhJWHfApAkBcKdJB+EbI3BFCA=";
+            npmDepsHash = "sha256-1eEw976l9xb0nLyoc5vUv1536EUvmdVtCBdz+FpprgQ=";
 
             # vite build + tsc typecheck; strip the copy-build step (writes
             # outside $PWD into ../transports/bifrost-http/ui — we copy from
@@ -83,14 +83,16 @@
           '';
         in
         {
-          default = pkgs.buildGoModule {
+          # buildGoModule.override so the goModules (go mod vendor) derivation
+          # also gets go 1.27 — a plain `go =` attr only affects the main build
+          default = (pkgs.buildGoModule.override { go = pkgs.go_1_27; }) {
             pname = "bifrost";
             inherit version;
             src = src';
 
             modRoot = "transports";
             subPackages = [ "bifrost-http" ];
-            vendorHash = "sha256-iTV4d4o9kjVNzEZ5Ekzfoj/qXzsiOrgiNkgAP8NpknI=";
+            vendorHash = "sha256-XHYpWSvOCY2IWk/+e1I8JGKj/zR6wyH1fPICYNcYIVc=";
 
             doCheck = false;
 
