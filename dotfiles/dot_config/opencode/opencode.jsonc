@@ -472,6 +472,39 @@
             { "id": "xhigh", "body": { "reasoning_effort": "high" } },
             { "id": "max", "body": { "reasoning_effort": "max" } }
           ]
+        },
+        "openrouter/openai/gpt-6-astra": {
+          "name": "GPT-6 Astra (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1050000, "output": 128000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/openai/gpt-6-astra-pro": {
+          "name": "GPT-6 Astra Pro (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1050000, "output": 128000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/x-ai/grok-4.6": {
+          "name": "Grok 4.6 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 500000, "output": 450000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
         }
       }
     },
@@ -663,7 +696,7 @@
       "disabled": true
     },
     "title": {
-      "model": "bifrost/opencode-go/mimo-v2.5"
+      "model": "bifrost/deepseek/deepseek-v4-flash"
     },
     "autolearn-reviewer": {
       "description": "Reviews past conversations for self-improvement opportunities",
