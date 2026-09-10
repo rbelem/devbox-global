@@ -19,7 +19,7 @@
       #   2. nix build "path:devbox.d/deepsec#default"
       #   3. paste the sha256-... values from the error messages
       srcHash = "sha256-jCNlDbBD8nrhnxih24uqoTLTJ40HMaRB0ieps1+5Jis=";
-      pnpmDepsHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      pnpmDepsHash = "sha256-HaC2a98cmbHz3b0ekq2Qj5+oJscpvEgA9j5slwvoc7s=";
     in
     {
       packages = forAllSystems (system:
