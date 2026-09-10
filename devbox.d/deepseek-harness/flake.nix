@@ -13,7 +13,7 @@
       # No upstream tags/releases: pin to a master commit. update-flake
       # shows this as "??" and never auto-updates it — bump manually by
       # updating rev + both hashes below.
-      version = "dsh-v0.1.3-alpha.1"; # mirrors root package.json version
+      version = "dsh-v0.1.5-rc.2"; # mirrors root package.json version
       rev = "d347e703908d0406b7a7ef80e3a0e594d86b2215"; # master, package.json 0.1.3-alpha.1
 
       # Hash capture workflow:

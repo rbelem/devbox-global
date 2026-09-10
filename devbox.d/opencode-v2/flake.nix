@@ -34,9 +34,9 @@
       #      package.json's own 1.18.4 collides with the v1 version line)
       #   3. clear nodeModulesHash (fakeHash) → build → paste real hash
 # branch-tracking: v2
-      version = "0.0.0-next-20260908"; # v2 branch, next-channel naming
-      rev = "c2a1649dd463241ab07ef64fa2b863853168232e";
-      srcHash = "sha256-0f2woHNFjfUelFWO6NKoznEeCRP7iQ45z1Q4PAnk19o=";
+      version = "0.0.0-next-20260910"; # v2 branch, next-channel naming
+      rev = "9e153ce7b3df7639a4a6a522e0625c6fc1f057e0";
+      srcHash = "sha256-s73Qwo6xng5gOOIWXyJNJ1kXap9jG9r0XGMnScwfneI=";
       nodeModulesHash = "sha256-D1jEIRvRFA472yCrU4GSA1Fm4Q7u03ffVsZut3XfL6Q=";
 
       # Workspace packages packages/cli depends on (deps + devDeps); the

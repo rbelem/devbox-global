@@ -11,15 +11,15 @@
       # No upstream tags: pin to a main commit. update-flake shows this as
       # "??" (branch:main fallback) and never auto-updates it — bump manually
       # by updating rev + both hashes below.
-      version = "2.3.5"; # mirrors packages/deepsec package.json version
-      rev = "d8b133d7079ad35f2d458613d38e09f3e8f111da";
+      version = "2.3.9"; # mirrors packages/deepsec package.json version
+      rev = "23a69227e3380e6b44a7ebd93c52e023c59f17c3";
 
       # Hash capture workflow:
       #   1. set srcHash / pnpmDepsHash to pkgs.lib.fakeHash
       #   2. nix build "path:devbox.d/deepsec#default"
       #   3. paste the sha256-... values from the error messages
-      srcHash = "sha256-YnsnXphrSTxkOQQo6NSov2vwH6btBSVn8+H/xgpqSwY=";
-      pnpmDepsHash = "sha256-zpyUYw6GUbdYEFKdX9RWX4DtqKqvJJZ0maF8+7UzaJQ=";
+      srcHash = "sha256-jCNlDbBD8nrhnxih24uqoTLTJ40HMaRB0ieps1+5Jis=";
+      pnpmDepsHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
     in
     {
       packages = forAllSystems (system:
