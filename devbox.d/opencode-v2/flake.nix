@@ -34,9 +34,9 @@
       #      package.json's own 1.18.4 collides with the v1 version line)
       #   3. clear nodeModulesHash (fakeHash) → build → paste real hash
 # branch-tracking: v2
-      version = "0.0.0-next-20260910"; # v2 branch, next-channel naming
-      rev = "9e153ce7b3df7639a4a6a522e0625c6fc1f057e0";
-      srcHash = "sha256-s73Qwo6xng5gOOIWXyJNJ1kXap9jG9r0XGMnScwfneI=";
+      version = "0.0.0-next-20260912"; # v2 branch, next-channel naming
+      rev = "b0b85cbb773ac777c41afa68b1aa9558ccbc269e";
+      srcHash = "sha256-Q66B+I9hc/wMiCC7HMIXH6MepgirJUP7xalEGZDlYcw=";
       nodeModulesHash = "sha256-D1jEIRvRFA472yCrU4GSA1Fm4Q7u03ffVsZut3XfL6Q=";
 
       # Workspace packages packages/cli depends on (deps + devDeps); the
@@ -160,7 +160,7 @@
 
               cd ./packages/cli
               bun --bun ./script/build.ts \
-                --target=opencode2-linux-x64-baseline \
+                --target=opencode-linux-x64-baseline \
                 --skip-install --skip-web-ui
 
               runHook postBuild
@@ -169,7 +169,7 @@
             installPhase = ''
               runHook preInstall
 
-              install -Dm755 dist/cli-linux-x64-baseline/bin/opencode2 $out/bin/opencode2
+              install -Dm755 dist/cli-linux-x64-baseline/bin/opencode $out/bin/opencode2
 
               runHook postInstall
             '';
