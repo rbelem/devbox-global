@@ -112,11 +112,112 @@
         "model": "bifrost/zai/glm-5.3-flash",
         "variant": "xhigh"
       }
+    },
+    "privacy": {
+      "orchestrator": {
+        "model": "bifrost/kimi-for-coding/kimi-for-coding",
+        "variant": "medium",
+        "skills": [
+          "*",
+          "!design-taste-frontend",
+          "!high-end-visual-design",
+          "!minimalist-ui",
+          "!industrial-brutalist-ui",
+          "!mobile-android-design",
+          "!brandkit",
+          "!redesign-existing-projects",
+          "!imagegen-frontend-web",
+          "!imagegen-frontend-mobile",
+          "!gpt-taste",
+          "!stitch-design-taste",
+          "!image-to-code",
+          "!prototype"
+        ],
+        "mcps": [
+          "*",
+          "!chrome-devtools",
+          "!browsermcp",
+          "!firecrawl-mcp",
+          "!context7",
+          "!gh_grep",
+          "!opencode-docs",
+          "!openrouter",
+          "!websearch"
+        ]
+      },
+      "oracle": {
+        "model": "bifrost/kimi-for-coding/kimi-for-coding",
+        "variant": "max",
+        "skills": [
+          "simplify",
+          "code-review",
+          "diagnosing-bugs",
+          "codebase-design",
+          "zoom-out",
+          "domain-modeling",
+          "grill-me",
+          "improve-codebase-architecture",
+          "verification-planning"
+        ],
+        "mcps": ["codegraph"]
+      },
+      "librarian": {
+        "model": "bifrost/kimi-for-coding/kimi-for-coding",
+        "variant": "low",
+        "skills": ["research"],
+        "mcps": ["context7", "gh_grep", "firecrawl-mcp", "opencode-docs"]
+      },
+      "explorer": {
+        "model": "bifrost/kimi-for-coding/k3-256k",
+        "variant": "low",
+        "skills": [],
+        "mcps": ["codegraph"]
+      },
+      "designer": {
+        "model": "bifrost/kimi-for-coding/k3",
+        "variant": "high",
+        "skills": [
+          "agent-browser",
+          "mobile-android-design",
+          "design-taste-frontend",
+          "high-end-visual-design",
+          "gpt-taste",
+          "image-to-code",
+          "stitch-design-taste",
+          "prototype"
+        ],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "bifrost/kimi-for-coding/kimi-for-coding",
+        "variant": "medium",
+        "skills": [
+          "git-commit",
+          "devbox",
+          "full-output-enforcement",
+          "graphify",
+          "clonedeps",
+          "greploop",
+          "tdd",
+          "verification-planning"
+        ],
+        "mcps": ["codegraph"]
+      },
+      "observer": {
+        "model": "bifrost/kimi-for-coding/k3-256k",
+        "variant": "medium",
+        "skills": [],
+        "mcps": []
+      },
+      "council": {
+        "model": "bifrost/kimi-for-coding/kimi-for-coding",
+        "variant": "medium"
+      }
     }
   },
   "agents": {
     "fast-generic": {
-      "model": "bifrost/deepseek/deepseek-v4-flash",
+      "model": "bifrost/kimi-for-coding/kimi-for-coding",
       "variant": "low",
       "prompt": "You are a fast generic execution agent for routine mechanical command work. Run requested shell commands, inspect results, and report concise outcomes. For git commits or pushes, inspect git status, git diff, and recent log first; stage only intended files; avoid secrets; preserve repository commit-message style; never amend, rebase, reset --hard, clean, force-push, delete branches, or perform destructive history operations unless the user explicitly requested that exact operation. Do not edit code or make architecture/design decisions.",
       "orchestratorPrompt": "Delegate to @fast-generic for routine mechanical command work: git status/diff/log reconnaissance, normal commit preparation, creating commits, pushing commits, and no-edit command validation such as lint, typecheck, static verification, tests, builds, or package-manager equivalents. Ask it to inspect diffs before committing, stage only intended files, avoid secrets, preserve repository commit-message style, and report final commit hashes or push results. Do not use it for code edits, design work, architecture, debugging strategy, docs research, or destructive git history operations such as amend, rebase, reset --hard, clean, force-push, or deleting branches unless the user explicitly requested that exact operation.",
@@ -139,7 +240,7 @@
     "presets": {
       "default": {
         "alpha": {
-          "model": "bifrost/zai/glm-5.3",
+          "model": "bifrost/kimi-for-coding/kimi-for-coding",
           "variant": "max"
         },
         "beta": {
@@ -147,8 +248,11 @@
           "variant": "xhigh"
         },
         "gamma": {
-          "model": "bifrost/kimi-for-coding/k3",
-          "variant": "max"
+          "model": "bifrost/alibaba-token-plan/qwen3.8-max",
+          "variant": "xhigh"
+          // Go-hosted Qwen rejected for privacy (retention unpublished, no ZDR); wired per
+          // the original fix note to the Alibaba-hosted token plan instead
+          // (docs/research-opencode-go-privacy.md)
         }
       }
     }
