@@ -43,3 +43,7 @@
 # resize-overlay-duration = 4s 200ms
 
 theme = dark:Kanagawa Wave, light:Kanagawa Lotus
+
+# Allow OSC 52 paste (nvim "+p) without the approval prompt each time.
+# Tradeoff: any program in a Ghostty terminal can read the clipboard silently.
+clipboard-read = allow
