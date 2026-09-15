@@ -80,3 +80,49 @@ seat. Left as-is pending a decision.
 - Alibaba Cloud Model Studio: token-plan-personal-overview, token-plan-team-overview,
   token-plan-overview, faq-about-alibaba-cloud-model-studio, model-pricing
 - QwenCloud docs via kingy.ai Sep 2026 recheck (effort/budget interplay, preserve_thinking)
+
+## 2026-09-14 addendum: parameter fix + council amendments
+
+Diagnosis (bifrost logs.db, 633 calls/7d): all calls at reasoning_effort=xhigh
+(262k budget), p90 latency 194s, 11 length-truncations at 32768 cap, 30x 429
+(retries fired 4 attempts inside ~12s, all inside one quota minute), p50 prompt
+131k (79% past 100k cliff). Council verdict: ship with amendments. Applied:
+
+- oracle/designer/council.beta: xhigh -> medium (slim config)
+- council.gamma: moved off Qwen entirely -> bifrost/deepseek/deepseek-v4-pro @medium
+  (third vendor; alpha=Kimi, beta=Qwen).
+  UPDATE 2026-09-15: reverted same day — user vetoed DeepSeek for council (privacy).
+  Seat disabled; council runs 2-seat (alpha=Kimi, beta=Qwen) until qwencloud PAYG
+  direct becomes the diversity seat after the token plan ends Sep 22.
+- qwen3.8-max/flash xhigh variant cap 32768 -> 131072 (no mid-thought truncation);
+  `max` variant deleted (unreferenced, identical to xhigh)
+- direct anthropic provider default effort xhigh -> medium
+- privacy preset designer k3 @high -> @xhigh (variant "high" never existed)
+- bifrost alibaba network_config: max_retries 3->5, retry_backoff_max 5000->30000
+  (span the quota minute); live config + chezmoi template synced
+- variant-body audit: no effort+budget pairs, no penalties >0; no implicit-effort
+  qwen paths remain
+
+### preserve_thinking probe
+
+Live probe via gateway (2-turn tool loop, OpenAI format): omitting historical
+reasoning_content from the assistant tool-call turn is ACCEPTED by the endpoint
+(both with/without answered correctly). Replay is NOT required on the
+anthropic-compat route. Strip-plugin follow-up offered; not built (behavioral
+risk: model loses prior reasoning chain). Historical share unmeasurable —
+bifrost does not persist raw_request bodies for stream rows.
+
+### Re-check procedure (run ~2026-09-21, one week after fix)
+
+Same queries as the diagnosis against ~/.config/bifrost/logs.db, last 7d,
+provider='alibaba-token-plan', model='qwen3.8-max', object_type='chat_completion_stream':
+
+1. params histogram: expect `{"effort": "medium"}` dominant, xhigh ~0
+2. stop_reason: length truncations = 0
+3. latency p90: expect well under 194s
+4. 429 error count: expect well under 30; verify retries=5 in attempt_trail spans
+5. prompt_tokens p50 on NEW sessions: trending < 100k
+6. spot-check one genuinely hard oracle task at medium; if quality dropped,
+   rollback is oracle-only -> xhigh (opencode.jsonc variant + slim config)
+
+Backups: opencode.jsonc.bak-20260914, oh-my-opencode-slim.jsonc.bak-20260914.

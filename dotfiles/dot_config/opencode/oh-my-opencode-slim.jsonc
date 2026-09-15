@@ -46,7 +46,7 @@
       },
       "oracle": {
         "model": "bifrost/alibaba-token-plan/qwen3.8-max",
-        "variant": "xhigh",
+        "variant": "medium",
         "skills": [
           "simplify",
           "code-review",
@@ -67,14 +67,14 @@
         "mcps": ["context7", "gh_grep", "firecrawl-mcp", "opencode-docs"]
       },
       "explorer": {
-        "model": "bifrost/deepseek/deepseek-v4-flash",
-        "variant": "max",
+        "model": "bifrost/zai/glm-5.3-flash",
+        "variant": "xhigh",
         "skills": [],
         "mcps": ["codegraph"]
       },
       "designer": {
         "model": "bifrost/alibaba-token-plan/qwen3.8-max",
-        "variant": "xhigh",
+        "variant": "medium",
         "skills": [
           "agent-browser",
           "mobile-android-design",
@@ -175,7 +175,7 @@
       },
       "designer": {
         "model": "bifrost/kimi-for-coding/k3",
-        "variant": "high",
+        "variant": "xhigh",
         "skills": [
           "agent-browser",
           "mobile-android-design",
@@ -245,15 +245,14 @@
         },
         "beta": {
           "model": "bifrost/alibaba-token-plan/qwen3.8-max",
-          "variant": "xhigh"
+          "variant": "medium"
         },
-        "gamma": {
-          "model": "bifrost/alibaba-token-plan/qwen3.8-max",
-          "variant": "xhigh"
-          // Go-hosted Qwen rejected for privacy (retention unpublished, no ZDR); wired per
-          // the original fix note to the Alibaba-hosted token plan instead
-          // (docs/research-opencode-go-privacy.md)
-        }
+        //"gamma": {
+        //  "model": "bifrost/deepseek/deepseek-v4-pro",
+        //  "variant": "medium"
+        //  // removed per privacy decision: no deepseek in council
+        //  // diversity fix: wire qwencloud PAYG direct (contractual no-training) and restore gamma on it
+        //},
       }
     }
   }

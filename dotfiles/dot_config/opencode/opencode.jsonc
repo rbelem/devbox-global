@@ -447,8 +447,7 @@
           "variants": [
             { "id": "low", "body": { "reasoning_effort": "low", "max_tokens": 32768 } },
             { "id": "medium", "body": { "reasoning_effort": "medium", "max_tokens": 32768 } },
-            { "id": "xhigh", "body": { "reasoning_effort": "xhigh", "max_tokens": 32768 } },
-            { "id": "max", "body": { "reasoning_effort": "xhigh", "max_tokens": 32768 } }
+            { "id": "xhigh", "body": { "reasoning_effort": "xhigh", "max_tokens": 131072 } }
           ]
         },
         "alibaba-token-plan/qwen3.8-flash": {
@@ -458,8 +457,7 @@
           "variants": [
             { "id": "low", "body": { "reasoning_effort": "low", "max_tokens": 32768 } },
             { "id": "medium", "body": { "reasoning_effort": "medium", "max_tokens": 32768 } },
-            { "id": "xhigh", "body": { "reasoning_effort": "xhigh", "max_tokens": 32768 } },
-            { "id": "max", "body": { "reasoning_effort": "xhigh", "max_tokens": 32768 } }
+            { "id": "xhigh", "body": { "reasoning_effort": "xhigh", "max_tokens": 131072 } }
           ]
         }
       }
@@ -477,7 +475,7 @@
           "reasoning": true,
           "limit": { "context": 983616, "output": 131072 },
           "modalities": { "input": ["text", "image"], "output": ["text"] },
-          "options": { "effort": "xhigh" }
+          "options": { "effort": "medium" }
         }
       }
     },
