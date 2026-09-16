@@ -1,5 +1,5 @@
 {
-  description = "Bifrost — fastest AI gateway (50x faster than LiteLLM) with sub-ms overhead. Built from source (v2.0.0) + sends_done_marker patch (upstream PR #2909, still open) fixing MiniMax/Synthetic SSE [DONE] stream hangs.";
+  description = "Bifrost — fastest AI gateway (50x faster than LiteLLM) with sub-ms overhead. Built from source (v2.1.1). The MiniMax/Synthetic SSE [DONE] hang fix that used to be a local patch (upstream PR #2909) shipped natively in v2.1.1: set does_not_send_done_marker=true on affected custom providers in the bifrost config.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -9,7 +9,7 @@
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      version = "v2.0.0";
+      version = "v2.1.1";
     in
     {
       packages = forAllSystems (system:
@@ -18,19 +18,14 @@
           lib = pkgs.lib;
 
           src = pkgs.fetchzip {
-            url = "https://github.com/maximhq/bifrost/archive/refs/tags/transports/v2.0.0.tar.gz";
-            sha256 = "sha256-scOAEWRrKEx6sz74scjJAbiW6EYaW6EaZPdyQUkVqqE=";
+            url = "https://github.com/maximhq/bifrost/archive/refs/tags/transports/v2.1.1.tar.gz";
+            sha256 = "sha256-8Xcmt3+rmhL49rQ8Pa0GcJ00LskQm/NF82whyeBdA20=";
             stripRoot = true;
           };
 
-          # Patched source: adds sends_done_marker to CustomProviderConfig so the
-          # OpenAI stream loop breaks on finish_reason instead of waiting forever
-          # for a [DONE] marker that MiniMax/Synthetic never send.
-          src' = pkgs.applyPatches {
-            name = "bifrost-sends-done-marker";
-            inherit src;
-            patches = [ ./sends_done_marker.patch ];
-          };
+          # MiniMax/Synthetic SSE [DONE] fix shipped natively in v2.1.1
+          # (custom_provider_config.does_not_send_done_marker). PR #2909 obsolete.
+          src' = src;
 
           # Admin UI (Vite), built from the same source tree (patch touches Go
           # + schema only, so raw src is fine).
@@ -40,7 +35,7 @@
             src = src;
             sourceRoot = "source/ui";
 
-            npmDepsHash = "sha256-1eEw976l9xb0nLyoc5vUv1536EUvmdVtCBdz+FpprgQ=";
+            npmDepsHash = "sha256-cOswnT4ZahWX66h9oiw4t3r5GZeOH/yjbnTCAsjVgnw=";
 
             # vite build + tsc typecheck; strip the copy-build step (writes
             # outside $PWD into ../transports/bifrost-http/ui — we copy from
@@ -92,7 +87,7 @@
 
             modRoot = "transports";
             subPackages = [ "bifrost-http" ];
-            vendorHash = "sha256-XHYpWSvOCY2IWk/+e1I8JGKj/zR6wyH1fPICYNcYIVc=";
+            vendorHash = "sha256-4OPhR7oPzmqP0BIZJMXP3WsZhW+OJEDnCLJkT07f2m0=";
 
             doCheck = false;
 

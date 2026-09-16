@@ -12,14 +12,14 @@
       packages = forAllSystems (pkgs: rec {
         pdf-inspector = pkgs.rustPlatform.buildRustPackage rec {
           pname = "pdf-inspector";
-          version = "1.19.0";
+          version = "1.20.0";
 
           src = pkgs.fetchFromGitHub {
             owner = "firecrawl";
             repo = "pdf-inspector";
             rev = "v${version}";
             #hash = pkgs.lib.fakeHash;
-            hash = "sha256-JLVELMtqlyo3BJtPqSilfqNjiP/2yMfFBV/W66vyNmM=";
+            hash = "sha256-cEeyFoHKnXeS2vGtc5iuZMwSmZAU3j24KpJ/HlCRhMg=";
           };
 
           #cargoHash = pkgs.lib.fakeHash;

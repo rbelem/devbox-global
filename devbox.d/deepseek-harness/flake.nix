@@ -13,15 +13,15 @@
       # No upstream tags/releases: pin to a master commit. update-flake
       # shows this as "??" and never auto-updates it — bump manually by
       # updating rev + both hashes below.
-      version = "dsh-v0.1.3-alpha.1"; # mirrors root package.json version
-      rev = "d347e703908d0406b7a7ef80e3a0e594d86b2215"; # master, package.json 0.1.3-alpha.1
+      version = "dsh-v0.1.6-alpha.1"; # mirrors root package.json version
+      rev = "0a15e36e7f82b6ed45af6fa9759f29b40dcd965d"; # tag dsh-v0.1.6-alpha.1
 
       # Hash capture workflow:
       #   1. set srcHash / pnpmDepsHash to pkgs.lib.fakeHash
       #   2. nix build "path:devbox.d/deepseek-harness#default"
       #   3. paste the sha256-... values from the error messages
-      srcHash = "sha256-7gje0bGlfRbo6qEubnKt3z8a6UjDGNW90g7phGU+s6g=";
-      pnpmDepsHash = "sha256-vjH2f85UvJN+/Wv0mwzRHzM5RhMIQWs8CINBFUA3Jhc=";
+      srcHash = "sha256-vlCnBbaUPtMBs+9do1QQ/71bWkgxOTXlP27CZeCRbCI=";
+      pnpmDepsHash = "sha256-DNGGgnec3hFUs3LDorlUGzzgRT88i33y8TqyXfoXVnY=";
     in
     {
       packages = forAllSystems (system:
@@ -114,7 +114,7 @@
               EOF
               chmod +x $NIX_BUILD_TOP/musl-bin/musl-gcc
               export PATH=$NIX_BUILD_TOP/musl-bin:$PATH
-              (cd native/landlock-run && pnpm run build:native)
+              pnpm exec tsx native/system/scripts/build.ts --host-addon-only
 
               # node-pty's install script is `node scripts/prebuild.js || node-gyp
               # rebuild`; prebuild.js exits 0 (no network) without building, so
@@ -167,7 +167,7 @@
               python3 - <<PYEOF
             import json, os
             root = "$out/lib/dsh"
-            for sub in ("packages", "vendor", "native/landlock-run/packages"):
+            for sub in ("packages", "vendor", "native/system/packages"):
                 base = os.path.join(root, sub)
                 for dirpath, dirnames, filenames in os.walk(base):
                     if "package.json" not in filenames:
