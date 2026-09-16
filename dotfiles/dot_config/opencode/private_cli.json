@@ -11,11 +11,19 @@
   "session": {
     "sidebar": "auto",
     "scrollbar": false,
-    "thinking": "show"
+    "thinking": "show",
+    "image_preview": true,
+    "new_location": "launch"
   },
   "animations": true,
   "tabs": {
     "enabled": false,
     "layout": "horizontal"
+  },
+  "prompt": {
+    "image_preview": true
+  },
+  "attention": {
+    "enabled": true
   }
 }

@@ -62,6 +62,21 @@ action by writing to files.
    agents are steered toward token-efficiency -- they were not; this is that
    steering.)
 
+### Reviewer-session slices (self-review short path)
+
+If the conversation slice is the tail of a PRIOR autolearn-reviewer session
+(reviewed by: reviewer-style narration and/or an "Autolearn review complete:"
+block among the assistant turns, no user messages), do NOT re-scan for
+corrections/preferences and do NOT re-record its lessons — that reviewer
+already evaluated them. Short path instead:
+1. Verify its claimed actions actually landed (grep `memories.jsonl` for the
+   topic it says it added; check `observations.jsonl` for its review_complete entry).
+2. Check `observations.jsonl` for cascade meta-patterns (rapid-fire spawns).
+3. Log your own review-complete with topics reflecting the slice.
+Exit-triggered reviews fire over reviewer sessions (seen 3x by 2026-09-16:
+review-1787147766016, review-1787885372515, review-exit-1789533790657); each
+naive pass re-walks the full signal scan for zero yield.
+
 ### Moderate signals (act if seen more than once)
 
 8. **Tool choice patterns**: user consistently prefers one tool over another

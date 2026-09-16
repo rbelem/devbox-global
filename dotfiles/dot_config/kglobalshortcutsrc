@@ -6,6 +6,7 @@ switch-to-activity-d8996555-85a5-40b1-8999-9eba66b6e78c=none,none,Switch to acti
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to Portuguese (Brazil)=none,none,Switch keyboard layout to Portuguese (Brazil)
 Switch keyboard layout to Portuguese (Brazil, no dead keys)=none,none,Switch keyboard layout to Portuguese (Brazil\\, no dead keys)
+Switch keyboard layout to abnt2=none,none,Switch keyboard layout to abnt2
 Switch to Last-Used Keyboard Layout=none,Meta+Alt+L,Switch to Last-Used Keyboard Layout
 Switch to Next Keyboard Layout=none,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
@@ -370,10 +371,6 @@ _launch=Meta+'
 
 [services][org.kde.konsole.desktop]
 _launch=none
-
-[services][org.kde.spectacle.desktop]
-CurrentMonitorScreenShot=none
-OpenWithoutScreenshot=none
 
 [services][org.kde.touchpadshortcuts.desktop]
 ToggleTouchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku

@@ -10,9 +10,9 @@
     "position": "bottom-left",
     "size": "small"
   },
-  "preset": "quality",
+  "preset": "default",
   "presets": {
-    "quality": {
+    "default": {
       "orchestrator": {
         "model": "bifrost/zai/glm-5.3-flash",
         "variant": "xhigh",
@@ -45,8 +45,8 @@
         ]
       },
       "oracle": {
-        "model": "bifrost/alibaba-token-plan/qwen3.8-max",
-        "variant": "medium",
+        "model": "bifrost/kimi-for-coding/kimi-for-coding",
+        "variant": "max",
         "skills": [
           "simplify",
           "code-review",
@@ -73,8 +73,8 @@
         "mcps": ["codegraph"]
       },
       "designer": {
-        "model": "bifrost/alibaba-token-plan/qwen3.8-max",
-        "variant": "medium",
+        "model": "bifrost/kimi-for-coding/kimi-for-coding",
+        "variant": "max",
         "skills": [
           "agent-browser",
           "mobile-android-design",
@@ -217,7 +217,7 @@
   },
   "agents": {
     "fast-generic": {
-      "model": "bifrost/kimi-for-coding/kimi-for-coding",
+      "model": "bifrost/zai/glm-5.3-flash",
       "variant": "low",
       "prompt": "You are a fast generic execution agent for routine mechanical command work. Run requested shell commands, inspect results, and report concise outcomes. For git commits or pushes, inspect git status, git diff, and recent log first; stage only intended files; avoid secrets; preserve repository commit-message style; never amend, rebase, reset --hard, clean, force-push, delete branches, or perform destructive history operations unless the user explicitly requested that exact operation. Do not edit code or make architecture/design decisions.",
       "orchestratorPrompt": "Delegate to @fast-generic for routine mechanical command work: git status/diff/log reconnaissance, normal commit preparation, creating commits, pushing commits, and no-edit command validation such as lint, typecheck, static verification, tests, builds, or package-manager equivalents. Ask it to inspect diffs before committing, stage only intended files, avoid secrets, preserve repository commit-message style, and report final commit hashes or push results. Do not use it for code edits, design work, architecture, debugging strategy, docs research, or destructive git history operations such as amend, rebase, reset --hard, clean, force-push, or deleting branches unless the user explicitly requested that exact operation.",
@@ -240,19 +240,13 @@
     "presets": {
       "default": {
         "alpha": {
-          "model": "bifrost/kimi-for-coding/kimi-for-coding",
+          "model": "bifrost/kimi-for-coding/k3",
           "variant": "max"
         },
         "beta": {
-          "model": "bifrost/alibaba-token-plan/qwen3.8-max",
-          "variant": "medium"
+          "model": "bifrost/zai/glm-5.3",
+          "variant": "max"
         },
-        //"gamma": {
-        //  "model": "bifrost/deepseek/deepseek-v4-pro",
-        //  "variant": "medium"
-        //  // removed per privacy decision: no deepseek in council
-        //  // diversity fix: wire qwencloud PAYG direct (contractual no-training) and restore gamma on it
-        //},
       }
     }
   }
