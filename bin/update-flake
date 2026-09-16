@@ -420,13 +420,13 @@ update_flake() {
     fi
 
     # 3. Reset hashes to a literal fake hash (no pkgs dependency, works in any scope)
-    #    Named attrs: hash, srcHash, cargoHash, npmDepsHash, npmDistHash,
-    #                 nodeModulesHash, outputHash
+    #    Named attrs: hash, srcHash, cargoHash, npmDepsHash, pnpmDepsHash,
+    #                 npmDistHash, nodeModulesHash, outputHash
     #    Quoted attrs: "platform" = "sha256-..." (agent-browser pattern)
     #    Uses ERE (sed -r), no PCRE non-capturing groups.
-    if grep -qE '(^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|npmDistHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null \
+    if grep -qE '(^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|pnpmDepsHash|npmDistHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null \
         || grep -qE '"[^"]+"[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null; then
-        sed -ri 's/((^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|npmDistHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1"'"$FAKE_HASH"'";  # FIXME: was "\4"/' "$flake_nix"
+        sed -ri 's/((^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|pnpmDepsHash|npmDistHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1"'"$FAKE_HASH"'";  # FIXME: was "\4"/' "$flake_nix"
         sed -ri 's/("[^"]+"[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1"'"$FAKE_HASH"'";  # FIXME: was "\2"/' "$flake_nix"
         echo "    ✓ hashes reset to fakeHash"
     else
