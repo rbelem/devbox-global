@@ -1,5 +1,5 @@
 {
-  description = "Bifrost — fastest AI gateway (50x faster than LiteLLM) with sub-ms overhead. Built from source (v2.1.1). The MiniMax/Synthetic SSE [DONE] hang fix that used to be a local patch (upstream PR #2909) shipped natively in v2.1.1: set does_not_send_done_marker=true on affected custom providers in the bifrost config.";
+  description = "Bifrost — fastest AI gateway (50x faster than LiteLLM) with sub-ms overhead. Built from source (v2.2.0). The MiniMax/Synthetic SSE [DONE] hang fix that used to be a local patch (upstream PR #2909) shipped natively in v2.1.1: set does_not_send_done_marker=true on affected custom providers in the bifrost config.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -9,7 +9,7 @@
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      version = "v2.1.1";
+      version = "v2.2.0";
     in
     {
       packages = forAllSystems (system:
@@ -18,8 +18,8 @@
           lib = pkgs.lib;
 
           src = pkgs.fetchzip {
-            url = "https://github.com/maximhq/bifrost/archive/refs/tags/transports/v2.1.1.tar.gz";
-            sha256 = "sha256-8Xcmt3+rmhL49rQ8Pa0GcJ00LskQm/NF82whyeBdA20=";
+            url = "https://github.com/maximhq/bifrost/archive/refs/tags/transports/v2.2.0.tar.gz";
+            sha256 = "sha256-wS8cIeCAyPRaDBnaZpU77wBmOHLxCtCk1mg9LXSCcIk=";
             stripRoot = true;
           };
 
@@ -87,7 +87,7 @@
 
             modRoot = "transports";
             subPackages = [ "bifrost-http" ];
-            vendorHash = "sha256-4OPhR7oPzmqP0BIZJMXP3WsZhW+OJEDnCLJkT07f2m0=";
+            vendorHash = "sha256-MboHWANhRCIxJmn82OvRegIW4xpAb8U69XoAuKhWwpQ=";
 
             doCheck = false;
 
