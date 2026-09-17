@@ -85,6 +85,7 @@
     "path:devbox.d/pi":                   {},
     "path:devbox.d/firecrawl":            {},
     "path:devbox.d/zg":                   {},
+    "path:devbox.d/bsk":                  {},
     "valkey": {
       "version":        "latest",
       "disable_plugin": true
