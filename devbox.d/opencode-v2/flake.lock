@@ -38,11 +38,11 @@
       },
       "locked": {
         "dir": "devbox.d/bun",
-        "lastModified": 1787329203,
-        "narHash": "sha256-qLMeoViEOX9tZodlwCWu5E9OYU51pBG6UYBDetJPc2s=",
+        "lastModified": 1789621519,
+        "narHash": "sha256-tyAHOXsRfrSR2rmxKBrzHF5/CphZv/J+l9X8SdczKFs=",
         "owner": "rbelem",
         "repo": "devbox-global",
-        "rev": "e043581ff61980be47afee1cfe12af16b26ae5e3",
+        "rev": "4de9edcb225db639251418546b4f89f509be86fb",
         "type": "github"
       },
       "original": {

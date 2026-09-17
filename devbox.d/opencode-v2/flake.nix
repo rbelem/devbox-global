@@ -37,7 +37,7 @@
       version = "0.0.0-next-20260917"; # v2 branch, next-channel naming
       rev = "f28d1b44e33134ad53d61343a4db5c5157d40915";
       srcHash = "sha256-fVbZ/XN1k0rTL83R30cxpU7LU/hw9zb8fH21HUp8/t8=";
-      nodeModulesHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; # fakeHash — resolve on build
+      nodeModulesHash = "sha256-8ZvgANmF60Qx3ez4RzxKLCktuIn36y5h5tkp6eihujc=";
 
       # Workspace packages packages/cli depends on (deps + devDeps); the
       # fixed-output install is filtered to these to keep the hash small.
