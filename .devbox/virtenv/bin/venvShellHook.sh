@@ -1,0 +1,1 @@
+/home/rodrigo/.local/share/chezmoi/.devbox/virtenv/python312/bin/venvShellHook.sh
