@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo 'Fixing ProtonVPN font rendering...'
+flatpak --user override --filesystem=~/.local/share/fonts:ro com.protonvpn.www 2>/dev/null
+flatpak --user override --filesystem=/nix/store:ro com.protonvpn.www 2>/dev/null
+flatpak --user override --filesystem=xdg-config/fontconfig:ro com.protonvpn.www 2>/dev/null
+mkdir -p $HOME/.var/app/com.protonvpn.www/config/fontconfig/conf.d
+cp -n /etc/fonts/conf.d/*.conf $HOME/.var/app/com.protonvpn.www/config/fontconfig/conf.d/
+rm -rf $HOME/.var/app/com.protonvpn.www/cache/fontconfig
+rm -rf $HOME/.cache/fontconfig
+flatpak run --command=fc-cache com.protonvpn.www -f -v
+echo 'Done. Restart ProtonVPN to apply.'

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+mkdir -p $HOME/.bashrc.d
+cat <<EOF > $HOME/.bashrc.d/90-devbox.sh
+[ ! -t 0 ] || [ -z "\$PS1" ] && return
+source <(devbox completion bash)
+source <(devbox global shellenv --init-hook)
+EOF

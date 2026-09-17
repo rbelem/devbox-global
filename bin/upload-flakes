@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# upload-flakes — compatibility shim (grace period).
+# The real implementation moved to bin/cache (ticket 04 of the binary-cache
+# effort). This shim keeps `devbox global run upload-flakes` working.
+set -euo pipefail
+exec "$(dirname "$0")/cache" upload "$@"

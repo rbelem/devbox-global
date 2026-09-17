@@ -1,0 +1,1 @@
+/home/rodrigo/.local/share/chezmoi/.devbox/virtenv/nodejs/bin/setup-corepack.mjs

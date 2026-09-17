@@ -1,0 +1,8 @@
+# Whitelist: only home config targets are managed by chezmoi.
+# Everything else in this repo is devbox-global content (devbox.d/, bin/,
+# devbox.json, flakes, db files from "devbox commit" automation) — it must
+# exist in the repo for `devbox global pull` but must NEVER become a
+# target under $HOME. Last matching pattern wins (gitignore semantics).
+*
+!.agents
+!.config

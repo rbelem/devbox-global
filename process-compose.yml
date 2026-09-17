@@ -1,0 +1,26 @@
+# Devbox service: Bifrost AI gateway — sub-ms overhead, multi-provider routing
+# Started with: devbox services up bifrost
+# Stopped with:  devbox services stop bifrost
+
+# Devbox service: wigolo HTTP daemon (REST + remote MCP on :3333)
+# Started with: devbox services up wigolo
+# Stopped with:  devbox services stop wigolo
+
+version: "0.5"
+
+processes:
+  valkey:
+    command: valkey-server --loadmodule $DEVBOX_PACKAGES_DIR/lib/libsearch.so --save "" --appendonly no --port 6379
+    availability:
+      restart: "always"
+  bifrost:
+    command: bifrost --app-dir $HOME/.config/bifrost --port 8081 --log-level info
+    availability:
+      restart: "always"
+  wigolo:
+    command: wigolo serve
+    environment:
+      - "WIGOLO_LLM_PROVIDER=openai"
+      - "WIGOLO_LLM_MODEL=${OPENAI_MODEL}"
+    availability:
+      restart: "always"

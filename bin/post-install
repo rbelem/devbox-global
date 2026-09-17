@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+# post-install — run per-tool post-install hooks for tools that ship
+# a separate asset (skill file, config seed, plugin hook, etc.) refreshed
+# by a CLI subcommand once the underlying package is upgraded.
+#
+# To add a tool:
+#   1. Add `[name]=binname` to TOOL_BINS so the script knows which binary
+#      to test against PATH before invoking.
+#   2. Define a `post_install_<name>` function that does whatever setup +
+#      install the tool needs.
+#
+# Tools whose binary isn't on PATH are skipped with a note, so this script
+# stays safe to call in fresh devbox shells.
+set -euo pipefail
+
+# Map of tool name → primary binary on PATH.
+declare -A TOOL_BINS=(
+    [graphify]=graphify
+)
+
+# Per-tool post-install handlers.
+post_install_graphify() {
+    # graphify install re-creates references/ read-only; pre-chmod so
+    # subsequent rmtree work without permission errors.
+    [ -d ~/.config/opencode/skills/graphify ] && chmod -R u+w ~/.config/opencode/skills/graphify
+    graphify install --platform opencode
+}
+
+ok=0
+fail=0
+skipped=0
+
+for name in "${!TOOL_BINS[@]}"; do
+    bin="${TOOL_BINS[$name]}"
+    if ! command -v "$bin" >/dev/null 2>&1; then
+        echo "↷ ${name}: ${bin} not installed — skipping"
+        skipped=$((skipped + 1))
+        continue
+    fi
+    func="post_install_${name}"
+    if ! declare -F "$func" >/dev/null; then
+        echo "✗ ${name}: no handler function \`${func}\` defined" >&2
+        fail=$((fail + 1))
+        continue
+    fi
+    echo "→ ${name}"
+    if "$func"; then
+        ok=$((ok + 1))
+    else
+        echo "✗ ${name}: post-install failed" >&2
+        fail=$((fail + 1))
+    fi
+done
+
+echo ""
+echo "Summary: ${ok} ok, ${fail} failed, ${skipped} skipped"
+
+[ "$fail" -eq 0 ]
