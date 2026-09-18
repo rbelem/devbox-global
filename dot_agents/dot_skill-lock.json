@@ -1181,6 +1181,15 @@
       "skillFolderHash": "678c375b883794bf4292715a43acbba5c84681aa",
       "installedAt": "2026-09-18T03:38:18.716Z",
       "updatedAt": "2026-09-18T03:38:18.716Z"
+    },
+    "jev-review": {
+      "source": "NiazMorshed2007/jev-review",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/NiazMorshed2007/jev-review.git",
+      "skillPath": "skills/jev-review/SKILL.md",
+      "skillFolderHash": "86d5316e5d3e9e7573912d11f28b6d5f0cbf7f5b",
+      "installedAt": "2026-09-18T03:55:12.582Z",
+      "updatedAt": "2026-09-18T03:55:12.582Z"
     }
   },
   "dismissed": {
