@@ -22,5 +22,8 @@ processes:
     environment:
       - "WIGOLO_LLM_PROVIDER=openai"
       - "WIGOLO_LLM_MODEL=${OPENAI_MODEL}"
+      # Node must not see a foreign libsqlite3 (e.g. shuttle's LD_LIBRARY_PATH);
+      # its nix wrapper re-prepends its own playwright deps after this clears it.
+      - "LD_LIBRARY_PATH="
     availability:
       restart: "always"
