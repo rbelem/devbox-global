@@ -67,6 +67,7 @@
     "path:devbox.d/codegraph":            {},
     "path:devbox.d/whichllm":             {},
     "path:devbox.d/llm-verifier":         {},
+    "path:devbox.d/jev-review":           {},
     "path:devbox.d/agentmemory":          {},
     "path:devbox.d/impeccable":           {},
     "path:devbox.d/skillspector":         {},
