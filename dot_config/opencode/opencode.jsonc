@@ -1,0 +1,733 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "bifrost/zai/glm-5.3-flash",
+  "variant": "xhigh",
+  "providers": {
+    "bifrost": {
+      "name": "Bifrost (local gateway)",
+      "package": "aisdk:@ai-sdk/openai-compatible",
+      "settings": {
+        "baseURL": "http://localhost:8081/v1",
+        "apiKey": "bifrost-local"
+      },
+      "models": {
+        "zai/glm-5.3": {
+          "name": "GLM-5.3 (z.ai direct)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "zai/glm-5.3-flash": {
+          "name": "GLM-5.3-Flash (z.ai direct, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "kimi-for-coding/k3": {
+          "name": "Kimi K3 (Kimi for Coding)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1048576, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "kimi-for-coding/k3-256k": {
+          "name": "Kimi K3 256k (Kimi for Coding)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "kimi-for-coding/kimi-for-coding": {
+          "name": "Kimi K2.8 Preview (Kimi for Coding)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1048576, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "kimi-for-coding/kimi-for-coding-highspeed": {
+          "name": "Kimi K2.7 Code HighSpeed (Kimi for Coding)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "minimax/MiniMax-M3": {
+          "name": "MiniMax-M3 (MiniMax direct)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/deepseek-v4-flash": {
+          "name": "DeepSeek V4 Flash (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "deepseek/deepseek-v4-flash": {
+          "name": "DeepSeek V4 Flash (DeepSeek direct)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/mimo-v2.5": {
+          "name": "Mimo v2.5 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text"] },
+          "limit": { "context": 131072, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/qwen3.8-max": {
+          "name": "Qwen 3.8 Max (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/longcat-2.0": {
+          "name": "LongCat-2.0 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/hy3": {
+          "name": "Hy3 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 131072, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/minimax-m2.7": {
+          "name": "MiniMax M2.7 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/deepseek-v4-flash-vision-exp": {
+          "name": "DeepSeek V4 Flash Vision Exp (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/kimi-k3": {
+          "name": "Kimi K3 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1048576, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/glm-5.3-flash": {
+          "name": "GLM-5.3-Flash (OpenCode Go, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/glm-5.3": {
+          "name": "GLM-5.3 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/mimo-v2.5-pro": {
+          "name": "Mimo v2.5 Pro (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/kimi-k2.7-code": {
+          "name": "Kimi K2.7 Code (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "deepseek/deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro (DeepSeek direct)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "deepseek/deepseek-v4-flash-vision-exp": {
+          "name": "DeepSeek V4 Flash Vision Exp (DeepSeek direct)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/deepseek-flash": {
+          "name": "DeepSeek V4.1 Flash (OpenCode Go, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/z-ai/glm-5.3": {
+          "name": "GLM-5.3 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/z-ai/glm-5.3-flash": {
+          "name": "GLM-5.3-Flash (OpenRouter, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/moonshotai/kimi-k2.6": {
+          "name": "Kimi K2.6 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/minimax/minimax-m2.7": {
+          "name": "MiniMax M2.7 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/minimax/minimax-m2.5": {
+          "name": "MiniMax M2.5 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/deepseek/deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/qwen/qwen3.8-max": {
+          "name": "Qwen 3.8 Max (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/qwen/qwen3.7-max": {
+          "name": "Qwen 3.7 Max (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/qwen/qwen3.7-plus": {
+          "name": "Qwen 3.7 Plus (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/meituan/longcat-2.0": {
+          "name": "LongCat-2.0 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/tencent/hy3": {
+          "name": "Hy3 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 131072, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/qwen3.8-flash": {
+          "name": "Qwen 3.8 Flash (OpenCode Go, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/hy4-preview": {
+          "name": "Hy4 Preview (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/qwen/qwen3.8-flash": {
+          "name": "Qwen 3.8 Flash (OpenRouter, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/tencent/hy4-preview": {
+          "name": "Hy4 Preview (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go-anthropic/union-alpha": {
+          "name": "Union Alpha Free (OpenCode Go anthropic-compat, stealth agentic, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "alibaba-token-plan/qwen3.8-max": {
+          "name": "Qwen 3.8 Max (Alibaba Token Plan via Bifrost)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 983616, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low", "max_tokens": 32768 } },
+            { "id": "medium", "body": { "reasoning_effort": "medium", "max_tokens": 32768 } },
+            { "id": "xhigh", "body": { "reasoning_effort": "xhigh", "max_tokens": 131072 } }
+          ]
+        },
+        "alibaba-token-plan/qwen3.8-flash": {
+          "name": "Qwen 3.8 Flash (Alibaba Token Plan via Bifrost, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 983616, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low", "max_tokens": 32768 } },
+            { "id": "medium", "body": { "reasoning_effort": "medium", "max_tokens": 32768 } },
+            { "id": "xhigh", "body": { "reasoning_effort": "xhigh", "max_tokens": 131072 } }
+          ]
+        }
+      }
+    },
+    "alibaba-token-plan": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Alibaba Cloud Model Studio (Token Plan, Anthropic-compat)",
+      "options": {
+        "baseURL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic/v1",
+        "apiKey": "{env:ALIBABA_TOKEN_PLAN_API_KEY}"
+      },
+      "models": {
+        "qwen3.8-max": {
+          "name": "Qwen3.8 Max (Token Plan)",
+          "reasoning": true,
+          "limit": { "context": 983616, "output": 131072 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "options": { "effort": "medium" }
+        }
+      }
+    },
+    "copilot": {},
+    "openai": {},
+    "openrouter": {},
+    "zai": {},
+    "zhipu": {},
+    "minimax-coding-plan": {},
+    "deepseek": {},
+    "opencode-go": {}
+  },
+  "experimental": {
+    "disable_paste_summary": true,
+    "portable_shell_scanner": true,
+    "subagent_depth": 2
+  },
+  "watcher": {
+    "ignore": [
+      "node_modules",
+      "dist",
+      ".codegraph",
+      ".next",
+      "target"
+    ]
+  },
+  "mcp": {
+    "timeout": {
+      "catalog": 60000,
+      "execution": 60000
+    },
+    "servers": {
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp",
+        "headers": {
+          "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+        },
+        "oauth": false
+      },
+      "gh_grep": {
+        "type": "remote",
+        "url": "https://mcp.grep.app"
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "command": [
+          "bunx",
+          "-y",
+          "chrome-devtools-mcp@latest",
+          "--autoConnect"
+        ]
+      },
+      "firefox-devtools": {
+        "type": "local",
+        "command": [
+          "bunx",
+          "-y",
+          "@mozilla/firefox-devtools-mcp@latest",
+          "--connectExisting",
+          "--marionettePort",
+          "2828"
+        ]
+      },
+      "opencode-docs": {
+        "type": "local",
+        "command": [
+          "bunx",
+          "-y",
+          "opencode-docs-mcp@latest"
+        ]
+      },
+      "agentmemory": {
+        "type": "local",
+        "command": [
+          "agentmemory",
+          "mcp"
+        ]
+      },
+      "codegraph": {
+        "type": "local",
+        "command": [
+          "codegraph",
+          "serve",
+          "--mcp"
+        ],
+        "timeout": {
+          "catalog": 600000,
+          "execution": 600000
+        }
+      },
+      "zvec_grep": {
+        "type": "local",
+        "command": [
+          "zg",
+          "server",
+          "--stdio",
+          "--mcp-toolset",
+          "full"
+        ],
+        "enabled": true,
+        "timeout": {
+          "catalog": 600000,
+          "execution": 600000
+        }
+      },
+      "wigolo": {
+        "type": "remote",
+        "url": "http://127.0.0.1:3333/mcp"
+      },
+      "bifrost": {
+        "type": "remote",
+        "url": "http://127.0.0.1:8081/mcp"
+      },
+      "jev": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "@jkudish/jev-mcp"
+        ],
+        "environment": {
+          "OPENROUTER_API_KEY": "{env:OPENROUTER_API_KEY}",
+          "TYPESAFE_API_KEY": "{env:TYPESAFE_API_KEY}"
+        }
+      },
+      "jev-review": {
+        "type": "local",
+        "command": [
+          "node",
+          "/home/rodrigo/Workspace/github.com/NiazMorshed2007/jev-review/dist/server.js"
+        ],
+        "environment": {
+          "JEV_API_KEY": "{env:JEV_API_KEY}",
+          "OPENROUTER_API_KEY": "{env:OPENROUTER_API_KEY}"
+        }
+      }
+    }
+  },
+  "permissions": [
+    { "resource": "*", "effect": "ask", "action": "*" },
+    { "resource": "*", "effect": "allow", "action": "glob" },
+    { "resource": "*", "effect": "allow", "action": "grep" },
+    { "resource": "*", "effect": "allow", "action": "list" },
+    { "resource": "*", "effect": "allow", "action": "question" },
+    { "resource": "*", "effect": "allow", "action": "read" },
+    { "resource": "*", "effect": "allow", "action": "shell" },
+    { "resource": "*", "effect": "allow", "action": "skill" },
+    { "resource": "*", "effect": "allow", "action": "subagent" },
+    { "resource": "*", "effect": "allow", "action": "todowrite" },
+    { "resource": "*", "effect": "allow", "action": "webfetch" },
+    { "resource": "*", "effect": "allow", "action": "websearch" },
+    { "resource": "*", "effect": "allow", "action": "*_*" },
+
+    { "resource": "git push *", "effect": "ask", "action": "shell" },
+    { "resource": "rm *", "effect": "ask", "action": "shell" },
+
+    { "resource": "*.env", "effect": "deny", "action": "read" },
+
+    { "resource": "~/.agents/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/.agents/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/.cache/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/.cargo/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/.config/bifrost/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/.config/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/.config/nvim/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/.local/share/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/.local/share/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "/nix/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "/tmp/*", "effect": "allow", "action": "edit" },
+    { "resource": "/tmp/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/Workspace/github.com/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/Workspace/github.com/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/Workspace/rbelem/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/Workspace/rbelem/*", "effect": "allow", "action": "external_directory" },
+  ],
+  "plugins": [
+    "oh-my-opencode-slim@latest",
+    // opencode2-cow-worktree (dogfood): installed by DIRECTORY DISCOVERY, not
+    // by a `plugins` entry. Every .ts/.js under plugins/ is auto-discovered as
+    // a local plugin, and plugins/opencode2-cow-worktree/index.ts is picked up
+    // that way. Declaring it here as a `package` too made opencode2 load the
+    // same tree twice; the package-sourced copy failed ("Plugin failed to
+    // load") because the loader does not resolve the symlinked local tree.
+    // The symlink makes tracked working-tree edits live, since the runtime is
+    // Bun. See README "Install and configure".
+    // @prevalentware/opencode-goal-plugin: DISABLED — breaks opencode2 (v2):
+    // its context.command.transform calls draft.get/draft.update, removed in
+    // the v2 Command Draft (only .add exists). Each die() kills the shared
+    // runtime whose flush() the model.catalog bootstrap awaits → every
+    // CLI/TUI command failed with "Model catalog initialization timed out".
+    // ponytail: local V2 port at plugins/ponytail
+    // model-announcer / dcg-guard / agentmemory-capture / autolearn: local V2
+    //   ports, direct files in plugins/ (auto-discovered)
+    // deferred (no V2 support upstream): @slkiser/opencode-quota (TUI-heavy),
+    //   @tarquinen/opencode-smart-title (superseded by native title agent)
+  ],
+  "agents": {
+    "explore": {
+      "disabled": true
+    },
+    "general": {
+      "disabled": true
+    },
+    "title": {
+      "model": "bifrost/deepseek/deepseek-v4-flash"
+    },
+    "autolearn-reviewer": {
+      "description": "Reviews past conversations for self-improvement opportunities",
+      "hidden": true,
+      "steps": 20,
+      "system": "Load the autolearn-reviewer skill and follow its instructions to review the attached conversation for learning opportunities. Take immediate action: record observations, update memory, create or patch skills.",
+      "permissions": [
+        { "action": "external_directory", "resource": "*", "effect": "allow" },
+        { "action": "read", "resource": "*", "effect": "allow" },
+        { "action": "glob", "resource": "*", "effect": "allow" },
+        { "action": "grep", "resource": "*", "effect": "allow" },
+        // V1 had write:allow + edit:deny; V2 merges write/patch/edit into one
+        // `edit` action, so this grants full edit (incl. file creation).
+        { "action": "edit", "resource": "*", "effect": "allow" },
+        { "action": "shell", "resource": "*", "effect": "allow" },
+        { "action": "skill", "resource": "*", "effect": "allow" },
+        //{ "action": "webfetch", "resource": "*", "effect": "deny" },
+        //{ "action": "subagent", "resource": "*", "effect": "deny" }
+      ]
+    }
+  },
+  "tool_output": {
+    "max_lines": 400
+  },
+  // Relative to the project checkout, so a `cow` clone lands on the source's own
+  // filesystem. opencode2's default is $XDG_DATA_HOME/worktree/<project>, which
+  // is a different device here (and on most setups), and a reflink cannot cross
+  // devices -- so the default breaks `cow` while `git` worktrees do not care.
+  // Read by opencode2's builtin opencode.config.worktree plugin.
+  "worktree": {
+    "directory": ".opencode/worktrees"
+  },
+  "formatter": true,
+  "lsp": true,
+  "instructions": [
+    "~/.autolearn/personas/default/memory.context.md"
+  ]
+}
