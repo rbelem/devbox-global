@@ -616,8 +616,7 @@
       "jev-review": {
         "type": "local",
         "command": [
-          "node",
-          "/home/rodrigo/Workspace/github.com/NiazMorshed2007/jev-review/dist/server.js"
+          "jev-review"
         ],
         "environment": {
           "JEV_API_KEY": "{env:JEV_API_KEY}",
