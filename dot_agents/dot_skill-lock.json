@@ -96,9 +96,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/alibaba/open-code-review.git",
       "skillPath": "skills/open-code-review/SKILL.md",
-      "skillFolderHash": "b8ebdf1aa7135905baf8b20d86286816132eed95",
+      "skillFolderHash": "6ca3160dcfcf7ff4d3ccfd0c999f59d06e6ad603",
       "installedAt": "2026-06-08T02:03:32.616Z",
-      "updatedAt": "2026-09-17T06:19:45.263Z"
+      "updatedAt": "2026-09-25T20:07:26.793Z"
     },
     "ask-matt": {
       "source": "mattpocock/skills",
@@ -564,18 +564,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman/SKILL.md",
-      "skillFolderHash": "02b646b008b9d1e5b67e5f65fab56fd7073d9212",
+      "skillFolderHash": "2d9a159619205a175577d6540b1ed64fd73d83b1",
       "installedAt": "2026-07-11T16:36:24.346Z",
-      "updatedAt": "2026-09-17T06:19:31.077Z"
+      "updatedAt": "2026-09-25T20:01:35.114Z"
     },
     "caveman-compress": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-compress/SKILL.md",
-      "skillFolderHash": "1f4d964edb53b0ba264638a028011246a3839013",
+      "skillFolderHash": "21aa5ecc4fdf9667604102c6ec723030ec4f4b9c",
       "installedAt": "2026-07-11T16:36:24.349Z",
-      "updatedAt": "2026-09-17T06:19:36.024Z"
+      "updatedAt": "2026-09-25T20:07:22.435Z"
     },
     "static-analysis": {
       "source": "mohitmishra786/low-level-dev-skills",
@@ -710,9 +710,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/rbelem/skills.git",
       "skillPath": "pstack-update/SKILL.md",
-      "skillFolderHash": "7034f27eaae9d0b1d8959b9f816eeb4a5f277acf",
+      "skillFolderHash": "8cd18e8cc465cb381142547c4cb1a8a25a12e514",
       "installedAt": "2026-08-28T00:04:54.265Z",
-      "updatedAt": "2026-09-25T19:12:50.544Z"
+      "updatedAt": "2026-09-25T20:07:29.929Z"
     },
     "architect": {
       "source": "rbelem/skills",
@@ -1160,9 +1160,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/humanlayer/skills.git",
       "skillPath": "plugins/show-me/skills/show-me/SKILL.md",
-      "skillFolderHash": "0bdb821a21e793a4f6f82a7078c052154447e5cc",
+      "skillFolderHash": "362200ac2fb3c17b765049444e88de73767e6d08",
       "installedAt": "2026-09-04T16:42:14.453Z",
-      "updatedAt": "2026-09-04T16:42:54.269Z"
+      "updatedAt": "2026-09-25T20:07:32.242Z"
     },
     "agent-browser": {
       "source": "vercel-labs/agent-browser",
