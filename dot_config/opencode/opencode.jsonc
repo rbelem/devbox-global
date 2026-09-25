@@ -502,7 +502,7 @@
   "experimental": {
     "disable_paste_summary": true,
     "portable_shell_scanner": true,
-    "subagent_depth": 2
+    "subagent_depth": 5
   },
   "watcher": {
     "ignore": [
@@ -604,7 +604,7 @@
       "jev": {
         "type": "local",
         "command": [
-          "npx",
+          "bunx",
           "-y",
           "@jkudish/jev-mcp"
         ],

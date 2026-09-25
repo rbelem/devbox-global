@@ -55,7 +55,34 @@ The hook mutates output **before persistence** (`tools.ts:121-129` → the mutat
 3. **Measure-only plugin** `plugins/jev-measure.ts`: `execute.after` hook, logs JSONL `{ts, tool, sessionID, agent, chars, shape, has_output_field, output_len, result_fields}` per completed tool — gates nothing, calls nothing. Purposes: size the actual leak, verify hook registration (silent no-op is the #1 risk), establish hook-vs-`bound()` ordering, and record the real `content` shape per tool. Log: `$XDG_STATE_HOME/opencode/jev-measure.jsonl` (override `JEV_MEASURE_LOG`).
 4. Binary pinned: `@opencode-ai/plugin@0.0.0-beta-17639`. Measure ~1 week.
 
-## Phase 1 — gate (only if Phase 0 shows the leak is material)
+## Phase 0 analysis — DONE (2026-09-20)
+
+31h of JSONL (Sep 18 20:46 → Sep 20 03:37), 3,145 tool calls, ~8.3MB total model-facing content chars:
+
+| Tool | Calls | Σ chars | p50 | p90 | p99 | max | Note |
+|---|---|---|---|---|---|---|---|
+| read | 574 | 4.08MB | 3.8KB | 16.0KB | 58KB | 59KB | p90 sits exactly at the 16,000 max_bytes cap; ~1% of rows exceed it (image/file parts suspected) |
+| shell | 1,593 | 2.16MB | 632B | 3.4KB | 16.1KB | 16.2KB | cap verified binding (p99 ≈ max ≈ 16,000 + preview overhead) |
+| grep | 180 | 0.46MB | — | — | — | — | — |
+| execute (Code Mode) | 53 | 0.43MB | 713B | 14KB | 57KB | 142KB | largest single rows in the log |
+| wigolo_fetch | 33 | 0.32MB | — | — | — | — | — |
+| **webfetch** | **27** | **0.09MB (≈1%)** | 1.1KB | 7.2KB | — | 21.9KB | **11 events in the 12–50KB gate band over 31h (~9/day)** |
+| edit | 473 | ~0.03MB | 38B | 90B | — | — | — |
+
+Findings:
+
+1. **The webfetch leak is not material.** The Phase 1 gate criterion ("only if Phase 0 shows the leak is material") fails: webfetch is ~1% of model-facing bytes; the gate would fire ~9×/day. Expected saving is a few hundred k tokens/week at best — below the calibration cost and the false-drop risk budget. **Recommendation: do not build Phase 1 as specced.** The `tool_output.max_bytes: 16000` config lever (Phase 0 item 1) already captured most of the win; it is visibly binding on shell/read.
+2. **Hook-vs-bound() ordering confirmed empirically**: shell max = 16,187 chars ≈ cap + preview overhead → the hook sees post-truncation content.
+3. `read` dominates bytes (49%) but stays excluded by design (agent-initiated, high-prior).
+4. Two `jev-review_jev_review` MCP calls appear in the log (Sep 18) — the Jev-direct path has been exercised at least once.
+
+Phase 2 is moot (Phase 1 not built). The token-reduction thread closes here; broader Jev usage continues in `research-jev-correct-usage.md`.
+
+## Phase 1 — gate (only if Phase 0 shows the leak is material) — BUILT (user override, 2026-09-20)
+
+The materiality criterion failed (see Phase 0 analysis), but the user explicitly chose to build anyway. Implemented as `~/.config/opencode/plugins/jev-screen.ts` per this corrected spec, with two spec-informed refinements: (1) the taskless fallback question runs instructions-only with the probability inverted downstream (the fallback phrasing has flipped polarity vs task-mode criteria — keeps the 0.15/0.3 bands uniform); (2) parts-array results with no text parts log `skip-small` instead of screening, so file-parts-only outputs can never be stubbed by a bogus low rel. Auth via OpenRouter Decisions API (`OPENROUTER_API_KEY`, `sk-or-`) or TypeSafe direct (`TYPESAFE_API_KEY`); model `typesafe/jev-1.13` / `jev-latest`. Verified: strict tsc against the pinned binary d.ts, Bun import, 13/13 mock scenarios incl. string+parts stub shapes, fail-open on network/timeout/unrecognized-shape, kill switch.
+
+- **Pending (hard gate from this doc): live canary** — in a NEW opencode session (plugins/MCP load at session start), stub a known-large boilerplate-heavy fetch and confirm the model actually sees the stub, then check `$XDG_STATE_HOME/opencode/jev-screen.jsonl` for the drop row.
 
 Scope, defaults, and spec, all corrected per council:
 
@@ -81,9 +108,9 @@ Two-seat review (councillor-alpha, councillor-beta), unanimous verdict: "sound i
 - [x] Research: Jev API/SDK/cost verified against docs.typesafe.ai + npm
 - [x] Council review; corrections applied (this revision)
 - [x] Phase 0: `tool_output.max_bytes: 16000` added to `opencode.jsonc` (max_lines was already 400); fetch-discipline line added to `~/.config/opencode/AGENTS.md`; measure-only plugin installed at `~/.config/opencode/plugins/jev-measure.ts` (import-verified; logs to `$XDG_STATE_HOME/opencode/jev-measure.jsonl`, override with `JEV_MEASURE_LOG`); binary pinned: `@opencode-ai/plugin@0.0.0-beta-17639`
-- [ ] Phase 0 analysis: ~1 week of JSONL → size the leak, confirm `content` shape per tool, establish hook-vs-`bound()` ordering
-- [ ] Phase 1 gate (gated on Phase 0 data + canary)
-- [ ] Phase 2 widening (gated on Phase 1 JSONL)
+- [x] Phase 0 analysis (2026-09-20): 31h JSONL analyzed — webfetch leak NOT material (~1% of bytes, 11 gate-band events); Phase 1 gate NOT triggered; `tool_output` cap confirmed binding on shell/read; hook sees post-truncation content. See "Phase 0 analysis" above.
+- [ ] ~~Phase 1 gate (gated on Phase 0 data + canary)~~ — not triggered by data
+- [ ] ~~Phase 2 widening (gated on Phase 1 JSONL)~~ — moot
 
 ## Sources
 

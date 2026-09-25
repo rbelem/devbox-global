@@ -46,6 +46,15 @@ Default to doing it yourself unless the task is clearly suited to a
 specialist (deep, multi-step, or high-stakes) AND the delegation overhead
 will pay for itself. When in doubt, do it yourself.
 
+## Lanes: Use the Cow Worktree Plugin
+
+When spinning multiple parallel lanes that will edit code
+(worktree-per-lane fan-out), create each lane with the cow worktree plugin
+(`spawn_workspace`), never raw `git worktree add`. Plugin-registered lanes
+get inventory tracking (`list_worktrees`), session attach/refuse
+protection, and cross-session visibility; bare git worktrees are invisible
+to every other session and race-prone.
+
 ## 1. Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
