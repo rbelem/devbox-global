@@ -121,17 +121,6 @@
             { "id": "max", "body": { "reasoning_effort": "max" } }
           ]
         },
-        "opencode-go/qwen3.8-max": {
-          "name": "Qwen 3.8 Max (OpenCode Go)",
-          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
-          "limit": { "context": 1000000, "output": 16384 },
-          "variants": [
-            { "id": "low", "body": { "reasoning_effort": "low" } },
-            { "id": "medium", "body": { "reasoning_effort": "medium" } },
-            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
-            { "id": "max", "body": { "reasoning_effort": "max" } }
-          ]
-        },
         "opencode-go/longcat-2.0": {
           "name": "LongCat-2.0 (OpenCode Go)",
           "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
@@ -176,17 +165,6 @@
             { "id": "max", "body": { "reasoning_effort": "max" } }
           ]
         },
-        "opencode-go/kimi-k3": {
-          "name": "Kimi K3 (OpenCode Go)",
-          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
-          "limit": { "context": 1048576, "output": 131072 },
-          "variants": [
-            { "id": "low", "body": { "reasoning_effort": "low" } },
-            { "id": "medium", "body": { "reasoning_effort": "medium" } },
-            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
-            { "id": "max", "body": { "reasoning_effort": "max" } }
-          ]
-        },
         "opencode-go/glm-5.3-flash": {
           "name": "GLM-5.3-Flash (OpenCode Go, multimodal)",
           "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
@@ -222,17 +200,6 @@
         },
         "opencode-go/mimo-v2.5-pro": {
           "name": "Mimo v2.5 Pro (OpenCode Go)",
-          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
-          "limit": { "context": 262144, "output": 16384 },
-          "variants": [
-            { "id": "low", "body": { "reasoning_effort": "low" } },
-            { "id": "medium", "body": { "reasoning_effort": "medium" } },
-            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
-            { "id": "max", "body": { "reasoning_effort": "max" } }
-          ]
-        },
-        "opencode-go/kimi-k2.7-code": {
-          "name": "Kimi K2.7 Code (OpenCode Go)",
           "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
           "limit": { "context": 262144, "output": 16384 },
           "variants": [
@@ -341,39 +308,6 @@
             { "id": "max", "body": { "reasoning_effort": "max" } }
           ]
         },
-        "openrouter/qwen/qwen3.8-max": {
-          "name": "Qwen 3.8 Max (OpenRouter)",
-          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
-          "limit": { "context": 1000000, "output": 16384 },
-          "variants": [
-            { "id": "low", "body": { "reasoning_effort": "low" } },
-            { "id": "medium", "body": { "reasoning_effort": "medium" } },
-            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
-            { "id": "max", "body": { "reasoning_effort": "max" } }
-          ]
-        },
-        "openrouter/qwen/qwen3.7-max": {
-          "name": "Qwen 3.7 Max (OpenRouter)",
-          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
-          "limit": { "context": 262144, "output": 16384 },
-          "variants": [
-            { "id": "low", "body": { "reasoning_effort": "low" } },
-            { "id": "medium", "body": { "reasoning_effort": "medium" } },
-            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
-            { "id": "max", "body": { "reasoning_effort": "max" } }
-          ]
-        },
-        "openrouter/qwen/qwen3.7-plus": {
-          "name": "Qwen 3.7 Plus (OpenRouter)",
-          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
-          "limit": { "context": 262144, "output": 16384 },
-          "variants": [
-            { "id": "low", "body": { "reasoning_effort": "low" } },
-            { "id": "medium", "body": { "reasoning_effort": "medium" } },
-            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
-            { "id": "max", "body": { "reasoning_effort": "max" } }
-          ]
-        },
         "openrouter/meituan/longcat-2.0": {
           "name": "LongCat-2.0 (OpenRouter)",
           "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
@@ -451,16 +385,6 @@
             { "id": "max", "body": { "reasoning_effort": "max" } }
           ]
         },
-        "alibaba-token-plan/qwen3.8-max": {
-          "name": "Qwen 3.8 Max (Alibaba Token Plan via Bifrost)",
-          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
-          "limit": { "context": 983616, "output": 131072 },
-          "variants": [
-            { "id": "low", "body": { "reasoning_effort": "low", "max_tokens": 32768 } },
-            { "id": "medium", "body": { "reasoning_effort": "medium", "max_tokens": 32768 } },
-            { "id": "xhigh", "body": { "reasoning_effort": "xhigh", "max_tokens": 131072 } }
-          ]
-        },
         "alibaba-token-plan/qwen3.8-flash": {
           "name": "Qwen 3.8 Flash (Alibaba Token Plan via Bifrost, multimodal)",
           "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
@@ -470,34 +394,156 @@
             { "id": "medium", "body": { "reasoning_effort": "medium", "max_tokens": 32768 } },
             { "id": "xhigh", "body": { "reasoning_effort": "xhigh", "max_tokens": 131072 } }
           ]
+        },
+        "deepseek/deepseek-flash": {
+          "name": "DeepSeek V4.1 Flash (DeepSeek direct, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1048576, "output": 393216 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/deepseek-v4.1-flash": {
+          "name": "DeepSeek V4.1 Flash (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 384000 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/deepseek/deepseek-v4.1-flash": {
+          "name": "DeepSeek V4.1 Flash (OpenRouter, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1048576, "output": 393216 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/kimi-k3": {
+          "name": "Kimi K3 (OpenCode Go, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1048576, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/moonshotai/kimi-k3": {
+          "name": "Kimi K3 (OpenRouter, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1048576, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/kimi-k2.7-code": {
+          "name": "Kimi K2.7 Code (OpenCode Go, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 262144 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/moonshotai/kimi-k2.7-code": {
+          "name": "Kimi K2.7 Code (OpenRouter, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 262144 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/minimax-m3": {
+          "name": "MiniMax M3 (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "openrouter/minimax/minimax-m3": {
+          "name": "MiniMax M3 (OpenRouter)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 1000000, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/mimo-v2.6-flash": {
+          "name": "Mimo v2.6 Flash (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text"] },
+          "limit": { "context": 131072, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/mimo-v2.6-pro": {
+          "name": "Mimo v2.6 Pro (OpenCode Go)",
+          "capabilities": { "tools": true, "input": ["text"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 16384 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/omen-alpha": {
+          "name": "Omen Alpha (OpenCode Go, stealth agentic, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
+        },
+        "opencode-go/space-bunny-free": {
+          "name": "Space Bunny Free (OpenCode Go, stealth agentic, multimodal)",
+          "capabilities": { "tools": true, "input": ["text", "image"], "output": ["text", "reasoning"] },
+          "limit": { "context": 262144, "output": 131072 },
+          "variants": [
+            { "id": "low", "body": { "reasoning_effort": "low" } },
+            { "id": "medium", "body": { "reasoning_effort": "medium" } },
+            { "id": "xhigh", "body": { "reasoning_effort": "high" } },
+            { "id": "max", "body": { "reasoning_effort": "max" } }
+          ]
         }
       }
     },
-    "alibaba-token-plan": {
-      "npm": "@ai-sdk/anthropic",
-      "name": "Alibaba Cloud Model Studio (Token Plan, Anthropic-compat)",
-      "options": {
-        "baseURL": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic/v1",
-        "apiKey": "{env:ALIBABA_TOKEN_PLAN_API_KEY}"
-      },
-      "models": {
-        "qwen3.8-max": {
-          "name": "Qwen3.8 Max (Token Plan)",
-          "reasoning": true,
-          "limit": { "context": 983616, "output": 131072 },
-          "modalities": { "input": ["text", "image"], "output": ["text"] },
-          "options": { "effort": "medium" }
-        }
-      }
-    },
-    "copilot": {},
-    "openai": {},
-    "openrouter": {},
     "zai": {},
     "zhipu": {},
     "minimax-coding-plan": {},
-    "deepseek": {},
-    "opencode-go": {}
+    "deepseek": {}
   },
   "experimental": {
     "disable_paste_summary": true,
@@ -682,6 +728,9 @@
     //   ports, direct files in plugins/ (auto-discovered)
     // deferred (no V2 support upstream): @slkiser/opencode-quota (TUI-heavy),
     //   @tarquinen/opencode-smart-title (superseded by native title agent)
+    // opencode-todolist (rbelem fork, dogfood): local tree, loads dist/ via
+    //   package.json exports — todowrite/todoread, size caps, storage GC
+    "/home/rodrigo/Workspace/github.com/rbelem/opencode-todolist"
   ],
   "agents": {
     "explore": {
