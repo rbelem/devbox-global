@@ -166,6 +166,67 @@ times across zet sessions (#244, #609, #817, #903, #989, #1004, #1009,
 
 ---
 
+## Response Clarity Rules (ASD-STE100)
+
+Derived from an STE100 audit of 10 randomly sampled interactive sessions
+(Sep 25 – Oct 2, 2026). Each rule targets a failure that caused a user
+correction: hidden completion state, drifted names, dense status prose.
+
+### Status reporting (highest impact)
+
+- Report state as actor + verb + object: "I restored Hy3 from
+  `tencent/Hy3`." Never "Restoring Hy3 via tencent/Hy3".
+- No `-ing` fragments as status. "Adding..." / "grinding" say neither who
+  acts nor what finished. Finished work: past tense. Open work: "runs" or
+  "waits" plus the finish condition.
+- No future promise without a trigger and end state. "It will flip to
+  2.0.22" caused "i still get 2.0.20". Say what is true now, then what
+  happens next: "The sync is blocked. After it finishes, opencode
+  reports 2.0.22."
+- When work waits on a background lane, name the signal that ends the
+  wait. Silence or vague "in flight" made users re-ask and interrupt.
+  One line per wait: "The gate runs. I continue when it exits."
+- Label inference as inference. "It produced nothing" was wrong and got
+  corrected. Say the evidence: "The worktree has no commits, so I cannot
+  confirm X."
+
+### Wording
+
+- No metaphors for state: "lands", "in flight", "wedged", "green",
+  "dead end", "time bomb". Use merged / running / stuck / passed /
+  blocked / failed.
+- Active voice for your own actions: "I unset the key", not "the key was
+  unset".
+- One action per sentence in instructions. Name the owner of each step.
+  "Tell me when it's run and I'll rerun the gate and land PR 5" is three
+  sentences.
+- Sentences ≤ 20 words for instructions, ≤ 25 for descriptions. Split
+  50-word status dumps.
+- No noun clusters of 3+ words. "gc-vs-install window" → "A race exists
+  between gc and install. The 1-hour rule guards it."
+
+### Names (costliest failures: wrong-lane stop, wrong-pod install)
+
+- One concept, one word, the whole session. Drift between
+  lane/job/session/miner, or between category names, caused multi-turn
+  correction chains. Pick the term; repeat it exactly.
+- Before you act on a name, resolve it to one real target. Two pods
+  named "daily" means an install goes to the wrong one. When names
+  collide, always use the full path or id.
+
+### Structure
+
+- Answer first, evidence after. Burying the cause ("digests multi-GB
+  trees") made users push back on speed they had not yet understood.
+- During multi-step work: one short status checkpoint per wait cycle.
+  Never silence across 10+ turns; never a wall of bullets. Lists ≤ 6
+  items.
+
+These rules do not override Caveman compression; they constrain its
+structure. Skip them for one-word answers and tool-only turns.
+
+---
+
 ## Fetch discipline
 
 After a fetch, quote the relevant excerpt and work from it; don't re-quote whole pages.
