@@ -24,9 +24,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-help/SKILL.md",
-      "skillFolderHash": "7f39fe20663ec4d859cfed3883927a79a4ed2eff",
+      "skillFolderHash": "a22142e951a3101d5061705858a71146d0569831",
       "installedAt": "2026-04-25T08:27:55.239Z",
-      "updatedAt": "2026-09-17T06:19:25.434Z"
+      "updatedAt": "2026-10-04T21:40:37.232Z"
     },
     "caveman-review": {
       "source": "JuliusBrussee/caveman",
@@ -105,10 +105,10 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/engineering/ask-matt/SKILL.md",
-      "skillFolderHash": "8ab83b2d681b3a343b869e0840535ecf832a17b5",
+      "skillFolderHash": "da068f2392e1144469cbc602ffff96ef47881a88",
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-06-25T01:56:32.367Z",
-      "updatedAt": "2026-10-02T19:24:27.394Z"
+      "updatedAt": "2026-10-04T21:40:35.804Z"
     },
     "code-review": {
       "source": "mattpocock/skills",
@@ -572,18 +572,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman/SKILL.md",
-      "skillFolderHash": "2d9a159619205a175577d6540b1ed64fd73d83b1",
+      "skillFolderHash": "ce6b7ff0b692d2cd445989bf7e6ce74698aa9a57",
       "installedAt": "2026-07-11T16:36:24.346Z",
-      "updatedAt": "2026-09-25T20:01:35.114Z"
+      "updatedAt": "2026-10-04T21:40:37.225Z"
     },
     "caveman-compress": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "sourceUrl": "https://github.com/JuliusBrussee/caveman.git",
       "skillPath": "skills/caveman-compress/SKILL.md",
-      "skillFolderHash": "21aa5ecc4fdf9667604102c6ec723030ec4f4b9c",
+      "skillFolderHash": "cdae212426a08bfaffc06c4bda9854e4db20ca21",
       "installedAt": "2026-07-11T16:36:24.349Z",
-      "updatedAt": "2026-09-25T20:07:22.435Z"
+      "updatedAt": "2026-10-04T21:40:37.229Z"
     },
     "static-analysis": {
       "source": "mohitmishra786/low-level-dev-skills",
@@ -1240,18 +1240,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/DietrichGebert/ponytail.git",
       "skillPath": "skills/ponytail-audit/SKILL.md",
-      "skillFolderHash": "19744a9490abb0f5d0f18c6e39e3a3eb50f4daa1",
+      "skillFolderHash": "4e09c473159cca7d3799b01a50784d09bffc64ae",
       "installedAt": "2026-09-25T21:38:30.521Z",
-      "updatedAt": "2026-09-25T21:38:30.521Z"
+      "updatedAt": "2026-10-04T21:40:36.429Z"
     },
     "ponytail-debt": {
       "source": "DietrichGebert/ponytail",
       "sourceType": "github",
       "sourceUrl": "https://github.com/DietrichGebert/ponytail.git",
       "skillPath": "skills/ponytail-debt/SKILL.md",
-      "skillFolderHash": "fe9ea82cad2b42a9c244acc275c9091c414ff528",
+      "skillFolderHash": "c9bf71ce830bce18e5bbe277828d56ff20eb3dfb",
       "installedAt": "2026-09-25T21:38:30.523Z",
-      "updatedAt": "2026-09-25T21:38:30.523Z"
+      "updatedAt": "2026-10-04T21:40:36.434Z"
     },
     "ponytail-gain": {
       "source": "DietrichGebert/ponytail",
@@ -1267,18 +1267,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/DietrichGebert/ponytail.git",
       "skillPath": "skills/ponytail-help/SKILL.md",
-      "skillFolderHash": "b7df7bc32b6e4e8bbde8acb2ef3c97ee7e7638f7",
+      "skillFolderHash": "3927d4fb46b93abbfe7da4ce1576e0891ae03005",
       "installedAt": "2026-09-25T21:38:30.557Z",
-      "updatedAt": "2026-09-25T21:38:30.557Z"
+      "updatedAt": "2026-10-04T21:40:36.437Z"
     },
     "ponytail-review": {
       "source": "DietrichGebert/ponytail",
       "sourceType": "github",
       "sourceUrl": "https://github.com/DietrichGebert/ponytail.git",
       "skillPath": "skills/ponytail-review/SKILL.md",
-      "skillFolderHash": "dc6d9660c4297496a9220de377f6f7df38ab1a53",
+      "skillFolderHash": "cecec1713084ba31cda4add0373809c7f28ba8e7",
       "installedAt": "2026-09-25T21:38:30.577Z",
-      "updatedAt": "2026-09-25T21:38:30.577Z"
+      "updatedAt": "2026-10-04T21:40:36.440Z"
     },
     "benchmark-checklist": {
       "source": "rbelem/skills",
