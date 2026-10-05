@@ -72,15 +72,26 @@
         pyprojectOverrides
       ]);
     in rec {
-      strix = (pythonSet.mkVirtualEnv "strix-env" workspace.deps.default).overrideAttrs (old: {
-        meta = (old.meta or { }) // {
+      # Internal venv — never installed into the devbox profile directly.
+      venv = pythonSet.mkVirtualEnv "strix-env" workspace.deps.default;
+
+      # Ship ONLY the wrapped `strix` entry point so the devbox profile
+      # merge cannot collide with other packages' site-packages, and strip
+      # PYTHONPATH so the merged profile site-packages can't shadow the
+      # venv's pinned dependencies at runtime.
+      strix = pkgs.runCommand "strix-${version}" {
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        meta = {
           description = "Open-source AI pentesting tool (built from PR #1284)";
           homepage = "https://github.com/usestrix/strix";
           license = pkgs.lib.licenses.asl20;
           mainProgram = "strix";
           platforms = supportedSystems;
         };
-      });
+      } ''
+        mkdir -p $out/bin
+        makeWrapper ${venv}/bin/strix $out/bin/strix --unset PYTHONPATH
+      '';
 
       default = strix;
     });
