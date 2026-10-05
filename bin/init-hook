@@ -17,8 +17,18 @@ _sm_manifest="$HOME/.config/bws/sm.ini"
 # Legacy pre-bws path (bitw era) — fallback for machines not yet migrated
 [ -f "$_sm_manifest" ] || _sm_manifest="$HOME/.config/bitw/sm.ini"
 
-# Regenerate cache if missing — atomic write, single bws call
-if [ -n "$XDG_RUNTIME_DIR" ] && [ ! -f "$_sm_cache" ] && command -v bws >/dev/null 2>&1; then
+# Regenerate cache if missing, older than SM_CACHE_TTL seconds (default 300),
+# or the manifest changed — atomic write, single bws call. On failure the
+# stale cache is kept so the shell still starts.
+_sm_ttl="${SM_CACHE_TTL:-300}"
+_sm_stale=false
+if [ -f "$_sm_cache" ]; then
+  [ "$_sm_manifest" -nt "$_sm_cache" ] && _sm_stale=true
+  [ $(( $(date +%s) - $(stat -c %Y "$_sm_cache") )) -gt "$_sm_ttl" ] && _sm_stale=true
+else
+  _sm_stale=true
+fi
+if [ -n "$XDG_RUNTIME_DIR" ] && $_sm_stale && command -v bws >/dev/null 2>&1; then
   if [ ! -f "$_sm_manifest" ]; then
     echo "init-hook: SM manifest missing ($HOME/.config/bws/sm.ini) — run 'devbox global run setup-bws' to enable secrets loading" >&2
   else
@@ -103,7 +113,7 @@ if [ -f "$_sm_manifest" ]; then
   unset _in_aliases _sm_line _alias _canon
 fi
 
-unset _sm_cache _sm_manifest
+unset _sm_cache _sm_manifest _sm_ttl _sm_stale
 
 # ble.sh line editor (if terminal input is not working, remove ~/.cache/blesh/)
 [ -f $(blesh-share)/ble.sh ] && source -- $(blesh-share)/ble.sh --attach=none
