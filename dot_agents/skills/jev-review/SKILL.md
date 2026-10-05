@@ -95,5 +95,6 @@ Stop the loop when:
 - Important targeted metrics improved and no meaningful regression was introduced.
 - Remaining weak or low-confidence metrics have no concrete, justified improvement available.
 - Further score-seeking changes would add scope, complexity, coupling, or behavioral risk.
+- Evidence quality bounds the signal: reviewing trimmed excerpts of large diffs produces metric noise — low confidence and swinging scores on near-identical evidence. Stop on a stable composite plateau across rescoring rounds plus green real-world validation; never chase excerpt noise with cosmetic iterations. Rescore artifacts must contain the implementation, not tests-only — a tests-only artifact can fake a test_gap regression.
 
 Scores are evidence, not objectives to game. Never improve a score by adding speculative architecture, unnecessary abstraction, meaningless tests or comments, mechanical file splitting, scope expansion, or behavior changes the user did not request. Correctness and the user's actual requirements always come first.

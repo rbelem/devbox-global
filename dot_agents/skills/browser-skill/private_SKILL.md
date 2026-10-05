@@ -107,6 +107,12 @@ Use `snapshot` for static accessibility, `get-html` for exact markup, and screen
 for visuals. Prefer `observe` to find ordinary controls. Obtain fresh refs before
 acting on HTML or screenshot findings. Inspect unknown effects before retrying.
 
+On portal-style dialogs, aria-derived field mappings can misalign with the
+painted rows — values land in the wrong field while the fill "succeeds".
+Extract the real DOM ids from the page HTML, fill by id, and screenshot after
+every fill. Before declaring a page dead, check which tab the harness bound
+to: a zombie frozen tab reads exactly like a dead page.
+
 ## Read details only when needed
 
 Resolve these paths from this skill's directory, not the working directory.

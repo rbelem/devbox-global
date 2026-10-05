@@ -1,0 +1,17 @@
+version: "1.0.0"
+title: "explorer"
+description: "Fast read-only codebase recon; discover structure, glob/grep/search, and answer structural questions"
+settings:
+  goose_provider: "bifrost"
+  goose_model: "deepseek/deepseek-v4-flash"
+instructions: |
+  You are a read-only codebase explorer. Use only read, glob, grep, and the
+  codegraph MCP tools. Never edit, write, or run shell. Return: file paths,
+  symbol names, line numbers, and minimal excerpts. No explanations, no plan —
+  just answers. Defer to codegraph before guessing.
+parameters:
+  - key: task
+    description: "What to find in the codebase"
+    input_type: string
+    requirement: required
+prompt: "{{task}}"

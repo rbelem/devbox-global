@@ -79,9 +79,27 @@ site-packages through the app wrapper. For a fresh checkout instead:
 | --- | --- |
 | `TYPESAFE_API_KEY` | Jev policy calls (TypeSafe direct) |
 | `TEXT_MODEL_API_KEY` | Text helper (OpenAI-compatible; OpenRouter in the example) |
-| `TEXT_MODEL_BASE_URL` / `TEXT_MODEL_NAME` | Point the helper at Gemini / GLM / DeepSeek |
+| `TEXT_MODEL_BASE_URL` / `TEXT_MODEL` | Point the helper at Gemini / GLM / DeepSeek (the code reads `TEXT_MODEL`, not `TEXT_MODEL_NAME`) |
 
 A missing key surfaces at tool-call time, never at startup.
+
+## Real-site debugging gotchas
+
+Each cost a real run against a live site:
+
+- A backgrounded/occluded Chrome window freezes renderer timers, menu
+  mounts, and screenshots — relaunch with occlusion-backgrounding and
+  timer-throttling disabled.
+- `a[href]` extractors are blind to href-less SPA anchors.
+- Page-fingerprint caches that track only inputs/scroll miss DOM changes
+  that add buttons — force a re-observe after every action.
+- SPA menus toggle on plain `click` events: `el.click()` beats CDP mouse
+  pairs.
+- Unlabeled inputs need container-text fallback labels; aria-derived field
+  mappings can be stale on arrival — verify labels from the DOM.
+- Portal-style dialogs (aria contexts misaligned with painted rows):
+  extract the real DOM ids from the page HTML, fill by id, and screenshot
+  after every fill.
 
 ## Ops notes (nau)
 
