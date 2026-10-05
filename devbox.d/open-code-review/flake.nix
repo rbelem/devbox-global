@@ -16,15 +16,15 @@
         aarch64-darwin = "darwin-arm64";
       };
 
-      version = "1.12.4";
+      version = "1.12.11";
 
       # Hashes via API asset digests / nix store prefetch-file — never build-capture
       # for this repo (its CDN serves stale release bytes; see skill pitfall 12).
       perArchSha256 = {
-        x86_64-linux   = "sha256-TSxPOamNPiasC3bV8K8wTGYfXa0Sk3w5ssuk6Okq3q8=";
-        aarch64-linux  = "sha256-5p/H8n3JpekPuOOdTIe70SinIEgtSvcPM8SXRNTx3S0=";
-        x86_64-darwin  = "sha256-ZU0Xz2SgKRetEKiNKg4WSVmOGNnuCGcZTRhhArodbks=";
-        aarch64-darwin = "sha256-spRMiCMHX9Ttvt9SGVbUiTtOlz5dR+0S8vIjzSHnkts=";
+        x86_64-linux   = "sha256-riAriPoD4WkmUSSHvxBR03zLP5aQvddLiJ0R6k3YCZs=";
+        aarch64-linux  = "sha256-TbLVyBx1oLy/LdXVhM7pLPsHdJifdoeJF1KpbE69K5k=";
+        x86_64-darwin  = "sha256-Vh1Z3JKdSPYynfL2U5Sb2QKW/ETUR6KRifLBGZ5exTU=";
+        aarch64-darwin = "sha256-VYC3st/sk0PcNJUesYWh5+5VIGH2iwbcp94LFx6M0gQ=";
       };
     in
     {

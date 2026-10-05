@@ -3,11 +3,11 @@
     "codegraph-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1787859333,
-        "narHash": "sha256-BjY87zaZYGJpaLqERbRgYQl37Ll3heXV7jd4k11DQiA=",
+        "lastModified": 1791176327,
+        "narHash": "sha256-7GB7gU65haoWHfef4tw6tcjKT3iswPD7OqNXJYbq3rs=",
         "owner": "rbelem",
         "repo": "codegraph",
-        "rev": "439c2d4e7b13c00859de079d47c051f5260c3e95",
+        "rev": "917861e8845324d26112449c53c25d5a6af0ee1f",
         "type": "github"
       },
       "original": {

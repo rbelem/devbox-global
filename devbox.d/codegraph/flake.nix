@@ -25,7 +25,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.6.0-perl";
+      version = "1.6.2-perl";
       treeSitterPerlVersion = "1.2.0";
       treeSitterPerlOwner = "tree-sitter-perl";
       treeSitterPerlRepo = "tree-sitter-perl";
@@ -46,9 +46,32 @@
             #   1. Set to pkgs.lib.fakeHash
             #   2. Run: nix build "path:...#default"
             #   3. Replace with the hash from the error message
-            npmDepsHash = "sha256-ZUiYPsVpMtlvaMIcEH5Wo7EDwTiEq1Sz64NKAiiLzR0=";
+            npmDepsHash = "sha256-J8viY38M/loCoJmpxEOIApN6cpf6sU2aa80knVNRSvI=";
 
             nodejs = pkgs.nodejs_22;
+
+            # Upstream v1.6.2 added a ui/ Svelte+Vite workspace and the root
+            # `build` script now runs build:ui, which fails deterministically
+            # (vite-plugin-svelte load-custom TypeError) with pinned deps.
+            # Build the server only — same surface as 1.6.0-perl, which had
+            # no ui/ at all. `codegraph ui` viewer will 404 until upstream
+            # fixes their ui build; CLI indexing is unaffected.
+            buildPhase = ''
+              runHook preBuild
+              npx tsc
+              npm run copy-assets
+              node -e "require('fs').chmodSync('dist/bin/codegraph.js', 0o755)"
+              runHook postBuild
+            '';
+
+            # Drop the ui/ workspace symlink after install: ui/ isn't shipped
+            # (see above) and the server never imports
+            # @colbymchenry/codegraph-ui, so leaving it would fail fixup
+            # with a dangling-symlink error. (npm prune recreates it, so
+            # this must run in postInstall, not buildPhase.)
+            postInstall = ''
+              rm -rf "$out/lib/node_modules/@colbymchenry/codegraph/node_modules/@colbymchenry/codegraph-ui"
+            '';
 
             buildInputs = [
               (mkTreeSitterPerl pkgs)
