@@ -13,15 +13,15 @@
       # No upstream tags/releases: pin to a master commit. update-flake
       # shows this as "??" and never auto-updates it — bump manually by
       # updating rev + both hashes below.
-      version = "dsh-v0.1.6-alpha.1"; # mirrors root package.json version
-      rev = "0a15e36e7f82b6ed45af6fa9759f29b40dcd965d"; # tag dsh-v0.1.6-alpha.1
+      version = "dsh-v0.2.1-alpha.1"; # mirrors root package.json version
+      rev = "5badb15009ae1756c3afe0ae0cef1faafc290ccc"; # tag dsh-v0.2.1-alpha.1
 
       # Hash capture workflow:
       #   1. set srcHash / pnpmDepsHash to pkgs.lib.fakeHash
       #   2. nix build "path:devbox.d/deepseek-harness#default"
       #   3. paste the sha256-... values from the error messages
-      srcHash = "sha256-vlCnBbaUPtMBs+9do1QQ/71bWkgxOTXlP27CZeCRbCI=";
-      pnpmDepsHash = "sha256-DNGGgnec3hFUs3LDorlUGzzgRT88i33y8TqyXfoXVnY=";
+      srcHash = "sha256-/mScgSeh7/1HdIeWGAnxkzlXTjZsxscpnWkwnhR8hsU=";
+      pnpmDepsHash = "sha256-/RvayNtK+6hJXOiRO17JZQS7lGFnPaQJQkD/Z8bUIHQ=";
     in
     {
       packages = forAllSystems (system:
