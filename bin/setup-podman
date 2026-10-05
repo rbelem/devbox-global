@@ -1,10 +1,32 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-mkdir -p $HOME/.config/containers
-cat <<EOF > $HOME/.config/containers/policy.json
+mkdir -p "$HOME/.config/containers"
+cat <<EOF > "$HOME/.config/containers/policy.json"
 {
   "default": [{"type": "insecureAcceptAnything"}],
   "transports": {"docker-daemon": {"": [{"type":"insecureAcceptAnything"}]}}
 }
 EOF
+
+# Podman API socket for Docker-compatible clients (strix runtime backend).
+# The nix-provided podman ships no systemd user units, so install our own.
+PODMAN_BIN="$HOME/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/podman"
+mkdir -p "$HOME/.config/systemd/user"
+cat <<EOF > "$HOME/.config/systemd/user/podman.service"
+[Unit]
+Description=Podman API Service (rootless)
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sh -c 'mkdir -p %t/podman'
+ExecStart=$PODMAN_BIN system service --time=0 unix://%t/podman/podman.sock
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+EOF
+
+systemctl --user daemon-reload
+systemctl --user enable --now podman.service
+loginctl enable-linger "$USER" 2>/dev/null || true
