@@ -1,6 +1,7 @@
 # Global OpenCode Rules
 
 Prioritize retrieval-led reasoning over pretrained-knowledge-led reasoning.
+If a project AGENTS.md conflicts with this file, the project file wins.
 
 ## Delegation: Use Judgment
 
@@ -112,37 +113,12 @@ Full level by default.
 <!-- CODEGRAPH_START -->
 ## CodeGraph
 
-This project has a CodeGraph MCP server (`codegraph_*` tools) configured. CodeGraph is a tree-sitter-parsed knowledge graph of every symbol, edge, and file. Reads are sub-millisecond and return structural information grep cannot.
+In repositories indexed by CodeGraph (a `.codegraph/` directory exists at the repo root), reach for it BEFORE grep/find or reading files when you need to understand or locate code:
 
-### When to prefer codegraph over native search
+- **MCP tool** (when available): `codegraph_explore` answers most code questions in one call — the relevant symbols' verbatim source plus the call paths between them, including dynamic-dispatch hops grep can't follow. Name a file or symbol in the query to read its current line-numbered source. If it's listed but deferred, load it by name via tool search.
+- **Shell** (always works): `codegraph explore "<symbol names or question>"` prints the same output.
 
-Use codegraph for **structural** questions — what calls what, what would break, where is X defined, what is X's signature. Use native grep/read only for **literal text** queries (string contents, comments, log messages) or after you already have a specific file open.
-
-| Question | Tool |
-|---|---|
-| "Where is X defined?" / "Find symbol named X" | `codegraph_search` |
-| "What calls function Y?" | `codegraph_callers` |
-| "What does Y call?" | `codegraph_callees` |
-| "How does X reach/become Y? / trace the flow from X to Y" | `codegraph_trace` (one call = the whole path, incl. callback/React/JSX dynamic hops) |
-| "What would break if I changed Z?" | `codegraph_impact` |
-| "Show me Y's signature / source / docstring" | `codegraph_node` |
-| "Give me focused context for a task/area" | `codegraph_context` |
-| "See several related symbols' source at once" | `codegraph_explore` |
-| "What files exist under path/" | `codegraph_files` |
-| "Is the index healthy?" | `codegraph_status` |
-
-### Rules of thumb
-
-- **Answer directly — don't delegate exploration.** For "how does X work" / architecture questions, answer with 2-3 codegraph calls: `codegraph_context` first, then ONE `codegraph_explore` for the source of the symbols it surfaces. For a specific **flow** ("how does X reach Y") start with `codegraph_trace` from→to — one call returns the whole path with dynamic hops bridged — then ONE `codegraph_explore` for the bodies; don't rebuild the path with `codegraph_search` + `codegraph_callers`. Codegraph IS the pre-built index, so spawning a separate file-reading sub-task/agent — or running a grep + read loop — repeats work codegraph already did and costs more for the same answer.
-- **Trust codegraph results.** They come from a full AST parse. Do NOT re-verify them with grep — that's slower, less accurate, and wastes context.
-- **Don't grep first** when looking up a symbol by name. `codegraph_search` is faster and returns kind + location + signature in one call.
-- **Don't chain `codegraph_search` + `codegraph_node`** when you just want context — `codegraph_context` is one call.
-- **Don't loop `codegraph_node` over many symbols** — one `codegraph_explore` call returns several symbols' source grouped in a single capped call, while each separate node/Read call re-reads the whole context and costs far more.
-- **Index lag — check the staleness banner, don't guess a wait.** When a codegraph response starts with "⚠️ Some files referenced below were edited since the last index sync…", the listed files are pending re-index — Read those specific files for accurate content. Files NOT in that banner are fresh and codegraph is authoritative for them. `codegraph_status` also lists pending files under "Pending sync".
-
-### If `.codegraph/` doesn't exist
-
-The MCP server returns "not initialized." Ask the user: *"I notice this project doesn't have CodeGraph initialized. Want me to run `codegraph init -i` to build the index?"*
+If there is no `.codegraph/` directory, skip CodeGraph entirely — indexing is the user's decision.
 <!-- CODEGRAPH_END -->
 
 <!-- HERDR_START -->
@@ -185,28 +161,5 @@ Some skill folders in `~/.agents/skills/` are installed and tracked by their own
 <!-- ZVEC_GREP_START -->
 ## zvec-grep
 
-Choose the evidence source before the retrieval mode.
-
-### Workspace evidence
-- Use the current workspace as the evidence source when the user asks about local material, prior context establishes it as relevant, or the question concerns how the current project works—even if the workspace is not mentioned explicitly.
-- A workspace may contain any mix of code, documents, configuration, and data.
-- Do not use workspace retrieval for unrelated open-world questions, current external facts, or web content that does not depend on local evidence.
-
-### Retrieval routing
-- When an exact word, phrase, name, date, identifier, filename, path, configuration key, error message, source fragment, literal, or regex is known and locating its occurrences is sufficient, use `zvec_grep_zvec_grep_rg` when it is listed by the current host; otherwise native Grep or `rg`.
-- Use `zvec_grep_zvec_grep_search` when wording or location is unknown, or when the answer requires semantic, conceptual, fuzzy, or paraphrase discovery; relationships, chronology, causality, architecture, or data or control flow; or comparison or synthesis across files, sections, or documents.
-- For a mixed task with exact anchors that still requires relationships or cross-file synthesis, call `zvec_grep_zvec_grep_search` with the concept and anchors, then use `zvec_grep_zvec_grep_rg` when it is listed by the current host; otherwise native Grep or `rg` for focused follow-up.
-- When no sufficient exact anchor is available and the user asks whether conceptually related material exists locally, make at most one focused `zvec_grep_zvec_grep_search` probe using the question plus distinctive names, dates, or terms. This probe does not apply to exact quotations, configuration keys, filenames, regexes, or exhaustive occurrence requests. Continue only when results are relevant; otherwise stop and report that the indexed workspace did not establish the answer.
-- Before broad file reads or delegating workspace discovery, use the appropriate search route. Do not delegate solely to locate material, and stop when the evidence is sufficient.
-
-### Search evidence
-- Search results include bounded source snippets. Treat a sufficient snippet as already-read evidence, and read a cited file only when a required detail falls outside the snippet.
-
-### Freshness and index lifecycle
-- Pass a daemon-visible absolute `root` on every zvec-grep workspace call.
-- Read `freshness` and `background_refresh` from search results without a status preflight.
-- When results are `served_from_current_index`, use them when sufficient instead of waiting for the background refresh.
-- If the index is missing but exact or regex lookup can answer the task, use `zvec_grep_zvec_grep_rg` when it is listed by the current host; otherwise native Grep or `rg`.
-- Creating, rebuilding, or dropping a persistent index requires an explicit user request or authorization; never do so silently.
-
+Workspace questions (how this project works, synthesis across files) → `zvec_grep_search`; exact symbol, literal, or regex lookup → `zvec_grep_rg`. Full routing, snippet, and index-lifecycle rules live in the zvec_grep server's injected instructions (single source of truth). Never create, rebuild, or drop an index unless the user asks.
 <!-- ZVEC_GREP_END -->
