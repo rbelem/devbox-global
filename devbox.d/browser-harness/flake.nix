@@ -170,23 +170,25 @@
         let
           pkgsWithOverlay = pkgs.extend browser-harness-overlay;
 
-          # Entry-point shims against a merged python env. The
-          # buildPythonApplication wrappers wire the closure via in-process
-          # site.addsitedir, so `sys.executable -m browser_harness.daemon`
-          # (admin.py ensure_daemon) cannot import the package: the child
-          # gets a bare interpreter. With the merged env as the interpreter,
-          # sys.executable itself sees the full closure under any
-          # environment. Keep `browser-harness` (the python app attr)
-          # untouched — jev-ultrafast depends on it for the library.
+          # Entry-point shims. The buildPythonApplication wrappers wire the
+          # closure via in-process site.addsitedir, so `sys.executable -m
+          # browser_harness.daemon` (admin.py ensure_daemon) cannot import the
+          # package: the child gets a bare interpreter. A merged-env python as
+          # the shim shebang is NOT enough either: the env interpreter is a
+          # symlink and CPython resolves sys.executable back to the base
+          # python, starving the child again. So the shim exports PYTHONPATH
+          # pointing at the merged env instead; the daemon child inherits it
+          # and imports the closure under any environment. Keep
+          # `browser-harness` (the python app attr) untouched — jev-ultrafast
+          # depends on it for the library.
           pyenv = pkgsWithOverlay.python3.withPackages (
             ps: [ (ps.toPythonModule pkgsWithOverlay.browser-harness) ]
           );
 
           shim = name: module: pkgsWithOverlay.writeScriptBin name ''
-            #!${pyenv}/bin/python3.14
-            import sys
-            from ${module} import main
-            sys.exit(main())
+            #!${pkgsWithOverlay.bash}/bin/bash
+            export PYTHONPATH="${pyenv}/${pkgsWithOverlay.python3.sitePackages}"
+            exec "${pkgsWithOverlay.python3}/bin/python3.14" -c 'import sys; from ${module} import main; sys.exit(main())' "$@"
           '';
 
           browser-harness-wrapped = pkgsWithOverlay.runCommand "browser-harness-bin" { } ''
