@@ -89,6 +89,7 @@
     "path:devbox.d/cua":                  {},
     "path:devbox.d/cua-driver":           {},
     "path:devbox.d/jev-ultrafast":        {},
+    "path:devbox.d/browser-harness":      {},
     "bws":           "latest",
     "bitwarden-cli": "latest",
     "attic-client":  "latest",

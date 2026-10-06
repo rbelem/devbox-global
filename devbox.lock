@@ -1881,6 +1881,10 @@
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/blesh?lastModified=1789650451&narHash=sha256-zu3bmk2oB9E5jv1c9AAaF9rcfKOnsb2WxTD2f%2FIbK4M%3D"
     },
+    "path:devbox.d/browser-harness": {
+      "last_modified": "2026-10-06T19:00:33Z",
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/browser-harness?lastModified=1791313233&narHash=sha256-K5WzSm6jrRFd3QK5dzhVB%2B15rabIkBpppSj%2FWFJNqsU%3D"
+    },
     "path:devbox.d/bsk": {
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/bsk?lastModified=1789650451&narHash=sha256-tvSCTUM5FBU7ZBE48RnHGzdgihmjL8mk2gX6tZ%2Fp1IY%3D"
