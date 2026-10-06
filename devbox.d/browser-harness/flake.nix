@@ -169,10 +169,36 @@
       packages = forAllSystems (pkgs:
         let
           pkgsWithOverlay = pkgs.extend browser-harness-overlay;
+
+          # Entry-point shims against a merged python env. The
+          # buildPythonApplication wrappers wire the closure via in-process
+          # site.addsitedir, so `sys.executable -m browser_harness.daemon`
+          # (admin.py ensure_daemon) cannot import the package: the child
+          # gets a bare interpreter. With the merged env as the interpreter,
+          # sys.executable itself sees the full closure under any
+          # environment. Keep `browser-harness` (the python app attr)
+          # untouched — jev-ultrafast depends on it for the library.
+          pyenv = pkgsWithOverlay.python3.withPackages (
+            ps: [ (ps.toPythonModule pkgsWithOverlay.browser-harness) ]
+          );
+
+          shim = name: module: pkgsWithOverlay.writeScriptBin name ''
+            #!${pyenv}/bin/python3.14
+            import sys
+            from ${module} import main
+            sys.exit(main())
+          '';
+
+          browser-harness-wrapped = pkgsWithOverlay.runCommand "browser-harness-bin" { } ''
+            mkdir -p $out/bin
+            ln -s ${shim "browser-harness" "browser_harness.run"}/bin/browser-harness $out/bin/browser-harness
+            ln -s ${shim "browser-harness-mcp" "browser_harness.mcp_cli"}/bin/browser-harness-mcp $out/bin/browser-harness-mcp
+          '';
         in
         {
           inherit (pkgsWithOverlay) browser-harness;
-          default = pkgsWithOverlay.browser-harness;
+          inherit browser-harness-wrapped;
+          default = browser-harness-wrapped;
         });
     };
 }
