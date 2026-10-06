@@ -56,6 +56,56 @@
             doCheck = false;
           };
 
+          # mcp 2.x pair (mcp==mcp-types exact pin): nixpkgs has mcp 1.29.0.
+          # Pure-Python wheels via fetchurl — upstream sdists need hatchling +
+          # uv-dynamic-versioning, and fetchPypi's wheel format hardcodes a
+          # py2.py3 tag that doesn't match these py3 wheels. Same recipes as
+          # devbox.d/browser-harness. Keeps the symlinked browser-harness-mcp
+          # entry point actually working inside this closure.
+          mcp-types = pfinal.buildPythonPackage rec {
+            pname = "mcp-types";
+            version = "2.1.1";
+            format = "wheel";
+            src = pkgs.fetchurl {
+              url = "https://files.pythonhosted.org/packages/71/d0/242e63c510f4a17381f55b1549a3f94f5687a0595984febd2b6f87a687a0/mcp_types-2.1.1-py3-none-any.whl";
+              hash = "sha256-Jvn38D8qVzBxeluY4qt+tkCsNS0FoAzcclwxGGR3gpU=";
+            };
+            dependencies = with pfinal; [
+              pydantic
+            ];
+            doCheck = false;
+          };
+
+          mcp = pfinal.buildPythonPackage rec {
+            pname = "mcp";
+            version = "2.1.1";
+            format = "wheel";
+            src = pkgs.fetchurl {
+              url = "https://files.pythonhosted.org/packages/50/af/8644cc5fa26a59afd2df2e98eeb19e72926887fa4b7441aba4ff661140db/mcp-2.1.1-py3-none-any.whl";
+              hash = "sha256-HGwxxdZHHFjbdq86+K9n9G0R0B8KWQd9CjCMvbPT6RU=";
+            };
+            # pyjwt[crypto] = pyjwt + cryptography; dep floors verified against
+            # nixpkgs python3Packages (3.14) in devbox.d/browser-harness.
+            dependencies = with pfinal; [
+              anyio
+              cryptography
+              httpx2
+              jsonschema
+              mcp-types
+              opentelemetry-api
+              pydantic
+              pyjwt
+              python-multipart
+              sse-starlette
+              starlette
+              typing-extensions
+              typing-inspection
+              uvicorn
+            ];
+            pythonImportsCheck = [ "mcp" "mcp_types" ];
+            doCheck = false;
+          };
+
           # Not in nixpkgs; provides `browser-harness` and `browser-harness-mcp`
           # console scripts via its own [project.scripts]
           browser-harness = pfinal.buildPythonPackage rec {
@@ -74,6 +124,7 @@
             dependencies = with pfinal; [
               cdp-use
               fetch-use
+              mcp
               pillow
               websockets
             ];
@@ -123,7 +174,7 @@
           };
         });
 
-        jev-ultrafast = final.python3Packages.jev-ultrafast;
+        inherit (final.python3Packages) jev-ultrafast;
       };
     in
     {
@@ -134,7 +185,7 @@
           pkgsWithOverlay = pkgs.extend (jev-overlay pkgs);
         in
         {
-          jev-ultrafast = pkgsWithOverlay.jev-ultrafast;
+          inherit (pkgsWithOverlay) jev-ultrafast;
           default = pkgsWithOverlay.jev-ultrafast;
         });
     };

@@ -3,10 +3,10 @@
 
   # Recipe provenance: websockets/cdp-use/fetch-use/browser-harness derivations
   # mirror devbox.d/jev-ultrafast's internal closure (same pins, same hashes).
-  # This flake is the standalone variant and ADDS the mcp extra (mcp 2.1.1 +
-  # mcp-types 2.1.1) so browser-harness-mcp actually works; jev-ultrafast
-  # symlinks that script without the mcp package. If browser-harness bumps,
-  # update both flakes or extract a shared one.
+  # This flake is the standalone variant. Both closures now ship the mcp extra
+  # (mcp 2.1.1 + mcp-types 2.1.1), so browser-harness-mcp works whichever one
+  # wins the devbox profile collision. If browser-harness bumps, update both
+  # flakes or extract a shared one.
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs = { self, nixpkgs }:
