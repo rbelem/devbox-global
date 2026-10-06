@@ -1,6 +1,7 @@
 # Global OpenCode Rules
 
 Prioritize retrieval-led reasoning over pretrained-knowledge-led reasoning.
+If a project AGENTS.md conflicts with this file, the project file wins.
 
 ## Delegation: Use Judgment
 
