@@ -1985,10 +1985,6 @@
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/tree-sitter-perl?lastModified=1789650451&narHash=sha256-ZDszWS8BjWRVThqu5ntAg43wysJ9i3py0eG6PCBgMmQ%3D"
     },
-    "path:devbox.d/valkey-search": {
-      "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/valkey-search?lastModified=1789650451&narHash=sha256-DcBHM2azMvsx3apandUuP2RN75%2BNIFPIkG1psq2xGYY%3D"
-    },
     "path:devbox.d/whichllm": {
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/whichllm?lastModified=1789650451&narHash=sha256-1R4N8VGGt33Vrf2D%2Blkz0TF%2FzYOFl2ORFuF8zwhCXS4%3D"
@@ -2775,44 +2771,6 @@
             }
           ],
           "store_path": "/nix/store/v6av5m4035ds4558ax9sh0ywwnkjnd7b-uv-0.12.5"
-        }
-      }
-    },
-    "valkey@latest": {
-      "last_modified": "2026-08-27T07:16:00Z",
-      "resolved": "github:NixOS/nixpkgs/c27cdad491a991b11ed731760aa2ef8db0cb0410#valkey",
-      "source": "devbox-search",
-      "version": "9.1.1",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/ldi6rshippfrrqrgajz7hv7783jd0iqx-valkey-9.1.1",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/ldi6rshippfrrqrgajz7hv7783jd0iqx-valkey-9.1.1"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/hj6zkiyxp36dhyd2pyjhsnfbc8f445hz-valkey-9.1.1",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/hj6zkiyxp36dhyd2pyjhsnfbc8f445hz-valkey-9.1.1"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/yaw5nj10i1kbg50mn2d5787yhis68sji-valkey-9.1.1",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/yaw5nj10i1kbg50mn2d5787yhis68sji-valkey-9.1.1"
         }
       }
     },
