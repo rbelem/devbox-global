@@ -1,50 +1,17 @@
 # Global OpenCode Rules
 
-Behavioral guidelines to reduce common LLM coding mistakes. Merge with
-project-specific instructions as needed.
-
 Prioritize retrieval-led reasoning over pretrained-knowledge-led reasoning.
-
-**Tradeoff:** These guidelines bias toward caution over speed. For trivial
-tasks, use judgment.
-
----
 
 ## Delegation: Use Judgment
 
-You can do work directly or delegate to a specialist. Pick whichever costs
-less (tokens + latency) for the actual task at hand. Delegation has real
-overhead — dispatch prompts, background-task bookkeeping, session setup, and
-context hand-off. For trivial or single-step work, doing it yourself is
-usually cheaper than delegating.
-
-These lanes are available when delegation is the better trade-off:
-
-- **Routine mechanical work** (git status/diff/commit/push, lint, typecheck,
-  test, build, install, any no-edit shell command) → **@fast-generic** (cheap;
-  good when you would otherwise block on a long shell command)
-
-- **Code editing / implementation** once the plan is clear → **@fixer**. For
-  changes that span multiple folders, parallel @fixer instances per folder
-  can help, but only when the parallel work has real isolation.
-
-- **Codebase discovery** (find a file, find a symbol, where is X) → **@explorer**
-
-- **Library / API research, web research, docs lookup** → **@librarian**
-
-- **UI/UX work** (user-facing components, polish, responsive, motion) →
-  **@designer**
-
-- **Architecture / design decisions, code review, complex debugging** →
-  **@oracle**
-
-- **Visual analysis** (screenshots, images, PDFs) → **@observer**
-
-- **Multi-model consensus for high-stakes decisions** → **@council**
-
-Default to doing it yourself unless the task is clearly suited to a
-specialist (deep, multi-step, or high-stakes) AND the delegation overhead
-will pay for itself. When in doubt, do it yourself.
+Do work directly or delegate to a specialist — pick whichever costs less
+(tokens + latency) for the actual task at hand. Delegation has real
+overhead: dispatch prompts, background-task bookkeeping, session setup,
+context hand-off. Default to doing it yourself unless the task is clearly
+suited to a specialist (deep, multi-step, or high-stakes) AND the
+delegation overhead will pay for itself. For changes that span multiple
+folders, parallel @fixer instances per folder can help, but only when the
+parallel work has real isolation. When in doubt, do it yourself.
 
 ## Lanes: Use the Cow Worktree Plugin
 
@@ -55,75 +22,13 @@ get inventory tracking (`list_worktrees`), session attach/refuse
 protection, and cross-session visibility; bare git worktrees are invisible
 to every other session and race-prone.
 
-## 1. Think Before Coding
+## Coding Standards
 
-**Don't assume. Don't hide confusion. Surface tradeoffs.**
+**Coding** — writing or editing code, unclear requirements, or a
+multi-step task: read `~/.config/opencode/CODING_STANDARDS.md` before
+implementing.
 
-Before implementing:
-
-- State your assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them - don't pick silently.
-- If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop. Name what's confusing. Ask.
-
-## 2. Simplicity First
-
-**Minimum code that solves the problem. Nothing speculative.**
-
-- No features beyond what was asked.
-- No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
-- If you write 200 lines and it could be 50, rewrite it.
-
-Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
-
-**Complexity gate:** every function ≤ cyclomatic complexity 10. The
-`complexity-guard` plugin appends violations to every `write`/`edit` result —
-when you see `[complexity-guard]`, split the named functions into smaller
-helpers in the same response, before finishing.
-
-## 3. Surgical Changes
-
-**Touch only what you must. Clean up only your own mess.**
-
-When editing existing code:
-
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
-- Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it - don't delete it.
-
-When your changes create orphans:
-
-- Remove imports/variables/functions that YOUR changes made unused.
-- Don't remove pre-existing dead code unless asked.
-
-The test: Every changed line should trace directly to the user's request.
-
-## 4. Goal-Driven Execution
-
-**Define success criteria. Loop until verified.**
-
-Transform tasks into verifiable goals:
-
-- "Add validation" → "Write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces it, then make it pass"
-- "Refactor X" → "Ensure tests pass before and after"
-
-For multi-step tasks, state a brief plan:
-```
-1. [Step] → verify: [check]
-2. [Step] → verify: [check]
-3. [Step] → verify: [check]
-```
-
-Strong success criteria let you loop independently. Weak criteria
-("make it work") require constant clarification.
-
----
-
-## 5. No Narration Bookkeeping (sentinel / board / pre-action)
+## No Narration Bookkeeping (sentinel / board / pre-action)
 
 When a system reminder fires (sentinel, Background Job Board, oracle
 availability, etc.) OR you are about to dispatch a long-running lane
@@ -131,64 +36,36 @@ after the user has already confirmed the plan: **do NOT narrate the
 acknowledgment or restate the plan.** Skip it entirely from the
 user-visible output.
 
-Anti-patterns (each one wastes 50-200 tokens per turn, repeated across
-turns):
-
-- "Sentinel acknowledged — board clean, no active lanes. The user wants..."
-- "Board clean — all lanes reconciled. Continuing with X."
-- "Now I have a clear picture. Let me also check Y."  (during research)
-- "OK so the plan is A, then B, then C. Dispatching A first."
-  after a terse confirmation like "sim" / "manda" / "pode" / "go".
-- Restating the same plan in a multi-tool-call turn instead of emitting
-  it once at the top and then letting the tool calls carry the work.
-
-Correct behavior:
-
 1. Sentinel / system reminder with no action needed → respond with
    ONLY the task-relevant content. Silent incorporation.
 2. User confirms a plan terse-style → one short clause ("Locked in.
-   Dispatching lane A.") then the first tool call. No re-narration.
+   Dispatching lane A.") then the first tool call.
 3. Multi-tool-call turn → emit the bookkeeping preamble ONCE in the
    first chunk; subsequent chunks carry only the tool calls and per-tool
-   narration. Do not paste the same preamble before every tool.
+   narration.
 4. Research progress → final summary at the end, OR one mid-stream
-   checkpoint every ~5 turns. Never "Now I have the picture. Let me
-   also check X" preambles per turn.
+   checkpoint every ~5 turns.
 
 Track remaining work in todowrite, not in user-visible narration.
 After the FIRST turn that acknowledges bookkeeping, subsequent turns
 in the same session MUST contain ZERO acknowledgment of the same
 reminder, even if the reminder fires again.
 
-Pinned from memory: sentinel-acknowledgment anti-pattern has fired 7+
-times across zet sessions (#244, #609, #817, #903, #989, #1004, #1009,
-#1015). The memory layer is exhausted; the rule lives here.
-
----
-
 ## Response Clarity Rules (ASD-STE100)
-
-Derived from an STE100 audit of 10 randomly sampled interactive sessions
-(Sep 25 – Oct 2, 2026). Each rule targets a failure that caused a user
-correction: hidden completion state, drifted names, dense status prose.
 
 ### Status reporting (highest impact)
 
 - Report state as actor + verb + object: "I restored Hy3 from
-  `tencent/Hy3`." Never "Restoring Hy3 via tencent/Hy3".
-- No `-ing` fragments as status. "Adding..." / "grinding" say neither who
-  acts nor what finished. Finished work: past tense. Open work: "runs" or
-  "waits" plus the finish condition.
-- No future promise without a trigger and end state. "It will flip to
-  2.0.22" caused "i still get 2.0.20". Say what is true now, then what
-  happens next: "The sync is blocked. After it finishes, opencode
-  reports 2.0.22."
+  `tencent/Hy3`."
+- No `-ing` fragments as status. Finished work: past tense. Open work:
+  "runs" or "waits" plus the finish condition.
+- No future promise without a trigger and end state. Say what is true
+  now, then what happens next: "The sync is blocked. After it finishes,
+  opencode reports 2.0.22."
 - When work waits on a background lane, name the signal that ends the
-  wait. Silence or vague "in flight" made users re-ask and interrupt.
-  One line per wait: "The gate runs. I continue when it exits."
-- Label inference as inference. "It produced nothing" was wrong and got
-  corrected. Say the evidence: "The worktree has no commits, so I cannot
-  confirm X."
+  wait. One line per wait: "The gate runs. I continue when it exits."
+- Label inference as inference. Say the evidence: "The worktree has no
+  commits, so I cannot confirm X."
 
 ### Wording
 
@@ -205,19 +82,17 @@ correction: hidden completion state, drifted names, dense status prose.
 - No noun clusters of 3+ words. "gc-vs-install window" → "A race exists
   between gc and install. The 1-hour rule guards it."
 
-### Names (costliest failures: wrong-lane stop, wrong-pod install)
+### Names
 
-- One concept, one word, the whole session. Drift between
-  lane/job/session/miner, or between category names, caused multi-turn
-  correction chains. Pick the term; repeat it exactly.
+- One concept, one word, the whole session: pick the term and repeat it
+  exactly.
 - Before you act on a name, resolve it to one real target. Two pods
   named "daily" means an install goes to the wrong one. When names
-  collide, always use the full path or id.
+  collide, use the full path or id.
 
 ### Structure
 
-- Answer first, evidence after. Burying the cause ("digests multi-GB
-  trees") made users push back on speed they had not yet understood.
+- Answer first, evidence after.
 - During multi-step work: one short status checkpoint per wait cycle.
   Never silence across 10+ turns; never a wall of bullets. Lists ≤ 6
   items.
@@ -225,15 +100,9 @@ correction: hidden completion state, drifted names, dense status prose.
 These rules do not override Caveman compression; they constrain its
 structure. Skip them for one-word answers and tool-only turns.
 
----
-
 ## Fetch discipline
 
 After a fetch, quote the relevant excerpt and work from it; don't re-quote whole pages.
-
-**These guidelines are working if:** fewer unnecessary changes in diffs, fewer
-rewrites due to overcomplication, and clarifying questions come before
-implementation rather than after mistakes.
 
 ## Caveman Mode
 
