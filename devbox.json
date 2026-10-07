@@ -89,14 +89,14 @@
     "path:devbox.d/cua":                  {},
     "path:devbox.d/cua-driver":           {},
     "path:devbox.d/jev-ultrafast":        {},
-    "path:devbox.d/browser-harness":      {},
-    "bws":           "latest",
-    "bitwarden-cli": "latest",
-    "attic-client":  "latest",
-    "geminicommit":  "latest",
-    "sqlite":        "latest",
-    "wtype":         "latest",
-    "chromium":      "latest"
+    "bws":                                "latest",
+    "bitwarden-cli":                      "latest",
+    "attic-client":                       "latest",
+    "geminicommit":                       "latest",
+    "sqlite":                             "latest",
+    "wtype":                              "latest",
+    "chromium":                           "latest",
+    "path:devbox.d/browser-harness":      ""
   },
   "env": {
     "EDITOR":                                     "vi",

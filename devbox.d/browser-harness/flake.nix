@@ -198,8 +198,11 @@
           '';
         in
         {
-          inherit (pkgsWithOverlay) browser-harness;
-          inherit browser-harness-wrapped;
+          # devbox resolves the named attr for `path:devbox.d/browser-harness`,
+          # so BOTH names must serve the daemon-safe shims. The python app
+          # itself stays reachable as the overlay python3Packages attr, which
+          # is what jev-ultrafast depends on for the library.
+          browser-harness = browser-harness-wrapped;
           default = browser-harness-wrapped;
         });
     };
