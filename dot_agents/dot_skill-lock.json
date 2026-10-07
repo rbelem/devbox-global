@@ -1326,6 +1326,15 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-10-04T21:48:59.003Z",
       "updatedAt": "2026-10-04T21:48:59.003Z"
+    },
+    "browser-harness": {
+      "source": "browser-use/browser-harness",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/browser-use/browser-harness.git",
+      "skillPath": "SKILL.md",
+      "skillFolderHash": "afbcc381b963040c19627d788e40c7e7663171ee",
+      "installedAt": "2026-10-07T00:38:36.514Z",
+      "updatedAt": "2026-10-07T00:38:36.514Z"
     }
   },
   "dismissed": {
