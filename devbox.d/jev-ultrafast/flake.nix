@@ -132,46 +132,65 @@
           };
 
           # The app: jev-ultrafast @ pinned commit (no release tags upstream)
-          jev-ultrafast = pfinal.buildPythonApplication rec {
-            pname = "jev-ultrafast";
-            version = "0.1.0";
-            pyproject = true;
+          jev-ultrafast =
+            let
+              # Daemon-safe entry-point shims, same construction as
+              # devbox.d/browser-harness. jev-ultrafast owns the profile's
+              # `browser-harness` bin name (devbox bin collision; decided by
+              # lock install order, not devbox.json order), so the staged
+              # entry points must serve the PYTHONPATH shims: the bare
+              # console scripts wire the closure via in-process
+              # site.addsitedir, and admin.py ensure_daemon spawns daemon
+              # children with bare `sys.executable` — ModuleNotFoundError
+              # under any env without an inherited PYTHONPATH.
+              bh-pyenv = pkgs.python3.withPackages (
+                ps: [ (ps.toPythonModule pfinal.browser-harness) ]
+              );
+              bh-shim = name: module: pkgs.writeScriptBin name ''
+                #!${pkgs.bash}/bin/bash
+                export PYTHONPATH="${bh-pyenv}/${pkgs.python3.sitePackages}"
+                exec "${pkgs.python3}/bin/python3.14" -c 'import sys; from ${module} import main; sys.exit(main())' "$@"
+              '';
+            in
+            pfinal.buildPythonApplication rec {
+              pname = "jev-ultrafast";
+              version = "0.1.0";
+              pyproject = true;
 
-            src = pkgs.fetchFromGitHub {
-              owner = "browser-use";
-              repo = "jev-ultrafast";
-              rev = "1231850a0bf1a0c0341fe408ef1668dbbfdfac46";
-              hash = "sha256-8EJhsOjalxX6uUCu+bREqopVUBG8O64SehhQUdNUwVI=";
+              src = pkgs.fetchFromGitHub {
+                owner = "browser-use";
+                repo = "jev-ultrafast";
+                rev = "1231850a0bf1a0c0341fe408ef1668dbbfdfac46";
+                hash = "sha256-8EJhsOjalxX6uUCu+bREqopVUBG8O64SehhQUdNUwVI=";
+              };
+
+              build-system = [ pfinal.hatchling ];
+              # httpx[http2] = httpx + h2 (h2 pulls hyperframe)
+              dependencies = with pfinal; [
+                browser-harness
+                httpx
+                h2
+              ];
+
+              doCheck = false;
+
+              # Chart contract: one package bin stages jev + browser-harness +
+              # browser-harness-mcp. The latter two are the daemon-safe shims
+              # over this closure's browser-harness (bh-shim above).
+              postInstall = ''
+                mkdir -p $out/bin
+                ln -s ${bh-shim "browser-harness" "browser_harness.run"}/bin/browser-harness $out/bin/browser-harness
+                ln -s ${bh-shim "browser-harness-mcp" "browser_harness.mcp_cli"}/bin/browser-harness-mcp $out/bin/browser-harness-mcp
+              '';
+
+              meta = with final.lib; {
+                description = "Browser agent that picks operations instead of generating (TypeSafe Jev)";
+                homepage = "https://github.com/browser-use/jev-ultrafast";
+                license = licenses.mit;
+                mainProgram = "jev";
+                platforms = supportedSystems;
+              };
             };
-
-            build-system = [ pfinal.hatchling ];
-            # httpx[http2] = httpx + h2 (h2 pulls hyperframe)
-            dependencies = with pfinal; [
-              browser-harness
-              httpx
-              h2
-            ];
-
-            doCheck = false;
-
-            # Chart contract: one package bin stages jev + browser-harness +
-            # browser-harness-mcp. The latter two are entry points of the
-            # browser-harness dependency inside this closure; symlink them so
-            # their entry-point shebangs keep browser-harness's own python env.
-            postInstall = ''
-              for f in browser-harness browser-harness-mcp; do
-                ln -s ${pfinal."browser-harness"}/bin/$f $out/bin/$f
-              done
-            '';
-
-            meta = with final.lib; {
-              description = "Browser agent that picks operations instead of generating (TypeSafe Jev)";
-              homepage = "https://github.com/browser-use/jev-ultrafast";
-              license = licenses.mit;
-              mainProgram = "jev";
-              platforms = supportedSystems;
-            };
-          };
         });
 
         inherit (final.python3Packages) jev-ultrafast;

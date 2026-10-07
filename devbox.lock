@@ -1881,6 +1881,10 @@
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/blesh?lastModified=1789650451&narHash=sha256-zu3bmk2oB9E5jv1c9AAaF9rcfKOnsb2WxTD2f%2FIbK4M%3D"
     },
+    "path:devbox.d/browser-harness": {
+      "last_modified": "2026-10-07T03:51:24Z",
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/browser-harness?lastModified=1791345084&narHash=sha256-OjbxsH3nAKB0NHuy3SYz41yikwmJLgWz9mcr6rhDoJU%3D"
+    },
     "path:devbox.d/bsk": {
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/bsk?lastModified=1789650451&narHash=sha256-tvSCTUM5FBU7ZBE48RnHGzdgihmjL8mk2gX6tZ%2Fp1IY%3D"
@@ -1938,8 +1942,8 @@
       "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/impeccable?lastModified=1789650451&narHash=sha256-MzfIs8lrMrd6XaypR1UFspfNLv1MVCNKeaUR7xGUD34%3D"
     },
     "path:devbox.d/jev-ultrafast": {
-      "last_modified": "2026-10-06T23:15:54Z",
-      "resolved": "path:/home/rodrigo/Workspace/github.com/rbelem/devbox-global/devbox.d/jev-ultrafast?lastModified=1791328554&narHash=sha256-8O1TpIV%2FslEko8MresNctFKjCqF1JkPn2jbtVIapgR0%3D"
+      "last_modified": "2026-10-07T05:01:17Z",
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/jev-ultrafast?lastModified=1791349277&narHash=sha256-SDgBqagS4qiiYWjwZmMEKy4fM5uNT3nEOayv4HenU3U%3D"
     },
     "path:devbox.d/llm-verifier": {
       "last_modified": "2026-09-17T13:07:31Z",
