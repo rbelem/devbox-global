@@ -157,11 +157,14 @@
               version = "0.1.0";
               pyproject = true;
 
+              # Fork: OpenRouter-capable policy transport (upstream 1231850 + one
+              # commit b6690ea; TypeSafe path byte-identical, chat_completions
+              # auto-selected when TYPESAFE_API_KEY is unset).
               src = pkgs.fetchFromGitHub {
-                owner = "browser-use";
+                owner = "rbelem";
                 repo = "jev-ultrafast";
-                rev = "1231850a0bf1a0c0341fe408ef1668dbbfdfac46";
-                hash = "sha256-8EJhsOjalxX6uUCu+bREqopVUBG8O64SehhQUdNUwVI=";
+                rev = "b6690ea4412cf6e980e8fd5e39720002cb985c78";
+                hash = "sha256-YapHpIuD3RjLc1Fr2U22OdR+mBHSeYuZIco4mMxMHFw=";
               };
 
               build-system = [ pfinal.hatchling ];
