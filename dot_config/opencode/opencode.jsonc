@@ -48,6 +48,15 @@
         },
         "oauth": false
       },
+      "browser-harness": {
+        "type": "local",
+        "command": [
+          "browser-harness-mcp"
+        ],
+        "environment": {
+          "PYTHONPATH": ""
+        }
+      },
       "chrome-devtools": {
         "type": "local",
         "command": [
@@ -114,7 +123,7 @@
         "type": "remote",
         "url": "http://127.0.0.1:3333/mcp"
       },
-      "jev": {
+      "jev-mcp": {
         "type": "local",
         "command": [
           "bunx",
@@ -176,15 +185,7 @@
     { "resource": "~/Workspace/rbelem/*", "effect": "allow", "action": "external_directory" },
   ],
   "plugins": [
-    // Local feat/mini-viewer build (multiplexer.viewer: "mini" test). Revert
-    // to "oh-my-opencode-slim@latest" after testing, AND remove
-    // multiplexer.viewer from oh-my-opencode-slim.jsonc first: the released
-    // plugin treats `viewer` as an unknown key and disables pane management.
-    // opencode2 (>= 2.0.22) rejects file paths here ("configured plugin path
-    // must be a directory"), so point at the package root; the loader picks up
-    // server.js, which forwards to dist/server/index.js.
-    "/home/rodrigo/Workspace/github.com/alvinunreal/oh-my-opencode-slim",
-    // "oh-my-opencode-slim@latest",
+    "oh-my-opencode-slim@latest",
     // opencode2-cow-worktree (dogfood): installed by DIRECTORY DISCOVERY, not
     // by a `plugins` entry. Every .ts/.js under plugins/ is auto-discovered as
     // a local plugin, and plugins/opencode2-cow-worktree/index.ts is picked up
