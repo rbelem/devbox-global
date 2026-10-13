@@ -6,7 +6,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     graphify-src = {
-      url = "github:safishamsi/graphify/v0.9.88";
+      url = "github:safishamsi/graphify/v0.9.89";
       flake = false;
     };
   };
@@ -46,7 +46,7 @@
         in rec {
         graphify = pythonPackages.buildPythonApplication rec {
           pname = "graphifyy";
-          version = "0.9.88";
+          version = "0.9.89";
           format = "pyproject";
 
           src = graphify-src;

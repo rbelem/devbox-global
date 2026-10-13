@@ -8,12 +8,12 @@
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      version = "0.2.0";
+      version = "0.3.0";
 
       # Get the real hash:
       #   set this to pkgs.lib.fakeHash, run "devbox global update",
       #   then paste the sha256-... value from the (multiple) error messages.
-      srcHash = "sha256-xeuFkCNEyjaAybBF8y4H7bXKxmjkvEL/Kpa4B3jWKKo=";
+      srcHash = "sha256-DiIpF8aoApKZVjjuVd0WRloc1+W91cZns4pJY2bmiNs=";
     in {
       packages = forAllSystems (system:
         let
@@ -27,7 +27,7 @@
             # normalized (llm_verifier-*.tar.gz, underscore) while
             # fetchPypi's pname builds a hyphenated URL → 404.
             src = pkgs.fetchurl {
-              url = "https://files.pythonhosted.org/packages/27/b7/6f91acc8898dc8e00e5a0826feb9437c6ac80ea335f7b6558ba76e2b59b6/llm_verifier-${version}.tar.gz";
+              url = "https://files.pythonhosted.org/packages/54/3a/451be3bc6c1f3120b2137e9551938dca132432ce66d1fe6400c13920580e/llm_verifier-${version}.tar.gz";
               hash = srcHash;
             };
 

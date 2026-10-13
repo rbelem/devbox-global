@@ -10,7 +10,7 @@
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.4.2";
+      version = "1.4.3";
 
       # Bun publishes pre-compiled release zips at this URL. The
       # "baseline" variant targets Nehalem (2008) ISA — no AVX/AVX2 —
@@ -30,7 +30,7 @@
 
             src = pkgs.fetchurl {
               url = releaseUrl;
-              sha256 = "sha256-xngEDxT+BEDrg503y9DOTAUaMtpygGrJfeamqra/co8=";
+              sha256 = "sha256-H8LtrIQxApCeOhvh2NmALMYHHPB05n6IIx9P/g+LOXs=";
             };
 
             nativeBuildInputs = [
