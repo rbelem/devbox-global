@@ -1957,10 +1957,6 @@
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/open-code-review?lastModified=1789650451&narHash=sha256-UTRyeyXwFP1sXpS7%2ByvwcwOAJXA%2BHKJOnqqAkHgTOyU%3D"
     },
-    "path:devbox.d/opencode-v2": {
-      "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/opencode-v2?lastModified=1789650451&narHash=sha256-RgATdTLZaAd7qmF6vEFImukeoXnCLy%2BbL5ZE4L1AFhY%3D"
-    },
     "path:devbox.d/pdf-inspector": {
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/pdf-inspector?lastModified=1789650451&narHash=sha256-o140z4ixJX6CJeiKIp1zL5ELb00r1WB%2BQES5NPN90i8%3D"
@@ -1988,10 +1984,6 @@
     "path:devbox.d/strix": {
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/strix?lastModified=1789650451&narHash=sha256-8r4a9jS9Hp5j41d8Cd6IFXD1VVMzWzixBDjXkBYtGHM%3D"
-    },
-    "path:devbox.d/tree-sitter-perl": {
-      "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/tree-sitter-perl?lastModified=1789650451&narHash=sha256-ZDszWS8BjWRVThqu5ntAg43wysJ9i3py0eG6PCBgMmQ%3D"
     },
     "path:devbox.d/whichllm": {
       "last_modified": "2026-09-17T13:07:31Z",

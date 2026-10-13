@@ -1,0 +1,45 @@
+{
+  "nodes": {
+    "codegraph-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783011342,
+        "narHash": "sha256-oj2ce9qImsGCbzDBkmXvqEEPxa4PPVwOmW6v7e9U2YI=",
+        "owner": "rbelem",
+        "repo": "codegraph",
+        "rev": "1fefe16e763a84101d7cc7bedd7d3c9c4c95edeb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rbelem",
+        "ref": "v1.2.x-perl",
+        "repo": "codegraph",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1779508470,
+        "narHash": "sha256-Ap9KJX+5xHIn3bPIpfNgT6MEXdAECECwo4/rmlQD74M=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "29916453413845e54a65b8a1cf996842300cd299",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "codegraph-src": "codegraph-src",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

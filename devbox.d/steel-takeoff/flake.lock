@@ -1,0 +1,63 @@
+{
+  "nodes": {
+    "ezdwg-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791845738,
+        "narHash": "sha256-uyUsukfsbYq0JrvUq+VhNwZa0dRn1y2Y6O0IWv9h6WI=",
+        "owner": "monozukuri-ai",
+        "repo": "ezdwg",
+        "rev": "0536bddf552891841fff58c0eddc0c9b9aa42661",
+        "type": "github"
+      },
+      "original": {
+        "owner": "monozukuri-ai",
+        "ref": "v0.15.0",
+        "repo": "ezdwg",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1791734076,
+        "narHash": "sha256-i5qk1kLiit98rRbh1AXmWBNT9QXC/y4l5Wk/u5EdpDQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "7fd4004d0511991fff3a0524856a9be09e28c5f0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "ezdwg-src": "ezdwg-src",
+        "nixpkgs": "nixpkgs",
+        "steelpy-src": "steelpy-src"
+      }
+    },
+    "steelpy-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791632442,
+        "narHash": "sha256-jxBVo4PZYS05flKfKUrgJ4syZj9OvqN6F05S4+7zILo=",
+        "owner": "evanfaler",
+        "repo": "steelpy",
+        "rev": "060dcd913a67d82ddf1b528e1739f1580161ed5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "evanfaler",
+        "repo": "steelpy",
+        "rev": "060dcd913a67d82ddf1b528e1739f1580161ed5b",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
