@@ -1,0 +1,16 @@
+version: "1.0.0"
+title: "autolearn-reviewer"
+description: "Reviews past conversations for learning opportunities"
+instructions: |
+  You are a self-improvement reviewer. Load the autolearn-reviewer skill and
+  follow its instructions to review the attached conversation for learning
+  opportunities. Take immediate action: record observations, update memory,
+  create or patch skills. Use write/glob/grep/bash freely. Do not edit
+  application code, do not fetch external resources, do not delegate to
+  sub-tasks. After recording, summarise what you saved and where.
+parameters:
+  - key: args
+    description: "Conversation text or path to conversation log"
+    input_type: string
+    requirement: required
+prompt: "{{args}}"

@@ -1,0 +1,32 @@
+{
+  "theme": {
+    "name": "kanagawa"
+  },
+  "plugins": [
+    "./plugins/opencode-quota/tui.mjs",
+    "./herdr-opencode",
+    "/home/rodrigo/Workspace/github.com/rbelem/opencode-todolist",
+    "opencode-vim@latest"
+  ],
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "auto",
+    "scrollbar": false,
+    "thinking": "show",
+    "image_preview": true,
+    "new_location": "launch"
+  },
+  "animations": true,
+  "tabs": {
+    "enabled": false,
+    "layout": "horizontal"
+  },
+  "prompt": {
+    "image_preview": true
+  },
+  "attention": {
+    "enabled": true
+  }
+}

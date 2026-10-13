@@ -1,6 +1,3 @@
 {
-  "plugin": [
-    "./herdr-tui-session.js",
-    "oh-my-opencode-slim"
-  ]
+  "plugin": ["./herdr-tui-session.js"]
 }

@@ -1,0 +1,28 @@
+# Goose permission config — top-level keyed by principal name ("user", "smart_approve").
+# Each principal has three lists of tool names matching Goose's <extension>__<tool> convention.
+# Schema verified against crates/goose/src/config/permission.rs.
+# Adjust tool names after `goose configure` surfaces the actual extension tool IDs.
+
+user:
+  always_allow:
+    - developer__read
+    - developer__list
+    - developer__glob
+    - developer__grep
+    - memory__remember
+    - memory__retrieve
+
+  ask_before:
+    - developer__write
+    - developer__edit
+    - developer__patch
+    - computercontroller__shell
+    - computercontroller__shell_cmd
+    - computercontroller__process
+    - computercontroller__scheduled_task
+
+  never_allow:
+    - computercontroller__web_search
+    - computercontroller__web_fetch
+    - computercontroller__browser
+    - memory__clear

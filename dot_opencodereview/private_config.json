@@ -1,0 +1,11 @@
+{
+    "provider": "bifrost",
+    "custom_providers": {
+        "bifrost": {
+            "api_key": "local-bifrost",
+            "url": "http://127.0.0.1:8081/v1",
+            "protocol": "openai",
+            "model": "kimi-for-coding/k3"
+        }
+    }
+}
