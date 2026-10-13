@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROFILE=$(readlink -f "$(devbox global path)/.devbox/nix/profile/default")
-NERDFONTS_DIR=$PROFILE/share/fonts/truetype/NerdFonts
+# Keep the stable devbox profile path, never a resolved /nix/store path:
+# the GC erases resolved paths and fontconfig then serves dead fonts.
+NERDFONTS_DIR="$(devbox global path)/.devbox/nix/profile/default/share/fonts/truetype/NerdFonts"
 
 if [ ! -d "$NERDFONTS_DIR" ]; then
   echo "Nerd Fonts not found in devbox global profile. Run: devbox global install" >&2
