@@ -1867,135 +1867,135 @@
     },
     "path:devbox.d/agent-browser": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/agent-browser?lastModified=1789650451&narHash=sha256-bT9XN3Nz%2BuxbpzfZ7l2H3LjqYprigjPXNzQ13X9bPys%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/agent-browser?lastModified=1792104629&narHash=sha256-h3IxoKhOCzeg5ZO82%2FaQdaHpGKU9Rgy8iy%2BXpGo0SpU%3D"
     },
     "path:devbox.d/agentmemory": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/agentmemory?lastModified=1789650451&narHash=sha256-FK8CrhOCTJdsLUVharpm1kURKo3xGH0ZY1F9aFHG0KA%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/agentmemory?lastModified=1792104629&narHash=sha256-YzqXsqMhmuFYB37R37dBAbDEeZjHXlNciqlocKot9ro%3D"
     },
     "path:devbox.d/anydoc": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/anydoc?lastModified=1789650451&narHash=sha256-zwfrdS7RYElMKeO5i2cstEf8fkL28oUFBR9t7Db4SHw%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/anydoc?lastModified=1791905413&narHash=sha256-zwfrdS7RYElMKeO5i2cstEf8fkL28oUFBR9t7Db4SHw%3D"
     },
     "path:devbox.d/blesh": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/blesh?lastModified=1789650451&narHash=sha256-zu3bmk2oB9E5jv1c9AAaF9rcfKOnsb2WxTD2f%2FIbK4M%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/blesh?lastModified=1791905413&narHash=sha256-zu3bmk2oB9E5jv1c9AAaF9rcfKOnsb2WxTD2f%2FIbK4M%3D"
     },
     "path:devbox.d/browser-harness": {
       "last_modified": "2026-10-07T03:51:24Z",
-      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/browser-harness?lastModified=1791345084&narHash=sha256-OjbxsH3nAKB0NHuy3SYz41yikwmJLgWz9mcr6rhDoJU%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/browser-harness?lastModified=1791905413&narHash=sha256-OjbxsH3nAKB0NHuy3SYz41yikwmJLgWz9mcr6rhDoJU%3D"
     },
     "path:devbox.d/bsk": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/bsk?lastModified=1789650451&narHash=sha256-tvSCTUM5FBU7ZBE48RnHGzdgihmjL8mk2gX6tZ%2Fp1IY%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/bsk?lastModified=1791905413&narHash=sha256-O2Iguvo6n6k%2BCTzr%2FmZJagF1gStjU0JVtLesXlctQ%2F0%3D"
     },
     "path:devbox.d/bun": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/bun?lastModified=1789650451&narHash=sha256-ms2NjTRBkjKdqocf3G5wIkREeHBfepzFKkSwdql14Ms%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/bun?lastModified=1792104629&narHash=sha256-66gsjosqnQTw6%2F5heHTVLxdMRzhNJ7494AwvbDoCNZI%3D"
     },
     "path:devbox.d/codeburn": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/codeburn?lastModified=1789650451&narHash=sha256-6VTARBvbNJ0ru4HJejAiHw6JXMVTIE2lTQsLDJ9cFFA%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/codeburn?lastModified=1792104629&narHash=sha256-949DILScQZJ5RRw3FmK68B0NxdEpH6fry0Yh205jnGE%3D"
     },
     "path:devbox.d/codegraph": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/codegraph?lastModified=1789650451&narHash=sha256-sP8dKEojOYkB%2FKf1lrPxqSggpecGflRJIAgxALBL34M%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/codegraph?lastModified=1791905413&narHash=sha256-5%2BCXU68ie0Tpmzy150V%2Fp2BUADanmDTLQHuK9Tz1Hro%3D"
     },
     "path:devbox.d/dcg": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/dcg?lastModified=1789650451&narHash=sha256-sFPQU9OY9rYzLMjd4xW4N8r6xlgqJ0R51VW4V2MG6Ks%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/dcg?lastModified=1792104629&narHash=sha256-aYSg6TdiEgKRIFTz2a6B1MotIZwE5nIKrK%2F9%2Bz7jIQY%3D"
     },
     "path:devbox.d/deepsec": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/deepsec?lastModified=1789650451&narHash=sha256-%2F6znVn7rtriVrA1u8HFZevVO9%2F0BCNDEPjdSE%2FrqFCU%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/deepsec?lastModified=1791905413&narHash=sha256-%2F6znVn7rtriVrA1u8HFZevVO9%2F0BCNDEPjdSE%2FrqFCU%3D"
     },
     "path:devbox.d/deepseek-harness": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/deepseek-harness?lastModified=1789650451&narHash=sha256-WoJGdl8dteebHbHuIDhrhkF5jKYjsUNCuCxJpFWxw4E%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/deepseek-harness?lastModified=1791905413&narHash=sha256-kXb77WxfdsRCrlOPBQ2ZAhTpf5PYQp7VCkp8FBs5Q0g%3D"
     },
     "path:devbox.d/firecrawl": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/firecrawl?lastModified=1789650451&narHash=sha256-XkcBY9Qu2twRPSbKGFjG8kFmOXJi7urndLBpNEa7ogs%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/firecrawl?lastModified=1792104629&narHash=sha256-jk1yuLBBIcuyyZV6pdIP1VOHMVX3GyZrPORnyU3O%2FL0%3D"
     },
     "path:devbox.d/graphify": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/graphify?lastModified=1789650451&narHash=sha256-S2J1R%2FuRaQd%2F09j%2F9XIoC%2F%2BpZEIxze00EVc26zqVSaw%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/graphify?lastModified=1792104629&narHash=sha256-%2BCF2LahaUkQzYAlFFQFPZEFFpcEIeot2OKX1xhVgxPo%3D"
     },
     "path:devbox.d/herdr": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/herdr?lastModified=1789650451&narHash=sha256-EOeIqWbYsFw%2B9zVw5IxEkGnCYvNTuM1RrW8XdwqlpCA%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/herdr?lastModified=1792104629&narHash=sha256-HTltCydNUADomRnwlu6BOG1RYqJAdISTJsWLZK6Pup8%3D"
     },
     "path:devbox.d/hermes-agent": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/hermes-agent?lastModified=1789650451&narHash=sha256-ELNdY7julDsWzDDnl34qtcD23piwxaX%2FVy3c0JTMhss%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/hermes-agent?lastModified=1791905413&narHash=sha256-k8sVEwSW49IBtBfHbn6imXk8qk8H0Mhn2KzIovCRsyY%3D"
     },
     "path:devbox.d/hermes-agent#desktop": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/hermes-agent?lastModified=1789650451&narHash=sha256-ELNdY7julDsWzDDnl34qtcD23piwxaX%2FVy3c0JTMhss%3D#desktop"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/hermes-agent?lastModified=1791905413&narHash=sha256-k8sVEwSW49IBtBfHbn6imXk8qk8H0Mhn2KzIovCRsyY%3D#desktop"
     },
     "path:devbox.d/hunk": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/hunk?lastModified=1789650451&narHash=sha256-JSHNhfC%2FxTGqnz8ohW%2BL6etxJ1Z8t5AhGZAw1axKfMA%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/hunk?lastModified=1791905413&narHash=sha256-LIOyG9Zm7cjBFLOE1v16MCa2csSZyj7a3Ao5BulCUGg%3D"
     },
     "path:devbox.d/impeccable": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/impeccable?lastModified=1789650451&narHash=sha256-MzfIs8lrMrd6XaypR1UFspfNLv1MVCNKeaUR7xGUD34%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/impeccable?lastModified=1792104629&narHash=sha256-zTXwPorlE4qBJRch95ftAVeeWGmZZmQHd%2FeyBGuVYag%3D"
     },
     "path:devbox.d/jev-ultrafast": {
       "last_modified": "2026-10-07T13:04:36Z",
-      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/jev-ultrafast?lastModified=1791378276&narHash=sha256-XqON%2Fz2a84YoqLxvy1mSbRJUkJwS8YcZvzScXAe9Mb8%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/jev-ultrafast?lastModified=1791905413&narHash=sha256-XqON%2Fz2a84YoqLxvy1mSbRJUkJwS8YcZvzScXAe9Mb8%3D"
     },
     "path:devbox.d/llm-verifier": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/llm-verifier?lastModified=1789650451&narHash=sha256-DhLiWP0Ly5DGQOaxIa%2BH4%2FzJKR62ylvwqN%2FfjOAp6uQ%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/llm-verifier?lastModified=1792104629&narHash=sha256-QRN%2BpI2zisxOWX53BIr54layaX4LyRYHRBrHvrivb3Y%3D"
     },
     "path:devbox.d/neovim": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/neovim?lastModified=1789650451&narHash=sha256-lP84uARNN5hxfL7vVJ7EM6j%2Fyu18qQvIT9nrZd7R8eE%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/neovim?lastModified=1791905413&narHash=sha256-lP84uARNN5hxfL7vVJ7EM6j%2Fyu18qQvIT9nrZd7R8eE%3D"
     },
     "path:devbox.d/open-code-review": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/open-code-review?lastModified=1789650451&narHash=sha256-UTRyeyXwFP1sXpS7%2ByvwcwOAJXA%2BHKJOnqqAkHgTOyU%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/open-code-review?lastModified=1792104629&narHash=sha256-H5ivf9H86HxfDdnxI8m3x9Yrjr9rcuAYFwD5WNxyzro%3D"
     },
     "path:devbox.d/pdf-inspector": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/pdf-inspector?lastModified=1789650451&narHash=sha256-o140z4ixJX6CJeiKIp1zL5ELb00r1WB%2BQES5NPN90i8%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/pdf-inspector?lastModified=1791905413&narHash=sha256-1yp89t%2BpGuABfcJz32MI%2BjhxagiqZJoMbjAYKO2v1%2BE%3D"
     },
     "path:devbox.d/pi": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/pi?lastModified=1789650451&narHash=sha256-zPMa55sdwIX8nw0ZVBGOexy2uqmZyTwCfqJnbfXVCtI%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/pi?lastModified=1792104629&narHash=sha256-FJnioEtZTjfYejGd2XeuJs8uulS8cNxtyvmkHKdDgis%3D"
     },
     "path:devbox.d/playwright-cli": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/playwright-cli?lastModified=1789650451&narHash=sha256-z1paYXkKfgmmQHqjbi0IOLRzPwT4BMEdrjVAU8Gbmrg%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/playwright-cli?lastModified=1791905413&narHash=sha256-uQ1OTWBIP9PJLBfedU1S7Eboc%2Fl5x6gDRJk%2BT7rwzIc%3D"
     },
     "path:devbox.d/rtk": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/rtk?lastModified=1789650451&narHash=sha256-PnLI5HZ%2FGlv3ZroziXxE5qxXC6%2BasQwFmyzd67LYgXQ%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/rtk?lastModified=1792104629&narHash=sha256-%2F3S1Y8y2%2FC0NPojLljV362njhN55BtlmUOY4Vmr5pPA%3D"
     },
     "path:devbox.d/skills": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/skills?lastModified=1789650451&narHash=sha256-Q23UY1rwPzv8OdNqerWcSV6z%2FzDOeTYOfZjQeNtg1kM%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/skills?lastModified=1792104629&narHash=sha256-uPItbbJqrrlbA03UwDzuUijiFHMPR%2F1aUW8SP7TQ6t4%3D"
     },
     "path:devbox.d/skillspector": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/skillspector?lastModified=1789650451&narHash=sha256-HBnbHK71wKjJioLApzVmbum9HVbmRMWpg8Xplf04zZI%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/skillspector?lastModified=1791905413&narHash=sha256-0icpVxW5z%2BMVyb0CZrar5lTj2G1uFid8aYQCdKnZ7Ek%3D"
     },
     "path:devbox.d/strix": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/strix?lastModified=1789650451&narHash=sha256-8r4a9jS9Hp5j41d8Cd6IFXD1VVMzWzixBDjXkBYtGHM%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/strix?lastModified=1791905413&narHash=sha256-Pv%2Fgyk71raSszrRlgj2ILDO0GXDR1OjrYAn9sL9UGzg%3D"
     },
     "path:devbox.d/whichllm": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/whichllm?lastModified=1789650451&narHash=sha256-1R4N8VGGt33Vrf2D%2Blkz0TF%2FzYOFl2ORFuF8zwhCXS4%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/whichllm?lastModified=1791905413&narHash=sha256-P1%2BlzG2zPSoSbvDJt3r4KfcmNMQ8RHxoTsfXw99wMm0%3D"
     },
     "path:devbox.d/wigolo": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/wigolo?lastModified=1789650451&narHash=sha256-oKS%2FkcyN%2F3PQGo1ulEiK5m0Rsblb6kYhboIEbNHKKBo%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/wigolo?lastModified=1791905413&narHash=sha256-oKS%2FkcyN%2F3PQGo1ulEiK5m0Rsblb6kYhboIEbNHKKBo%3D"
     },
     "path:devbox.d/zg": {
       "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/chezmoi/devbox.d/zg?lastModified=1789650451&narHash=sha256-48KVRpz4p6iDcRgTpjJQeIXPBJbBds0kBPeTkUeqz1E%3D"
+      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/zg?lastModified=1791905413&narHash=sha256-48KVRpz4p6iDcRgTpjJQeIXPBJbBds0kBPeTkUeqz1E%3D"
     },
     "perl5Packages.PerlTidy@latest": {
       "last_modified": "2026-08-27T07:16:00Z",
