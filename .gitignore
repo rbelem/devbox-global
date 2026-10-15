@@ -1,3 +1,4 @@
 /config.db*
 /logs.db*
+/.devbox/
 result
