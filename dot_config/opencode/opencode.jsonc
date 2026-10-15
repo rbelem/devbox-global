@@ -1,0 +1,300 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Budget mode (2026-10-15): OpenCode Go is the only paid route. Main model
+  // + title + compactor all go through opencode-go; the Go-only agent team
+  // lives in the "budget" preset of oh-my-opencode-slim.jsonc.
+  // Muse Spark 1.3 Contributor (data-use tier) drives the main session since
+  // 2026-10-15 — note: on V2 hosts the MAIN session model is the root `model`
+  // below, not the preset's orchestrator entry (that entry drives the
+  // agent-config + fallback chain: muse → glm-5.3-flash → mimo → deepseek).
+  "model": "opencode-go/muse-spark-1.3-contributor",
+  "variant": "high",
+  "providers": {
+    "zai": {},
+    "zhipu": {},
+    "minimax-coding-plan": {},
+    "deepseek": {}
+  },
+  "experimental": {
+    "disable_paste_summary": true,
+    "portable_shell_scanner": true,
+    "subagent_depth": 5
+  },
+  "watcher": {
+    "ignore": [
+      "node_modules",
+      "dist",
+      ".codegraph",
+      ".next",
+      "target"
+    ]
+  },
+  "mcp": {
+    "timeout": {
+      "catalog": 60000,
+      "execution": 60000
+    },
+    "servers": {
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp",
+        "headers": {
+          "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+        },
+        "oauth": false
+      },
+      "gh_grep": {
+        "type": "remote",
+        "url": "https://mcp.grep.app"
+      },
+      "firecrawl-mcp": {
+        "type": "remote",
+        "url": "https://mcp.firecrawl.dev/v2/mcp",
+        "headers": {
+          "Authorization": "Bearer {env:FIRECRAWL_API_KEY}"
+        },
+        "oauth": false
+      },
+      "browser-harness": {
+        "type": "local",
+        "command": [
+          "browser-harness-mcp"
+        ],
+        "environment": {
+          "PYTHONPATH": ""
+        }
+      },
+      "chrome-devtools": {
+        "type": "local",
+        "command": [
+          "bunx",
+          "-y",
+          "chrome-devtools-mcp@latest",
+          "--autoConnect"
+        ]
+      },
+      "firefox-devtools": {
+        "type": "local",
+        "command": [
+          "bunx",
+          "-y",
+          "@mozilla/firefox-devtools-mcp@latest",
+          "--connectExisting",
+          "--marionettePort",
+          "2828"
+        ]
+      },
+      "opencode-docs": {
+        "type": "local",
+        "command": [
+          "bunx",
+          "-y",
+          "opencode-docs-mcp@latest"
+        ]
+      },
+      "agentmemory": {
+        "type": "local",
+        "command": [
+          "agentmemory",
+          "mcp"
+        ]
+      },
+      "codegraph": {
+        "type": "local",
+        "command": [
+          "codegraph",
+          "serve",
+          "--mcp"
+        ],
+        "timeout": {
+          "catalog": 600000,
+          "execution": 600000
+        }
+      },
+      "zvec_grep": {
+        "type": "local",
+        "command": [
+          "zg",
+          "server",
+          "--stdio",
+          "--mcp-toolset",
+          "full"
+        ],
+        "enabled": true,
+        "timeout": {
+          "catalog": 600000,
+          "execution": 600000
+        }
+      },
+      "wigolo": {
+        "type": "remote",
+        "url": "http://127.0.0.1:3333/mcp"
+      },
+      "jev-mcp": {
+        "type": "local",
+        "command": [
+          "bunx",
+          "-y",
+          "@jkudish/jev-mcp"
+        ],
+        "environment": {
+          "OPENROUTER_API_KEY": "{env:OPENROUTER_API_KEY}",
+          "TYPESAFE_API_KEY": "{env:TYPESAFE_API_KEY}"
+        }
+      },
+      "jev-review": {
+        "type": "local",
+        "command": [
+          "jev-review"
+        ],
+        "environment": {
+          "JEV_API_KEY": "{env:JEV_API_KEY}",
+          "OPENROUTER_API_KEY": "{env:OPENROUTER_API_KEY}"
+        }
+      }
+    }
+  },
+  "permissions": [
+    { "resource": "*", "effect": "ask", "action": "*" },
+    { "resource": "*", "effect": "allow", "action": "edit" },
+    { "resource": "/*", "effect": "ask", "action": "edit" },
+    { "resource": "*", "effect": "allow", "action": "glob" },
+    { "resource": "*", "effect": "allow", "action": "grep" },
+    { "resource": "*", "effect": "allow", "action": "list" },
+    { "resource": "*", "effect": "allow", "action": "question" },
+    { "resource": "*", "effect": "allow", "action": "read" },
+    { "resource": "*", "effect": "allow", "action": "shell" },
+    { "resource": "*", "effect": "allow", "action": "skill" },
+    { "resource": "*", "effect": "allow", "action": "subagent" },
+    { "resource": "*", "effect": "allow", "action": "todowrite" },
+    { "resource": "*", "effect": "allow", "action": "webfetch" },
+    { "resource": "*", "effect": "allow", "action": "websearch" },
+    { "resource": "*", "effect": "allow", "action": "*_*" },
+
+    { "resource": "git push *", "effect": "ask", "action": "shell" },
+    { "resource": "rm *", "effect": "ask", "action": "shell" },
+
+    { "resource": "*.env", "effect": "deny", "action": "read" },
+
+    { "resource": "~/.agents/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/.agents/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/.cache/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/.cargo/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/.config/bifrost/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/.config/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/.config/nvim/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/.local/share/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/.local/share/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "/nix/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "/tmp/*", "effect": "allow", "action": "edit" },
+    { "resource": "/tmp/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/Workspace/github.com/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/Workspace/github.com/*", "effect": "allow", "action": "external_directory" },
+    { "resource": "~/Workspace/rbelem/*", "effect": "allow", "action": "edit" },
+    { "resource": "~/Workspace/rbelem/*", "effect": "allow", "action": "external_directory" },
+  ],
+  "plugins": [
+    "/home/rodrigo/Workspace/github.com/rbelem/opencode-todolist",
+    // opencode2-cow-worktree (dogfood): installed by DIRECTORY DISCOVERY, not
+    // by a `plugins` entry. Every .ts/.js under plugins/ is auto-discovered as
+    // a local plugin, and plugins/opencode2-cow-worktree/index.ts is picked up
+    // that way. Declaring it here as a `package` too made opencode2 load the
+    // same tree twice; the package-sourced copy failed ("Plugin failed to
+    // load") because the loader does not resolve the symlinked local tree.
+    // The symlink makes tracked working-tree edits live, since the runtime is
+    // Bun. See README "Install and configure".
+    // @prevalentware/opencode-goal-plugin: DISABLED — breaks opencode2 (v2):
+    // its context.command.transform calls draft.get/draft.update, removed in
+    // the v2 Command Draft (only .add exists). Each die() kills the shared
+    // runtime whose flush() the model.catalog bootstrap awaits → every
+    // CLI/TUI command failed with "Model catalog initialization timed out".
+    // ponytail: local V2 port at plugins/ponytail
+    // model-announcer / dcg-guard / agentmemory-capture / autolearn: local V2
+    //   ports, direct files in plugins/ (auto-discovered)
+    // deferred (no V2 support upstream): @slkiser/opencode-quota (TUI-heavy),
+    //   @tarquinen/opencode-smart-title (superseded by native title agent)
+    // opencode-todolist (rbelem fork, dogfood): local tree, loads dist/ via
+    //   package.json exports — todowrite/todoread, size caps, storage GC
+    "oh-my-opencode-slim",
+    // OptChat (rbelem fork of ahlner/opencode-optchat @ e4da6fb, audited
+    // 2026-10-12: no own network calls, no spawn, no eval; writes confined to
+    // its SQLite DB + 0600 diagnostics beside it; 128/128 tests pass,
+    // check:dist clean). Pinned to the full audited commit. Explicit options
+    // auto-enable memory (settings.ts line 22). Do NOT set "database" here:
+    // the default path is per project, and one pinned global path would make
+    // every project fight over the first scope binding. Per-project DBs land
+    // under ~/.local/share/optchat/<identity>/. NOTE: object-form entries
+    // resolve as npm/github packages only — a local dir path in "package"
+    // loads nothing (verified 2026-10-12); the local clone at
+    // ~/Workspace/github.com/rbelem/opencode-optchat is the audit reference.
+    // Remove this entry to disable; originals stay until
+    // `bun run admin forget <db> <session> --confirm`.
+    {
+      "package": "github:rbelem/opencode-optchat#e4da6fba55d4212f7031300c3bd71f0d1e2dfa61",
+      "options": {
+        "compactorModel": { "providerID": "opencode-go", "id": "muse-spark-1.3-contributor" }
+      }
+    }
+  ],
+  "agents": {
+    "explore": {
+      "disabled": true
+    },
+    "general": {
+      "disabled": true
+    },
+    "title": {
+      "model": "opencode-go/muse-spark-1.3-contributor"
+    },
+    "compaction": {
+      "model": "opencode-go/muse-spark-1.3-contributor"
+    },
+    "summary": {
+      "model": "opencode-go/muse-spark-1.3-contributor"
+    },
+    "autolearn-reviewer": {
+      "description": "Reviews past conversations for self-improvement opportunities",
+      "hidden": true,
+      "steps": 20,
+      "system": "Load the autolearn-reviewer skill and follow its instructions to review the attached conversation for learning opportunities. Take immediate action: record observations, update memory, create or patch skills.",
+      "permissions": [
+        { "action": "external_directory", "resource": "*", "effect": "allow" },
+        { "action": "read", "resource": "*", "effect": "allow" },
+        { "action": "glob", "resource": "*", "effect": "allow" },
+        { "action": "grep", "resource": "*", "effect": "allow" },
+        // V1 had write:allow + edit:deny; V2 merges write/patch/edit into one
+        // `edit` action, so this grants full edit (incl. file creation).
+        { "action": "edit", "resource": "*", "effect": "allow" },
+        { "action": "shell", "resource": "*", "effect": "allow" },
+        { "action": "skill", "resource": "*", "effect": "allow" },
+        //{ "action": "webfetch", "resource": "*", "effect": "deny" },
+        //{ "action": "subagent", "resource": "*", "effect": "deny" }
+      ]
+    }
+  },
+  "tool_output": {
+    "max_lines": 400,
+    "max_bytes": 16000
+  },
+  // Relative to the project checkout, so a `cow` clone lands on the source's own
+  // filesystem. opencode2's default is $XDG_DATA_HOME/worktree/<project>, which
+  // is a different device here (and on most setups), and a reflink cannot cross
+  // devices -- so the default breaks `cow` while `git` worktrees do not care.
+  // Read by opencode2's builtin opencode.config.worktree plugin.
+  "worktree": {
+    "directory": ".opencode/worktrees"
+  },
+  "formatter": true,
+  "lsp": true,
+  "instructions": [
+    "~/.autolearn/personas/default/memory.context.md"
+  ],
+  "agent": {
+    "explore": {
+      "disable": true
+    },
+    "general": {
+      "disable": true
+    }
+  }
+}
