@@ -63,6 +63,7 @@ mapfile -t FLAKES < <(
 
 pass=0
 fail=0
+warn=0
 for f in "${FLAKES[@]}"; do
     rel="${f#$REPO_ROOT/}"
     if [[ "$f" == MISSING:* ]]; then
@@ -95,5 +96,61 @@ for f in "${FLAKES[@]}"; do
 done
 
 echo ""
-echo "vet-flakes: $pass passed, $fail failed (statix=$HAVE_STATIX parse=$HAVE_PARSE)"
+# WARN-ONLY nixpkgs input consistency check (text-level, offline: no nix
+# invocations). Divergent specs never fail the vet and never change the
+# exit code — informational only.
+# Text-level nixpkgs input extraction (offline: no nix invocations).
+# Prints the first nixpkgs.url value in the file, or nothing.
+# NOTE: no `| head -n 1` here — under `set -o pipefail` head closing
+# early SIGPIPEs sed (exit 141) and aborts the script on multi-match
+# files; sed's `q` stops cleanly instead.
+nixpkgs_spec() {
+    sed -n '/nixpkgs\.url *= *"/{s/.*nixpkgs\.url *= *"\([^"]*\)".*/\1/p;q;}' "$1"
+}
+declare -A _spec_files=()
+declare -a _spec_order=()
+for _f in "${FLAKES[@]}"; do
+    [[ "$_f" == MISSING:* ]] && continue
+    [[ -f "$_f" ]] || continue
+    _spec=$(nixpkgs_spec "$_f")
+    [[ -z "${_spec:-}" ]] && _spec="unspecified"
+    _pkg=$(basename "$(dirname "$_f")")
+    if [[ -z "${_spec_files[$_spec]+x}" ]]; then
+        _spec_order+=("$_spec")
+        _spec_files[$_spec]="$_pkg"
+    else
+        _spec_files[$_spec]="${_spec_files[$_spec]} $_pkg"
+    fi
+done
+if [[ ${#_spec_order[@]} -gt 1 ]]; then
+    warn=$((warn + 1))
+    echo "WARN nixpkgs-inputs-diverge (${#_spec_order[@]} distinct specs)"
+    for _spec in "${_spec_order[@]}"; do
+        # shellcheck disable=SC2206
+        _pkgs=( ${_spec_files[$_spec]} )
+        _shown=""
+        _i=0
+        for _p in "${_pkgs[@]}"; do
+            [[ $_i -ge 8 ]] && break
+            _shown="${_shown:+$_shown }$_p"
+            _i=$((_i + 1))
+        done
+        if [[ ${#_pkgs[@]} -gt 8 ]]; then
+            _shown="$_shown …+$(( ${#_pkgs[@]} - 8 )) more"
+        fi
+        echo "WARN $_spec -> $_shown"
+    done
+    echo "WARN divergent nixpkgs revs mix libc generations (observed: GLIBC_2.43 skew broke chromium launch); pin together on bump — see wigolo-git flake pin comment"
+    for _spec in "${_spec_order[@]}"; do
+        if [[ "$_spec" == "github:NixOS/nixpkgs/nixpkgs-unstable" ]]; then
+            # shellcheck disable=SC2206
+            _odd=( ${_spec_files[$_spec]} )
+            for _p in "${_odd[@]}"; do
+                echo "WARN odd-one-out: devbox.d/$_p/flake.nix uses nixpkgs-unstable (likely typo for nixos-unstable)"
+            done
+        fi
+    done
+fi
+
+echo "vet-flakes: $pass passed, $fail failed, $warn warned (statix=$HAVE_STATIX parse=$HAVE_PARSE)"
 [[ $fail -eq 0 ]]
