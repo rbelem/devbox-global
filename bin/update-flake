@@ -229,6 +229,29 @@ for name in "${FLAKES[@]}"; do
     [[ -n "$fork_suffix_comment" ]] && FLAKE_FORK_SUFFIX["$name"]="$fork_suffix_comment"
     [[ -n "$release_prefix_comment" ]] && FLAKE_RELEASE_PREFIX["$name"]="$release_prefix_comment"
     [[ -n "$branch_tracking_comment" ]] && FLAKE_BRANCH_TRACKING["$name"]="$branch_tracking_comment"
+
+    # No explicit release-prefix comment — infer the tag prefix from the
+    # flake's own URL template so multi-stream repos resolve LATEST from the
+    # stream the flake tracks (e.g. bsk's cli-v${version} asset URL vs the
+    # repo's ext-v* extension line). Takes the path segment before ${version}:
+    # releases/download/cli-v${version} → cli-v; rev = "v${version}" → v
+    # (same as the default v-preference). Empty (bare ${version} tag) keeps
+    # the default detection path.
+    # NOTE: [^"$]* (not [^"]*) stops at the FIRST ${version} — URL lines
+    # often interpolate it twice (tag AND asset name); greedy matching would
+    # capture the asset segment (bsk-v) instead of the tag prefix (cli-v).
+    if [[ -z "${FLAKE_RELEASE_PREFIX[$name]:-}" ]]; then
+        inferred_prefix="$(grep -oP 'releases/download/[^"$]*\$\{version\}' "$flake_nix" 2>/dev/null | head -1 || true)"
+        if [[ -z "$inferred_prefix" ]]; then
+            inferred_prefix="$(grep -oP 'rev\s*=\s*"[^"$]*\$\{version\}' "$flake_nix" 2>/dev/null | head -1 || true)"
+        fi
+        if [[ -n "$inferred_prefix" ]]; then
+            inferred_prefix="${inferred_prefix##*/}"
+            inferred_prefix="${inferred_prefix#*\"}"
+            inferred_prefix="${inferred_prefix%\$\{version\}}"
+            [[ -n "$inferred_prefix" ]] && FLAKE_RELEASE_PREFIX["$name"]="$inferred_prefix"
+        fi
+    fi
 done
 
 # ── Check latest GitHub version ──
@@ -333,6 +356,101 @@ for name in "${FLAKES[@]}"; do
                 LATEST["$name"]="unknown"
             fi
         fi
+    fi
+done
+
+# ── Verify ↓ candidates against the real release assets ──
+# A candidate from the wrong release stream (e.g. bsk's ext-v* extension tags
+# vs the cli-v* stream its asset URL pins) builds a download URL that 404s.
+# Never report those as actionable ↓ — mark ?? with a short reason instead.
+# Only flakes whose flake.nix pins a releases/download URL template on
+# ${version} are verifiable; other flakes keep their detected status.
+# Echoes the failure reason (stream-mismatch | asset-404 | verify-error), or
+# nothing when the candidate's asset URL resolves. Always succeeds.
+verify_candidate_asset() {
+    local name="$1" candidate="$2"
+    local flake_nix="$DEVBOX_D/$name/flake.nix"
+    local owner="${FLAKE_OWNER[$name]:-}" repo="${FLAKE_REPO[$name]:-}"
+
+    # For forked flakes, assets live upstream
+    if [[ -n "${FLAKE_UPSTREAM[$name]:-}" ]]; then
+        owner="${FLAKE_UPSTREAM[$name]%/*}"
+        repo="${FLAKE_UPSTREAM[$name]#*/}"
+    fi
+    [[ -n "$owner" && -n "$repo" ]] || return 0
+
+    local url_template
+    url_template="$(grep -oP 'https://github\.com/[^"]*\$\{version\}[^"]*' "$flake_nix" 2>/dev/null | grep 'releases/download/' | head -1 || true)"
+    [[ -n "$url_template" ]] || return 0  # not a release-asset flake: nothing to verify
+
+    # Candidate tags to try: the flake's stream prefix + version, falling back
+    # to v-prefixed/bare when the flake pins a bare ${version} tag.
+    local -a tags_to_try=()
+    if [[ -n "${FLAKE_RELEASE_PREFIX[$name]:-}" ]]; then
+        tags_to_try=("${FLAKE_RELEASE_PREFIX[$name]}${candidate}")
+    else
+        tags_to_try=("v${candidate}" "${candidate}")
+    fi
+
+    local tag="" release_json=""
+    for tag in "${tags_to_try[@]}"; do
+        release_json="$(gh api "repos/$owner/$repo/releases/tags/$tag" 2>&1 || true)"
+        echo "$release_json" | grep -q '"tag_name"' && break
+        release_json=""
+    done
+    if [[ -z "$release_json" ]]; then
+        # None of the candidate tags names a real release. A 404 here means
+        # the version came from another stream (naive substitution 404s);
+        # anything else is a transient lookup failure.
+        release_json="$(gh api "repos/$owner/$repo/releases/tags/${tags_to_try[0]}" 2>&1 || true)"
+        if echo "$release_json" | grep -qi 'not found\|404'; then
+            echo "stream-mismatch"
+        else
+            echo "verify-error"
+        fi
+        return 0
+    fi
+
+    # The asset filename the flake would fetch: template with the candidate
+    # substituted, cut at the first remaining nix interpolation (e.g.
+    # bsk-v0.3.3-${systemToTarget...}.tar.gz → prefix bsk-v0.3.3-).
+    local url_sub="${url_template//\$\{version\}/$candidate}"
+    local asset_file="${url_sub##*/}"
+    local asset_prefix="${asset_file%%\$*}"
+    local asset_url
+    asset_url="$(gh api "repos/$owner/$repo/releases/tags/$tag" --jq "[.assets[] | select(.name | startswith(\"$asset_prefix\")) | .browser_download_url][0] // empty" 2>/dev/null || true)"
+    if [[ -z "$asset_url" ]]; then
+        echo "asset-404"
+        return 0
+    fi
+
+    local code
+    code="$(curl -sIL -o /dev/null --max-time 20 -w '%{http_code}' "$asset_url" 2>/dev/null || true)"
+    if [[ -z "$code" ]]; then
+        echo "verify-error"
+    elif [[ "$code" != 2* ]]; then
+        echo "asset-404"
+    fi
+    return 0
+}
+
+# Candidates strictly newer than installed get asset-verified here; failures
+# land in VERIFY_FAIL and are shown as ?? (never ↓) in the table below and
+# excluded from auto-update.
+declare -A VERIFY_FAIL=()
+for name in "${FLAKES[@]}"; do
+    installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
+    latest="${LATEST[$name]:-unknown}"
+
+    compare_installed="$installed"
+    if [[ -n "${FLAKE_FORK_SUFFIX[$name]:-}" ]]; then
+        compare_installed="${installed%${FLAKE_FORK_SUFFIX[$name]}}"
+    fi
+
+    if [[ "$installed" != "unknown" && "$latest" != "unknown" && "$latest" != branch:* ]] \
+        && semver_gt "$latest" "$compare_installed"; then
+        reason="$(verify_candidate_asset "$name" "$latest")"
+        [[ -n "$reason" ]] && VERIFY_FAIL["$name"]="$reason"
     fi
 done
 
@@ -555,7 +673,12 @@ for name in "${FLAKES[@]}"; do
     elif [[ "$latest" == "unknown" || "$installed" == "unknown" || "$latest" == branch:* ]]; then
         status="${YELLOW}??${NC}"
     elif semver_gt "$latest" "$compare_installed"; then
-        status="${RED}↓${NC}"
+        # Newer upstream, but the asset URL check failed — not actionable.
+        if [[ -n "${VERIFY_FAIL[$name]:-}" ]]; then
+            status="${YELLOW}??${NC} (${VERIFY_FAIL[$name]})"
+        else
+            status="${RED}↓${NC}"
+        fi
     elif semver_gt "$compare_installed" "$latest"; then
         status="${YELLOW}↑${NC}"
     else
@@ -583,7 +706,7 @@ for name in "${!INSTALLED[@]}"; do
 done | sort
 
 printf "\n"
-printf "${GREEN}✓${NC} = up to date  ${RED}↓${NC} = older (update available)  ${YELLOW}↑${NC} = ahead of latest  ${YELLOW}??${NC} = unknown\n"
+printf "${GREEN}✓${NC} = up to date  ${RED}↓${NC} = older (update available)  ${YELLOW}↑${NC} = ahead of latest  ${YELLOW}??${NC} = unknown/unverified (reason in STATUS)\n"
 
 # ── Update workflow ──
 if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
@@ -601,8 +724,10 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
 
         # Only upgrade when upstream release is strictly newer than installed
         # (semver-aware — "1.2.10" beats "1.2.9", not string "1.10.0" < "1.2.3")
+        # and its asset URL verified (unverifiable candidates stay manual).
         if [[ "$installed" != "unknown" && "$latest" != "unknown" && "$latest" != branch:* ]] \
-            && semver_gt "$latest" "$compare_installed"; then
+            && semver_gt "$latest" "$compare_installed" \
+            && [[ -z "${VERIFY_FAIL[$name]:-}" ]]; then
             UPGRADABLE+=("$name")
         fi
     done
@@ -642,6 +767,9 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
                 elif grep -qF "$FAKE_HASH" "$DEVBOX_D/$target/flake.nix" 2>/dev/null; then
                     # Version matches but hashes not fully resolved — retry resolution
                     TARGETS+=("$target")
+                elif [[ -n "${VERIFY_FAIL[$target]:-}" ]]; then
+                    latest="${LATEST[$target]:-unknown}"
+                    echo "  Package '$target' candidate $latest failed asset verification (${VERIFY_FAIL[$target]}) — skipping."
                 else
                     installed="${FLAKE_VERSION[$target]:-${INSTALLED[$target]:-unknown}}"
                     echo "  Package '$target' is already at $installed (no update needed)."
