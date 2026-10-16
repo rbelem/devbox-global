@@ -45,7 +45,7 @@
           ];
         in rec {
         graphify = pythonPackages.buildPythonApplication rec {
-          pname = "graphifyy";
+          pname = "graphify";
           version = "0.9.91";
           format = "pyproject";
 
