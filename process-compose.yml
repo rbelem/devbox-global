@@ -1,6 +1,7 @@
 # Devbox service: wigolo HTTP daemon (REST + remote MCP on :3333)
 # Started with: devbox services up wigolo
 # Stopped with:  devbox services stop wigolo
+# Built-in webfetch/websearch route through this daemon — on connection-level webfetch failure, check daemon health (curl localhost:3333/health) before debugging fetch arguments.
 
 version: "0.5"
 
