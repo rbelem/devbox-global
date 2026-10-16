@@ -1869,10 +1869,6 @@
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/agent-browser?lastModified=1792104629&narHash=sha256-h3IxoKhOCzeg5ZO82%2FaQdaHpGKU9Rgy8iy%2BXpGo0SpU%3D"
     },
-    "path:devbox.d/agentmemory": {
-      "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/agentmemory?lastModified=1792104629&narHash=sha256-YzqXsqMhmuFYB37R37dBAbDEeZjHXlNciqlocKot9ro%3D"
-    },
     "path:devbox.d/anydoc": {
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/anydoc?lastModified=1791905413&narHash=sha256-zwfrdS7RYElMKeO5i2cstEf8fkL28oUFBR9t7Db4SHw%3D"
@@ -1988,10 +1984,6 @@
     "path:devbox.d/whichllm": {
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/whichllm?lastModified=1791905413&narHash=sha256-P1%2BlzG2zPSoSbvDJt3r4KfcmNMQ8RHxoTsfXw99wMm0%3D"
-    },
-    "path:devbox.d/wigolo": {
-      "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/wigolo?lastModified=1791905413&narHash=sha256-oKS%2FkcyN%2F3PQGo1ulEiK5m0Rsblb6kYhboIEbNHKKBo%3D"
     },
     "path:devbox.d/zg": {
       "last_modified": "2026-09-17T13:07:31Z",

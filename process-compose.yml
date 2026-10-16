@@ -13,5 +13,7 @@ processes:
       # Node must not see a foreign libsqlite3 (e.g. shuttle's LD_LIBRARY_PATH);
       # its nix wrapper re-prepends its own playwright deps after this clears it.
       - "LD_LIBRARY_PATH="
+      # Small box (13/15Gi RAM used): single browser per self-hosting guidance.
+      - "MAX_BROWSERS=1"
     availability:
       restart: "always"
