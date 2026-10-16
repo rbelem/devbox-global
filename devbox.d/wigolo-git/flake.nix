@@ -12,15 +12,15 @@
       # branch), then refresh the hashes via the fakeHash loop below.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "f274fbe9f03c13a755de206661b675c91f095d32";
-      version = "0.2.1-git.f274fbe9";
+      rev = "d85bfc8d28a6eb50776a6e670e954e7108d505cf";
+      version = "0.2.1-git.d85bfc8d";
 
       # Get the real hashes:
       #   1. Set srcHash/npmDepsHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash first — copy the "got" hash
       #   4. Then it will fail for npmDepsHash — copy that too
-      srcHash = "sha256-OMYoTnTWmE92F5jBfVWhcDfMjRXeyh6p//qWQFx4x1g=";
+      srcHash = "sha256-Js8QbcmBxGZ8OuFX3eH1KfdO8wdaUiWrJE5vB5hO4hA=";
       npmDepsHash = "sha256-hBOgrqGnzKIMDCCkg3RPmXS2KRWbn8HZBZmgdqtHU5Q=";
 
       systems = [ "x86_64-linux" ];
