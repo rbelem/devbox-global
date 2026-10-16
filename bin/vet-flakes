@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+# devbox-global-vet-flakes
+# Fast read-only vet over devbox.d/*/flake.nix (statix + parse check).
+# To wire into pre-commit/CI when tooling exists:
+#   repos: [{repo: local, hooks: [{id: vet-flakes, entry: bin/vet-flakes, language: script}]}]
+#   (or run bin/vet-flakes as a CI job step; no network/build needed).
+set -euo pipefail
+
+SHOW_HELP=false
+declare -a TARGETS=()
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -h|--help)
+            SHOW_HELP=true
+            shift
+            ;;
+        -*)
+            echo "Unknown flag: $1"
+            exit 1
+            ;;
+        *)
+            TARGETS+=("$1")
+            shift
+            ;;
+    esac
+done
+
+if $SHOW_HELP; then
+    echo "Usage: $(basename "$0") [PKG...]"
+    echo "Fast read-only vet over devbox.d/*/flake.nix files."
+    echo ""
+    echo "  PKG [...]    Vet specific packages by name (default: all)"
+    echo "  -h, --help   Show this help"
+    exit 0
+fi
+
+# NOTE: nixfmt is intentionally not wired: it is not installed here
+# (no nixfmt binary; `nix fmt` needs a repo flake formatter, so we
+# skip it rather than emit a false FAIL). If nixfmt appears on PATH
+# later, add a `nixfmt --check` pass next to the statix pass below.
+# NOTE: no `nix flake show/metadata` per flake — too slow and needs
+# network; `nix-instantiate --parse` is a cheap offline syntax check.
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+HAVE_STATIX=false
+HAVE_PARSE=false
+command -v statix >/dev/null 2>&1 && HAVE_STATIX=true
+command -v nix-instantiate >/dev/null 2>&1 && HAVE_PARSE=true
+
+mapfile -t FLAKES < <(
+    if [[ ${#TARGETS[@]} -gt 0 ]]; then
+        for t in "${TARGETS[@]}"; do
+            f="$REPO_ROOT/devbox.d/$t/flake.nix"
+            [[ -f "$f" ]] && echo "$f" || echo "MISSING:$t"
+        done
+    else
+        printf '%s\n' "$REPO_ROOT"/devbox.d/*/flake.nix
+    fi
+)
+
+pass=0
+fail=0
+for f in "${FLAKES[@]}"; do
+    rel="${f#$REPO_ROOT/}"
+    if [[ "$f" == MISSING:* ]]; then
+        echo "FAIL $rel (no such flake)"
+        fail=$((fail + 1))
+        continue
+    fi
+    reasons=()
+    if $HAVE_STATIX; then
+        if ! out=$(statix check "$f" 2>&1); then
+            reasons+=("statix: $out")
+        fi
+    fi
+    if $HAVE_PARSE; then
+        if ! out=$(nix-instantiate --parse "$f" >/dev/null 2>&1); then
+            out=$(nix-instantiate --parse "$f" 2>&1 | head -5 | tr '\n' ' ')
+            reasons+=("parse: $out")
+        fi
+    fi
+    if [[ ${#reasons[@]} -eq 0 ]]; then
+        echo "PASS $rel"
+        pass=$((pass + 1))
+    else
+        echo "FAIL $rel"
+        for r in "${reasons[@]}"; do
+            echo "  $r"
+        done
+        fail=$((fail + 1))
+    fi
+done
+
+echo ""
+echo "vet-flakes: $pass passed, $fail failed (statix=$HAVE_STATIX parse=$HAVE_PARSE)"
+[[ $fail -eq 0 ]]
