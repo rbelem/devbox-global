@@ -2,6 +2,14 @@
 # Started with: devbox services up wigolo
 # Stopped with:  devbox services stop wigolo
 # Built-in webfetch/websearch route through this daemon — on connection-level webfetch failure, check daemon health (curl localhost:3333/health) before debugging fetch arguments.
+#
+# Devbox service: open-design local daemon (web UI + REST on :7456)
+# Started with: devbox services up open-design   (bare `devbox services up` starts both)
+# Stopped with:  devbox services stop open-design
+# The opencode MCP entry (mcp.servers.open-design) proxies to this daemon, and the
+# vela/AMR runtime needs `vela` on PATH. When every open-design tool answers
+# "daemon unreachable", check curl 127.0.0.1:7456/api/health first.
+# Run these from a directory holding devbox.json (this repo, or the global profile dir).
 
 version: "0.5"
 
@@ -30,5 +38,15 @@ processes:
       - "LD_LIBRARY_PATH="
       # Small box (13/15Gi RAM used): single browser per self-hosting guidance.
       - "MAX_BROWSERS=1"
+    availability:
+      restart: "always"
+
+  open-design:
+    # --no-open: the wrapper would otherwise launch a browser tab on each start.
+    # The wrapper defaults OD_DATA_DIR to ${XDG_STATE_HOME:-$HOME/.local/state}/open-design
+    # and creates it; set OD_DATA_DIR here only to move state elsewhere.
+    command: open-design --no-open
+    environment:
+      - "OD_PORT=7456"
     availability:
       restart: "always"
