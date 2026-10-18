@@ -10,18 +10,22 @@
     let
       # Re-point these four to track a new rev (e.g. the rbelem PR
       # branch), then refresh the hashes via the fakeHash loop below.
+      #
+      # Tracks the fork's main, which carries the key-gated DeepSeek engine
+      # (DEEPSEEK_API_KEY joins the general and code pools, like Brave).
+      # Re-pin to upstream once that engine lands in a release.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "d85bfc8d28a6eb50776a6e670e954e7108d505cf";
-      version = "0.2.1-git.d85bfc8d";
+      rev = "a9f9ca77900d4ef2c5004c9c9448b1166598774b";
+      version = "0.2.1-git.a9f9ca77";
 
       # Get the real hashes:
       #   1. Set srcHash/npmDepsHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash first — copy the "got" hash
       #   4. Then it will fail for npmDepsHash — copy that too
-      srcHash = "sha256-Js8QbcmBxGZ8OuFX3eH1KfdO8wdaUiWrJE5vB5hO4hA=";
-      npmDepsHash = "sha256-hBOgrqGnzKIMDCCkg3RPmXS2KRWbn8HZBZmgdqtHU5Q=";
+      srcHash = "sha256-OCJLFrdDbSwYHA33ajJISIzcX0EgVTtm2Tma7IuY5Pc=";
+      npmDepsHash = "sha256-k9wVsn/DbzCouvetyo4VZWZbJK6/8ilT7rTtkMFY7z8=";
 
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;

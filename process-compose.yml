@@ -38,6 +38,9 @@ processes:
       - "LD_LIBRARY_PATH="
       # Small box (13/15Gi RAM used): single browser per self-hosting guidance.
       - "MAX_BROWSERS=1"
+      # DeepSeek search is a key-gated engine in the core pools, so no backend
+      # switch or plugin is involved. DEEPSEEK_API_KEY comes from the devbox
+      # secrets cache, the same route BRAVE_API_KEY uses.
     availability:
       restart: "always"
 
