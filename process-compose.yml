@@ -52,6 +52,7 @@ processes:
     # The wrapper defaults OD_DATA_DIR to ${XDG_STATE_HOME:-$HOME/.local/state}/open-design
     # and creates it; set OD_DATA_DIR here only to move state elsewhere.
     command: open-design --no-open
+    disabled: true
     environment:
       - "OD_PORT=7456"
     availability:
