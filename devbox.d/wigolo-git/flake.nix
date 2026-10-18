@@ -16,15 +16,15 @@
       # Re-pin to upstream once that engine lands in a release.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "a9f9ca77900d4ef2c5004c9c9448b1166598774b";
-      version = "0.2.1-git.a9f9ca77";
+      rev = "53f20f0eb1fe20077c14692ff55188f0b79d76b9";
+      version = "0.2.1-git.53f20f0e";
 
       # Get the real hashes:
       #   1. Set srcHash/npmDepsHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash first — copy the "got" hash
       #   4. Then it will fail for npmDepsHash — copy that too
-      srcHash = "sha256-OCJLFrdDbSwYHA33ajJISIzcX0EgVTtm2Tma7IuY5Pc=";
+      srcHash = "sha256-YnCCsR2zuxghZpf8+OxbcdC8s3vxwQdYSaONde6bCtI=";
       npmDepsHash = "sha256-k9wVsn/DbzCouvetyo4VZWZbJK6/8ilT7rTtkMFY7z8=";
 
       systems = [ "x86_64-linux" ];
