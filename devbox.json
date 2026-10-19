@@ -97,7 +97,8 @@
     "wtype":                              "latest",
     "chromium":                           "latest",
     "path:devbox.d/browser-harness":      "",
-    "path:devbox.d/steel-takeoff":        {}
+    "path:devbox.d/steel-takeoff":        {},
+    "ast-grep":                           "latest"
   },
   "env": {
     "EDITOR":                                     "vi",
