@@ -91,7 +91,6 @@
     "path:devbox.d/jev-ultrafast":        {},
     "bws":                                "latest",
     "bitwarden-cli":                      "latest",
-    "attic-client":                       "latest",
     "geminicommit":                       "latest",
     "sqlite":                             "latest",
     "wtype":                              "latest",
@@ -109,16 +108,6 @@
     "PYTHONPATH":                                 "${DEVBOX_PACKAGES_DIR}/lib/python3.14/site-packages${PYTHONPATH:+:$PYTHONPATH}",
     "OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS": "1"
   },
-  "nix": {
-    "cache": {
-      "type":           "attic",
-      "endpoint":       "https://attic.zet.rclb.dev",
-      "cache":          "devbox",
-      "public_key":     "devbox:CyW2CoFfBHdpRM4tWqnerpYK5aloECxoeWRULi0gsmo=",
-      "push_token_env": "ATTIC_PUSH_JWT",
-      "pull_token_env": "ATTIC_PULL_JWT"
-    }
-  },
   "shell": {
     "init_hook": [
       "source \"$(devbox global path)/bin/init-hook\""
@@ -135,8 +124,6 @@
         "devbox global push https://github.com/rbelem/devbox-global.git"
       ],
       "config-sync":   "\"$(devbox global path)/bin/config-sync\" \"$@\"",
-      "upload-flakes": "\"$(devbox global path)/bin/upload-flakes\" \"$@\"",
-      "cache":         "\"$(devbox global path)/bin/cache\" \"$@\"",
       "first-install": [
         "devbox global run setup-bws",
         "devbox global run setup-git",
