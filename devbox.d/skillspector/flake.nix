@@ -102,11 +102,28 @@
             yara-python
             regex
             pywhatwgurl
+            # Upstream 2.12.0 deps that nixpkgs already ships. Without
+            # langchain-aws + boto3 the CLI dies on import with
+            # "No module named 'boto3'" (the AWS Bedrock analyzer path).
+            langchain-aws
+            boto3
+            google-auth
           ];
 
-          # All deps are listed above — keep this flag in case nixpkgs lags
-          # behind upstream dep additions.
+          # Upstream's exact pins (regex==2026.5.9, typer<0.24, openai>=2.25.0,
+          # google-auth>=2.53.0) are not satisfiable from nixpkgs, so the
+          # package-level runtime dep check stays off. The guard that does
+          # work is the smoke test below: the CLI must import every analyzer
+          # and finish a static scan. The 2.12.0 build passed with boto3
+          # missing and only failed at runtime ("No module named 'boto3'").
           dontCheckRuntimeDeps = true;
+
+          postInstall = ''
+            # Smoke test: import every analyzer and complete a static scan.
+            mkdir -p "$TMPDIR/smoke-skill"
+            printf '%s\n' '---' 'name: smoke-skill' 'description: Fixture skill that verifies the packaged CLI can import its analyzers and complete a static scan.' '---' '# Smoke skill' > "$TMPDIR/smoke-skill/SKILL.md"
+            "$out/bin/skillspector" scan "$TMPDIR/smoke-skill" --no-llm > /dev/null
+          '';
 
           meta = with pkgs.lib; {
             description = "Security scanner for AI agent skills — detects vulnerabilities before you install";
