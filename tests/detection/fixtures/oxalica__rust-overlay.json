@@ -1,0 +1,11 @@
+{
+ "default_branch": "master",
+ "releases": [],
+ "repo": "oxalica/rust-overlay",
+ "tag_dates": {},
+ "tags": [
+  "snapshot/2026-03-11",
+  "snapshot/2025-01-11",
+  "snapshot/2024-08-01"
+ ]
+}

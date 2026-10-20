@@ -1,0 +1,943 @@
+{
+ "default_branch": "main",
+ "releases": [
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/firecrawl_anydoc-0.2.4-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.4-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/firecrawl_anydoc-0.2.4-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.2.4-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/firecrawl_anydoc-0.2.4-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.2.4-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/firecrawl_anydoc-0.2.4-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.4-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/firecrawl_anydoc-0.2.4-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.2.4-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/firecrawl_anydoc-0.2.4-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.4-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/firecrawl_anydoc-0.2.4-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.2.4-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.4/firecrawl_anydoc-0.2.4.tar.gz",
+     "name": "firecrawl_anydoc-0.2.4.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-27T19:14:19Z",
+   "tag_name": "v0.2.4"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/firecrawl_anydoc-0.2.3-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.3-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/firecrawl_anydoc-0.2.3-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.2.3-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/firecrawl_anydoc-0.2.3-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.2.3-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/firecrawl_anydoc-0.2.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/firecrawl_anydoc-0.2.3-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.2.3-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/firecrawl_anydoc-0.2.3-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.3-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/firecrawl_anydoc-0.2.3-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.2.3-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.3/firecrawl_anydoc-0.2.3.tar.gz",
+     "name": "firecrawl_anydoc-0.2.3.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-20T23:56:40Z",
+   "tag_name": "v0.2.3"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/firecrawl_anydoc-0.2.2-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.2-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/firecrawl_anydoc-0.2.2-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.2.2-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/firecrawl_anydoc-0.2.2-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.2.2-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/firecrawl_anydoc-0.2.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/firecrawl_anydoc-0.2.2-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.2.2-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/firecrawl_anydoc-0.2.2-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.2-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/firecrawl_anydoc-0.2.2-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.2.2-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.2/firecrawl_anydoc-0.2.2.tar.gz",
+     "name": "firecrawl_anydoc-0.2.2.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-20T19:38:03Z",
+   "tag_name": "v0.2.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/firecrawl_anydoc-0.2.1-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.1-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/firecrawl_anydoc-0.2.1-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.2.1-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/firecrawl_anydoc-0.2.1-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.2.1-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/firecrawl_anydoc-0.2.1-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.1-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/firecrawl_anydoc-0.2.1-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.2.1-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/firecrawl_anydoc-0.2.1-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.1-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/firecrawl_anydoc-0.2.1-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.2.1-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.1/firecrawl_anydoc-0.2.1.tar.gz",
+     "name": "firecrawl_anydoc-0.2.1.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-20T19:10:56Z",
+   "tag_name": "v0.2.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/firecrawl_anydoc-0.2.0-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.0-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/firecrawl_anydoc-0.2.0-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.2.0-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/firecrawl_anydoc-0.2.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.2.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/firecrawl_anydoc-0.2.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/firecrawl_anydoc-0.2.0-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.2.0-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/firecrawl_anydoc-0.2.0-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.2.0-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/firecrawl_anydoc-0.2.0-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.2.0-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.2.0/firecrawl_anydoc-0.2.0.tar.gz",
+     "name": "firecrawl_anydoc-0.2.0.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-20T04:01:57Z",
+   "tag_name": "v0.2.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/firecrawl_anydoc-0.1.9-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.9-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/firecrawl_anydoc-0.1.9-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.1.9-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/firecrawl_anydoc-0.1.9-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.9-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/firecrawl_anydoc-0.1.9-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.9-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/firecrawl_anydoc-0.1.9-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.9-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/firecrawl_anydoc-0.1.9-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.9-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/firecrawl_anydoc-0.1.9-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.1.9-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.9/firecrawl_anydoc-0.1.9.tar.gz",
+     "name": "firecrawl_anydoc-0.1.9.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-13T21:40:10Z",
+   "tag_name": "v0.1.9"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/firecrawl_anydoc-0.1.8-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.8-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/firecrawl_anydoc-0.1.8-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.1.8-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/firecrawl_anydoc-0.1.8-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.8-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/firecrawl_anydoc-0.1.8-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.8-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/firecrawl_anydoc-0.1.8-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.8-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/firecrawl_anydoc-0.1.8-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.8-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/firecrawl_anydoc-0.1.8-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.1.8-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.8/firecrawl_anydoc-0.1.8.tar.gz",
+     "name": "firecrawl_anydoc-0.1.8.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-10T23:40:04Z",
+   "tag_name": "v0.1.8"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/firecrawl_anydoc-0.1.7-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.7-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/firecrawl_anydoc-0.1.7-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.1.7-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/firecrawl_anydoc-0.1.7-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.7-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/firecrawl_anydoc-0.1.7-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.7-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/firecrawl_anydoc-0.1.7-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.7-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/firecrawl_anydoc-0.1.7-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.7-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/firecrawl_anydoc-0.1.7-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.1.7-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.7/firecrawl_anydoc-0.1.7.tar.gz",
+     "name": "firecrawl_anydoc-0.1.7.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-07T09:29:30Z",
+   "tag_name": "v0.1.7"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/firecrawl_anydoc-0.1.6-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.6-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/firecrawl_anydoc-0.1.6-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.1.6-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/firecrawl_anydoc-0.1.6-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.6-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/firecrawl_anydoc-0.1.6-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.6-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/firecrawl_anydoc-0.1.6-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.6-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/firecrawl_anydoc-0.1.6-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.6-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/firecrawl_anydoc-0.1.6-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.1.6-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.6/firecrawl_anydoc-0.1.6.tar.gz",
+     "name": "firecrawl_anydoc-0.1.6.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-05T18:30:01Z",
+   "tag_name": "v0.1.6"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/firecrawl_anydoc-0.1.5-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.5-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/firecrawl_anydoc-0.1.5-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.1.5-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/firecrawl_anydoc-0.1.5-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.5-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/firecrawl_anydoc-0.1.5-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.5-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/firecrawl_anydoc-0.1.5-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.5-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/firecrawl_anydoc-0.1.5-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.5-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/firecrawl_anydoc-0.1.5-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.1.5-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.5/firecrawl_anydoc-0.1.5.tar.gz",
+     "name": "firecrawl_anydoc-0.1.5.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-05T16:25:46Z",
+   "tag_name": "v0.1.5"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/firecrawl_anydoc-0.1.4-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.4-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/firecrawl_anydoc-0.1.4-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.1.4-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/firecrawl_anydoc-0.1.4-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.4-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/firecrawl_anydoc-0.1.4-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.4-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/firecrawl_anydoc-0.1.4-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.4-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/firecrawl_anydoc-0.1.4-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.4-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/firecrawl_anydoc-0.1.4-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.1.4-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.4/firecrawl_anydoc-0.1.4.tar.gz",
+     "name": "firecrawl_anydoc-0.1.4.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-05T14:25:33Z",
+   "tag_name": "v0.1.4"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/firecrawl_anydoc-0.1.3-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.3-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/firecrawl_anydoc-0.1.3-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.1.3-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/firecrawl_anydoc-0.1.3-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.3-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/firecrawl_anydoc-0.1.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/firecrawl_anydoc-0.1.3-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.3-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/firecrawl_anydoc-0.1.3-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.3-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/firecrawl_anydoc-0.1.3-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.1.3-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.3/firecrawl_anydoc-0.1.3.tar.gz",
+     "name": "firecrawl_anydoc-0.1.3.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-04T19:59:00Z",
+   "tag_name": "v0.1.3"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/firecrawl_anydoc-0.1.2-cp310-abi3-macosx_10_12_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.2-cp310-abi3-macosx_10_12_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/firecrawl_anydoc-0.1.2-cp310-abi3-macosx_11_0_arm64.whl",
+     "name": "firecrawl_anydoc-0.1.2-cp310-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/firecrawl_anydoc-0.1.2-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.2-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/firecrawl_anydoc-0.1.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/firecrawl_anydoc-0.1.2-cp310-abi3-musllinux_1_2_aarch64.whl",
+     "name": "firecrawl_anydoc-0.1.2-cp310-abi3-musllinux_1_2_aarch64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/firecrawl_anydoc-0.1.2-cp310-abi3-musllinux_1_2_x86_64.whl",
+     "name": "firecrawl_anydoc-0.1.2-cp310-abi3-musllinux_1_2_x86_64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/firecrawl_anydoc-0.1.2-cp310-abi3-win_amd64.whl",
+     "name": "firecrawl_anydoc-0.1.2-cp310-abi3-win_amd64.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.2/firecrawl_anydoc-0.1.2.tar.gz",
+     "name": "firecrawl_anydoc-0.1.2.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-04T16:31:25Z",
+   "tag_name": "v0.1.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.1/anydoc.darwin-arm64.node",
+     "name": "anydoc.darwin-arm64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.1/anydoc.darwin-x64.node",
+     "name": "anydoc.darwin-x64.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.1/anydoc.linux-arm64-gnu.node",
+     "name": "anydoc.linux-arm64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.1/anydoc.linux-arm64-musl.node",
+     "name": "anydoc.linux-arm64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.1/anydoc.linux-x64-gnu.node",
+     "name": "anydoc.linux-x64-gnu.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.1/anydoc.linux-x64-musl.node",
+     "name": "anydoc.linux-x64-musl.node"
+    },
+    {
+     "browser_download_url": "https://github.com/firecrawl/anydoc/releases/download/v0.1.1/anydoc.win32-x64-msvc.node",
+     "name": "anydoc.win32-x64-msvc.node"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-04T15:12:35Z",
+   "tag_name": "v0.1.1"
+  }
+ ],
+ "repo": "firecrawl/anydoc",
+ "tag_dates": {},
+ "tags": [
+  "v0.2.4",
+  "v0.2.3",
+  "v0.2.2",
+  "v0.2.1",
+  "v0.2.0",
+  "v0.1.9",
+  "v0.1.8",
+  "v0.1.7",
+  "v0.1.6",
+  "v0.1.5",
+  "v0.1.4",
+  "v0.1.3",
+  "v0.1.2",
+  "v0.1.1"
+ ]
+}
