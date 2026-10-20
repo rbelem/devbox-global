@@ -160,6 +160,22 @@ NIX
 check hermes-agent hermes.nix v 2026.9.24 2026.9.25 \
     'url = "github:NousResearch/hermes-agent/v2026.9.25";'
 
+# opencode: the version attribute and a literal source ref. The ref names a
+# tag, so it moves with the version - otherwise the flake builds the old
+# source under the new name.
+cat > "$WORK/opencode.nix" <<'NIX'
+{
+  outputs = { self }:
+    let
+      version = "2.0.27";
+      rev = "v2.0.27";
+    in { packages = {}; };
+}
+NIX
+check opencode opencode.nix v 2.0.27 2.0.32 \
+    'version = "2.0.32";' \
+    'rev = "v2.0.32";'
+
 if [[ $failures -gt 0 ]]; then
     echo
     echo "$failures case(s) failed"

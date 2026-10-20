@@ -225,6 +225,15 @@ write_version() {
             echo "    ✓ input URL ref updated ($old_spelling → $new_spelling)"
             updated=true
         fi
+
+        # A source pinned by a literal tag (rev = "v1.2.3") moves with the
+        # version: a source and a version that disagree build the old code
+        # under the new name.
+        if grep -qF "rev = \"$old_spelling\"" "$flake_nix"; then
+            sed -i "s|rev = \"$old_spelling\"|rev = \"$new_spelling\"|g" "$flake_nix"
+            echo "    ✓ source ref updated ($old_spelling → $new_spelling)"
+            updated=true
+        fi
     done
     $updated
 }
@@ -250,11 +259,19 @@ verify_candidate_asset() {
     url_template="$(grep -oP 'https://github\.com/[^"]*\$\{version\}[^"]*' "$flake_nix" 2>/dev/null | grep 'releases/download/' | head -1 || true)"
     [[ -n "$url_template" ]] || return 0  # not a release-asset flake: nothing to verify
 
-    # Candidate tags to try: the flake's stream prefix + version, falling back
-    # to v-prefixed/bare when the flake pins a bare ${version} tag.
-    local -a tags_to_try=()
+    # Candidate tags to try: the tag the flake's own URL template names is the
+    # ground truth (whatever the detection guessed for the release line),
+    # falling back to the detected prefix and then to a v-prefixed tag.
+    local template_prefix=""
+    if [[ "$url_template" == *"/releases/download/"* ]]; then
+        template_prefix="${url_template#*/releases/download/}"
+        template_prefix="${template_prefix%%\$\{version\}*}"
+    fi
     local prefix="${DET_PREFIX[$name]:-}"
-    if [[ -n "$prefix" && "$prefix" != "-" ]]; then
+    local -a tags_to_try=()
+    if [[ -n "$template_prefix" ]]; then
+        tags_to_try=("${template_prefix}${candidate}")
+    elif [[ -n "$prefix" && "$prefix" != "-" ]]; then
         tags_to_try=("${prefix}${candidate}")
     else
         tags_to_try=("v${candidate}" "${candidate}")
@@ -356,13 +373,16 @@ update_flake() {
 
     # 3. Reset hashes to a literal fake hash (no pkgs dependency, works in any scope)
     #    Named attrs: hash, srcHash, cargoHash, npmDepsHash, pnpmDepsHash,
-    #                 npmDistHash, nodeModulesHash, outputHash
+    #                 npmDistHash, nodeModulesHash, outputHash, vendorHash
     #    Quoted attrs: "platform" = "sha256-..." (agent-browser pattern)
     #    Uses ERE (sed -r), no PCRE non-capturing groups.
-    if grep -qE '(^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|pnpmDepsHash|npmDistHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null \
+    #    Comment lines are skipped: a comment that quotes an attribute must
+    #    not be rewritten into a fake hash.
+    local hash_attrs='hash|srcHash|cargoHash|npmDepsHash|pnpmDepsHash|npmDistHash|nodeModulesHash|outputHash|vendorHash'
+    if grep -qE "(^|[[:space:]])($hash_attrs)[[:space:]]*=[[:space:]]*\"sha256-" "$flake_nix" 2>/dev/null \
         || grep -qE '"[^"]+"[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null; then
-        sed -ri 's/((^|[[:space:]])(hash|srcHash|cargoHash|npmDepsHash|pnpmDepsHash|npmDistHash|nodeModulesHash|outputHash)[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1"'"$FAKE_HASH"'";  # FIXME: was "\4"/' "$flake_nix"
-        sed -ri 's/("[^"]+"[[:space:]]*=[[:space:]]*)"(sha256-[^"]+)"/\1"'"$FAKE_HASH"'";  # FIXME: was "\2"/' "$flake_nix"
+        sed -ri "/^[[:space:]]*#/!s/((^|[[:space:]])($hash_attrs)[[:space:]]*=[[:space:]]*)\"(sha256-[^\"]+)\"/\1\"$FAKE_HASH\";  # FIXME: was \"\4\"/" "$flake_nix"
+        sed -ri "/^[[:space:]]*#/!s/(\"[^\"]+\"[[:space:]]*=[[:space:]]*)\"(sha256-[^\"]+)\"/\1\"$FAKE_HASH\";  # FIXME: was \"\2\"/" "$flake_nix"
         echo "    ✓ hashes reset to fakeHash"
     else
         echo "    - no hashes to reset"
@@ -398,6 +418,15 @@ resolve_hashes() {
             local build_output
             if build_output=$(cd "$flake_dir" && timeout 600 nix build --no-link ".#default" 2>&1); then
                 echo "    ${GREEN}✓${NC} build succeeded"
+                # The build only evaluates the host system, so the hash
+                # entries of the other architectures can still be fake. Say
+                # so: they break the build on those systems.
+                if grep -qF "$FAKE_HASH" "$flake_nix" 2>/dev/null; then
+                    local remaining
+                    remaining="$(grep -cF "$FAKE_HASH" "$flake_nix" 2>/dev/null || echo 0)"
+                    echo "    ${YELLOW}!${NC} $remaining hash entr$([[ $remaining -eq 1 ]] && echo y || echo ies) still fake —"
+                    echo "      the build did not evaluate them (other architectures?)"
+                fi
                 result=0
                 break
             fi

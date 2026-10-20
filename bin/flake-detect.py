@@ -732,8 +732,8 @@ def is_source_name(name):
     return "url" in name
 
 
-def source_candidates(nix, scopes):
-    """The expressions that may carry the versioned artifact, inner first."""
+def named_source_candidates(nix, scopes):
+    """(name, value, offset) of the source-ish attributes, inner first."""
     candidates = []
     for scope in scopes:
         attrs = nix.attrs(scope)
@@ -743,8 +743,15 @@ def source_candidates(nix, scopes):
                 continue
             if not is_source_name(lowered):
                 continue
-            candidates.append((value, offset))
+            candidates.append((lowered, value, offset))
     return candidates
+
+
+def source_candidates(nix, scopes):
+    """The expressions that may carry the versioned artifact, inner first."""
+    return [
+        (value, offset) for _name, value, offset in named_source_candidates(nix, scopes)
+    ]
 
 
 def literal_urls(text):
@@ -938,17 +945,27 @@ def prefix_from_version(version_raw):
     return "v"
 
 
-def detect_prefix(directives, version_raw, candidates):
-    """The tag prefix of the release line the flake tracks."""
+def detect_prefix(directives, version_raw, candidates, named_candidates):
+    """The tag prefix of the release line the flake tracks.
+
+    The package's own artifact decides: a helper attribute that also carries
+    a versioned URL (a second binary of the same project) must not move the
+    flake onto another release line.
+    """
     if directives.get("release-prefix"):
         return directives["release-prefix"]
-    texts = [value for value, _offset in candidates]
-    prefix = prefix_from_download(texts)
-    if prefix:
-        return prefix
-    prefix = prefix_from_rev(texts)
-    if prefix:
-        return prefix
+    own = [value for name, value, _offset in named_candidates if name.startswith("src")]
+    own += [
+        value for name, value, _offset in named_candidates if not name.startswith("src")
+    ]
+    rest = [value for value, _offset in candidates]
+    for texts in (own, rest):
+        prefix = prefix_from_download(texts)
+        if prefix:
+            return prefix
+        prefix = prefix_from_rev(texts)
+        if prefix:
+            return prefix
     return prefix_from_version(version_raw)
 
 
@@ -997,18 +1014,56 @@ def detect_repo(nix, scopes, directives, inputs, source_input, origin):
     if source_input:
         return "%s/%s" % (source_input[1], source_input[2])
     for entry in inputs:
+        if entry[1] == "NixOS" and entry[2] == "nixpkgs":
+            continue
         return "%s/%s" % (entry[1], entry[2])
     return None
 
 
+def inherits(nix, scope, name):
+    """True when the scope pulls `name` in with an inherit statement."""
+    start, end = scope[1], scope[3]
+    index = start
+    while index < end:
+        found = inherit_at(nix.code, nix.in_string, index, end)
+        if found:
+            names, stop = found
+            if name in names:
+                return True
+            index = stop
+            continue
+        index += 1
+    return False
+
+
+def version_value(value):
+    """(raw version, is it dynamic) for a version attribute value."""
+    if value.startswith('"') and "${" not in value:
+        return value.strip('"'), False
+    return "", True
+
+
+def version_from_scopes(nix, scopes):
+    """(raw version, dynamic) from the package's own scope, or (None, False).
+
+    An enclosing scope's version applies only when the package inherits it:
+    a sibling package's version is not this package's version.
+    """
+    own = nix.attrs(scopes[0]) if scopes else {}
+    if "version" in own:
+        return version_value(own["version"][0])
+    if scopes and inherits(nix, scopes[0], "version"):
+        found = find_attribute(nix, scopes[1:], "version")
+        if found:
+            return version_value(found[0])
+    return None, False
+
+
 def detect_version(nix, scopes, source_input, candidates):
     """The installed version: (raw version, where it lives, is it dynamic)."""
-    found = find_attribute(nix, scopes, "version")
-    if found:
-        value = found[0]
-        if value.startswith('"') and "${" not in value:
-            return value.strip('"'), "attr", False
-        return "", "none", True
+    raw, dynamic = version_from_scopes(nix, scopes)
+    if raw or dynamic:
+        return raw, "none" if dynamic else "attr", dynamic
     if source_input and source_input[3]:
         return source_input[3], "input-url", False
     for value, _offset in candidates:
@@ -1054,6 +1109,9 @@ def detect_status(identity, context, sha_pinned, github):
     """
     if identity["dynamic"]:
         return "unknown", "unknown", "dynamic-version", False
+    if identity["display"] in ("unknown", "dynamic", ""):
+        # No version to compare against: an update cannot be offered.
+        return "unknown", "unknown", EMPTY, False
     branch = context["directives"].get("branch-tracking")
     if branch:
         return "branch:%s" % branch, "ahead", "branch", False
@@ -1110,14 +1168,18 @@ class GitHub:
         """
         entry = self.entry(name)
         if entry["releases"] is None:
-            entry["releases"] = as_list(self.api("repos/%s/releases?per_page=100" % name))
+            entry["releases"] = as_list(
+                self.api("repos/%s/releases?per_page=100" % name)
+            )
         return entry["releases"]
 
     def tags(self, name):
         """The tags of a repository; empty when it is unknown."""
         entry = self.entry(name)
         if entry["tags"] is None:
-            entry["tags"] = tag_names(as_list(self.api("repos/%s/tags?per_page=100" % name)))
+            entry["tags"] = tag_names(
+                as_list(self.api("repos/%s/tags?per_page=100" % name))
+            )
         return entry["tags"]
 
 
@@ -1250,6 +1312,7 @@ def detect_context(nix, flake):
         "source_input": pick_input(inputs, flake),
         "scopes": scopes,
         "candidates": source_candidates(nix, scopes),
+        "named_candidates": named_source_candidates(nix, scopes),
     }
 
 
@@ -1271,7 +1334,9 @@ def detect_identity(nix, context):
     version_raw, version_source, dynamic = detect_version(
         nix, scopes, context["source_input"], candidates
     )
-    prefix = detect_prefix(context["directives"], version_raw, candidates)
+    prefix = detect_prefix(
+        context["directives"], version_raw, candidates, context["named_candidates"]
+    )
     display, major = split_version(prefix, version_raw, dynamic)
     return {
         "kind": kind,

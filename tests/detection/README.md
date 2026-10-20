@@ -28,6 +28,7 @@ produces the same table. The table is compared with the contract in
 | `expected.tsv`        | The contract: one row per enabled flake, with the repository, the release line, the installed version, the newest upstream version and the status the table must show. |
 | `expected-skipped.txt`| The flake directories that are not enabled in `devbox.json`.       |
 | `oracle.py`           | An independent implementation of the "newest version in a line" rule, computed from the fixtures. It shares no code with the script and re-checks the contract against the recorded upstream data. |
+| `heuristics.sh`       | Regression test for the shapes a wrong answer would hide: a project with two release lines, and a package with no version of its own. |
 | `fixtures/`           | The recorded upstream data (releases, tags, default branch) per repository. |
 | `capture-fixtures.py` | Refreshes `fixtures/` from the live GitHub API.                  |
 | `trim-fixtures.py`    | Drops the release assets of the lines no flake tracks.           |
@@ -79,7 +80,8 @@ release.
 
 1. The `version` attribute of that package, when it is a literal.
 2. The `version` attribute of the enclosing let block, when the package does
-   `inherit version`.
+   `inherit version` - a sibling package's version is not this package's
+   version.
 3. The ref of a github input URL (`github:owner/repo/v1.2.3`).
 4. `dynamic` when the attribute is interpolated (`0.1.0-main-${...}`).
 
@@ -87,7 +89,10 @@ release.
 version.
 
 1. `# release-prefix: cli-v` in the flake.
-2. The prefix in the `releases/download/<prefix>${version}` URL.
+2. The prefix in the package's own `releases/download/<prefix>${version}` URL
+   - the package's own artifact decides, so a helper attribute that carries
+   a second binary of the same project cannot move the flake onto another
+   release line.
 3. The prefix in `rev = "<prefix>${version}"`.
 4. The prefix embedded in the version attribute (`dsh-v0.2.1-alpha.1`).
 5. `v`.
