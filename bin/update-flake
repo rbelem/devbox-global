@@ -2,6 +2,11 @@
 # devbox-global-update-flake
 # Lists devbox global packages, identifies flake packages,
 # checks latest GitHub version, and optionally updates them.
+#
+# The version detection lives in bin/flake-detect.py: it reads the enabled
+# flakes, parses each devbox.d/<flake>/flake.nix and asks GitHub for the
+# newest version published in the release line the flake tracks. This script
+# turns that answer into the table and owns the update machinery.
 set -euo pipefail
 
 # ── Argument parsing ──
@@ -53,10 +58,6 @@ if $SHOW_HELP; then
     exit 0
 fi
 
-DEVBOX_GLOBAL_PATH="$(devbox global path)"
-DEVBOX_JSON="$DEVBOX_GLOBAL_PATH/devbox.json"
-DEVBOX_D="$DEVBOX_GLOBAL_PATH/devbox.d"
-
 # Colors (declared before preflight so error paths can use them under set -u)
 RED=$'\033[0;31m'
 GREEN=$'\033[0;32m'
@@ -65,7 +66,7 @@ CYAN=$'\033[0;36m'
 BOLD=$'\033[1m'
 NC=$'\033[0m'
 
-# ── Preflight: gh must be installed and authenticated ──
+# ── Preflight: gh, python3 and the detector must be there ──
 # gh release list / gh api calls below use `2>/dev/null || true` to keep
 # detection robust, but a missing gh auth causes ALL packages to show "unknown"
 # silently. Fail fast with a clear message instead.
@@ -79,30 +80,64 @@ if ! gh auth status >/dev/null 2>&1; then
     echo "Run: ${BOLD}gh auth login${NC}" >&2
     exit 1
 fi
+# The detection runs in python3 (it ships with the devbox global profile).
+if ! command -v python3 >/dev/null 2>&1; then
+    echo "${RED}ERROR${NC}: python3 is not installed." >&2
+    echo "Install: ${BOLD}nix-env -iA nixpkgs.python3${NC} or your distro's package manager." >&2
+    exit 1
+fi
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DETECTOR="$SCRIPT_DIR/flake-detect.py"
+if [[ ! -f "$DETECTOR" ]]; then
+    echo "${RED}ERROR${NC}: the version detector is missing: $DETECTOR" >&2
+    exit 1
+fi
+
+DEVBOX_GLOBAL_PATH="$(devbox global path)"
+DEVBOX_JSON="$DEVBOX_GLOBAL_PATH/devbox.json"
+DEVBOX_D="$DEVBOX_GLOBAL_PATH/devbox.d"
 
 # Fake hash placeholder — literal string, works in any nix scope (no pkgs dependency)
 FAKE_HASH='sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='
 
-# ── Semver comparison ──
-# Returns 0 (true) if $1 > $2 semver-wise, 1 otherwise. Strips leading 'v',
-# defaults missing components to 0 (so "2.0" == "2.0.0"), and ignores non-digit
-# suffixes like "-rc1" or "+build3" so tags remain comparable.
-semver_gt() {
-    local a="${1#v}" b="${2#v}"
-    local -a ap=() bp=()
-    IFS='.' read -ra ap <<< "$a"
-    IFS='.' read -ra bp <<< "$b"
-    for i in 0 1 2; do
-        local av="${ap[$i]:-0}" bv="${bp[$i]:-0}"
-        av="${av%%[!0-9]*}"  # drop -rc1, +build3, etc.
-        bv="${bv%%[!0-9]*}"
-        (( av > bv )) && return 0
-        (( av < bv )) && return 1
-    done
-    return 1  # equal
-}
+# ── Detection ──
+# The detector answers, for every enabled flake: the upstream repository, the
+# release line, the installed version, the newest upstream version and the
+# relation between the two. It prints one TSV line per flake.
+if ! DETECT_TSV="$(python3 "$DETECTOR" --global-dir "$DEVBOX_GLOBAL_PATH")"; then
+    echo "${RED}ERROR${NC}: the version detection failed (see the output above)." >&2
+    exit 1
+fi
+
+declare -A DET_REPO DET_ORIGIN DET_KIND DET_PREFIX DET_MAJOR
+declare -A DET_INSTALLED DET_INSTALLED_RAW DET_LATEST DET_RELATION DET_REASON
+declare -A DET_UPSTREAM DET_FORK_SUFFIX DET_BRANCH DET_INPUT DET_VERSION_SOURCE
+declare -a FLAKES=()
+
+while IFS=$'\t' read -r name repo origin kind prefix major installed_raw installed latest relation reason upstream fork_suffix branch input version_source; do
+    [[ -z "$name" || "$name" == \#* ]] && continue
+    FLAKES+=("$name")
+    DET_REPO["$name"]="$repo"
+    DET_ORIGIN["$name"]="$origin"
+    DET_KIND["$name"]="$kind"
+    DET_PREFIX["$name"]="$prefix"
+    DET_MAJOR["$name"]="$major"
+    DET_INSTALLED_RAW["$name"]="$installed_raw"
+    DET_INSTALLED["$name"]="$installed"
+    DET_LATEST["$name"]="$latest"
+    DET_RELATION["$name"]="$relation"
+    DET_REASON["$name"]="$reason"
+    DET_UPSTREAM["$name"]="$upstream"
+    DET_FORK_SUFFIX["$name"]="$fork_suffix"
+    DET_BRANCH["$name"]="$branch"
+    DET_INPUT["$name"]="$input"
+    DET_VERSION_SOURCE["$name"]="$version_source"
+done <<< "$DETECT_TSV"
 
 # ── Parse installed versions from `devbox global list` ──
+# Only the nixpkgs packages are shown here; the flake versions come from the
+# detector.
 declare -A INSTALLED
 while IFS= read -r line; do
     line="${line#\* }"
@@ -119,265 +154,97 @@ while IFS= read -r line; do
     fi
 done < <(devbox global list 2>/dev/null)
 
-# ── Extract flake package names from devbox.json (JSONC-safe) ──
-declare -a FLAKES=()
-while IFS= read -r entry; do
-    if [[ "$entry" == path:* ]]; then
-        name="${entry#path:}"
-        name="${name#devbox.d/}"
-        FLAKES+=("$name")
-    fi
-done < <(grep -oP '"path:devbox\.d/[^"]+"|"[^"]+@latest"' "$DEVBOX_JSON" | tr -d '"' | grep '^path:')
-
-# ── For each flake, extract GitHub source + version from flake.nix ──
-declare -A FLAKE_OWNER FLAKE_REPO FLAKE_VERSION FLAKE_TYPE \
-         FLAKE_UPSTREAM FLAKE_FORK_SUFFIX FLAKE_RELEASE_PREFIX FLAKE_BRANCH_TRACKING \
-         FLAKE_INPUT_NAME
-
 # Flakes whose flake.lock the updater re-resolved this run. The global copy's
 # lock is fresh but the repo copy's is still stale, so a reverse config-sync is
 # required before committing. Reported at the end so it isn't forgotten.
 declare -a LOCK_REFRESHED=()
 
-for name in "${FLAKES[@]}"; do
-    flake_nix="$DEVBOX_D/$name/flake.nix"
-    [[ -f "$flake_nix" ]] || continue
+# ── Version writing ──
+# The block between the two markers is extracted by
+# tests/update/version-spelling.sh, which checks the spellings without
+# running a build.
 
-    # Extract version from explicit version attribute
-    ver="$(grep -oP '\bversion\s*=\s*"\K[^"]+' "$flake_nix" | head -1 || true)"
+# Escape a version so it can be used as a literal in a grep/sed pattern.
+sed_escape() {
+    printf '%s' "$1" | sed -e 's/[][\.*^$()+?{}|\/]/\\&/g'
+}
 
-    # Fallback: extract version from flake input URL refs (e.g. github:owner/repo/v1.2.3)
-    if [[ -z "$ver" ]]; then
-        ver="$(grep -oP '"github:[^/"]+/[^/"]+/\K[^"]+' "$flake_nix" | grep -vE '^(nixos-unstable|main|master|develop|nightly)$' | head -1 || true)"
-        ver="${ver#v}"
+# The spellings a version can have in a flake, and the new spelling of each.
+# The same version is written two ways: bare ("0.16.0") and with the tag
+# prefix of its release line ("v0.16.0", "dsh-v0.2.1-alpha.1"). A flake does
+# not use the same spelling everywhere - graphify pins the version attribute
+# as "0.9.91" and the input URL as "v0.9.91", steel-takeoff pins the
+# attribute as "0.16.0" and the input URL as "v0.16.0" - so every spelling
+# that occurs in the file is replaced by the same spelling of the new
+# version.
+#
+# Fills OLD_SPELLINGS and NEW_SPELLINGS (parallel arrays).
+version_spellings() {
+    local name="$1" old_ver="$2" new_ver="$3"
+    local prefix="${DET_PREFIX[$name]:-}"
+    local suffix="${DET_FORK_SUFFIX[$name]:-}"
+    # "-" is the empty marker of the detector, not a prefix or a suffix.
+    [[ "$prefix" == "-" ]] && prefix=""
+    [[ "$suffix" == "-" ]] && suffix=""
+
+    OLD_SPELLINGS=("$old_ver")
+    NEW_SPELLINGS=("${new_ver}${suffix}")
+    if [[ -n "$prefix" && "$old_ver" != "$prefix"* ]]; then
+        OLD_SPELLINGS+=("${prefix}${old_ver}")
+        NEW_SPELLINGS+=("${prefix}${new_ver}${suffix}")
     fi
+}
 
-    FLAKE_VERSION["$name"]="$ver"
+# Replace every spelling of the old version in the flake with the same
+# spelling of the new version. The version lives in a `version = "..."`
+# attribute and/or in the ref of a github input URL
+# (`github:owner/repo/v1.2.3`); a flake may use either or both, and the two
+# do not always use the same spelling.
+# Echoes one line per replacement; returns 0 when something was written.
+write_version() {
+    local flake_nix="$1" name="$2" old_ver="$3" new_ver="$4"
+    local index old_spelling new_spelling old_escaped
+    local updated=false
 
-    found_source=false
+    declare -a OLD_SPELLINGS=() NEW_SPELLINGS=()
+    version_spellings "$name" "$old_ver" "$new_ver"
 
-    # Strategy 1: fetchFromGitHub with owner/repo attrs (most specific, no false positives)
-    owner="$(grep -oP 'owner\s*=\s*"\K[^"]+' "$flake_nix" | grep -v NixOS | head -1 || true)"
-    repo="$(grep -oP 'repo\s*=\s*"\K[^"]+' "$flake_nix" | grep -v nixpkgs | head -1 || true)"
-    if [[ -n "$owner" && -n "$repo" ]]; then
-        FLAKE_OWNER["$name"]="$owner"
-        FLAKE_REPO["$name"]="$repo"
-        FLAKE_TYPE["$name"]="fetchFromGitHub"
-        found_source=true
-    fi
+    for index in "${!OLD_SPELLINGS[@]}"; do
+        old_spelling="${OLD_SPELLINGS[$index]}"
+        new_spelling="${NEW_SPELLINGS[$index]}"
+        old_escaped="$(sed_escape "$old_spelling")"
 
-    # Strategy 2: github:owner/repo input URLs (non-nixpkgs)
-    if ! $found_source; then
-        input_url="$(grep -oP '"github:[^"]+' "$flake_nix" | grep -v 'github:NixOS/nixpkgs' | head -1 || true)"
-        if [[ -n "$input_url" ]]; then
-            input_url="${input_url#\"}"
-            input_url="${input_url#github:}"
-            owner="${input_url%%/*}"
-            rest="${input_url#*/}"
-            repo="${rest%%/*}"
-            FLAKE_OWNER["$name"]="$owner"
-            FLAKE_REPO["$name"]="$repo"
-            FLAKE_TYPE["$name"]="github-input"
-            # Input *attribute* name (e.g. `hermes-agent.url = "github:..."`),
-            # needed to re-resolve just this input: `nix flake update <input>`.
-            # Without it, bumping the URL leaves flake.lock pinning the old rev.
-            FLAKE_INPUT_NAME["$name"]="$(grep -oP '^\s*\K\S+(?=\.url\s*=\s*"github:)' "$flake_nix" | grep -v '^nixpkgs$' | head -1 || true)"
-            found_source=true
+        if grep -qP "\\bversion\\s*=\\s*\"$old_escaped\"" "$flake_nix"; then
+            sed -ri "s/(\\bversion\\s*=\\s*)\"$old_escaped\"/\\1\"$new_spelling\"/g" "$flake_nix"
+            echo "    ✓ version field updated ($old_spelling → $new_spelling)"
+            updated=true
         fi
-    fi
 
-    # Strategy 3: homepage attribute (meta.homepage or homepage) points to source repo
-    # Useful when source is fetched from elsewhere (npm, GitHub releases) but
-    # the code repo is on GitHub. Avoids false positives from embedded dependency URLs.
-    if ! $found_source; then
-        homepage_url="$(grep -oP 'homepage\s*=\s*"https://github\.com/\K[^/"]+/[^/"]+' "$flake_nix" | head -1 || true)"
-        if [[ -n "$homepage_url" ]]; then
-            owner="${homepage_url%/*}"
-            repo="${homepage_url#*/}"
-            FLAKE_OWNER["$name"]="$owner"
-            FLAKE_REPO["$name"]="$repo"
-            FLAKE_TYPE["$name"]="homepage"
-            found_source=true
+        if grep -qF "/$old_spelling\"" "$flake_nix"; then
+            sed -i "s|/$old_spelling\"|/$new_spelling\"|g" "$flake_nix"
+            echo "    ✓ input URL ref updated ($old_spelling → $new_spelling)"
+            updated=true
         fi
-    fi
+    done
+    $updated
+}
 
-    # Strategy 4: fetchurl/fetchzip with github.com/owner/repo URL (least specific, most false positives)
-    if ! $found_source; then
-        url="$(grep -oP 'github\.com/[^/"]+/[^/"]+' "$flake_nix" | grep -v 'NixOS/nixpkgs' | head -1 || true)"
-        if [[ -n "$url" ]]; then
-            owner="$(echo "$url" | cut -d'/' -f2)"
-            repo="$(echo "$url" | cut -d'/' -f3)"
-            repo="${repo%.git}"
-            FLAKE_OWNER["$name"]="$owner"
-            FLAKE_REPO["$name"]="$repo"
-            FLAKE_TYPE["$name"]="fetchurl"
-            found_source=true
-        fi
-    fi
+# ── end version writing ──
 
-    # Extract fork metadata from flake.nix comments:
-    #   # upstream: owner/repo       → check this repo for new releases
-    #   # fork-suffix: -perl         → appended to upstream version for fork version
-    #   # release-prefix: cli-v      → filter tags by this prefix (e.g. cli-v, skill-v)
-    #   # branch-tracking: <branch>  → no comparable tags (builds track a branch);
-    #                                  resolve "latest" to the branch, never auto-update
-    upstream_comment="$(grep -oP '^[[:space:]]*#\s*upstream:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
-    fork_suffix_comment="$(grep -oP '^[[:space:]]*#\s*fork-suffix:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
-    release_prefix_comment="$(grep -oP '^[[:space:]]*#\s*release-prefix:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
-    branch_tracking_comment="$(grep -oP '^[[:space:]]*#\s*branch-tracking:\s*\K\S+' "$flake_nix" 2>/dev/null || true)"
-    [[ -n "$upstream_comment" ]] && FLAKE_UPSTREAM["$name"]="$upstream_comment"
-    [[ -n "$fork_suffix_comment" ]] && FLAKE_FORK_SUFFIX["$name"]="$fork_suffix_comment"
-    [[ -n "$release_prefix_comment" ]] && FLAKE_RELEASE_PREFIX["$name"]="$release_prefix_comment"
-    [[ -n "$branch_tracking_comment" ]] && FLAKE_BRANCH_TRACKING["$name"]="$branch_tracking_comment"
-
-    # No explicit release-prefix comment — infer the tag prefix from the
-    # flake's own URL template so multi-stream repos resolve LATEST from the
-    # stream the flake tracks (e.g. bsk's cli-v${version} asset URL vs the
-    # repo's ext-v* extension line). Takes the path segment before ${version}:
-    # releases/download/cli-v${version} → cli-v; rev = "v${version}" → v
-    # (same as the default v-preference). Empty (bare ${version} tag) keeps
-    # the default detection path.
-    # NOTE: [^"$]* (not [^"]*) stops at the FIRST ${version} — URL lines
-    # often interpolate it twice (tag AND asset name); greedy matching would
-    # capture the asset segment (bsk-v) instead of the tag prefix (cli-v).
-    if [[ -z "${FLAKE_RELEASE_PREFIX[$name]:-}" ]]; then
-        inferred_prefix="$(grep -oP 'releases/download/[^"$]*\$\{version\}' "$flake_nix" 2>/dev/null | head -1 || true)"
-        if [[ -z "$inferred_prefix" ]]; then
-            inferred_prefix="$(grep -oP 'rev\s*=\s*"[^"$]*\$\{version\}' "$flake_nix" 2>/dev/null | head -1 || true)"
-        fi
-        if [[ -n "$inferred_prefix" ]]; then
-            inferred_prefix="${inferred_prefix##*/}"
-            inferred_prefix="${inferred_prefix#*\"}"
-            inferred_prefix="${inferred_prefix%\$\{version\}}"
-            [[ -n "$inferred_prefix" ]] && FLAKE_RELEASE_PREFIX["$name"]="$inferred_prefix"
-        fi
-    fi
-done
-
-# ── Check latest GitHub version ──
-declare -A LATEST
-
-for name in "${FLAKES[@]}"; do
-    owner="${FLAKE_OWNER[$name]:-}"
-    repo="${FLAKE_REPO[$name]:-}"
-
-    if [[ -z "$owner" || -z "$repo" ]]; then
-        LATEST["$name"]="unknown"
-        continue
-    fi
-
-    # For forked flakes, check upstream repo for latest version
-    if [[ -n "${FLAKE_UPSTREAM[$name]:-}" ]]; then
-        owner="${FLAKE_UPSTREAM[$name]%/*}"
-        repo="${FLAKE_UPSTREAM[$name]#*/}"
-    fi
-
-    # Branch-tracking flakes have no comparable release tags — e.g.
-    # opencode-v2 tracks the repo's v2 branch while its releases are the v1
-    # line — so comparing against "latest release" would falsely flag ↓ and
-    # auto-"downgrade" to the wrong version line. Resolve to the branch,
-    # show as ahead, and let the branch:* guards below skip auto-update
-    # (these are bumped manually via the flake's own bump recipe).
-    if [[ -n "${FLAKE_BRANCH_TRACKING[$name]:-}" ]]; then
-        LATEST["$name"]="branch:${FLAKE_BRANCH_TRACKING[$name]}"
-        continue
-    fi
-
-    release_prefix="${FLAKE_RELEASE_PREFIX[$name]:-}"
-
-    # Try GitHub releases first (exclude pre-releases).
-    # NOTE: `2>/dev/null || true` is intentional — API errors (rate limit,
-    # 404 for private repos, etc.) fall through to "unknown" for that
-    # package rather than aborting the whole run. The preflight gh-auth
-    # check above ensures at least the AUTH case is loud.
-    latest_tags="$(gh release list -R "$owner/$repo" --limit 20 -L 20 --json tagName,isPrerelease -q '.[] | select(.isPrerelease == false) | .tagName' 2>/dev/null || true)"
-
-    if [[ -n "$latest_tags" ]]; then
-        if [[ -n "$release_prefix" ]]; then
-            # Custom release prefix (e.g. cli-v, skill-v) — filter by it
-            latest_tag="$(echo "$latest_tags" | grep "^${release_prefix}" | head -1 || true)"
-            # If no match, don't fallthrough — this repo has no matching releases
-            [[ -z "$latest_tag" ]] && latest_tags=""
-        else
-            # Prefer tags starting with "v" (standard semver: vX.Y.Z).
-            latest_tag="$(echo "$latest_tags" | grep '^v' | head -1 || true)"
-            # If no v-prefixed release, try known platform prefixes (bun-v, mac-v)
-            # that are still version tags (e.g. bun-v1.3.14, mac-v1.2.3).
-            if [[ -z "$latest_tag" ]]; then
-                latest_tag="$(echo "$latest_tags" | grep -E '^(bun-v|mac-v)' | head -1 || true)"
-            fi
-            # If none match a known version prefix, releases are likely CI/action
-            # tags (e.g. github-action-v1.0.2) — fall through to git tags.
-            if [[ -z "$latest_tag" ]]; then
-                latest_tags=""
-            fi
-        fi
-    fi
-
-    if [[ -n "$latest_tags" ]]; then
-        if [[ -n "$release_prefix" ]]; then
-            # Strip release prefix (e.g. cli-v3.1.0 → 3.1.0)
-            latest_ver="${latest_tag#$release_prefix}"
-            latest_ver="${latest_ver#v}"
-        else
-            # Strip common prefixes: v, bun-v, mac-v
-            latest_ver="${latest_tag#v}"
-            latest_ver="${latest_ver#bun-v}"
-            latest_ver="${latest_ver#mac-v}"
-        fi
-        LATEST["$name"]="$latest_ver"
-    else
-        # Fall back to tags — same v-prefix preference
-        all_tags="$(gh api "repos/$owner/$repo/tags" --jq '.[].name' 2>/dev/null || true)"
-        if [[ -n "$all_tags" ]]; then
-            if [[ -n "$release_prefix" ]]; then
-                latest_tag="$(echo "$all_tags" | grep "^${release_prefix}" | head -1 || true)"
-            else
-                latest_tag="$(echo "$all_tags" | grep '^v' | head -1 || true)"
-            fi
-            if [[ -z "$latest_tag" ]]; then
-                latest_tag="$(echo "$all_tags" | head -1)"
-            fi
-            if [[ -n "$release_prefix" ]]; then
-                latest_ver="${latest_tag#$release_prefix}"
-                latest_ver="${latest_ver#v}"
-            else
-                latest_ver="${latest_tag#v}"
-                latest_ver="${latest_ver#bun-v}"
-                latest_ver="${latest_ver#mac-v}"
-            fi
-            LATEST["$name"]="$latest_ver"
-        else
-            # Fall back to default branch
-            latest_branch="$(gh api "repos/$owner/$repo" --jq '.default_branch' 2>/dev/null || true)"
-            if [[ -n "$latest_branch" ]]; then
-                LATEST["$name"]="branch:$latest_branch"
-            else
-                LATEST["$name"]="unknown"
-            fi
-        fi
-    fi
-done
-
-# ── Verify ↓ candidates against the real release assets ──
-# A candidate from the wrong release stream (e.g. bsk's ext-v* extension tags
-# vs the cli-v* stream its asset URL pins) builds a download URL that 404s.
-# Never report those as actionable ↓ — mark ?? with a short reason instead.
-# Only flakes whose flake.nix pins a releases/download URL template on
-# ${version} are verifiable; other flakes keep their detected status.
-# Echoes the failure reason (stream-mismatch | asset-404 | verify-error), or
-# nothing when the candidate's asset URL resolves. Always succeeds.
+# ── Verify a candidate against the real release assets ──
+# The detection already picks the release line the flake tracks (its tag
+# prefix), so a candidate normally resolves. This guards the remaining case:
+# a release that has no asset for this platform cannot be downloaded and the
+# flake would not build.
+# Echoes the failure reason (asset-404 | verify-error), or nothing when the
+# candidate's asset URL resolves. Always succeeds.
 verify_candidate_asset() {
     local name="$1" candidate="$2"
-    local flake_nix="$DEVBOX_D/$name/flake.nix"
-    local owner="${FLAKE_OWNER[$name]:-}" repo="${FLAKE_REPO[$name]:-}"
+    local dir="${name%%#*}"
+    local flake_nix="$DEVBOX_D/$dir/flake.nix"
+    local repo="${DET_REPO[$name]:-}"
 
-    # For forked flakes, assets live upstream
-    if [[ -n "${FLAKE_UPSTREAM[$name]:-}" ]]; then
-        owner="${FLAKE_UPSTREAM[$name]%/*}"
-        repo="${FLAKE_UPSTREAM[$name]#*/}"
-    fi
-    [[ -n "$owner" && -n "$repo" ]] || return 0
+    [[ -n "$repo" && "$repo" != "unknown" ]] || return 0
 
     local url_template
     url_template="$(grep -oP 'https://github\.com/[^"]*\$\{version\}[^"]*' "$flake_nix" 2>/dev/null | grep 'releases/download/' | head -1 || true)"
@@ -386,25 +253,24 @@ verify_candidate_asset() {
     # Candidate tags to try: the flake's stream prefix + version, falling back
     # to v-prefixed/bare when the flake pins a bare ${version} tag.
     local -a tags_to_try=()
-    if [[ -n "${FLAKE_RELEASE_PREFIX[$name]:-}" ]]; then
-        tags_to_try=("${FLAKE_RELEASE_PREFIX[$name]}${candidate}")
+    local prefix="${DET_PREFIX[$name]:-}"
+    if [[ -n "$prefix" && "$prefix" != "-" ]]; then
+        tags_to_try=("${prefix}${candidate}")
     else
         tags_to_try=("v${candidate}" "${candidate}")
     fi
 
     local tag="" release_json=""
     for tag in "${tags_to_try[@]}"; do
-        release_json="$(gh api "repos/$owner/$repo/releases/tags/$tag" 2>&1 || true)"
+        release_json="$(gh api "repos/$repo/releases/tags/$tag" 2>&1 || true)"
         echo "$release_json" | grep -q '"tag_name"' && break
         release_json=""
     done
     if [[ -z "$release_json" ]]; then
-        # None of the candidate tags names a real release. A 404 here means
-        # the version came from another stream (naive substitution 404s);
-        # anything else is a transient lookup failure.
-        release_json="$(gh api "repos/$owner/$repo/releases/tags/${tags_to_try[0]}" 2>&1 || true)"
+        # None of the candidate tags names a real release.
+        release_json="$(gh api "repos/$repo/releases/tags/${tags_to_try[0]}" 2>&1 || true)"
         if echo "$release_json" | grep -qi 'not found\|404'; then
-            echo "stream-mismatch"
+            echo "asset-404"
         else
             echo "verify-error"
         fi
@@ -413,12 +279,12 @@ verify_candidate_asset() {
 
     # The asset filename the flake would fetch: template with the candidate
     # substituted, cut at the first remaining nix interpolation (e.g.
-    # bsk-v0.3.3-${systemToTarget...}.tar.gz → prefix bsk-v0.3.3-).
+    # bsk-v0.3.3-${systemToTarget...}.tar.gz -> prefix bsk-v0.3.3-).
     local url_sub="${url_template//\$\{version\}/$candidate}"
     local asset_file="${url_sub##*/}"
     local asset_prefix="${asset_file%%\$*}"
     local asset_url
-    asset_url="$(gh api "repos/$owner/$repo/releases/tags/$tag" --jq "[.assets[] | select(.name | startswith(\"$asset_prefix\")) | .browser_download_url][0] // empty" 2>/dev/null || true)"
+    asset_url="$(gh api "repos/$repo/releases/tags/$tag" --jq "[.assets[] | select(.name | startswith(\"$asset_prefix\")) | .browser_download_url][0] // empty" 2>/dev/null || true)"
     if [[ -z "$asset_url" ]]; then
         echo "asset-404"
         return 0
@@ -434,48 +300,22 @@ verify_candidate_asset() {
     return 0
 }
 
-# Candidates strictly newer than installed get asset-verified here; failures
-# land in VERIFY_FAIL and are shown as ?? (never ↓) in the table below and
-# excluded from auto-update.
-declare -A VERIFY_FAIL=()
-for name in "${FLAKES[@]}"; do
-    installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
-    latest="${LATEST[$name]:-unknown}"
-
-    compare_installed="$installed"
-    if [[ -n "${FLAKE_FORK_SUFFIX[$name]:-}" ]]; then
-        compare_installed="${installed%${FLAKE_FORK_SUFFIX[$name]}}"
-    fi
-
-    if [[ "$installed" != "unknown" && "$latest" != "unknown" && "$latest" != branch:* ]] \
-        && semver_gt "$latest" "$compare_installed"; then
-        reason="$(verify_candidate_asset "$name" "$latest")"
-        [[ -n "$reason" ]] && VERIFY_FAIL["$name"]="$reason"
-    fi
-done
-
 # ── Update a single flake package ──
 update_flake() {
     local name="$1" old_ver="$2" new_ver="$3"
-    local flake_nix="$DEVBOX_D/$name/flake.nix"
-    local owner="${FLAKE_OWNER[$name]:-}"
-    local repo="${FLAKE_REPO[$name]:-}"
+    local dir="${name%%#*}"
+    local flake_nix="$DEVBOX_D/$dir/flake.nix"
+    local repo="${DET_ORIGIN[$name]:-}"
 
     [[ -f "$flake_nix" ]] || { echo "  File not found"; return 1; }
-    [[ -z "$old_ver" || "$old_ver" == "flake" ]] && { echo "  Cannot determine installed version"; return 1; }
+    [[ -z "$old_ver" || "$old_ver" == "flake" || "$old_ver" == "unknown" || "$old_ver" == "dynamic" ]] \
+        && { echo "  Cannot determine installed version"; return 1; }
 
-    # For forked flakes, append fork suffix to the new version
-    local update_ver="$new_ver"
-    if [[ -n "${FLAKE_FORK_SUFFIX[$name]:-}" ]]; then
-        update_ver="${new_ver}${FLAKE_FORK_SUFFIX[$name]}"
-    fi
+    # The version the flake should carry from now on, in every spelling it
+    # uses today.
+    [[ "$old_ver" == "$new_ver" ]] && { echo "  Already at latest: $old_ver"; return 0; }
 
-    [[ "$old_ver" == "$update_ver" ]] && { echo "  Already at latest: $old_ver"; return 0; }
-
-    echo "  ${BOLD}${name}${NC}: $old_ver → $update_ver  (${owner}/${repo})"
-
-    # Escape dots for sed
-    old_ver_escaped="${old_ver//\./\\.}"
+    echo "  ${BOLD}${name}${NC}: $old_ver → $new_ver  (${repo})"
 
     # Two independent places a version can live, and a flake may use either or
     # both:
@@ -486,31 +326,8 @@ update_flake() {
     # report "Could not find version = ... — skipping" and never update, even
     # though the table above correctly detected the new release. So track
     # whether *either* write landed and only bail if neither did.
-    local updated=false
-
-    # 1. Update version field
-    if grep -qP "\\bversion\\s*=\\s*\"$old_ver_escaped\"" "$flake_nix"; then
-        sed -ri "s/(\\bversion\\s*=\\s*)\"$old_ver_escaped\"/\\1\"$update_ver\"/" "$flake_nix"
-        echo "    ✓ version field updated"
-        updated=true
-    fi
-
-    # 2. Update input URL refs (e.g. github:owner/repo/v1.2.3).
-    #    NOT gated on FLAKE_TYPE == github-input: source detection picks its
-    #    strategy independently of where the version lives, so a URL-pinned
-    #    flake whose owner/repo was detected via fetchFromGitHub/homepage attrs
-    #    would never get its ref bumped. Match on the ref actually present
-    #    instead — if a `.../v<old>` or `.../<old>"` URL exists, bump it.
-    #    `old_ver` has no `v` prefix (stripped during detection), so both the
-    #    v-prefixed and bare forms are handled.
-    if grep -qE "(/v|/)$old_ver_escaped\"" "$flake_nix"; then
-        sed -ri "s|(/v)${old_ver_escaped}\"|\\1${update_ver}\"|g; s|(/)${old_ver_escaped}\"|\\1${update_ver}\"|g" "$flake_nix"
-        echo "    ✓ input URL ref updated"
-        updated=true
-    fi
-
-    if ! $updated; then
-        echo "    ! Could not find version \"$old_ver\" in flake.nix — neither a"
+    if ! write_version "$flake_nix" "$name" "$old_ver" "$new_ver"; then
+        echo "  ! Could not find version \"$old_ver\" in flake.nix — neither a"
         echo "      version = attribute nor an input URL ref matched — skipping"
         return 1
     fi
@@ -521,10 +338,10 @@ update_flake() {
     #     derivation named for the new version filled with the OLD source, so
     #     the store path claims 2026.8.31 while `hermes --version` answers
     #     2026.8.27. Always verify with the binary, never the store path.
-    local input_name="${FLAKE_INPUT_NAME[$name]:-}"
-    if [[ -n "$input_name" ]]; then
+    local input_name="${DET_INPUT[$name]:-}"
+    if [[ -n "$input_name" && "$input_name" != "-" ]]; then
         local lock_output
-        if lock_output=$(cd "$DEVBOX_D/$name" && nix flake update "$input_name" 2>&1); then
+        if lock_output=$(cd "$DEVBOX_D/$dir" && nix flake update "$input_name" 2>&1); then
             echo "    ✓ flake.lock re-resolved for input '$input_name'"
             # The lockfile in the *repo* copy is still stale after this —
             # pull it back with: devbox global run config-sync -- --reverse --sync
@@ -555,7 +372,8 @@ update_flake() {
 # ── Auto-resolve hashes by building and capturing "got" hash ──
 resolve_hashes() {
     local name="$1"
-    local flake_dir="$DEVBOX_D/$name"
+    local dir="${name%%#*}"
+    local flake_dir="$DEVBOX_D/$dir"
     local flake_nix="$flake_dir/flake.nix"
     local max_attempts=10
     local result=1  # default: failure
@@ -603,7 +421,7 @@ resolve_hashes() {
             # comment (injected by the reset step above) is stripped from the
             # same line — it's only meaningful during the resolution loop.
             sed -i -e "0,/${FAKE_HASH//\//\\/}/{s/${FAKE_HASH//\//\\/}/${got_hash//\//\\/}/}" "$flake_nix"
-            sed -i -E -e "0,/${got_hash//\//\\/}/{s/;[[:space:]]*#[[:space:]]*FIXME:[[:space:]]*was[[:space:]]*\"sha256-[^\"]*\"//}" "$flake_nix"
+            sed -i -E -e "0,/${got_hash//\//\\/}/{s/;[[:space:]]*#[[:space:]]*FIXME:[[:space:]]*was[[:space:]]*\"sha256-[^\"]*\"/}/}" "$flake_nix"
             echo "    hash $attempt: $got_hash"
         done
     else
@@ -623,16 +441,17 @@ resolve_hashes() {
 }
 
 # ── Detect flakes that exist in devbox.d/ but aren't enabled in devbox.json ──
-# FLAKES (built above) only contains path:devbox.d/X entries from devbox.json,
-# so all loops iterate enabled flakes only. Surface un-enabled flake dirs here
-# so they are visible rather than silently ignored.
+# FLAKES (built above) only contains the enabled path:devbox.d/X entries of
+# devbox.json - a commented-out entry is not enabled - so all loops iterate
+# enabled flakes only. Surface un-enabled flake dirs here so they are visible
+# rather than silently ignored.
 if [[ -d "$DEVBOX_D" ]]; then
     declare -a SKIPPED_FLAKES=()
     while IFS= read -r dir_name; do
         [[ -z "$dir_name" ]] && continue
         enabled=false
         for fname in "${FLAKES[@]}"; do
-            [[ "$dir_name" == "$fname" ]] && { enabled=true; break; }
+            [[ "$dir_name" == "${fname%%#*}" ]] && { enabled=true; break; }
         done
         $enabled || SKIPPED_FLAKES+=("$dir_name")
     done < <(find "$DEVBOX_D" -mindepth 1 -maxdepth 1 -type d ! -name '.*' -printf '%f\n' 2>/dev/null | sort)
@@ -650,40 +469,21 @@ printf "${BOLD}%-15s %-25s %-15s %-15s %-8s${NC}\n" "PACKAGE" "SOURCE" "INSTALLE
 printf "%-15s %-25s %-15s %-15s %-8s\n" "───────" "──────" "─────────" "──────" "──────"
 
 for name in "${FLAKES[@]}"; do
-    installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
-    latest="${LATEST[$name]:-unknown}"
-    type="${FLAKE_TYPE[$name]:-unknown}"
-    owner="${FLAKE_OWNER[$name]:-}"
-    repo="${FLAKE_REPO[$name]:-}"
+    source_display="${DET_REPO[$name]:-unknown}"
+    installed="${DET_INSTALLED[$name]:-unknown}"
+    latest="${DET_LATEST[$name]:-unknown}"
+    relation="${DET_RELATION[$name]:-unknown}"
+    reason="${DET_REASON[$name]:--}"
 
-    source_display="$owner/$repo"
-    [[ -z "$owner" ]] && source_display="$type"
-
-    # For forked flakes, strip fork suffix before comparing with latest
-    compare_installed="$installed"
-    if [[ -n "${FLAKE_FORK_SUFFIX[$name]:-}" ]]; then
-        compare_installed="${installed%${FLAKE_FORK_SUFFIX[$name]}}"
-    fi
-
-    # Determine status (semver-aware: ↓ if installed is older than latest, ↑ if installed is ahead of upstream, e.g. fork)
-    if [[ -n "${FLAKE_BRANCH_TRACKING[$name]:-}" && "$installed" != "unknown" ]]; then
-        # Branch-tracking build — ahead of the tagged release line by design
-        # (dev "next" channel), bumped manually, never auto-updated.
-        status="${YELLOW}↑${NC}"
-    elif [[ "$latest" == "unknown" || "$installed" == "unknown" || "$latest" == branch:* ]]; then
-        status="${YELLOW}??${NC}"
-    elif semver_gt "$latest" "$compare_installed"; then
-        # Newer upstream, but the asset URL check failed — not actionable.
-        if [[ -n "${VERIFY_FAIL[$name]:-}" ]]; then
-            status="${YELLOW}??${NC} (${VERIFY_FAIL[$name]})"
-        else
-            status="${RED}↓${NC}"
-        fi
-    elif semver_gt "$compare_installed" "$latest"; then
-        status="${YELLOW}↑${NC}"
-    else
-        status="${GREEN}✓${NC}"
-    fi
+    case "$relation" in
+        up-to-date) status="${GREEN}✓${NC}" ;;
+        older)      status="${RED}↓${NC}" ;;
+        ahead)      status="${YELLOW}↑${NC}" ;;
+        *)          status="${YELLOW}??${NC}" ;;
+    esac
+    # The reason names the blocker: a sha-pinned source, an interpolated
+    # version, a pre-release newest version, a branch-tracking build.
+    [[ -n "$reason" && "$reason" != "-" ]] && status="$status ($reason)"
 
     latest_display="${latest#branch:}"
 
@@ -699,7 +499,7 @@ for name in "${!INSTALLED[@]}"; do
     [[ "$ver" == "flake" ]] && continue
     is_flake=false
     for fname in "${FLAKES[@]}"; do
-        [[ "$name" == "$fname" ]] && { is_flake=true; break; }
+        [[ "$name" == "${fname%%#*}" ]] && { is_flake=true; break; }
     done
     $is_flake && continue
     printf "%-20s %-15s %s\n" "$name" "$ver" "nixpkgs"
@@ -710,26 +510,13 @@ printf "${GREEN}✓${NC} = up to date  ${RED}↓${NC} = older (update available)
 
 # ── Update workflow ──
 if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
-    # Build list of upgradable packages
+    # Build list of upgradable packages. Only a flake whose newest upstream
+    # version is strictly newer than the installed one is upgradable: a
+    # sha-pinned source (?? sha-pinned) and an interpolated version
+    # (?? dynamic-version) carry no "older" relation and are never touched.
     declare -a UPGRADABLE=()
     for name in "${FLAKES[@]}"; do
-        installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
-        latest="${LATEST[$name]:-unknown}"
-
-        # For forked flakes, strip fork suffix before comparing with latest
-        compare_installed="$installed"
-        if [[ -n "${FLAKE_FORK_SUFFIX[$name]:-}" ]]; then
-            compare_installed="${installed%${FLAKE_FORK_SUFFIX[$name]}}"
-        fi
-
-        # Only upgrade when upstream release is strictly newer than installed
-        # (semver-aware — "1.2.10" beats "1.2.9", not string "1.10.0" < "1.2.3")
-        # and its asset URL verified (unverifiable candidates stay manual).
-        if [[ "$installed" != "unknown" && "$latest" != "unknown" && "$latest" != branch:* ]] \
-            && semver_gt "$latest" "$compare_installed" \
-            && [[ -z "${VERIFY_FAIL[$name]:-}" ]]; then
-            UPGRADABLE+=("$name")
-        fi
+        [[ "${DET_RELATION[$name]:-}" == "older" ]] && UPGRADABLE+=("$name")
     done
 
     # Tell the user explicitly when --all / -u finds nothing — silent no-op is confusing.
@@ -752,7 +539,7 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
         for target in "${UPDATE_TARGETS[@]}"; do
             found=false
             for name in "${UPGRADABLE[@]}"; do
-                [[ "$name" == "$target" ]] && { found=true; break; }
+                if [[ "$name" == "$target" ]]; then found=true; break; fi
             done
             if $found; then
                 TARGETS+=("$target")
@@ -760,19 +547,23 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
                 # Check if it's a known flake
                 is_flake=false
                 for name in "${FLAKES[@]}"; do
-                    [[ "$name" == "$target" ]] && { is_flake=true; break; }
+                    if [[ "$name" == "$target" ]]; then is_flake=true; break; fi
                 done
                 if ! $is_flake; then
                     echo "  Package '$target' is not a known flake package."
-                elif grep -qF "$FAKE_HASH" "$DEVBOX_D/$target/flake.nix" 2>/dev/null; then
+                elif [[ "${DET_RELATION[$target]:-}" != "older" ]]; then
+                    installed="${DET_INSTALLED[$target]:-unknown}"
+                    reason="${DET_REASON[$target]:--}"
+                    if [[ "$reason" != "-" ]]; then
+                        echo "  Package '$target' is at $installed ($reason) — skipping."
+                    else
+                        echo "  Package '$target' is already at $installed (no update needed)."
+                    fi
+                elif grep -qF "$FAKE_HASH" "$DEVBOX_D/${target%%#*}/flake.nix" 2>/dev/null; then
                     # Version matches but hashes not fully resolved — retry resolution
                     TARGETS+=("$target")
-                elif [[ -n "${VERIFY_FAIL[$target]:-}" ]]; then
-                    latest="${LATEST[$target]:-unknown}"
-                    echo "  Package '$target' candidate $latest failed asset verification (${VERIFY_FAIL[$target]}) — skipping."
                 else
-                    installed="${FLAKE_VERSION[$target]:-${INSTALLED[$target]:-unknown}}"
-                    echo "  Package '$target' is already at $installed (no update needed)."
+                    echo "  Package '$target' is already at ${DET_INSTALLED[$target]:-unknown} (no update needed)."
                 fi
             fi
         done
@@ -783,8 +574,15 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
         echo "${BOLD}${CYAN}Applying updates...${NC}"
         for name in "${TARGETS[@]}"; do
             echo ""
-            installed="${FLAKE_VERSION[$name]:-${INSTALLED[$name]:-unknown}}"
-            latest="${LATEST[$name]:-unknown}"
+            installed="${DET_INSTALLED[$name]:-unknown}"
+            latest="${DET_LATEST[$name]:-unknown}"
+            # The candidate must resolve to a downloadable release asset before
+            # the flake is rewritten: a missing asset means a broken build.
+            reason="$(verify_candidate_asset "$name" "$latest")"
+            if [[ -n "$reason" ]]; then
+                echo "  ${BOLD}${name}${NC}: candidate $latest has no downloadable asset (${reason}) — skipping."
+                continue
+            fi
             update_flake "$name" "$installed" "$latest" || true
             resolve_hashes "$name" || echo "    ${YELLOW}!${NC} hash resolution incomplete (see above)"
         done

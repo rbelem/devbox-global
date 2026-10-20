@@ -14,7 +14,7 @@ implicit.
 | Derivations in `devbox.d/` | 59, of which 39 are referenced by `devbox.json` |
 | Nix | about 6,100 lines across `devbox.d/*/flake.nix` |
 | Registry packages pinned in `devbox.json` | 57 |
-| Maintenance scripts in `bin/` | 18 |
+| Maintenance scripts in `bin/` | 19 |
 | Commits since 2023-04-18 | 1,067 |
 
 ## Why a derivation instead of a registry package
@@ -81,7 +81,7 @@ purpose, which is usually a `makeWrapper` or a `symlinkJoin`.
 
 ## Tooling
 
-`bin/` holds 18 scripts. Two of them are the ones that keep the packaging
+`bin/` holds 19 scripts. Two of them are the ones that keep the packaging
 honest.
 
 **`bin/vet-flakes`** is a read-only lint over every `devbox.d/*/flake.nix`:
@@ -94,8 +94,18 @@ header says how to drop it into a pre-commit hook or a CI step.
 
 **`bin/update-flake`** checks upstream GitHub releases against the installed
 versions, shows a comparison table, and updates the pinned version and hashes.
-It fails fast when `gh` is missing or unauthenticated, because otherwise every
-package silently reports `unknown`.
+It fails fast when `gh` or `python3` is missing, or when `gh` is
+unauthenticated, because otherwise every package silently reports `unknown`.
+
+The detection itself lives in **`bin/flake-detect.py`**: it reads the enabled
+flakes from `devbox.json`, parses each `devbox.d/<flake>/flake.nix` for the
+upstream repository, the pinned version and the release line the flake tracks,
+and asks GitHub for the newest version published in that line. `update-flake`
+keeps the update machinery — bumping the version attribute and the input URL
+ref, resetting the hashes, resolving them, refreshing `flake.lock`. The rules
+the detection follows are written down in `tests/detection/README.md`, and
+`tests/detection/run.sh` checks the table against a recorded contract, offline,
+with a fake `gh`.
 
 The rest are `setup-*` scripts for the individual pieces of the environment
 (git, flatpak, podman, tmux, themes, nerd fonts, KDE secrets service, herdr,
