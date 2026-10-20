@@ -4,6 +4,42 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.2/opencodereview-darwin-amd64",
+     "name": "opencodereview-darwin-amd64"
+    },
+    {
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.2/opencodereview-darwin-arm64",
+     "name": "opencodereview-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.2/opencodereview-linux-amd64",
+     "name": "opencodereview-linux-amd64"
+    },
+    {
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.2/opencodereview-linux-arm64",
+     "name": "opencodereview-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.2/opencodereview-windows-amd64.exe",
+     "name": "opencodereview-windows-amd64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.2/opencodereview-windows-arm64.exe",
+     "name": "opencodereview-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.2/sha256sum.txt",
+     "name": "sha256sum.txt"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-20T03:17:00Z",
+   "tag_name": "v1.13.2"
+  },
+  {
+   "assets": [
+    {
      "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.1/opencodereview-darwin-amd64",
      "name": "opencodereview-darwin-amd64"
     },
@@ -4849,6 +4885,7 @@
  "repo": "alibaba/open-code-review",
  "tag_dates": {},
  "tags": [
+  "v1.13.2",
   "v1.13.1",
   "v1.13.0",
   "v1.12.13",

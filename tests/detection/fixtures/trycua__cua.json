@@ -2,6 +2,190 @@
  "default_branch": "main",
  "releases": [
   {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/checksums.txt",
+     "name": "checksums.txt"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-darwin-arm64.tar.gz",
+     "name": "cua-driver-rs-0.37.0-darwin-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-darwin-arm64.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-darwin-arm64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-darwin-universal-binary.tar.gz",
+     "name": "cua-driver-rs-0.37.0-darwin-universal-binary.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-darwin-universal-binary.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-darwin-universal-binary.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-darwin-universal.tar.gz",
+     "name": "cua-driver-rs-0.37.0-darwin-universal.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-darwin-universal.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-darwin-universal.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-darwin-x86_64.tar.gz",
+     "name": "cua-driver-rs-0.37.0-darwin-x86_64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-darwin-x86_64.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-darwin-x86_64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-linux-arm64-binary.tar.gz",
+     "name": "cua-driver-rs-0.37.0-linux-arm64-binary.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-linux-arm64-binary.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-linux-arm64-binary.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-linux-arm64.tar.gz",
+     "name": "cua-driver-rs-0.37.0-linux-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-linux-arm64.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-linux-arm64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-linux-x86_64-binary.tar.gz",
+     "name": "cua-driver-rs-0.37.0-linux-x86_64-binary.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-linux-x86_64-binary.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-linux-x86_64-binary.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-linux-x86_64.tar.gz",
+     "name": "cua-driver-rs-0.37.0-linux-x86_64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-linux-x86_64.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-linux-x86_64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-windows-arm64-binary.zip",
+     "name": "cua-driver-rs-0.37.0-windows-arm64-binary.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-windows-arm64-binary.zip.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-windows-arm64-binary.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-windows-arm64.zip",
+     "name": "cua-driver-rs-0.37.0-windows-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-windows-arm64.zip.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-windows-arm64.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-windows-x86_64-binary.zip",
+     "name": "cua-driver-rs-0.37.0-windows-x86_64-binary.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-windows-x86_64-binary.zip.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-windows-x86_64-binary.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-windows-x86_64.zip",
+     "name": "cua-driver-rs-0.37.0-windows-x86_64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-0.37.0-windows-x86_64.zip.sigstore.json",
+     "name": "cua-driver-rs-0.37.0-windows-x86_64.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-v0.37.0-skills.tar.gz",
+     "name": "cua-driver-rs-v0.37.0-skills.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-driver-rs-v0.37.0-skills.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-v0.37.0-skills.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-hyprland-plugin-0.37.0-2d2f99228d4d2508dc6fcc84c176b296e146714a-build-kit.tar.gz",
+     "name": "cua-hyprland-plugin-0.37.0-2d2f99228d4d2508dc6fcc84c176b296e146714a-build-kit.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-hyprland-plugin-0.37.0-2d2f99228d4d2508dc6fcc84c176b296e146714a-build-kit.tar.gz.sigstore.json",
+     "name": "cua-hyprland-plugin-0.37.0-2d2f99228d4d2508dc6fcc84c176b296e146714a-build-kit.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-hyprland-plugin-0.37.0-2d2f99228d4d2508dc6fcc84c176b296e146714a.tar.gz",
+     "name": "cua-hyprland-plugin-0.37.0-2d2f99228d4d2508dc6fcc84c176b296e146714a.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/cua-hyprland-plugin-0.37.0-2d2f99228d4d2508dc6fcc84c176b296e146714a.tar.gz.sigstore.json",
+     "name": "cua-hyprland-plugin-0.37.0-2d2f99228d4d2508dc6fcc84c176b296e146714a.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/install.ps1",
+     "name": "install.ps1"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/install.ps1.sigstore.json",
+     "name": "install.ps1.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/install.sh",
+     "name": "install.sh"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/install.sh.sigstore.json",
+     "name": "install.sh.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/release-manifest.json",
+     "name": "release-manifest.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/SHA256SUMS",
+     "name": "SHA256SUMS"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/SHA256SUMS.sigstore.json",
+     "name": "SHA256SUMS.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/uninstall.ps1",
+     "name": "uninstall.ps1"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/uninstall.ps1.sigstore.json",
+     "name": "uninstall.ps1.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/uninstall.sh",
+     "name": "uninstall.sh"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/uninstall.sh.sigstore.json",
+     "name": "uninstall.sh.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/_install-rust.sh",
+     "name": "_install-rust.sh"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.37.0/_install-rust.sh.sigstore.json",
+     "name": "_install-rust.sh.sigstore.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-10-20T03:41:37Z",
+   "tag_name": "cua-driver-rs-v0.37.0"
+  },
+  {
    "assets": [],
    "draft": false,
    "prerelease": false,
@@ -6083,6 +6267,10 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/_install-rust.sh",
+     "name": "_install-rust.sh"
+    },
+    {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/checksums.txt",
      "name": "checksums.txt"
     },
@@ -6147,8 +6335,24 @@
      "name": "cua-hyprland-plugin-0.28.3-e1824be198d8d87f27402f6ac37549b581dd8d8a.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/cua_driver-0.28.3-py3-none-macosx_13_0_universal2.whl",
-     "name": "cua_driver-0.28.3-py3-none-macosx_13_0_universal2.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/install.ps1",
+     "name": "install.ps1"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/install.sh",
+     "name": "install.sh"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/release-manifest.json",
+     "name": "release-manifest.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/uninstall.ps1",
+     "name": "uninstall.ps1"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/uninstall.sh",
+     "name": "uninstall.sh"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/cua_driver-0.28.3-py3-none-manylinux_2_31_aarch64.whl",
@@ -6159,48 +6363,40 @@
      "name": "cua_driver-0.28.3-py3-none-manylinux_2_31_x86_64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/cua_driver-0.28.3-py3-none-win_amd64.whl",
-     "name": "cua_driver-0.28.3-py3-none-win_amd64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/cua_driver-0.28.3-py3-none-macosx_13_0_universal2.whl",
+     "name": "cua_driver-0.28.3-py3-none-macosx_13_0_universal2.whl"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/cua_driver-0.28.3-py3-none-win_arm64.whl",
      "name": "cua_driver-0.28.3-py3-none-win_arm64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/install.ps1",
-     "name": "install.ps1"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/install.sh",
-     "name": "install.sh"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/cua_driver-0.28.3-py3-none-win_amd64.whl",
+     "name": "cua_driver-0.28.3-py3-none-win_amd64.whl"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/python-sdk-checksums.txt",
      "name": "python-sdk-checksums.txt"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/release-manifest.json",
-     "name": "release-manifest.json"
-    },
-    {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/trycua-cua-driver-0.28.3.tgz",
      "name": "trycua-cua-driver-0.28.3.tgz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/trycua-cua-driver-darwin-arm64-0.28.3.tgz",
-     "name": "trycua-cua-driver-darwin-arm64-0.28.3.tgz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/trycua-cua-driver-darwin-x64-0.28.3.tgz",
-     "name": "trycua-cua-driver-darwin-x64-0.28.3.tgz"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/trycua-cua-driver-linux-arm64-gnu-0.28.3.tgz",
      "name": "trycua-cua-driver-linux-arm64-gnu-0.28.3.tgz"
     },
     {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/trycua-cua-driver-darwin-arm64-0.28.3.tgz",
+     "name": "trycua-cua-driver-darwin-arm64-0.28.3.tgz"
+    },
+    {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/trycua-cua-driver-linux-x64-gnu-0.28.3.tgz",
      "name": "trycua-cua-driver-linux-x64-gnu-0.28.3.tgz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/trycua-cua-driver-darwin-x64-0.28.3.tgz",
+     "name": "trycua-cua-driver-darwin-x64-0.28.3.tgz"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/trycua-cua-driver-win32-arm64-msvc-0.28.3.tgz",
@@ -6213,18 +6409,6 @@
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/typescript-sdk-checksums.txt",
      "name": "typescript-sdk-checksums.txt"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/uninstall.ps1",
-     "name": "uninstall.ps1"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/uninstall.sh",
-     "name": "uninstall.sh"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.28.3/_install-rust.sh",
-     "name": "_install-rust.sh"
     }
    ],
    "draft": false,
