@@ -12,57 +12,8 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-10-11T07:56:05Z",
-   "tag_name": "windows-v0.9.27"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-11T07:46:50Z",
-   "tag_name": "mac-v0.9.27"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-11T08:19:50Z",
-   "tag_name": "desktop-v0.9.27"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-10-10T22:30:43Z",
    "tag_name": "v0.9.26"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-10T22:54:26Z",
-   "tag_name": "windows-v0.9.26"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-10T22:23:56Z",
-   "tag_name": "mac-v0.9.26"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-10T22:54:25Z",
-   "tag_name": "desktop-v0.9.26"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": true,
-   "published_at": "2026-10-10T22:23:59Z",
-   "tag_name": "update-feeds"
   },
   {
    "assets": [],
@@ -75,50 +26,8 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-09-21T17:13:01Z",
-   "tag_name": "windows-v0.9.25"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-21T17:29:45Z",
-   "tag_name": "mac-v0.9.25"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-21T17:28:32Z",
-   "tag_name": "desktop-v0.9.25"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-09-04T09:18:20Z",
    "tag_name": "v0.9.24"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-04T09:32:43Z",
-   "tag_name": "windows-v0.9.24"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-04T09:22:23Z",
-   "tag_name": "mac-v0.9.24"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-04T09:41:31Z",
-   "tag_name": "desktop-v0.9.24"
   },
   {
    "assets": [],
@@ -131,43 +40,8 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-08-29T08:47:04Z",
-   "tag_name": "windows-v0.9.23"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-29T08:41:24Z",
-   "tag_name": "mac-v0.9.23"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-29T08:49:50Z",
-   "tag_name": "desktop-v0.9.23"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-08-25T17:15:01Z",
    "tag_name": "v0.9.22"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-25T17:38:49Z",
-   "tag_name": "mac-v0.9.22"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-25T17:46:33Z",
-   "tag_name": "desktop-v0.9.22"
   },
   {
    "assets": [],
@@ -180,50 +54,8 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-08-24T18:39:48Z",
-   "tag_name": "windows-v0.9.21"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-24T18:33:24Z",
-   "tag_name": "mac-v0.9.21"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-24T18:34:18Z",
-   "tag_name": "desktop-v0.9.21"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-18T11:54:26Z",
-   "tag_name": "windows-v0.9.20"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-08-10T22:45:33Z",
    "tag_name": "v0.9.20"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-10T22:46:49Z",
-   "tag_name": "mac-v0.9.20"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-10T22:49:04Z",
-   "tag_name": "desktop-v0.9.20"
   },
   {
    "assets": [],
@@ -236,50 +68,8 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-07-20T17:22:34Z",
-   "tag_name": "mac-v0.9.19"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-20T21:03:03Z",
-   "tag_name": "desktop-v0.9.19"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-07-17T02:24:17Z",
    "tag_name": "v0.9.16"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-17T02:24:30Z",
-   "tag_name": "mac-v0.9.16"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-17T21:02:53Z",
-   "tag_name": "desktop-v0.9.17"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": true,
-   "published_at": "2026-07-17T02:31:18Z",
-   "tag_name": "desktop-v0.9.16"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": true,
-   "published_at": "2026-07-16T22:52:05Z",
-   "tag_name": "desktop-v0.9.15"
   },
   {
    "assets": [],
@@ -292,29 +82,8 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-07-02T04:32:26Z",
-   "tag_name": "mac-v0.9.15"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-06-22T01:56:00Z",
    "tag_name": "v0.9.14"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-06-22T01:53:21Z",
-   "tag_name": "mac-v0.9.14"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-06-14T08:36:23Z",
-   "tag_name": "mac-v0.9.13"
   },
   {
    "assets": [],
@@ -327,22 +96,8 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-06-09T23:04:28Z",
-   "tag_name": "mac-v0.9.12"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-05-27T13:12:54Z",
    "tag_name": "v0.9.11"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-27T13:13:11Z",
-   "tag_name": "mac-v0.9.11"
   },
   {
    "assets": [],
@@ -355,27 +110,8 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-05-20T11:25:02Z",
-   "tag_name": "mac-v0.9.10"
-  },
-  {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/v0.9.9/CodeBurnMenubar-0.9.9.zip",
-     "name": "CodeBurnMenubar-0.9.9.zip"
-    }
-   ],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-05-17T09:48:23Z",
    "tag_name": "v0.9.9"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-17T09:44:16Z",
-   "tag_name": "mac-v0.9.9"
   },
   {
    "assets": [],
@@ -388,22 +124,8 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-05-11T00:16:59Z",
-   "tag_name": "mac-v0.9.8"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-05-07T06:16:47Z",
    "tag_name": "v0.9.7"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-07T06:17:33Z",
-   "tag_name": "mac-v0.9.7"
   },
   {
    "assets": [],
@@ -416,25 +138,6 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-05-03T19:17:51Z",
-   "tag_name": "mac-v0.9.6"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-02T17:18:03Z",
-   "tag_name": "mac-v0.9.5"
-  },
-  {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/v0.9.5/CodeBurnMenubar-0.9.5.zip",
-     "name": "CodeBurnMenubar-0.9.5.zip"
-    }
-   ],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-05-01T15:17:07Z",
    "tag_name": "v0.9.5"
   },
@@ -442,125 +145,8 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-04-30T16:25:46Z",
-   "tag_name": "mac-v0.9.4"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-28T03:22:36Z",
-   "tag_name": "mac-v0.9.3"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-25T00:01:08Z",
-   "tag_name": "mac-v0.9.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-24T11:50:48Z",
-   "tag_name": "mac-v0.8.9"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-22T20:01:32Z",
-   "tag_name": "mac-v0.8.8"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-21T20:46:47Z",
-   "tag_name": "mac-v0.8.7"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-21T14:45:38Z",
-   "tag_name": "mac-v0.8.6"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-21T12:29:40Z",
-   "tag_name": "mac-v0.8.5"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-21T01:36:38Z",
-   "tag_name": "mac-v0.8.4"
-  },
-  {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/v0.7.4/CodeBurnMenubar-v0.7.4.zip",
-     "name": "CodeBurnMenubar-v0.7.4.zip"
-    }
-   ],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-04-19T10:40:32Z",
    "tag_name": "v0.7.4"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-19T23:34:55Z",
-   "tag_name": "mac-v0.8.2"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-19T20:01:12Z",
-   "tag_name": "mac-v0.8.1"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-19T16:57:32Z",
-   "tag_name": "mac-v0.8.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-18T20:42:39Z",
-   "tag_name": "mac-v0.7.5"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-18T20:14:11Z",
-   "tag_name": "mac-v0.7.4"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-18T14:24:32Z",
-   "tag_name": "mac-v0.7.3"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-18T00:19:47Z",
-   "tag_name": "mac-v0.7.2"
   },
   {
    "assets": [],
@@ -575,6 +161,55 @@
    "prerelease": false,
    "published_at": "2026-04-16T23:34:10Z",
    "tag_name": "v0.7.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-11T07:56:05Z",
+   "tag_name": "windows-v0.9.27"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-10T22:54:26Z",
+   "tag_name": "windows-v0.9.26"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-11T07:46:50Z",
+   "tag_name": "mac-v0.9.27"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-10T22:23:56Z",
+   "tag_name": "mac-v0.9.26"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-11T08:19:50Z",
+   "tag_name": "desktop-v0.9.27"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-10T22:54:25Z",
+   "tag_name": "desktop-v0.9.26"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-10-10T22:23:59Z",
+   "tag_name": "update-feeds"
   }
  ],
  "repo": "getagentseal/codeburn",
@@ -582,11 +217,6 @@
  "tags": [
   "windows-v0.9.27",
   "windows-v0.9.26",
-  "windows-v0.9.25",
-  "windows-v0.9.24",
-  "windows-v0.9.23",
-  "windows-v0.9.21",
-  "windows-v0.9.20",
   "v0.9.27",
   "v0.9.26",
   "v0.9.25",
@@ -643,53 +273,8 @@
   "update-feeds",
   "mac-v0.9.27",
   "mac-v0.9.26",
-  "mac-v0.9.25",
-  "mac-v0.9.24",
-  "mac-v0.9.23",
-  "mac-v0.9.22",
-  "mac-v0.9.21",
-  "mac-v0.9.20",
-  "mac-v0.9.19",
-  "mac-v0.9.16",
-  "mac-v0.9.15",
-  "mac-v0.9.14",
-  "mac-v0.9.13",
-  "mac-v0.9.12",
-  "mac-v0.9.11",
-  "mac-v0.9.10",
-  "mac-v0.9.9",
-  "mac-v0.9.8",
-  "mac-v0.9.7",
-  "mac-v0.9.6",
-  "mac-v0.9.5",
-  "mac-v0.9.4",
-  "mac-v0.9.3",
-  "mac-v0.9.0",
-  "mac-v0.8.9",
-  "mac-v0.8.8",
-  "mac-v0.8.7",
-  "mac-v0.8.6",
-  "mac-v0.8.5",
-  "mac-v0.8.4",
-  "mac-v0.8.2",
-  "mac-v0.8.1",
-  "mac-v0.8.0",
-  "mac-v0.7.5",
-  "mac-v0.7.4",
-  "mac-v0.7.3",
-  "mac-v0.7.2",
   "desktop-v0.9.27",
   "desktop-v0.9.26",
-  "desktop-v0.9.25",
-  "desktop-v0.9.24",
-  "desktop-v0.9.23",
-  "desktop-v0.9.22",
-  "desktop-v0.9.21",
-  "desktop-v0.9.20",
-  "desktop-v0.9.19",
-  "desktop-v0.9.17",
-  "desktop-v0.9.16",
-  "desktop-v0.9.15",
   "backup-pre-pr59-merge"
  ]
 }

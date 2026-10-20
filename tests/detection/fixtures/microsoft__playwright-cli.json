@@ -110,13 +110,6 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-04-12T00:03:02Z",
-   "tag_name": "0.1.7"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-04-07T23:29:07Z",
    "tag_name": "v0.1.6"
   },
@@ -175,6 +168,13 @@
    "prerelease": false,
    "published_at": "2026-01-31T01:41:03Z",
    "tag_name": "v0.180.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-12T00:03:02Z",
+   "tag_name": "0.1.7"
   }
  ],
  "repo": "microsoft/playwright-cli",
