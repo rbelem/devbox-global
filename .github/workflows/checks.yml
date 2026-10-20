@@ -1,0 +1,38 @@
+# Guardrail for the packaging and the tooling that keeps it honest.
+#
+# The checks live in tests/run-checks.sh:
+#   - the detection contract (the table bin/update-flake prints, against
+#     recorded upstream data - no network)
+#   - the detection heuristics (the shapes a wrong answer would hide)
+#   - the version spelling (the version written the way the flake spells it)
+#   - the hash resolution (every hash goes back into its own attribute)
+#   - the flake lint (statix + a nix parse of every devbox.d/*/flake.nix)
+#
+# The local pre-commit hook runs the same script.
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_settings: |
+            accept-flake-config = true
+
+      - name: Install statix
+        run: nix profile install nixpkgs#statix
+
+      - name: Run the checks
+        run: bash tests/run-checks.sh

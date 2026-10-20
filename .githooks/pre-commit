@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Pre-commit guardrail for this repo.
+#
+# The checks live in tests/run-checks.sh:
+#
+#   1. detection contract  - the table bin/update-flake prints against the
+#                             recorded upstream data (offline, no network)
+#   2. detection heuristics - the shapes a wrong answer would hide
+#   3. version spelling    - the version written the way the flake spells it
+#   4. hash resolution     - every hash goes back into its own attribute
+#   5. flake lint          - statix + a nix parse of every devbox.d/*/flake.nix
+#
+# Installed with `git config core.hooksPath .githooks`.
+# CI runs the same policy on every push and PR:
+#   .github/workflows/checks.yml
+# This hook is the fast local signal.
+
+set -uo pipefail
+
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+bash tests/run-checks.sh

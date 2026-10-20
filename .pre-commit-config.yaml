@@ -1,0 +1,19 @@
+# Local pre-commit policy for this repo.
+#
+# The canonical implementation is `.githooks/pre-commit`, installed with
+# `git config core.hooksPath .githooks`. This file describes the same policy
+# for people running the `pre-commit` tool.
+#
+# Hook shape: "system" runs the shared hook script, so both paths apply the
+# same policy. The hook needs python3, jq and bash; the flake lint inside it
+# is skipped when statix and nix are not on PATH.
+repos:
+  - repo: local
+    hooks:
+      - id: devbox-global-checks
+        name: devbox-global checks (detection contract, heuristics, spelling, hashes, flake lint)
+        entry: bash .githooks/pre-commit
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-commit]

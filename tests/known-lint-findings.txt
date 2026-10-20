@@ -1,0 +1,12 @@
+devbox.d/beads/flake.nix
+devbox.d/bifrost/flake.nix
+devbox.d/deepsec/flake.nix
+devbox.d/deepseek-harness/flake.nix
+devbox.d/docling/flake.nix
+devbox.d/opencode/flake.nix
+devbox.d/openspec/flake.nix
+devbox.d/skills/flake.nix
+devbox.d/skillspector/flake.nix
+devbox.d/steel-takeoff/flake.nix
+devbox.d/strix/flake.nix
+devbox.d/valkey-search/flake.nix
