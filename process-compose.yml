@@ -10,6 +10,26 @@
 # vela/AMR runtime needs `vela` on PATH. When every open-design tool answers
 # "daemon unreachable", check curl 127.0.0.1:7456/api/health first.
 # Run these from a directory holding devbox.json (this repo, or the global profile dir).
+#
+# Devbox service: podman (rootless Docker-API socket for Cua Spaces)
+# Started with: devbox services up podman   (bare `devbox services up` starts it)
+# Stopped with:  devbox services stop podman
+# The Cua daemon and the Cua Spaces app look for a container engine at
+# $XDG_RUNTIME_DIR/podman/podman.sock and find nothing when it is absent: the
+# Spaces then fail with "a container engine is not available". The nix podman
+# ships no systemd user unit, and this service owns the socket instead.
+# The socket directory has to exist before podman binds it, hence the mkdir.
+# Only one podman API service may own that socket: two of them fight, and the
+# loser stops answering the socket the winner just took over.
+#
+# Devbox service: cua (the Cua Spaces daemon)
+# Started with: devbox services up cua   (bare `devbox services up` starts it)
+# Stopped with:  devbox services stop cua
+# The Cua Spaces app and the `cua` MCP server both attach to this daemon
+# (they reuse one that is already running rather than starting a second).
+# `cua daemon start` refuses to run while a daemon is up, so the service waits
+# for the incumbent to exit and then takes the daemon over in the foreground.
+# It needs the podman socket above to create Spaces, hence the dependency.
 
 version: "0.5"
 
@@ -55,5 +75,33 @@ processes:
     disabled: true
     environment:
       - "OD_PORT=7456"
+    availability:
+      restart: "always"
+
+  podman:
+    # The rootless Podman API socket. The Cua daemon and the Cua Spaces app
+    # look for a container engine at $XDG_RUNTIME_DIR/podman/podman.sock, and
+    # with no socket there every Space fails with "a container engine is not
+    # available". The nix podman ships no systemd user unit, so this service
+    # owns the socket.
+    # The socket directory has to exist before podman binds it, hence the mkdir.
+    # Only ONE podman API service may own that socket: a second one takes the
+    # path over and the first stops answering it, so bin/setup-podman no
+    # longer installs a systemd unit for it.
+    command: sh -c 'mkdir -p "$XDG_RUNTIME_DIR/podman" && exec podman system service --time=0 "unix://$XDG_RUNTIME_DIR/podman/podman.sock"'
+    availability:
+      restart: "always"
+
+  cua:
+    # The Cua daemon. The Cua Spaces app and the `cua` MCP server both attach
+    # to it, and either starts one of its own when the slot is free.
+    # `cua daemon start` refuses to start while a daemon is up, so this
+    # service waits for the container engine to answer, then takes the daemon
+    # over in the foreground and restarts it when it exits. It needs the
+    # podman socket above, hence the dependency.
+    command: sh -c 'until podman --remote --url "unix://$XDG_RUNTIME_DIR/podman/podman.sock" version >/dev/null 2>&1; do sleep 3; done; while true; do if cua daemon status >/dev/null 2>&1; then sleep 5; continue; fi; cua daemon start --foreground; sleep 2; done'
+    depends_on:
+      podman:
+        condition: process_started
     availability:
       restart: "always"
