@@ -41,7 +41,6 @@ jev-ultrafast	rbelem/jev-ultrafast	source	v	0	0.1.0	unknown	??
 llm-verifier	llm-as-a-verifier/llm-as-a-verifier	registry	v	0	0.3.0	0.3.0	✓
 neovim	nix-community/neovim-nightly-overlay	none	v	0	unknown	unknown	??
 open-code-review	alibaba/open-code-review	asset	v	1	1.13.2	1.13.2	✓
-open-design	nexu-io/open-design	source	open-design-v	0	0.25.0	0.25.0	✓
 pdf-inspector	firecrawl/pdf-inspector	source	v	1	1.25.2	1.25.2	✓
 pi	earendil-works/pi	asset	v	1	1.3.0	1.3.0	✓
 playwright-cli	microsoft/playwright-cli	source	v	0	0.1.22	0.1.22	✓
