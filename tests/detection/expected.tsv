@@ -33,7 +33,7 @@ herdr	ogulcancelik/herdr	asset	v	0	0.9.5	0.9.5	✓
 hermes-agent	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
 hermes-agent#desktop	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
 hunk	modem-dev/hunk	asset	v	0	0.24.0	0.24.0	✓
-impeccable	pbakaus/impeccable	source	cli-v	4	4.6.0	4.7.0	↓
+impeccable	pbakaus/impeccable	source	cli-v	4	4.7.0	4.7.0	✓
 jev-review	rbelem/jev-review	source	v	0	0.1.1-p1	unknown	??
 jev-ultrafast	rbelem/jev-ultrafast	source	v	0	0.1.0	unknown	??
 llm-verifier	llm-as-a-verifier/llm-as-a-verifier	registry	v	0	0.3.0	0.3.0	✓
