@@ -7,7 +7,7 @@
     supportedSystems = [ "x86_64-linux" ];
     forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-    version = "0.3.1";
+    version = "0.5.0";
   in {
     packages = forAllSystems (pkgs: rec {
       cua = pkgs.stdenv.mkDerivation rec {
@@ -17,7 +17,7 @@
         # Upstream ships amd64-linux only.
         src = pkgs.fetchurl {
           url = "https://github.com/trycua/cua/releases/download/cua-sdk-v${version}/cua-cli-${version}-linux-x64.tar.gz";
-          hash = "sha256-xbPeR6j8oz5vlDxoLdPyQ9dpanldfyZxGfJiVhfka+M=";
+          hash = "sha256-anv3FWYhBvo5fCQTRuesIEfwXYMGqwD5iOQVNyAAEwY=";
         };
 
         # Tarball is flat: a single `cua` executable at the root.
