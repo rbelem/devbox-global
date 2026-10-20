@@ -31,7 +31,7 @@ produces the same table. The table is compared with the contract in
 | `heuristics.sh`       | Regression test for the shapes a wrong answer would hide: a project with two release lines, and a package with no version of its own. |
 | `fixtures/`           | The recorded upstream data (releases, tags, default branch) per repository. |
 | `capture-fixtures.py` | Refreshes `fixtures/` from the live GitHub API.                  |
-| `trim-fixtures.py`    | Drops the release assets of the lines no flake tracks.           |
+| `trim-fixtures.py`    | Trims the recorded data to the tracked lines and their decoys.     |
 | `fakebin/`            | The fake `gh`, `devbox` and `curl` the test runs the script with. |
 | `parse_table.py`      | Turns the printed table into a comparable TSV.                    |
 | `compare.py`          | Compares the printed table with the contract.                     |
@@ -123,3 +123,10 @@ python3 tests/detection/oracle.py              # re-checks the contract
 recorded data. When it disagrees with `expected.tsv`, upstream published
 something new: either update the contract (the new version is real) or revert
 the fixture (the recording was wrong).
+
+The trim keeps every release and tag of the lines the flakes track, the two
+newest of every other line (so a detection that picks the wrong line still
+has something to pick), and the assets of the newest release of each line
+(the asset check only ever looks at the release of a candidate version). It
+turns 3.6 MB of recorded data into 500 KB without changing what the
+detection sees.

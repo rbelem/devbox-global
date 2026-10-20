@@ -24,9 +24,16 @@
             hash = "sha256-E6rGF4Qu1TZsO959h2DZDNkfz81TDaSIF1O6ssiHIyQ=";
           };
 
-          # Inject the package-lock.json (generated from bun.lock) into source.
+          # Inject the package-lock.json into source.
           # buildNpmPackage needs package-lock.json to use fetchNpmDeps + --offline.
-          # The lockfile is regenerated when deps change via bun2npm-lock helper.
+          # Upstream ships a bun.lock; this is its npm rendering (lockfileVersion 3).
+          # To follow an upstream release: compare the two bun.lock files, then
+          # apply the same delta here - the root "version" and, when the platform
+          # packages moved, the five @impeccable/cli-* entries (version, resolved
+          # URL and integrity; the integrity values are upstream's own, and
+          # `npm view @impeccable/cli-<platform>@<version> dist.integrity` agrees
+          # with them). A version bump that only moves those five packages
+          # leaves every other entry alone.
           src = pkgs.runCommand "impeccable-src" { } ''
             cp -r ${srcOrig} $out
             chmod +w $out

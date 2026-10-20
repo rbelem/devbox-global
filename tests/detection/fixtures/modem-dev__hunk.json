@@ -34,2100 +34,518 @@
    "tag_name": "v0.24.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.1/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-10-15T17:26:25Z",
    "tag_name": "v0.24.0-beta.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0-beta.0/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-10-13T04:21:18Z",
    "tag_name": "v0.24.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.23.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.23.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.23.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.23.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.23.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.23.0/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-09-30T17:06:57Z",
    "tag_name": "v0.23.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-09-10T12:19:33Z",
    "tag_name": "v0.22.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.1/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-09-09T04:47:07Z",
    "tag_name": "v0.22.0-beta.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.22.0-beta.0/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-09-08T15:04:31Z",
    "tag_name": "v0.22.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.1/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-09-05T00:58:39Z",
    "tag_name": "v0.21.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-09-02T15:40:30Z",
    "tag_name": "v0.21.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.1/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-09-01T14:34:38Z",
    "tag_name": "v0.21.0-beta.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.21.0-beta.0/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-08-31T03:44:42Z",
    "tag_name": "v0.21.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.1/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-29T13:04:49Z",
    "tag_name": "v0.20.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.2/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.2/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.2/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.2/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.2/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-29T14:22:06Z",
    "tag_name": "v0.19.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.20.0/SHA256SUMS",
-     "name": "SHA256SUMS"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-25T14:31:52Z",
    "tag_name": "v0.20.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-25T02:42:18Z",
    "tag_name": "v0.19.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.19.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-16T19:54:36Z",
    "tag_name": "v0.19.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.2/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.2/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.2/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.2/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.2/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-14T21:57:52Z",
    "tag_name": "v0.18.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-11T17:05:22Z",
    "tag_name": "v0.18.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-08T14:21:22Z",
    "tag_name": "v0.18.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.18.0-beta.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-08-01T16:00:08Z",
    "tag_name": "v0.18.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.7/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-29T01:27:21Z",
    "tag_name": "v0.17.7"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.6/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.6/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.6/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.6/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.6/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-25T01:59:13Z",
    "tag_name": "v0.17.6"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.4/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.4/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.4/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.4/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.4/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-23T20:45:55Z",
    "tag_name": "v0.17.4"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.3/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.3/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.3/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.3/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.3/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-19T19:51:21Z",
    "tag_name": "v0.17.3"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.2/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.2/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.2/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.2/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.2/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-18T17:47:49Z",
    "tag_name": "v0.17.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-15T12:12:53Z",
    "tag_name": "v0.17.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.17.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-07T08:23:10Z",
    "tag_name": "v0.17.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.16.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.16.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.16.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.16.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.16.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-06-19T19:10:38Z",
    "tag_name": "v0.16.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.3/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.3/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.3/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.3/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.3/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-06-13T18:29:37Z",
    "tag_name": "v0.15.3"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.2/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.2/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.2/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.2/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.2/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-06-13T14:51:24Z",
    "tag_name": "v0.15.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-06-10T04:11:01Z",
    "tag_name": "v0.15.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.15.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-06-08T23:25:06Z",
    "tag_name": "v0.15.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-06-01T19:43:49Z",
    "tag_name": "v0.14.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-26T17:25:13Z",
    "tag_name": "v0.14.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.3/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.3/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.3/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.3/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.3/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-05-25T17:50:46Z",
    "tag_name": "v0.14.0-beta.3"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.2/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.2/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.2/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.2/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.2/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-05-25T15:44:10Z",
    "tag_name": "v0.14.0-beta.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-05-24T20:27:20Z",
    "tag_name": "v0.14.0-beta.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.14.0-beta.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-05-24T19:25:50Z",
    "tag_name": "v0.14.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.2/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.2/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.2/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.2/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.2/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-21T19:57:32Z",
    "tag_name": "v0.13.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-19T20:14:55Z",
    "tag_name": "v0.13.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-18T19:01:17Z",
    "tag_name": "v0.13.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.13.0-beta.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-05-17T02:23:56Z",
    "tag_name": "v0.13.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.1/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-14T22:05:44Z",
    "tag_name": "v0.12.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-12T21:10:03Z",
    "tag_name": "v0.12.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.2/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.2/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.2/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.2/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.2/hunkdiff-windows-x64.tar.gz",
-     "name": "hunkdiff-windows-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.2/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-05-11T20:07:53Z",
    "tag_name": "v0.12.0-beta.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.1/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-05-10T21:11:45Z",
    "tag_name": "v0.12.0-beta.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.12.0-beta.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-05-10T20:58:58Z",
    "tag_name": "v0.12.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.1/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-10T01:14:52Z",
    "tag_name": "v0.11.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-09T20:49:29Z",
    "tag_name": "v0.11.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.11.0-beta.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-05-09T03:06:02Z",
    "tag_name": "v0.11.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.10.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.10.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.10.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.10.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.10.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-04-26T18:06:32Z",
    "tag_name": "v0.10.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.5/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.5/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.5/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.5/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.5/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-04-14T19:36:01Z",
    "tag_name": "v0.9.5"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.4/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.4/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.4/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.4/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.4/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-04-14T19:04:08Z",
    "tag_name": "v0.9.4"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.4-beta.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.4-beta.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.4-beta.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.4-beta.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.4-beta.1/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-04-14T17:37:06Z",
    "tag_name": "v0.9.4-beta.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.3/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.3/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.3/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.3/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.3/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-04-13T21:58:06Z",
    "tag_name": "v0.9.3"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.3-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.3-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.3-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.3-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.3-beta.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-04-13T21:36:55Z",
    "tag_name": "v0.9.3-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.2/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.2/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.2/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.2/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.2/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-04-12T02:01:20Z",
    "tag_name": "v0.9.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.1/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-04-10T14:24:08Z",
    "tag_name": "v0.9.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-04-08T14:27:30Z",
    "tag_name": "v0.9.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.3/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.3/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.3/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.3/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.3/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-04-08T13:14:27Z",
    "tag_name": "v0.9.0-beta.3"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.2/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.2/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.2/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.2/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.2/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-04-08T12:29:53Z",
    "tag_name": "v0.9.0-beta.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.1/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-04-07T21:33:30Z",
    "tag_name": "v0.9.0-beta.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.9.0-beta.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-04-07T03:56:33Z",
    "tag_name": "v0.9.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.1/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.1/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-03-30T04:16:22Z",
    "tag_name": "v0.8.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-03-30T01:17:20Z",
    "tag_name": "v0.8.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.8.0-beta.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-03-29T16:09:16Z",
    "tag_name": "v0.8.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.7.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.7.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.7.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.7.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.7.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-03-25T18:00:03Z",
    "tag_name": "v0.7.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.7.0-beta.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.7.0-beta.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.7.0-beta.0/hunkdiff-linux-arm64.tar.gz",
-     "name": "hunkdiff-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.7.0-beta.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.7.0-beta.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-03-25T14:30:25Z",
    "tag_name": "v0.7.0-beta.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.1/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-03-24T04:20:35Z",
    "tag_name": "v0.6.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-03-23T19:29:22Z",
    "tag_name": "v0.6.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0-beta.2/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0-beta.2/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0-beta.2/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0-beta.2/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-03-23T18:48:28Z",
    "tag_name": "v0.6.0-beta.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0-beta.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0-beta.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0-beta.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.6.0-beta.1/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-03-23T17:54:09Z",
    "tag_name": "v0.6.0-beta.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.5.1/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.5.1/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.5.1/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.5.1/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-03-23T04:20:48Z",
    "tag_name": "v0.5.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.5.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.5.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.5.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.5.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-03-23T03:34:21Z",
    "tag_name": "v0.5.0"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.4.0/hunkdiff-darwin-arm64.tar.gz",
-     "name": "hunkdiff-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.4.0/hunkdiff-darwin-x64.tar.gz",
-     "name": "hunkdiff-darwin-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.4.0/hunkdiff-linux-x64.tar.gz",
-     "name": "hunkdiff-linux-x64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.4.0/staged-prebuilt-npm-release.tar.gz",
-     "name": "staged-prebuilt-npm-release.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-03-22T15:05:09Z",

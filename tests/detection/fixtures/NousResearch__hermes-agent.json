@@ -19,27 +19,6 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-10-14T03:21:46Z",
-   "tag_name": "v0.22.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-12T05:53:41Z",
-   "tag_name": "v0.21.7"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-08T11:51:57Z",
-   "tag_name": "v0.21.6"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-09-24T10:09:38Z",
    "tag_name": "v2026.9.24"
   },
@@ -135,144 +114,63 @@
    "tag_name": "v2026.7.30"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.20/hermes_agent-0.19.0-py3-none-any.whl.sigstore.json",
-     "name": "hermes_agent-0.19.0-py3-none-any.whl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.20/hermes_agent-0.19.0.tar.gz.sigstore.json",
-     "name": "hermes_agent-0.19.0.tar.gz.sigstore.json"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-20T18:35:55Z",
    "tag_name": "v2026.7.20"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.7.2/hermes_agent-0.18.2-py3-none-any.whl.sigstore.json",
-     "name": "hermes_agent-0.18.2-py3-none-any.whl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.7.2/hermes_agent-0.18.2.tar.gz.sigstore.json",
-     "name": "hermes_agent-0.18.2.tar.gz.sigstore.json"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-08T03:11:22Z",
    "tag_name": "v2026.7.7.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.7/hermes_agent-0.18.1-py3-none-any.whl.sigstore.json",
-     "name": "hermes_agent-0.18.1-py3-none-any.whl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.7/hermes_agent-0.18.1.tar.gz.sigstore.json",
-     "name": "hermes_agent-0.18.1.tar.gz.sigstore.json"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-08T01:15:00Z",
    "tag_name": "v2026.7.7"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.1/hermes_agent-0.18.0-py3-none-any.whl.sigstore.json",
-     "name": "hermes_agent-0.18.0-py3-none-any.whl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.1/hermes_agent-0.18.0.tar.gz.sigstore.json",
-     "name": "hermes_agent-0.18.0.tar.gz.sigstore.json"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-01T20:08:06Z",
    "tag_name": "v2026.7.1"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.6.19/hermes_agent-0.17.0-py3-none-any.whl.sigstore.json",
-     "name": "hermes_agent-0.17.0-py3-none-any.whl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.6.19/hermes_agent-0.17.0.tar.gz.sigstore.json",
-     "name": "hermes_agent-0.17.0.tar.gz.sigstore.json"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-06-19T19:39:06Z",
    "tag_name": "v2026.6.19"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.6.5/hermes_agent-0.16.0-py3-none-any.whl.sigstore.json",
-     "name": "hermes_agent-0.16.0-py3-none-any.whl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.6.5/hermes_agent-0.16.0.tar.gz.sigstore.json",
-     "name": "hermes_agent-0.16.0.tar.gz.sigstore.json"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-06-06T00:55:58Z",
    "tag_name": "v2026.6.5"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.29.2/hermes_agent-0.15.2-py3-none-any.whl",
-     "name": "hermes_agent-0.15.2-py3-none-any.whl"
-    },
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.29.2/hermes_agent-0.15.2.tar.gz",
-     "name": "hermes_agent-0.15.2.tar.gz"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-29T13:37:26Z",
    "tag_name": "v2026.5.29.2"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.29/hermes_agent-0.15.1-py3-none-any.whl.sigstore.json",
-     "name": "hermes_agent-0.15.1-py3-none-any.whl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.29/hermes_agent-0.15.1.tar.gz.sigstore.json",
-     "name": "hermes_agent-0.15.1.tar.gz.sigstore.json"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-29T01:12:15Z",
    "tag_name": "v2026.5.29"
   },
   {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.28/hermes_agent-0.15.0-py3-none-any.whl.sigstore.json",
-     "name": "hermes_agent-0.15.0-py3-none-any.whl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.28/hermes_agent-0.15.0.tar.gz.sigstore.json",
-     "name": "hermes_agent-0.15.0.tar.gz.sigstore.json"
-    }
-   ],
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-05-28T17:46:09Z",
@@ -411,29 +309,6 @@
   "v2026.3.12",
   "v0.22.2",
   "v0.22.2+canary.20261019T071120Z",
-  "v0.22.2+canary.20261018T065527Z",
-  "v0.22.2+canary.20261017T065512Z",
-  "v0.22.2+canary.20261016T065950Z",
-  "v0.22.1",
-  "v0.22.1+canary.20261015T070051Z",
-  "v0.22.0",
-  "v0.22.0+canary.20261014T070054Z",
-  "v0.21.7",
-  "v0.21.7+canary.20261013T070740Z",
-  "v0.21.7+canary.20261012T072214Z",
-  "v0.21.6",
-  "v0.21.6+canary.20261011T070142Z",
-  "v0.21.6+canary.20261010T070026Z",
-  "v0.21.6+canary.20261009T070410Z",
-  "v0.21.5+canary.20261008T070449Z",
-  "v0.21.4+canary.20261007T070234Z",
-  "v0.21.4+canary.20261006T070224Z",
-  "v0.21.4+canary.20261005T071900Z",
-  "v0.21.4+canary.20260929T070217Z",
-  "v0.21.4+canary.20260928T071354Z",
-  "v0.21.4+canary.20260927T065737Z",
-  "v0.21.4+canary.20260926T065603Z",
-  "v0.21.4+canary.20260925T065930Z",
   "rc.38-v0.21.5",
   "rc.37-v0.21.5",
   "rc.36-v0.21.5",
@@ -479,21 +354,12 @@
   "rc.5-v0.21.7",
   "rc.4-v0.22.1",
   "rc.4-v0.21.7",
-  "rc.4-v0.21.6",
   "rc.3-v0.22.1",
   "rc.3-v0.22.0",
-  "rc.3-v0.21.7",
-  "rc.3-v0.21.6",
   "rc.2-v0.22.2",
   "rc.2-v0.22.1",
-  "rc.2-v0.22.0",
-  "rc.2-v0.21.7",
-  "rc.2-v0.21.6",
   "rc.1-v0.22.2",
   "rc.1-v0.22.1",
-  "rc.1-v0.22.0",
-  "rc.1-v0.21.7",
-  "rc.1-v0.21.6",
   "premerge-oh-god",
   "merge-commit-backup",
   "inputs-f",
@@ -564,15 +430,9 @@
   "abandoned-rc.4-v0.21.7",
   "abandoned-rc.3-v0.22.1",
   "abandoned-rc.3-v0.21.7",
-  "abandoned-rc.3-v0.21.6",
   "abandoned-rc.2-v0.22.1",
   "abandoned-rc.2-v0.22.0",
-  "abandoned-rc.2-v0.21.7",
-  "abandoned-rc.2-v0.21.6",
   "abandoned-rc.1-v0.22.2",
-  "abandoned-rc.1-v0.22.1",
-  "abandoned-rc.1-v0.22.0",
-  "abandoned-rc.1-v0.21.7",
-  "abandoned-rc.1-v0.21.6"
+  "abandoned-rc.1-v0.22.1"
  ]
 }

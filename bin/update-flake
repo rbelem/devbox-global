@@ -98,8 +98,12 @@ DEVBOX_GLOBAL_PATH="$(devbox global path)"
 DEVBOX_JSON="$DEVBOX_GLOBAL_PATH/devbox.json"
 DEVBOX_D="$DEVBOX_GLOBAL_PATH/devbox.d"
 
-# Fake hash placeholder — literal string, works in any nix scope (no pkgs dependency)
-FAKE_HASH='sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='
+# Fake hash placeholders. Every hash attribute gets its OWN fake, and all of
+# them share this prefix: the build error names the fake it rejected, so the
+# real hash goes back into the attribute that failed instead of into the
+# first fake hash in the file - which may belong to a different attribute
+# (a dependency's hash, another architecture's entry).
+FAKE_PREFIX='sha256-AAAA'
 
 # ── Detection ──
 # The detector answers, for every enabled flake: the upstream repository, the
@@ -240,6 +244,52 @@ write_version() {
 
 # ── end version writing ──
 
+# Replace every hash attribute's value with its own fake hash.
+#
+# The fakes differ from each other in one character and share the prefix, so
+# the build error that rejects one of them names the attribute that failed
+# ("specified: sha256-AAAAX..."), and the real hash can go back into exactly
+# that attribute. With one shared fake the paste-back could only guess, and on
+# a flake with several hash attributes it pasted the wrong value into the
+# wrong one.
+#
+# The old value is kept in a "; # FIXME: was ..." comment on the same line,
+# so a failed resolution can be rolled back by hand.
+reset_hashes() {
+    local flake_nix="$1" hash_attrs="$2"
+    awk -v attrs="$hash_attrs" -v prefix="$FAKE_PREFIX" '
+        BEGIN {
+            alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+            n = 0
+        }
+        {
+            line = $0
+            if (line ~ /^[ \t]*#/) { print line; next }
+            pattern = "(^|[ \t])(" attrs ")[ \t]*=[ \t]*\"sha256-[A-Za-z0-9+/=]+\"|(\"[^\"]+\"[ \t]*=[ \t]*)\"sha256-[A-Za-z0-9+/=]+\""
+            out = ""
+            rest = line
+            while (match(rest, pattern)) {
+                # The inner match() below overwrites RSTART/RLENGTH, so keep
+                # the position of the outer match.
+                mpos = RSTART
+                mlen = RLENGTH
+                head = substr(rest, 1, mpos - 1)
+                matched = substr(rest, mpos, mlen)
+                vstart = match(matched, /"sha256-[A-Za-z0-9+\/=]+"/)
+                vlen = RLENGTH
+                value = substr(matched, vstart, vlen)
+                fake = "\"" prefix substr(alphabet, (n % 64) + 1, 1) \
+                       substr("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", 1, 38) "=\""
+                out = out head substr(matched, 1, vstart - 1) fake \
+                      ";  # FIXME: was " value
+                rest = substr(rest, mpos + mlen)
+                n++
+            }
+            print out rest
+        }
+    ' "$flake_nix" > "$flake_nix.fake" && mv "$flake_nix.fake" "$flake_nix"
+}
+
 # ── Verify a candidate against the real release assets ──
 # The detection already picks the release line the flake tracks (its tag
 # prefix), so a candidate normally resolves. This guards the remaining case:
@@ -371,18 +421,18 @@ update_flake() {
         fi
     fi
 
-    # 3. Reset hashes to a literal fake hash (no pkgs dependency, works in any scope)
+    # 3. Reset hashes to literal fake hashes (no pkgs dependency, works in any
+    #    scope). Each attribute gets its own fake, so the build error says
+    #    which one failed.
     #    Named attrs: hash, srcHash, cargoHash, npmDepsHash, pnpmDepsHash,
     #                 npmDistHash, nodeModulesHash, outputHash, vendorHash
     #    Quoted attrs: "platform" = "sha256-..." (agent-browser pattern)
-    #    Uses ERE (sed -r), no PCRE non-capturing groups.
     #    Comment lines are skipped: a comment that quotes an attribute must
     #    not be rewritten into a fake hash.
     local hash_attrs='hash|srcHash|cargoHash|npmDepsHash|pnpmDepsHash|npmDistHash|nodeModulesHash|outputHash|vendorHash'
     if grep -qE "(^|[[:space:]])($hash_attrs)[[:space:]]*=[[:space:]]*\"sha256-" "$flake_nix" 2>/dev/null \
         || grep -qE '"[^"]+"[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null; then
-        sed -ri "/^[[:space:]]*#/!s/((^|[[:space:]])($hash_attrs)[[:space:]]*=[[:space:]]*)\"(sha256-[^\"]+)\"/\1\"$FAKE_HASH\";  # FIXME: was \"\4\"/" "$flake_nix"
-        sed -ri "/^[[:space:]]*#/!s/(\"[^\"]+\"[[:space:]]*=[[:space:]]*)\"(sha256-[^\"]+)\"/\1\"$FAKE_HASH\";  # FIXME: was \"\2\"/" "$flake_nix"
+        reset_hashes "$flake_nix" "$hash_attrs"
         echo "    ✓ hashes reset to fakeHash"
     else
         echo "    - no hashes to reset"
@@ -400,13 +450,13 @@ resolve_hashes() {
     local attempt=0
 
     # Only if hashes were reset to fakeHash
-    if grep -qF "$FAKE_HASH" "$flake_nix" 2>/dev/null; then
+    if grep -qF "$FAKE_PREFIX" "$flake_nix" 2>/dev/null; then
         echo ""
         echo "    Computing hashes (building with nix)..."
 
         for ((attempt=1; attempt<=max_attempts; attempt++)); do
             # Check if all fakeHash placeholders are resolved
-            if ! grep -qF "$FAKE_HASH" "$flake_nix" 2>/dev/null; then
+            if ! grep -qF "$FAKE_PREFIX" "$flake_nix" 2>/dev/null; then
                 echo "    ${GREEN}✓${NC} all hashes resolved"
                 result=0
                 break
@@ -421,9 +471,9 @@ resolve_hashes() {
                 # The build only evaluates the host system, so the hash
                 # entries of the other architectures can still be fake. Say
                 # so: they break the build on those systems.
-                if grep -qF "$FAKE_HASH" "$flake_nix" 2>/dev/null; then
+                if grep -qF "$FAKE_PREFIX" "$flake_nix" 2>/dev/null; then
                     local remaining
-                    remaining="$(grep -cF "$FAKE_HASH" "$flake_nix" 2>/dev/null || echo 0)"
+                    remaining="$(grep -cF "$FAKE_PREFIX" "$flake_nix" 2>/dev/null || echo 0)"
                     echo "    ${YELLOW}!${NC} $remaining hash entr$([[ $remaining -eq 1 ]] && echo y || echo ies) still fake —"
                     echo "      the build did not evaluate them (other architectures?)"
                 fi
@@ -443,13 +493,21 @@ resolve_hashes() {
                 break
             fi
 
-            # Replace only the first occurrence (only the hash the current build
-            # is failing on). sed address range `0,/PATTERN/` stops at the first
-            # line containing PATTERN, so multi-hash flakes progress one hash
-            # per build iteration. The trailing `; # FIXME: was "..."` audit
-            # comment (injected by the reset step above) is stripped from the
-            # same line — it's only meaningful during the resolution loop.
-            sed -i -e "0,/${FAKE_HASH//\//\\/}/{s/${FAKE_HASH//\//\\/}/${got_hash//\//\\/}/}" "$flake_nix"
+            # The error names the fake it rejected: that is the attribute that
+            # failed, so the real hash goes back into THAT attribute. Writing
+            # it into the first fake hash in the file instead would put a
+            # dependency's hash into the source attribute.
+            local specified
+            specified=$(echo "$build_output" | grep -oE 'specified:[[:space:]]*sha256-[a-zA-Z0-9+/=]+' | head -1 | sed -E 's/^specified:[[:space:]]*//')
+            if [[ -n "$specified" ]]; then
+                sed -i "s|$specified|$got_hash|" "$flake_nix"
+            else
+                # No named fake in the output: fall back to the first one.
+                sed -i "0,/$FAKE_PREFIX/{s|$FAKE_PREFIX[a-zA-Z0-9+/=]*|$got_hash|}" "$flake_nix"
+            fi
+            # The trailing `; # FIXME: was "..."` audit comment (injected by the
+            # reset step above) is stripped from the same line — it's only
+            # meaningful during the resolution loop.
             sed -i -E -e "0,/${got_hash//\//\\/}/{s/;[[:space:]]*#[[:space:]]*FIXME:[[:space:]]*was[[:space:]]*\"sha256-[^\"]*\"//}" "$flake_nix"
             echo "    hash $attempt: $got_hash"
         done
@@ -588,7 +646,7 @@ if [[ ${#UPDATE_TARGETS[@]} -gt 0 || $ALL_FLAKES == true ]]; then
                     else
                         echo "  Package '$target' is already at $installed (no update needed)."
                     fi
-                elif grep -qF "$FAKE_HASH" "$DEVBOX_D/${target%%#*}/flake.nix" 2>/dev/null; then
+                elif grep -qF "$FAKE_PREFIX" "$DEVBOX_D/${target%%#*}/flake.nix" 2>/dev/null; then
                     # Version matches but hashes not fully resolved — retry resolution
                     TARGETS+=("$target")
                 else
