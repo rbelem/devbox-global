@@ -1,0 +1,201 @@
+#!/usr/bin/env python3
+"""Offline stand-in for the `gh` CLI, backed by the recorded fixtures.
+
+The detection tests must not touch the network, so every upstream fact the
+script reads is served from tests/detection/fixtures/<owner>__<repo>.json.
+
+The fixture directory comes from $UPDATE_FLAKE_FIXTURES. Repositories without
+a fixture behave like a repository that does not exist: the API answers 404 and
+the script falls back to "unknown" for that package.
+"""
+
+import json
+import os
+import subprocess
+import sys
+
+FIXTURES = os.environ.get("UPDATE_FLAKE_FIXTURES", "")
+NOT_FOUND = '{"message":"Not Found","documentation_url":"https://docs.github.com/rest"}'
+
+
+def load(repo):
+    if not repo or "/" not in repo:
+        return None
+    owner, name = repo.split("/", 1)
+    path = os.path.join(FIXTURES, f"{owner}__{name}.json")
+    if not os.path.exists(path):
+        return None
+    with open(path) as handle:
+        return json.load(handle)
+
+
+def releases_payload(data):
+    """The release objects in the shape the GitHub API returns them."""
+    return [
+        {
+            "tag_name": release["tag_name"],
+            "name": release["tag_name"],
+            "prerelease": release["prerelease"],
+            "draft": release["draft"],
+            "published_at": release["published_at"],
+            "assets": [
+                {
+                    "name": asset["name"],
+                    "browser_download_url": asset["browser_download_url"],
+                }
+                for asset in release["assets"]
+            ],
+        }
+        for release in data["releases"]
+    ]
+
+
+def tags_payload(data):
+    """The tag objects in the shape the GitHub API returns them."""
+    return [{"name": tag, "commit": {"sha": f"{tag}-sha"}} for tag in data["tags"]]
+
+
+def repo_payload(data):
+    return {
+        "full_name": data["repo"],
+        "default_branch": data["default_branch"],
+        "private": False,
+    }
+
+
+def endpoint_payload(endpoint):
+    """The JSON body for a `repos/<owner>/<repo>/...` endpoint."""
+    parts = endpoint.split("?", 1)[0].split("/")
+    if len(parts) < 3 or parts[0] != "repos":
+        return None
+    repo = "/".join(parts[1:3])
+    data = load(repo)
+    if data is None:
+        return None
+    rest = parts[3:]
+    if not rest:
+        return repo_payload(data)
+    if rest == ["releases"]:
+        return releases_payload(data)
+    if rest == ["tags"]:
+        return tags_payload(data)
+    if rest[:2] == ["releases", "tags"] and len(rest) == 3:
+        wanted = rest[2]
+        for release in releases_payload(data):
+            if release["tag_name"] == wanted:
+                return release
+        return None
+    return None
+
+
+def apply_jq(payload, expression):
+    if not expression:
+        return json.dumps(payload)
+    proc = subprocess.run(
+        ["jq", "-r", expression],
+        input=json.dumps(payload),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if proc.returncode != 0:
+        sys.stderr.write(proc.stderr)
+        return ""
+    return proc.stdout.rstrip("\n")
+
+
+def main():
+    args = sys.argv[1:]
+    if not args:
+        return 1
+    command = args[0]
+
+    if command == "auth":
+        print("github.com")
+        print("  ✓ Logged in to github.com (fake)")
+        return 0
+
+    if command == "release":
+        if len(args) > 1 and args[1] == "list":
+            return release_list(args[2:])
+        return 0
+
+    if command == "api":
+        return api(args[1:])
+
+    sys.stderr.write(f"fake gh: unsupported command {command}\n")
+    return 1
+
+
+def release_list(args):
+    repo = ""
+    limit = 30
+    expression = ""
+    index = 0
+    while index < len(args):
+        arg = args[index]
+        if arg == "-R":
+            repo = args[index + 1]
+            index += 2
+        elif arg in ("--limit", "-L"):
+            limit = int(args[index + 1])
+            index += 2
+        elif arg in ("-q", "--jq"):
+            expression = args[index + 1]
+            index += 2
+        elif arg == "--json":
+            index += 2
+        else:
+            index += 1
+
+    data = load(repo)
+    if data is None:
+        return 0
+    payload = [
+        {"tagName": release["tag_name"], "isPrerelease": release["prerelease"]}
+        for release in releases_payload(data)
+    ][:limit]
+    print(apply_jq(payload, expression))
+    return 0
+
+
+def api(args):
+    endpoint = ""
+    expression = ""
+    paginate = False
+    slurp = False
+    index = 0
+    while index < len(args):
+        arg = args[index]
+        if arg in ("-q", "--jq"):
+            expression = args[index + 1]
+            index += 2
+        elif arg == "--paginate":
+            paginate = True
+            index += 1
+        elif arg == "--slurp":
+            slurp = True
+            index += 1
+        elif arg.startswith("-"):
+            index += 1
+        else:
+            endpoint = arg
+            index += 1
+
+    payload = endpoint_payload(endpoint)
+    if payload is None:
+        sys.stderr.write(f"gh: Not Found (404) for {endpoint}\n")
+        print(NOT_FOUND)
+        return 1
+
+    if paginate and slurp:
+        payload = [payload]
+    elif paginate:
+        payload = [payload]
+
+    print(apply_jq(payload, expression))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

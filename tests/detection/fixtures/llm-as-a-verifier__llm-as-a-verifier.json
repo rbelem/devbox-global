@@ -1,0 +1,9 @@
+{
+ "default_branch": "main",
+ "releases": [],
+ "repo": "llm-as-a-verifier/llm-as-a-verifier",
+ "tag_dates": {},
+ "tags": [
+  "v0.3.0"
+ ]
+}

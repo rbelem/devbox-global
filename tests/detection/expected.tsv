@@ -1,0 +1,55 @@
+# Contract for the update-flake detection.
+#
+# flake      devbox.d/<flake> name (the package name in devbox.json)
+# repo       the upstream GitHub repository the version is tracked against
+# kind       how the flake obtains the versioned artifact:
+#              asset    - downloads a release asset, so only a published
+#                         release is installable
+#              source   - builds from a git tag or a release source tree
+#              registry - installs a registry package (npm/PyPI) whose version
+#                         tracks the upstream tag/release
+#              none     - no comparable upstream version
+# prefix     the upstream tag prefix of the release line the flake tracks
+# major      the major version of that line (the line is prefix + major)
+# installed  the version the flake pins today
+# latest     the newest version upstream published in that line
+# status     the status the table must show
+agent-browser	vercel-labs/agent-browser	asset	v	0	0.39.1	0.39.1	✓
+anydoc	firecrawl/anydoc	registry	v	0	0.2.4	0.2.4	✓
+blesh	akinomyoga/ble.sh	asset	v	0	0.4.0-devel3	0.4.0-devel3	✓
+browser-harness	browser-use/browser-harness	registry	v	0	0.1.13	0.1.13	✓
+bsk	Tencent/BrowserSkill	asset	cli-v	0	0.3.3	0.3.3	✓
+bun	oven-sh/bun	asset	bun-v	1	1.4.3	1.4.3	✓
+codeburn	getagentseal/codeburn	source	v	0	0.9.27	0.9.27	✓
+codegraph	colbymchenry/codegraph	source	v	1	1.6.2	1.6.2	✓
+cua	trycua/cua	asset	cua-sdk-v	0	0.5.0	0.5.0	✓
+cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.37.0	0.37.0	✓ (pre)
+dcg	Dicklesworthstone/destructive_command_guard	asset	v	0	0.15.3	0.15.3	✓
+deepsec	vercel-labs/deepsec	source	v	2	2.3.9	unknown	??
+deepseek-harness	deepseek-ai/deepseek-harness	source	dsh-v	0	0.2.1-alpha.1	0.2.1-rc.2	?? (sha-pinned)
+firecrawl	firecrawl/cli	asset	v	1	1.26.14	1.26.14	✓
+graphify	safishamsi/graphify	source	v	0	0.9.92	0.9.92	✓
+herdr	ogulcancelik/herdr	asset	v	0	0.9.5	0.9.5	✓
+hermes-agent	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
+hermes-agent#desktop	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
+hunk	modem-dev/hunk	asset	v	0	0.24.0	0.24.0	✓
+impeccable	pbakaus/impeccable	source	cli-v	4	4.7.0	4.7.0	✓
+jev-review	rbelem/jev-review	source	v	0	0.1.1-p1	unknown	??
+jev-ultrafast	rbelem/jev-ultrafast	source	v	0	0.1.0	unknown	??
+llm-verifier	llm-as-a-verifier/llm-as-a-verifier	registry	v	0	0.3.0	0.3.0	✓
+neovim	nix-community/neovim-nightly-overlay	none	v	0	unknown	unknown	??
+open-code-review	alibaba/open-code-review	asset	v	1	1.13.2	1.13.2	✓
+open-design	nexu-io/open-design	source	open-design-v	0	0.25.0	0.25.0	✓
+pdf-inspector	firecrawl/pdf-inspector	source	v	1	1.25.2	1.25.2	✓
+pi	earendil-works/pi	asset	v	1	1.3.0	1.3.0	✓
+playwright-cli	microsoft/playwright-cli	source	v	0	0.1.22	0.1.22	✓
+rtk	rtk-ai/rtk	source	v	1	1.0.1	1.0.1	✓
+skillranker	Dicklesworthstone/skillranker	source	v	0	dynamic	unknown	?? (dynamic-version)
+skills	vercel-labs/skills	source	v	1	1.7.4	1.7.4	✓
+skillspector	NVIDIA/SkillSpector	source	v	2	2.13.0	2.13.0	✓
+steel-takeoff	monozukuri-ai/ezdwg	source	v	0	0.16.3	0.16.3	✓
+strix	usestrix/strix	source	v	1	1.7.0	1.7.0	✓
+vela	unknown	none	v	0	0.1.6	unknown	??
+whichllm	Andyyyy64/whichllm	source	v	0	0.5.21	0.5.21	✓
+wigolo-git	rbelem/wigolo	source	v	0	0.2.1-git.53f20f0e	unknown	??
+zg	zvec-ai/zvec-grep	source	v	0	0.2.2	0.2.2	✓

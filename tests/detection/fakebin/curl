@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""Offline stand-in for `curl`, used for the release-asset existence check.
+
+The script verifies a candidate version by asking GitHub whether the release
+asset it would download exists. Offline that question is answered from the
+recorded fixtures: 200 when the fixture lists the asset, 404 otherwise.
+
+    curl -sIL -o /dev/null --max-time 20 -w '%{http_code}' <url>
+"""
+
+import json
+import os
+import sys
+
+FIXTURES = os.environ.get("UPDATE_FLAKE_FIXTURES", "")
+
+
+def status_for(url):
+    parts = url.split("/")
+    if len(parts) < 7 or "github.com" not in parts[2]:
+        return "404"
+    owner, repo = parts[3], parts[4]
+    if parts[5] != "releases" or parts[6] != "download":
+        return "404"
+    tag = parts[7]
+    asset = parts[-1]
+    path = os.path.join(FIXTURES, f"{owner}__{repo}.json")
+    if not os.path.exists(path):
+        return "404"
+    with open(path) as handle:
+        data = json.load(handle)
+    for release in data["releases"]:
+        if release["tag_name"] != tag:
+            continue
+        for entry in release["assets"]:
+            if entry["name"] == asset:
+                return "200"
+    return "404"
+
+
+def main():
+    args = [arg for arg in sys.argv[1:] if not arg.startswith("-")]
+    urls = [arg for arg in args if arg.startswith("http")]
+    if not urls:
+        return 1
+    sys.stdout.write(status_for(urls[-1]))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

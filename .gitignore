@@ -2,3 +2,4 @@
 /logs.db*
 /.devbox/
 result
+__pycache__/

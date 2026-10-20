@@ -1,0 +1,578 @@
+{
+ "default_branch": "main",
+ "releases": [
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-15T08:21:32Z",
+   "tag_name": "v0.22.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-14T23:59:24Z",
+   "tag_name": "v0.22.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-14T03:21:46Z",
+   "tag_name": "v0.22.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-12T05:53:41Z",
+   "tag_name": "v0.21.7"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-08T11:51:57Z",
+   "tag_name": "v0.21.6"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-24T10:09:38Z",
+   "tag_name": "v2026.9.24"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-21T18:10:55Z",
+   "tag_name": "v2026.9.21"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-14T16:04:14Z",
+   "tag_name": "v2026.9.14"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-11T19:20:31Z",
+   "tag_name": "v2026.9.11"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-07T22:17:01Z",
+   "tag_name": "v2026.9.7"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-31T19:29:49Z",
+   "tag_name": "v2026.8.31"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-27T12:06:53Z",
+   "tag_name": "v2026.8.27"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-21T12:16:39Z",
+   "tag_name": "v2026.8.19"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-18T07:26:46Z",
+   "tag_name": "v2026.8.18"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-17T18:43:27Z",
+   "tag_name": "v2026.8.16.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-16T17:33:22Z",
+   "tag_name": "v2026.8.16"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-13T20:37:37Z",
+   "tag_name": "v2026.8.13"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-03T16:57:52Z",
+   "tag_name": "v2026.8.3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-30T23:45:37Z",
+   "tag_name": "v2026.7.30"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.20/hermes_agent-0.19.0-py3-none-any.whl.sigstore.json",
+     "name": "hermes_agent-0.19.0-py3-none-any.whl.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.20/hermes_agent-0.19.0.tar.gz.sigstore.json",
+     "name": "hermes_agent-0.19.0.tar.gz.sigstore.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-20T18:35:55Z",
+   "tag_name": "v2026.7.20"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.7.2/hermes_agent-0.18.2-py3-none-any.whl.sigstore.json",
+     "name": "hermes_agent-0.18.2-py3-none-any.whl.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.7.2/hermes_agent-0.18.2.tar.gz.sigstore.json",
+     "name": "hermes_agent-0.18.2.tar.gz.sigstore.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-08T03:11:22Z",
+   "tag_name": "v2026.7.7.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.7/hermes_agent-0.18.1-py3-none-any.whl.sigstore.json",
+     "name": "hermes_agent-0.18.1-py3-none-any.whl.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.7/hermes_agent-0.18.1.tar.gz.sigstore.json",
+     "name": "hermes_agent-0.18.1.tar.gz.sigstore.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-08T01:15:00Z",
+   "tag_name": "v2026.7.7"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.1/hermes_agent-0.18.0-py3-none-any.whl.sigstore.json",
+     "name": "hermes_agent-0.18.0-py3-none-any.whl.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.7.1/hermes_agent-0.18.0.tar.gz.sigstore.json",
+     "name": "hermes_agent-0.18.0.tar.gz.sigstore.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-01T20:08:06Z",
+   "tag_name": "v2026.7.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.6.19/hermes_agent-0.17.0-py3-none-any.whl.sigstore.json",
+     "name": "hermes_agent-0.17.0-py3-none-any.whl.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.6.19/hermes_agent-0.17.0.tar.gz.sigstore.json",
+     "name": "hermes_agent-0.17.0.tar.gz.sigstore.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-19T19:39:06Z",
+   "tag_name": "v2026.6.19"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.6.5/hermes_agent-0.16.0-py3-none-any.whl.sigstore.json",
+     "name": "hermes_agent-0.16.0-py3-none-any.whl.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.6.5/hermes_agent-0.16.0.tar.gz.sigstore.json",
+     "name": "hermes_agent-0.16.0.tar.gz.sigstore.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-06T00:55:58Z",
+   "tag_name": "v2026.6.5"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.29.2/hermes_agent-0.15.2-py3-none-any.whl",
+     "name": "hermes_agent-0.15.2-py3-none-any.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.29.2/hermes_agent-0.15.2.tar.gz",
+     "name": "hermes_agent-0.15.2.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-29T13:37:26Z",
+   "tag_name": "v2026.5.29.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.29/hermes_agent-0.15.1-py3-none-any.whl.sigstore.json",
+     "name": "hermes_agent-0.15.1-py3-none-any.whl.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.29/hermes_agent-0.15.1.tar.gz.sigstore.json",
+     "name": "hermes_agent-0.15.1.tar.gz.sigstore.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-29T01:12:15Z",
+   "tag_name": "v2026.5.29"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.28/hermes_agent-0.15.0-py3-none-any.whl.sigstore.json",
+     "name": "hermes_agent-0.15.0-py3-none-any.whl.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/NousResearch/hermes-agent/releases/download/v2026.5.28/hermes_agent-0.15.0.tar.gz.sigstore.json",
+     "name": "hermes_agent-0.15.0.tar.gz.sigstore.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-28T17:46:09Z",
+   "tag_name": "v2026.5.28"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-16T09:59:15Z",
+   "tag_name": "v2026.5.16"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-07T16:23:08Z",
+   "tag_name": "v2026.5.7"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-30T18:31:21Z",
+   "tag_name": "v2026.4.30"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-23T22:32:13Z",
+   "tag_name": "v2026.4.23"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-16T19:53:25Z",
+   "tag_name": "v2026.4.16"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-13T18:52:41Z",
+   "tag_name": "v2026.4.13"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-08T11:56:44Z",
+   "tag_name": "v2026.4.8"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-03T18:15:29Z",
+   "tag_name": "v2026.4.3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-03-30T15:30:14Z",
+   "tag_name": "v2026.3.30"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-03-28T20:12:05Z",
+   "tag_name": "v2026.3.28"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-03-24T05:34:23Z",
+   "tag_name": "v2026.3.23"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-03-17T07:56:07Z",
+   "tag_name": "v2026.3.17"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-03-12T10:07:34Z",
+   "tag_name": "v2026.3.12"
+  }
+ ],
+ "repo": "NousResearch/hermes-agent",
+ "tag_dates": {},
+ "tags": [
+  "v2026.9.24",
+  "v2026.9.21",
+  "v2026.9.14",
+  "v2026.9.11",
+  "v2026.9.7",
+  "v2026.8.31",
+  "v2026.8.27",
+  "v2026.8.19",
+  "v2026.8.18",
+  "v2026.8.16.2",
+  "v2026.8.16",
+  "v2026.8.13",
+  "v2026.8.3",
+  "v2026.7.30",
+  "v2026.7.20",
+  "v2026.7.7.2",
+  "v2026.7.7",
+  "v2026.7.1",
+  "v2026.6.19",
+  "v2026.6.5",
+  "v2026.5.29.2",
+  "v2026.5.29",
+  "v2026.5.28",
+  "v2026.5.16",
+  "v2026.5.7",
+  "v2026.4.30",
+  "v2026.4.23",
+  "v2026.4.16",
+  "v2026.4.13",
+  "v2026.4.8",
+  "v2026.4.3",
+  "v2026.3.30",
+  "v2026.3.28",
+  "v2026.3.23",
+  "v2026.3.17",
+  "v2026.3.12",
+  "v0.22.2",
+  "v0.22.2+canary.20261019T071120Z",
+  "v0.22.2+canary.20261018T065527Z",
+  "v0.22.2+canary.20261017T065512Z",
+  "v0.22.2+canary.20261016T065950Z",
+  "v0.22.1",
+  "v0.22.1+canary.20261015T070051Z",
+  "v0.22.0",
+  "v0.22.0+canary.20261014T070054Z",
+  "v0.21.7",
+  "v0.21.7+canary.20261013T070740Z",
+  "v0.21.7+canary.20261012T072214Z",
+  "v0.21.6",
+  "v0.21.6+canary.20261011T070142Z",
+  "v0.21.6+canary.20261010T070026Z",
+  "v0.21.6+canary.20261009T070410Z",
+  "v0.21.5+canary.20261008T070449Z",
+  "v0.21.4+canary.20261007T070234Z",
+  "v0.21.4+canary.20261006T070224Z",
+  "v0.21.4+canary.20261005T071900Z",
+  "v0.21.4+canary.20260929T070217Z",
+  "v0.21.4+canary.20260928T071354Z",
+  "v0.21.4+canary.20260927T065737Z",
+  "v0.21.4+canary.20260926T065603Z",
+  "v0.21.4+canary.20260925T065930Z",
+  "rc.38-v0.21.5",
+  "rc.37-v0.21.5",
+  "rc.36-v0.21.5",
+  "rc.35-v0.21.5",
+  "rc.34-v0.21.5",
+  "rc.33-v0.21.5",
+  "rc.32-v0.21.5",
+  "rc.31-v0.21.5",
+  "rc.30-v0.21.5",
+  "rc.29-v0.21.5",
+  "rc.28-v0.21.5",
+  "rc.27-v0.21.5",
+  "rc.26-v0.21.5",
+  "rc.25-v0.21.5",
+  "rc.24-v0.21.5",
+  "rc.23-v0.21.5",
+  "rc.22-v0.21.5",
+  "rc.21-v0.21.5",
+  "rc.20-v0.21.5",
+  "rc.19-v0.21.5",
+  "rc.18-v0.21.5",
+  "rc.17-v0.21.5",
+  "rc.16-v0.21.5",
+  "rc.15-v0.21.7",
+  "rc.15-v0.21.5",
+  "rc.14-v0.21.7",
+  "rc.14-v0.21.5",
+  "rc.13-v0.21.7",
+  "rc.13-v0.21.5",
+  "rc.12-v0.21.7",
+  "rc.12-v0.21.5",
+  "rc.11-v0.21.7",
+  "rc.11-v0.21.5",
+  "rc.10-v0.21.7",
+  "rc.9-v0.21.7",
+  "rc.9-v0.21.5",
+  "rc.8-v0.21.7",
+  "rc.8-v0.21.5",
+  "rc.7-v0.21.7",
+  "rc.7-v0.21.5",
+  "rc.6-v0.21.7",
+  "rc.5-v0.22.1",
+  "rc.5-v0.21.7",
+  "rc.4-v0.22.1",
+  "rc.4-v0.21.7",
+  "rc.4-v0.21.6",
+  "rc.3-v0.22.1",
+  "rc.3-v0.22.0",
+  "rc.3-v0.21.7",
+  "rc.3-v0.21.6",
+  "rc.2-v0.22.2",
+  "rc.2-v0.22.1",
+  "rc.2-v0.22.0",
+  "rc.2-v0.21.7",
+  "rc.2-v0.21.6",
+  "rc.1-v0.22.2",
+  "rc.1-v0.22.1",
+  "rc.1-v0.22.0",
+  "rc.1-v0.21.7",
+  "rc.1-v0.21.6",
+  "premerge-oh-god",
+  "merge-commit-backup",
+  "inputs-f",
+  "inputs-e",
+  "inputs-d",
+  "inputs-c",
+  "inputs-b",
+  "inputs-a",
+  "inputs-9",
+  "inputs-8",
+  "inputs-7",
+  "inputs-6",
+  "inputs-5",
+  "inputs-4",
+  "inputs-3",
+  "inputs-2",
+  "inputs-1",
+  "inputs-0",
+  "desktop-pr20059-installers",
+  "clean-before-remerge",
+  "backup/precopystrip-20260616-2058",
+  "backup/opentui-prestrip-20260616-1950",
+  "abandoned-rc.915-v0.21.5",
+  "abandoned-rc.38-v0.21.5",
+  "abandoned-rc.37-v0.21.5",
+  "abandoned-rc.36-v0.21.5",
+  "abandoned-rc.35-v0.21.5",
+  "abandoned-rc.34-v0.21.5",
+  "abandoned-rc.33-v0.21.5",
+  "abandoned-rc.32-v0.21.5",
+  "abandoned-rc.31-v0.21.5",
+  "abandoned-rc.30-v0.21.5",
+  "abandoned-rc.29-v0.21.5",
+  "abandoned-rc.28-v0.21.5",
+  "abandoned-rc.27-v0.21.5",
+  "abandoned-rc.26-v0.21.5",
+  "abandoned-rc.25-v0.21.5",
+  "abandoned-rc.24-v0.21.5",
+  "abandoned-rc.23-v0.21.5",
+  "abandoned-rc.22-v0.21.5",
+  "abandoned-rc.21-v0.21.5",
+  "abandoned-rc.20-v0.21.5",
+  "abandoned-rc.19-v0.21.5",
+  "abandoned-rc.18-v0.21.5",
+  "abandoned-rc.17-v0.21.5",
+  "abandoned-rc.16-v0.21.5",
+  "abandoned-rc.15-v0.21.5",
+  "abandoned-rc.14-v0.21.7",
+  "abandoned-rc.14-v0.21.5",
+  "abandoned-rc.13-v0.21.7",
+  "abandoned-rc.13-v0.21.5",
+  "abandoned-rc.12-v0.21.7",
+  "abandoned-rc.12-v0.21.5",
+  "abandoned-rc.11-v0.21.7",
+  "abandoned-rc.11-v0.21.5",
+  "abandoned-rc.10-v0.21.7",
+  "abandoned-rc.10-v0.21.5",
+  "abandoned-rc.9-v0.21.7",
+  "abandoned-rc.9-v0.21.5",
+  "abandoned-rc.8-v0.21.7",
+  "abandoned-rc.8-v0.21.5",
+  "abandoned-rc.7-v0.21.7",
+  "abandoned-rc.7-v0.21.5",
+  "abandoned-rc.6-v0.21.7",
+  "abandoned-rc.6-v0.21.5",
+  "abandoned-rc.5-v0.21.7",
+  "abandoned-rc.4-v0.22.1",
+  "abandoned-rc.4-v0.21.7",
+  "abandoned-rc.3-v0.22.1",
+  "abandoned-rc.3-v0.21.7",
+  "abandoned-rc.3-v0.21.6",
+  "abandoned-rc.2-v0.22.1",
+  "abandoned-rc.2-v0.22.0",
+  "abandoned-rc.2-v0.21.7",
+  "abandoned-rc.2-v0.21.6",
+  "abandoned-rc.1-v0.22.2",
+  "abandoned-rc.1-v0.22.1",
+  "abandoned-rc.1-v0.22.0",
+  "abandoned-rc.1-v0.21.7",
+  "abandoned-rc.1-v0.21.6"
+ ]
+}

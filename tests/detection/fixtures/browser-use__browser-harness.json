@@ -1,0 +1,121 @@
+{
+ "default_branch": "main",
+ "releases": [
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-04T02:52:52Z",
+   "tag_name": "v0.1.13"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-04T01:09:15Z",
+   "tag_name": "v0.1.12"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-03T15:42:38Z",
+   "tag_name": "v0.1.11"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-26T00:49:55Z",
+   "tag_name": "v0.1.10"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-16T17:50:53Z",
+   "tag_name": "v0.1.9"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-26T03:16:14Z",
+   "tag_name": "v0.1.8"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-21T21:24:02Z",
+   "tag_name": "v0.1.7"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-17T05:03:05Z",
+   "tag_name": "v0.1.6"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-11T00:35:18Z",
+   "tag_name": "v0.1.5"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-01T13:24:54Z",
+   "tag_name": "v0.1.4"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-21T15:43:56Z",
+   "tag_name": "v0.1.3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-21T15:26:29Z",
+   "tag_name": "v0.1.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-21T14:25:31Z",
+   "tag_name": "v0.1.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-06-21T07:00:13Z",
+   "tag_name": "v0.1.1rc1"
+  }
+ ],
+ "repo": "browser-use/browser-harness",
+ "tag_dates": {},
+ "tags": [
+  "v0.1.13",
+  "v0.1.12",
+  "v0.1.11",
+  "v0.1.10",
+  "v0.1.9",
+  "v0.1.8",
+  "v0.1.7",
+  "v0.1.6",
+  "v0.1.5",
+  "v0.1.4",
+  "v0.1.3",
+  "v0.1.2",
+  "v0.1.1",
+  "v0.1.1rc1"
+ ]
+}

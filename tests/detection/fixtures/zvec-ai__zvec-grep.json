@@ -1,0 +1,29 @@
+{
+ "default_branch": "main",
+ "releases": [
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-27T16:15:11Z",
+   "tag_name": "v0.2.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-16T07:49:42Z",
+   "tag_name": "v0.1.5"
+  }
+ ],
+ "repo": "zvec-ai/zvec-grep",
+ "tag_dates": {},
+ "tags": [
+  "v0.2.2",
+  "v0.2.1",
+  "v0.2.0",
+  "v0.1.9",
+  "v0.1.8",
+  "v0.1.5"
+ ]
+}
