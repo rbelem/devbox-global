@@ -88,6 +88,8 @@
     "path:devbox.d/skillranker":          {},
     "path:devbox.d/cua":                  {},
     "path:devbox.d/cua-driver":           {},
+    "path:devbox.d/cua-spaces":           {},
+    "path:devbox.d/cua-spacesd":          {},
     "path:devbox.d/jev-ultrafast":        {},
     "bws":                                "latest",
     "bitwarden-cli":                      "latest",
