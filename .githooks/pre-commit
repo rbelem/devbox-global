@@ -8,7 +8,17 @@
 #   2. detection heuristics - the shapes a wrong answer would hide
 #   3. version spelling    - the version written the way the flake spells it
 #   4. hash resolution     - every hash goes back into its own attribute
-#   5. flake lint          - statix + a nix parse of every devbox.d/*/flake.nix
+#   5. disable-package     - the three-file disable procedure
+#   6. flake lint          - statix + a nix parse of every devbox.d/*/flake.nix
+#
+# The hook checks the INDEX - the content that is about to be committed - and
+# not the working tree. The checks read the files from disk, so the unstaged
+# changes (and the untracked files) are put away for the duration of the run,
+# with the index kept, and restored afterwards.
+#
+# That way an edit that is not staged yet cannot block a commit of the staged
+# content, while a staged edit that breaks the contract still does - the same
+# verdict CI gives, because CI checks out the commit itself.
 #
 # Installed with `git config core.hooksPath .githooks`.
 # CI runs the same policy on every push and PR:
@@ -19,4 +29,48 @@ set -uo pipefail
 
 cd "$(git rev-parse --show-toplevel)" || exit 1
 
+STASHED=false
+STASH_REF=""
+
+# Put the unstaged changes back. Runs on every exit path: the checks passed,
+# the checks failed, the hook was interrupted. The stash this hook created is
+# the only one it touches, and it is never dropped before the changes are
+# back in the working tree.
+restore() {
+    [[ "$STASHED" == true ]] || return 0
+    STASHED=false
+    if [[ "$(git rev-parse -q --verify "stash@{0}" 2>/dev/null)" != "$STASH_REF" ]]; then
+        echo "pre-commit: the stash to restore is not on top of the stack - leaving every stash alone." >&2
+        echo "pre-commit: restore it with: git stash pop $STASH_REF" >&2
+        return 0
+    fi
+    if ! git stash pop --quiet; then
+        echo "pre-commit: the unstaged changes could not be restored cleanly." >&2
+        echo "pre-commit: they are still in the stash - recover them with: git stash pop" >&2
+    fi
+}
+trap restore EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+
+# Unstaged tracked changes and untracked files are not part of the commit:
+# they are hidden so the checks read the index and nothing else.
+if ! git diff --quiet --ignore-submodules -- \
+    || [[ -n "$(git ls-files --others --exclude-standard)" ]]; then
+    before="$(git rev-parse -q --verify refs/stash 2>/dev/null || true)"
+    if ! git stash push --keep-index --include-untracked --quiet \
+        --message "pre-commit: unstaged changes"; then
+        echo "pre-commit: the unstaged changes could not be put away - aborting." >&2
+        exit 1
+    fi
+    STASH_REF="$(git rev-parse -q --verify refs/stash 2>/dev/null || true)"
+    if [[ -n "$STASH_REF" && "$STASH_REF" != "$before" ]]; then
+        STASHED=true
+    fi
+fi
+
 bash tests/run-checks.sh
+status=$?
+
+restore
+exit $status
