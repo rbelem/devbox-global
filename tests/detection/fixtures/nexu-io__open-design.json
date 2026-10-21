@@ -4,30 +4,37 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.25.0/open-design-0.25.0-mac-arm64.dmg",
-     "name": "open-design-0.25.0-mac-arm64.dmg"
+     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.26.0/open-design-0.26.0-mac-arm64.dmg",
+     "name": "open-design-0.26.0-mac-arm64.dmg"
     },
     {
-     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.25.0/open-design-0.25.0-mac-arm64.dmg.sha256",
-     "name": "open-design-0.25.0-mac-arm64.dmg.sha256"
+     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.26.0/open-design-0.26.0-mac-arm64.dmg.sha256",
+     "name": "open-design-0.26.0-mac-arm64.dmg.sha256"
     },
     {
-     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.25.0/open-design-0.25.0-mac-x64.dmg",
-     "name": "open-design-0.25.0-mac-x64.dmg"
+     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.26.0/open-design-0.26.0-mac-x64.dmg",
+     "name": "open-design-0.26.0-mac-x64.dmg"
     },
     {
-     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.25.0/open-design-0.25.0-mac-x64.dmg.sha256",
-     "name": "open-design-0.25.0-mac-x64.dmg.sha256"
+     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.26.0/open-design-0.26.0-mac-x64.dmg.sha256",
+     "name": "open-design-0.26.0-mac-x64.dmg.sha256"
     },
     {
-     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.25.0/open-design-0.25.0-win-x64-setup.exe",
-     "name": "open-design-0.25.0-win-x64-setup.exe"
+     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.26.0/open-design-0.26.0-win-x64-setup.exe",
+     "name": "open-design-0.26.0-win-x64-setup.exe"
     },
     {
-     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.25.0/open-design-0.25.0-win-x64-setup.exe.sha256",
-     "name": "open-design-0.25.0-win-x64-setup.exe.sha256"
+     "browser_download_url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.26.0/open-design-0.26.0-win-x64-setup.exe.sha256",
+     "name": "open-design-0.26.0-win-x64-setup.exe.sha256"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-20T14:35:23Z",
+   "tag_name": "open-design-v0.26.0"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-15T14:44:06Z",
@@ -304,6 +311,7 @@
  "tag_dates": {},
  "tags": [
   "pr-3706-verification-assets",
+  "open-design-v0.26.0",
   "open-design-v0.25.0",
   "open-design-v0.24.1",
   "open-design-v0.24.0",

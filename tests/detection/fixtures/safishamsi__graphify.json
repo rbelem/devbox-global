@@ -4,10 +4,17 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.92/graphify-self-graph.tar.gz",
+     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.93/graphify-self-graph.tar.gz",
      "name": "graphify-self-graph.tar.gz"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-20T16:29:43Z",
+   "tag_name": "v0.9.93"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-16T17:57:21Z",
@@ -1677,6 +1684,7 @@
  "tag_dates": {},
  "tags": [
   "v1.0.0",
+  "v0.9.93",
   "v0.9.92",
   "v0.9.91",
   "v0.9.90",

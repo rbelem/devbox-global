@@ -12,6 +12,7 @@ iii-engine
 jcode
 oh-my-pi
 omniroute
+open-design
 opencode
 opencommit
 openspec

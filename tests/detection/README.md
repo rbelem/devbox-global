@@ -36,6 +36,29 @@ produces the same table. The table is compared with the contract in
 | `parse_table.py`      | Turns the printed table into a comparable TSV.                    |
 | `compare.py`          | Compares the printed table with the contract.                     |
 
+## Disabling a package
+
+Turning a package off is a **three-file edit**, and the contract checks all
+three: a package that is disabled but still has a row in `expected.tsv` fails
+the detection check, and a package that is skipped but has no name in
+`expected-skipped.txt` fails it too.
+
+| File | The edit |
+|---|---|
+| `devbox.json` | comment the package entry out (the disabled entries read with their `{}` two columns right of the enabled ones) |
+| `tests/detection/expected.tsv` | remove the flake's row |
+| `tests/detection/expected-skipped.txt` | add the flake's name, list stays sorted |
+
+`bin/disable-package <name>` does all three (and refuses a name that is not
+a `devbox.d` package):
+
+```bash
+bin/disable-package open-design            # edit the three files
+bin/disable-package open-design --dry-run  # show what would change
+```
+
+`tests/disable-package.sh` is the offline test of that script.
+
 ## The rule the contract encodes
 
 A flake tracks one *line* of upstream versions: a tag prefix plus a major
