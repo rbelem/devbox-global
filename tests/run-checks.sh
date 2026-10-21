@@ -10,7 +10,8 @@
 #   2. detection heuristics - the shapes a wrong answer would hide
 #   3. version spelling    - the version written the way the flake spells it
 #   4. hash resolution     - every hash goes back into its own attribute
-#   5. flake lint          - statix + a nix parse of every devbox.d/*/flake.nix
+#   5. disable-package     - the three-file disable procedure
+#   6. flake lint          - statix + a nix parse of every devbox.d/*/flake.nix
 #
 # The lint has a ratchet: a parse error always fails, a statix finding fails
 # only outside tests/known-lint-findings.txt. The findings in that list are
@@ -37,6 +38,7 @@ run "detection contract" bash tests/detection/run.sh
 run "detection heuristics" bash tests/detection/heuristics.sh
 run "version spelling" bash tests/update/version-spelling.sh
 run "hash resolution" bash tests/update/hash-resolution.sh
+run "disable-package" bash tests/disable-package.sh
 
 # The flake lint. The findings per file come out of vet-flakes as
 # "FAIL <file>" followed by "  statix: ..." or "  parse: ..." lines.

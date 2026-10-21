@@ -1,0 +1,160 @@
+#!/usr/bin/env bash
+# disable-package: turn a devbox package off.
+#
+# Disabling a package is a THREE-file edit, and every one of the three is
+# required — the detection contract checks all of them:
+#
+#   1. devbox.json                          - comment the package out
+#   2. tests/detection/expected.tsv         - drop the flake's row
+#   3. tests/detection/expected-skipped.txt - add the flake's name
+#
+# A package that is disabled but still has a row fails the detection
+# contract check; a package that is skipped but has no name in the skipped
+# list fails it too. The rules live in tests/detection/README.md.
+#
+# Usage: bin/disable-package <name> [--dry-run] [--root <dir>]
+#
+#   <name>     the devbox.d directory name, e.g. open-design
+#   --dry-run  print what would change, change nothing
+#   --root     the repo root to edit (default: this repo)
+#
+# Exit 0: the package is disabled (already disabled counts). Exit 1: the
+# name is not a devbox.d package, or the files could not be edited.
+set -uo pipefail
+
+REPO="$(git rev-parse --show-toplevel 2>/dev/null || true)"
+NAME=""
+DRY_RUN=false
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --dry-run) DRY_RUN=true; shift ;;
+        --root) REPO="${2:-}"; shift 2 ;;
+        -h|--help) sed -n '2,25p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+        -*) echo "disable-package: unknown option '$1'" >&2; exit 1 ;;
+        *) NAME="$1"; shift ;;
+    esac
+done
+
+if [[ -z "$NAME" ]]; then
+    echo "usage: disable-package <name> [--dry-run] [--root <dir>]" >&2
+    exit 1
+fi
+if [[ -z "$REPO" || ! -d "$REPO/devbox.d" ]]; then
+    echo "disable-package: '$REPO' is not a devbox-global checkout" >&2
+    exit 1
+fi
+
+DEVBOX_JSON="$REPO/devbox.json"
+CONTRACT="$REPO/tests/detection/expected.tsv"
+SKIPPED="$REPO/tests/detection/expected-skipped.txt"
+
+for file in "$DEVBOX_JSON" "$CONTRACT" "$SKIPPED"; do
+    if [[ ! -f "$file" ]]; then
+        echo "disable-package: missing '$file'" >&2
+        exit 1
+    fi
+done
+
+if [[ ! -d "$REPO/devbox.d/$NAME" ]]; then
+    echo "disable-package: '$NAME' is not a package (no devbox.d/$NAME)" >&2
+    exit 1
+fi
+
+if ! grep -q "\"path:devbox.d/$NAME\"" "$DEVBOX_JSON"; then
+    echo "disable-package: '$NAME' is not in devbox.json" >&2
+    exit 1
+fi
+
+changed=()
+
+# 1. devbox.json — comment the package out. The commented form keeps the
+#    "{}" two columns right of the enabled entries, the way the other
+#    disabled packages read.
+if grep -q "^[[:space:]]*//\"path:devbox.d/$NAME\"" "$DEVBOX_JSON"; then
+    :
+else
+    changed+=("devbox.json: $NAME commented out")
+    if [[ "$DRY_RUN" == false ]]; then
+        python3 - "$DEVBOX_JSON" "$NAME" <<'PY'
+import re
+import sys
+
+path, name = sys.argv[1], sys.argv[2]
+text = open(path).read()
+pattern = re.compile(r'^(?P<indent>[ \t]*)(?P<key>"path:devbox\.d/' + re.escape(name) + r'":)(?P<pad>[ \t]*)(?P<rest>.*)$', re.M)
+
+
+def comment_out(match):
+    # "//" goes right after the indent and the padding stays as it is: the
+    # disabled entries read with their "{}" two columns right of the enabled
+    # ones, the way opencode and open-design do.
+    return f'{match.group("indent")}//{match.group("key")}{match.group("pad")}{match.group("rest")}'
+
+
+new_text, count = pattern.subn(comment_out, text)
+if count != 1:
+    sys.exit(f"disable-package: expected one entry for {name}, found {count}")
+open(path, "w").write(new_text)
+PY
+        if [[ $? -ne 0 ]]; then
+            echo "disable-package: could not edit devbox.json" >&2
+            exit 1
+        fi
+    fi
+fi
+
+# 2. expected.tsv — drop the flake's row.
+if grep -q "^$NAME$(printf '\t')" "$CONTRACT"; then
+    changed+=("expected.tsv: $NAME row removed")
+    if [[ "$DRY_RUN" == false ]]; then
+        python3 - "$CONTRACT" "$NAME" <<'PY'
+import sys
+
+path, name = sys.argv[1], sys.argv[2]
+lines = open(path).read().splitlines(keepends=True)
+kept = [line for line in lines if not line.startswith(name + "\t")]
+if len(kept) == len(lines):
+    sys.exit(f"disable-package: no row for {name}")
+open(path, "w").write("".join(kept))
+PY
+        if [[ $? -ne 0 ]]; then
+            echo "disable-package: could not edit expected.tsv" >&2
+            exit 1
+        fi
+    fi
+fi
+
+# 3. expected-skipped.txt — add the name, keeping the list sorted.
+if ! grep -qx "$NAME" "$SKIPPED"; then
+    changed+=("expected-skipped.txt: $NAME added")
+    if [[ "$DRY_RUN" == false ]]; then
+        python3 - "$SKIPPED" "$NAME" <<'PY'
+import sys
+
+path, name = sys.argv[1], sys.argv[2]
+lines = [line.rstrip("\n") for line in open(path) if line.strip()]
+lines.append(name)
+lines.sort()
+open(path, "w").write("\n".join(lines) + "\n")
+PY
+        if [[ $? -ne 0 ]]; then
+            echo "disable-package: could not edit expected-skipped.txt" >&2
+            exit 1
+        fi
+    fi
+fi
+
+if [[ ${#changed[@]} -eq 0 ]]; then
+    echo "disable-package: '$NAME' is already disabled"
+    exit 0
+fi
+
+if [[ "$DRY_RUN" == true ]]; then
+    echo "disable-package: '$NAME' would change:"
+else
+    echo "disable-package: '$NAME' disabled:"
+fi
+for line in "${changed[@]}"; do
+    echo "  - $line"
+done
