@@ -12,19 +12,20 @@
       # branch), then refresh the hashes via the fakeHash loop below.
       #
       # Tracks the fork's main, which carries the key-gated DeepSeek engine
-      # (DEEPSEEK_API_KEY joins the general and code pools, like Brave).
-      # Re-pin to upstream once that engine lands in a release.
+      # plus the resident-memory work (cache compression, hosted inference) and
+      # installed-browser support (Flatpak Chrome/Brave). None of it is in a
+      # release yet; re-pin to upstream once it is.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "ba68b978d75d70b08f5ad16d6f7cfb2ac3811d4f";
-      version = "0.2.1-git.ba68b978";
+      rev = "67ccc60d53beb71fd8bb2b69de822ba035df074c";
+      version = "0.2.1-git.67ccc60d";
 
       # Get the real hashes:
       #   1. Set srcHash/npmDepsHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash first — copy the "got" hash
       #   4. Then it will fail for npmDepsHash — copy that too
-      srcHash = "sha256-Xv27h/b8afnKUswaDx5cS/H/a5DXJjEDQY7M9qG9Wdo=";
+      srcHash = "sha256-QYUVIodZ/0xFC0Ka5i07JlY+dQi7dg5imtfe3kIVx3Y=";
       npmDepsHash = "sha256-k9wVsn/DbzCouvetyo4VZWZbJK6/8ilT7rTtkMFY7z8=";
 
       systems = [ "x86_64-linux" ];
