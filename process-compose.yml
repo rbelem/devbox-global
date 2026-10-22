@@ -64,6 +64,24 @@ processes:
       # service's contract explicit and survives a supervisor restart that
       # does not inherit the cache.
       - "DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}"
+      # Reranking runs on Jev through OpenRouter's decisions API instead of the
+      # bundled cross-encoder, which parks about 1 GB of native memory once it
+      # loads. The key comes from the secrets cache rather than config.json, so
+      # the secret has one owner and the service contract survives a supervisor
+      # restart that does not inherit the cache.
+      #
+      # The supervisor fixes `environment` when IT starts, so editing this block
+      # and restarting only the service changes nothing. Push the new spec with
+      # `process-compose project update -f <this file>`, then restart the service.
+      - "WIGOLO_RERANKER=decision"
+      - "WIGOLO_RERANKER_BASE_URL=https://openrouter.ai/api/alpha/decisions"
+      - "WIGOLO_RERANKER_MODEL=~typesafe/jev-latest"
+      - "WIGOLO_RERANKER_API_KEY=${OPENROUTER_API_KEY}"
+      # 'auto' lets the browser tier run an installed Chromium. On this host that
+      # is Flatpak Chrome or Brave, launched through flatpak's exported command so
+      # the browser keeps its sandbox. 'chromium', the default, pins the bundled
+      # build and never inspects the host.
+      - "WIGOLO_BROWSER_CHANNEL=auto"
     availability:
       restart: "always"
 
