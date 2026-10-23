@@ -44,6 +44,7 @@ open-code-review	alibaba/open-code-review	asset	v	1	1.13.2	1.13.2	✓
 pdf-inspector	firecrawl/pdf-inspector	source	v	1	1.25.2	1.25.2	✓
 pi	earendil-works/pi	asset	v	1	1.3.0	1.3.0	✓
 playwright-cli	microsoft/playwright-cli	source	v	0	0.1.22	0.1.22	✓
+rea	morluto/rea	source	rea-agents-	6	6.7.0	6.7.0	✓
 rtk	rtk-ai/rtk	source	v	1	1.0.1	1.0.1	✓
 skillranker	Dicklesworthstone/skillranker	source	v	0	dynamic	unknown	?? (dynamic-version)
 skills	vercel-labs/skills	source	v	1	1.7.4	1.7.4	✓

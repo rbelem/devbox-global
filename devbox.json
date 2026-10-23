@@ -99,6 +99,7 @@
     "chromium":                           "latest",
     "path:devbox.d/browser-harness":      "",
     "path:devbox.d/steel-takeoff":        {},
+    "path:devbox.d/rea":                  {},
     "ast-grep":                           "latest"
   },
   "env": {

@@ -51,6 +51,7 @@ REPOS = [
     "microsoft/playwright-cli",
     "modem-dev/hunk",
     "monozukuri-ai/ezdwg",
+    "morluto/rea",
     "nix-community/neovim-nightly-overlay",
     "nexu-io/open-design",
     "NousResearch/hermes-agent",
