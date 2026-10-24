@@ -52,8 +52,10 @@
             paths = with sysPkgs; [
               glib.out nspr nss at-spi2-core dbus.lib alsa-lib cairo
               cups.lib expat libgbm pango.out systemdMinimal
-              xorg.libX11 xorg.libxcb xorg.libXcomposite xorg.libXdamage
-              xorg.libXext xorg.libXfixes libxkbcommon xorg.libXrandr
+              # Non-output-prefixed attributes: the `xorg.*` aliases are
+              # deprecated in current nixpkgs and warn on every evaluation.
+              libx11 libxcb libxcomposite libxdamage
+              libxext libxfixes libxkbcommon libxrandr
             ];
             pathsToLink = [ "/lib" ];
             ignoreCollisions = true;
