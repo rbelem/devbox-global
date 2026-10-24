@@ -11,22 +11,23 @@
       # Re-point these four to track a new rev (e.g. the rbelem PR
       # branch), then refresh the hashes via the fakeHash loop below.
       #
-      # Tracks the fork's main, which carries the key-gated DeepSeek engine
-      # plus the resident-memory work (cache compression, hosted inference) and
-      # installed-browser support (Flatpak Chrome/Brave). None of it is in a
-      # release yet; re-pin to upstream once it is.
+      # Tracks the fork's main, rebased onto upstream v0.3.0 and carrying 16
+      # commits on top: the key-gated DeepSeek engine, the resident-memory work
+      # (gzipped cache, cache compaction, idle-model release, hosted inference)
+      # and installed-browser support (Flatpak Chrome/Brave). None of those
+      # commits are in a release yet; re-pin to upstream once they are.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "083816e2dbf710059a375084495f7c1ab859b439";
-      version = "0.2.1-git.083816e2";
+      rev = "46f5aed033aeac3e80d9812ec301457c5c59724c";
+      version = "0.3.0-git.46f5aed0";
 
       # Get the real hashes:
       #   1. Set srcHash/npmDepsHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash first — copy the "got" hash
       #   4. Then it will fail for npmDepsHash — copy that too
-      srcHash = "sha256-YwJEQs05ibXC2E0iq+8xLX6lKbq8C5p4fa+GTCoDWgA=";
-      npmDepsHash = "sha256-k9wVsn/DbzCouvetyo4VZWZbJK6/8ilT7rTtkMFY7z8=";
+      srcHash = "sha256-86iE7SLq+gLA5j4qgkAezME/WkmQFNapXNT7D9gbE1Y=";
+      npmDepsHash = "sha256-8Sg5O7ccbrhlN3ElhzZbRW6psoJfTKHfvTfn+XAnPDs=";
 
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
