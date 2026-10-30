@@ -19,6 +19,27 @@ GLOBAL="$WORK/global"
 mkdir -p "$GLOBAL/devbox.d/multistream" "$GLOBAL/devbox.d/multistream2" \
     "$GLOBAL/devbox.d/siblingver"
 
+# The synthetic flakes pin the newest release of each line as recorded in the
+# fixture, so refreshing the fixture cannot rot this test into asserting an
+# out-of-date version. __SDK__ / __DRIVER__ are filled in below.
+read -r SDK_NEWEST DRIVER_NEWEST < <(python3 - "$HERE/fixtures/trycua__cua.json" <<'PY'
+import json, re, sys
+
+releases = json.load(open(sys.argv[1]))["releases"]
+def newest(prefix):
+    # No pre-release filter: every cua-driver-rs release is flagged as one,
+    # and the helper needs a real version from that line to tempt a detector.
+    return max(
+        tuple(int(p) for p in m.groups())
+        for m in (re.match(prefix + r"(\d+)\.(\d+)\.(\d+)$", r["tag_name"])
+                  for r in releases)
+        if m
+    )
+print(".".join(map(str, newest("cua-sdk-v"))),
+      ".".join(map(str, newest("cua-driver-rs-v"))))
+PY
+)
+
 cat > "$GLOBAL/devbox.json" <<'JSON'
 {
   "packages": {
@@ -31,16 +52,19 @@ JSON
 
 # The project publishes two lines (cua-sdk-v and cua-driver-rs-v). A helper
 # attribute that carries the other line's URL must not move the flake onto
-# that line: the package installs the cua-sdk-v asset.
+# that line: the package installs the cua-sdk-v asset. The helper points at
+# the other line's newest version, newer than the pin, so a detection that
+# ignored the line would report an update.
 cat > "$GLOBAL/devbox.d/multistream/flake.nix" <<'NIX'
 {
   description = "multistream - helper binary declared before the package src";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   outputs = { self, nixpkgs }:
     let
-      version = "0.5.0";
+      version = "__SDK__";
+      driverVersion = "__DRIVER__";
       binary = pkgs.fetchurl {
-        url = "https://github.com/trycua/cua/releases/download/cua-driver-rs-v${version}/cua-driver-rs-${version}-linux-x86_64-binary.tar.gz";
+        url = "https://github.com/trycua/cua/releases/download/cua-driver-rs-v${driverVersion}/cua-driver-rs-${driverVersion}-linux-x86_64-binary.tar.gz";
         hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
       };
     in {
@@ -66,14 +90,15 @@ cat > "$GLOBAL/devbox.d/multistream2/flake.nix" <<'NIX'
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   outputs = { self, nixpkgs }:
     let
-      version = "0.5.0";
+      version = "__SDK__";
+      driverVersion = "__DRIVER__";
     in {
       packages = forAllSystems (pkgs: rec {
         multistream2 = pkgs.stdenv.mkDerivation {
           pname = "multistream2";
           inherit version;
           binary = pkgs.fetchurl {
-            url = "https://github.com/trycua/cua/releases/download/cua-driver-rs-v${version}/cua-driver-rs-${version}-linux-x86_64-binary.tar.gz";
+            url = "https://github.com/trycua/cua/releases/download/cua-driver-rs-v${driverVersion}/cua-driver-rs-${driverVersion}-linux-x86_64-binary.tar.gz";
             hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
           };
           src = pkgs.fetchurl {
@@ -86,6 +111,17 @@ cat > "$GLOBAL/devbox.d/multistream2/flake.nix" <<'NIX'
     };
 }
 NIX
+
+python3 - "$SDK_NEWEST" "$DRIVER_NEWEST" \
+    "$GLOBAL/devbox.d/multistream/flake.nix" \
+    "$GLOBAL/devbox.d/multistream2/flake.nix" <<'PY'
+import sys
+
+sdk, driver, *paths = sys.argv[1:]
+for path in paths:
+    text = open(path).read()
+    open(path, "w").write(text.replace("__SDK__", sdk).replace("__DRIVER__", driver))
+PY
 
 # The package pins a source tag but has no version attribute of its own and
 # does not inherit one. A sibling package's version is not this package's
@@ -140,10 +176,10 @@ check() {
 
 # flake  repo  origin  kind  prefix  major  installed_raw  installed  latest  relation
 check multistream 5 cua-sdk-v
-check multistream 9 0.5.0
+check multistream 9 "$SDK_NEWEST"
 check multistream 10 up-to-date
 check multistream2 5 cua-sdk-v
-check multistream2 9 0.5.0
+check multistream2 9 "$SDK_NEWEST"
 check multistream2 10 up-to-date
 check siblingver 8 unknown
 check siblingver 9 unknown

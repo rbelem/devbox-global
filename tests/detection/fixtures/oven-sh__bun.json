@@ -4,158 +4,165 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-darwin-aarch64-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-darwin-aarch64-profile.zip",
      "name": "bun-darwin-aarch64-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-darwin-aarch64.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-darwin-aarch64.zip",
      "name": "bun-darwin-aarch64.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-darwin-x64-baseline-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-darwin-x64-baseline-profile.zip",
      "name": "bun-darwin-x64-baseline-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-darwin-x64-baseline.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-darwin-x64-baseline.zip",
      "name": "bun-darwin-x64-baseline.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-darwin-x64-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-darwin-x64-profile.zip",
      "name": "bun-darwin-x64-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-darwin-x64.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-darwin-x64.zip",
      "name": "bun-darwin-x64.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-freebsd-aarch64-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-freebsd-aarch64-profile.zip",
      "name": "bun-freebsd-aarch64-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-freebsd-aarch64.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-freebsd-aarch64.zip",
      "name": "bun-freebsd-aarch64.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-freebsd-x64-baseline-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-freebsd-x64-baseline-profile.zip",
      "name": "bun-freebsd-x64-baseline-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-freebsd-x64-baseline.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-freebsd-x64-baseline.zip",
      "name": "bun-freebsd-x64-baseline.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-freebsd-x64-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-freebsd-x64-profile.zip",
      "name": "bun-freebsd-x64-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-freebsd-x64.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-freebsd-x64.zip",
      "name": "bun-freebsd-x64.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-aarch64-android-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-aarch64-android-profile.zip",
      "name": "bun-linux-aarch64-android-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-aarch64-android.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-aarch64-android.zip",
      "name": "bun-linux-aarch64-android.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-aarch64-musl-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-aarch64-musl-profile.zip",
      "name": "bun-linux-aarch64-musl-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-aarch64-musl.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-aarch64-musl.zip",
      "name": "bun-linux-aarch64-musl.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-aarch64-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-aarch64-profile.zip",
      "name": "bun-linux-aarch64-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-aarch64.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-aarch64.zip",
      "name": "bun-linux-aarch64.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-android-baseline-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-android-baseline-profile.zip",
      "name": "bun-linux-x64-android-baseline-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-android-baseline.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-android-baseline.zip",
      "name": "bun-linux-x64-android-baseline.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-android-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-android-profile.zip",
      "name": "bun-linux-x64-android-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-android.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-android.zip",
      "name": "bun-linux-x64-android.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-baseline-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-baseline-profile.zip",
      "name": "bun-linux-x64-baseline-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-baseline.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-baseline.zip",
      "name": "bun-linux-x64-baseline.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-musl-baseline-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-musl-baseline-profile.zip",
      "name": "bun-linux-x64-musl-baseline-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-musl-baseline.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-musl-baseline.zip",
      "name": "bun-linux-x64-musl-baseline.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-musl-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-musl-profile.zip",
      "name": "bun-linux-x64-musl-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-musl.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-musl.zip",
      "name": "bun-linux-x64-musl.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-profile.zip",
      "name": "bun-linux-x64-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64.zip",
      "name": "bun-linux-x64.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-windows-aarch64-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-windows-aarch64-profile.zip",
      "name": "bun-windows-aarch64-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-windows-aarch64.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-windows-aarch64.zip",
      "name": "bun-windows-aarch64.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-windows-x64-baseline-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-windows-x64-baseline-profile.zip",
      "name": "bun-windows-x64-baseline-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-windows-x64-baseline.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-windows-x64-baseline.zip",
      "name": "bun-windows-x64-baseline.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-windows-x64-profile.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-windows-x64-profile.zip",
      "name": "bun-windows-x64-profile.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-windows-x64.zip",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-windows-x64.zip",
      "name": "bun-windows-x64.zip"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/SHASUMS256.txt",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/SHASUMS256.txt",
      "name": "SHASUMS256.txt"
     },
     {
-     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/SHASUMS256.txt.asc",
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/SHASUMS256.txt.asc",
      "name": "SHASUMS256.txt.asc"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-22T10:11:32Z",
+   "tag_name": "bun-v1.4.4"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-10T05:24:54Z",
@@ -1037,7 +1044,64 @@
    "tag_name": "bun-v1.0.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-darwin-aarch64-profile.zip",
+     "name": "bun-darwin-aarch64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-darwin-aarch64.zip",
+     "name": "bun-darwin-aarch64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-darwin-x64-baseline-profile.zip",
+     "name": "bun-darwin-x64-baseline-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-darwin-x64-baseline.zip",
+     "name": "bun-darwin-x64-baseline.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-darwin-x64-profile.zip",
+     "name": "bun-darwin-x64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-darwin-x64.zip",
+     "name": "bun-darwin-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-linux-aarch64-profile.zip",
+     "name": "bun-linux-aarch64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-linux-aarch64.zip",
+     "name": "bun-linux-aarch64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-linux-x64-baseline-profile.zip",
+     "name": "bun-linux-x64-baseline-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-linux-x64-baseline.zip",
+     "name": "bun-linux-x64-baseline.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-linux-x64-profile.zip",
+     "name": "bun-linux-x64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/bun-linux-x64.zip",
+     "name": "bun-linux-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/SHASUMS256.txt",
+     "name": "SHASUMS256.txt"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-v0.8.1/SHASUMS256.txt.asc",
+     "name": "SHASUMS256.txt.asc"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2023-08-25T07:31:49Z",
@@ -1051,21 +1115,168 @@
    "tag_name": "bun-v0.8.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-darwin-aarch64-profile.zip",
+     "name": "bun-darwin-aarch64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-darwin-aarch64.zip",
+     "name": "bun-darwin-aarch64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-darwin-x64-baseline-profile.zip",
+     "name": "bun-darwin-x64-baseline-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-darwin-x64-baseline.zip",
+     "name": "bun-darwin-x64-baseline.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-darwin-x64-profile.zip",
+     "name": "bun-darwin-x64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-darwin-x64.zip",
+     "name": "bun-darwin-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-freebsd-aarch64-profile.zip",
+     "name": "bun-freebsd-aarch64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-freebsd-aarch64.zip",
+     "name": "bun-freebsd-aarch64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-freebsd-x64-profile.zip",
+     "name": "bun-freebsd-x64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-freebsd-x64.zip",
+     "name": "bun-freebsd-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-aarch64-android-profile.zip",
+     "name": "bun-linux-aarch64-android-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-aarch64-android.zip",
+     "name": "bun-linux-aarch64-android.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-aarch64-musl-profile.zip",
+     "name": "bun-linux-aarch64-musl-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-aarch64-musl.zip",
+     "name": "bun-linux-aarch64-musl.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-aarch64-profile.zip",
+     "name": "bun-linux-aarch64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-aarch64.zip",
+     "name": "bun-linux-aarch64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-android-profile.zip",
+     "name": "bun-linux-x64-android-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-android.zip",
+     "name": "bun-linux-x64-android.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline-profile.zip",
+     "name": "bun-linux-x64-baseline-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-baseline.zip",
+     "name": "bun-linux-x64-baseline.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-musl-baseline-profile.zip",
+     "name": "bun-linux-x64-musl-baseline-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-musl-baseline.zip",
+     "name": "bun-linux-x64-musl-baseline.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-musl-profile.zip",
+     "name": "bun-linux-x64-musl-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-musl.zip",
+     "name": "bun-linux-x64-musl.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64-profile.zip",
+     "name": "bun-linux-x64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-linux-x64.zip",
+     "name": "bun-linux-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-windows-aarch64-profile.zip",
+     "name": "bun-windows-aarch64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-windows-aarch64.zip",
+     "name": "bun-windows-aarch64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-windows-x64-baseline-profile.zip",
+     "name": "bun-windows-x64-baseline-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-windows-x64-baseline.zip",
+     "name": "bun-windows-x64-baseline.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-windows-x64-profile.zip",
+     "name": "bun-windows-x64-profile.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/bun-windows-x64.zip",
+     "name": "bun-windows-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/SHASUMS256.txt",
+     "name": "SHASUMS256.txt"
+    },
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/canary/SHASUMS256.txt.asc",
+     "name": "SHASUMS256.txt.asc"
+    }
+   ],
    "draft": false,
    "prerelease": true,
    "published_at": "2022-07-22T08:28:04Z",
    "tag_name": "canary"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/not-quite-v0/bun-macos-x64.zip",
+     "name": "bun-macos-x64.zip"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2021-09-14T04:43:27Z",
    "tag_name": "not-quite-v0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/oven-sh/bun/releases/download/bun-build-8/bun-macos-x64.zip",
+     "name": "bun-macos-x64.zip"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2021-09-14T09:48:46Z",
@@ -1084,6 +1295,7 @@
   "consolidation-step-3-green",
   "consolidation-step-1-green",
   "canary",
+  "bun-v1.4.4",
   "bun-v1.4.3",
   "bun-v1.4.2",
   "bun-v1.4.1",

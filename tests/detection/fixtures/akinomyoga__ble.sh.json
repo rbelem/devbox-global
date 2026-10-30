@@ -130,7 +130,764 @@
    "tag_name": "v0.1.12"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220616%2Ba3082a0.tar.xz",
+     "name": "ble-nightly-20220616+a3082a0.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220619%2Be4afb5a.tar.xz",
+     "name": "ble-nightly-20220619+e4afb5a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220620%2B1e19a67.tar.xz",
+     "name": "ble-nightly-20220620+1e19a67.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220627%2B11aa4ab.tar.xz",
+     "name": "ble-nightly-20220627+11aa4ab.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220708%2B64d471a.tar.xz",
+     "name": "ble-nightly-20220708+64d471a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220709%2B12c022b.tar.xz",
+     "name": "ble-nightly-20220709+12c022b.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220709%2B973ae8c.tar.xz",
+     "name": "ble-nightly-20220709+973ae8c.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220709%2Ba96bafe.tar.xz",
+     "name": "ble-nightly-20220709+a96bafe.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220709%2Bc0abc95.tar.xz",
+     "name": "ble-nightly-20220709+c0abc95.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220709%2Bd5fe1d1.tar.xz",
+     "name": "ble-nightly-20220709+d5fe1d1.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220710%2B14f3c81.tar.xz",
+     "name": "ble-nightly-20220710+14f3c81.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220712%2B1c7f7a1.tar.xz",
+     "name": "ble-nightly-20220712+1c7f7a1.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220712%2B6954b13.tar.xz",
+     "name": "ble-nightly-20220712+6954b13.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220721%2Ba450775.tar.xz",
+     "name": "ble-nightly-20220721+a450775.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220724%2B0b95d5d.tar.xz",
+     "name": "ble-nightly-20220724+0b95d5d.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220729%2Ba22e145.tar.xz",
+     "name": "ble-nightly-20220729+a22e145.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220825%2B793dfad.tar.xz",
+     "name": "ble-nightly-20220825+793dfad.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220909%2B39efcf9.tar.xz",
+     "name": "ble-nightly-20220909+39efcf9.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220916%2B49e55f4.tar.xz",
+     "name": "ble-nightly-20220916+49e55f4.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20220925%2Bc5ddacc.tar.xz",
+     "name": "ble-nightly-20220925+c5ddacc.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20221001%2Ba144ffa.tar.xz",
+     "name": "ble-nightly-20221001+a144ffa.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20221112%2B0c6291f.tar.xz",
+     "name": "ble-nightly-20221112+0c6291f.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20221128%2B43c6d4b.tar.xz",
+     "name": "ble-nightly-20221128+43c6d4b.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20221128%2B5dae4da.tar.xz",
+     "name": "ble-nightly-20221128+5dae4da.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20221201%2B88e74cc.tar.xz",
+     "name": "ble-nightly-20221201+88e74cc.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20221208%2B85b5828.tar.xz",
+     "name": "ble-nightly-20221208+85b5828.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20221211%2Bfb7bd0b.tar.xz",
+     "name": "ble-nightly-20221211+fb7bd0b.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20221212%2Bb568ade.tar.xz",
+     "name": "ble-nightly-20221212+b568ade.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20221215%2B32277da.tar.xz",
+     "name": "ble-nightly-20221215+32277da.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230124%2B8a716ad.tar.xz",
+     "name": "ble-nightly-20230124+8a716ad.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230126%2Be3cdb9d.tar.xz",
+     "name": "ble-nightly-20230126+e3cdb9d.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230131%2B7da9bce.tar.xz",
+     "name": "ble-nightly-20230131+7da9bce.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230201%2B0ceb0cb.tar.xz",
+     "name": "ble-nightly-20230201+0ceb0cb.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230201%2B632e90a.tar.xz",
+     "name": "ble-nightly-20230201+632e90a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230206%2B46ac426.tar.xz",
+     "name": "ble-nightly-20230206+46ac426.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230219%2B10aa9b4.tar.xz",
+     "name": "ble-nightly-20230219+10aa9b4.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230227%2B8965b61.tar.xz",
+     "name": "ble-nightly-20230227+8965b61.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230227%2Bcc852dc.tar.xz",
+     "name": "ble-nightly-20230227+cc852dc.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230301%2B1e7b884.tar.xz",
+     "name": "ble-nightly-20230301+1e7b884.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230302%2Be4758db.tar.xz",
+     "name": "ble-nightly-20230302+e4758db.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230303%2Bdc7de6b.tar.xz",
+     "name": "ble-nightly-20230303+dc7de6b.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230304%2B2c1aacf.tar.xz",
+     "name": "ble-nightly-20230304+2c1aacf.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230305%2B2a524f3.tar.xz",
+     "name": "ble-nightly-20230305+2a524f3.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230306%2B478c9a1.tar.xz",
+     "name": "ble-nightly-20230306+478c9a1.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230306%2Bea99d94.tar.xz",
+     "name": "ble-nightly-20230306+ea99d94.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230309%2B2c9b56d.tar.xz",
+     "name": "ble-nightly-20230309+2c9b56d.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230309%2B467fa44.tar.xz",
+     "name": "ble-nightly-20230309+467fa44.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230310%2B45c7674.tar.xz",
+     "name": "ble-nightly-20230310+45c7674.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230312%2B6f5604d.tar.xz",
+     "name": "ble-nightly-20230312+6f5604d.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230312%2B7803305.tar.xz",
+     "name": "ble-nightly-20230312+7803305.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230316%2B2eadcd5.tar.xz",
+     "name": "ble-nightly-20230316+2eadcd5.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230402%2B8d623c1.tar.xz",
+     "name": "ble-nightly-20230402+8d623c1.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230403%2B082f962.tar.xz",
+     "name": "ble-nightly-20230403+082f962.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230403%2B1a5c451.tar.xz",
+     "name": "ble-nightly-20230403+1a5c451.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230403%2B5baf6f6.tar.xz",
+     "name": "ble-nightly-20230403+5baf6f6.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230409%2B09f5cec.tar.xz",
+     "name": "ble-nightly-20230409+09f5cec.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230418%2Bf4c973b.tar.xz",
+     "name": "ble-nightly-20230418+f4c973b.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230514%2B308ceee.tar.xz",
+     "name": "ble-nightly-20230514+308ceee.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230515%2B1b15b85.tar.xz",
+     "name": "ble-nightly-20230515+1b15b85.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230516%2B0adce7c.tar.xz",
+     "name": "ble-nightly-20230516+0adce7c.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230522%2B0906fd9.tar.xz",
+     "name": "ble-nightly-20230522+0906fd9.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230611%2Bf16c0d8.tar.xz",
+     "name": "ble-nightly-20230611+f16c0d8.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230629%2B1afc616.tar.xz",
+     "name": "ble-nightly-20230629+1afc616.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230703%2Bc78e5c9.tar.xz",
+     "name": "ble-nightly-20230703+c78e5c9.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230705%2Be5cea28.tar.xz",
+     "name": "ble-nightly-20230705+e5cea28.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230718%2B4089c4e.tar.xz",
+     "name": "ble-nightly-20230718+4089c4e.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230723%2B9e713e9.tar.xz",
+     "name": "ble-nightly-20230723+9e713e9.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230723%2Ba24435d.tar.xz",
+     "name": "ble-nightly-20230723+a24435d.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230726%2B969a763.tar.xz",
+     "name": "ble-nightly-20230726+969a763.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230726%2Bdc0cdb3.tar.xz",
+     "name": "ble-nightly-20230726+dc0cdb3.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230810%2Baf02226.tar.xz",
+     "name": "ble-nightly-20230810+af02226.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230815%2B2c4194a.tar.xz",
+     "name": "ble-nightly-20230815+2c4194a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230816%2Bacf3b09.tar.xz",
+     "name": "ble-nightly-20230816+acf3b09.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230817%2Bf7ec170.tar.xz",
+     "name": "ble-nightly-20230817+f7ec170.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230826%2B3f31be1.tar.xz",
+     "name": "ble-nightly-20230826+3f31be1.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230913%2Be0f3ac2.tar.xz",
+     "name": "ble-nightly-20230913+e0f3ac2.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20230917%2Bbdcecbb.tar.xz",
+     "name": "ble-nightly-20230917+bdcecbb.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231001%2B31d168c.tar.xz",
+     "name": "ble-nightly-20231001+31d168c.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231002%2B9d84b42.tar.xz",
+     "name": "ble-nightly-20231002+9d84b42.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231014%2B742cf2c.tar.xz",
+     "name": "ble-nightly-20231014+742cf2c.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231101%2B3f13393.tar.xz",
+     "name": "ble-nightly-20231101+3f13393.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231116%2B595f905.tar.xz",
+     "name": "ble-nightly-20231116+595f905.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231121%2Ba7eb5d0.tar.xz",
+     "name": "ble-nightly-20231121+a7eb5d0.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231206%2Bcd06986.tar.xz",
+     "name": "ble-nightly-20231206+cd06986.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231211%2B11cf118.tar.xz",
+     "name": "ble-nightly-20231211+11cf118.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231211%2B5f9a44e.tar.xz",
+     "name": "ble-nightly-20231211+5f9a44e.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231212%2Baef8927.tar.xz",
+     "name": "ble-nightly-20231212+aef8927.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231212%2Bd1a1d53.tar.xz",
+     "name": "ble-nightly-20231212+d1a1d53.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20231231%2Bb577659.tar.xz",
+     "name": "ble-nightly-20231231+b577659.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240102%2B6f4badf.tar.xz",
+     "name": "ble-nightly-20240102+6f4badf.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240105%2B9641c3b.tar.xz",
+     "name": "ble-nightly-20240105+9641c3b.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240121%2B29cd8f1.tar.xz",
+     "name": "ble-nightly-20240121+29cd8f1.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240128%2B50d6f1b.tar.xz",
+     "name": "ble-nightly-20240128+50d6f1b.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240131%2B838b465.tar.xz",
+     "name": "ble-nightly-20240131+838b465.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240205%2B27e6309.tar.xz",
+     "name": "ble-nightly-20240205+27e6309.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240209%2B6154d71.tar.xz",
+     "name": "ble-nightly-20240209+6154d71.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240213%2B98a2ae1.tar.xz",
+     "name": "ble-nightly-20240213+98a2ae1.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240223%2B8f0dfe9.tar.xz",
+     "name": "ble-nightly-20240223+8f0dfe9.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240224%2B3801a87.tar.xz",
+     "name": "ble-nightly-20240224+3801a87.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240224%2B8a32142.tar.xz",
+     "name": "ble-nightly-20240224+8a32142.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240225%2Ba12deda.tar.xz",
+     "name": "ble-nightly-20240225+a12deda.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240225%2Bac84c15.tar.xz",
+     "name": "ble-nightly-20240225+ac84c15.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240228%2Bef8272a.tar.xz",
+     "name": "ble-nightly-20240228+ef8272a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240304%2B18dd51a.tar.xz",
+     "name": "ble-nightly-20240304+18dd51a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240304%2B6aa8ba6.tar.xz",
+     "name": "ble-nightly-20240304+6aa8ba6.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240311%2Bb6344b3.tar.xz",
+     "name": "ble-nightly-20240311+b6344b3.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240401%2Badf9ab8.tar.xz",
+     "name": "ble-nightly-20240401+adf9ab8.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240414%2B83ceb12.tar.xz",
+     "name": "ble-nightly-20240414+83ceb12.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240417%2B5676525.tar.xz",
+     "name": "ble-nightly-20240417+5676525.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240420%2B70a325f.tar.xz",
+     "name": "ble-nightly-20240420+70a325f.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240427%2B6196849.tar.xz",
+     "name": "ble-nightly-20240427+6196849.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240515%2B59787ee.tar.xz",
+     "name": "ble-nightly-20240515+59787ee.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240522%2Bb72d78a.tar.xz",
+     "name": "ble-nightly-20240522+b72d78a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240531%2Bb8d63b7.tar.xz",
+     "name": "ble-nightly-20240531+b8d63b7.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240602%2B365101c.tar.xz",
+     "name": "ble-nightly-20240602+365101c.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240611%2Bafb2907.tar.xz",
+     "name": "ble-nightly-20240611+afb2907.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240622%2B79beebd.tar.xz",
+     "name": "ble-nightly-20240622+79beebd.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240701%2Bfcbf1ed.tar.xz",
+     "name": "ble-nightly-20240701+fcbf1ed.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240729%2B51e762f.tar.xz",
+     "name": "ble-nightly-20240729+51e762f.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240729%2Bbb2dae6.tar.xz",
+     "name": "ble-nightly-20240729+bb2dae6.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240730%2Ba9b962d.tar.xz",
+     "name": "ble-nightly-20240730+a9b962d.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240814%2B75c4a84.tar.xz",
+     "name": "ble-nightly-20240814+75c4a84.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240822%2B5f5554a.tar.xz",
+     "name": "ble-nightly-20240822+5f5554a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240822%2B6833bdf.tar.xz",
+     "name": "ble-nightly-20240822+6833bdf.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240822%2B713c421.tar.xz",
+     "name": "ble-nightly-20240822+713c421.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240823%2B40fe9c9.tar.xz",
+     "name": "ble-nightly-20240823+40fe9c9.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240823%2B70b89e5.tar.xz",
+     "name": "ble-nightly-20240823+70b89e5.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240824%2B9270b52.tar.xz",
+     "name": "ble-nightly-20240824+9270b52.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240825%2B063249b.tar.xz",
+     "name": "ble-nightly-20240825+063249b.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240829%2B2788883.tar.xz",
+     "name": "ble-nightly-20240829+2788883.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240829%2B670c7ea.tar.xz",
+     "name": "ble-nightly-20240829+670c7ea.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240922%2B0914a11.tar.xz",
+     "name": "ble-nightly-20240922+0914a11.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240922%2B21b1bb3.tar.xz",
+     "name": "ble-nightly-20240922+21b1bb3.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20240924%2B32f290d.tar.xz",
+     "name": "ble-nightly-20240924+32f290d.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20241014%2B31f264a.tar.xz",
+     "name": "ble-nightly-20241014+31f264a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20241210%2Baa396f6.tar.xz",
+     "name": "ble-nightly-20241210+aa396f6.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20241211%2B546499b.tar.xz",
+     "name": "ble-nightly-20241211+546499b.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20241219%2B37291ff.tar.xz",
+     "name": "ble-nightly-20241219+37291ff.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20241220%2B3b2b4b8.tar.xz",
+     "name": "ble-nightly-20241220+3b2b4b8.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20241224%2B1764652.tar.xz",
+     "name": "ble-nightly-20241224+1764652.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20241230%2B89c6907.tar.xz",
+     "name": "ble-nightly-20241230+89c6907.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20241231%2B3d8f626.tar.xz",
+     "name": "ble-nightly-20241231+3d8f626.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250116%2B36ab934.tar.xz",
+     "name": "ble-nightly-20250116+36ab934.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250116%2B430a174.tar.xz",
+     "name": "ble-nightly-20250116+430a174.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250209%2B01182d3.tar.xz",
+     "name": "ble-nightly-20250209+01182d3.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250209%2B4338bbf.tar.xz",
+     "name": "ble-nightly-20250209+4338bbf.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250321%2Bd4c812b.tar.xz",
+     "name": "ble-nightly-20250321+d4c812b.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250321%2Bd56c7d2.tar.xz",
+     "name": "ble-nightly-20250321+d56c7d2.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250503%2B0379e03.tar.xz",
+     "name": "ble-nightly-20250503+0379e03.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250504%2Badf53ed.tar.xz",
+     "name": "ble-nightly-20250504+adf53ed.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250601%2B94109ea.tar.xz",
+     "name": "ble-nightly-20250601+94109ea.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250603%2B02ca000.tar.xz",
+     "name": "ble-nightly-20250603+02ca000.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250604%2Bc6bcb82.tar.xz",
+     "name": "ble-nightly-20250604+c6bcb82.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250604%2Bf6a3a11.tar.xz",
+     "name": "ble-nightly-20250604+f6a3a11.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250608%2B14f98dd.tar.xz",
+     "name": "ble-nightly-20250608+14f98dd.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250720%2B5c088fe.tar.xz",
+     "name": "ble-nightly-20250720+5c088fe.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250722%2Bedb21da.tar.xz",
+     "name": "ble-nightly-20250722+edb21da.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250730%2B52c3897.tar.xz",
+     "name": "ble-nightly-20250730+52c3897.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20250806%2B8060b7a.tar.xz",
+     "name": "ble-nightly-20250806+8060b7a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20251019%2B2f564e6.tar.xz",
+     "name": "ble-nightly-20251019+2f564e6.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260124%2B7cf1387.tar.xz",
+     "name": "ble-nightly-20260124+7cf1387.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260125%2B32bb63d.tar.xz",
+     "name": "ble-nightly-20260125+32bb63d.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260306%2B40cc576.tar.xz",
+     "name": "ble-nightly-20260306+40cc576.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260306%2Baa5bd67.tar.xz",
+     "name": "ble-nightly-20260306+aa5bd67.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260307%2Babb93e2.tar.xz",
+     "name": "ble-nightly-20260307+abb93e2.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260307%2Bac6c003.tar.xz",
+     "name": "ble-nightly-20260307+ac6c003.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260308%2B0a13eb0.tar.xz",
+     "name": "ble-nightly-20260308+0a13eb0.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260308%2Beb349ea.tar.xz",
+     "name": "ble-nightly-20260308+eb349ea.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260310%2B4706cb2.tar.xz",
+     "name": "ble-nightly-20260310+4706cb2.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260310%2Bb99cadb.tar.xz",
+     "name": "ble-nightly-20260310+b99cadb.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260528%2Bc92dddb.tar.xz",
+     "name": "ble-nightly-20260528+c92dddb.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260528%2Be9bef3c.tar.xz",
+     "name": "ble-nightly-20260528+e9bef3c.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260528%2Bf38850c.tar.xz",
+     "name": "ble-nightly-20260528+f38850c.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260618%2Be3155e9.tar.xz",
+     "name": "ble-nightly-20260618+e3155e9.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260618%2Bf008718.tar.xz",
+     "name": "ble-nightly-20260618+f008718.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260621%2B6cffa91.tar.xz",
+     "name": "ble-nightly-20260621+6cffa91.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260627%2B5d39ebe.tar.xz",
+     "name": "ble-nightly-20260627+5d39ebe.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260711%2Bd69e4d5.tar.xz",
+     "name": "ble-nightly-20260711+d69e4d5.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260811%2B95ae551.tar.xz",
+     "name": "ble-nightly-20260811+95ae551.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260818%2B63c23e9.tar.xz",
+     "name": "ble-nightly-20260818+63c23e9.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260905%2B1a87930.tar.xz",
+     "name": "ble-nightly-20260905+1a87930.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260905%2B69ee058.tar.xz",
+     "name": "ble-nightly-20260905+69ee058.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260905%2B9b63b11.tar.xz",
+     "name": "ble-nightly-20260905+9b63b11.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260906%2B5fe06d6.tar.xz",
+     "name": "ble-nightly-20260906+5fe06d6.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260907%2B690b315.tar.xz",
+     "name": "ble-nightly-20260907+690b315.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20260908%2Bd81fd54.tar.xz",
+     "name": "ble-nightly-20260908+d81fd54.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20261027%2Baeabb1a.tar.xz",
+     "name": "ble-nightly-20261027+aeabb1a.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly-20261027%2Bc70c0e4.tar.xz",
+     "name": "ble-nightly-20261027+c70c0e4.tar.xz"
+    },
+    {
+     "browser_download_url": "https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz",
+     "name": "ble-nightly.tar.xz"
+    }
+   ],
    "draft": false,
    "prerelease": true,
    "published_at": "2022-06-16T08:29:54Z",

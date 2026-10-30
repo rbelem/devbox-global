@@ -5,6 +5,13 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-10-25T08:36:02Z",
+   "tag_name": "rea-agents-6.8.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-10-18T07:45:18Z",
    "tag_name": "rea-agents-6.7.0"
   },
@@ -82,13 +89,6 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-10-05T18:29:43Z",
-   "tag_name": "rea-agents-4.0.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-10-03T19:58:27Z",
    "tag_name": "rea-agents-3.2.1"
   },
@@ -98,20 +98,6 @@
    "prerelease": false,
    "published_at": "2026-10-03T16:43:27Z",
    "tag_name": "rea-agents-3.2.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-09T19:47:26Z",
-   "tag_name": "rea-agents-3.1.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-02T16:23:15Z",
-   "tag_name": "rea-agents-3.0.0"
   },
   {
    "assets": [],
@@ -131,55 +117,6 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-07-25T09:59:26Z",
-   "tag_name": "rea-agents-2.5.1"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-24T16:33:40Z",
-   "tag_name": "rea-agents-2.5.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-23T16:02:27Z",
-   "tag_name": "rea-agents-2.4.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-23T02:47:45Z",
-   "tag_name": "rea-agents-2.3.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-20T13:49:46Z",
-   "tag_name": "rea-agents-2.2.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-18T06:32:39Z",
-   "tag_name": "rea-agents-2.1.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-16T14:17:14Z",
-   "tag_name": "rea-agents-2.0.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-07-15T22:05:33Z",
    "tag_name": "rea-agents-1.7.0"
   },
@@ -189,48 +126,6 @@
    "prerelease": false,
    "published_at": "2026-07-14T23:07:57Z",
    "tag_name": "rea-agents-1.6.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-14T08:51:58Z",
-   "tag_name": "rea-agents-1.5.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-14T02:18:51Z",
-   "tag_name": "rea-agents-1.4.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-13T21:27:54Z",
-   "tag_name": "rea-agents-1.3.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-13T10:31:57Z",
-   "tag_name": "rea-agents-1.2.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-13T07:37:09Z",
-   "tag_name": "rea-agents-1.1.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-13T05:38:18Z",
-   "tag_name": "rea-agents-1.0.0"
   },
   {
    "assets": [],
@@ -250,13 +145,6 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-07-12T12:54:30Z",
-   "tag_name": "rea-agents-0.3.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
    "published_at": "2026-07-12T03:53:40Z",
    "tag_name": "rea-0.2.1"
   },
@@ -271,6 +159,7 @@
  "repo": "morluto/rea",
  "tag_dates": {},
  "tags": [
+  "rea-agents-6.8.0",
   "rea-agents-6.7.0",
   "rea-agents-6.6.0",
   "rea-agents-6.5.0",
@@ -282,31 +171,14 @@
   "rea-agents-5.0.0",
   "rea-agents-4.1.0",
   "rea-agents-4.0.1",
-  "rea-agents-4.0.0",
   "rea-agents-3.2.1",
   "rea-agents-3.2.0",
-  "rea-agents-3.1.0",
-  "rea-agents-3.0.0",
   "rea-agents-2.7.0",
   "rea-agents-2.6.0",
-  "rea-agents-2.5.1",
-  "rea-agents-2.5.0",
-  "rea-agents-2.4.0",
-  "rea-agents-2.3.0",
-  "rea-agents-2.2.0",
-  "rea-agents-2.1.0",
-  "rea-agents-2.0.0",
   "rea-agents-1.7.0",
   "rea-agents-1.6.0",
-  "rea-agents-1.5.0",
-  "rea-agents-1.4.0",
-  "rea-agents-1.3.0",
-  "rea-agents-1.2.0",
-  "rea-agents-1.1.0",
-  "rea-agents-1.0.0",
   "rea-agents-0.5.0",
   "rea-agents-0.4.0",
-  "rea-agents-0.3.0",
   "rea-0.2.1",
   "rea-0.2.0",
   "experiment/atomic-codemode-wait-runtime-20261016"

@@ -4,30 +4,56 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.3.3/bsk-v0.3.3-aarch64-apple-darwin.tar.gz",
-     "name": "bsk-v0.3.3-aarch64-apple-darwin.tar.gz"
+     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/ext-v0.4.0/browser-skill-extension-v0.4.0-chrome.zip",
+     "name": "browser-skill-extension-v0.4.0-chrome.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-29T16:39:12Z",
+   "tag_name": "ext-v0.4.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-14T15:14:06Z",
+   "tag_name": "ext-v0.3.3"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.4.0/bsk-v0.4.0-aarch64-apple-darwin.tar.gz",
+     "name": "bsk-v0.4.0-aarch64-apple-darwin.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.3.3/bsk-v0.3.3-aarch64-unknown-linux-musl.tar.gz",
-     "name": "bsk-v0.3.3-aarch64-unknown-linux-musl.tar.gz"
+     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.4.0/bsk-v0.4.0-aarch64-unknown-linux-musl.tar.gz",
+     "name": "bsk-v0.4.0-aarch64-unknown-linux-musl.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.3.3/bsk-v0.3.3-x86_64-apple-darwin.tar.gz",
-     "name": "bsk-v0.3.3-x86_64-apple-darwin.tar.gz"
+     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.4.0/bsk-v0.4.0-x86_64-apple-darwin.tar.gz",
+     "name": "bsk-v0.4.0-x86_64-apple-darwin.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.3.3/bsk-v0.3.3-x86_64-pc-windows-msvc.zip",
-     "name": "bsk-v0.3.3-x86_64-pc-windows-msvc.zip"
+     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.4.0/bsk-v0.4.0-x86_64-pc-windows-msvc.zip",
+     "name": "bsk-v0.4.0-x86_64-pc-windows-msvc.zip"
     },
     {
-     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.3.3/bsk-v0.3.3-x86_64-unknown-linux-musl.tar.gz",
-     "name": "bsk-v0.3.3-x86_64-unknown-linux-musl.tar.gz"
+     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.4.0/bsk-v0.4.0-x86_64-unknown-linux-musl.tar.gz",
+     "name": "bsk-v0.4.0-x86_64-unknown-linux-musl.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.3.3/version.json",
+     "browser_download_url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.4.0/version.json",
      "name": "version.json"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-29T16:35:43Z",
+   "tag_name": "cli-v0.4.0"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-15T02:33:41Z",
@@ -116,29 +142,16 @@
    "prerelease": false,
    "published_at": "2026-06-22T09:43:30Z",
    "tag_name": "cli-v0.1.5"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-14T15:14:06Z",
-   "tag_name": "ext-v0.3.3"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-30T03:26:15Z",
-   "tag_name": "ext-v0.3.2"
   }
  ],
  "repo": "Tencent/BrowserSkill",
  "tag_dates": {},
  "tags": [
+  "ext-v0.4.0",
   "ext-v0.3.3",
-  "ext-v0.3.2",
+  "dsh-plugin-v0.4.0",
   "dsh-plugin-v0.3.3",
-  "dsh-plugin-v0.3.2",
+  "cli-v0.4.0",
   "cli-v0.3.3",
   "cli-v0.3.2",
   "cli-v0.3.1",

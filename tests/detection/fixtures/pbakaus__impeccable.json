@@ -2,6 +2,22 @@
  "default_branch": "main",
  "releases": [
   {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.8.0/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.8.0/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-26T23:41:42Z",
+   "tag_name": "skill-v4.8.0"
+  },
+  {
    "assets": [],
    "draft": false,
    "prerelease": false,
@@ -9,25 +25,66 @@
    "tag_name": "skill-v4.7.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-10-15T22:18:39Z",
-   "tag_name": "skill-v4.6.0"
+   "published_at": "2026-10-26T20:26:39Z",
+   "tag_name": "engine-v0.1.18"
   },
   {
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-10-19T17:30:38Z",
-   "tag_name": "engine-v0.1.16"
+   "published_at": "2026-10-23T23:26:28Z",
+   "tag_name": "engine-v0.1.17"
   },
   {
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-10-15T14:57:38Z",
-   "tag_name": "engine-v0.1.15"
+   "published_at": "2026-10-26T23:41:55Z",
+   "tag_name": "cli-v4.8.0"
   },
   {
    "assets": [],
@@ -100,7 +157,16 @@
    "tag_name": "cli-v4.0.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.4.0/extension-firefox.zip",
+     "name": "extension-firefox.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.4.0/extension.zip",
+     "name": "extension.zip"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-09-04T20:30:03Z",
@@ -128,7 +194,12 @@
    "tag_name": "cli-v3.6.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.9.1/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-01T18:14:05Z",
@@ -159,14 +230,15 @@
  "repo": "pbakaus/impeccable",
  "tag_dates": {},
  "tags": [
+  "skill-v4.8.0",
   "skill-v4.7.0",
-  "skill-v4.6.0",
   "skill-v3.9.1",
   "skill-v3.9.0",
   "ext-v1.4.0",
   "ext-v1.3.3",
-  "engine-v0.1.16",
-  "engine-v0.1.15",
+  "engine-v0.1.18",
+  "engine-v0.1.17",
+  "cli-v4.8.0",
   "cli-v4.7.0",
   "cli-v4.6.0",
   "cli-v4.5.2",

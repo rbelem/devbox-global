@@ -5,15 +5,22 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "4.7.0";
+      version = "4.8.0";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = import nixpkgs { inherit system; };
 
@@ -21,19 +28,20 @@
             owner = "pbakaus";
             repo = "impeccable";
             rev = "cli-v${version}";
-            hash = "sha256-E6rGF4Qu1TZsO959h2DZDNkfz81TDaSIF1O6ssiHIyQ=";
+            hash = "sha256-gwI+IhgwmELfQnfXjUuel6u+zdFD0LZZCLhGH5MSIWk=";
           };
 
           # Inject the package-lock.json into source.
           # buildNpmPackage needs package-lock.json to use fetchNpmDeps + --offline.
           # Upstream ships a bun.lock; this is its npm rendering (lockfileVersion 3).
-          # To follow an upstream release: compare the two bun.lock files, then
-          # apply the same delta here - the root "version" and, when the platform
-          # packages moved, the five @impeccable/cli-* entries (version, resolved
-          # URL and integrity; the integrity values are upstream's own, and
-          # `npm view @impeccable/cli-<platform>@<version> dist.integrity` agrees
-          # with them). A version bump that only moves those five packages
-          # leaves every other entry alone.
+          # To follow an upstream release, regenerate it from that release's
+          # package.json (the lock is npm's derivation of upstream's dependency
+          # list, so it drifts whenever a release adds or drops a dependency —
+          # 4.8.0 added @anthropic-ai/sdk and the MCP server stack):
+          #   mkdir /tmp/lock && cp <upstream package.json> /tmp/lock/ \
+          #     && (cd /tmp/lock && npm install --package-lock-only --ignore-scripts)
+          # then copy /tmp/lock/package-lock.json here and re-resolve the
+          # fetchNpmDeps hash below.
           src = pkgs.runCommand "impeccable-src" { } ''
             cp -r ${srcOrig} $out
             chmod +w $out
@@ -49,7 +57,7 @@
           npmDeps = pkgs.fetchNpmDeps {
             name = "impeccable-npm-deps";
             src = npmDepsSrc;
-            hash = "sha256-gi2U/85rv2SZRcOW9kcnr8uglhoH8vXff9ehrinwZfY=";
+            hash = "sha256-YpoJ6xEGeuw+WUgqa34O1JFdQ9FBppcr/sjA4VhK2eU=";
             # npmDepsFetcherVersion 2 skips optional deps (which would otherwise
             # be fetched from the lockfile metadata and fail on transient
             # registry errors). Required because 3.3.1+ pulls in platform-specific

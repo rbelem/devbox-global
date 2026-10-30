@@ -450,7 +450,28 @@
    "tag_name": "v0.1.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/herdrdev/herdr/releases/download/preview-2026-10-14-fbd2ae23927f/herdr-linux-aarch64",
+     "name": "herdr-linux-aarch64"
+    },
+    {
+     "browser_download_url": "https://github.com/herdrdev/herdr/releases/download/preview-2026-10-14-fbd2ae23927f/herdr-linux-x86_64",
+     "name": "herdr-linux-x86_64"
+    },
+    {
+     "browser_download_url": "https://github.com/herdrdev/herdr/releases/download/preview-2026-10-14-fbd2ae23927f/herdr-macos-aarch64",
+     "name": "herdr-macos-aarch64"
+    },
+    {
+     "browser_download_url": "https://github.com/herdrdev/herdr/releases/download/preview-2026-10-14-fbd2ae23927f/herdr-macos-x86_64",
+     "name": "herdr-macos-x86_64"
+    },
+    {
+     "browser_download_url": "https://github.com/herdrdev/herdr/releases/download/preview-2026-10-14-fbd2ae23927f/herdr-windows-x86_64.zip",
+     "name": "herdr-windows-x86_64.zip"
+    }
+   ],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-10-14T15:43:51Z",

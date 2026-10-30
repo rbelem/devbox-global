@@ -3,16 +3,16 @@
     "graphify-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1792511769,
-        "narHash": "sha256-SaQYg8oKqoUnkq4d0gG2YVSmnXjCtmG+EiWGbUatc4M=",
+        "lastModified": 1792685200,
+        "narHash": "sha256-VMn2e20+rlD/QLC7APQa7zvVwqF7PDfX8lykluh4gmg=",
         "owner": "safishamsi",
         "repo": "graphify",
-        "rev": "b90b9df7949bd04a15b40a1624af85d0a9cfdf04",
+        "rev": "c588b72d936927790a87ad009955078ed40562a3",
         "type": "github"
       },
       "original": {
         "owner": "safishamsi",
-        "ref": "v0.9.93",
+        "ref": "v0.9.94",
         "repo": "graphify",
         "type": "github"
       }

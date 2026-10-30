@@ -2,6 +2,50 @@
  "default_branch": "main",
  "releases": [
   {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.15.0/openspec-darwin-arm64",
+     "name": "openspec-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.15.0/openspec-darwin-x64",
+     "name": "openspec-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.15.0/openspec-linux-arm64",
+     "name": "openspec-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.15.0/openspec-linux-arm64-musl",
+     "name": "openspec-linux-arm64-musl"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.15.0/openspec-linux-x64",
+     "name": "openspec-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.15.0/openspec-linux-x64-musl",
+     "name": "openspec-linux-x64-musl"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.15.0/openspec-windows-arm64.exe",
+     "name": "openspec-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.15.0/openspec-windows-x64.exe",
+     "name": "openspec-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.15.0/SHA256SUMS",
+     "name": "SHA256SUMS"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-24T00:50:05Z",
+   "tag_name": "v1.15.0"
+  },
+  {
    "assets": [],
    "draft": false,
    "prerelease": false,
@@ -383,6 +427,7 @@
  "repo": "Fission-AI/OpenSpec",
  "tag_dates": {},
  "tags": [
+  "v1.15.0",
   "v1.14.3",
   "v1.14.2",
   "v1.14.1",
@@ -437,6 +482,7 @@
   "v0.3.0",
   "v0.2.0",
   "v0.1.0",
+  "@fission-ai/openspec@1.15.0",
   "@fission-ai/openspec@1.14.3",
   "@fission-ai/openspec@1.14.2",
   "@fission-ai/openspec@1.14.1",

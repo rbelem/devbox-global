@@ -8,6 +8,7 @@ compiledb
 docling
 fx
 goose
+graphify
 iii-engine
 jcode
 oh-my-pi
@@ -16,6 +17,7 @@ open-design
 opencode
 opencommit
 openspec
+pi
 playwright-chromium-deps
 prime-agent
 tree-sitter-perl

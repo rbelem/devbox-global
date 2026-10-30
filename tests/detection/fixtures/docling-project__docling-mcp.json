@@ -4,6 +4,18 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/docling-project/docling-mcp/releases/download/v3.4.0/docling-mcp.mcpb",
+     "name": "docling-mcp.mcpb"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-27T21:38:57Z",
+   "tag_name": "v3.4.0"
+  },
+  {
+   "assets": [
+    {
      "browser_download_url": "https://github.com/docling-project/docling-mcp/releases/download/v3.3.0/docling-mcp.mcpb",
      "name": "docling-mcp.mcpb"
     }
@@ -253,6 +265,7 @@
  "repo": "docling-project/docling-mcp",
  "tag_dates": {},
  "tags": [
+  "v3.4.0",
   "v3.3.0",
   "v3.2.1",
   "v3.2.0",

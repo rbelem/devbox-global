@@ -4,30 +4,37 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0/hunkdiff-darwin-arm64.tar.gz",
+     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.1/hunkdiff-darwin-arm64.tar.gz",
      "name": "hunkdiff-darwin-arm64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0/hunkdiff-darwin-x64.tar.gz",
+     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.1/hunkdiff-darwin-x64.tar.gz",
      "name": "hunkdiff-darwin-x64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0/hunkdiff-linux-arm64.tar.gz",
+     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.1/hunkdiff-linux-arm64.tar.gz",
      "name": "hunkdiff-linux-arm64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0/hunkdiff-linux-x64.tar.gz",
+     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.1/hunkdiff-linux-x64.tar.gz",
      "name": "hunkdiff-linux-x64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0/hunkdiff-windows-x64.tar.gz",
+     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.1/hunkdiff-windows-x64.tar.gz",
      "name": "hunkdiff-windows-x64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.0/SHA256SUMS",
+     "browser_download_url": "https://github.com/modem-dev/hunk/releases/download/v0.24.1/SHA256SUMS",
      "name": "SHA256SUMS"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-25T01:00:23Z",
+   "tag_name": "v0.24.1"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-19T12:38:21Z",
@@ -555,6 +562,7 @@
  "repo": "modem-dev/hunk",
  "tag_dates": {},
  "tags": [
+  "v0.24.1",
   "v0.24.0",
   "v0.24.0-beta.1",
   "v0.24.0-beta.0",

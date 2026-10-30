@@ -176,7 +176,24 @@
    "tag_name": "v1.0.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/usestrix/strix/releases/download/v0.8.3/strix-0.8.3-linux-x86_64.tar.gz",
+     "name": "strix-0.8.3-linux-x86_64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/usestrix/strix/releases/download/v0.8.3/strix-0.8.3-macos-arm64.tar.gz",
+     "name": "strix-0.8.3-macos-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/usestrix/strix/releases/download/v0.8.3/strix-0.8.3-macos-x86_64.tar.gz",
+     "name": "strix-0.8.3-macos-x86_64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/usestrix/strix/releases/download/v0.8.3/strix-0.8.3-windows-x86_64.zip",
+     "name": "strix-0.8.3-windows-x86_64.zip"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-03-23T05:16:53Z",

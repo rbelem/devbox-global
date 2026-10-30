@@ -3,7 +3,8 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       # x86_64-linux only. Four prebuilt native helpers run in this build: turbo
       # (@turbo/linux-64, static), tsc 7 (@typescript/typescript-linux-x64),
@@ -16,17 +17,18 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # release line: rea-agents-<version> (no leading "v")
-      version = "6.7.0";
+      version = "6.8.0";
 
       # Hash capture workflow:
       #   1. set srcHash / npmDepsHash to the fake hash
       #   2. nix build "path:devbox.d/rea#default"
       #   3. paste the sha256-... values from the error messages
-      srcHash = "sha256-GKgXQZdzsmr2bEffi+UaffY5TseJ7dSQvWwF1kuz2og=";
-      npmDepsHash = "sha256-BWMsF0ja+AyQg3w7BKVjzbI372HOKd2bFpFwbCAB5cA=";
+      srcHash = "sha256-2ADn3U3lvUoB4tCEpzO0rMfYE4sis+5uBiEazcp0gpI=";
+      npmDepsHash = "sha256-3WPXD+qm5WVfrTEvepKwX5RZBfbLBcPB0uDmKIx4MR8=";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
@@ -37,14 +39,20 @@
             hash = srcHash;
           };
 
-          # engines: ^22.19.0 || ^24.11.0 || >=26.0.0 and .npmrc sets
-          # engine-strict; .nvmrc pins 24.18.0, so nodejs_24 is the built line.
-          nodejs = pkgs.nodejs_24;
+          # engines as of 6.8.0: ^22.23.4 || ^24.22.1 || >=26.12.1, with
+          # engine-strict set in .npmrc. nixpkgs nodejs_24 is 24.21.0, under
+          # that floor, so the built line is nodejs_26 (26.13.0).
+          nodejs = pkgs.nodejs_26;
         in
         {
           default = pkgs.buildNpmPackage {
             pname = "rea-agents";
-            inherit version src npmDepsHash nodejs;
+            inherit
+              version
+              src
+              npmDepsHash
+              nodejs
+              ;
 
             # The whole tree has exactly one install script (frida's binary
             # downloader, an optional dependency) and no package in the build
@@ -65,8 +73,9 @@
 
             nativeBuildInputs = [
               pkgs.makeWrapper
-              # @lydell/node-pty's pty.node is the only ELF object in the
-              # shipped tree and it needs libstdc++ from buildInputs below.
+              # @lydell/node-pty's pty.node and the prebuilt @tsrs platform
+              # binary are the ELF objects in the shipped tree; they need
+              # libstdc++/libgcc from buildInputs below.
               pkgs.autoPatchelfHook
             ];
             buildInputs = [ pkgs.stdenv.cc.cc.lib ];
@@ -80,6 +89,17 @@
             preBuild = ''
               export TURBO_CACHE_DIR="$TMPDIR/turbo-cache"
               export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc.lib ]}"
+
+              # @tsrs (new in 6.8.0) is a prebuilt Rust binary whose ELF
+              # interpreter is /lib64/ld-linux-x86-64.so.2, which does not
+              # exist here; `npm run compile` executes it, so patch it before
+              # fixupPhase gets a chance to.
+              for tsrs_bin in node_modules/@tsrs/*/tsrs; do
+                if [ -e "$tsrs_bin" ]; then
+                  patchelf --set-interpreter \
+                    "${pkgs.stdenv.cc.libc}/lib/ld-linux-x86-64.so.2" "$tsrs_bin"
+                fi
+              done
             '';
 
             # Root package.json has no main; both bins (rea, rea-agents) point
@@ -125,12 +145,14 @@
               mkdir -p $out/bin
               makeWrapper ${nodejs}/bin/node $out/bin/rea \
                 --add-flags "$packageOut/scripts/rea.mjs" \
-                --suffix PATH : ${pkgs.lib.makeBinPath [
-                  pkgs.git
-                  # every bridge/*.py provider (hopper, ghidra, cutter, lldb,
-                  # mitmproxy, pwntools) shells out to python3
-                  pkgs.python3
-                ]}
+                --suffix PATH : ${
+                  pkgs.lib.makeBinPath [
+                    pkgs.git
+                    # every bridge/*.py provider (hopper, ghidra, cutter, lldb,
+                    # mitmproxy, pwntools) shells out to python3
+                    pkgs.python3
+                  ]
+                }
               ln -s rea $out/bin/rea-agents
 
               runHook postInstall
@@ -158,6 +180,7 @@
               maintainers = [ ];
             };
           };
-        });
+        }
+      );
     };
 }

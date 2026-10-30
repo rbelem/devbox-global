@@ -157,7 +157,36 @@
    "tag_name": "v1.0.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/colbymchenry/codegraph/releases/download/v0.9.9/codegraph-darwin-arm64.tar.gz",
+     "name": "codegraph-darwin-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/colbymchenry/codegraph/releases/download/v0.9.9/codegraph-darwin-x64.tar.gz",
+     "name": "codegraph-darwin-x64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/colbymchenry/codegraph/releases/download/v0.9.9/codegraph-linux-arm64.tar.gz",
+     "name": "codegraph-linux-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/colbymchenry/codegraph/releases/download/v0.9.9/codegraph-linux-x64.tar.gz",
+     "name": "codegraph-linux-x64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/colbymchenry/codegraph/releases/download/v0.9.9/codegraph-win32-arm64.zip",
+     "name": "codegraph-win32-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/colbymchenry/codegraph/releases/download/v0.9.9/codegraph-win32-x64.zip",
+     "name": "codegraph-win32-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/colbymchenry/codegraph/releases/download/v0.9.9/SHA256SUMS",
+     "name": "SHA256SUMS"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-06-02T15:37:39Z",

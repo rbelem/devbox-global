@@ -8,7 +8,7 @@
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
     # Tracking tagged releases — bump rev + version + srcHash together.
-    version = "2.13.0";
+    version = "2.13.2";
     rev = "v${version}";
 
     # Get the real hash:
@@ -17,7 +17,7 @@
     #   run the command "devbox global update"
     # Then paste the sha256-... value below
     #
-    srcHash = "sha256-ytTZ7MEi4nzBTxk9zGmyOwuMStsaXAuH/yis64EbSmg=";
+    srcHash = "sha256-u+9Xaj/7T7KlLa/kKNIV90PQ1ZnbYYG7VX+IKtZ/kXg=";
   in {
     packages = forAllSystems (system:
       let

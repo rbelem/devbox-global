@@ -110,6 +110,21 @@ check() {
     fi
 }
 
+# The version the updater must land on is the newest release in the fixture,
+# not a literal: refreshing the fixture would otherwise rot this assertion.
+NEWEST="$(python3 - "$FIXTURES/Andyyyy64__whichllm.json" <<'PY'
+import json, re, sys
+
+versions = [
+    tuple(int(p) for p in m.groups())
+    for m in (re.match(r"v(\d+)\.(\d+)\.(\d+)$", tag)
+              for tag in json.load(open(sys.argv[1]))["tags"])
+    if m
+]
+print(".".join(map(str, max(versions))))
+PY
+)"
+
 # The source hash was the first fake (discriminator A), the dependency's the
 # second (discriminator B). Each must come back with ITS OWN discriminator:
 # the paste-back that writes the first fake in the file would put the
@@ -118,7 +133,7 @@ check "the source hash kept its own value" 'srcHash = "sha256-GOT[A].*";'
 check "the dependency hash kept its own value" 'hash = "sha256-GOTB.*";'
 
 # The version bump and the audit comment must survive the resolution.
-check "the version was bumped" 'version = "0.5.21";'
+check "the version was bumped" "version = \"$NEWEST\";"
 
 if grep -qE 'sha256-AAAA' "$FLAKE/flake.nix"; then
     echo "FAIL a fake hash is still in the file"
