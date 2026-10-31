@@ -33,6 +33,7 @@ firecrawl	firecrawl/cli	asset	v	1	1.26.24	1.26.24	✓
 herdr	ogulcancelik/herdr	asset	v	0	0.9.5	0.9.5	✓
 hermes-agent	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
 hermes-agent#desktop	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
+hex	anomalyco/hex	asset	v	3	3.0.0	3.0.0	✓
 hunk	modem-dev/hunk	asset	v	0	0.24.1	0.24.1	✓
 impeccable	pbakaus/impeccable	source	cli-v	4	4.8.0	4.8.0	✓
 jev-review	rbelem/jev-review	source	v	0	0.1.1-p1	unknown	??

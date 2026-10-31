@@ -100,6 +100,7 @@
     "path:devbox.d/browser-harness":      "",
     "path:devbox.d/steel-takeoff":        {},
     "path:devbox.d/rea":                  {},
+    "path:devbox.d/hex":                  {},
     "ast-grep":                           "latest"
   },
   "env": {

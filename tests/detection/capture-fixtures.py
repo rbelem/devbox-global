@@ -28,6 +28,7 @@ FIXTURES = os.path.join(HERE, "fixtures")
 # the detection table does not cover it.
 REPOS = [
     "alibaba/open-code-review",
+    "anomalyco/hex",
     "akinomyoga/ble.sh",
     "Andyyyy64/whichllm",
     "browser-use/browser-harness",
