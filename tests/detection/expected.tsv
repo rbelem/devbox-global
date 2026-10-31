@@ -23,8 +23,8 @@ bun	oven-sh/bun	asset	bun-v	1	1.4.4	1.4.4	✓
 codeburn	getagentseal/codeburn	source	v	0	0.9.27	0.9.27	✓
 codegraph	colbymchenry/codegraph	source	v	1	1.6.2	1.6.2	✓
 cua	trycua/cua	asset	cua-sdk-v	0	0.9.0	0.9.0	✓
-cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.37.0	0.38.0	↓ (pre)
-cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.19.1	0.19.1	✓
+cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.38.0	0.38.0	✓ (pre)
+cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.19.2	0.19.2	✓
 cua-spacesd	trycua/cua	asset	cua-spacesd-v	0	0.8.0	0.8.0	✓
 dcg	Dicklesworthstone/destructive_command_guard	asset	v	0	0.15.3	0.15.3	✓
 deepsec	vercel-labs/deepsec	source	v	2	2.3.9	unknown	??
@@ -47,7 +47,7 @@ rtk	rtk-ai/rtk	source	v	1	1.1.0	1.1.0	✓
 skillranker	Dicklesworthstone/skillranker	source	v	0	dynamic	unknown	?? (dynamic-version)
 skills	vercel-labs/skills	source	v	1	1.7.4	1.7.4	✓
 skillspector	NVIDIA/SkillSpector	source	v	2	2.13.2	2.13.2	✓
-steel-takeoff	monozukuri-ai/ezdwg	source	v	0	0.17.2	0.17.2	✓
+steel-takeoff	monozukuri-ai/ezdwg	source	v	0	0.17.3	0.17.3	✓
 strix	usestrix/strix	source	v	1	1.7.0	1.7.0	✓
 vela	unknown	none	v	0	0.1.6	unknown	??
 whichllm	Andyyyy64/whichllm	source	v	0	0.5.23	0.5.23	✓

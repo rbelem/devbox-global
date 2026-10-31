@@ -4,134 +4,141 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/checksums.txt",
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/checksums.txt",
      "name": "checksums.txt"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/Cua-Spaces-0.19.1-arm64.AppImage",
-     "name": "Cua-Spaces-0.19.1-arm64.AppImage"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/Cua-Spaces-0.19.2-arm64.AppImage",
+     "name": "Cua-Spaces-0.19.2-arm64.AppImage"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/Cua-Spaces-0.19.1-arm64.AppImage.sigstore.json",
-     "name": "Cua-Spaces-0.19.1-arm64.AppImage.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/Cua-Spaces-0.19.2-arm64.AppImage.sigstore.json",
+     "name": "Cua-Spaces-0.19.2-arm64.AppImage.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-darwin-universal.dmg",
-     "name": "cua-spaces-0.19.1-darwin-universal.dmg"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-darwin-universal.dmg",
+     "name": "cua-spaces-0.19.2-darwin-universal.dmg"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-darwin-universal.dmg.sigstore.json",
-     "name": "cua-spaces-0.19.1-darwin-universal.dmg.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-darwin-universal.dmg.sigstore.json",
+     "name": "cua-spaces-0.19.2-darwin-universal.dmg.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-darwin-universal.pkg",
-     "name": "cua-spaces-0.19.1-darwin-universal.pkg"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-darwin-universal.pkg",
+     "name": "cua-spaces-0.19.2-darwin-universal.pkg"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-darwin-universal.pkg.sigstore.json",
-     "name": "cua-spaces-0.19.1-darwin-universal.pkg.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-darwin-universal.pkg.sigstore.json",
+     "name": "cua-spaces-0.19.2-darwin-universal.pkg.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-linux-arm64.AppImage",
-     "name": "cua-spaces-0.19.1-linux-arm64.AppImage"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-linux-arm64.AppImage",
+     "name": "cua-spaces-0.19.2-linux-arm64.AppImage"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-linux-arm64.AppImage.sigstore.json",
-     "name": "cua-spaces-0.19.1-linux-arm64.AppImage.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-linux-arm64.AppImage.sigstore.json",
+     "name": "cua-spaces-0.19.2-linux-arm64.AppImage.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-linux-arm64.deb",
-     "name": "cua-spaces-0.19.1-linux-arm64.deb"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-linux-arm64.deb",
+     "name": "cua-spaces-0.19.2-linux-arm64.deb"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-linux-arm64.deb.sigstore.json",
-     "name": "cua-spaces-0.19.1-linux-arm64.deb.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-linux-arm64.deb.sigstore.json",
+     "name": "cua-spaces-0.19.2-linux-arm64.deb.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-linux-x64.AppImage",
-     "name": "cua-spaces-0.19.1-linux-x64.AppImage"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-linux-x64.AppImage",
+     "name": "cua-spaces-0.19.2-linux-x64.AppImage"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-linux-x64.AppImage.sigstore.json",
-     "name": "cua-spaces-0.19.1-linux-x64.AppImage.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-linux-x64.AppImage.sigstore.json",
+     "name": "cua-spaces-0.19.2-linux-x64.AppImage.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-linux-x64.deb",
-     "name": "cua-spaces-0.19.1-linux-x64.deb"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-linux-x64.deb",
+     "name": "cua-spaces-0.19.2-linux-x64.deb"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-linux-x64.deb.sigstore.json",
-     "name": "cua-spaces-0.19.1-linux-x64.deb.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-linux-x64.deb.sigstore.json",
+     "name": "cua-spaces-0.19.2-linux-x64.deb.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-windows-arm64-setup.exe",
-     "name": "cua-spaces-0.19.1-windows-arm64-setup.exe"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-windows-arm64-setup.exe",
+     "name": "cua-spaces-0.19.2-windows-arm64-setup.exe"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-windows-arm64-setup.exe.sigstore.json",
-     "name": "cua-spaces-0.19.1-windows-arm64-setup.exe.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-windows-arm64-setup.exe.sigstore.json",
+     "name": "cua-spaces-0.19.2-windows-arm64-setup.exe.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-windows-x64-setup.exe",
-     "name": "cua-spaces-0.19.1-windows-x64-setup.exe"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-windows-x64-setup.exe",
+     "name": "cua-spaces-0.19.2-windows-x64-setup.exe"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces-0.19.1-windows-x64-setup.exe.sigstore.json",
-     "name": "cua-spaces-0.19.1-windows-x64-setup.exe.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces-0.19.2-windows-x64-setup.exe.sigstore.json",
+     "name": "cua-spaces-0.19.2-windows-x64-setup.exe.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/Cua-Spaces-0.19.1-x86_64.AppImage",
-     "name": "Cua-Spaces-0.19.1-x86_64.AppImage"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/Cua-Spaces-0.19.2-x86_64.AppImage",
+     "name": "Cua-Spaces-0.19.2-x86_64.AppImage"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/Cua-Spaces-0.19.1-x86_64.AppImage.sigstore.json",
-     "name": "Cua-Spaces-0.19.1-x86_64.AppImage.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/Cua-Spaces-0.19.2-x86_64.AppImage.sigstore.json",
+     "name": "Cua-Spaces-0.19.2-x86_64.AppImage.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/Cua-Spaces-Setup-0.19.1-arm64.exe",
-     "name": "Cua-Spaces-Setup-0.19.1-arm64.exe"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/Cua-Spaces-Setup-0.19.2-arm64.exe",
+     "name": "Cua-Spaces-Setup-0.19.2-arm64.exe"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/Cua-Spaces-Setup-0.19.1-arm64.exe.blockmap",
-     "name": "Cua-Spaces-Setup-0.19.1-arm64.exe.blockmap"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/Cua-Spaces-Setup-0.19.2-arm64.exe.blockmap",
+     "name": "Cua-Spaces-Setup-0.19.2-arm64.exe.blockmap"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/Cua-Spaces-Setup-0.19.1-arm64.exe.sigstore.json",
-     "name": "Cua-Spaces-Setup-0.19.1-arm64.exe.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/Cua-Spaces-Setup-0.19.2-arm64.exe.sigstore.json",
+     "name": "Cua-Spaces-Setup-0.19.2-arm64.exe.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/Cua-Spaces-Setup-0.19.1-x64.exe",
-     "name": "Cua-Spaces-Setup-0.19.1-x64.exe"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/Cua-Spaces-Setup-0.19.2-x64.exe",
+     "name": "Cua-Spaces-Setup-0.19.2-x64.exe"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/Cua-Spaces-Setup-0.19.1-x64.exe.blockmap",
-     "name": "Cua-Spaces-Setup-0.19.1-x64.exe.blockmap"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/Cua-Spaces-Setup-0.19.2-x64.exe.blockmap",
+     "name": "Cua-Spaces-Setup-0.19.2-x64.exe.blockmap"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/Cua-Spaces-Setup-0.19.1-x64.exe.sigstore.json",
-     "name": "Cua-Spaces-Setup-0.19.1-x64.exe.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/Cua-Spaces-Setup-0.19.2-x64.exe.sigstore.json",
+     "name": "Cua-Spaces-Setup-0.19.2-x64.exe.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces_0.19.1_amd64.deb",
-     "name": "cua-spaces_0.19.1_amd64.deb"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces_0.19.2_amd64.deb",
+     "name": "cua-spaces_0.19.2_amd64.deb"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces_0.19.1_amd64.deb.sigstore.json",
-     "name": "cua-spaces_0.19.1_amd64.deb.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces_0.19.2_amd64.deb.sigstore.json",
+     "name": "cua-spaces_0.19.2_amd64.deb.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces_0.19.1_arm64.deb",
-     "name": "cua-spaces_0.19.1_arm64.deb"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces_0.19.2_arm64.deb",
+     "name": "cua-spaces_0.19.2_arm64.deb"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/cua-spaces_0.19.1_arm64.deb.sigstore.json",
-     "name": "cua-spaces_0.19.1_arm64.deb.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/cua-spaces_0.19.2_arm64.deb.sigstore.json",
+     "name": "cua-spaces_0.19.2_arm64.deb.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.1/release-artifacts.json",
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.19.2/release-artifacts.json",
      "name": "release-artifacts.json"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-30T23:24:21Z",
+   "tag_name": "cua-spaces-v0.19.2"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-30T16:16:46Z",
@@ -2533,16 +2540,16 @@
      "name": "beta-linux.yml"
     },
     {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/latest-linux-arm64.yml",
+     "name": "latest-linux-arm64.yml"
+    },
+    {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/latest.yml",
      "name": "latest.yml"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/latest-linux.yml",
      "name": "latest-linux.yml"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/latest-linux-arm64.yml",
-     "name": "latest-linux-arm64.yml"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/cua-spaces-appcast.xml",
@@ -2557,24 +2564,24 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/uninstall.ps1",
-     "name": "uninstall.ps1"
-    },
-    {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/install.sh",
      "name": "install.sh"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/uninstall.sh",
-     "name": "uninstall.sh"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/release-artifacts.json",
+     "name": "release-artifacts.json"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/install.ps1",
      "name": "install.ps1"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/release-artifacts.json",
-     "name": "release-artifacts.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/uninstall.sh",
+     "name": "uninstall.sh"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/uninstall.ps1",
+     "name": "uninstall.ps1"
     }
    ],
    "draft": false,
@@ -3054,6 +3061,7 @@
   "cua-spacesd-v0.1.2",
   "cua-spacesd-v0.1.1",
   "cua-spacesd-v0.1.0",
+  "cua-spaces-v0.19.2",
   "cua-spaces-v0.19.1",
   "cua-spaces-v0.19.0",
   "cua-spaces-v0.18.0",

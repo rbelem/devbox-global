@@ -4,6 +4,50 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.16.0/openspec-darwin-arm64.tar.gz",
+     "name": "openspec-darwin-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.16.0/openspec-darwin-x64.tar.gz",
+     "name": "openspec-darwin-x64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.16.0/openspec-linux-arm64-musl.tar.gz",
+     "name": "openspec-linux-arm64-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.16.0/openspec-linux-arm64.tar.gz",
+     "name": "openspec-linux-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.16.0/openspec-linux-x64-musl.tar.gz",
+     "name": "openspec-linux-x64-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.16.0/openspec-linux-x64.tar.gz",
+     "name": "openspec-linux-x64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.16.0/openspec-windows-arm64.zip",
+     "name": "openspec-windows-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.16.0/openspec-windows-x64.zip",
+     "name": "openspec-windows-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.16.0/SHA256SUMS",
+     "name": "SHA256SUMS"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-30T23:38:25Z",
+   "tag_name": "v1.16.0"
+  },
+  {
+   "assets": [
+    {
      "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v1.15.0/openspec-darwin-arm64",
      "name": "openspec-darwin-arm64"
     },
@@ -427,6 +471,7 @@
  "repo": "Fission-AI/OpenSpec",
  "tag_dates": {},
  "tags": [
+  "v1.16.0",
   "v1.15.0",
   "v1.14.3",
   "v1.14.2",
@@ -482,6 +527,7 @@
   "v0.3.0",
   "v0.2.0",
   "v0.1.0",
+  "@fission-ai/openspec@1.16.0",
   "@fission-ai/openspec@1.15.0",
   "@fission-ai/openspec@1.14.3",
   "@fission-ai/openspec@1.14.2",
