@@ -126,8 +126,8 @@
           };
         in
         {
-          highwayhash = highwayhash;
-          icu-static = icu-static;
+          inherit highwayhash;
+          inherit icu-static;
 
           default = pkgs.stdenv.mkDerivation {
             pname = "valkey-search";

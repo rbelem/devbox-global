@@ -31,7 +31,7 @@
           src = pkgs.fetchFromGitHub {
             owner = "vercel-labs";
             repo = "deepsec";
-            rev = rev;
+            inherit rev;
             hash = srcHash;
             # The upstream pnpm-lock.yaml is v6.0 (pnpm 8 era) — pnpm_10
             # rejects it (ERR_PNPM_LOCKFILE_BREAKING_CHANGE). Vendor a

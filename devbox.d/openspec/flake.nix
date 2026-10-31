@@ -20,7 +20,7 @@
         "x86_64-darwin"
         "aarch64-darwin"
       ];
-      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
+      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems f;
     in
     {
       packages = forAllSystems (system: {

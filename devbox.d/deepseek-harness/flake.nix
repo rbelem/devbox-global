@@ -36,7 +36,7 @@
           src = pkgs.fetchFromGitHub {
             owner = "deepseek-ai";
             repo = "deepseek-harness";
-            rev = rev;
+            inherit rev;
             hash = srcHash;
           };
         in

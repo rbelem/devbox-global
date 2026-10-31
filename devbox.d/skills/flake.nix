@@ -27,7 +27,7 @@
           default = pkgs.skills.overrideAttrs (oldAttrs: {
             inherit version src;
             pnpmDeps = pkgs.fetchPnpmDeps {
-              pname = oldAttrs.pname;
+              inherit (oldAttrs) pname;
               inherit version src;
               # Bumped fetcherVersion 3 → 4: pnpm_11 in current nixpkgs
               # nixos-unstable rejects fetcherVersion 3 ("is no longer

@@ -129,8 +129,8 @@
           );
         in
         {
-          ezdwg = py.ezdwg;
-          steelpy = py.steelpy;
+          inherit (py) ezdwg;
+          inherit (py) steelpy;
           # default = one env with the takeoff CLI tools (dwg2dxf) on PATH and
           # the full python closure importable from the merged site-packages
           default = pkgsWithOverlay.buildEnv {

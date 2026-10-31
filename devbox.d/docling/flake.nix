@@ -279,8 +279,8 @@
           pkgsWithOverlay = pkgs.extend docling-overlay;
         in
         {
-          docling = pkgsWithOverlay.docling;
-          docling-mcp = pkgsWithOverlay.docling-mcp;
+          inherit (pkgsWithOverlay) docling;
+          inherit (pkgsWithOverlay) docling-mcp;
           # default = env with both docling + docling-mcp binaries in PATH
           default = pkgsWithOverlay.buildEnv {
             name = "docling-env";

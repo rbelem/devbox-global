@@ -79,7 +79,7 @@
             });
           };
 
-          pythonSet = (pkgs.callPackage pyproject-nix.build.packages { python = python; }).overrideScope (
+          pythonSet = (pkgs.callPackage pyproject-nix.build.packages { inherit python; }).overrideScope (
             nixpkgs.lib.composeManyExtensions [
               overlay
               pyproject-build-systems.overlays.default

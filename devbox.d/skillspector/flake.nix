@@ -92,7 +92,7 @@
             src = pkgs.fetchFromGitHub {
               owner = "NVIDIA";
               repo = "SkillSpector";
-              rev = rev;
+              inherit rev;
               hash = srcHash;
             };
 

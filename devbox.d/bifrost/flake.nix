@@ -17,7 +17,7 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          lib = pkgs.lib;
+          inherit (pkgs) lib;
 
           src = pkgs.fetchzip {
             url = "https://github.com/maximhq/bifrost/archive/refs/tags/transports/v2.2.0.tar.gz";
@@ -34,7 +34,7 @@
           bifrost-ui = pkgs.buildNpmPackage {
             pname = "bifrost-ui";
             inherit version;
-            src = src;
+            inherit src;
             sourceRoot = "source/ui";
 
             npmDepsHash = "sha256-cOswnT4ZahWX66h9oiw4t3r5GZeOH/yjbnTCAsjVgnw=";

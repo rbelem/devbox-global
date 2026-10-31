@@ -75,7 +75,7 @@
 
           src = final.fetchurl {
             url = "https://github.com/dolthub/dolt/releases/download/v${doltVersion}/${(doltPlatform final.stdenv.hostPlatform.system).asset}";
-            hash = (doltPlatform final.stdenv.hostPlatform.system).hash;
+            inherit ((doltPlatform final.stdenv.hostPlatform.system)) hash;
           };
 
           dontConfigure = true;
@@ -102,7 +102,7 @@
           # fetchurl hashes the archive itself, matching release checksums.txt
           src = final.fetchurl {
             url = "https://github.com/gastownhall/beads/releases/download/v${version}/${(platform final.stdenv.hostPlatform.system).asset}";
-            hash = (platform final.stdenv.hostPlatform.system).hash;
+            inherit ((platform final.stdenv.hostPlatform.system)) hash;
           };
 
           nativeBuildInputs = [ final.makeWrapper ];
@@ -145,7 +145,7 @@
           pkgsWithOverlay = pkgs.extend beads-overlay;
         in
         {
-          beads = pkgsWithOverlay.beads;
+          inherit (pkgsWithOverlay) beads;
           default = pkgsWithOverlay.beads;
         }
       );

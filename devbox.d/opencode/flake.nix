@@ -60,7 +60,7 @@
       packages = forAllSystems (
         pkgs:
         let
-          system = pkgs.system;
+          inherit (pkgs) system;
 
           # From the devbox.d/bun flake (stable 1.4.0 x64-baseline release).
           # `bun build --compile` with target "bun-linux-x64" embeds the
@@ -160,9 +160,11 @@
               runHook postConfigure
             '';
 
-            env.OPENCODE_DISABLE_MODELS_FETCH = true;
-            env.OPENCODE_VERSION = finalAttrs.version;
-            env.OPENCODE_CHANNEL = "next";
+            env = {
+              OPENCODE_DISABLE_MODELS_FETCH = true;
+              OPENCODE_VERSION = finalAttrs.version;
+              OPENCODE_CHANNEL = "next";
+            };
 
             buildPhase = ''
               runHook preBuild

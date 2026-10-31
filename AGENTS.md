@@ -49,5 +49,7 @@ never touch the network: the upstream data they compare against is recorded
 in `tests/detection/fixtures/`, refreshed with
 `python3 tests/detection/capture-fixtures.py`.
 
-A new statix finding in a flake fails the lint; the pre-existing ones are
-listed in `tests/known-lint-findings.txt` and do not.
+A new statix finding in a flake fails the lint, and so does an unformatted
+one (`nixfmt` every flake you touch). Flakes whose findings were accepted as
+pre-existing are listed in `tests/known-lint-findings.txt`; that list is empty
+today, so every finding fails.
