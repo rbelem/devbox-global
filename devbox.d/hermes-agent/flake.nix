@@ -7,13 +7,20 @@
     hermes-agent.url = "github:NousResearch/hermes-agent/v2026.9.24";
   };
 
-  outputs = { self, nixpkgs, hermes-agent, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      hermes-agent,
+      ...
+    }:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           upstream = hermes-agent.packages.${system};
@@ -21,16 +28,19 @@
           # python minor (e.g. the devbox profile's python3.14 site-packages)
           # shadows the bundled pydantic_core cpython-312 .so and crashes
           # `hermes serve` (backend dies -> desktop shows no agent).
-          hermes = pkgs.runCommand "hermes-agent" {
-            nativeBuildInputs = [ pkgs.makeWrapper ];
-            meta.mainProgram = "hermes";
-          } ''
-            mkdir -p $out/bin
-            for f in hermes hermes-agent hermes-acp; do
-              makeWrapper ${upstream.default}/bin/$f $out/bin/$f \
-                --unset PYTHONPATH --unset VIRTUAL_ENV
-            done
-          '';
+          hermes =
+            pkgs.runCommand "hermes-agent"
+              {
+                nativeBuildInputs = [ pkgs.makeWrapper ];
+                meta.mainProgram = "hermes";
+              }
+              ''
+                mkdir -p $out/bin
+                for f in hermes hermes-agent hermes-acp; do
+                  makeWrapper ${upstream.default}/bin/$f $out/bin/$f \
+                    --unset PYTHONPATH --unset VIRTUAL_ENV
+                done
+              '';
         in
         rec {
           inherit hermes;
@@ -41,15 +51,19 @@
           # Rewrapped to point HERMES_DESKTOP_HERMES at the scrubbed agent
           # above, otherwise the desktop backend inherits the same broken
           # PYTHONPATH and exits at boot.
-          desktop = pkgs.runCommand "hermes-desktop" {
-            nativeBuildInputs = [ pkgs.makeWrapper ];
-            meta.mainProgram = "hermes-desktop";
-          } ''
-            mkdir -p $out/bin
-            makeWrapper ${upstream.desktop}/bin/hermes-desktop $out/bin/hermes-desktop \
-              --unset PYTHONPATH --unset VIRTUAL_ENV \
-              --set HERMES_DESKTOP_HERMES ${hermes}/bin/hermes
-          '';
-        });
+          desktop =
+            pkgs.runCommand "hermes-desktop"
+              {
+                nativeBuildInputs = [ pkgs.makeWrapper ];
+                meta.mainProgram = "hermes-desktop";
+              }
+              ''
+                mkdir -p $out/bin
+                makeWrapper ${upstream.desktop}/bin/hermes-desktop $out/bin/hermes-desktop \
+                  --unset PYTHONPATH --unset VIRTUAL_ENV \
+                  --set HERMES_DESKTOP_HERMES ${hermes}/bin/hermes
+              '';
+        }
+      );
     };
 }

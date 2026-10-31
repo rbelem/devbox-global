@@ -6,7 +6,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/241313f4e8e508cb9b13278c2b0fa25b9ca27163";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       # Re-point these four to track a new rev (e.g. the rbelem PR
       # branch), then refresh the hashes via the fakeHash loop below.
@@ -35,7 +36,8 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           sysPkgs = nixpkgs.legacyPackages.${system};
 
@@ -89,12 +91,28 @@
           chromiumDeps = sysPkgs.buildEnv {
             name = "playwright-chromium-deps";
             paths = with sysPkgs; [
-              glib.out nspr nss at-spi2-core dbus.lib alsa-lib cairo
-              cups.lib expat libgbm pango.out systemdMinimal
+              glib.out
+              nspr
+              nss
+              at-spi2-core
+              dbus.lib
+              alsa-lib
+              cairo
+              cups.lib
+              expat
+              libgbm
+              pango.out
+              systemdMinimal
               # Non-output-prefixed attributes: the `xorg.*` aliases are
               # deprecated in current nixpkgs and warn on every evaluation.
-              libx11 libxcb libxcomposite libxdamage
-              libxext libxfixes libxkbcommon libxrandr
+              libx11
+              libxcb
+              libxcomposite
+              libxdamage
+              libxext
+              libxfixes
+              libxkbcommon
+              libxrandr
             ];
             pathsToLink = [ "/lib" ];
             ignoreCollisions = true;

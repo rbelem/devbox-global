@@ -12,10 +12,16 @@
     opencode-bun.url = "github:rbelem/devbox-global/main?dir=devbox.d/bun";
   };
 
-  outputs = { self, nixpkgs, opencode-bun }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      opencode-bun,
+    }:
     let
       supportedSystems = [ "x86_64-linux" ];
-      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
+      forAllSystems =
+        f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
       # The v2 line (v2.0.x tags) is the released OpenCode. This flake is
       # THE opencode package now (the old v1 flake + its deepseek patch
@@ -38,13 +44,21 @@
       # Workspace packages packages/cli depends on (deps + devDeps); the
       # fixed-output install is filtered to these to keep the hash small.
       cliDeps = [
-        "cli" "client" "plugin" "schema" "server" "tui" "util"
-        "script" "protocol"
+        "cli"
+        "client"
+        "plugin"
+        "schema"
+        "server"
+        "tui"
+        "util"
+        "script"
+        "protocol"
       ];
       filterFlags = builtins.concatStringsSep " " (builtins.map (p: "--filter ./packages/${p}") cliDeps);
     in
     {
-      packages = forAllSystems (pkgs:
+      packages = forAllSystems (
+        pkgs:
         let
           system = pkgs.system;
 
@@ -180,7 +194,8 @@
           });
 
           default = opencode;
-        });
+        }
+      );
 
       apps = forAllSystems (pkgs: {
         opencode = {

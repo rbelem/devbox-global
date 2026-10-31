@@ -5,13 +5,15 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           version = "0.2.1";
@@ -50,10 +52,26 @@
           chromiumDeps = pkgs.buildEnv {
             name = "playwright-chromium-deps";
             paths = with pkgs; [
-              glib.out nspr nss at-spi2-core dbus.lib alsa-lib cairo
-              cups.lib expat libgbm pango.out systemdMinimal
-              xorg.libX11 xorg.libxcb xorg.libXcomposite xorg.libXdamage
-              xorg.libXext xorg.libXfixes libxkbcommon xorg.libXrandr
+              glib.out
+              nspr
+              nss
+              at-spi2-core
+              dbus.lib
+              alsa-lib
+              cairo
+              cups.lib
+              expat
+              libgbm
+              pango.out
+              systemdMinimal
+              xorg.libX11
+              xorg.libxcb
+              xorg.libXcomposite
+              xorg.libXdamage
+              xorg.libXext
+              xorg.libXfixes
+              libxkbcommon
+              xorg.libXrandr
             ];
             pathsToLink = [ "/lib" ];
             ignoreCollisions = true;

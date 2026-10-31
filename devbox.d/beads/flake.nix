@@ -5,7 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       version = "1.1.0";
 
@@ -21,44 +22,50 @@
       # ── Embedded dolt runtime ─────────────────────────────────────
       # Latest dolt fetched from GitHub releases (nixpkgs lags behind).
       doltVersion = "2.0.7";
-      doltPlatform = system: {
-        "x86_64-linux" = {
-          asset = "dolt-linux-amd64.tar.gz";
-          hash = "sha256-jgkThZZ2OJbLzgYyzW53n6HfQFM0xsFIvDFFOaO5eVo=";
-        };
-        "aarch64-linux" = {
-          asset = "dolt-linux-arm64.tar.gz";
-          hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
-        };
-        "x86_64-darwin" = {
-          asset = "dolt-darwin-amd64.tar.gz";
-          hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
-        };
-        "aarch64-darwin" = {
-          asset = "dolt-darwin-arm64.tar.gz";
-          hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
-        };
-      }.${system} or (throw "Unsupported dolt system: ${system}");
+      doltPlatform =
+        system:
+        {
+          "x86_64-linux" = {
+            asset = "dolt-linux-amd64.tar.gz";
+            hash = "sha256-jgkThZZ2OJbLzgYyzW53n6HfQFM0xsFIvDFFOaO5eVo=";
+          };
+          "aarch64-linux" = {
+            asset = "dolt-linux-arm64.tar.gz";
+            hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
+          };
+          "x86_64-darwin" = {
+            asset = "dolt-darwin-amd64.tar.gz";
+            hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
+          };
+          "aarch64-darwin" = {
+            asset = "dolt-darwin-arm64.tar.gz";
+            hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
+          };
+        }
+        .${system} or (throw "Unsupported dolt system: ${system}");
 
       # Asset name + archive SHA256 (from release checksums.txt) per platform
-      platform = system: {
-        "x86_64-linux" = {
-          asset = "beads_${version}_linux_amd64.tar.gz";
-          hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
-        };
-        "aarch64-linux" = {
-          asset = "beads_${version}_linux_arm64.tar.gz";
-          hash = "sha256-5k629fmYyerj757HhvXxyQerPtBP4iDr8mXKmVLiGy8=";
-        };
-        "x86_64-darwin" = {
-          asset = "beads_${version}_darwin_amd64.tar.gz";
-          hash = "sha256-XX0w/a3PASt+DBkzpizfrvEG4lYVCbkE5QpnM2Ic+No=";
-        };
-        "aarch64-darwin" = {
-          asset = "beads_${version}_darwin_arm64.tar.gz";
-          hash = "sha256-xC4k2Dslj3up9SptLV9rBVhp3+eAcWUFWYixLn6oxWQ=";
-        };
-      }.${system} or (throw "Unsupported system: ${system}");
+      platform =
+        system:
+        {
+          "x86_64-linux" = {
+            asset = "beads_${version}_linux_amd64.tar.gz";
+            hash = "sha256-sPPdYHw/uYnuCNCmhU+6gNBAKXHrEI+a9hcLwU1JGjQ=";
+          };
+          "aarch64-linux" = {
+            asset = "beads_${version}_linux_arm64.tar.gz";
+            hash = "sha256-5k629fmYyerj757HhvXxyQerPtBP4iDr8mXKmVLiGy8=";
+          };
+          "x86_64-darwin" = {
+            asset = "beads_${version}_darwin_amd64.tar.gz";
+            hash = "sha256-XX0w/a3PASt+DBkzpizfrvEG4lYVCbkE5QpnM2Ic+No=";
+          };
+          "aarch64-darwin" = {
+            asset = "beads_${version}_darwin_arm64.tar.gz";
+            hash = "sha256-xC4k2Dslj3up9SptLV9rBVhp3+eAcWUFWYixLn6oxWQ=";
+          };
+        }
+        .${system} or (throw "Unsupported system: ${system}");
 
       beads-overlay = final: prev: {
         # Embedded dolt (nixpkgs lags behind — fetch latest from GitHub)
@@ -132,16 +139,19 @@
     {
       overlays.default = beads-overlay;
 
-      packages = forAllSystems (pkgs:
+      packages = forAllSystems (
+        pkgs:
         let
           pkgsWithOverlay = pkgs.extend beads-overlay;
         in
         {
           beads = pkgsWithOverlay.beads;
           default = pkgsWithOverlay.beads;
-        });
+        }
+      );
 
-      devShells = forAllSystems (pkgs:
+      devShells = forAllSystems (
+        pkgs:
         let
           pkgsWithOverlay = pkgs.extend beads-overlay;
         in
@@ -149,6 +159,7 @@
           default = pkgsWithOverlay.mkShell {
             buildInputs = [ pkgsWithOverlay.beads ];
           };
-        });
+        }
+      );
     };
 }

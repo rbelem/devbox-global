@@ -12,10 +12,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, rust-overlay, skillranker-src }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      rust-overlay,
+      skillranker-src,
+    }:
     let
       rev = "3fe85c432ba5e2b4f980e842fc94d57fae6c4189"; # MUST match skillranker-src url
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # Git deps pinned by skillranker's Cargo.lock (hashes verified upstream).
@@ -23,9 +34,13 @@
       asupersyncRev = "81fb7b579ce5f161622f1524391f5202a641cc2e";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
-          pkgs = import nixpkgs { inherit system; overlays = [ rust-overlay.overlays.default ]; };
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ rust-overlay.overlays.default ];
+          };
           inherit (pkgs) lib fetchgit runCommand;
 
           # Upstream pins nightly-2026-08-31 (rust-toolchain.toml): stable cargo
@@ -42,15 +57,19 @@
           # the `tools/optimize_params` member path-deps on `../../../fast_cmaes`
           # (a sibling repo outside the tree). That member is not part of
           # skillranker's dependency graph, so drop it from `workspace.members`.
-          frankensearchPatched = runCommand "frankensearch-${builtins.substring 0 7 frankensearchRev}-patched" { } ''
-            cp -r ${fetchgit {
-              url = "https://github.com/Dicklesworthstone/frankensearch.git";
-              rev = frankensearchRev;
-              sha256 = "sha256-kxUOR9OxqodLFAg85RJgW/p+cf6yJnNbnXBFQ7skR2M=";
-            }} $out
-            chmod -R u+w $out
-            sed -i '\|"tools/optimize_params",|d' $out/Cargo.toml
-          '';
+          frankensearchPatched =
+            runCommand "frankensearch-${builtins.substring 0 7 frankensearchRev}-patched" { }
+              ''
+                cp -r ${
+                  fetchgit {
+                    url = "https://github.com/Dicklesworthstone/frankensearch.git";
+                    rev = frankensearchRev;
+                    sha256 = "sha256-kxUOR9OxqodLFAg85RJgW/p+cf6yJnNbnXBFQ7skR2M=";
+                  }
+                } $out
+                chmod -R u+w $out
+                sed -i '\|"tools/optimize_params",|d' $out/Cargo.toml
+              '';
 
           asupersyncTree = fetchgit {
             url = "https://github.com/Dicklesworthstone/asupersync";
@@ -98,6 +117,7 @@
               platforms = systems;
             };
           };
-        });
+        }
+      );
     };
 }

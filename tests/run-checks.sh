@@ -11,11 +11,12 @@
 #   3. version spelling    - the version written the way the flake spells it
 #   4. hash resolution     - every hash goes back into its own attribute
 #   5. disable-package     - the three-file disable procedure
-#   6. flake lint          - statix + a nix parse of every devbox.d/*/flake.nix
+#   6. flake lint          - statix + nixfmt + a nix parse of every
+#                             devbox.d/*/flake.nix
 #
-# The lint has a ratchet: a parse error always fails, a statix finding fails
-# only outside tests/known-lint-findings.txt. The findings in that list are
-# pre-existing; a new one is a regression.
+# The lint has a ratchet: a parse or nixfmt error always fails, a statix
+# finding fails only outside tests/known-lint-findings.txt. The findings in
+# that list are pre-existing; a new one is a regression.
 set -uo pipefail
 
 cd "$(git rev-parse --show-toplevel)" || exit 1
@@ -41,20 +42,22 @@ run "hash resolution" bash tests/update/hash-resolution.sh
 run "disable-package" bash tests/disable-package.sh
 
 # The flake lint. The findings per file come out of vet-flakes as
-# "FAIL <file>" followed by "  statix: ..." or "  parse: ..." lines.
+# "FAIL <file>" followed by "  statix: ...", "  nixfmt: ..." or "  parse: ..."
+# lines.
 lint_findings() {
     local kind="$1"
     bash bin/vet-flakes 2>&1 \
         | sed -e 's/\x1b\[[0-9;]*m//g' \
         | awk -v kind="$kind:" '
             /^FAIL /{ file = $2; next }
-            /^  (statix|parse):/ { if (file != "" && $1 == kind) print file }
+            /^  (statix|nixfmt|parse):/ { if (file != "" && $1 == kind) print file }
         ' | sort -u
 }
 
 if command -v statix >/dev/null 2>&1 && command -v nix-instantiate >/dev/null 2>&1; then
     echo "--- flake lint"
     parse_failures="$(lint_findings parse)"
+    fmt_failures="$(lint_findings nixfmt)"
     statix_failures="$(lint_findings statix)"
     new_statix=""
     while read -r file; do
@@ -64,9 +67,10 @@ if command -v statix >/dev/null 2>&1 && command -v nix-instantiate >/dev/null 2>
         fi
     done <<< "$statix_failures"
 
-    if [[ -n "$parse_failures" || -n "$new_statix" ]]; then
+    if [[ -n "$parse_failures" || -n "$fmt_failures" || -n "$new_statix" ]]; then
         echo "--- flake lint: FAILED" >&2
         [[ -n "$parse_failures" ]] && printf '    parse error: %s\n' $parse_failures >&2
+        [[ -n "$fmt_failures" ]] && printf '    unformatted: %s\n' $fmt_failures >&2
         [[ -n "$new_statix" ]] && printf '    new statix finding: %s\n' $new_statix >&2
         status=1
     else

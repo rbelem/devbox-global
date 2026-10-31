@@ -6,7 +6,12 @@
     openspec.url = "github:Fission-AI/OpenSpec/v1.8.0";
   };
 
-  outputs = { self, nixpkgs, openspec }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      openspec,
+    }:
     let
       version = "1.8.0";
       supportedSystems = [
@@ -29,7 +34,8 @@
         };
       });
 
-      devShells = forAllSystems (system:
+      devShells = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in

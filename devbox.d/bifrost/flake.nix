@@ -5,14 +5,16 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
       version = "v2.2.0";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           lib = pkgs.lib;
@@ -99,7 +101,10 @@
 
             env.CGO_ENABLED = "1";
 
-            nativeBuildInputs = with pkgs; [ pkg-config gcc ];
+            nativeBuildInputs = with pkgs; [
+              pkg-config
+              gcc
+            ];
             buildInputs = [ pkgs.sqlite ];
 
             preBuild = ''

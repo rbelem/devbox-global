@@ -3,9 +3,13 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
       version = "0.3.0";
@@ -14,8 +18,10 @@
       #   set this to pkgs.lib.fakeHash, run "devbox global update",
       #   then paste the sha256-... value from the (multiple) error messages.
       srcHash = "sha256-DiIpF8aoApKZVjjuVd0WRloc1+W91cZns4pJY2bmiNs=";
-    in {
-      packages = forAllSystems (system:
+    in
+    {
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
@@ -59,8 +65,10 @@
           # Library-only (no CLI): expose via withPackages so the whole dep
           # closure (openai/google-genai/tqdm) lands in one site-packages,
           # matching devbox.json's PYTHONPATH to lib/python3.14/site-packages.
-        in {
+        in
+        {
           default = pkgs.python3.withPackages (ps: [ llm-verifier ]);
-        });
+        }
+      );
     };
 }

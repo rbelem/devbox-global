@@ -25,83 +25,103 @@
     };
   };
 
-  outputs = { self, nixpkgs, pyproject-nix, uv2nix, pyproject-build-systems, strix-src }: let
-    supportedSystems = [ "x86_64-linux" ];
-    forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
+  outputs =
+    {
+      self,
+      nixpkgs,
+      pyproject-nix,
+      uv2nix,
+      pyproject-build-systems,
+      strix-src,
+    }:
+    let
+      supportedSystems = [ "x86_64-linux" ];
+      forAllSystems =
+        f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-    version = "1.7.0";
-  in {
-    packages = forAllSystems (pkgs: let
-      python = pkgs.python314;
+      version = "1.7.0";
+    in
+    {
+      packages = forAllSystems (
+        pkgs:
+        let
+          python = pkgs.python314;
 
-      # Go Bubble Tea TUI sidecar, built separately so the wheel build
-      # does not need Go or network access inside the nix sandbox.
-      tuiSidecar = pkgs.buildGoModule {
-        pname = "strix-tui";
-        inherit version;
-        src = "${strix-src}/strix/interface/tui";
-        # module github.com/usestrix/strix/tui, go 1.24.0
-        vendorHash = "sha256-MeLL85C4OSdGwVkJrW4QEiZSZx9nXrmI1TJMAyak2A0=";
-      };
+          # Go Bubble Tea TUI sidecar, built separately so the wheel build
+          # does not need Go or network access inside the nix sandbox.
+          tuiSidecar = pkgs.buildGoModule {
+            pname = "strix-tui";
+            inherit version;
+            src = "${strix-src}/strix/interface/tui";
+            # module github.com/usestrix/strix/tui, go 1.24.0
+            vendorHash = "sha256-MeLL85C4OSdGwVkJrW4QEiZSZx9nXrmI1TJMAyak2A0=";
+          };
 
-      workspace = uv2nix.lib.workspace.loadWorkspace { workspaceRoot = strix-src; };
+          workspace = uv2nix.lib.workspace.loadWorkspace { workspaceRoot = strix-src; };
 
-      overlay = workspace.mkPyprojectOverlay { sourcePreference = "wheel"; };
+          overlay = workspace.mkPyprojectOverlay { sourcePreference = "wheel"; };
 
-      pyprojectOverrides = _final: prev: {
-        strix-agent = prev.strix-agent.overrideAttrs (old: {
-          # Remove the hatchling custom hook that compiles the Go TUI sidecar
-          # (it needs Go + network and would fail in the sandbox).
-          postPatch = (old.postPatch or "") + ''
-            sed -i '/^\[tool\.hatch\.build\.targets\.wheel\.hooks\.custom\]$/,+1d' pyproject.toml
-            # The PR branch was cut before the 1.7.0 version bump; pin the
-            # version so the built package reports the flake's version.
-            substituteInPlace pyproject.toml --replace-fail 'version = "1.6.2"' 'version = "${version}"'
-          '';
-          # Ship the prebuilt sidecar inside the wheel.
-          preBuild = (old.preBuild or "") + ''
-            mkdir -p strix/bin
-            cp ${tuiSidecar}/bin/strix-tui strix/bin/
-          '';
-        });
-      };
+          pyprojectOverrides = _final: prev: {
+            strix-agent = prev.strix-agent.overrideAttrs (old: {
+              # Remove the hatchling custom hook that compiles the Go TUI sidecar
+              # (it needs Go + network and would fail in the sandbox).
+              postPatch = (old.postPatch or "") + ''
+                sed -i '/^\[tool\.hatch\.build\.targets\.wheel\.hooks\.custom\]$/,+1d' pyproject.toml
+                # The PR branch was cut before the 1.7.0 version bump; pin the
+                # version so the built package reports the flake's version.
+                substituteInPlace pyproject.toml --replace-fail 'version = "1.6.2"' 'version = "${version}"'
+              '';
+              # Ship the prebuilt sidecar inside the wheel.
+              preBuild = (old.preBuild or "") + ''
+                mkdir -p strix/bin
+                cp ${tuiSidecar}/bin/strix-tui strix/bin/
+              '';
+            });
+          };
 
-      pythonSet = (pkgs.callPackage pyproject-nix.build.packages { python = python; }).overrideScope (nixpkgs.lib.composeManyExtensions [
-        overlay
-        pyproject-build-systems.overlays.default
-        pyprojectOverrides
-      ]);
-    in rec {
-      # Internal venv — never installed into the devbox profile directly.
-      venv = pythonSet.mkVirtualEnv "strix-env" workspace.deps.default;
+          pythonSet = (pkgs.callPackage pyproject-nix.build.packages { python = python; }).overrideScope (
+            nixpkgs.lib.composeManyExtensions [
+              overlay
+              pyproject-build-systems.overlays.default
+              pyprojectOverrides
+            ]
+          );
+        in
+        rec {
+          # Internal venv — never installed into the devbox profile directly.
+          venv = pythonSet.mkVirtualEnv "strix-env" workspace.deps.default;
 
-      # Ship ONLY the wrapped `strix` entry point so the devbox profile
-      # merge cannot collide with other packages' site-packages, and strip
-      # PYTHONPATH so the merged profile site-packages can't shadow the
-      # venv's pinned dependencies at runtime.
-      strix = pkgs.runCommand "strix-${version}" {
-        nativeBuildInputs = [ pkgs.makeWrapper ];
-        meta = {
-          description = "Open-source AI pentesting tool (built from PR #1284)";
-          homepage = "https://github.com/usestrix/strix";
-          license = pkgs.lib.licenses.asl20;
-          mainProgram = "strix";
-          platforms = supportedSystems;
+          # Ship ONLY the wrapped `strix` entry point so the devbox profile
+          # merge cannot collide with other packages' site-packages, and strip
+          # PYTHONPATH so the merged profile site-packages can't shadow the
+          # venv's pinned dependencies at runtime.
+          strix =
+            pkgs.runCommand "strix-${version}"
+              {
+                nativeBuildInputs = [ pkgs.makeWrapper ];
+                meta = {
+                  description = "Open-source AI pentesting tool (built from PR #1284)";
+                  homepage = "https://github.com/usestrix/strix";
+                  license = pkgs.lib.licenses.asl20;
+                  mainProgram = "strix";
+                  platforms = supportedSystems;
+                };
+              }
+              ''
+                mkdir -p $out/bin
+                makeWrapper ${venv}/bin/strix $out/bin/strix --unset PYTHONPATH
+              '';
+
+          default = strix;
+        }
+      );
+
+      apps = forAllSystems (pkgs: {
+        strix = {
+          type = "app";
+          program = "${self.packages.${pkgs.system}.strix}/bin/strix";
         };
-      } ''
-        mkdir -p $out/bin
-        makeWrapper ${venv}/bin/strix $out/bin/strix --unset PYTHONPATH
-      '';
-
-      default = strix;
-    });
-
-    apps = forAllSystems (pkgs: {
-      strix = {
-        type = "app";
-        program = "${self.packages.${pkgs.system}.strix}/bin/strix";
-      };
-      default = self.apps.${pkgs.system}.strix;
-    });
-  };
+        default = self.apps.${pkgs.system}.strix;
+      });
+    };
 }

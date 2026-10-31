@@ -3,10 +3,15 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
-      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      forAllSystems =
+        f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
     in
     {
       packages = forAllSystems (pkgs: rec {
@@ -19,20 +24,23 @@
             repo = "rtk";
             rev = "v${version}";
             #hash = pkgs.lib.fakeHash;
-hash = "sha256-RlMGWDGSvKvbRjZ/duJNdVrnqY7B4dM/5IWVJ5LUzjg=";
+            hash = "sha256-RlMGWDGSvKvbRjZ/duJNdVrnqY7B4dM/5IWVJ5LUzjg=";
           };
 
           #cargoHash = pkgs.lib.fakeHash;
-cargoHash = "sha256-rPkrAUgeEktzpNBPAw3xVJS7QSUS0lKGsBDWv3MlE8I=";
+          cargoHash = "sha256-rPkrAUgeEktzpNBPAw3xVJS7QSUS0lKGsBDWv3MlE8I=";
 
           nativeBuildInputs = [ pkgs.pkg-config ];
 
-          buildInputs = with pkgs; [
-            openssl
-            sqlite
-          ] ++ lib.optionals stdenv.isLinux [
-            libgcc
-          ];
+          buildInputs =
+            with pkgs;
+            [
+              openssl
+              sqlite
+            ]
+            ++ lib.optionals stdenv.isLinux [
+              libgcc
+            ];
 
           doCheck = false;
 

@@ -3,137 +3,147 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }: let
-    supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+  outputs =
+    { self, nixpkgs }:
+    let
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-    # Tracking tagged releases — bump rev + version + srcHash together.
-    version = "2.13.2";
-    rev = "v${version}";
+      # Tracking tagged releases — bump rev + version + srcHash together.
+      version = "2.13.2";
+      rev = "v${version}";
 
-    # Get the real hash:
-    #   cd ~/.local/share/devbox/global/current/devbox.d/skillspector
-    #   uncomment the line containing fakeHash and comment the line containing real hash
-    #   run the command "devbox global update"
-    # Then paste the sha256-... value below
-    #
-    srcHash = "sha256-u+9Xaj/7T7KlLa/kKNIV90PQ1ZnbYYG7VX+IKtZ/kXg=";
-  in {
-    packages = forAllSystems (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-          overlays = [
-            # tzlocal V5 test fails in sandbox: timezone offset mismatch
-            # (test expects UTC-4, sandbox has UTC).
-            (final: prev: {
-              python3 = prev.python3.override {
-                packageOverrides = self: super: {
-                  tzlocal = super.tzlocal.overridePythonAttrs (old: {
-                    doCheck = false;
-                  });
-                  # inline-snapshot 0.32.5 has 3 broken tests in nixpkgs
-                  # (snapshot value mismatch in sandbox env).
-                  inline-snapshot = super.inline-snapshot.overridePythonAttrs (old: {
-                    doCheck = false;
-                  });
+      # Get the real hash:
+      #   cd ~/.local/share/devbox/global/current/devbox.d/skillspector
+      #   uncomment the line containing fakeHash and comment the line containing real hash
+      #   run the command "devbox global update"
+      # Then paste the sha256-... value below
+      #
+      srcHash = "sha256-u+9Xaj/7T7KlLa/kKNIV90PQ1ZnbYYG7VX+IKtZ/kXg=";
+    in
+    {
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            overlays = [
+              # tzlocal V5 test fails in sandbox: timezone offset mismatch
+              # (test expects UTC-4, sandbox has UTC).
+              (final: prev: {
+                python3 = prev.python3.override {
+                  packageOverrides = self: super: {
+                    tzlocal = super.tzlocal.overridePythonAttrs (old: {
+                      doCheck = false;
+                    });
+                    # inline-snapshot 0.32.5 has 3 broken tests in nixpkgs
+                    # (snapshot value mismatch in sandbox env).
+                    inline-snapshot = super.inline-snapshot.overridePythonAttrs (old: {
+                      doCheck = false;
+                    });
+                  };
                 };
-              };
-            })
-          ];
-        };
-        pythonPackages = pkgs.python3Packages;
-
-        # New in upstream 2.11.0 (pyproject dependencies) — not in nixpkgs.
-        # hatch-vcs derives version from git; pin it for the sdist build.
-        pywhatwgurl = pythonPackages.buildPythonPackage rec {
-          pname = "pywhatwgurl";
-          version = "0.1.1";
-          pyproject = true;
-
-          src = pkgs.fetchurl {
-            url = "https://files.pythonhosted.org/packages/c0/d2/ce0fffb9eb66ea2f88d20d7c3841b017d25559b6b617bce566811fe0bb48/pywhatwgurl-0.1.1.tar.gz";
-            hash = "sha256-Zchdo1NnURwSpN2H/srwiqOuVkJZBVs3tK5TQpKJ/PY=";
+              })
+            ];
           };
+          pythonPackages = pkgs.python3Packages;
 
-          nativeBuildInputs = with pythonPackages; [
-            hatchling
-            hatch-vcs
-          ];
+          # New in upstream 2.11.0 (pyproject dependencies) — not in nixpkgs.
+          # hatch-vcs derives version from git; pin it for the sdist build.
+          pywhatwgurl = pythonPackages.buildPythonPackage rec {
+            pname = "pywhatwgurl";
+            version = "0.1.1";
+            pyproject = true;
 
-          propagatedBuildInputs = [ pythonPackages.idna ];
+            src = pkgs.fetchurl {
+              url = "https://files.pythonhosted.org/packages/c0/d2/ce0fffb9eb66ea2f88d20d7c3841b017d25559b6b617bce566811fe0bb48/pywhatwgurl-0.1.1.tar.gz";
+              hash = "sha256-Zchdo1NnURwSpN2H/srwiqOuVkJZBVs3tK5TQpKJ/PY=";
+            };
 
-          env.SETUPTOOLS_SCM_PRETEND_VERSION = version;
-          env.SETUPTOOLS_SCM_PRETEND_VERSION_FOR_HATCH_VCS = version;
+            nativeBuildInputs = with pythonPackages; [
+              hatchling
+              hatch-vcs
+            ];
 
-          doCheck = false;
-        };
-      in {
-        default = pythonPackages.buildPythonApplication {
-          pname = "skillspector";
-          inherit version;
-          format = "pyproject";
+            propagatedBuildInputs = [ pythonPackages.idna ];
 
-          nativeBuildInputs = with pythonPackages; [
-            hatchling
-          ];
+            env.SETUPTOOLS_SCM_PRETEND_VERSION = version;
+            env.SETUPTOOLS_SCM_PRETEND_VERSION_FOR_HATCH_VCS = version;
 
-          src = pkgs.fetchFromGitHub {
-            owner = "NVIDIA";
-            repo = "SkillSpector";
-            rev = rev;
-            hash = srcHash;
+            doCheck = false;
           };
+        in
+        {
+          default = pythonPackages.buildPythonApplication {
+            pname = "skillspector";
+            inherit version;
+            format = "pyproject";
 
-          propagatedBuildInputs = with pythonPackages; [
-            typer
-            rich
-            httpx
-            pyyaml
-            pydantic
-            openai
-            langgraph
-            langgraph-cli
-            langchain-core
-            langchain-openai
-            langchain-anthropic
-            langsmith
-            yara-python
-            regex
-            pywhatwgurl
-            # Upstream 2.12.0 deps that nixpkgs already ships. Without
-            # langchain-aws + boto3 the CLI dies on import with
-            # "No module named 'boto3'" (the AWS Bedrock analyzer path).
-            langchain-aws
-            boto3
-            google-auth
-          ];
+            nativeBuildInputs = with pythonPackages; [
+              hatchling
+            ];
 
-          # Upstream's exact pins (regex==2026.5.9, typer<0.24, openai>=2.25.0,
-          # google-auth>=2.53.0) are not satisfiable from nixpkgs, so the
-          # package-level runtime dep check stays off. The guard that does
-          # work is the smoke test below: the CLI must import every analyzer
-          # and finish a static scan. The 2.12.0 build passed with boto3
-          # missing and only failed at runtime ("No module named 'boto3'").
-          dontCheckRuntimeDeps = true;
+            src = pkgs.fetchFromGitHub {
+              owner = "NVIDIA";
+              repo = "SkillSpector";
+              rev = rev;
+              hash = srcHash;
+            };
 
-          postInstall = ''
-            # Smoke test: import every analyzer and complete a static scan.
-            mkdir -p "$TMPDIR/smoke-skill"
-            printf '%s\n' '---' 'name: smoke-skill' 'description: Fixture skill that verifies the packaged CLI can import its analyzers and complete a static scan.' '---' '# Smoke skill' > "$TMPDIR/smoke-skill/SKILL.md"
-            "$out/bin/skillspector" scan "$TMPDIR/smoke-skill" --no-llm > /dev/null
-          '';
+            propagatedBuildInputs = with pythonPackages; [
+              typer
+              rich
+              httpx
+              pyyaml
+              pydantic
+              openai
+              langgraph
+              langgraph-cli
+              langchain-core
+              langchain-openai
+              langchain-anthropic
+              langsmith
+              yara-python
+              regex
+              pywhatwgurl
+              # Upstream 2.12.0 deps that nixpkgs already ships. Without
+              # langchain-aws + boto3 the CLI dies on import with
+              # "No module named 'boto3'" (the AWS Bedrock analyzer path).
+              langchain-aws
+              boto3
+              google-auth
+            ];
 
-          meta = with pkgs.lib; {
-            description = "Security scanner for AI agent skills — detects vulnerabilities before you install";
-            homepage = "https://github.com/NVIDIA/SkillSpector";
-            license = licenses.mit;
-            mainProgram = "skillspector";
-            platforms = platforms.unix;
+            # Upstream's exact pins (regex==2026.5.9, typer<0.24, openai>=2.25.0,
+            # google-auth>=2.53.0) are not satisfiable from nixpkgs, so the
+            # package-level runtime dep check stays off. The guard that does
+            # work is the smoke test below: the CLI must import every analyzer
+            # and finish a static scan. The 2.12.0 build passed with boto3
+            # missing and only failed at runtime ("No module named 'boto3'").
+            dontCheckRuntimeDeps = true;
+
+            postInstall = ''
+              # Smoke test: import every analyzer and complete a static scan.
+              mkdir -p "$TMPDIR/smoke-skill"
+              printf '%s\n' '---' 'name: smoke-skill' 'description: Fixture skill that verifies the packaged CLI can import its analyzers and complete a static scan.' '---' '# Smoke skill' > "$TMPDIR/smoke-skill/SKILL.md"
+              "$out/bin/skillspector" scan "$TMPDIR/smoke-skill" --no-llm > /dev/null
+            '';
+
+            meta = with pkgs.lib; {
+              description = "Security scanner for AI agent skills — detects vulnerabilities before you install";
+              homepage = "https://github.com/NVIDIA/SkillSpector";
+              license = licenses.mit;
+              mainProgram = "skillspector";
+              platforms = platforms.unix;
+            };
           };
-        };
-      }
-    );
-  };
+        }
+      );
+    };
 }

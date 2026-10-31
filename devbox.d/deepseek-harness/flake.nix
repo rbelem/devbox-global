@@ -3,11 +3,15 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       # landlock-run (the sandbox) is a Linux-only static-musl C addon; the
       # upstream build has no cross toolchain, so non-Linux is unsupported.
-      systems = [ "x86_64-linux" "aarch64-linux" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # No upstream tags/releases: pin to a master commit. update-flake
@@ -24,7 +28,8 @@
       pnpmDepsHash = "sha256-/RvayNtK+6hJXOiRO17JZQS7lGFnPaQJQkD/Z8bUIHQ=";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
@@ -81,16 +86,16 @@
             # devDependency — it breaks the production reinstall in installPhase
             # (dev deps pruned). Git hooks are useless in a store; drop it.
             patchPhase = ''
-              runHook prePatch
-              # Drop the root postinstall by rewriting package.json as JSON
-              # (string substitutions can't safely express the empty string).
-              python3 - <<'PYEOF'
-            import json
-            p = json.load(open("package.json"))
-            p["scripts"].pop("postinstall", None)
-            json.dump(p, open("package.json", "w"), indent=2)
-            PYEOF
-              runHook postPatch
+                runHook prePatch
+                # Drop the root postinstall by rewriting package.json as JSON
+                # (string substitutions can't safely express the empty string).
+                python3 - <<'PYEOF'
+              import json
+              p = json.load(open("package.json"))
+              p["scripts"].pop("postinstall", None)
+              json.dump(p, open("package.json", "w"), indent=2)
+              PYEOF
+                runHook postPatch
             '';
 
             buildPhase = ''
@@ -146,65 +151,65 @@
             # in the profile directory, and MCP servers spawn npx — node/pnpm/
             # git are on the wrapper's PATH (plugin readiness).
             installPhase = ''
-              runHook preInstall
+                runHook preInstall
 
-              mkdir -p $out/lib
-              cp -a . $out/lib/dsh
-              test -f $out/lib/dsh/apps/cli/lib/bin.js || {
-                echo "apps/cli/lib/bin.js missing — did tsc emit it?" >&2
-                exit 1
-              }
+                mkdir -p $out/lib
+                cp -a . $out/lib/dsh
+                test -f $out/lib/dsh/apps/cli/lib/bin.js || {
+                  echo "apps/cli/lib/bin.js missing — did tsc emit it?" >&2
+                  exit 1
+                }
 
-              # npm-flat-style hoisting. Upstream's published npm install puts
-              # every @deepseek-ai/* package at the node_modules root, so the
-              # plugin loader (vendor/loader, which dynamic-imports plugin
-              # names by walking up from its own location) resolves them.
-              # pnpm's per-package layout links workspace deps into each
-              # dependent's node_modules instead, leaving the root sparse —
-              # the boot fails with ERR_MODULE_NOT_FOUND. Mirror the npm
-              # layout: symlink every workspace package into the root
-              # node_modules (additive; harmless for per-package resolution).
-              python3 - <<PYEOF
-            import json, os
-            root = "$out/lib/dsh"
-            for sub in ("packages", "vendor", "native/system/packages"):
-                base = os.path.join(root, sub)
-                for dirpath, dirnames, filenames in os.walk(base):
-                    if "package.json" not in filenames:
-                        continue
-                    name = json.load(open(os.path.join(dirpath, "package.json"))).get("name")
-                    if not name:
-                        continue
-                    link = os.path.join(root, "node_modules", name)
-                    if os.path.lexists(link):
-                        continue
-                    os.makedirs(os.path.dirname(link), exist_ok=True)
-                    os.symlink(os.path.relpath(dirpath, os.path.dirname(link)), link)
-            PYEOF
+                # npm-flat-style hoisting. Upstream's published npm install puts
+                # every @deepseek-ai/* package at the node_modules root, so the
+                # plugin loader (vendor/loader, which dynamic-imports plugin
+                # names by walking up from its own location) resolves them.
+                # pnpm's per-package layout links workspace deps into each
+                # dependent's node_modules instead, leaving the root sparse —
+                # the boot fails with ERR_MODULE_NOT_FOUND. Mirror the npm
+                # layout: symlink every workspace package into the root
+                # node_modules (additive; harmless for per-package resolution).
+                python3 - <<PYEOF
+              import json, os
+              root = "$out/lib/dsh"
+              for sub in ("packages", "vendor", "native/system/packages"):
+                  base = os.path.join(root, sub)
+                  for dirpath, dirnames, filenames in os.walk(base):
+                      if "package.json" not in filenames:
+                          continue
+                      name = json.load(open(os.path.join(dirpath, "package.json"))).get("name")
+                      if not name:
+                          continue
+                      link = os.path.join(root, "node_modules", name)
+                      if os.path.lexists(link):
+                          continue
+                      os.makedirs(os.path.dirname(link), exist_ok=True)
+                      os.symlink(os.path.relpath(dirpath, os.path.dirname(link)), link)
+              PYEOF
 
-              # Remove symlinks to unresolvable optional platform binary deps
-              # before fixupPhase's noBrokenSymlinks check (they are runtime-
-              # optional — the harness spawns them lazily per provider). pnpm
-              # links @openai/codex-linux-x64 even though that package has NO
-              # versions on the npm registry (upstream declares it but never
-              # publishes it), and under offline fetch it also skips the glibc
-              # @anthropic-ai/claude-agent-sdk-linux-x64 while pulling the
-              # musl/arm64 siblings, so both land as dangling links whose
-              # targets were never extracted. Match them by -name (each is the
-              # only symlink of that name in the tree) instead of an -L deref
-              # walk, which crawls this ~100k-link virtual store for minutes.
-              # Any other dangling link still trips noBrokenSymlinks loudly.
-              find "$out/lib/dsh/node_modules" -type l \
-                \( -name 'codex-linux-x64' -o -name 'claude-agent-sdk-linux-x64' \) \
-                -print -delete | sed 's#^#  removed platform dep link: #'
+                # Remove symlinks to unresolvable optional platform binary deps
+                # before fixupPhase's noBrokenSymlinks check (they are runtime-
+                # optional — the harness spawns them lazily per provider). pnpm
+                # links @openai/codex-linux-x64 even though that package has NO
+                # versions on the npm registry (upstream declares it but never
+                # publishes it), and under offline fetch it also skips the glibc
+                # @anthropic-ai/claude-agent-sdk-linux-x64 while pulling the
+                # musl/arm64 siblings, so both land as dangling links whose
+                # targets were never extracted. Match them by -name (each is the
+                # only symlink of that name in the tree) instead of an -L deref
+                # walk, which crawls this ~100k-link virtual store for minutes.
+                # Any other dangling link still trips noBrokenSymlinks loudly.
+                find "$out/lib/dsh/node_modules" -type l \
+                  \( -name 'codex-linux-x64' -o -name 'claude-agent-sdk-linux-x64' \) \
+                  -print -delete | sed 's#^#  removed platform dep link: #'
 
-              mkdir -p $out/bin
-              makeWrapper ${finalAttrs.nodejs}/bin/node \
-                $out/bin/dsh \
-                --add-flags "--expose-internals $out/lib/dsh/apps/cli/lib/bin.js" \
-                --prefix PATH : ${finalAttrs.nodejs}/bin:${finalAttrs.pnpm}/bin:${pkgs.git}/bin
+                mkdir -p $out/bin
+                makeWrapper ${finalAttrs.nodejs}/bin/node \
+                  $out/bin/dsh \
+                  --add-flags "--expose-internals $out/lib/dsh/apps/cli/lib/bin.js" \
+                  --prefix PATH : ${finalAttrs.nodejs}/bin:${finalAttrs.pnpm}/bin:${pkgs.git}/bin
 
-              runHook postInstall
+                runHook postInstall
             '';
 
             meta = with pkgs.lib; {
@@ -225,7 +230,8 @@
               maintainers = [ ];
             };
           });
-        });
+        }
+      );
 
       apps = forAllSystems (pkgs: {
         dsh = {

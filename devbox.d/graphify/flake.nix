@@ -11,21 +11,35 @@
     };
   };
 
-  outputs = { self, nixpkgs, graphify-src }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      graphify-src,
+    }:
     let
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+      forAllSystems =
+        f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
     in
     {
-      packages = forAllSystems (pkgs:
+      packages = forAllSystems (
+        pkgs:
         let
           # inline-snapshot 0.32.5 has 3 broken tests in nixpkgs
           # (snapshot value mismatch in sandbox env); skip them.
-          pythonPackages = pkgs.python3Packages.overrideScope (final: prev: {
-            inline-snapshot = prev.inline-snapshot.overridePythonAttrs (old: {
-              doCheck = false;
-            });
-          });
+          pythonPackages = pkgs.python3Packages.overrideScope (
+            final: prev: {
+              inline-snapshot = prev.inline-snapshot.overridePythonAttrs (old: {
+                doCheck = false;
+              });
+            }
+          );
           runtimeDeps = with pythonPackages; [
             networkx
             numpy
@@ -43,51 +57,56 @@
             openai
             tiktoken
           ];
-        in rec {
-        graphify = pythonPackages.buildPythonApplication rec {
-          pname = "graphify";
-          version = "0.9.94";
-          format = "pyproject";
+        in
+        rec {
+          graphify = pythonPackages.buildPythonApplication rec {
+            pname = "graphify";
+            version = "0.9.94";
+            format = "pyproject";
 
-          src = graphify-src;
+            src = graphify-src;
 
-          nativeBuildInputs = with pythonPackages; [
-            setuptools
-            wheel
-          ];
+            nativeBuildInputs = with pythonPackages; [
+              setuptools
+              wheel
+            ];
 
-          # Remove setuptools-scm: it derives version from git tags, but GitHub
-          # tarball sources have no git metadata, so setuptools falls back to
-          # pyproject.toml's version field directly.
+            # Remove setuptools-scm: it derives version from git tags, but GitHub
+            # tarball sources have no git metadata, so setuptools falls back to
+            # pyproject.toml's version field directly.
 
-          propagatedBuildInputs = runtimeDeps;
+            propagatedBuildInputs = runtimeDeps;
 
-          # Many tree-sitter grammars (go, java, ruby, c, cpp, kotlin, scala,
-          # php, swift, lua, zig, powershell, groovy) are not packaged in
-          # nixpkgs; graphifyy handles their absence per-language at runtime.
-          dontCheckRuntimeDeps = true;
+            # Many tree-sitter grammars (go, java, ruby, c, cpp, kotlin, scala,
+            # php, swift, lua, zig, powershell, groovy) are not packaged in
+            # nixpkgs; graphifyy handles their absence per-language at runtime.
+            dontCheckRuntimeDeps = true;
 
-          # graphify re-execs itself as `[sys.executable, "-m", "graphify"]`
-          # (PYTHONHASHSEED pinning, __main__._pin_hashseed) for update /
-          # extract / cluster-only / label. The nixpkgs wrapper bootstraps
-          # dependency site-packages via site.addsitedir, which does NOT
-          # survive os.execvpe — the child python imports graphify from
-          # scratch and crashes with "No module named 'tree_sitter'".
-          # Export PYTHONPATH so child interpreters see the same modules.
-          makeWrapperArgs = [
-            "--prefix" "PYTHONPATH" ":" (pkgs.lib.makeSearchPath pythonPackages.python.sitePackages runtimeDeps)
-          ];
+            # graphify re-execs itself as `[sys.executable, "-m", "graphify"]`
+            # (PYTHONHASHSEED pinning, __main__._pin_hashseed) for update /
+            # extract / cluster-only / label. The nixpkgs wrapper bootstraps
+            # dependency site-packages via site.addsitedir, which does NOT
+            # survive os.execvpe — the child python imports graphify from
+            # scratch and crashes with "No module named 'tree_sitter'".
+            # Export PYTHONPATH so child interpreters see the same modules.
+            makeWrapperArgs = [
+              "--prefix"
+              "PYTHONPATH"
+              ":"
+              (pkgs.lib.makeSearchPath pythonPackages.python.sitePackages runtimeDeps)
+            ];
 
-          meta = with pkgs.lib; {
-            description = "Turn any folder into a queryable knowledge graph";
-            homepage = "https://github.com/safishamsi/graphify";
-            license = licenses.asl20;
-            mainProgram = "graphify";
+            meta = with pkgs.lib; {
+              description = "Turn any folder into a queryable knowledge graph";
+              homepage = "https://github.com/safishamsi/graphify";
+              license = licenses.asl20;
+              mainProgram = "graphify";
+            };
           };
-        };
 
-        default = graphify;
-      });
+          default = graphify;
+        }
+      );
 
       apps = forAllSystems (pkgs: {
         graphify = {

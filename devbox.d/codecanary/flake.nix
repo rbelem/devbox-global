@@ -3,16 +3,22 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # Map Nix system names to GoReleaser target triples
       systemToTarget = {
-        x86_64-linux   = "linux_amd64";
-        aarch64-linux  = "linux_arm64";
-        x86_64-darwin  = "darwin_amd64";
+        x86_64-linux = "linux_amd64";
+        aarch64-linux = "linux_arm64";
+        x86_64-darwin = "darwin_amd64";
         aarch64-darwin = "darwin_arm64";
       };
 
@@ -21,14 +27,15 @@
       version = "0.6.24";
 
       perArchSha256 = {
-        x86_64-linux   = "sha256-vHGc0kgWl9lXPOEoSgAuZSN9BjaUA/hryflBxd7LtnY=";
-        aarch64-linux  = "sha256-wrYYNWbA/2X9DOTKsYYftZcZs+tecAJj5ZI62bS+14c=";
-        x86_64-darwin  = "sha256-4xBy4aHdvsswsl0sKDKWCI0eENM89V8dNYb643WpOxE=";
+        x86_64-linux = "sha256-vHGc0kgWl9lXPOEoSgAuZSN9BjaUA/hryflBxd7LtnY=";
+        aarch64-linux = "sha256-wrYYNWbA/2X9DOTKsYYftZcZs+tecAJj5ZI62bS+14c=";
+        x86_64-darwin = "sha256-4xBy4aHdvsswsl0sKDKWCI0eENM89V8dNYb643WpOxE=";
         aarch64-darwin = "sha256-X/5TCvLy5ec3khVDvrOZiAR/vM7L4t6f+dJrUDHl40E=";
       };
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in

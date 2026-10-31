@@ -4,13 +4,15 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { nixpkgs, neovim-nightly-overlay, ... }:
+  outputs =
+    { nixpkgs, neovim-nightly-overlay, ... }:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system}.extend neovim-nightly-overlay.overlays.default;
           nvim = pkgs.wrapNeovim pkgs.neovim {
@@ -28,7 +30,10 @@
         {
           default = pkgs.symlinkJoin {
             name = "neovim-with-vimdiff";
-            paths = [ nvim vimdiff ];
+            paths = [
+              nvim
+              vimdiff
+            ];
           };
         }
       );

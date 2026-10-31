@@ -13,7 +13,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, ezdwg-src, steelpy-src }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ezdwg-src,
+      steelpy-src,
+    }:
     let
       supportedSystems = [
         "x86_64-linux"
@@ -22,79 +28,83 @@
         "aarch64-darwin"
       ];
 
-      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
+      forAllSystems =
+        f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
       steel-overlay = final: prev: {
-        python3Packages = prev.python3Packages.overrideScope (pfinal: pprev: {
-          # DWG (R13-R2018 / AC1012-AC1032) reader. Rust core exposed to Python
-          # via PyO3/maturin, built from the v0.15.0 tag (Cargo.lock at repo root,
-          # [tool.maturin] manifest-path = crates/ezdwg-python/Cargo.toml).
-          # Not in nixpkgs; upstream ships no flake.
-          ezdwg = pfinal.buildPythonPackage rec {
-            pname = "ezdwg";
-            version = "0.17.2";
-            pyproject = true;
+        python3Packages = prev.python3Packages.overrideScope (
+          pfinal: pprev: {
+            # DWG (R13-R2018 / AC1012-AC1032) reader. Rust core exposed to Python
+            # via PyO3/maturin, built from the v0.15.0 tag (Cargo.lock at repo root,
+            # [tool.maturin] manifest-path = crates/ezdwg-python/Cargo.toml).
+            # Not in nixpkgs; upstream ships no flake.
+            ezdwg = pfinal.buildPythonPackage rec {
+              pname = "ezdwg";
+              version = "0.17.2";
+              pyproject = true;
 
-            src = ezdwg-src;
+              src = ezdwg-src;
 
-            cargoDeps = final.rustPlatform.fetchCargoVendor {
-              inherit pname version src;
-              hash = "sha256-+gTTo4lqwYXxrDHXyqdQrxq03RVINcFXdU1Dg7kYji4=";
+              cargoDeps = final.rustPlatform.fetchCargoVendor {
+                inherit pname version src;
+                hash = "sha256-+gTTo4lqwYXxrDHXyqdQrxq03RVINcFXdU1Dg7kYji4=";
+              };
+
+              nativeBuildInputs = [
+                final.rustPlatform.cargoSetupHook
+                final.rustPlatform.maturinBuildHook
+              ];
+
+              pythonImportsCheck = [ "ezdwg" ];
+
+              # tests need the repo's real DWG fixtures and a temp home
+              doCheck = false;
+
+              meta = with final.lib; {
+                description = "DWG reader with a Rust core and an ezdxf-inspired Python API";
+                homepage = "https://github.com/monozukuri-ai/ezdwg";
+                license = licenses.mit;
+                platforms = supportedSystems;
+              };
             };
 
-            nativeBuildInputs = [
-              final.rustPlatform.cargoSetupHook
-              final.rustPlatform.maturinBuildHook
-            ];
+            # AISC shapes database (W/M/S/HP/WT/MT/ST/Pipe/HSS/L/2L), AISC Shapes
+            # Database v16.0 values. Not in nixpkgs; upstream ships no flake.
+            # PyPI 1.1.1 requires pandas<3.0.0 but nixpkgs ships pandas 3.0.4;
+            # the master tree (1.2.0, unreleased) dropped the pandas/openpyxl
+            # dependency entirely, so build the pinned master commit instead of
+            # relaxing the bound against an incompatible pandas major.
+            steelpy = pfinal.buildPythonPackage rec {
+              pname = "steelpy";
+              version = "1.2.0";
+              pyproject = true;
 
-            pythonImportsCheck = [ "ezdwg" ];
+              src = steelpy-src;
 
-            # tests need the repo's real DWG fixtures and a temp home
-            doCheck = false;
+              build-system = [ pfinal.poetry-core ];
 
-            meta = with final.lib; {
-              description = "DWG reader with a Rust core and an ezdxf-inspired Python API";
-              homepage = "https://github.com/monozukuri-ai/ezdwg";
-              license = licenses.mit;
-              platforms = supportedSystems;
+              pythonImportsCheck = [ "steelpy" ];
+
+              # pytest suite expects the AISC database fixtures layout; keep
+              # the install-only build
+              doCheck = false;
+
+              meta = with final.lib; {
+                description = "AISC steel shapes database for structural calculations";
+                homepage = "https://github.com/evanfaler/steelpy";
+                license = licenses.asl20;
+                platforms = supportedSystems;
+              };
             };
-          };
-
-          # AISC shapes database (W/M/S/HP/WT/MT/ST/Pipe/HSS/L/2L), AISC Shapes
-          # Database v16.0 values. Not in nixpkgs; upstream ships no flake.
-          # PyPI 1.1.1 requires pandas<3.0.0 but nixpkgs ships pandas 3.0.4;
-          # the master tree (1.2.0, unreleased) dropped the pandas/openpyxl
-          # dependency entirely, so build the pinned master commit instead of
-          # relaxing the bound against an incompatible pandas major.
-          steelpy = pfinal.buildPythonPackage rec {
-            pname = "steelpy";
-            version = "1.2.0";
-            pyproject = true;
-
-            src = steelpy-src;
-
-            build-system = [ pfinal.poetry-core ];
-
-            pythonImportsCheck = [ "steelpy" ];
-
-            # pytest suite expects the AISC database fixtures layout; keep
-            # the install-only build
-            doCheck = false;
-
-            meta = with final.lib; {
-              description = "AISC steel shapes database for structural calculations";
-              homepage = "https://github.com/evanfaler/steelpy";
-              license = licenses.asl20;
-              platforms = supportedSystems;
-            };
-          };
-        });
+          }
+        );
       };
     in
     {
       overlays.default = steel-overlay;
 
-      packages = forAllSystems (pkgs:
+      packages = forAllSystems (
+        pkgs:
         let
           pkgsWithOverlay = pkgs.extend steel-overlay;
           py = pkgsWithOverlay.python3Packages;
@@ -107,7 +117,15 @@
           # Walk the propagated closure and merge every dependency too.
           collectClosure = p: [ p ] ++ builtins.concatMap collectClosure (p.propagatedBuildInputs or [ ]);
           pythonClosure = pkgsWithOverlay.lib.unique (
-            builtins.concatMap collectClosure (with py; [ ezdwg steelpy ezdxf openpyxl ])
+            builtins.concatMap collectClosure (
+              with py;
+              [
+                ezdwg
+                steelpy
+                ezdxf
+                openpyxl
+              ]
+            )
           );
         in
         {
@@ -121,9 +139,11 @@
               pkgsWithOverlay.libredwg
             ];
           };
-        });
+        }
+      );
 
-      devShells = forAllSystems (pkgs:
+      devShells = forAllSystems (
+        pkgs:
         let
           pkgsWithOverlay = pkgs.extend steel-overlay;
           py = pkgsWithOverlay.python3Packages;
@@ -138,6 +158,7 @@
               pkgsWithOverlay.libredwg
             ];
           };
-        });
+        }
+      );
     };
 }

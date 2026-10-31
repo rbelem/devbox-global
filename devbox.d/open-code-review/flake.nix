@@ -3,16 +3,22 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # Map Nix system names to open-code-review release asset names
       systemToTarget = {
-        x86_64-linux   = "linux-amd64";
-        aarch64-linux  = "linux-arm64";
-        x86_64-darwin  = "darwin-amd64";
+        x86_64-linux = "linux-amd64";
+        aarch64-linux = "linux-arm64";
+        x86_64-darwin = "darwin-amd64";
         aarch64-darwin = "darwin-arm64";
       };
 
@@ -21,14 +27,15 @@
       # Hashes via API asset digests / nix store prefetch-file — never build-capture
       # for this repo (its CDN serves stale release bytes; see skill pitfall 12).
       perArchSha256 = {
-        x86_64-linux   = "sha256-hDvg5W/f8KXKb4bFhm+ULWo3Lf8cDKGeeJPXJJWr9Fw=";
-        aarch64-linux  = "sha256-2ZNDEqYpQ411F6JQyMtzm5YoLI59BPx15bLlkxgHMYw=";
-        x86_64-darwin  = "sha256-CT0KQCr/lxXDHAKQMmj7c4gPipNQzCpYE6k57hhuVUU=";
+        x86_64-linux = "sha256-hDvg5W/f8KXKb4bFhm+ULWo3Lf8cDKGeeJPXJJWr9Fw=";
+        aarch64-linux = "sha256-2ZNDEqYpQ411F6JQyMtzm5YoLI59BPx15bLlkxgHMYw=";
+        x86_64-darwin = "sha256-CT0KQCr/lxXDHAKQMmj7c4gPipNQzCpYE6k57hhuVUU=";
         aarch64-darwin = "sha256-+puFMMCjXmEGqasugcIdmO8m0/McHzmtPvTCUoBHxPQ=";
       };
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in

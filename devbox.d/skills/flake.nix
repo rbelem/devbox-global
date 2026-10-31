@@ -3,13 +3,15 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs, ... }:
+  outputs =
+    { self, nixpkgs, ... }:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           version = "1.7.4";
@@ -36,7 +38,7 @@
               # raises ERR_PNPM_LOCKFILE_CONFIG_MISMATCH on it.
               # pnpm_9 is marked insecure in current nixpkgs.
               pnpm = pkgs.pnpm_10;
-hash = "sha256-Hyhg/7pcHT/jfT4Mz940P80nH+QmlKu6kJ2mu9iHkAY=";
+              hash = "sha256-Hyhg/7pcHT/jfT4Mz940P80nH+QmlKu6kJ2mu9iHkAY=";
             };
           });
         }

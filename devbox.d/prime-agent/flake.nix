@@ -3,15 +3,22 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       version = "0.7.2";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
@@ -75,7 +82,10 @@
 
             # The `canvas` npm package runs node-gyp during npm ci (postinstall)
             # and needs pkg-config + cairo/pixman/etc. to configure.
-            nativeBuildInputs = [ pkgs.makeWrapper pkgs.pkg-config ];
+            nativeBuildInputs = [
+              pkgs.makeWrapper
+              pkgs.pkg-config
+            ];
             buildInputs = [
               pkgs.cairo
               pkgs.pango

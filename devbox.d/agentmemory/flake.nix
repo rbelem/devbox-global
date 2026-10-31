@@ -3,9 +3,15 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       version = "0.9.30";
@@ -23,20 +29,21 @@
       # Pinned to v0.11.2 — agentmemory currently locks this version.
       iiiVersion = "0.11.2";
       systemToAsset = {
-        "x86_64-linux"    = "x86_64-unknown-linux-gnu";
-        "aarch64-linux"   = "aarch64-unknown-linux-gnu";
-        "x86_64-darwin"   = "x86_64-apple-darwin";
-        "aarch64-darwin"  = "aarch64-apple-darwin";
+        "x86_64-linux" = "x86_64-unknown-linux-gnu";
+        "aarch64-linux" = "aarch64-unknown-linux-gnu";
+        "x86_64-darwin" = "x86_64-apple-darwin";
+        "aarch64-darwin" = "aarch64-apple-darwin";
       };
       iiiHashes = {
-        "x86_64-linux"    = "sha256-nIPEd4i070vutl3ZvzfpT5k3cM09uHRGTDzhzckjUs0=";
-        "aarch64-linux"   = "";
-        "x86_64-darwin"   = "";
-        "aarch64-darwin"  = "";
+        "x86_64-linux" = "sha256-nIPEd4i070vutl3ZvzfpT5k3cM09uHRGTDzhzckjUs0=";
+        "aarch64-linux" = "";
+        "x86_64-darwin" = "";
+        "aarch64-darwin" = "";
       };
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
@@ -46,7 +53,9 @@
             version = iiiVersion;
 
             src = pkgs.fetchurl {
-              url = "https://github.com/iii-hq/iii/releases/download/iii/v${iiiVersion}/iii-${systemToAsset.${system} or "x86_64-unknown-linux-gnu"}.tar.gz";
+              url = "https://github.com/iii-hq/iii/releases/download/iii/v${iiiVersion}/iii-${
+                systemToAsset.${system} or "x86_64-unknown-linux-gnu"
+              }.tar.gz";
               hash = iiiHashes.${system} or pkgs.lib.fakeHash;
             };
 
@@ -79,7 +88,10 @@
             sourceRoot = "package";
             hash = npmDepsHash;
             # cacert needed for SSL cert validation in npm
-            nativeBuildInputs = [ pkgs.nodejs_22 pkgs.cacert ];
+            nativeBuildInputs = [
+              pkgs.nodejs_22
+              pkgs.cacert
+            ];
 
             # NOTE: generates lockfile with ALL deps (dev included) so fetchNpmDeps
             # caches the full transitive tree. npmInstallFlags below restricts to

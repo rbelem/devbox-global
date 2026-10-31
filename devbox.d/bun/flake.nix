@@ -5,7 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -19,7 +20,8 @@
       releaseUrl = "https://github.com/oven-sh/bun/releases/download/bun-v${version}/bun-linux-x64-baseline.zip";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in
@@ -36,7 +38,8 @@
             nativeBuildInputs = [
               pkgs.unzip
               pkgs.makeWrapper
-            ] ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+            ]
+            ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
               pkgs.autoPatchelfHook
             ];
 

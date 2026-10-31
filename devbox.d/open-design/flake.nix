@@ -3,13 +3,17 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       # Linux only. The workspace resolves native and prebuilt platform packages
       # per host (better-sqlite3/node-pty source builds, @img/sharp-linux-*,
       # @next/swc-linux-*, @ffmpeg-installer/linux-*), and upstream ships a Linux
       # container only.
-      systems = [ "x86_64-linux" "aarch64-linux" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # release-prefix: open-design-v
@@ -23,7 +27,8 @@
       pnpmDepsHash = "sha256-IssWrZppDVJ5Rutgguycbf9/HQgAy+ROaKpfC0dTViQ=";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
@@ -199,12 +204,14 @@
               # document-preview.ts).
               makeWrapper ${finalAttrs.nodejs}/bin/node $out/bin/od \
                 --add-flags "$OD_ROOT/apps/daemon/dist/cli.js" \
-                --prefix PATH : ${pkgs.lib.makeBinPath [
-                  pkgs.nodejs_24
-                  pkgs.git
-                  pkgs.bashInteractive
-                  pkgs.poppler-utils
-                ]} \
+                --prefix PATH : ${
+                  pkgs.lib.makeBinPath [
+                    pkgs.nodejs_24
+                    pkgs.git
+                    pkgs.bashInteractive
+                    pkgs.poppler-utils
+                  ]
+                } \
                 --set-default SHELL ${pkgs.bashInteractive}/bin/bash \
                 --run 'if [ -z "''${OD_DATA_DIR-}" ]; then
                   export OD_DATA_DIR="''${XDG_STATE_HOME:-$HOME/.local/state}/open-design"
@@ -236,6 +243,7 @@
               maintainers = [ ];
             };
           });
-        });
+        }
+      );
     };
 }

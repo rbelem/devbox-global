@@ -35,10 +35,9 @@ if $SHOW_HELP; then
     exit 0
 fi
 
-# NOTE: nixfmt is intentionally not wired: it is not installed here
-# (no nixfmt binary; `nix fmt` needs a repo flake formatter, so we
-# skip it rather than emit a false FAIL). If nixfmt appears on PATH
-# later, add a `nixfmt --check` pass next to the statix pass below.
+# nixfmt --check runs when nixfmt is on PATH and is a hard failure: every
+# flake is formatted, so an unformatted one is a regression. `nix fmt` is not
+# used -- it needs a repo flake formatter.
 # NOTE: no `nix flake show/metadata` per flake — too slow and needs
 # network; `nix-instantiate --parse` is a cheap offline syntax check.
 
@@ -47,8 +46,10 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 HAVE_STATIX=false
 HAVE_PARSE=false
+HAVE_NIXFMT=false
 command -v statix >/dev/null 2>&1 && HAVE_STATIX=true
 command -v nix-instantiate >/dev/null 2>&1 && HAVE_PARSE=true
+command -v nixfmt >/dev/null 2>&1 && HAVE_NIXFMT=true
 
 mapfile -t FLAKES < <(
     if [[ ${#TARGETS[@]} -gt 0 ]]; then
@@ -81,6 +82,11 @@ for f in "${FLAKES[@]}"; do
         if ! out=$(nix-instantiate --parse "$f" >/dev/null 2>&1); then
             out=$(nix-instantiate --parse "$f" 2>&1 | head -5 | tr '\n' ' ')
             reasons+=("parse: $out")
+        fi
+    fi
+    if $HAVE_NIXFMT; then
+        if ! nixfmt --check "$f" >/dev/null 2>&1; then
+            reasons+=("nixfmt: not formatted (run: nixfmt $rel)")
         fi
     fi
     if [[ ${#reasons[@]} -eq 0 ]]; then
@@ -152,5 +158,5 @@ if [[ ${#_spec_order[@]} -gt 1 ]]; then
     done
 fi
 
-echo "vet-flakes: $pass passed, $fail failed, $warn warned (statix=$HAVE_STATIX parse=$HAVE_PARSE)"
+echo "vet-flakes: $pass passed, $fail failed, $warn warned (statix=$HAVE_STATIX parse=$HAVE_PARSE nixfmt=$HAVE_NIXFMT)"
 [[ $fail -eq 0 ]]

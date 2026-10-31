@@ -3,55 +3,62 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }: let
-    supportedSystems = [ "x86_64-linux" ];
-    forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
+  outputs =
+    { self, nixpkgs }:
+    let
+      supportedSystems = [ "x86_64-linux" ];
+      forAllSystems =
+        f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-    version = "0.9.0";
-  in {
-    packages = forAllSystems (pkgs: rec {
-      cua = pkgs.stdenv.mkDerivation rec {
-        pname = "cua";
-        inherit version;
+      version = "0.9.0";
+    in
+    {
+      packages = forAllSystems (pkgs: rec {
+        cua = pkgs.stdenv.mkDerivation rec {
+          pname = "cua";
+          inherit version;
 
-        # Upstream ships amd64-linux only.
-        src = pkgs.fetchurl {
-          url = "https://github.com/trycua/cua/releases/download/cua-sdk-v${version}/cua-cli-${version}-linux-x64.tar.gz";
-          hash = "sha256-l4Af9MOqLz2Z+POa4tCHldzOwkFZOrN0vnypJXYUIco=";
+          # Upstream ships amd64-linux only.
+          src = pkgs.fetchurl {
+            url = "https://github.com/trycua/cua/releases/download/cua-sdk-v${version}/cua-cli-${version}-linux-x64.tar.gz";
+            hash = "sha256-l4Af9MOqLz2Z+POa4tCHldzOwkFZOrN0vnypJXYUIco=";
+          };
+
+          # Tarball is flat: a single `cua` executable at the root.
+          dontUnpack = true;
+
+          nativeBuildInputs = [
+            pkgs.gnutar
+            pkgs.autoPatchelfHook
+          ];
+          buildInputs = [ pkgs.libgcc ];
+
+          installPhase = ''
+            runHook preInstall
+            mkdir -p $out/bin
+            tar xzf $src
+            install -m755 cua $out/bin/cua
+            runHook postInstall
+          '';
+
+          meta = with pkgs.lib; {
+            description = "Cua CLI for computer-use agents";
+            homepage = "https://github.com/trycua/cua";
+            license = licenses.mit;
+            mainProgram = "cua";
+            platforms = supportedSystems;
+          };
         };
 
-        # Tarball is flat: a single `cua` executable at the root.
-        dontUnpack = true;
+        default = cua;
+      });
 
-        nativeBuildInputs = [ pkgs.gnutar pkgs.autoPatchelfHook ];
-        buildInputs = [ pkgs.libgcc ];
-
-        installPhase = ''
-          runHook preInstall
-          mkdir -p $out/bin
-          tar xzf $src
-          install -m755 cua $out/bin/cua
-          runHook postInstall
-        '';
-
-        meta = with pkgs.lib; {
-          description = "Cua CLI for computer-use agents";
-          homepage = "https://github.com/trycua/cua";
-          license = licenses.mit;
-          mainProgram = "cua";
-          platforms = supportedSystems;
+      apps = forAllSystems (pkgs: {
+        cua = {
+          type = "app";
+          program = "${self.packages.${pkgs.system}.cua}/bin/cua";
         };
-      };
-
-      default = cua;
-    });
-
-    apps = forAllSystems (pkgs: {
-      cua = {
-        type = "app";
-        program = "${self.packages.${pkgs.system}.cua}/bin/cua";
-      };
-      default = self.apps.${pkgs.system}.cua;
-    });
-  };
+        default = self.apps.${pkgs.system}.cua;
+      });
+    };
 }

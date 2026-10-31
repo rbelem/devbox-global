@@ -3,7 +3,8 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       # x86_64-linux only: native-heavy package (onnxruntime, napi bindings,
       # prebuilt GPU backends); arm64 musl ignore-list entries and darwin
@@ -14,7 +15,8 @@
       version = "0.2.2";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
 

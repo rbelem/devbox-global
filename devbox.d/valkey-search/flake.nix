@@ -20,9 +20,19 @@
     };
   };
 
-  outputs = { self, nixpkgs, vsearch-src, highwayhash-src, vdeps }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      vsearch-src,
+      highwayhash-src,
+      vdeps,
+    }:
     let
-      systems = [ "x86_64-linux" "aarch64-linux" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # valkey-search version — must be the first version attribute in the
@@ -30,7 +40,8 @@
       version = "1.2.1";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
@@ -122,7 +133,15 @@
             pname = "valkey-search";
             inherit version;
             src = vsearch-src;
-            nativeBuildInputs = [ pkgs.cmake pkgs.ninja pkgs.gcc pkgs.git pkgs.binutils pkgs.zstd pkgs.patchelf ];
+            nativeBuildInputs = [
+              pkgs.cmake
+              pkgs.ninja
+              pkgs.gcc
+              pkgs.git
+              pkgs.binutils
+              pkgs.zstd
+              pkgs.patchelf
+            ];
             buildInputs = [
               pkgs.openssl
               pkgs.systemd
@@ -193,6 +212,7 @@
               platforms = systems;
             };
           };
-        });
+        }
+      );
     };
 }

@@ -3,12 +3,16 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       # The npm platform packages ship Linux ELF only. x86_64-linux is the
       # verified build; aarch64-linux is the same tarball layout but untested
       # on this host.
-      systems = [ "x86_64-linux" "aarch64-linux" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # npm registry only (@powerformer/vela-cli is UNLICENSED and has no
@@ -28,7 +32,8 @@
       };
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           # The upstream tarball ships UNLICENSED (see meta.license), so this
           # flake evaluates its own nixpkgs with allowUnfree.
@@ -94,6 +99,7 @@
               platforms = systems;
             };
           };
-        });
+        }
+      );
     };
 }

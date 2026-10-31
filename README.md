@@ -85,12 +85,12 @@ purpose, which is usually a `makeWrapper` or a `symlinkJoin`.
 honest.
 
 **`bin/vet-flakes`** is a read-only lint over every `devbox.d/*/flake.nix`:
-`statix check` for Nix lint, plus `nix-instantiate --parse` as an offline
-syntax check, with PASS/FAIL/WARN per file. It deliberately does not run `nix
-flake show` per flake, because that is slow and needs the network, and it does
-not wire `nixfmt --check`, because the formatter is not installed here and `nix
-fmt` needs a repo flake formatter, so wiring it would emit a false FAIL. The
-header says how to drop it into a pre-commit hook or a CI step.
+`statix check` for Nix lint, `nixfmt --check` for formatting, plus
+`nix-instantiate --parse` as an offline syntax check, with PASS/FAIL/WARN per
+file. It deliberately does not run `nix flake show` per flake, because that is
+slow and needs the network, and it does not use `nix fmt`, because that needs a
+repo flake formatter. The header says how to drop it into a pre-commit hook or a
+CI step.
 
 **`bin/update-flake`** checks upstream GitHub releases against the installed
 versions, shows a comparison table, and updates the pinned version and hashes.

@@ -3,7 +3,8 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -22,7 +23,8 @@
       pnpmDepsHash = "sha256-HaC2a98cmbHz3b0ekq2Qj5+oJscpvEgA9j5slwvoc7s=";
     in
     {
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
@@ -137,6 +139,7 @@
               maintainers = [ ];
             };
           });
-        });
+        }
+      );
     };
 }
