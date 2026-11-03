@@ -39,44 +39,6 @@
         }
       }
     },
-    "attic-client@latest": {
-      "last_modified": "2026-08-27T07:16:00Z",
-      "resolved": "github:NixOS/nixpkgs/c27cdad491a991b11ed731760aa2ef8db0cb0410#attic-client",
-      "source": "devbox-search",
-      "version": "0-unstable-2026-07-06",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/w2ilmm47nsw0dz51xxwbiywa6ic84xhy-attic-0-unstable-2026-07-06",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/w2ilmm47nsw0dz51xxwbiywa6ic84xhy-attic-0-unstable-2026-07-06"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/1i56gv4cp5jak4kn5j66kymfa2gpqv5d-attic-0-unstable-2026-07-06",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/1i56gv4cp5jak4kn5j66kymfa2gpqv5d-attic-0-unstable-2026-07-06"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/qra45q2lnx30sj2g755k29137lzmrvb3-attic-0-unstable-2026-07-06",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/qra45q2lnx30sj2g755k29137lzmrvb3-attic-0-unstable-2026-07-06"
-        }
-      }
-    },
     "atuin@latest": {
       "last_modified": "2026-08-27T07:16:00Z",
       "resolved": "github:NixOS/nixpkgs/c27cdad491a991b11ed731760aa2ef8db0cb0410#atuin",
@@ -1951,10 +1913,6 @@
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/firecrawl?lastModified=1792104629&narHash=sha256-jk1yuLBBIcuyyZV6pdIP1VOHMVX3GyZrPORnyU3O%2FL0%3D"
     },
-    "path:devbox.d/graphify": {
-      "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/graphify?lastModified=1792104629&narHash=sha256-%2BCF2LahaUkQzYAlFFQFPZEFFpcEIeot2OKX1xhVgxPo%3D"
-    },
     "path:devbox.d/herdr": {
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/herdr?lastModified=1792104629&narHash=sha256-HTltCydNUADomRnwlu6BOG1RYqJAdISTJsWLZK6Pup8%3D"
@@ -1994,10 +1952,6 @@
     "path:devbox.d/pdf-inspector": {
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/pdf-inspector?lastModified=1791905413&narHash=sha256-1yp89t%2BpGuABfcJz32MI%2BjhxagiqZJoMbjAYKO2v1%2BE%3D"
-    },
-    "path:devbox.d/pi": {
-      "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/pi?lastModified=1792104629&narHash=sha256-FJnioEtZTjfYejGd2XeuJs8uulS8cNxtyvmkHKdDgis%3D"
     },
     "path:devbox.d/playwright-cli": {
       "last_modified": "2026-09-17T13:07:31Z",
