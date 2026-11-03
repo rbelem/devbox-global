@@ -1,40 +1,54 @@
-# Devbox service: wigolo HTTP daemon (REST + remote MCP on :3333)
-# Started with: devbox services up wigolo
-# Stopped with:  devbox services stop wigolo
-# Built-in webfetch/websearch route through this daemon — on connection-level webfetch failure, check daemon health (curl localhost:3333/health) before debugging fetch arguments.
+# Devbox services for this machine. One service at a time:
+#   devbox services up|stop <name>
+# A bare `devbox services up` starts every service; run it from a directory
+# holding devbox.json (this repo, or the global profile dir).
 #
-# Devbox service: open-design local daemon (web UI + REST on :7456)
-# Started with: devbox services up open-design   (bare `devbox services up` starts both)
-# Stopped with:  devbox services stop open-design
-# The opencode MCP entry (mcp.servers.open-design) proxies to this daemon, and the
-# vela/AMR runtime needs `vela` on PATH. When every open-design tool answers
-# "daemon unreachable", check curl 127.0.0.1:7456/api/health first.
-# Run these from a directory holding devbox.json (this repo, or the global profile dir).
+# APPLYING AN EDIT: the supervisor freezes each process's spec when IT starts,
+# so editing a block and restarting that service alone changes nothing. Push
+# the new spec, then restart it:
+#   pc project update -f "$(devbox global path)/process-compose.yml"
+#   pc process restart <name>
+# A wigolo restart drops opencode's remote-MCP session until the client
+# reconnects.
 #
-# Devbox service: podman (rootless Docker-API socket for Cua Spaces)
-# Started with: devbox services up podman   (bare `devbox services up` starts it)
-# Stopped with:  devbox services stop podman
-# The Cua daemon and the Cua Spaces app look for a container engine at
-# $XDG_RUNTIME_DIR/podman/podman.sock and find nothing when it is absent: the
-# Spaces then fail with "a container engine is not available". The nix podman
-# ships no systemd user unit, and this service owns the socket instead.
-# The socket directory has to exist before podman binds it, hence the mkdir.
-# Only one podman API service may own that socket: two of them fight, and the
-# loser stops answering the socket the winner just took over.
-#
-# Devbox service: cua (the Cua Spaces daemon)
-# Started with: devbox services up cua   (bare `devbox services up` starts it)
-# Stopped with:  devbox services stop cua
-# The Cua Spaces app and the `cua` MCP server both attach to this daemon
-# (they reuse one that is already running rather than starting a second).
-# `cua daemon start` refuses to run while a daemon is up, so the service waits
-# for the incumbent to exit and then takes the daemon over in the foreground.
-# It needs the podman socket above to create Spaces, hence the dependency.
+# Each process carries its own rationale below.
 
 version: "0.5"
 
 processes:
+  rustxng:
+    # Wigolo's search backend. RustXNG serves SearXNG's /search JSON API on
+    # loopback, so wigolo takes it as an external instance (WIGOLO_SEARXNG_URL)
+    # and never installs or supervises its own Python sidecar.
+    # Loopback only: upstream's own audit lists open SSRF and URL-scheme issues,
+    # so this port must not be published.
+    command: rustxng --bind 127.0.0.1 --port 29483
+    environment:
+      # Access lines plus rustxng's own debug, errors elsewhere. `RUST_LOG` is
+      # read by tracing-subscriber's EnvFilter (the variable name belongs to the
+      # crate, not to rustxng), and a value here REPLACES the binary's built-in
+      # default `info,rustxng=debug` — so re-state rustxng=debug or lose it.
+      # Measured per search: plain `debug` ~65k lines, `info` 0 requests,
+      # this setting 5 lines (1 per query variant + engine notes).
+      # The readiness probe logs too (2 lines every 5 s) and the supervisor keeps
+      # a 1000-line buffer (~40 min); grep for `/search?` to read traffic.
+      - "RUST_LOG=rustxng=debug,tower_http=debug,error"
+    readiness_probe:
+      http_get:
+        host: 127.0.0.1
+        port: 29483
+        path: /healthz
+      initial_delay_seconds: 2
+      period_seconds: 5
+      failure_threshold: 5
+    availability:
+      restart: "always"
+
   wigolo:
+    # REST + remote MCP on :3333. Wigolo's built-in webfetch/websearch route
+    # through this daemon, so a connection-level webfetch failure is a daemon
+    # failure: check `curl 127.0.0.1:3333/health` before debugging fetch
+    # arguments.
     command: wigolo serve
     environment:
       - "WIGOLO_LLM_PROVIDER=openai"
@@ -82,10 +96,23 @@ processes:
       # the browser keeps its sandbox. 'chromium', the default, pins the bundled
       # build and never inspects the host.
       - "WIGOLO_BROWSER_CHANNEL=auto"
+      # Search goes through RustXNG (the rustxng service above) instead of the
+      # bundled core engine pools. 'searxng' selects it as the backend;
+      # WIGOLO_SEARXNG_URL points at the external instance, which is also what
+      # tells wigolo not to download its own sidecar.
+      - "WIGOLO_SEARCH=searxng"
+      - "WIGOLO_SEARXNG_URL=http://127.0.0.1:29483"
+    depends_on:
+      rustxng:
+        condition: process_healthy
     availability:
       restart: "always"
 
   open-design:
+    # Web UI + REST on :7456. The opencode MCP entry
+    # (mcp.servers.open-design) proxies to this daemon, and the vela/AMR
+    # runtime needs `vela` on PATH. When every open-design tool answers
+    # "daemon unreachable", check `curl 127.0.0.1:7456/api/health` first.
     # --no-open: the wrapper would otherwise launch a browser tab on each start.
     # The wrapper defaults OD_DATA_DIR to ${XDG_STATE_HOME:-$HOME/.local/state}/open-design
     # and creates it; set OD_DATA_DIR here only to move state elsewhere.

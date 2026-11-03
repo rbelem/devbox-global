@@ -67,6 +67,7 @@ REPOS = [
     "rbelem/jev-ultrafast",
     "rbelem/wigolo",
     "rtk-ai/rtk",
+    "sahenjp/RustXNG",
     "safishamsi/graphify",
     "Tencent/BrowserSkill",
     "trycua/cua",

@@ -45,6 +45,7 @@ pdf-inspector	firecrawl/pdf-inspector	source	v	1	1.25.2	1.25.2	✓
 playwright-cli	microsoft/playwright-cli	source	v	0	0.1.22	0.1.22	✓
 rea	morluto/rea	source	rea-agents-	6	6.8.0	6.8.0	✓
 rtk	rtk-ai/rtk	source	v	1	1.1.0	1.1.0	✓
+rustxng	sahenjp/RustXNG	asset	v	0	0.26.0	0.26.0	✓
 skillranker	Dicklesworthstone/skillranker	source	v	0	dynamic	unknown	?? (dynamic-version)
 skills	vercel-labs/skills	source	v	1	1.7.4	1.7.4	✓
 skillspector	NVIDIA/SkillSpector	source	v	2	2.13.2	2.13.2	✓

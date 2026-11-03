@@ -65,7 +65,13 @@ def report_rows(expected, actual):
     expected_names = {row[0] for row in expected}
     for got in actual:
         if got[0] not in expected_names:
-            problems.append(f"EXTRA    {got[0]}: {got[1:]}")
+            problems.append(
+                f"EXTRA    {got[0]}: {got[1:]}\n"
+                f"         a new flake needs a fixture and a contract row: add "
+                f"{got[1]} to REPOS in tests/detection/capture-fixtures.py, run "
+                f"`python3 tests/detection/capture-fixtures.py {got[1]}`, then add "
+                f"its row to tests/detection/expected.tsv"
+            )
     return problems
 
 
