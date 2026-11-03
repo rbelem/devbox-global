@@ -5,6 +5,13 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-11-02T16:05:25Z",
+   "tag_name": "v0.6.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-10-28T16:50:27Z",
    "tag_name": "v0.5.23"
   },
@@ -173,6 +180,7 @@
  "repo": "Andyyyy64/whichllm",
  "tag_dates": {},
  "tags": [
+  "v0.6.0",
   "v0.5.23",
   "v0.5.22",
   "v0.5.21",

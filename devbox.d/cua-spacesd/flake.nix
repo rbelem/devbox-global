@@ -12,7 +12,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      version = "0.8.0";
+      version = "0.10.1";
 
       systemToTarget = {
         "x86_64-linux" = "x86_64";
@@ -22,8 +22,8 @@
       # Literal SRI hashes only. This map sits OUTSIDE pkgs scope, so
       # pkgs.lib.fakeHash does not evaluate and a bump can reset them.
       systemToHash = {
-        "x86_64-linux" = "sha256-0LQ+lqtqD9DudYGV+kqh4iiEjARyvvSVCwKLN7RLFo8=";
-        "aarch64-linux" = "sha256-CcjflyVRCIrCsItS/z2GNF41oT8lBoEXOveY0/gitk0=";
+        "x86_64-linux" = "sha256-eHP2ghaCt3ybqwwf9AL/UQstttBQ4N/upUUQR0sde+s=";
+        "aarch64-linux" = "sha256-BQLstMiovDtZxOPMSsvkNGfehbDbvcEEWLOYoDhLMVE=";
       };
     in
     {
@@ -61,10 +61,12 @@
             ];
 
             # libstdc++.so.6 and libgcc_s.so.1 both live in libgcc's lib output.
+            # 0.10.1 starts depending on libxkbcommon.so.0.
             buildInputs = [
               pkgs.libgcc.lib
               pkgs.libX11
               pkgs.libXi
+              pkgs.libxkbcommon
             ];
 
             installPhase = ''

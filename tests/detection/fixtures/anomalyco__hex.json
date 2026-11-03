@@ -4,54 +4,89 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-arm64",
-     "name": "hex-3.0.0-linux-arm64"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-arm64",
+     "name": "hex-3.3.0-linux-arm64"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-arm64.deb",
-     "name": "hex-3.0.0-linux-arm64.deb"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-arm64.deb",
+     "name": "hex-3.3.0-linux-arm64.deb"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-arm64.rpm",
-     "name": "hex-3.0.0-linux-arm64.rpm"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-arm64.rpm",
+     "name": "hex-3.3.0-linux-arm64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-x64",
-     "name": "hex-3.0.0-linux-x64"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-x64",
+     "name": "hex-3.3.0-linux-x64"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-x64.deb",
-     "name": "hex-3.0.0-linux-x64.deb"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-x64.deb",
+     "name": "hex-3.3.0-linux-x64.deb"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-x64.rpm",
-     "name": "hex-3.0.0-linux-x64.rpm"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-x64.rpm",
+     "name": "hex-3.3.0-linux-x64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-3.0.0-macos-arm64.dmg",
-     "name": "Hex-3.0.0-macos-arm64.dmg"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-macos-arm64.dmg",
+     "name": "hex-3.3.0-macos-arm64.dmg"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-3.0.0-macos-arm64.zip",
-     "name": "Hex-3.0.0-macos-arm64.zip"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-macos-arm64.zip",
+     "name": "hex-3.3.0-macos-arm64.zip"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-3.0.0-windows-arm64.exe",
-     "name": "Hex-3.0.0-windows-arm64.exe"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-windows-arm64.exe",
+     "name": "hex-3.3.0-windows-arm64.exe"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-3.0.0-windows-x64.exe",
-     "name": "Hex-3.0.0-windows-x64.exe"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-windows-x64.exe",
+     "name": "hex-3.3.0-windows-x64.exe"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-Setup-3.0.0-windows-arm64.exe",
-     "name": "Hex-Setup-3.0.0-windows-arm64.exe"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-setup-3.3.0-windows-arm64.exe",
+     "name": "hex-setup-3.3.0-windows-arm64.exe"
     },
     {
-     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-Setup-3.0.0-windows-x64.exe",
-     "name": "Hex-Setup-3.0.0-windows-x64.exe"
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-setup-3.3.0-windows-x64.exe",
+     "name": "hex-setup-3.3.0-windows-x64.exe"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-02T16:43:16Z",
+   "tag_name": "v3.3.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-01T22:43:34Z",
+   "tag_name": "v3.2.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-01T16:56:08Z",
+   "tag_name": "v3.1.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-01T05:43:55Z",
+   "tag_name": "v3.1.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-01T01:39:49Z",
+   "tag_name": "v3.1.0"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-31T00:38:49Z",
@@ -106,6 +141,11 @@
  "repo": "anomalyco/hex",
  "tag_dates": {},
  "tags": [
+  "v3.3.0",
+  "v3.2.0",
+  "v3.1.2",
+  "v3.1.1",
+  "v3.1.0",
   "v3.0.0",
   "@kitlangton/hex@0.3.1",
   "@kitlangton/hex@0.3.0",

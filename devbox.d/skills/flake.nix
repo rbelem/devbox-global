@@ -14,12 +14,12 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          version = "1.7.4";
+          version = "1.7.6";
           src = pkgs.fetchFromGitHub {
             owner = "vercel-labs";
             repo = "skills";
             rev = "v${version}";
-            hash = "sha256-YfWThEnWqsb1Dy3D/2m+VwLZdTjglEocyuD58WlZSrY=";
+            hash = "sha256-ndqCF/W/WofV0qomKclNG5lShDXcH3qYXuvzTk5sIAk=";
           };
 
         in
@@ -38,7 +38,7 @@
               # raises ERR_PNPM_LOCKFILE_CONFIG_MISMATCH on it.
               # pnpm_9 is marked insecure in current nixpkgs.
               pnpm = pkgs.pnpm_10;
-              hash = "sha256-Hyhg/7pcHT/jfT4Mz940P80nH+QmlKu6kJ2mu9iHkAY=";
+              hash = "sha256-jYGwlkhxw/aTNJTvPvgpelpMPUImnRXX4ryPC1bjq+E=";
             };
           });
         }

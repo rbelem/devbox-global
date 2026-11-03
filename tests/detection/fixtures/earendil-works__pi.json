@@ -4,6 +4,54 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-1.5.0-source.tar.gz",
+     "name": "pi-1.5.0-source.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-coding-agent-install-package-lock.json",
+     "name": "pi-coding-agent-install-package-lock.json"
+    },
+    {
+     "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-coding-agent-install-package.json",
+     "name": "pi-coding-agent-install-package.json"
+    },
+    {
+     "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-darwin-arm64.tar.gz",
+     "name": "pi-darwin-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-darwin-x64.tar.gz",
+     "name": "pi-darwin-x64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-linux-arm64.tar.gz",
+     "name": "pi-linux-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-linux-x64.tar.gz",
+     "name": "pi-linux-x64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-windows-arm64.zip",
+     "name": "pi-windows-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.5.0/pi-windows-x64.zip",
+     "name": "pi-windows-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.5.0/SHA256SUMS",
+     "name": "SHA256SUMS"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-02T11:05:31Z",
+   "tag_name": "v1.5.0"
+  },
+  {
+   "assets": [
+    {
      "browser_download_url": "https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-1.4.0-source.tar.gz",
      "name": "pi-1.4.0-source.tar.gz"
     },
@@ -8517,6 +8565,7 @@
  "repo": "earendil-works/pi",
  "tag_dates": {},
  "tags": [
+  "v1.5.0",
   "v1.4.0",
   "v1.3.0",
   "v1.2.0",

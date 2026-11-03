@@ -22,4 +22,5 @@ playwright-chromium-deps
 prime-agent
 tree-sitter-perl
 valkey-search
+whichllm
 wigolo

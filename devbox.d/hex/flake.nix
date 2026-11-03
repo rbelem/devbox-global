@@ -12,8 +12,8 @@
       forAllSystems = f: nixpkgs.lib.genAttrs systems (s: f nixpkgs.legacyPackages.${s});
 
       # release line: v<version> (the app line; SDK tags are @kitlangton/hex@*)
-      version = "3.0.0";
-      srcHash = "sha256-VUHrP9+XGBPOcqmtoE9D6gnruQ+VRfq8pkitybTjNJw=";
+      version = "3.3.0";
+      srcHash = "sha256-6MezouvrHX2l1idtXyUUWJHVIXjjY2NHyzrDMfdmJiI=";
     in
     {
       packages = forAllSystems (pkgs: rec {
@@ -38,14 +38,16 @@
             autoAddDriverRunpath
           ];
 
-          # The ELF's own NEEDED entries are libvulkan, libasound, libxkbcommon
-          # and libstdc++; libX11/libxcb/wayland/fontconfig are dlopened by
-          # winit and fontconfig when the window opens, so they only have to be
-          # present. Same set as upstream's package.nix.
+          # The ELF's own NEEDED entries are libvulkan, libasound, libxkbcommon,
+          # libssl/libcrypto (3.3.0) and libstdc++; libX11/libxcb/wayland/
+          # fontconfig are dlopened by winit and fontconfig when the window
+          # opens, so they only have to be present. Same set as upstream's
+          # package.nix.
           buildInputs = with pkgs; [
             vulkan-loader
             alsa-lib
             libxkbcommon
+            openssl
             wayland
             fontconfig
             freetype

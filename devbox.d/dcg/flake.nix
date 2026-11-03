@@ -15,7 +15,7 @@
       forAllSystems =
         f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-      version = "0.15.3";
+      version = "0.16.0";
 
       # Upstream ships Rust target-triple-named .tar.xz assets.
       # Note: x86_64-linux uses musl (statically linked), aarch64-linux uses gnu.
@@ -27,10 +27,10 @@
       };
 
       systemToHash = {
-        "x86_64-linux" = "sha256-3H3OyWefdKw+aZCVl3HKDIQWjrpljv9k/p5j+ReoTMQ=";
-        "aarch64-linux" = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-        "x86_64-darwin" = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-        "aarch64-darwin" = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        "x86_64-linux" = "sha256-59hg66f5nLXVU1sAlCGWquPWyiLsBJSR10yXqrVWtkI=";
+        "aarch64-linux" = "sha256-yk8sT+466ndPrD5TpqTKscf5xiKPS9nWlB3gX9WsYwg=";
+        "x86_64-darwin" = "sha256-9WfF/ks7Xb31bBYh5fgNeotEY94c9w65G5uZlVpiP2M=";
+        "aarch64-darwin" = "sha256-Bs1gmxm5iNJn6/rD5nNuURukLHoXRvTsKvUpWoswD+A=";
       };
     in
     {

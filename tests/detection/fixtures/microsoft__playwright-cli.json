@@ -5,6 +5,13 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-10-31T15:21:49Z",
+   "tag_name": "v0.1.23"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-09-28T23:23:13Z",
    "tag_name": "v0.1.22"
   },
@@ -194,6 +201,7 @@
   "v0.5.0",
   "v0.4.4",
   "v0.4.3",
+  "v0.1.23",
   "v0.1.22",
   "v0.1.21",
   "v0.1.20",

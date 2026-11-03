@@ -4,142 +4,105 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-apple-darwin.tar.xz",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-aarch64-apple-darwin.tar.xz",
      "name": "dcg-aarch64-apple-darwin.tar.xz"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-apple-darwin.tar.xz.minisig",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-aarch64-apple-darwin.tar.xz.minisig",
      "name": "dcg-aarch64-apple-darwin.tar.xz.minisig"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-apple-darwin.tar.xz.sha256",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-aarch64-apple-darwin.tar.xz.sha256",
      "name": "dcg-aarch64-apple-darwin.tar.xz.sha256"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-apple-darwin.tar.xz.sigstore.json",
-     "name": "dcg-aarch64-apple-darwin.tar.xz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-pc-windows-msvc.zip",
-     "name": "dcg-aarch64-pc-windows-msvc.zip"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-pc-windows-msvc.zip.minisig",
-     "name": "dcg-aarch64-pc-windows-msvc.zip.minisig"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-pc-windows-msvc.zip.sha256",
-     "name": "dcg-aarch64-pc-windows-msvc.zip.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-pc-windows-msvc.zip.sigstore.json",
-     "name": "dcg-aarch64-pc-windows-msvc.zip.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-unknown-linux-gnu.tar.xz",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-aarch64-unknown-linux-gnu.tar.xz",
      "name": "dcg-aarch64-unknown-linux-gnu.tar.xz"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-unknown-linux-gnu.tar.xz.minisig",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-aarch64-unknown-linux-gnu.tar.xz.minisig",
      "name": "dcg-aarch64-unknown-linux-gnu.tar.xz.minisig"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-unknown-linux-gnu.tar.xz.sha256",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-aarch64-unknown-linux-gnu.tar.xz.sha256",
      "name": "dcg-aarch64-unknown-linux-gnu.tar.xz.sha256"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-aarch64-unknown-linux-gnu.tar.xz.sigstore.json",
-     "name": "dcg-aarch64-unknown-linux-gnu.tar.xz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-apple-darwin.tar.xz",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-x86_64-apple-darwin.tar.xz",
      "name": "dcg-x86_64-apple-darwin.tar.xz"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-apple-darwin.tar.xz.minisig",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-x86_64-apple-darwin.tar.xz.minisig",
      "name": "dcg-x86_64-apple-darwin.tar.xz.minisig"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-apple-darwin.tar.xz.sha256",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-x86_64-apple-darwin.tar.xz.sha256",
      "name": "dcg-x86_64-apple-darwin.tar.xz.sha256"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-apple-darwin.tar.xz.sigstore.json",
-     "name": "dcg-x86_64-apple-darwin.tar.xz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-pc-windows-msvc.zip",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-x86_64-pc-windows-msvc.zip",
      "name": "dcg-x86_64-pc-windows-msvc.zip"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-pc-windows-msvc.zip.minisig",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-x86_64-pc-windows-msvc.zip.minisig",
      "name": "dcg-x86_64-pc-windows-msvc.zip.minisig"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-pc-windows-msvc.zip.sha256",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-x86_64-pc-windows-msvc.zip.sha256",
      "name": "dcg-x86_64-pc-windows-msvc.zip.sha256"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-pc-windows-msvc.zip.sigstore.json",
-     "name": "dcg-x86_64-pc-windows-msvc.zip.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-unknown-linux-musl.tar.xz",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-x86_64-unknown-linux-musl.tar.xz",
      "name": "dcg-x86_64-unknown-linux-musl.tar.xz"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-unknown-linux-musl.tar.xz.minisig",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-x86_64-unknown-linux-musl.tar.xz.minisig",
      "name": "dcg-x86_64-unknown-linux-musl.tar.xz.minisig"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-unknown-linux-musl.tar.xz.sha256",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/dcg-x86_64-unknown-linux-musl.tar.xz.sha256",
      "name": "dcg-x86_64-unknown-linux-musl.tar.xz.sha256"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/dcg-x86_64-unknown-linux-musl.tar.xz.sigstore.json",
-     "name": "dcg-x86_64-unknown-linux-musl.tar.xz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/install.ps1",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/install.ps1",
      "name": "install.ps1"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/install.ps1.minisig",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/install.ps1.minisig",
      "name": "install.ps1.minisig"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/install.ps1.sha256",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/install.ps1.sha256",
      "name": "install.ps1.sha256"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/install.ps1.sigstore.json",
-     "name": "install.ps1.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/install.sh",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/install.sh",
      "name": "install.sh"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/install.sh.minisig",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/install.sh.minisig",
      "name": "install.sh.minisig"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/install.sh.sha256",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/install.sh.sha256",
      "name": "install.sh.sha256"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/install.sh.sigstore.json",
-     "name": "install.sh.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/SHA256SUMS",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/SHA256SUMS",
      "name": "SHA256SUMS"
     },
     {
-     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.15.3/SHA256SUMS.minisig",
+     "browser_download_url": "https://github.com/Dicklesworthstone/destructive_command_guard/releases/download/v0.16.0/SHA256SUMS.minisig",
      "name": "SHA256SUMS.minisig"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-01T09:26:12Z",
+   "tag_name": "v0.16.0"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-08T06:15:06Z",
@@ -667,6 +630,7 @@
  "repo": "Dicklesworthstone/destructive_command_guard",
  "tag_dates": {},
  "tags": [
+  "v0.16.0",
   "v0.15.3",
   "v0.15.2",
   "v0.15.1",

@@ -4,6 +4,46 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.101/graphifyy-0.9.101-py3-none-any.whl",
+     "name": "graphifyy-0.9.101-py3-none-any.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.101/graphifyy-0.9.101.tar.gz",
+     "name": "graphifyy-0.9.101.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.101/graphify-self-graph.tar.gz",
+     "name": "graphify-self-graph.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-02T19:38:56Z",
+   "tag_name": "v0.9.101"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.100/graphifyy-0.9.100-py3-none-any.whl",
+     "name": "graphifyy-0.9.100-py3-none-any.whl"
+    },
+    {
+     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.100/graphifyy-0.9.100.tar.gz",
+     "name": "graphifyy-0.9.100.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.100/graphify-self-graph.tar.gz",
+     "name": "graphify-self-graph.tar.gz"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-01T00:53:21Z",
+   "tag_name": "v0.9.100"
+  },
+  {
+   "assets": [
+    {
      "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.99/graphifyy-0.9.99-py3-none-any.whl",
      "name": "graphifyy-0.9.99-py3-none-any.whl"
     },
@@ -1383,16 +1423,16 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.1/graphify-self-graph.tar.gz",
+     "name": "graphify-self-graph.tar.gz"
+    },
+    {
      "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.1/graphifyy-0.9.1-py3-none-any.whl",
      "name": "graphifyy-0.9.1-py3-none-any.whl"
     },
     {
      "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.1/graphifyy-0.9.1.tar.gz",
      "name": "graphifyy-0.9.1.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.1/graphify-self-graph.tar.gz",
-     "name": "graphify-self-graph.tar.gz"
     }
    ],
    "draft": false,
@@ -1403,16 +1443,16 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.0/graphify-self-graph.tar.gz",
+     "name": "graphify-self-graph.tar.gz"
+    },
+    {
      "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.0/graphifyy-0.9.0-py3-none-any.whl",
      "name": "graphifyy-0.9.0-py3-none-any.whl"
     },
     {
      "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.0/graphifyy-0.9.0.tar.gz",
      "name": "graphifyy-0.9.0.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.0/graphify-self-graph.tar.gz",
-     "name": "graphify-self-graph.tar.gz"
     }
    ],
    "draft": false,
@@ -2830,6 +2870,8 @@
  "tag_dates": {},
  "tags": [
   "v1.0.0",
+  "v0.9.101",
+  "v0.9.100",
   "v0.9.99",
   "v0.9.98",
   "v0.9.97",
