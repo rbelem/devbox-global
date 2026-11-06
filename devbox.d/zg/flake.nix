@@ -12,7 +12,7 @@
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "0.2.2";
+      version = "0.3.0";
     in
     {
       packages = forAllSystems (
@@ -24,7 +24,7 @@
             owner = "zvec-ai";
             repo = "zvec-grep";
             rev = "v${version}";
-            hash = "sha256-TDEK7ioPJWShJr5Ch3S6ObwgKqNnP8p9JTWYE2QZ3Z4=";
+            hash = "sha256-m+EshRJznj27l4wFh8CxKJVH5eaIJKUEZylDEKd0BuU=";
           };
 
           # Get the real npmDepsHash:
@@ -33,7 +33,7 @@
           #   3. Replace with the hash from the error message
           # Keep this AFTER src: nix fails src first, and update-flake pastes
           # each "got:" hash into the first remaining fakeHash in file order.
-          npmDepsHash = "sha256-ykSQ5aTt/pgow6GIJAZ6Vo8MqasrLhtKAagHcQgdI4s=";
+          npmDepsHash = "sha256-bkHezp57ykgsp1hkeFEt+8YNumQhDOilbgcjaV+vjG4=";
         in
         {
           default = pkgs.buildNpmPackage {

@@ -5,6 +5,13 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-11-04T13:49:25Z",
+   "tag_name": "v2.106.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-10-27T16:21:19Z",
    "tag_name": "v2.105.0"
   },
@@ -1349,6 +1356,7 @@
  "repo": "docling-project/docling-core",
  "tag_dates": {},
  "tags": [
+  "v2.106.0",
   "v2.105.0",
   "v2.104.0",
   "v2.103.1",

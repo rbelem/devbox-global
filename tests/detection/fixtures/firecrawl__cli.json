@@ -4,62 +4,83 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/checksums.txt",
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/checksums.txt",
      "name": "checksums.txt"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl-1.26.24-1-aarch64.pkg.tar.zst",
-     "name": "firecrawl-1.26.24-1-aarch64.pkg.tar.zst"
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl-1.28.0-1-aarch64.pkg.tar.zst",
+     "name": "firecrawl-1.28.0-1-aarch64.pkg.tar.zst"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl-1.26.24-1-x86_64.pkg.tar.zst",
-     "name": "firecrawl-1.26.24-1-x86_64.pkg.tar.zst"
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl-1.28.0-1-x86_64.pkg.tar.zst",
+     "name": "firecrawl-1.28.0-1-x86_64.pkg.tar.zst"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl-1.26.24-1.aarch64.rpm",
-     "name": "firecrawl-1.26.24-1.aarch64.rpm"
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl-1.28.0-1.aarch64.rpm",
+     "name": "firecrawl-1.28.0-1.aarch64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl-1.26.24-1.x86_64.rpm",
-     "name": "firecrawl-1.26.24-1.x86_64.rpm"
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl-1.28.0-1.x86_64.rpm",
+     "name": "firecrawl-1.28.0-1.x86_64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl-darwin-arm64.tar.gz",
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl-darwin-arm64.tar.gz",
      "name": "firecrawl-darwin-arm64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl-darwin-x64.tar.gz",
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl-darwin-x64.tar.gz",
      "name": "firecrawl-darwin-x64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl-linux-arm64.tar.gz",
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl-linux-arm64.tar.gz",
      "name": "firecrawl-linux-arm64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl-linux-x64.tar.gz",
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl-linux-x64.tar.gz",
      "name": "firecrawl-linux-x64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl-windows-x64.exe.zip",
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl-windows-x64.exe.zip",
      "name": "firecrawl-windows-x64.exe.zip"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl_1.26.24_aarch64.apk",
-     "name": "firecrawl_1.26.24_aarch64.apk"
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl_1.28.0_aarch64.apk",
+     "name": "firecrawl_1.28.0_aarch64.apk"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl_1.26.24_amd64.deb",
-     "name": "firecrawl_1.26.24_amd64.deb"
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl_1.28.0_amd64.deb",
+     "name": "firecrawl_1.28.0_amd64.deb"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl_1.26.24_arm64.deb",
-     "name": "firecrawl_1.26.24_arm64.deb"
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl_1.28.0_arm64.deb",
+     "name": "firecrawl_1.28.0_arm64.deb"
     },
     {
-     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.26.24/firecrawl_1.26.24_x86_64.apk",
-     "name": "firecrawl_1.26.24_x86_64.apk"
+     "browser_download_url": "https://github.com/firecrawl/cli/releases/download/v1.28.0/firecrawl_1.28.0_x86_64.apk",
+     "name": "firecrawl_1.28.0_x86_64.apk"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-04T14:51:42Z",
+   "tag_name": "v1.28.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-04T02:04:38Z",
+   "tag_name": "v1.27.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-03T22:27:24Z",
+   "tag_name": "v1.26.25"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-27T14:36:14Z",
@@ -720,6 +741,9 @@
  "repo": "firecrawl/cli",
  "tag_dates": {},
  "tags": [
+  "v1.28.0",
+  "v1.27.0",
+  "v1.26.25",
   "v1.26.24",
   "v1.26.23",
   "v1.26.22",

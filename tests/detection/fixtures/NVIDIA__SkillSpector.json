@@ -4,14 +4,21 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/NVIDIA/SkillSpector/releases/download/v2.13.3/skillspector-2.13.3-py3-none-any.whl",
-     "name": "skillspector-2.13.3-py3-none-any.whl"
+     "browser_download_url": "https://github.com/NVIDIA/SkillSpector/releases/download/v2.13.4/skillspector-2.13.4-py3-none-any.whl",
+     "name": "skillspector-2.13.4-py3-none-any.whl"
     },
     {
-     "browser_download_url": "https://github.com/NVIDIA/SkillSpector/releases/download/v2.13.3/skillspector-2.13.3.tar.gz",
-     "name": "skillspector-2.13.3.tar.gz"
+     "browser_download_url": "https://github.com/NVIDIA/SkillSpector/releases/download/v2.13.4/skillspector-2.13.4.tar.gz",
+     "name": "skillspector-2.13.4.tar.gz"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-04T22:40:20Z",
+   "tag_name": "v2.13.4"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-02T06:44:11Z",
@@ -161,6 +168,7 @@
  "repo": "NVIDIA/SkillSpector",
  "tag_dates": {},
  "tags": [
+  "v2.13.4",
   "v2.13.3",
   "v2.13.2",
   "v2.13.1",

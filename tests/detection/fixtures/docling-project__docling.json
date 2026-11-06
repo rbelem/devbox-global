@@ -5,6 +5,27 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-11-05T16:49:41Z",
+   "tag_name": "v2.148.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-04T14:30:41Z",
+   "tag_name": "v2.147.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-03T06:40:56Z",
+   "tag_name": "v2.146.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-10-29T14:40:25Z",
    "tag_name": "v2.145.0"
   },
@@ -1643,6 +1664,9 @@
  "repo": "docling-project/docling",
  "tag_dates": {},
  "tags": [
+  "v2.148.0",
+  "v2.147.0",
+  "v2.146.0",
   "v2.145.0",
   "v2.144.0",
   "v2.143.1",

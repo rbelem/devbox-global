@@ -5,6 +5,20 @@
    "assets": [],
    "draft": false,
    "prerelease": true,
+   "published_at": "2026-11-04T13:07:14Z",
+   "tag_name": "dsh-v0.2.2-rc.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-03T07:56:48Z",
+   "tag_name": "dsh-v0.2.2-alpha.3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
    "published_at": "2026-10-30T02:12:26Z",
    "tag_name": "dsh-v0.2.1-rc.5"
   },
@@ -250,6 +264,8 @@
  "repo": "deepseek-ai/deepseek-harness",
  "tag_dates": {},
  "tags": [
+  "dsh-v0.2.2-rc.1",
+  "dsh-v0.2.2-alpha.3",
   "dsh-v0.2.2-alpha.2",
   "dsh-v0.2.1-rc.5",
   "dsh-v0.2.1-rc.4",

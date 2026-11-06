@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     ezdwg-src = {
-      url = "github:monozukuri-ai/ezdwg/v0.19.0";
+      url = "github:monozukuri-ai/ezdwg/v0.19.2";
       flake = false;
     };
     steelpy-src = {
@@ -40,14 +40,14 @@
             # Not in nixpkgs; upstream ships no flake.
             ezdwg = pfinal.buildPythonPackage rec {
               pname = "ezdwg";
-              version = "0.19.0";
+              version = "0.19.2";
               pyproject = true;
 
               src = ezdwg-src;
 
               cargoDeps = final.rustPlatform.fetchCargoVendor {
                 inherit pname version src;
-                hash = "sha256-3/2dYm3hSvsgYXtjPIXL8EprgpCCkIdxmTQyYwQn0s8=";
+                hash = "sha256-eZBv0oGz4KNi6T5KjfXClXFTENwxEznWk2wdbp74OGE=";
               };
 
               nativeBuildInputs = [

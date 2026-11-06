@@ -5,6 +5,27 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-11-04T16:02:54Z",
+   "tag_name": "v0.6.4"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-04T11:40:31Z",
+   "tag_name": "v0.6.3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-04T10:20:42Z",
+   "tag_name": "v0.6.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-11-02T16:05:25Z",
    "tag_name": "v0.6.0"
   },
@@ -180,6 +201,9 @@
  "repo": "Andyyyy64/whichllm",
  "tag_dates": {},
  "tags": [
+  "v0.6.4",
+  "v0.6.3",
+  "v0.6.2",
   "v0.6.0",
   "v0.5.23",
   "v0.5.22",

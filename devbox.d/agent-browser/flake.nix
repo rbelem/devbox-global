@@ -15,7 +15,7 @@
         "x86_64-linux" = "agent-browser-linux-x64";
       };
 
-      version = "0.41.1";
+      version = "0.41.2";
 
     in
     {
@@ -30,7 +30,7 @@
             }";
             sha256 =
               {
-                "x86_64-linux" = "sha256-KokpW2Ld1JeYapqAtS4dvkwfa9aP/eZ+qugu7CIGr2E=";
+                "x86_64-linux" = "sha256-xDUfOAL/pSVNjGnyClLi/PVpJcYBb89CA9sloH2BE3k=";
               }
               .${pkgs.stdenv.hostPlatform.system};
           };

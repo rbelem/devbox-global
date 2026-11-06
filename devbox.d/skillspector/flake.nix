@@ -15,7 +15,7 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
       # Tracking tagged releases — bump rev + version + srcHash together.
-      version = "2.13.3";
+      version = "2.13.4";
       rev = "v${version}";
 
       # Get the real hash:
@@ -24,7 +24,7 @@
       #   run the command "devbox global update"
       # Then paste the sha256-... value below
       #
-      srcHash = "sha256-tEJCGbQkLJlcf4GsZ0paF/gVTgbonQ4nkDnr9YTCOtw=";
+      srcHash = "sha256-TVrrqTCrjNU7F9uOBvW1EKuMfExATpOLStBZSqvwmx8=";
     in
     {
       packages = forAllSystems (
@@ -112,6 +112,9 @@
               yara-python
               regex
               pywhatwgurl
+              # Added upstream in 2.13.4 (the JS/TS analyzer parses with them).
+              tree-sitter
+              tree-sitter-javascript
               # Upstream 2.12.0 deps that nixpkgs already ships. Without
               # langchain-aws + boto3 the CLI dies on import with
               # "No module named 'boto3'" (the AWS Bedrock analyzer path).

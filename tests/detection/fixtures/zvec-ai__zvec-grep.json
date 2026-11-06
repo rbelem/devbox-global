@@ -5,6 +5,13 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-11-03T07:02:12Z",
+   "tag_name": "v0.3.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-08-27T16:15:11Z",
    "tag_name": "v0.2.0"
   },

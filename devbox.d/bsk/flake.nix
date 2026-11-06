@@ -15,7 +15,7 @@
       forAllSystems =
         f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-      version = "0.4.1";
+      version = "0.4.2";
 
       # Rust target-triple naming; musl preferred on Linux (static-pie, no patchelf).
       systemToTarget = {
@@ -27,10 +27,10 @@
 
       # From GitHub release API assets[].digest (cli-v0.3.3).
       systemToHash = {
-        "x86_64-linux" = "sha256-im1QOgd0j8j19KnSYlZN6gEb+GDIKUAy+fuEsQwAbYo=";
-        "aarch64-linux" = "sha256-xUpq9sqes6uu5SNCd5aBfesTm4R8t26DNdpoBPNcRBw=";
-        "x86_64-darwin" = "sha256-G88VwiNUN/4siTGn6RVDC+Fs4Cs560mgcfzpd1CzqMA=";
-        "aarch64-darwin" = "sha256-i5+xSo9iMbLBHtVJTUUiShhg4qhSRaeNFpld5Q8r1lk=";
+        "x86_64-linux" = "sha256-UobM3BBOUiAMR7SkksbgQwaeW/HmONuP295iqdSTmXk=";
+        "aarch64-linux" = "sha256-+WVHTYrWHPuBm1Ej9DVRNe4q+pxPdCu76eT0Y9x9X6M=";
+        "x86_64-darwin" = "sha256-nqwAnEa2ynjILKCOJir8lGzBwNVRuFPMLA8oOBJflqY=";
+        "aarch64-darwin" = "sha256-+IOJUPgQbsxp9+RCZ6i2+gdbHtZkmqI6yX2F/B1mBZg=";
       };
     in
     {
