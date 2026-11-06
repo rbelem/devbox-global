@@ -12,25 +12,27 @@
       # Re-point these four to track a new rev (e.g. the rbelem PR
       # branch), then refresh the hashes via the fakeHash loop below.
       #
-      # Tracks the fork's main, rebased onto upstream v0.3.0 and carrying 22
+      # Tracks the fork's main, rebased onto upstream v0.3.1 and carrying 22
       # commits on top: the key-gated DeepSeek engine, the resident-memory work
-      # (gzipped cache, cache compaction, idle-model release, hosted inference),
-      # installed-browser support (Flatpak Chrome/Brave), and the review round
-      # that moved hosted reranking off the fetch path and made credentials
-      # env/keychain-only. None of those commits are in a release yet; re-pin to
-      # upstream once they are.
+      # (gzipped cache, cache compaction, hosted inference), installed-browser
+      # support (Flatpak Chrome/Brave), the review round that moved hosted
+      # reranking off the fetch path and made credentials env/keychain-only, and
+      # the browser-PROCESS idle close (upstream only reaps contexts). The
+      # embedder/reranker idle release is upstream's own now, so this branch no
+      # longer carries a second copy. None of the fork's commits are in a
+      # release yet; re-pin to upstream once they are.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "69005418c95c0db3f0f3b678d5525ea2b1c4d13a";
-      version = "0.3.0-git.69005418";
+      rev = "25ec06f4b033f80215b230253a94a0d3be95d71a";
+      version = "0.3.1-git.25ec06f4";
 
       # Get the real hashes:
       #   1. Set srcHash/npmDepsHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash first — copy the "got" hash
       #   4. Then it will fail for npmDepsHash — copy that too
-      srcHash = "sha256-4IU9swL5TxT7WKhoEieZkHdwCByyVMCZwHscFcNv9IA=";
-      npmDepsHash = "sha256-8Sg5O7ccbrhlN3ElhzZbRW6psoJfTKHfvTfn+XAnPDs=";
+      srcHash = "sha256-xflK5YehmRd4rjB/8c14aPBJBY0ZxuQmkOpe50QErYY=";
+      npmDepsHash = "sha256-p1L8ohMXZlRuGbgK0TUgycc8LLaYr8CtaCcbMLMUZxs=";
 
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
