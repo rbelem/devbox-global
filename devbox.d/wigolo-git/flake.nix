@@ -17,21 +17,23 @@
       # (gzipped cache, cache compaction, hosted inference), installed-browser
       # support (Flatpak Chrome/Brave), the review round that moved hosted
       # reranking off the fetch path and made credentials env/keychain-only, and
-      # the browser-PROCESS idle close (upstream only reaps contexts). The
+      # the browser-PROCESS idle close (upstream only reaps contexts), and an
+      # init/warmup that detects an installed browser and writes through a
+      # same-directory config symlink. The
       # embedder/reranker idle release is upstream's own now, so this branch no
       # longer carries a second copy. None of the fork's commits are in a
       # release yet; re-pin to upstream once they are.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "25ec06f4b033f80215b230253a94a0d3be95d71a";
-      version = "0.3.1-git.25ec06f4";
+      rev = "37d8feaf76860eaaab2233280d9c9878859e3ef7";
+      version = "0.3.1-git.37d8feaf";
 
       # Get the real hashes:
       #   1. Set srcHash/npmDepsHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash first — copy the "got" hash
       #   4. Then it will fail for npmDepsHash — copy that too
-      srcHash = "sha256-xflK5YehmRd4rjB/8c14aPBJBY0ZxuQmkOpe50QErYY=";
+      srcHash = "sha256-KsT8nr/pW8zpQREIH7N8FJi3LATHZyHhd2NndHw39bk=";
       npmDepsHash = "sha256-p1L8ohMXZlRuGbgK0TUgycc8LLaYr8CtaCcbMLMUZxs=";
 
       systems = [ "x86_64-linux" ];
