@@ -115,7 +115,8 @@
     "WIGOLO_RERANKER":                            "decision",
     "WIGOLO_RERANKER_BASE_URL":                   "https://openrouter.ai/api/alpha/decisions",
     "WIGOLO_RERANKER_MODEL":                      "~typesafe/jev-latest",
-    "WIGOLO_BROWSER_CHANNEL":                     "auto"
+    "WIGOLO_BROWSER_CHANNEL":                     "auto",
+    "WIGOLO_CHROME_PATH":                         "$HOME/.local/share/flatpak/app/com.google.Chrome/current/active/export/bin/com.google.Chrome"
   },
   "shell": {
     "init_hook": [

@@ -1973,10 +1973,6 @@
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/strix?lastModified=1791905413&narHash=sha256-Pv%2Fgyk71raSszrRlgj2ILDO0GXDR1OjrYAn9sL9UGzg%3D"
     },
-    "path:devbox.d/whichllm": {
-      "last_modified": "2026-09-17T13:07:31Z",
-      "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/whichllm?lastModified=1791905413&narHash=sha256-P1%2BlzG2zPSoSbvDJt3r4KfcmNMQ8RHxoTsfXw99wMm0%3D"
-    },
     "path:devbox.d/zg": {
       "last_modified": "2026-09-17T13:07:31Z",
       "resolved": "path:/home/rodrigo/.local/share/devbox/global/default/devbox.d/zg?lastModified=1791905413&narHash=sha256-48KVRpz4p6iDcRgTpjJQeIXPBJbBds0kBPeTkUeqz1E%3D"
