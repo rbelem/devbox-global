@@ -52,5 +52,5 @@ skillspector	NVIDIA/SkillSpector	source	v	2	2.13.4	2.13.4	✓
 steel-takeoff	monozukuri-ai/ezdwg	source	v	0	0.19.2	0.19.2	✓
 strix	usestrix/strix	source	v	1	1.7.0	1.7.0	✓
 vela	unknown	none	v	0	0.1.6	unknown	??
-wigolo-git	rbelem/wigolo	source	v	0	0.3.1-git.37d8feaf	unknown	??
+wigolo-git	rbelem/wigolo	source	v	0	0.3.1-git.6a748dae	unknown	??
 zg	zvec-ai/zvec-grep	source	v	0	0.3.0	0.3.0	✓
