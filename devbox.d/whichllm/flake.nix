@@ -12,7 +12,8 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      version = "0.5.23";
+      # release-prefix: v
+      version = "0.6.4";
 
       # Get the real hash:
       #   cd ~/.local/share/devbox/global/current/devbox.d/whichllm
@@ -20,7 +21,7 @@
       #   run the command "devbox global update"
       # Then paste the sha256-... value below
       #
-      srcHash = "sha256-JGfPsz52bCvul3knBeh4+twv2lB9nYKjN2S10mt0Ox4=";
+      srcHash = "sha256-D+tOuC4alYVakx01dj4Wz9cHi6LMK924FY53UxGM0vk=";
     in
     {
       packages = forAllSystems (
@@ -57,10 +58,13 @@
             pname = "whichllm";
             inherit version;
 
-            src = pkgs.fetchFromGitHub {
-              owner = "Andyyyy64";
-              repo = "whichllm";
-              rev = "v${version}";
+            # fetchgit with an explicit refs/tags ref: upstream also keeps a
+            # branch named like every release tag (v0.6.4), which makes the
+            # codeload archive URL /archive/vX.Y.Z.tar.gz ambiguous and it
+            # answers "the given path has multiple possibilities".
+            src = pkgs.fetchgit {
+              url = "https://github.com/Andyyyy64/whichllm";
+              rev = "refs/tags/v${version}";
               hash = srcHash;
             };
 
