@@ -50,7 +50,9 @@
           # upstream's nix build ships the GUI as this separate package.
           # Rewrapped to point HERMES_DESKTOP_HERMES at the scrubbed agent
           # above, otherwise the desktop backend inherits the same broken
-          # PYTHONPATH and exits at boot.
+          # PYTHONPATH and exits at boot. Upstream's launcher is a bash
+          # script with that export baked in, so a --set here is clobbered
+          # a line later: patch the export and wrap the copy.
           desktop =
             pkgs.runCommand "hermes-desktop"
               {
@@ -58,10 +60,13 @@
                 meta.mainProgram = "hermes-desktop";
               }
               ''
-                mkdir -p $out/bin
-                makeWrapper ${upstream.desktop}/bin/hermes-desktop $out/bin/hermes-desktop \
-                  --unset PYTHONPATH --unset VIRTUAL_ENV \
-                  --set HERMES_DESKTOP_HERMES ${hermes}/bin/hermes
+                mkdir -p $out/bin $out/libexec
+                install -Dm755 ${upstream.desktop}/bin/hermes-desktop \
+                  $out/libexec/hermes-desktop
+                substituteInPlace $out/libexec/hermes-desktop \
+                  --replace-fail "${upstream.default}/bin/hermes" "${hermes}/bin/hermes"
+                makeWrapper $out/libexec/hermes-desktop $out/bin/hermes-desktop \
+                  --unset PYTHONPATH --unset VIRTUAL_ENV
               '';
         }
       );
