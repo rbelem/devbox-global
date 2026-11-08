@@ -35,7 +35,11 @@ if [ -n "$XDG_RUNTIME_DIR" ] && $_sm_stale && command -v bws >/dev/null 2>&1; th
     # Ensure BWS_ACCESS_TOKEN is available (libsecret fallback for headless
     # environments). Store via: secret-tool store --label='bws SM token' bitwarden sm-access-token
     if [ -z "${BWS_ACCESS_TOKEN:-}" ] && command -v secret-tool >/dev/null 2>&1; then
-      _bws_token="$(secret-tool lookup bitwarden sm-access-token 2>/dev/null || true)"
+      # Bounded on purpose: on a locked/broken login keyring secret-tool waits
+      # for an unlock prompt that may never be shown, and every new terminal
+      # would hang on a black screen until Ctrl+C. rc 124 = timed out.
+      _bws_token="$(timeout 2 secret-tool lookup bitwarden sm-access-token 2>/dev/null)"
+      _bws_rc=$?
       [ -n "$_bws_token" ] && export BWS_ACCESS_TOKEN="$_bws_token"
       unset _bws_token
     fi
@@ -81,10 +85,16 @@ if [ -n "$XDG_RUNTIME_DIR" ] && $_sm_stale && command -v bws >/dev/null 2>&1; th
     ) > "$_sm_tmp" && mv -f "$_sm_tmp" "$_sm_cache" || rm -f "$_sm_tmp"
     unset _sm_tmp _sm_keys _in_secrets _sm_bws_err _sm_env _sm_last
   else
-    echo "init-hook: BWS_ACCESS_TOKEN not found (env or libsecret 'bitwarden sm-access-token') — run 'devbox global run setup-bws'" >&2
+    if [ "${_bws_rc:-0}" -eq 124 ]; then
+      echo "init-hook: login keyring is locked — secrets not loaded this shell (unlock it, then: exec bash)" >&2
+    else
+      echo "init-hook: BWS_ACCESS_TOKEN not found (env or libsecret 'bitwarden sm-access-token') — run 'devbox global run setup-bws'" >&2
+    fi
   fi
   fi
 fi
+
+unset _bws_rc
 
 [ -n "$XDG_RUNTIME_DIR" ] && [ -f "$_sm_cache" ] && . "$_sm_cache"
 
