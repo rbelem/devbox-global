@@ -48,6 +48,7 @@ REPOS = [
     "firecrawl/pdf-inspector",
     "getagentseal/codeburn",
     "google/highwayhash",
+    "herdrdev/herdr-app",
     "llm-as-a-verifier/llm-as-a-verifier",
     "microsoft/playwright-cli",
     "modem-dev/hunk",

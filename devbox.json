@@ -80,6 +80,7 @@
     "path:devbox.d/wigolo-git":           {},
     "path:devbox.d/rustxng":              {},
     "path:devbox.d/herdr":                {},
+    "path:devbox.d/herdr-app":            {},
     "path:devbox.d/hermes-agent":         {},
     "path:devbox.d/hermes-agent#desktop": {},
     //"path:devbox.d/pi":                   {},

@@ -31,6 +31,7 @@ deepsec	vercel-labs/deepsec	source	v	2	2.3.9	unknown	??
 deepseek-harness	deepseek-ai/deepseek-harness	source	dsh-v	0	0.2.1-alpha.1	0.2.2-rc.1	?? (sha-pinned)
 firecrawl	firecrawl/cli	asset	v	1	1.28.0	1.28.0	✓
 herdr	ogulcancelik/herdr	asset	v	0	0.9.5	0.9.5	✓
+herdr-app	herdrdev/herdr-app	none	v	0	0.1.14	unknown	??
 hermes-agent	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
 hermes-agent#desktop	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
 hex	anomalyco/hex	asset	v	3	3.3.0	3.3.0	✓
