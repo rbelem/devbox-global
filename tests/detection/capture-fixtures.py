@@ -49,6 +49,7 @@ REPOS = [
     "getagentseal/codeburn",
     "google/highwayhash",
     "herdrdev/herdr-app",
+    "herdrdev/herdr-core",
     "llm-as-a-verifier/llm-as-a-verifier",
     "microsoft/playwright-cli",
     "modem-dev/hunk",
