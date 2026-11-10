@@ -5,15 +5,15 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-11-05T21:32:33Z",
-   "tag_name": "v0.23.0"
+   "published_at": "2026-11-10T01:42:15Z",
+   "tag_name": "v0.23.1"
   },
   {
    "assets": [],
    "draft": false,
    "prerelease": false,
-   "published_at": "2026-11-03T21:53:16Z",
-   "tag_name": "v0.22.7"
+   "published_at": "2026-11-05T21:32:33Z",
+   "tag_name": "v0.23.0"
   },
   {
    "assets": [],
@@ -307,8 +307,8 @@
   "v2026.3.23",
   "v2026.3.17",
   "v2026.3.12",
+  "v0.23.1",
   "v0.23.0",
-  "v0.23.0+canary.20261106T064428Z",
   "rc.38-v0.21.5",
   "rc.37-v0.21.5",
   "rc.36-v0.21.5",
@@ -354,12 +354,12 @@
   "rc.5-v0.22.1",
   "rc.4-v0.22.3",
   "rc.4-v0.22.1",
+  "rc.3-v0.23.1",
   "rc.3-v0.22.6",
-  "rc.3-v0.22.5",
+  "rc.2-v0.23.1",
   "rc.2-v0.23.0",
-  "rc.2-v0.22.6",
+  "rc.1-v0.23.1",
   "rc.1-v0.23.0",
-  "rc.1-v0.22.7",
   "premerge-oh-god",
   "merge-commit-backup",
   "inputs-f",
@@ -430,9 +430,9 @@
   "abandoned-rc.4-v0.22.1",
   "abandoned-rc.3-v0.22.3",
   "abandoned-rc.3-v0.22.1",
+  "abandoned-rc.2-v0.23.1",
   "abandoned-rc.2-v0.22.6",
-  "abandoned-rc.2-v0.22.5",
-  "abandoned-rc.1-v0.23.0",
-  "abandoned-rc.1-v0.22.6"
+  "abandoned-rc.1-v0.23.1",
+  "abandoned-rc.1-v0.23.0"
  ]
 }

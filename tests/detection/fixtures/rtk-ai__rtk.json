@@ -4,257 +4,153 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/checksums.txt",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/checksums.txt",
      "name": "checksums.txt"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-0.49.0-1.aarch64.rpm",
-     "name": "rtk-0.49.0-1.aarch64.rpm"
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-1.2.0-1.aarch64.rpm",
+     "name": "rtk-1.2.0-1.aarch64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-0.49.0-1.x86_64.rpm",
-     "name": "rtk-0.49.0-1.x86_64.rpm"
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-1.2.0-1.x86_64.rpm",
+     "name": "rtk-1.2.0-1.x86_64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-aarch64-apple-darwin.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-aarch64-apple-darwin.tar.gz",
      "name": "rtk-aarch64-apple-darwin.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-aarch64-unknown-linux-gnu.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-aarch64-unknown-linux-gnu.tar.gz",
      "name": "rtk-aarch64-unknown-linux-gnu.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-aarch64-unknown-linux-musl.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-aarch64-unknown-linux-musl.tar.gz",
      "name": "rtk-aarch64-unknown-linux-musl.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss-0.49.0-1.aarch64.rpm",
-     "name": "rtk-oss-0.49.0-1.aarch64.rpm"
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss-1.2.0-1.aarch64.rpm",
+     "name": "rtk-oss-1.2.0-1.aarch64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss-0.49.0-1.x86_64.rpm",
-     "name": "rtk-oss-0.49.0-1.x86_64.rpm"
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss-1.2.0-1.x86_64.rpm",
+     "name": "rtk-oss-1.2.0-1.x86_64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss-aarch64-apple-darwin.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss-aarch64-apple-darwin.tar.gz",
      "name": "rtk-oss-aarch64-apple-darwin.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss-aarch64-unknown-linux-gnu.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss-aarch64-unknown-linux-gnu.tar.gz",
      "name": "rtk-oss-aarch64-unknown-linux-gnu.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss-aarch64-unknown-linux-musl.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss-aarch64-unknown-linux-musl.tar.gz",
      "name": "rtk-oss-aarch64-unknown-linux-musl.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss-x86_64-apple-darwin.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss-x86_64-apple-darwin.tar.gz",
      "name": "rtk-oss-x86_64-apple-darwin.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss-x86_64-pc-windows-msvc.zip",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss-x86_64-pc-windows-msvc.zip",
      "name": "rtk-oss-x86_64-pc-windows-msvc.zip"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss-x86_64-unknown-linux-musl.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss-x86_64-unknown-linux-musl.tar.gz",
      "name": "rtk-oss-x86_64-unknown-linux-musl.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss.aarch64.rpm",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss.aarch64.rpm",
      "name": "rtk-oss.aarch64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss.x86_64.rpm",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss.x86_64.rpm",
      "name": "rtk-oss.x86_64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss_0.49.0-1_amd64.deb",
-     "name": "rtk-oss_0.49.0-1_amd64.deb"
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss_1.2.0-1_amd64.deb",
+     "name": "rtk-oss_1.2.0-1_amd64.deb"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss_0.49.0-1_arm64.deb",
-     "name": "rtk-oss_0.49.0-1_arm64.deb"
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss_1.2.0-1_arm64.deb",
+     "name": "rtk-oss_1.2.0-1_arm64.deb"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss_amd64.deb",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss_amd64.deb",
      "name": "rtk-oss_amd64.deb"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-oss_arm64.deb",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-oss_arm64.deb",
      "name": "rtk-oss_arm64.deb"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-proxy-aarch64-apple-darwin.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-proxy-aarch64-apple-darwin.tar.gz",
      "name": "rtk-proxy-aarch64-apple-darwin.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-proxy-aarch64-unknown-linux-gnu.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-proxy-aarch64-unknown-linux-gnu.tar.gz",
      "name": "rtk-proxy-aarch64-unknown-linux-gnu.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-proxy-aarch64-unknown-linux-musl.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-proxy-aarch64-unknown-linux-musl.tar.gz",
      "name": "rtk-proxy-aarch64-unknown-linux-musl.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-proxy-x86_64-apple-darwin.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-proxy-x86_64-apple-darwin.tar.gz",
      "name": "rtk-proxy-x86_64-apple-darwin.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-proxy-x86_64-pc-windows-msvc.zip",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-proxy-x86_64-pc-windows-msvc.zip",
      "name": "rtk-proxy-x86_64-pc-windows-msvc.zip"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-proxy-x86_64-unknown-linux-musl.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-proxy-x86_64-unknown-linux-musl.tar.gz",
      "name": "rtk-proxy-x86_64-unknown-linux-musl.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-x86_64-apple-darwin.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-x86_64-apple-darwin.tar.gz",
      "name": "rtk-x86_64-apple-darwin.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-x86_64-pc-windows-msvc.zip",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-x86_64-pc-windows-msvc.zip",
      "name": "rtk-x86_64-pc-windows-msvc.zip"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk-x86_64-unknown-linux-musl.tar.gz",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk-x86_64-unknown-linux-musl.tar.gz",
      "name": "rtk-x86_64-unknown-linux-musl.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk.aarch64.rpm",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk.aarch64.rpm",
      "name": "rtk.aarch64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk.x86_64.rpm",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk.x86_64.rpm",
      "name": "rtk.x86_64.rpm"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk_0.49.0-1_amd64.deb",
-     "name": "rtk_0.49.0-1_amd64.deb"
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk_1.2.0-1_amd64.deb",
+     "name": "rtk_1.2.0-1_amd64.deb"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk_0.49.0-1_arm64.deb",
-     "name": "rtk_0.49.0-1_arm64.deb"
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk_1.2.0-1_arm64.deb",
+     "name": "rtk_1.2.0-1_arm64.deb"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk_amd64.deb",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk_amd64.deb",
      "name": "rtk_amd64.deb"
     },
     {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.0-rc.619/rtk_arm64.deb",
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.2.0/rtk_arm64.deb",
      "name": "rtk_arm64.deb"
     }
    ],
    "draft": false,
-   "prerelease": true,
-   "published_at": "2026-11-06T13:05:28Z",
-   "tag_name": "dev-1.2.0-rc.619"
+   "prerelease": false,
+   "published_at": "2026-11-08T10:46:00Z",
+   "tag_name": "v1.2.0"
   },
   {
    "assets": [],
-   "draft": false,
-   "prerelease": true,
-   "published_at": "2026-11-05T19:00:30Z",
-   "tag_name": "dev-1.2.0-rc.618"
-  },
-  {
-   "assets": [
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/checksums.txt",
-     "name": "checksums.txt"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-1.1.0-1.x86_64.rpm",
-     "name": "rtk-1.1.0-1.x86_64.rpm"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-aarch64-apple-darwin.tar.gz",
-     "name": "rtk-aarch64-apple-darwin.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-aarch64-unknown-linux-gnu.tar.gz",
-     "name": "rtk-aarch64-unknown-linux-gnu.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-oss-1.1.0-1.x86_64.rpm",
-     "name": "rtk-oss-1.1.0-1.x86_64.rpm"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-oss-aarch64-apple-darwin.tar.gz",
-     "name": "rtk-oss-aarch64-apple-darwin.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-oss-aarch64-unknown-linux-gnu.tar.gz",
-     "name": "rtk-oss-aarch64-unknown-linux-gnu.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-oss-x86_64-apple-darwin.tar.gz",
-     "name": "rtk-oss-x86_64-apple-darwin.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-oss-x86_64-pc-windows-msvc.zip",
-     "name": "rtk-oss-x86_64-pc-windows-msvc.zip"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-oss-x86_64-unknown-linux-musl.tar.gz",
-     "name": "rtk-oss-x86_64-unknown-linux-musl.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-oss.x86_64.rpm",
-     "name": "rtk-oss.x86_64.rpm"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-oss_1.1.0-1_amd64.deb",
-     "name": "rtk-oss_1.1.0-1_amd64.deb"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-oss_amd64.deb",
-     "name": "rtk-oss_amd64.deb"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-proxy-aarch64-apple-darwin.tar.gz",
-     "name": "rtk-proxy-aarch64-apple-darwin.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-proxy-aarch64-unknown-linux-gnu.tar.gz",
-     "name": "rtk-proxy-aarch64-unknown-linux-gnu.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-proxy-x86_64-apple-darwin.tar.gz",
-     "name": "rtk-proxy-x86_64-apple-darwin.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-proxy-x86_64-pc-windows-msvc.zip",
-     "name": "rtk-proxy-x86_64-pc-windows-msvc.zip"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-proxy-x86_64-unknown-linux-musl.tar.gz",
-     "name": "rtk-proxy-x86_64-unknown-linux-musl.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-x86_64-apple-darwin.tar.gz",
-     "name": "rtk-x86_64-apple-darwin.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-x86_64-pc-windows-msvc.zip",
-     "name": "rtk-x86_64-pc-windows-msvc.zip"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk-x86_64-unknown-linux-musl.tar.gz",
-     "name": "rtk-x86_64-unknown-linux-musl.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk.x86_64.rpm",
-     "name": "rtk.x86_64.rpm"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk_1.1.0-1_amd64.deb",
-     "name": "rtk_1.1.0-1_amd64.deb"
-    },
-    {
-     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/v1.1.0/rtk_amd64.deb",
-     "name": "rtk_amd64.deb"
-    }
-   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-25T18:00:11Z",
@@ -273,6 +169,161 @@
    "prerelease": false,
    "published_at": "2026-10-13T19:51:12Z",
    "tag_name": "v1.0.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/checksums.txt",
+     "name": "checksums.txt"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-0.49.0-1.aarch64.rpm",
+     "name": "rtk-0.49.0-1.aarch64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-0.49.0-1.x86_64.rpm",
+     "name": "rtk-0.49.0-1.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-aarch64-apple-darwin.tar.gz",
+     "name": "rtk-aarch64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-aarch64-unknown-linux-gnu.tar.gz",
+     "name": "rtk-aarch64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-aarch64-unknown-linux-musl.tar.gz",
+     "name": "rtk-aarch64-unknown-linux-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss-0.49.0-1.aarch64.rpm",
+     "name": "rtk-oss-0.49.0-1.aarch64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss-0.49.0-1.x86_64.rpm",
+     "name": "rtk-oss-0.49.0-1.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss-aarch64-apple-darwin.tar.gz",
+     "name": "rtk-oss-aarch64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss-aarch64-unknown-linux-gnu.tar.gz",
+     "name": "rtk-oss-aarch64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss-aarch64-unknown-linux-musl.tar.gz",
+     "name": "rtk-oss-aarch64-unknown-linux-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss-x86_64-apple-darwin.tar.gz",
+     "name": "rtk-oss-x86_64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss-x86_64-pc-windows-msvc.zip",
+     "name": "rtk-oss-x86_64-pc-windows-msvc.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss-x86_64-unknown-linux-musl.tar.gz",
+     "name": "rtk-oss-x86_64-unknown-linux-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss.aarch64.rpm",
+     "name": "rtk-oss.aarch64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss.x86_64.rpm",
+     "name": "rtk-oss.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss_0.49.0-1_amd64.deb",
+     "name": "rtk-oss_0.49.0-1_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss_0.49.0-1_arm64.deb",
+     "name": "rtk-oss_0.49.0-1_arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss_amd64.deb",
+     "name": "rtk-oss_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-oss_arm64.deb",
+     "name": "rtk-oss_arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-proxy-aarch64-apple-darwin.tar.gz",
+     "name": "rtk-proxy-aarch64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-proxy-aarch64-unknown-linux-gnu.tar.gz",
+     "name": "rtk-proxy-aarch64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-proxy-aarch64-unknown-linux-musl.tar.gz",
+     "name": "rtk-proxy-aarch64-unknown-linux-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-proxy-x86_64-apple-darwin.tar.gz",
+     "name": "rtk-proxy-x86_64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-proxy-x86_64-pc-windows-msvc.zip",
+     "name": "rtk-proxy-x86_64-pc-windows-msvc.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-proxy-x86_64-unknown-linux-musl.tar.gz",
+     "name": "rtk-proxy-x86_64-unknown-linux-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-x86_64-apple-darwin.tar.gz",
+     "name": "rtk-x86_64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-x86_64-pc-windows-msvc.zip",
+     "name": "rtk-x86_64-pc-windows-msvc.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk-x86_64-unknown-linux-musl.tar.gz",
+     "name": "rtk-x86_64-unknown-linux-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk.aarch64.rpm",
+     "name": "rtk.aarch64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk.x86_64.rpm",
+     "name": "rtk.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk_0.49.0-1_amd64.deb",
+     "name": "rtk_0.49.0-1_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk_0.49.0-1_arm64.deb",
+     "name": "rtk_0.49.0-1_arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk_amd64.deb",
+     "name": "rtk_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/rtk-ai/rtk/releases/download/dev-1.2.1-rc.627/rtk_arm64.deb",
+     "name": "rtk_arm64.deb"
+    }
+   ],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-08T20:28:07Z",
+   "tag_name": "dev-1.2.1-rc.627"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-08T16:29:51Z",
+   "tag_name": "dev-1.2.1-rc.626"
   },
   {
    "assets": [
@@ -388,14 +439,15 @@
  "repo": "rtk-ai/rtk",
  "tag_dates": {},
  "tags": [
+  "v1.2.0",
   "v1.1.0",
   "v1.0.1",
   "v1.0.0",
   "v0.52.0",
   "v0.51.0",
   "latest",
-  "dev-1.2.0-rc.619",
-  "dev-1.2.0-rc.618",
+  "dev-1.2.1-rc.627",
+  "dev-1.2.1-rc.626",
   "dev-0.52.0-rc.526",
   "dev-0.52.0-rc.525"
  ]

@@ -16,14 +16,14 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          version = "0.1.23";
+          version = "0.1.24";
 
           # Get the real hashes:
           #   1. Set srcHash and npmDepsHash to pkgs.lib.fakeHash
           #   2. Run: nix build .#default
           #   3. Replace with the got hashes from the error messages
-          srcHash = "sha256-MqeB9U8676YOlB6JbX5Dcp2PeWftQcmbTUPp9dS5t+U=";
-          npmDepsHash = "sha256-GQjH0Zwf9cYuuM6m4mM2Xwz6qWuJTsXsj0nCSm71BlY=";
+          srcHash = "sha256-7dKRvxQ+ntqr4JPqGoWN+CHEZVg6E6Q/hO6EA6DXDKA=";
+          npmDepsHash = "sha256-MWBo2GleWToU5Z7c6njOIWaWzcmokY5wf6FRxHqw4H4=";
 
           src = pkgs.fetchFromGitHub {
             owner = "microsoft";

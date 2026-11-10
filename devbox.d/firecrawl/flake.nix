@@ -15,7 +15,7 @@
       forAllSystems =
         f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-      version = "1.28.0";
+      version = "1.29.0";
 
       # Node.js ecosystem naming: <os>-<arch>
       systemToTarget = {
@@ -27,10 +27,10 @@
 
       # No SHA256SUMS published; hashes computed per-asset via sha256sum + nix hash to-sri.
       systemToHash = {
-        "x86_64-linux" = "sha256-Snn3wvoEfM+VWXAOGwV5h0FB0oz+QDhQMB/aypa12Gs=";
-        "aarch64-linux" = "sha256-8wdkiqtttC8obelVwmWbXui5W0o9J1WlECSt3NCjg4s=";
-        "x86_64-darwin" = "sha256-JrCNbIonSDNHwMNowZhXHAKM2BZun2HdkPLZmTqdMEg=";
-        "aarch64-darwin" = "sha256-vUBbHf971ModTiq9Jj6yhnLID3lpT/rhIiUfgNfUt04=";
+        "x86_64-linux" = "sha256-R/zwGZM1bIELSl+VMSrswjBuRnvEHmAholi09Ou9P9c=";
+        "aarch64-linux" = "sha256-cwyKR+WMZAItJucl3K6Pa6ovm1TToqcaO/YwvMmeKFM=";
+        "x86_64-darwin" = "sha256-eZ0b0JEe4YMvFYvXQAyqhImXUhIo/kKc/coHQeMyPew=";
+        "aarch64-darwin" = "sha256-8UUhA4pF3nqnNftrZ3P75q/ThrH7vTcoeTmLFXh07So=";
       };
     in
     {

@@ -14,22 +14,22 @@
 # installed  the version the flake pins today
 # latest     the newest version upstream published in that line
 # status     the status the table must show
-agent-browser	vercel-labs/agent-browser	asset	v	0	0.41.2	0.41.2	✓
+agent-browser	vercel-labs/agent-browser	asset	v	0	0.42.0	0.42.0	✓
 anydoc	firecrawl/anydoc	registry	v	0	0.2.4	0.2.4	✓
 blesh	akinomyoga/ble.sh	asset	v	0	0.4.0-devel3	0.4.0-devel3	✓
 browser-harness	browser-use/browser-harness	registry	v	0	0.1.13	0.1.13	✓
 bsk	Tencent/BrowserSkill	asset	cli-v	0	0.4.2	0.4.2	✓
 bun	oven-sh/bun	asset	bun-v	1	1.4.4	1.4.4	✓
-codeburn	getagentseal/codeburn	source	v	0	0.9.27	0.9.27	✓
+codeburn	getagentseal/codeburn	source	v	0	0.9.28	0.9.28	✓
 codegraph	colbymchenry/codegraph	source	v	1	1.6.2	1.6.2	✓
-cua	trycua/cua	asset	cua-sdk-v	0	0.11.0	0.11.0	✓
-cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.40.5	0.40.5	✓ (pre)
-cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.21.1	0.21.1	✓
-cua-spacesd	trycua/cua	asset	cua-spacesd-v	0	0.12.2	0.12.2	✓
+cua	trycua/cua	asset	cua-sdk-v	0	0.18.0	0.18.0	✓
+cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.46.1	0.46.1	✓ (pre)
+cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.26.1	0.26.1	✓
+cua-spacesd	trycua/cua	asset	cua-spacesd-v	0	0.13.0	0.13.0	✓
 dcg	Dicklesworthstone/destructive_command_guard	asset	v	0	0.16.0	0.16.0	✓
 deepsec	vercel-labs/deepsec	source	v	2	2.3.9	unknown	??
 deepseek-harness	deepseek-ai/deepseek-harness	source	dsh-v	0	0.2.1-alpha.1	0.2.2-rc.1	?? (sha-pinned)
-firecrawl	firecrawl/cli	asset	v	1	1.28.0	1.28.0	✓
+firecrawl	firecrawl/cli	asset	v	1	1.29.0	1.29.0	✓
 herdr	ogulcancelik/herdr	asset	v	0	0.9.5	0.9.5	✓
 herdr-core	herdrdev/herdr-core	none	v	0	0.1.19	unknown	??
 herdr-app	herdrdev/herdr-app	none	v	0	0.1.14	unknown	??
@@ -37,17 +37,17 @@ hermes-agent	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
 hermes-agent#desktop	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
 hex	anomalyco/hex	asset	v	3	3.3.0	3.3.0	✓
 hunk	modem-dev/hunk	asset	v	0	0.24.1	0.24.1	✓
-impeccable	pbakaus/impeccable	source	cli-v	4	4.8.0	4.8.0	✓
+impeccable	pbakaus/impeccable	source	cli-v	4	4.8.2	4.8.2	✓
 jev-review	rbelem/jev-review	source	v	0	0.1.1-p1	unknown	??
 jev-ultrafast	rbelem/jev-ultrafast	source	v	0	0.1.0	unknown	??
 llm-verifier	llm-as-a-verifier/llm-as-a-verifier	registry	v	0	0.3.0	0.3.0	✓
 neovim	nix-community/neovim-nightly-overlay	none	v	0	unknown	unknown	??
 open-code-review	alibaba/open-code-review	asset	v	1	1.13.6	1.13.6	✓
 pdf-inspector	firecrawl/pdf-inspector	source	v	1	1.25.2	1.25.2	✓
-playwright-cli	microsoft/playwright-cli	source	v	0	0.1.23	0.1.23	✓
+playwright-cli	microsoft/playwright-cli	source	v	0	0.1.24	0.1.24	✓
 rea	morluto/rea	source	rea-agents-	6	6.8.0	6.8.0	✓
-rtk	rtk-ai/rtk	source	v	1	1.1.0	1.1.0	✓
-rustxng	sahenjp/RustXNG	asset	v	0	0.30.0	0.30.0	✓
+rtk	rtk-ai/rtk	source	v	1	1.2.0	1.2.0	✓
+rustxng	sahenjp/RustXNG	asset	v	0	0.31.1	0.31.1	✓
 skillranker	Dicklesworthstone/skillranker	source	v	0	dynamic	unknown	?? (dynamic-version)
 skills	vercel-labs/skills	source	v	1	1.7.6	1.7.6	✓
 skillspector	NVIDIA/SkillSpector	source	v	2	2.13.4	2.13.4	✓

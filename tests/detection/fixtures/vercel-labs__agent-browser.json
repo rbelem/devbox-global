@@ -4,34 +4,41 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.41.2/agent-browser-darwin-arm64",
+     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.42.0/agent-browser-darwin-arm64",
      "name": "agent-browser-darwin-arm64"
     },
     {
-     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.41.2/agent-browser-darwin-x64",
+     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.42.0/agent-browser-darwin-x64",
      "name": "agent-browser-darwin-x64"
     },
     {
-     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.41.2/agent-browser-linux-arm64",
+     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.42.0/agent-browser-linux-arm64",
      "name": "agent-browser-linux-arm64"
     },
     {
-     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.41.2/agent-browser-linux-musl-arm64",
+     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.42.0/agent-browser-linux-musl-arm64",
      "name": "agent-browser-linux-musl-arm64"
     },
     {
-     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.41.2/agent-browser-linux-musl-x64",
+     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.42.0/agent-browser-linux-musl-x64",
      "name": "agent-browser-linux-musl-x64"
     },
     {
-     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.41.2/agent-browser-linux-x64",
+     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.42.0/agent-browser-linux-x64",
      "name": "agent-browser-linux-x64"
     },
     {
-     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.41.2/agent-browser-win32-x64.exe",
+     "browser_download_url": "https://github.com/vercel-labs/agent-browser/releases/download/v0.42.0/agent-browser-win32-x64.exe",
      "name": "agent-browser-win32-x64.exe"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T00:37:19Z",
+   "tag_name": "v0.42.0"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-03T23:46:27Z",
@@ -867,6 +874,7 @@
  "repo": "vercel-labs/agent-browser",
  "tag_dates": {},
  "tags": [
+  "v0.42.0",
   "v0.41.2",
   "v0.41.1",
   "v0.41.0",

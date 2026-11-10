@@ -16,7 +16,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "4.8.0";
+      version = "4.8.2";
     in
     {
       packages = forAllSystems (
@@ -28,7 +28,7 @@
             owner = "pbakaus";
             repo = "impeccable";
             rev = "cli-v${version}";
-            hash = "sha256-gwI+IhgwmELfQnfXjUuel6u+zdFD0LZZCLhGH5MSIWk=";
+            hash = "sha256-/52hFT67dLVKJB7lIHEkm6QVzGuJ2+i/3Ob1mO4KruY=";
           };
 
           # Inject the package-lock.json into source.
@@ -57,7 +57,7 @@
           npmDeps = pkgs.fetchNpmDeps {
             name = "impeccable-npm-deps";
             src = npmDepsSrc;
-            hash = "sha256-YpoJ6xEGeuw+WUgqa34O1JFdQ9FBppcr/sjA4VhK2eU=";
+            hash = "sha256-g77myJ8lqo8H3XTIhawJettQtESbwM7j5uPd+5/W9hQ=";
             # npmDepsFetcherVersion 2 skips optional deps (which would otherwise
             # be fetched from the lockfile metadata and fail on transient
             # registry errors). Required because 3.3.1+ pulls in platform-specific
