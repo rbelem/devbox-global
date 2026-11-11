@@ -4,182 +4,228 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/checksums.txt",
-     "name": "checksums.txt"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-darwin-arm64.tar.gz",
-     "name": "cua-driver-rs-0.46.1-darwin-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-darwin-arm64.tar.gz.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-darwin-arm64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-darwin-universal-binary.tar.gz",
-     "name": "cua-driver-rs-0.46.1-darwin-universal-binary.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-darwin-universal-binary.tar.gz.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-darwin-universal-binary.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-darwin-universal.tar.gz",
-     "name": "cua-driver-rs-0.46.1-darwin-universal.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-darwin-universal.tar.gz.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-darwin-universal.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-darwin-x86_64.tar.gz",
-     "name": "cua-driver-rs-0.46.1-darwin-x86_64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-darwin-x86_64.tar.gz.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-darwin-x86_64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-linux-arm64-binary.tar.gz",
-     "name": "cua-driver-rs-0.46.1-linux-arm64-binary.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-linux-arm64-binary.tar.gz.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-linux-arm64-binary.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-linux-arm64.tar.gz",
-     "name": "cua-driver-rs-0.46.1-linux-arm64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-linux-arm64.tar.gz.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-linux-arm64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-linux-x86_64-binary.tar.gz",
-     "name": "cua-driver-rs-0.46.1-linux-x86_64-binary.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-linux-x86_64-binary.tar.gz.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-linux-x86_64-binary.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-linux-x86_64.tar.gz",
-     "name": "cua-driver-rs-0.46.1-linux-x86_64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-linux-x86_64.tar.gz.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-linux-x86_64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-windows-arm64-binary.zip",
-     "name": "cua-driver-rs-0.46.1-windows-arm64-binary.zip"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-windows-arm64-binary.zip.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-windows-arm64-binary.zip.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-windows-arm64.zip",
-     "name": "cua-driver-rs-0.46.1-windows-arm64.zip"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-windows-arm64.zip.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-windows-arm64.zip.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-windows-x86_64-binary.zip",
-     "name": "cua-driver-rs-0.46.1-windows-x86_64-binary.zip"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-windows-x86_64-binary.zip.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-windows-x86_64-binary.zip.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-windows-x86_64.zip",
-     "name": "cua-driver-rs-0.46.1-windows-x86_64.zip"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-0.46.1-windows-x86_64.zip.sigstore.json",
-     "name": "cua-driver-rs-0.46.1-windows-x86_64.zip.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-v0.46.1-skills.tar.gz",
-     "name": "cua-driver-rs-v0.46.1-skills.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-driver-rs-v0.46.1-skills.tar.gz.sigstore.json",
-     "name": "cua-driver-rs-v0.46.1-skills.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-hyprland-plugin-0.46.1-93c9b500a0d4f9daa56063d3d3e3fb3c9e6070ee-build-kit.tar.gz",
-     "name": "cua-hyprland-plugin-0.46.1-93c9b500a0d4f9daa56063d3d3e3fb3c9e6070ee-build-kit.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-hyprland-plugin-0.46.1-93c9b500a0d4f9daa56063d3d3e3fb3c9e6070ee-build-kit.tar.gz.sigstore.json",
-     "name": "cua-hyprland-plugin-0.46.1-93c9b500a0d4f9daa56063d3d3e3fb3c9e6070ee-build-kit.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-hyprland-plugin-0.46.1-93c9b500a0d4f9daa56063d3d3e3fb3c9e6070ee.tar.gz",
-     "name": "cua-hyprland-plugin-0.46.1-93c9b500a0d4f9daa56063d3d3e3fb3c9e6070ee.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/cua-hyprland-plugin-0.46.1-93c9b500a0d4f9daa56063d3d3e3fb3c9e6070ee.tar.gz.sigstore.json",
-     "name": "cua-hyprland-plugin-0.46.1-93c9b500a0d4f9daa56063d3d3e3fb3c9e6070ee.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/install.ps1",
-     "name": "install.ps1"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/install.ps1.sigstore.json",
-     "name": "install.ps1.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/install.sh",
-     "name": "install.sh"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/install.sh.sigstore.json",
-     "name": "install.sh.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/release-manifest.json",
-     "name": "release-manifest.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/SHA256SUMS",
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/SHA256SUMS",
      "name": "SHA256SUMS"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/SHA256SUMS.sigstore.json",
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/SHA256SUMS.sigstore.json",
      "name": "SHA256SUMS.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/uninstall.ps1",
-     "name": "uninstall.ps1"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/uninstall.ps1.sigstore.json",
-     "name": "uninstall.ps1.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/uninstall.sh",
-     "name": "uninstall.sh"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/uninstall.sh.sigstore.json",
-     "name": "uninstall.sh.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/_install-rust.sh",
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/_install-rust.sh",
      "name": "_install-rust.sh"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.46.1/_install-rust.sh.sigstore.json",
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/_install-rust.sh.sigstore.json",
      "name": "_install-rust.sh.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/checksums.txt",
+     "name": "checksums.txt"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-darwin-arm64.tar.gz",
+     "name": "cua-driver-rs-0.47.5-darwin-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-darwin-arm64.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-darwin-arm64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-darwin-universal-binary.tar.gz",
+     "name": "cua-driver-rs-0.47.5-darwin-universal-binary.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-darwin-universal-binary.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-darwin-universal-binary.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-darwin-universal.tar.gz",
+     "name": "cua-driver-rs-0.47.5-darwin-universal.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-darwin-universal.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-darwin-universal.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-darwin-x86_64.tar.gz",
+     "name": "cua-driver-rs-0.47.5-darwin-x86_64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-darwin-x86_64.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-darwin-x86_64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-linux-arm64-binary.tar.gz",
+     "name": "cua-driver-rs-0.47.5-linux-arm64-binary.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-linux-arm64-binary.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-linux-arm64-binary.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-linux-arm64.tar.gz",
+     "name": "cua-driver-rs-0.47.5-linux-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-linux-arm64.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-linux-arm64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-linux-x86_64-binary.tar.gz",
+     "name": "cua-driver-rs-0.47.5-linux-x86_64-binary.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-linux-x86_64-binary.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-linux-x86_64-binary.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-linux-x86_64.tar.gz",
+     "name": "cua-driver-rs-0.47.5-linux-x86_64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-linux-x86_64.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-linux-x86_64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-windows-arm64-binary.zip",
+     "name": "cua-driver-rs-0.47.5-windows-arm64-binary.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-windows-arm64-binary.zip.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-windows-arm64-binary.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-windows-arm64.zip",
+     "name": "cua-driver-rs-0.47.5-windows-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-windows-arm64.zip.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-windows-arm64.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-windows-x86_64-binary.zip",
+     "name": "cua-driver-rs-0.47.5-windows-x86_64-binary.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-windows-x86_64-binary.zip.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-windows-x86_64-binary.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-windows-x86_64.zip",
+     "name": "cua-driver-rs-0.47.5-windows-x86_64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-0.47.5-windows-x86_64.zip.sigstore.json",
+     "name": "cua-driver-rs-0.47.5-windows-x86_64.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-v0.47.5-skills.tar.gz",
+     "name": "cua-driver-rs-v0.47.5-skills.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-driver-rs-v0.47.5-skills.tar.gz.sigstore.json",
+     "name": "cua-driver-rs-v0.47.5-skills.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-hyprland-plugin-0.47.5-e936317a55bc51717c35af9707b69390dd3f5cef-build-kit.tar.gz",
+     "name": "cua-hyprland-plugin-0.47.5-e936317a55bc51717c35af9707b69390dd3f5cef-build-kit.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-hyprland-plugin-0.47.5-e936317a55bc51717c35af9707b69390dd3f5cef-build-kit.tar.gz.sigstore.json",
+     "name": "cua-hyprland-plugin-0.47.5-e936317a55bc51717c35af9707b69390dd3f5cef-build-kit.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-hyprland-plugin-0.47.5-e936317a55bc51717c35af9707b69390dd3f5cef.tar.gz",
+     "name": "cua-hyprland-plugin-0.47.5-e936317a55bc51717c35af9707b69390dd3f5cef.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/cua-hyprland-plugin-0.47.5-e936317a55bc51717c35af9707b69390dd3f5cef.tar.gz.sigstore.json",
+     "name": "cua-hyprland-plugin-0.47.5-e936317a55bc51717c35af9707b69390dd3f5cef.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/install.ps1",
+     "name": "install.ps1"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/install.ps1.sigstore.json",
+     "name": "install.ps1.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/install.sh",
+     "name": "install.sh"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/install.sh.sigstore.json",
+     "name": "install.sh.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/release-manifest.json",
+     "name": "release-manifest.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/uninstall.ps1",
+     "name": "uninstall.ps1"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/uninstall.ps1.sigstore.json",
+     "name": "uninstall.ps1.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/uninstall.sh",
+     "name": "uninstall.sh"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/uninstall.sh.sigstore.json",
+     "name": "uninstall.sh.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/trycua-cua-driver-linux-arm64-gnu-0.47.5.tgz",
+     "name": "trycua-cua-driver-linux-arm64-gnu-0.47.5.tgz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/trycua-cua-driver-0.47.5.tgz",
+     "name": "trycua-cua-driver-0.47.5.tgz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/trycua-cua-driver-darwin-arm64-0.47.5.tgz",
+     "name": "trycua-cua-driver-darwin-arm64-0.47.5.tgz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/trycua-cua-driver-darwin-x64-0.47.5.tgz",
+     "name": "trycua-cua-driver-darwin-x64-0.47.5.tgz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/trycua-cua-driver-linux-x64-gnu-0.47.5.tgz",
+     "name": "trycua-cua-driver-linux-x64-gnu-0.47.5.tgz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/trycua-cua-driver-win32-arm64-msvc-0.47.5.tgz",
+     "name": "trycua-cua-driver-win32-arm64-msvc-0.47.5.tgz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/trycua-cua-driver-win32-x64-msvc-0.47.5.tgz",
+     "name": "trycua-cua-driver-win32-x64-msvc-0.47.5.tgz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-driver-rs-v0.47.5/typescript-sdk-checksums.txt",
+     "name": "typescript-sdk-checksums.txt"
     }
    ],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-11T01:06:59Z",
+   "tag_name": "cua-driver-rs-v0.47.5"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-10T23:54:08Z",
+   "tag_name": "cua-driver-rs-v0.47.4"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": true,
    "published_at": "2026-11-10T02:02:00Z",
@@ -1042,278 +1088,299 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-apple-darwin",
-     "name": "cua-spacesd-aarch64-apple-darwin"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/SHA256SUMS.sigstore.json",
+     "name": "SHA256SUMS.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-apple-darwin.sha256",
-     "name": "cua-spacesd-aarch64-apple-darwin.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-apple-darwin.sigstore.json",
-     "name": "cua-spacesd-aarch64-apple-darwin.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-apple-darwin.tar.gz",
-     "name": "cua-spacesd-aarch64-apple-darwin.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-apple-darwin.tar.gz.sha256",
-     "name": "cua-spacesd-aarch64-apple-darwin.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-apple-darwin.tar.gz.sigstore.json",
-     "name": "cua-spacesd-aarch64-apple-darwin.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-gnu",
-     "name": "cua-spacesd-aarch64-unknown-linux-gnu"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-gnu.sha256",
-     "name": "cua-spacesd-aarch64-unknown-linux-gnu.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-gnu.sigstore.json",
-     "name": "cua-spacesd-aarch64-unknown-linux-gnu.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-gnu.tar.gz",
-     "name": "cua-spacesd-aarch64-unknown-linux-gnu.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-gnu.tar.gz.sha256",
-     "name": "cua-spacesd-aarch64-unknown-linux-gnu.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-gnu.tar.gz.sigstore.json",
-     "name": "cua-spacesd-aarch64-unknown-linux-gnu.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-musl",
-     "name": "cua-spacesd-aarch64-unknown-linux-musl"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-musl.sha256",
-     "name": "cua-spacesd-aarch64-unknown-linux-musl.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-musl.sigstore.json",
-     "name": "cua-spacesd-aarch64-unknown-linux-musl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-musl.tar.gz",
-     "name": "cua-spacesd-aarch64-unknown-linux-musl.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-musl.tar.gz.sha256",
-     "name": "cua-spacesd-aarch64-unknown-linux-musl.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-aarch64-unknown-linux-musl.tar.gz.sigstore.json",
-     "name": "cua-spacesd-aarch64-unknown-linux-musl.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-aarch64.tar.gz",
-     "name": "cua-spacesd-linux-aarch64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-aarch64.tar.gz.sha256",
-     "name": "cua-spacesd-linux-aarch64.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-aarch64.tar.gz.sigstore.json",
-     "name": "cua-spacesd-linux-aarch64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-static-aarch64.tar.gz",
-     "name": "cua-spacesd-linux-static-aarch64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-static-aarch64.tar.gz.sha256",
-     "name": "cua-spacesd-linux-static-aarch64.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-static-aarch64.tar.gz.sigstore.json",
-     "name": "cua-spacesd-linux-static-aarch64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-static-x86_64.tar.gz",
-     "name": "cua-spacesd-linux-static-x86_64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-static-x86_64.tar.gz.sha256",
-     "name": "cua-spacesd-linux-static-x86_64.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-static-x86_64.tar.gz.sigstore.json",
-     "name": "cua-spacesd-linux-static-x86_64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-x86_64.tar.gz",
-     "name": "cua-spacesd-linux-x86_64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-x86_64.tar.gz.sha256",
-     "name": "cua-spacesd-linux-x86_64.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-linux-x86_64.tar.gz.sigstore.json",
-     "name": "cua-spacesd-linux-x86_64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-macos-aarch64.tar.gz",
-     "name": "cua-spacesd-macos-aarch64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-macos-aarch64.tar.gz.sha256",
-     "name": "cua-spacesd-macos-aarch64.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-macos-aarch64.tar.gz.sigstore.json",
-     "name": "cua-spacesd-macos-aarch64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-macos-universal.app.zip",
-     "name": "cua-spacesd-macos-universal.app.zip"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-macos-universal.app.zip.sha256",
-     "name": "cua-spacesd-macos-universal.app.zip.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-macos-universal.app.zip.sigstore.json",
-     "name": "cua-spacesd-macos-universal.app.zip.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-macos-x86_64.tar.gz",
-     "name": "cua-spacesd-macos-x86_64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-macos-x86_64.tar.gz.sha256",
-     "name": "cua-spacesd-macos-x86_64.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-macos-x86_64.tar.gz.sigstore.json",
-     "name": "cua-spacesd-macos-x86_64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-windows-x86_64.tar.gz",
-     "name": "cua-spacesd-windows-x86_64.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-windows-x86_64.tar.gz.sha256",
-     "name": "cua-spacesd-windows-x86_64.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-windows-x86_64.tar.gz.sigstore.json",
-     "name": "cua-spacesd-windows-x86_64.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-apple-darwin",
-     "name": "cua-spacesd-x86_64-apple-darwin"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-apple-darwin.sha256",
-     "name": "cua-spacesd-x86_64-apple-darwin.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-apple-darwin.sigstore.json",
-     "name": "cua-spacesd-x86_64-apple-darwin.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-apple-darwin.tar.gz",
-     "name": "cua-spacesd-x86_64-apple-darwin.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-apple-darwin.tar.gz.sha256",
-     "name": "cua-spacesd-x86_64-apple-darwin.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-apple-darwin.tar.gz.sigstore.json",
-     "name": "cua-spacesd-x86_64-apple-darwin.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-pc-windows-msvc.exe",
-     "name": "cua-spacesd-x86_64-pc-windows-msvc.exe"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-pc-windows-msvc.exe.sha256",
-     "name": "cua-spacesd-x86_64-pc-windows-msvc.exe.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-pc-windows-msvc.exe.sigstore.json",
-     "name": "cua-spacesd-x86_64-pc-windows-msvc.exe.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-pc-windows-msvc.zip",
-     "name": "cua-spacesd-x86_64-pc-windows-msvc.zip"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-pc-windows-msvc.zip.sha256",
-     "name": "cua-spacesd-x86_64-pc-windows-msvc.zip.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-pc-windows-msvc.zip.sigstore.json",
-     "name": "cua-spacesd-x86_64-pc-windows-msvc.zip.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-gnu",
-     "name": "cua-spacesd-x86_64-unknown-linux-gnu"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-gnu.sha256",
-     "name": "cua-spacesd-x86_64-unknown-linux-gnu.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-gnu.sigstore.json",
-     "name": "cua-spacesd-x86_64-unknown-linux-gnu.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-gnu.tar.gz",
-     "name": "cua-spacesd-x86_64-unknown-linux-gnu.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-gnu.tar.gz.sha256",
-     "name": "cua-spacesd-x86_64-unknown-linux-gnu.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-gnu.tar.gz.sigstore.json",
-     "name": "cua-spacesd-x86_64-unknown-linux-gnu.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-musl",
-     "name": "cua-spacesd-x86_64-unknown-linux-musl"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-musl.sha256",
-     "name": "cua-spacesd-x86_64-unknown-linux-musl.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-musl.sigstore.json",
-     "name": "cua-spacesd-x86_64-unknown-linux-musl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-musl.tar.gz",
-     "name": "cua-spacesd-x86_64-unknown-linux-musl.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-musl.tar.gz.sha256",
-     "name": "cua-spacesd-x86_64-unknown-linux-musl.tar.gz.sha256"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/cua-spacesd-x86_64-unknown-linux-musl.tar.gz.sigstore.json",
-     "name": "cua-spacesd-x86_64-unknown-linux-musl.tar.gz.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/SHA256SUMS",
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/SHA256SUMS",
      "name": "SHA256SUMS"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.13.0/SHA256SUMS.sigstore.json",
-     "name": "SHA256SUMS.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-apple-darwin.sigstore.json",
+     "name": "cua-spacesd-aarch64-apple-darwin.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-apple-darwin.sha256",
+     "name": "cua-spacesd-aarch64-apple-darwin.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-apple-darwin",
+     "name": "cua-spacesd-aarch64-apple-darwin"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-apple-darwin.tar.gz",
+     "name": "cua-spacesd-aarch64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-apple-darwin.tar.gz.sha256",
+     "name": "cua-spacesd-aarch64-apple-darwin.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-apple-darwin.tar.gz.sigstore.json",
+     "name": "cua-spacesd-aarch64-apple-darwin.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-gnu",
+     "name": "cua-spacesd-aarch64-unknown-linux-gnu"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-gnu.sha256",
+     "name": "cua-spacesd-aarch64-unknown-linux-gnu.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-gnu.sigstore.json",
+     "name": "cua-spacesd-aarch64-unknown-linux-gnu.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-gnu.tar.gz",
+     "name": "cua-spacesd-aarch64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-gnu.tar.gz.sha256",
+     "name": "cua-spacesd-aarch64-unknown-linux-gnu.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-gnu.tar.gz.sigstore.json",
+     "name": "cua-spacesd-aarch64-unknown-linux-gnu.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-musl",
+     "name": "cua-spacesd-aarch64-unknown-linux-musl"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-musl.sha256",
+     "name": "cua-spacesd-aarch64-unknown-linux-musl.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-musl.sigstore.json",
+     "name": "cua-spacesd-aarch64-unknown-linux-musl.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-musl.tar.gz",
+     "name": "cua-spacesd-aarch64-unknown-linux-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-musl.tar.gz.sha256",
+     "name": "cua-spacesd-aarch64-unknown-linux-musl.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-aarch64-unknown-linux-musl.tar.gz.sigstore.json",
+     "name": "cua-spacesd-aarch64-unknown-linux-musl.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-aarch64.tar.gz",
+     "name": "cua-spacesd-linux-aarch64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-aarch64.tar.gz.sha256",
+     "name": "cua-spacesd-linux-aarch64.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-aarch64.tar.gz.sigstore.json",
+     "name": "cua-spacesd-linux-aarch64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-static-aarch64.tar.gz",
+     "name": "cua-spacesd-linux-static-aarch64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-static-aarch64.tar.gz.sha256",
+     "name": "cua-spacesd-linux-static-aarch64.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-static-aarch64.tar.gz.sigstore.json",
+     "name": "cua-spacesd-linux-static-aarch64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-static-x86_64.tar.gz",
+     "name": "cua-spacesd-linux-static-x86_64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-static-x86_64.tar.gz.sha256",
+     "name": "cua-spacesd-linux-static-x86_64.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-static-x86_64.tar.gz.sigstore.json",
+     "name": "cua-spacesd-linux-static-x86_64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-x86_64.tar.gz",
+     "name": "cua-spacesd-linux-x86_64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-x86_64.tar.gz.sha256",
+     "name": "cua-spacesd-linux-x86_64.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-macos-aarch64.tar.gz",
+     "name": "cua-spacesd-macos-aarch64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-linux-x86_64.tar.gz.sigstore.json",
+     "name": "cua-spacesd-linux-x86_64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-macos-aarch64.tar.gz.sha256",
+     "name": "cua-spacesd-macos-aarch64.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-macos-aarch64.tar.gz.sigstore.json",
+     "name": "cua-spacesd-macos-aarch64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-macos-universal.app.zip",
+     "name": "cua-spacesd-macos-universal.app.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-macos-universal.app.zip.sha256",
+     "name": "cua-spacesd-macos-universal.app.zip.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-macos-universal.app.zip.sigstore.json",
+     "name": "cua-spacesd-macos-universal.app.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-macos-x86_64.tar.gz",
+     "name": "cua-spacesd-macos-x86_64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-macos-x86_64.tar.gz.sigstore.json",
+     "name": "cua-spacesd-macos-x86_64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-macos-x86_64.tar.gz.sha256",
+     "name": "cua-spacesd-macos-x86_64.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-windows-x86_64.tar.gz",
+     "name": "cua-spacesd-windows-x86_64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-windows-x86_64.tar.gz.sha256",
+     "name": "cua-spacesd-windows-x86_64.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-windows-x86_64.tar.gz.sigstore.json",
+     "name": "cua-spacesd-windows-x86_64.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-apple-darwin",
+     "name": "cua-spacesd-x86_64-apple-darwin"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-apple-darwin.sha256",
+     "name": "cua-spacesd-x86_64-apple-darwin.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-apple-darwin.sigstore.json",
+     "name": "cua-spacesd-x86_64-apple-darwin.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-apple-darwin.tar.gz",
+     "name": "cua-spacesd-x86_64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-apple-darwin.tar.gz.sha256",
+     "name": "cua-spacesd-x86_64-apple-darwin.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-apple-darwin.tar.gz.sigstore.json",
+     "name": "cua-spacesd-x86_64-apple-darwin.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-pc-windows-msvc.exe",
+     "name": "cua-spacesd-x86_64-pc-windows-msvc.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-pc-windows-msvc.exe.sha256",
+     "name": "cua-spacesd-x86_64-pc-windows-msvc.exe.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-pc-windows-msvc.exe.sigstore.json",
+     "name": "cua-spacesd-x86_64-pc-windows-msvc.exe.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-pc-windows-msvc.zip",
+     "name": "cua-spacesd-x86_64-pc-windows-msvc.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-pc-windows-msvc.zip.sha256",
+     "name": "cua-spacesd-x86_64-pc-windows-msvc.zip.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-pc-windows-msvc.zip.sigstore.json",
+     "name": "cua-spacesd-x86_64-pc-windows-msvc.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-gnu",
+     "name": "cua-spacesd-x86_64-unknown-linux-gnu"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-gnu.sha256",
+     "name": "cua-spacesd-x86_64-unknown-linux-gnu.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-gnu.sigstore.json",
+     "name": "cua-spacesd-x86_64-unknown-linux-gnu.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-gnu.tar.gz",
+     "name": "cua-spacesd-x86_64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-gnu.tar.gz.sha256",
+     "name": "cua-spacesd-x86_64-unknown-linux-gnu.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-gnu.tar.gz.sigstore.json",
+     "name": "cua-spacesd-x86_64-unknown-linux-gnu.tar.gz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-musl",
+     "name": "cua-spacesd-x86_64-unknown-linux-musl"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-musl.sha256",
+     "name": "cua-spacesd-x86_64-unknown-linux-musl.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-musl.sigstore.json",
+     "name": "cua-spacesd-x86_64-unknown-linux-musl.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-musl.tar.gz",
+     "name": "cua-spacesd-x86_64-unknown-linux-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-musl.tar.gz.sha256",
+     "name": "cua-spacesd-x86_64-unknown-linux-musl.tar.gz.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spacesd-v0.15.1/cua-spacesd-x86_64-unknown-linux-musl.tar.gz.sigstore.json",
+     "name": "cua-spacesd-x86_64-unknown-linux-musl.tar.gz.sigstore.json"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T23:27:19Z",
+   "tag_name": "cua-spacesd-v0.15.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T17:34:03Z",
+   "tag_name": "cua-spacesd-v0.15.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T15:10:49Z",
+   "tag_name": "cua-spacesd-v0.14.0"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-09T19:35:02Z",
@@ -1532,134 +1599,232 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/checksums.txt",
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/Cua-Spaces-0.32.0-x86_64.AppImage",
+     "name": "Cua-Spaces-0.32.0-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/Cua-Spaces-Setup-0.32.0-x64.exe",
+     "name": "Cua-Spaces-Setup-0.32.0-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/Cua-Spaces-Setup-0.32.0-arm64.exe",
+     "name": "Cua-Spaces-Setup-0.32.0-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/Cua-Spaces-0.32.0-arm64.AppImage",
+     "name": "Cua-Spaces-0.32.0-arm64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/Cua-Spaces-Setup-0.32.0-arm64.exe.blockmap",
+     "name": "Cua-Spaces-Setup-0.32.0-arm64.exe.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/Cua-Spaces-Setup-0.32.0-x64.exe.blockmap",
+     "name": "Cua-Spaces-Setup-0.32.0-x64.exe.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-linux-arm64.AppImage",
+     "name": "cua-spaces-0.32.0-linux-arm64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-linux-arm64.deb",
+     "name": "cua-spaces-0.32.0-linux-arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-linux-x64.AppImage",
+     "name": "cua-spaces-0.32.0-linux-x64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-linux-x64.deb",
+     "name": "cua-spaces-0.32.0-linux-x64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-windows-arm64-setup.exe",
+     "name": "cua-spaces-0.32.0-windows-arm64-setup.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-windows-x64-setup.exe",
+     "name": "cua-spaces-0.32.0-windows-x64-setup.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces_0.32.0_amd64.deb",
+     "name": "cua-spaces_0.32.0_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces_0.32.0_arm64.deb",
+     "name": "cua-spaces_0.32.0_arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-darwin-universal.dmg",
+     "name": "cua-spaces-0.32.0-darwin-universal.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-darwin-universal.pkg",
+     "name": "cua-spaces-0.32.0-darwin-universal.pkg"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-darwin-universal.dmg.sigstore.json",
+     "name": "cua-spaces-0.32.0-darwin-universal.dmg.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/Cua-Spaces-0.32.0-x86_64.AppImage.sigstore.json",
+     "name": "Cua-Spaces-0.32.0-x86_64.AppImage.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/Cua-Spaces-0.32.0-arm64.AppImage.sigstore.json",
+     "name": "Cua-Spaces-0.32.0-arm64.AppImage.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/Cua-Spaces-Setup-0.32.0-x64.exe.sigstore.json",
+     "name": "Cua-Spaces-Setup-0.32.0-x64.exe.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/Cua-Spaces-Setup-0.32.0-arm64.exe.sigstore.json",
+     "name": "Cua-Spaces-Setup-0.32.0-arm64.exe.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-darwin-universal.pkg.sigstore.json",
+     "name": "cua-spaces-0.32.0-darwin-universal.pkg.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-linux-arm64.AppImage.sigstore.json",
+     "name": "cua-spaces-0.32.0-linux-arm64.AppImage.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-linux-arm64.deb.sigstore.json",
+     "name": "cua-spaces-0.32.0-linux-arm64.deb.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-linux-x64.AppImage.sigstore.json",
+     "name": "cua-spaces-0.32.0-linux-x64.AppImage.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-linux-x64.deb.sigstore.json",
+     "name": "cua-spaces-0.32.0-linux-x64.deb.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-windows-arm64-setup.exe.sigstore.json",
+     "name": "cua-spaces-0.32.0-windows-arm64-setup.exe.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces-0.32.0-windows-x64-setup.exe.sigstore.json",
+     "name": "cua-spaces-0.32.0-windows-x64-setup.exe.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces_0.32.0_arm64.deb.sigstore.json",
+     "name": "cua-spaces_0.32.0_arm64.deb.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/cua-spaces_0.32.0_amd64.deb.sigstore.json",
+     "name": "cua-spaces_0.32.0_amd64.deb.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/checksums.txt",
      "name": "checksums.txt"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/Cua-Spaces-0.26.1-arm64.AppImage",
-     "name": "Cua-Spaces-0.26.1-arm64.AppImage"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/Cua-Spaces-0.26.1-arm64.AppImage.sigstore.json",
-     "name": "Cua-Spaces-0.26.1-arm64.AppImage.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-darwin-universal.dmg",
-     "name": "cua-spaces-0.26.1-darwin-universal.dmg"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-darwin-universal.dmg.sigstore.json",
-     "name": "cua-spaces-0.26.1-darwin-universal.dmg.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-darwin-universal.pkg",
-     "name": "cua-spaces-0.26.1-darwin-universal.pkg"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-darwin-universal.pkg.sigstore.json",
-     "name": "cua-spaces-0.26.1-darwin-universal.pkg.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-linux-arm64.AppImage",
-     "name": "cua-spaces-0.26.1-linux-arm64.AppImage"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-linux-arm64.AppImage.sigstore.json",
-     "name": "cua-spaces-0.26.1-linux-arm64.AppImage.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-linux-arm64.deb",
-     "name": "cua-spaces-0.26.1-linux-arm64.deb"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-linux-arm64.deb.sigstore.json",
-     "name": "cua-spaces-0.26.1-linux-arm64.deb.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-linux-x64.AppImage",
-     "name": "cua-spaces-0.26.1-linux-x64.AppImage"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-linux-x64.AppImage.sigstore.json",
-     "name": "cua-spaces-0.26.1-linux-x64.AppImage.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-linux-x64.deb",
-     "name": "cua-spaces-0.26.1-linux-x64.deb"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-linux-x64.deb.sigstore.json",
-     "name": "cua-spaces-0.26.1-linux-x64.deb.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-windows-arm64-setup.exe",
-     "name": "cua-spaces-0.26.1-windows-arm64-setup.exe"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-windows-arm64-setup.exe.sigstore.json",
-     "name": "cua-spaces-0.26.1-windows-arm64-setup.exe.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-windows-x64-setup.exe",
-     "name": "cua-spaces-0.26.1-windows-x64-setup.exe"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces-0.26.1-windows-x64-setup.exe.sigstore.json",
-     "name": "cua-spaces-0.26.1-windows-x64-setup.exe.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/Cua-Spaces-0.26.1-x86_64.AppImage",
-     "name": "Cua-Spaces-0.26.1-x86_64.AppImage"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/Cua-Spaces-0.26.1-x86_64.AppImage.sigstore.json",
-     "name": "Cua-Spaces-0.26.1-x86_64.AppImage.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/Cua-Spaces-Setup-0.26.1-arm64.exe",
-     "name": "Cua-Spaces-Setup-0.26.1-arm64.exe"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/Cua-Spaces-Setup-0.26.1-arm64.exe.blockmap",
-     "name": "Cua-Spaces-Setup-0.26.1-arm64.exe.blockmap"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/Cua-Spaces-Setup-0.26.1-arm64.exe.sigstore.json",
-     "name": "Cua-Spaces-Setup-0.26.1-arm64.exe.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/Cua-Spaces-Setup-0.26.1-x64.exe",
-     "name": "Cua-Spaces-Setup-0.26.1-x64.exe"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/Cua-Spaces-Setup-0.26.1-x64.exe.blockmap",
-     "name": "Cua-Spaces-Setup-0.26.1-x64.exe.blockmap"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/Cua-Spaces-Setup-0.26.1-x64.exe.sigstore.json",
-     "name": "Cua-Spaces-Setup-0.26.1-x64.exe.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces_0.26.1_amd64.deb",
-     "name": "cua-spaces_0.26.1_amd64.deb"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces_0.26.1_amd64.deb.sigstore.json",
-     "name": "cua-spaces_0.26.1_amd64.deb.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces_0.26.1_arm64.deb",
-     "name": "cua-spaces_0.26.1_arm64.deb"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/cua-spaces_0.26.1_arm64.deb.sigstore.json",
-     "name": "cua-spaces_0.26.1_arm64.deb.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.26.1/release-artifacts.json",
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-v0.32.0/release-artifacts.json",
      "name": "release-artifacts.json"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T22:56:42Z",
+   "tag_name": "cua-spaces-v0.32.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T21:44:52Z",
+   "tag_name": "cua-spaces-v0.31.4"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T18:15:59Z",
+   "tag_name": "cua-spaces-v0.31.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T15:55:02Z",
+   "tag_name": "cua-spaces-v0.31.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T14:59:50Z",
+   "tag_name": "cua-spaces-v0.31.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T14:34:51Z",
+   "tag_name": "cua-spaces-v0.30.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T14:17:16Z",
+   "tag_name": "cua-spaces-v0.29.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T12:30:24Z",
+   "tag_name": "cua-spaces-v0.28.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T11:11:24Z",
+   "tag_name": "cua-spaces-v0.28.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T09:31:31Z",
+   "tag_name": "cua-spaces-v0.27.3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T08:10:56Z",
+   "tag_name": "cua-spaces-v0.27.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T08:05:32Z",
+   "tag_name": "cua-spaces-v0.27.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T05:41:08Z",
+   "tag_name": "cua-spaces-v0.27.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T04:57:56Z",
+   "tag_name": "cua-spaces-v0.26.2"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-09T22:06:05Z",
@@ -2116,270 +2281,320 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/checksums.txt",
-     "name": "checksums.txt"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-darwin-x64.tar.gz",
+     "name": "cua-0.23.0-darwin-x64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-darwin-arm64.tar.gz",
-     "name": "cua-0.18.0-darwin-arm64.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-darwin-x64.tar.gz.sigstore.json",
+     "name": "cua-0.23.0-darwin-x64.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-darwin-arm64.tar.gz.sigstore.json",
-     "name": "cua-0.18.0-darwin-arm64.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-darwin-arm64.tar.gz.sigstore.json",
+     "name": "cua-0.23.0-darwin-arm64.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-darwin-x64.tar.gz",
-     "name": "cua-0.18.0-darwin-x64.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-darwin-arm64.tar.gz",
+     "name": "cua-0.23.0-darwin-arm64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-darwin-x64.tar.gz.sigstore.json",
-     "name": "cua-0.18.0-darwin-x64.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-linux-arm64-gnu.tar.gz",
+     "name": "cua-0.23.0-linux-arm64-gnu.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-linux-arm64-gnu.tar.gz",
-     "name": "cua-0.18.0-linux-arm64-gnu.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-linux-arm64-gnu.tar.gz.sigstore.json",
+     "name": "cua-0.23.0-linux-arm64-gnu.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-linux-arm64-gnu.tar.gz.sigstore.json",
-     "name": "cua-0.18.0-linux-arm64-gnu.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-linux-x64-gnu.tar.gz",
+     "name": "cua-0.23.0-linux-x64-gnu.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-linux-x64-gnu.tar.gz",
-     "name": "cua-0.18.0-linux-x64-gnu.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-linux-x64-gnu.tar.gz.sigstore.json",
+     "name": "cua-0.23.0-linux-x64-gnu.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-linux-x64-gnu.tar.gz.sigstore.json",
-     "name": "cua-0.18.0-linux-x64-gnu.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-macosx_10_12_x86_64.whl",
+     "name": "cua-0.23.0-py3-none-macosx_10_12_x86_64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-macosx_10_12_x86_64.whl",
-     "name": "cua-0.18.0-py3-none-macosx_10_12_x86_64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-macosx_10_12_x86_64.whl.sigstore.json",
+     "name": "cua-0.23.0-py3-none-macosx_10_12_x86_64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-macosx_10_12_x86_64.whl.sigstore.json",
-     "name": "cua-0.18.0-py3-none-macosx_10_12_x86_64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-macosx_11_0_arm64.whl",
+     "name": "cua-0.23.0-py3-none-macosx_11_0_arm64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-macosx_11_0_arm64.whl",
-     "name": "cua-0.18.0-py3-none-macosx_11_0_arm64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-macosx_11_0_arm64.whl.sigstore.json",
+     "name": "cua-0.23.0-py3-none-macosx_11_0_arm64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-macosx_11_0_arm64.whl.sigstore.json",
-     "name": "cua-0.18.0-py3-none-macosx_11_0_arm64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-manylinux_2_31_aarch64.whl",
+     "name": "cua-0.23.0-py3-none-manylinux_2_31_aarch64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-manylinux_2_31_aarch64.whl",
-     "name": "cua-0.18.0-py3-none-manylinux_2_31_aarch64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-manylinux_2_31_aarch64.whl.sigstore.json",
+     "name": "cua-0.23.0-py3-none-manylinux_2_31_aarch64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-manylinux_2_31_aarch64.whl.sigstore.json",
-     "name": "cua-0.18.0-py3-none-manylinux_2_31_aarch64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-manylinux_2_31_x86_64.whl",
+     "name": "cua-0.23.0-py3-none-manylinux_2_31_x86_64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-manylinux_2_31_x86_64.whl",
-     "name": "cua-0.18.0-py3-none-manylinux_2_31_x86_64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-win_amd64.whl",
+     "name": "cua-0.23.0-py3-none-win_amd64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-manylinux_2_31_x86_64.whl.sigstore.json",
-     "name": "cua-0.18.0-py3-none-manylinux_2_31_x86_64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-manylinux_2_31_x86_64.whl.sigstore.json",
+     "name": "cua-0.23.0-py3-none-manylinux_2_31_x86_64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-win_amd64.whl",
-     "name": "cua-0.18.0-py3-none-win_amd64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-win_amd64.whl.sigstore.json",
+     "name": "cua-0.23.0-py3-none-win_amd64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-win_amd64.whl.sigstore.json",
-     "name": "cua-0.18.0-py3-none-win_amd64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-win_arm64.whl",
+     "name": "cua-0.23.0-py3-none-win_arm64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-win_arm64.whl",
-     "name": "cua-0.18.0-py3-none-win_arm64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-py3-none-win_arm64.whl.sigstore.json",
+     "name": "cua-0.23.0-py3-none-win_arm64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-py3-none-win_arm64.whl.sigstore.json",
-     "name": "cua-0.18.0-py3-none-win_arm64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-win32-arm64-msvc.tar.gz",
+     "name": "cua-0.23.0-win32-arm64-msvc.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-win32-arm64-msvc.tar.gz",
-     "name": "cua-0.18.0-win32-arm64-msvc.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-win32-arm64-msvc.tar.gz.sigstore.json",
+     "name": "cua-0.23.0-win32-arm64-msvc.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-win32-arm64-msvc.tar.gz.sigstore.json",
-     "name": "cua-0.18.0-win32-arm64-msvc.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-win32-x64-msvc.tar.gz",
+     "name": "cua-0.23.0-win32-x64-msvc.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-win32-x64-msvc.tar.gz",
-     "name": "cua-0.18.0-win32-x64-msvc.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-0.23.0-win32-x64-msvc.tar.gz.sigstore.json",
+     "name": "cua-0.23.0-win32-x64-msvc.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-0.18.0-win32-x64-msvc.tar.gz.sigstore.json",
-     "name": "cua-0.18.0-win32-x64-msvc.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-darwin-arm64.tar.gz",
+     "name": "cua-cli-0.23.0-darwin-arm64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-darwin-arm64.tar.gz",
-     "name": "cua-cli-0.18.0-darwin-arm64.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-darwin-arm64.tar.gz.sigstore.json",
+     "name": "cua-cli-0.23.0-darwin-arm64.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-darwin-arm64.tar.gz.sigstore.json",
-     "name": "cua-cli-0.18.0-darwin-arm64.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-darwin-x64.tar.gz",
+     "name": "cua-cli-0.23.0-darwin-x64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-darwin-x64.tar.gz",
-     "name": "cua-cli-0.18.0-darwin-x64.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-darwin-x64.tar.gz.sigstore.json",
+     "name": "cua-cli-0.23.0-darwin-x64.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-darwin-x64.tar.gz.sigstore.json",
-     "name": "cua-cli-0.18.0-darwin-x64.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-linux-arm64.tar.gz",
+     "name": "cua-cli-0.23.0-linux-arm64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-linux-arm64.tar.gz",
-     "name": "cua-cli-0.18.0-linux-arm64.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-linux-arm64.tar.gz.sigstore.json",
+     "name": "cua-cli-0.23.0-linux-arm64.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-linux-arm64.tar.gz.sigstore.json",
-     "name": "cua-cli-0.18.0-linux-arm64.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-linux-x64.tar.gz",
+     "name": "cua-cli-0.23.0-linux-x64.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-linux-x64.tar.gz",
-     "name": "cua-cli-0.18.0-linux-x64.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-linux-x64.tar.gz.sigstore.json",
+     "name": "cua-cli-0.23.0-linux-x64.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-linux-x64.tar.gz.sigstore.json",
-     "name": "cua-cli-0.18.0-linux-x64.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-windows-arm64.zip",
+     "name": "cua-cli-0.23.0-windows-arm64.zip"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-windows-arm64.zip",
-     "name": "cua-cli-0.18.0-windows-arm64.zip"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-windows-arm64.zip.sigstore.json",
+     "name": "cua-cli-0.23.0-windows-arm64.zip.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-windows-arm64.zip.sigstore.json",
-     "name": "cua-cli-0.18.0-windows-arm64.zip.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-windows-x64.zip",
+     "name": "cua-cli-0.23.0-windows-x64.zip"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-windows-x64.zip",
-     "name": "cua-cli-0.18.0-windows-x64.zip"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-cli-0.23.0-windows-x64.zip.sigstore.json",
+     "name": "cua-cli-0.23.0-windows-x64.zip.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-cli-0.18.0-windows-x64.zip.sigstore.json",
-     "name": "cua-cli-0.18.0-windows-x64.zip.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-proto-0.23.0.tar.gz",
+     "name": "cua-proto-0.23.0.tar.gz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-proto-0.18.0.tar.gz",
-     "name": "cua-proto-0.18.0.tar.gz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua-proto-0.23.0.tar.gz.sigstore.json",
+     "name": "cua-proto-0.23.0.tar.gz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua-proto-0.18.0.tar.gz.sigstore.json",
-     "name": "cua-proto-0.18.0.tar.gz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-macosx_10_12_x86_64.whl",
+     "name": "cua_cli-0.23.0-py3-none-macosx_10_12_x86_64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-macosx_10_12_x86_64.whl",
-     "name": "cua_cli-0.18.0-py3-none-macosx_10_12_x86_64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-macosx_10_12_x86_64.whl.sigstore.json",
+     "name": "cua_cli-0.23.0-py3-none-macosx_10_12_x86_64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-macosx_10_12_x86_64.whl.sigstore.json",
-     "name": "cua_cli-0.18.0-py3-none-macosx_10_12_x86_64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-macosx_11_0_arm64.whl",
+     "name": "cua_cli-0.23.0-py3-none-macosx_11_0_arm64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-macosx_11_0_arm64.whl",
-     "name": "cua_cli-0.18.0-py3-none-macosx_11_0_arm64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-macosx_11_0_arm64.whl.sigstore.json",
+     "name": "cua_cli-0.23.0-py3-none-macosx_11_0_arm64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-macosx_11_0_arm64.whl.sigstore.json",
-     "name": "cua_cli-0.18.0-py3-none-macosx_11_0_arm64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-manylinux_2_31_aarch64.whl",
+     "name": "cua_cli-0.23.0-py3-none-manylinux_2_31_aarch64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-manylinux_2_31_aarch64.whl",
-     "name": "cua_cli-0.18.0-py3-none-manylinux_2_31_aarch64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-manylinux_2_31_aarch64.whl.sigstore.json",
+     "name": "cua_cli-0.23.0-py3-none-manylinux_2_31_aarch64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-manylinux_2_31_aarch64.whl.sigstore.json",
-     "name": "cua_cli-0.18.0-py3-none-manylinux_2_31_aarch64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-manylinux_2_31_x86_64.whl",
+     "name": "cua_cli-0.23.0-py3-none-manylinux_2_31_x86_64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-manylinux_2_31_x86_64.whl",
-     "name": "cua_cli-0.18.0-py3-none-manylinux_2_31_x86_64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-manylinux_2_31_x86_64.whl.sigstore.json",
+     "name": "cua_cli-0.23.0-py3-none-manylinux_2_31_x86_64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-manylinux_2_31_x86_64.whl.sigstore.json",
-     "name": "cua_cli-0.18.0-py3-none-manylinux_2_31_x86_64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-win_amd64.whl",
+     "name": "cua_cli-0.23.0-py3-none-win_amd64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-win_amd64.whl",
-     "name": "cua_cli-0.18.0-py3-none-win_amd64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-win_amd64.whl.sigstore.json",
+     "name": "cua_cli-0.23.0-py3-none-win_amd64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-win_amd64.whl.sigstore.json",
-     "name": "cua_cli-0.18.0-py3-none-win_amd64.whl.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-win_arm64.whl",
+     "name": "cua_cli-0.23.0-py3-none-win_arm64.whl"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-win_arm64.whl",
-     "name": "cua_cli-0.18.0-py3-none-win_arm64.whl"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/cua_cli-0.23.0-py3-none-win_arm64.whl.sigstore.json",
+     "name": "cua_cli-0.23.0-py3-none-win_arm64.whl.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/cua_cli-0.18.0-py3-none-win_arm64.whl.sigstore.json",
-     "name": "cua_cli-0.18.0-py3-none-win_arm64.whl.sigstore.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/release-artifacts.json",
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/release-artifacts.json",
      "name": "release-artifacts.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-0.18.0.tgz",
-     "name": "trycua-cua-0.18.0.tgz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-0.23.0.tgz",
+     "name": "trycua-cua-0.23.0.tgz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-0.18.0.tgz.sigstore.json",
-     "name": "trycua-cua-0.18.0.tgz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-0.23.0.tgz.sigstore.json",
+     "name": "trycua-cua-0.23.0.tgz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-darwin-arm64-0.18.0.tgz",
-     "name": "trycua-cua-darwin-arm64-0.18.0.tgz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-darwin-arm64-0.23.0.tgz",
+     "name": "trycua-cua-darwin-arm64-0.23.0.tgz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-darwin-arm64-0.18.0.tgz.sigstore.json",
-     "name": "trycua-cua-darwin-arm64-0.18.0.tgz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-darwin-arm64-0.23.0.tgz.sigstore.json",
+     "name": "trycua-cua-darwin-arm64-0.23.0.tgz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-darwin-x64-0.18.0.tgz",
-     "name": "trycua-cua-darwin-x64-0.18.0.tgz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-darwin-x64-0.23.0.tgz",
+     "name": "trycua-cua-darwin-x64-0.23.0.tgz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-darwin-x64-0.18.0.tgz.sigstore.json",
-     "name": "trycua-cua-darwin-x64-0.18.0.tgz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-darwin-x64-0.23.0.tgz.sigstore.json",
+     "name": "trycua-cua-darwin-x64-0.23.0.tgz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-linux-arm64-gnu-0.18.0.tgz",
-     "name": "trycua-cua-linux-arm64-gnu-0.18.0.tgz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-linux-arm64-gnu-0.23.0.tgz",
+     "name": "trycua-cua-linux-arm64-gnu-0.23.0.tgz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-linux-arm64-gnu-0.18.0.tgz.sigstore.json",
-     "name": "trycua-cua-linux-arm64-gnu-0.18.0.tgz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-linux-arm64-gnu-0.23.0.tgz.sigstore.json",
+     "name": "trycua-cua-linux-arm64-gnu-0.23.0.tgz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-linux-x64-gnu-0.18.0.tgz",
-     "name": "trycua-cua-linux-x64-gnu-0.18.0.tgz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-linux-x64-gnu-0.23.0.tgz",
+     "name": "trycua-cua-linux-x64-gnu-0.23.0.tgz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-linux-x64-gnu-0.18.0.tgz.sigstore.json",
-     "name": "trycua-cua-linux-x64-gnu-0.18.0.tgz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-linux-x64-gnu-0.23.0.tgz.sigstore.json",
+     "name": "trycua-cua-linux-x64-gnu-0.23.0.tgz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-win32-arm64-msvc-0.18.0.tgz",
-     "name": "trycua-cua-win32-arm64-msvc-0.18.0.tgz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-win32-arm64-msvc-0.23.0.tgz",
+     "name": "trycua-cua-win32-arm64-msvc-0.23.0.tgz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-win32-arm64-msvc-0.18.0.tgz.sigstore.json",
-     "name": "trycua-cua-win32-arm64-msvc-0.18.0.tgz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-win32-arm64-msvc-0.23.0.tgz.sigstore.json",
+     "name": "trycua-cua-win32-arm64-msvc-0.23.0.tgz.sigstore.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-win32-x64-msvc-0.18.0.tgz",
-     "name": "trycua-cua-win32-x64-msvc-0.18.0.tgz"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-win32-x64-msvc-0.23.0.tgz",
+     "name": "trycua-cua-win32-x64-msvc-0.23.0.tgz"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.18.0/trycua-cua-win32-x64-msvc-0.18.0.tgz.sigstore.json",
-     "name": "trycua-cua-win32-x64-msvc-0.18.0.tgz.sigstore.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/trycua-cua-win32-x64-msvc-0.23.0.tgz.sigstore.json",
+     "name": "trycua-cua-win32-x64-msvc-0.23.0.tgz.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/CuaSDKFFI.xcframework.zip",
+     "name": "CuaSDKFFI.xcframework.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/CuaSDKFFI.xcframework.zip.sigstore.json",
+     "name": "CuaSDKFFI.xcframework.zip.sigstore.json"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-sdk-v0.23.0/checksums.txt",
+     "name": "checksums.txt"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-11T00:19:28Z",
+   "tag_name": "cua-sdk-v0.23.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T22:17:34Z",
+   "tag_name": "cua-sdk-v0.22.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T15:34:34Z",
+   "tag_name": "cua-sdk-v0.21.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T11:03:03Z",
+   "tag_name": "cua-sdk-v0.20.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T05:34:07Z",
+   "tag_name": "cua-sdk-v0.19.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T02:42:31Z",
+   "tag_name": "cua-sdk-v0.18.1"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-09T17:35:55Z",
@@ -2540,7 +2755,25 @@
    "tag_name": "cua-sdk-v0.2.0"
   },
   {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T20:28:38Z",
+   "tag_name": "bench-v0.4.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-10T16:52:06Z",
+   "tag_name": "bench-v0.4.0"
+  },
+  {
    "assets": [
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/nightly-cua-driver-rs-v0.45.2-nightly.20261109.42561464362/_install-rust.sh",
+     "name": "_install-rust.sh"
+    },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/nightly-cua-driver-rs-v0.45.2-nightly.20261109.42561464362/checksums.txt",
      "name": "checksums.txt"
@@ -2616,10 +2849,6 @@
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/nightly-cua-driver-rs-v0.45.2-nightly.20261109.42561464362/uninstall.sh",
      "name": "uninstall.sh"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/nightly-cua-driver-rs-v0.45.2-nightly.20261109.42561464362/_install-rust.sh",
-     "name": "_install-rust.sh"
     }
    ],
    "draft": false,
@@ -2741,12 +2970,8 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-0.20.0-nightly.20261103.cb49620-darwin-universal.dmg",
-     "name": "cua-spaces-0.20.0-nightly.20261103.cb49620-darwin-universal.dmg"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-0.21.0-nightly.20261104.fc53638-darwin-universal.dmg",
-     "name": "cua-spaces-0.21.0-nightly.20261104.fc53638-darwin-universal.dmg"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-0.21.0-nightly.20261105.55e1f5d-darwin-universal.dmg",
+     "name": "cua-spaces-0.21.0-nightly.20261105.55e1f5d-darwin-universal.dmg"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-0.21.0-nightly.20261105.14.3ae5a40-darwin-universal.dmg",
@@ -2761,10 +2986,6 @@
      "name": "cua-spaces-0.21.0-nightly.20261105.17.2ee2221-darwin-universal.dmg"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-0.21.0-nightly.20261105.55e1f5d-darwin-universal.dmg",
-     "name": "cua-spaces-0.21.0-nightly.20261105.55e1f5d-darwin-universal.dmg"
-    },
-    {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-0.22.0-nightly.20261106.20.1bb7e7f-darwin-universal.dmg",
      "name": "cua-spaces-0.22.0-nightly.20261106.20.1bb7e7f-darwin-universal.dmg"
     },
@@ -2777,32 +2998,32 @@
      "name": "cua-spaces-0.23.0-nightly.20261107.27.59c2fa6-darwin-universal.dmg"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-0.27.0-nightly.20261109.30-arm64.AppImage",
-     "name": "Cua-Spaces-0.27.0-nightly.20261109.30-arm64.AppImage"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-0.27.0-nightly.20261109.30-x86_64.AppImage",
-     "name": "Cua-Spaces-0.27.0-nightly.20261109.30-x86_64.AppImage"
-    },
-    {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-0.27.0-nightly.20261109.30.9fd6729-darwin-universal.dmg",
      "name": "cua-spaces-0.27.0-nightly.20261109.30.9fd6729-darwin-universal.dmg"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-nightly-appcast.xml",
-     "name": "cua-spaces-nightly-appcast.xml"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-0.31.0-nightly.20261110.32.57942a0-darwin-universal.dmg",
+     "name": "cua-spaces-0.31.0-nightly.20261110.32.57942a0-darwin-universal.dmg"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-nightly-darwin-universal.dmg",
-     "name": "cua-spaces-nightly-darwin-universal.dmg"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-0.32.0-nightly.20261110.33-arm64.AppImage",
+     "name": "Cua-Spaces-0.32.0-nightly.20261110.33-arm64.AppImage"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-nightly-linux-amd64.deb",
-     "name": "cua-spaces-nightly-linux-amd64.deb"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-0.32.0-nightly.20261110.33.b34e824-darwin-universal.dmg",
+     "name": "cua-spaces-0.32.0-nightly.20261110.33.b34e824-darwin-universal.dmg"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-nightly-linux-arm64.AppImage",
-     "name": "cua-spaces-nightly-linux-arm64.AppImage"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces_0.32.0-nightly.20261110.33_amd64.deb",
+     "name": "cua-spaces_0.32.0-nightly.20261110.33_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces_0.32.0-nightly.20261110.33_arm64.deb",
+     "name": "cua-spaces_0.32.0-nightly.20261110.33_arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-0.32.0-nightly.20261110.33-x86_64.AppImage",
+     "name": "Cua-Spaces-0.32.0-nightly.20261110.33-x86_64.AppImage"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-nightly-linux-arm64.deb",
@@ -2821,28 +3042,24 @@
      "name": "cua-spaces-nightly-windows-x64-setup.exe"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-Setup-0.27.0-nightly.20261109.30-arm64.exe",
-     "name": "Cua-Spaces-Setup-0.27.0-nightly.20261109.30-arm64.exe"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-Setup-0.32.0-nightly.20261110.33-arm64.exe",
+     "name": "Cua-Spaces-Setup-0.32.0-nightly.20261110.33-arm64.exe"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-Setup-0.27.0-nightly.20261109.30-arm64.exe.blockmap",
-     "name": "Cua-Spaces-Setup-0.27.0-nightly.20261109.30-arm64.exe.blockmap"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-Setup-0.32.0-nightly.20261110.33-arm64.exe.blockmap",
+     "name": "Cua-Spaces-Setup-0.32.0-nightly.20261110.33-arm64.exe.blockmap"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-Setup-0.27.0-nightly.20261109.30-x64.exe",
-     "name": "Cua-Spaces-Setup-0.27.0-nightly.20261109.30-x64.exe"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-Setup-0.32.0-nightly.20261110.33-x64.exe",
+     "name": "Cua-Spaces-Setup-0.32.0-nightly.20261110.33-x64.exe"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-Setup-0.27.0-nightly.20261109.30-x64.exe.blockmap",
-     "name": "Cua-Spaces-Setup-0.27.0-nightly.20261109.30-x64.exe.blockmap"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-Setup-0.32.0-nightly.20261110.33-x64.exe.blockmap",
+     "name": "Cua-Spaces-Setup-0.32.0-nightly.20261110.33-x64.exe.blockmap"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces_0.27.0-nightly.20261109.30_amd64.deb",
-     "name": "cua-spaces_0.27.0-nightly.20261109.30_amd64.deb"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces_0.27.0-nightly.20261109.30_arm64.deb",
-     "name": "cua-spaces_0.27.0-nightly.20261109.30_arm64.deb"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces-nightly-appcast.xml",
+     "name": "cua-spaces-nightly-appcast.xml"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/nightly-linux-arm64.yml",
@@ -2853,12 +3070,24 @@
      "name": "nightly-linux.yml"
     },
     {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/nightly.yml",
+     "name": "nightly.yml"
+    },
+    {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/nightly.json",
      "name": "nightly.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/nightly.yml",
-     "name": "nightly.yml"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces_0.33.0-nightly.20261111.34_arm64.deb",
+     "name": "cua-spaces_0.33.0-nightly.20261111.34_arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/cua-spaces_0.33.0-nightly.20261111.34_amd64.deb",
+     "name": "cua-spaces_0.33.0-nightly.20261111.34_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-nightly/Cua-Spaces-0.33.0-nightly.20261111.34-arm64.AppImage",
+     "name": "Cua-Spaces-0.33.0-nightly.20261111.34-arm64.AppImage"
     }
    ],
    "draft": false,
@@ -2879,20 +3108,6 @@
    "prerelease": false,
    "published_at": "2026-10-01T20:15:02Z",
    "tag_name": "sandbox-v0.9.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-19T05:48:35Z",
-   "tag_name": "bench-v0.3.1"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-01T20:20:48Z",
-   "tag_name": "bench-v0.3.0"
   },
   {
    "assets": [],
@@ -2995,16 +3210,12 @@
      "name": "beta-linux.yml"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/beta-mac.yml",
-     "name": "beta-mac.yml"
-    },
-    {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/beta.yml",
      "name": "beta.yml"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/cua-spaces-appcast.xml",
-     "name": "cua-spaces-appcast.xml"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/beta-mac.yml",
+     "name": "beta-mac.yml"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/latest-linux-arm64.yml",
@@ -3017,6 +3228,10 @@
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/latest.yml",
      "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-spaces-latest/cua-spaces-appcast.xml",
+     "name": "cua-spaces-appcast.xml"
     }
    ],
    "draft": false,
@@ -3031,6 +3246,10 @@
      "name": "install.ps1"
     },
     {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/uninstall.sh",
+     "name": "uninstall.sh"
+    },
+    {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/install.sh",
      "name": "install.sh"
     },
@@ -3041,10 +3260,6 @@
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/uninstall.ps1",
      "name": "uninstall.ps1"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-install-latest/uninstall.sh",
-     "name": "uninstall.sh"
     }
    ],
    "draft": false,
@@ -3055,28 +3270,32 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-aarch64-apple-darwin.catalog.json",
-     "name": "cua-perception-0.2.1-aarch64-apple-darwin.catalog.json"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-aarch64-apple-darwin.install-check.json",
-     "name": "cua-perception-0.2.1-aarch64-apple-darwin.install-check.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-aarch64-apple-darwin.runtime-contract.json",
+     "name": "cua-perception-0.2.1-aarch64-apple-darwin.runtime-contract.json"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-aarch64-apple-darwin.provenance.json",
      "name": "cua-perception-0.2.1-aarch64-apple-darwin.provenance.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-aarch64-apple-darwin.runtime-contract.json",
-     "name": "cua-perception-0.2.1-aarch64-apple-darwin.runtime-contract.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-aarch64-apple-darwin.catalog.json",
+     "name": "cua-perception-0.2.1-aarch64-apple-darwin.catalog.json"
     },
     {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-aarch64-apple-darwin.sbom.spdx.json",
-     "name": "cua-perception-0.2.1-aarch64-apple-darwin.sbom.spdx.json"
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/SHA256SUMS",
+     "name": "SHA256SUMS"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-aarch64-apple-darwin.install-check.json",
+     "name": "cua-perception-0.2.1-aarch64-apple-darwin.install-check.json"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-aarch64-apple-darwin.tar.gz",
      "name": "cua-perception-0.2.1-aarch64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-aarch64-apple-darwin.sbom.spdx.json",
+     "name": "cua-perception-0.2.1-aarch64-apple-darwin.sbom.spdx.json"
     },
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-x86_64-pc-windows-msvc.catalog.json",
@@ -3125,10 +3344,6 @@
     {
      "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/cua-perception-0.2.1-x86_64-unknown-linux-gnu.tar.gz",
      "name": "cua-perception-0.2.1-x86_64-unknown-linux-gnu.tar.gz"
-    },
-    {
-     "browser_download_url": "https://github.com/trycua/cua/releases/download/cua-perception-v0.2.1/SHA256SUMS",
-     "name": "SHA256SUMS"
     }
    ],
    "draft": false,
@@ -3445,8 +3660,8 @@
   "train-v0.1.1",
   "som-v0.2.0",
   "som-v0.1.4",
-  "sandbox-v0.9.1",
-  "sandbox-v0.9.0",
+  "sandbox-v0.10.1",
+  "sandbox-v0.10.0",
   "sandbox-apps-v0.1.3",
   "sandbox-apps-v0.1.2",
   "pylume-v0.2.1",
@@ -3492,6 +3707,9 @@
   "cuabot-v1.0.15",
   "cua-v0.1.8",
   "cua-v0.1.7",
+  "cua-spacesd-v0.15.1",
+  "cua-spacesd-v0.15.0",
+  "cua-spacesd-v0.14.0",
   "cua-spacesd-v0.13.0",
   "cua-spacesd-v0.12.8",
   "cua-spacesd-v0.12.7",
@@ -3524,6 +3742,23 @@
   "cua-spacesd-v0.1.2",
   "cua-spacesd-v0.1.1",
   "cua-spacesd-v0.1.0",
+  "cua-spaces-v0.33.1",
+  "cua-spaces-v0.33.0",
+  "cua-spaces-v0.32.0",
+  "cua-spaces-v0.31.4",
+  "cua-spaces-v0.31.3",
+  "cua-spaces-v0.31.2",
+  "cua-spaces-v0.31.1",
+  "cua-spaces-v0.31.0",
+  "cua-spaces-v0.30.0",
+  "cua-spaces-v0.29.0",
+  "cua-spaces-v0.28.1",
+  "cua-spaces-v0.28.0",
+  "cua-spaces-v0.27.3",
+  "cua-spaces-v0.27.2",
+  "cua-spaces-v0.27.1",
+  "cua-spaces-v0.27.0",
+  "cua-spaces-v0.26.2",
   "cua-spaces-v0.26.1",
   "cua-spaces-v0.26.0",
   "cua-spaces-v0.25.2",
@@ -3613,8 +3848,16 @@
   "cua-spaces-v0.2.0",
   "cua-spaces-v0.1.0",
   "cua-spaces-v0.1.0-rc.1",
+  "cua-spaces-nightly-20261110.33",
+  "cua-spaces-nightly-20261110.32",
   "cua-spaces-nightly",
   "cua-spaces-latest",
+  "cua-sdk-v0.24.0",
+  "cua-sdk-v0.23.0",
+  "cua-sdk-v0.22.0",
+  "cua-sdk-v0.21.0",
+  "cua-sdk-v0.20.0",
+  "cua-sdk-v0.19.0",
   "cua-sdk-v0.18.1",
   "cua-sdk-v0.18.0",
   "cua-sdk-v0.17.1",
@@ -3649,6 +3892,13 @@
   "cua-hyprland-kit-v1.1.0-omarchy-stable-20260910",
   "cua-driver-v0.2.0",
   "cua-driver-v0.1.9",
+  "cua-driver-rs-v0.47.5",
+  "cua-driver-rs-v0.47.4",
+  "cua-driver-rs-v0.47.3",
+  "cua-driver-rs-v0.47.2",
+  "cua-driver-rs-v0.47.1",
+  "cua-driver-rs-v0.47.0",
+  "cua-driver-rs-v0.46.3",
   "cua-driver-rs-v0.46.2",
   "cua-driver-rs-v0.46.1",
   "cua-driver-rs-v0.46.0",
@@ -3812,8 +4062,8 @@
   "cloud-v0.1.1",
   "cli-v0.1.15",
   "cli-v0.1.14",
-  "bench-v0.3.1",
-  "bench-v0.3.0",
+  "bench-v0.4.1",
+  "bench-v0.4.0",
   "bench-ui-v0.7.1",
   "auto-v0.1.2",
   "auto-v0.1.1",

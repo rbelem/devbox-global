@@ -1,0 +1,27 @@
+{
+  "generation": 1,
+  "notes": "`hc server restart --fresh` takes your current shell's environment for new terminals without ending running programs. Run it from a terminal outside Herdr if an agent started Herdr with unwanted settings.",
+  "targets": {
+    "linux-aarch64": {
+      "sha256": "5f3037379d15cc76cfc72d2fd1a4262ea1c5b24df278bf7cfd8adcff7b914862",
+      "url": "https://releases.herdr.dev/core/0.1.20/herdr-core-linux-aarch64.tar.gz"
+    },
+    "linux-x86_64": {
+      "sha256": "ac6b86890c451a37584620aaa438b71bc0d0bd430a2e7c1d7e095f052c414e74",
+      "url": "https://releases.herdr.dev/core/0.1.20/herdr-core-linux-x86_64.tar.gz"
+    },
+    "macos-aarch64": {
+      "sha256": "e58985d3fef6e909f33d3c5a4426e4898c81564a557d4636591cec9e3a06af26",
+      "url": "https://releases.herdr.dev/core/0.1.20/herdr-core-macos-aarch64.tar.gz"
+    },
+    "macos-x86_64": {
+      "sha256": "36c0331c3ffea0ffaada195b89a3c7496f7f3fc5bf35e4605c19c84e5c205a56",
+      "url": "https://releases.herdr.dev/core/0.1.20/herdr-core-macos-x86_64.tar.gz"
+    },
+    "windows-x86_64": {
+      "sha256": "13b29c61a9932ea028c36ccc419bcf3ec679f2fd6c528f93c8fbd1d7331ee20b",
+      "url": "https://releases.herdr.dev/core/0.1.20/herdr-core-windows-x86_64.zip"
+    }
+  },
+  "version": "0.1.20"
+}

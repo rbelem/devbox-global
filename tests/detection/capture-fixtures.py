@@ -81,6 +81,14 @@ REPOS = [
     "zvec-ai/zvec-grep",
 ]
 
+# The releases.herdr.dev products the herdr-app and herdr-core flakes
+# download from: the latest.json manifest is recorded next to the GitHub
+# snapshots, under fixtures/manifests/.
+MANIFEST_REPOS = {
+    "herdrdev/herdr-app": "app",
+    "herdrdev/herdr-core": "core",
+}
+
 # Repositories whose interesting tags have no GitHub release object, so their
 # publish date has to come from the commit API instead.
 TAG_DATE_REPOS = [
@@ -201,6 +209,26 @@ def snapshot(repo):
     return repo, len(releases), len(tags), branch
 
 
+def snapshot_manifest(repo, product):
+    owner, name = repo.split("/")
+    url = f"https://releases.herdr.dev/{product}/latest.json"
+    proc = subprocess.run(
+        ["curl", "-sSL", "--max-time", "30", url],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    manifest = json.loads(proc.stdout)
+    if not isinstance(manifest, dict) or not manifest.get("version"):
+        raise SystemExit(f"manifest {url} did not answer with a version")
+    target = os.path.join(FIXTURES, "manifests", f"{owner}__{name}.json")
+    os.makedirs(os.path.dirname(target), exist_ok=True)
+    with open(target, "w") as handle:
+        json.dump(manifest, handle, indent=2, sort_keys=True)
+        handle.write("\n")
+    return repo, manifest["version"]
+
+
 def main():
     args = sys.argv[1:]
     repos = REPOS
@@ -210,6 +238,12 @@ def main():
     with ThreadPoolExecutor(max_workers=6) as pool:
         for repo, releases, tags, branch in pool.map(snapshot, repos):
             print(f"{repo}\t{releases} releases\t{tags} tags\tbranch={branch}")
+    manifest_repos = MANIFEST_REPOS
+    if args:
+        manifest_repos = {r: p for r, p in MANIFEST_REPOS.items() if r in repos}
+    for repo, product in manifest_repos.items():
+        _repo, version = snapshot_manifest(repo, product)
+        print(f"{repo}\tmanifest latest={version}\tbranch=-")
 
 
 if __name__ == "__main__":

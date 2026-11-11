@@ -10,7 +10,7 @@
       forAllSystems =
         f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-      version = "0.46.1";
+      version = "0.47.5";
     in
     {
       packages = forAllSystems (pkgs: rec {
@@ -21,7 +21,7 @@
           # Upstream ships amd64-linux only.
           src = pkgs.fetchurl {
             url = "https://github.com/trycua/cua/releases/download/cua-driver-rs-v${version}/cua-driver-rs-${version}-linux-x86_64-binary.tar.gz";
-            hash = "sha256-P0XFS3NruMvXW0rZAJX87qmnh8IryeYLF8ocghXcyWs=";
+            hash = "sha256-kq6h9+wKY2j3gdE7ui7gziKIWeoyhBWVg27hZI00Jto=";
           };
 
           # Tarball is flat: cua-driver, cua-cursor-theme, wayland-helper/,

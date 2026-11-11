@@ -1,8 +1,7 @@
 # Herdr desktop app - terminals and coding agents that keep running.
 # The app binary ships prebuilt from releases.herdr.dev (the GitHub repo has
-# no release assets), so update-flake cannot track it: the release manifest at
-# https://releases.herdr.dev/app/latest.json carries the newest version and
-# the sha256 of every target. Bump `version` and the hashes here by hand.
+# no release assets); update-flake tracks the release manifest at
+# https://releases.herdr.dev/app/latest.json and fills the hashes from it.
 {
   description = "herdr-app - Herdr desktop app: terminals and coding agents that keep running";
 
@@ -17,7 +16,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      version = "0.1.14";
+      version = "0.1.15";
 
       systemToTarget = {
         "x86_64-linux" = "linux-x86_64";
@@ -29,8 +28,8 @@
       # Upstream publishes them as hex sha256 in the manifest:
       #   nix hash convert --hash-algo sha256 --to sri <hex>
       systemToHash = {
-        "x86_64-linux" = "sha256-R1o4P49DnjGRqGY1tcEobOTf0tn83x58vf3Wxxdvj/M=";
-        "aarch64-linux" = "sha256-MKQxzpXBc1bv6K/tUMTq+IiNg+9FrNmqkRCU1RcH0Ac=";
+        "x86_64-linux" = "sha256-+Z4eBL6CwOELL2nudAPKNDhvSA2SUR31hlr0cD52Vd0=";
+        "aarch64-linux" = "sha256-Dl/ZWgVkUuwx4y/mqlpHqLHUICCujzoQzaLgoQAdQSQ=";
       };
     in
     {

@@ -9,6 +9,10 @@ the question the table asks:
     compared against, which release line does it belong to, and what is the
     newest version upstream published in that line?
 
+    A flake whose artifact is published on releases.herdr.dev (herdr-app,
+    herdr-core) is compared against the product's latest.json manifest
+    instead of a GitHub release line.
+
 The rules are the ones written down in tests/detection/README.md. The
 "newest version in a release line" computation is the one in
 tests/detection/oracle.py (ported here, not imported: the oracle lives under
@@ -47,6 +51,7 @@ COLUMNS = [
     "branch",  # the "# branch-tracking:" comment
     "input",  # the flake input attribute to re-lock
     "version_source",  # attr | input-url | none
+    "manifest",  # the latest.json URL of a releases.herdr.dev flake
 ]
 
 EMPTY = "-"
@@ -244,6 +249,16 @@ IN_WORD = re.compile(r"\bin\b")
 INHERIT_RE = re.compile(r"inherit\b")
 WITH_RE = re.compile(r"\s*with\b")
 REGISTRY_HOSTS = ("registry.npmjs.org", "files.pythonhosted.org", "pypi.org")
+# The Herdr release service serves a latest.json manifest per product, and the
+# flakes whose artifact lives there (herdr-app, herdr-core) download from the
+# manifest, not from a GitHub release. The manifest is the only place that
+# knows which version is installable and what its hashes are. Only this host
+# is probed: an arbitrary URL must not be fetched just because it ends in
+# latest.json.
+MANIFEST_HOST = "releases.herdr.dev"
+MANIFEST_URL_RE = re.compile(
+    r"https://releases\.herdr\.dev/([A-Za-z0-9_-]+)/"
+)
 # Attribute names that can carry the versioned artifact.
 SOURCE_NAMES = {
     "src",
@@ -758,6 +773,26 @@ def literal_urls(text):
     return re.findall(r"https?://[^\s\"']+", text)
 
 
+def manifest_url_from_text(text):
+    """The latest.json manifest of a releases.herdr.dev artifact URL."""
+    for url in literal_urls(text):
+        match = MANIFEST_URL_RE.match(url)
+        if match:
+            return "https://%s/%s/latest.json" % (MANIFEST_HOST, match.group(1))
+    return None
+
+
+def detect_manifest(named_candidates, candidates):
+    """The manifest URL of the flake's artifact, or None."""
+    texts = [value for _name, value, _offset in named_candidates]
+    texts += [value for value, _offset in candidates]
+    for text in texts:
+        url = manifest_url_from_text(text)
+        if url:
+            return url
+    return None
+
+
 def classify_urls(text):
     """Classify a source expression by the URLs it carries."""
     for url in literal_urls(text):
@@ -1096,7 +1131,7 @@ def newest_in_line(identity, github):
     )
 
 
-def detect_status(identity, context, sha_pinned, github):
+def detect_status(identity, context, sha_pinned, github, manifests):
     """The newest upstream version, how it relates, and why.
 
     The reason names the blocker:
@@ -1115,6 +1150,16 @@ def detect_status(identity, context, sha_pinned, github):
     branch = context["directives"].get("branch-tracking")
     if branch:
         return "branch:%s" % branch, "ahead", "branch", False
+    if identity["kind"] == "manifest":
+        # The manifest serves the newest version; there is no release line to
+        # search. An unreachable manifest is "no upstream information".
+        manifest = manifests.latest(identity["manifest_url"])
+        found = (manifest or {}).get("version")
+        if not found:
+            return "unknown", "unknown", EMPTY, False
+        prerelease = is_prerelease(found)
+        relation = compare_versions(found, identity["display"])
+        return found, relation, ("pre" if prerelease else EMPTY), prerelease
     if not comparable(identity):
         return "unknown", "unknown", EMPTY, False
     found, prerelease = newest_in_line(identity, github)
@@ -1181,6 +1226,39 @@ class GitHub:
                 as_list(self.api("repos/%s/tags?per_page=100" % name))
             )
         return entry["tags"]
+
+
+class Manifests:
+    """The latest.json manifest of a releases.herdr.dev product, cached."""
+
+    def __init__(self, binary="curl"):
+        self.binary = binary
+        self.cache = {}
+
+    def latest(self, url):
+        """The parsed manifest, or None when it cannot be fetched."""
+        if not url:
+            return None
+        if url not in self.cache:
+            try:
+                proc = subprocess.run(
+                    [self.binary, "-sSL", "--max-time", "20", url],
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+            except OSError:
+                proc = None
+            manifest = None
+            if proc and proc.returncode == 0:
+                try:
+                    manifest = json.loads(proc.stdout)
+                except ValueError:
+                    manifest = None
+                if not isinstance(manifest, dict):
+                    manifest = None
+            self.cache[url] = manifest
+        return self.cache[url]
 
 
 def tag_names(payload):
@@ -1306,13 +1384,16 @@ def detect_context(nix, flake):
     primary = find_primary(nix, flake)
     scopes = nix.scopes(primary[0] + 1) if primary else nix.scopes(0)
     inputs = parse_inputs(nix)
+    candidates = source_candidates(nix, scopes)
+    named = named_source_candidates(nix, scopes)
     return {
         "directives": parse_comments(nix.comments),
         "inputs": inputs,
         "source_input": pick_input(inputs, flake),
         "scopes": scopes,
-        "candidates": source_candidates(nix, scopes),
-        "named_candidates": named_source_candidates(nix, scopes),
+        "candidates": candidates,
+        "named_candidates": named,
+        "manifest_url": detect_manifest(named, candidates),
     }
 
 
@@ -1323,6 +1404,12 @@ def detect_identity(nix, context):
     kind, origin = detect_source(
         nix, scopes, candidates, context["inputs"], context["source_input"]
     )
+    manifest_url = context.get("manifest_url")
+    if manifest_url:
+        # The artifact is published on releases.herdr.dev, not as a GitHub
+        # release: the manifest is what makes a version installable, so it
+        # decides the kind.
+        kind = "manifest"
     repo = detect_repo(
         nix,
         scopes,
@@ -1342,6 +1429,7 @@ def detect_identity(nix, context):
         "kind": kind,
         "origin": origin,
         "repo": repo,
+        "manifest_url": manifest_url or "",
         "version_raw": version_raw,
         "version_source": version_source,
         "dynamic": dynamic,
@@ -1359,7 +1447,7 @@ def origin_name(identity):
     return identity["repo"] or "unknown"
 
 
-def analyze(name, path, github):
+def analyze(name, path, github, manifests):
     """Everything the table and the update path need to know about a flake."""
     with open(path) as handle:
         nix = NixFile(handle.read())
@@ -1376,6 +1464,7 @@ def analyze(name, path, github):
         context,
         sha_pinned,
         github,
+        manifests,
     )
 
     kind = identity["kind"]
@@ -1403,6 +1492,7 @@ def analyze(name, path, github):
         "branch": context["directives"].get("branch-tracking", EMPTY),
         "input": context["source_input"][0] if context["source_input"] else EMPTY,
         "version_source": identity["version_source"],
+        "manifest": identity["manifest_url"] or EMPTY,
     }
 
 
@@ -1415,6 +1505,9 @@ def main():
     )
     parser.add_argument(
         "--gh", default="gh", help="the gh binary to query the upstream repositories"
+    )
+    parser.add_argument(
+        "--curl", default="curl", help="the curl binary to fetch latest.json manifests"
     )
     parser.add_argument(
         "--flake", action="append", default=[], help="only report these flakes"
@@ -1430,13 +1523,14 @@ def main():
         names = [name for name in names if name in wanted]
 
     github = GitHub(args.gh)
+    manifests = Manifests(args.curl)
 
     print("#" + "\t".join(COLUMNS))
     for name in names:
         path = os.path.join(devbox_d, name.split("#", 1)[0], "flake.nix")
         if not os.path.isfile(path):
             continue
-        facts = analyze(name, path, github)
+        facts = analyze(name, path, github, manifests)
         print("\t".join(str(facts[column]) or EMPTY for column in COLUMNS))
     return 0
 

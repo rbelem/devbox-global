@@ -1,22 +1,57 @@
 #!/usr/bin/env python3
-"""Offline stand-in for `curl`, used for the release-asset existence check.
+"""Offline stand-in for `curl`, used for the release-asset existence check
+and for the releases.herdr.dev latest.json manifests.
 
 The script verifies a candidate version by asking GitHub whether the release
 asset it would download exists. Offline that question is answered from the
 recorded fixtures: 200 when the fixture lists the asset, 404 otherwise.
 
     curl -sIL -o /dev/null --max-time 20 -w '%{http_code}' <url>
+
+The releases.herdr.dev manifest is served from fixtures/manifests/:
+
+    curl -sSL --max-time 20 <url>/latest.json   -> the recorded manifest
+    curl -sIL -o /dev/null --max-time 20 -w '%{http_code}' <url>/<version>/<file>
+        -> 200 when the recorded manifest lists an asset with that URL
 """
 
 import json
 import os
+import re
 import sys
 
 FIXTURES = os.environ.get("UPDATE_FLAKE_FIXTURES", "")
+MANIFESTS = os.path.join(FIXTURES, "manifests")
+MANIFEST_RE = re.compile(r"^https://releases\.herdr\.dev/([A-Za-z0-9_-]+)/latest\.json$")
+PRODUCT_URL_RE = re.compile(r"^https://releases\.herdr\.dev/([A-Za-z0-9_-]+)/")
+
+
+def load_manifest(product):
+    path = os.path.join(MANIFESTS, f"herdrdev__herdr-{product}.json")
+    if not os.path.exists(path):
+        return None
+    with open(path) as handle:
+        return json.load(handle)
+
+
+def manifest_status(url):
+    """200 when the recorded manifest lists an asset at url, else 404."""
+    match = PRODUCT_URL_RE.match(url)
+    if not match:
+        return "404"
+    manifest = load_manifest(match.group(1))
+    if not manifest:
+        return "404"
+    for entry in manifest.get("targets", {}).values():
+        if isinstance(entry, dict) and entry.get("url") == url:
+            return "200"
+    return "404"
 
 
 def status_for(url):
     parts = url.split("/")
+    if len(parts) >= 3 and parts[2] == "releases.herdr.dev":
+        return manifest_status(url)
     if len(parts) < 7 or "github.com" not in parts[2]:
         return "404"
     owner, repo = parts[3], parts[4]
@@ -39,12 +74,26 @@ def status_for(url):
 
 
 def main():
-    args = [arg for arg in sys.argv[1:] if not arg.startswith("-")]
+    args = sys.argv[1:]
+    writes_body = not any(arg == "/dev/null" for arg in args)
+    wants_code = any(arg in ("-w", "--write-out") for arg in args)
+    args = [arg for arg in args if not arg.startswith("-")]
     urls = [arg for arg in args if arg.startswith("http")]
     if not urls:
         return 1
-    sys.stdout.write(status_for(urls[-1]))
-    return 0
+    url = urls[-1]
+    match = MANIFEST_RE.match(url)
+    if match and not wants_code:
+        manifest = load_manifest(match.group(1))
+        if manifest is None:
+            sys.stderr.write(f"curl: (22) The requested URL returned error: 404\n")
+            return 22
+        sys.stdout.write(json.dumps(manifest))
+        return 0
+    code = status_for(url)
+    if wants_code:
+        sys.stdout.write(code)
+    return 0 if code.startswith("2") else 22
 
 
 if __name__ == "__main__":

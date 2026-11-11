@@ -27,6 +27,7 @@ produces the same table. The table is compared with the contract in
 |-----------------------|-------------------------------------------------------------------|
 | `expected.tsv`        | The contract: one row per enabled flake, with the repository, the release line, the installed version, the newest upstream version and the status the table must show. |
 | `expected-skipped.txt`| The flake directories that are not enabled in `devbox.json`.       |
+| `fixtures/manifests/` | The recorded `latest.json` manifests of the `releases.herdr.dev` products (herdr-app, herdr-core). |
 | `oracle.py`           | An independent implementation of the "newest version in a line" rule, computed from the fixtures. It shares no code with the script and re-checks the contract against the recorded upstream data. |
 | `heuristics.sh`       | Regression test for the shapes a wrong answer would hide: a project with two release lines, and a package with no version of its own. |
 | `fixtures/`           | The recorded upstream data (releases, tags, default branch) per repository. |
@@ -133,6 +134,28 @@ one applies:
 A `devbox.d/<flake>#<variant>` entry (devbox lets a package select one
 attribute of a flake) resolves to the same flake directory: it is reported
 with the flake's version, and it is not updated a second time.
+
+## The manifest kind
+
+`herdr-app` and `herdr-core` download their artifact from `releases.herdr.dev`,
+not from a GitHub release (the repositories publish no release assets). The
+service serves a `latest.json` manifest per product that carries the newest
+version and the sha256 of every target. The detection records the manifest URL
+in the `manifest` column of its own output and compares the installed version
+against the manifest's `version`:
+
+- kind = `manifest`, prefix/major come from the version attribute as usual;
+- nothing is read from the GitHub repository or its tags;
+- an unreachable manifest is "no upstream information" (`??`), never an error.
+
+The manifest fixtures live in `fixtures/manifests/<owner>__<repo>.json` and are
+recorded by `capture-fixtures.py` next to the GitHub snapshots.
+
+The update path is manifest-aware too: a herdr-* bump rewrites `version` and
+fills every entry of `systemToHash` directly from the manifest's hex sha256
+(converted to SRI), for every architecture, with no build step. When the
+manifest no longer serves the candidate version (or cannot be fetched), the
+updater falls back to the fakeHash reset.
 
 ## Refreshing the fixtures
 

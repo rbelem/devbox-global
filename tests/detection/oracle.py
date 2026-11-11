@@ -39,6 +39,13 @@ def load(repo):
         return json.load(handle)
 
 
+def load_manifest(repo):
+    owner, name = repo.split("/")
+    path = os.path.join(FIXTURES, "manifests", f"{owner}__{name}.json")
+    with open(path) as handle:
+        return json.load(handle)
+
+
 def numeric_parts(version):
     """Leading numeric groups of a version, e.g. '0.9.92' -> (0, 9, 92)."""
     parts = []
@@ -203,6 +210,10 @@ def compute(fields):
     major = int(major)
     if repo in ("unknown", "") or kind == "none":
         got, pre = None, False
+    elif kind == "manifest":
+        # releases.herdr.dev serves the newest version directly.
+        got = load_manifest(repo).get("version")
+        pre = bool(got and PRERELEASE_SUFFIX.search(got.split("+")[0]))
     else:
         got, pre = latest_in_line(repo, prefix, major, installed, kind)
     return name, repo, kind, prefix, str(major), installed, got or "unknown", pre

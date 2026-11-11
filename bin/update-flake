@@ -117,9 +117,10 @@ fi
 declare -A DET_REPO DET_ORIGIN DET_KIND DET_PREFIX DET_MAJOR
 declare -A DET_INSTALLED DET_INSTALLED_RAW DET_LATEST DET_RELATION DET_REASON
 declare -A DET_UPSTREAM DET_FORK_SUFFIX DET_BRANCH DET_INPUT DET_VERSION_SOURCE
+declare -A DET_MANIFEST
 declare -a FLAKES=()
 
-while IFS=$'\t' read -r name repo origin kind prefix major installed_raw installed latest relation reason upstream fork_suffix branch input version_source; do
+while IFS=$'\t' read -r name repo origin kind prefix major installed_raw installed latest relation reason upstream fork_suffix branch input version_source manifest; do
     [[ -z "$name" || "$name" == \#* ]] && continue
     FLAKES+=("$name")
     DET_REPO["$name"]="$repo"
@@ -137,6 +138,7 @@ while IFS=$'\t' read -r name repo origin kind prefix major installed_raw install
     DET_BRANCH["$name"]="$branch"
     DET_INPUT["$name"]="$input"
     DET_VERSION_SOURCE["$name"]="$version_source"
+    DET_MANIFEST["$name"]="$manifest"
 done <<< "$DETECT_TSV"
 
 # ── Parse installed versions from `devbox global list` ──
@@ -302,6 +304,44 @@ verify_candidate_asset() {
     local dir="${name%%#*}"
     local flake_nix="$DEVBOX_D/$dir/flake.nix"
     local repo="${DET_REPO[$name]:-}"
+    local manifest_url="${DET_MANIFEST[$name]:-}"
+
+    # A manifest flake downloads from releases.herdr.dev: the candidate must
+    # be the version the manifest serves, and this host's target must be in
+    # it. No GitHub asset question to answer here.
+    if [[ "${DET_KIND[$name]:-}" == "manifest" && -n "$manifest_url" && "$manifest_url" != "-" ]]; then
+        local host_target
+        case "$(uname -m)" in
+            x86_64)  host_target="linux-x86_64" ;;
+            aarch64) host_target="linux-aarch64" ;;
+            *)       return 0 ;;  # host we cannot name: nothing to verify against
+        esac
+        local reason
+        reason="$(python3 - "$manifest_url" "$candidate" "$host_target" <<'PY'
+import json, subprocess, sys
+
+url, want, target = sys.argv[1:4]
+proc = subprocess.run(["curl", "-sSL", "--max-time", "20", url],
+                      capture_output=True, text=True, check=False)
+try:
+    manifest = json.loads(proc.stdout)
+except ValueError:
+    print("verify-error")
+    sys.exit(0)
+if not isinstance(manifest, dict):
+    print("verify-error")
+    sys.exit(0)
+if str(manifest.get("version")) != want:
+    # The manifest moved past the candidate we detected: the hashes we would
+    # apply belong to the newer version.
+    print("verify-error")
+    sys.exit(0)
+print("" if target in manifest.get("targets", {}) else "asset-404")
+PY
+)"
+        echo "$reason"
+        return 0
+    fi
 
     [[ -n "$repo" && "$repo" != "unknown" ]] || return 0
 
@@ -367,6 +407,63 @@ verify_candidate_asset() {
     return 0
 }
 
+# ── Fill the hashes of a manifest flake from the release manifest ──
+# releases.herdr.dev publishes the sha256 of every target in latest.json, so a
+# herdr-app / herdr-core bump needs no build to resolve hashes: the manifest
+# is authoritative and covers the architectures this host cannot build.
+# Exits non-zero when the manifest cannot be used (moved on, unreachable, no
+# target map); the caller falls back to the fakeHash reset.
+apply_manifest_hashes() {
+    local flake_nix="$1" new_ver="$2" manifest_url="$3"
+    python3 - "$flake_nix" "$new_ver" "$manifest_url" <<'PY'
+import json, re, subprocess, sys
+
+flake_nix, want, manifest_url = sys.argv[1:4]
+proc = subprocess.run(["curl", "-sSL", "--max-time", "30", manifest_url],
+                      capture_output=True, text=True, check=False)
+try:
+    manifest = json.loads(proc.stdout)
+except ValueError:
+    sys.exit(1)
+if not isinstance(manifest, dict) or str(manifest.get("version")) != want:
+    sys.exit(1)
+targets = manifest.get("targets", {})
+
+text = open(flake_nix).read()
+marker = re.search(r"systemToTarget\s*=\s*{([^}]*)}", text)
+if not marker:
+    sys.exit(1)
+system_to_target = dict(re.findall(r'"([^"]+)"\s*=\s*"([^"]+)"', marker.group(1)))
+
+def to_sri(hexhash):
+    out = subprocess.run(["nix", "hash", "to-sri", "--type", "sha256", hexhash],
+                         capture_output=True, text=True, check=False)
+    return out.stdout.strip() if out.returncode == 0 else None
+
+replaced, faked = 0, 0
+new_text = text
+for system, target in system_to_target.items():
+    entry = targets.get(target)
+    sha = entry.get("sha256") if isinstance(entry, dict) else None
+    sri = to_sri(sha) if sha else None
+    if sri is None:
+        # Not in the manifest: a fake is honest about not knowing the hash;
+        # a stale one from the previous version would build the wrong thing.
+        sri = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+        faked += 1
+    pattern = re.compile(r'("%s"\s*=\s*)"sha256-[^"]*"' % re.escape(system))
+    new_text, count = pattern.subn(lambda m: '%s"%s"' % (m.group(1), sri), new_text)
+    replaced += count
+
+if replaced == 0:
+    sys.exit(1)
+open(flake_nix, "w").write(new_text)
+noun = "entry" if replaced == 1 else "entries"
+suffix = f" ({faked} not in the manifest, left fake)" if faked else ""
+print(f"{replaced} hash {noun} from the manifest{suffix}")
+PY
+}
+
 # ── Update a single flake package ──
 update_flake() {
     local name="$1" old_ver="$2" new_ver="$3"
@@ -430,7 +527,17 @@ update_flake() {
     #    Comment lines are skipped: a comment that quotes an attribute must
     #    not be rewritten into a fake hash.
     local hash_attrs='hash|srcHash|cargoHash|npmDepsHash|pnpmDepsHash|npmDistHash|nodeModulesHash|outputHash|vendorHash'
-    if grep -qE "(^|[[:space:]])($hash_attrs)[[:space:]]*=[[:space:]]*\"sha256-" "$flake_nix" 2>/dev/null \
+    local manifest_url="${DET_MANIFEST[$name]:-}"
+    if [[ "${DET_KIND[$name]:-}" == "manifest" && -n "$manifest_url" && "$manifest_url" != "-" ]]; then
+        local manifest_msg
+        if manifest_msg="$(apply_manifest_hashes "$flake_nix" "$new_ver" "$manifest_url")"; then
+            echo "    ✓ $manifest_msg"
+        else
+            echo "    ! could not fill hashes from the manifest — resetting to fakeHash"
+            reset_hashes "$flake_nix" "$hash_attrs"
+            echo "    ✓ hashes reset to fakeHash"
+        fi
+    elif grep -qE "(^|[[:space:]])($hash_attrs)[[:space:]]*=[[:space:]]*\"sha256-" "$flake_nix" 2>/dev/null \
         || grep -qE '"[^"]+"[[:space:]]*=[[:space:]]*"sha256-' "$flake_nix" 2>/dev/null; then
         reset_hashes "$flake_nix" "$hash_attrs"
         echo "    ✓ hashes reset to fakeHash"

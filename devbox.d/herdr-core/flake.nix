@@ -1,8 +1,7 @@
 # Herdr Core (hc) - the core that runs terminals for the Herdr desktop app.
 # The binary ships prebuilt from releases.herdr.dev (the GitHub repo has no
-# release assets), so update-flake cannot track it: the release manifest at
-# https://releases.herdr.dev/core/latest.json carries the newest version and
-# the sha256 of every target. Bump `version` and the hashes here by hand.
+# release assets); update-flake tracks the release manifest at
+# https://releases.herdr.dev/core/latest.json and fills the hashes from it.
 {
   description = "herdr-core - Herdr core: the terminal daemon for the Herdr desktop app";
 
@@ -17,7 +16,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      version = "0.1.19";
+      version = "0.1.20";
 
       systemToTarget = {
         "x86_64-linux" = "linux-x86_64";
@@ -29,8 +28,8 @@
       # Upstream publishes them as hex sha256 in the manifest:
       #   nix hash convert --hash-algo sha256 --to sri <hex>
       systemToHash = {
-        "x86_64-linux" = "sha256-Stz7Qj1S8kxcxKHizS/K0fYtKLt3h2rEcsKQgqPqpCQ=";
-        "aarch64-linux" = "sha256-+Vw0/XF37ViAfXT+TueLs9xz6zfyHGlJYGQACiGryxA=";
+        "x86_64-linux" = "sha256-rGuGiQxFGjdYRiCqpDi3G8DQvUMKLnwdfglfBSxBTnQ=";
+        "aarch64-linux" = "sha256-XzA3N50VzHbPxy0v0aQmLqHFsk3yeL98/Yrc/3uRSGI=";
       };
     in
     {

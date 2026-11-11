@@ -13,7 +13,7 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
       # release-prefix: v
-      version = "0.6.4";
+      version = "0.6.5";
 
       # Get the real hash:
       #   cd ~/.local/share/devbox/global/current/devbox.d/whichllm
@@ -21,7 +21,7 @@
       #   run the command "devbox global update"
       # Then paste the sha256-... value below
       #
-      srcHash = "sha256-D+tOuC4alYVakx01dj4Wz9cHi6LMK924FY53UxGM0vk=";
+      srcHash = "sha256-idXrbX8PCwcTRXas2Wk5Vv2Eg67qnf3iEkPj9QngDio=";
     in
     {
       packages = forAllSystems (

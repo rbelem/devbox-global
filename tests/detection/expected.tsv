@@ -9,6 +9,8 @@
 #              registry - installs a registry package (npm/PyPI) whose version
 #                         tracks the upstream tag/release
 #              none     - no comparable upstream version
+#              manifest - releases.herdr.dev serves a latest.json manifest
+#                         that is the newest version and its hashes
 # prefix     the upstream tag prefix of the release line the flake tracks
 # major      the major version of that line (the line is prefix + major)
 # installed  the version the flake pins today
@@ -22,17 +24,17 @@ bsk	Tencent/BrowserSkill	asset	cli-v	0	0.4.2	0.4.2	✓
 bun	oven-sh/bun	asset	bun-v	1	1.4.4	1.4.4	✓
 codeburn	getagentseal/codeburn	source	v	0	0.9.28	0.9.28	✓
 codegraph	colbymchenry/codegraph	source	v	1	1.6.2	1.6.2	✓
-cua	trycua/cua	asset	cua-sdk-v	0	0.18.0	0.18.0	✓
-cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.46.1	0.46.1	✓ (pre)
-cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.26.1	0.26.1	✓
-cua-spacesd	trycua/cua	asset	cua-spacesd-v	0	0.13.0	0.13.0	✓
+cua	trycua/cua	asset	cua-sdk-v	0	0.23.0	0.23.0	✓
+cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.47.5	0.47.5	✓ (pre)
+cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.32.0	0.32.0	✓
+cua-spacesd	trycua/cua	asset	cua-spacesd-v	0	0.15.1	0.15.1	✓
 dcg	Dicklesworthstone/destructive_command_guard	asset	v	0	0.16.0	0.16.0	✓
 deepsec	vercel-labs/deepsec	source	v	2	2.3.9	unknown	??
 deepseek-harness	deepseek-ai/deepseek-harness	source	dsh-v	0	0.2.1-alpha.1	0.2.2-rc.1	?? (sha-pinned)
 firecrawl	firecrawl/cli	asset	v	1	1.29.0	1.29.0	✓
 herdr	ogulcancelik/herdr	asset	v	0	0.9.5	0.9.5	✓
-herdr-core	herdrdev/herdr-core	none	v	0	0.1.19	unknown	??
-herdr-app	herdrdev/herdr-app	none	v	0	0.1.14	unknown	??
+herdr-core	herdrdev/herdr-core	manifest	v	0	0.1.20	0.1.20	✓
+herdr-app	herdrdev/herdr-app	manifest	v	0	0.1.15	0.1.15	✓
 hermes-agent	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
 hermes-agent#desktop	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
 hex	anomalyco/hex	asset	v	3	3.3.0	3.3.0	✓
@@ -42,18 +44,18 @@ jev-review	rbelem/jev-review	source	v	0	0.1.1-p1	unknown	??
 jev-ultrafast	rbelem/jev-ultrafast	source	v	0	0.1.0	unknown	??
 llm-verifier	llm-as-a-verifier/llm-as-a-verifier	registry	v	0	0.3.0	0.3.0	✓
 neovim	nix-community/neovim-nightly-overlay	none	v	0	unknown	unknown	??
-open-code-review	alibaba/open-code-review	asset	v	1	1.13.6	1.13.6	✓
+open-code-review	alibaba/open-code-review	asset	v	1	1.13.7	1.13.7	✓
 pdf-inspector	firecrawl/pdf-inspector	source	v	1	1.25.2	1.25.2	✓
 playwright-cli	microsoft/playwright-cli	source	v	0	0.1.24	0.1.24	✓
 rea	morluto/rea	source	rea-agents-	6	6.8.0	6.8.0	✓
 rtk	rtk-ai/rtk	source	v	1	1.2.0	1.2.0	✓
 rustxng	sahenjp/RustXNG	asset	v	0	0.31.1	0.31.1	✓
 skillranker	Dicklesworthstone/skillranker	source	v	0	dynamic	unknown	?? (dynamic-version)
-skills	vercel-labs/skills	source	v	1	1.7.6	1.7.6	✓
+skills	vercel-labs/skills	source	v	1	1.8.1	1.8.1	✓
 skillspector	NVIDIA/SkillSpector	source	v	2	2.13.4	2.13.4	✓
 steel-takeoff	monozukuri-ai/ezdwg	source	v	0	0.19.2	0.19.2	✓
 strix	usestrix/strix	source	v	1	1.7.0	1.7.0	✓
 vela	unknown	none	v	0	0.1.6	unknown	??
-whichllm	Andyyyy64/whichllm	source	v	0	0.6.4	0.6.4	✓
+whichllm	Andyyyy64/whichllm	source	v	0	0.6.5	0.6.5	✓
 wigolo-git	rbelem/wigolo	source	v	0	0.3.1-git.6a748dae	unknown	??
 zg	zvec-ai/zvec-grep	source	v	0	0.3.0	0.3.0	✓
