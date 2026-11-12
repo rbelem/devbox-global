@@ -12,8 +12,8 @@
       forAllSystems = f: nixpkgs.lib.genAttrs systems (s: f nixpkgs.legacyPackages.${s});
 
       # release line: v<version> (the app line; SDK tags are @kitlangton/hex@*)
-      version = "3.3.0";
-      srcHash = "sha256-6MezouvrHX2l1idtXyUUWJHVIXjjY2NHyzrDMfdmJiI=";
+      version = "3.4.0";
+      srcHash = "sha256-f4EyoiAjOMG1LDYRPSPXQDz5HyILzb2e7IK8cm9fgCk=";
     in
     {
       packages = forAllSystems (pkgs: rec {

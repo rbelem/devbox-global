@@ -4,6 +4,29 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/loop-v0.1.1/impeccable-loop-0.1.1.zip",
+     "name": "impeccable-loop-0.1.1.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/loop-v0.1.1/impeccable-loop-0.1.1.zip.sha256",
+     "name": "impeccable-loop-0.1.1.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-11T20:05:58Z",
+   "tag_name": "loop-v0.1.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-10T00:46:53Z",
+   "tag_name": "loop-v0.1.0"
+  },
+  {
+   "assets": [
+    {
      "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.8.2/universal.zip",
      "name": "universal.zip"
     },
@@ -173,18 +196,6 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/loop-v0.1.0/impeccable-loop-0.1.0.zip",
-     "name": "impeccable-loop-0.1.0.zip"
-    }
-   ],
-   "draft": false,
-   "prerelease": true,
-   "published_at": "2026-11-10T00:46:53Z",
-   "tag_name": "loop-v0.1.0"
-  },
-  {
-   "assets": [
-    {
      "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.4.0/extension-firefox.zip",
      "name": "extension-firefox.zip"
     },
@@ -260,6 +271,7 @@
   "skill-v4.8.1",
   "skill-v3.9.1",
   "skill-v3.9.0",
+  "loop-v0.1.1",
   "loop-v0.1.0",
   "ext-v1.4.0",
   "ext-v1.3.3",

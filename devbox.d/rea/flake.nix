@@ -17,14 +17,14 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # release line: rea-agents-<version> (no leading "v")
-      version = "6.8.0";
+      version = "6.9.0";
 
       # Hash capture workflow:
       #   1. set srcHash / npmDepsHash to the fake hash
       #   2. nix build "path:devbox.d/rea#default"
       #   3. paste the sha256-... values from the error messages
-      srcHash = "sha256-2ADn3U3lvUoB4tCEpzO0rMfYE4sis+5uBiEazcp0gpI=";
-      npmDepsHash = "sha256-3WPXD+qm5WVfrTEvepKwX5RZBfbLBcPB0uDmKIx4MR8=";
+      srcHash = "sha256-n96fXl7OKRIlQ/nKGBDjN8kT4RIr2atgrQAU379lsoQ=";
+      npmDepsHash = "sha256-xFNYn2vxfk8unZyJQ3YWOO3fFb3iJVU6Alav0A+TiSI=";
     in
     {
       packages = forAllSystems (
@@ -39,10 +39,15 @@
             hash = srcHash;
           };
 
-          # engines as of 6.8.0: ^22.23.4 || ^24.22.1 || >=26.12.1, with
+          # engines as of 6.9.0: ^22.23.4 || ^24.22.1 || >=26.12.1, with
           # engine-strict set in .npmrc. nixpkgs nodejs_24 is 24.21.0, under
-          # that floor, so the built line is nodejs_26 (26.13.0).
-          nodejs = pkgs.nodejs_26;
+          # that floor. nixpkgs nodejs_26 (26.13.0) dropped the
+          # stripTypeScriptTypes mode "transform" that rea's verifier source
+          # loader (scripts/lib/verifier-source-loader.mjs) requires, so the
+          # build fails in metadata:check. nixpkgs nodejs_22 is exactly
+          # 22.23.4, satisfying the 22-line floor and still supporting
+          # mode "transform".
+          nodejs = pkgs.nodejs_22;
         in
         {
           default = pkgs.buildNpmPackage {
@@ -73,6 +78,10 @@
 
             nativeBuildInputs = [
               pkgs.makeWrapper
+              # scripts/prepare.mjs (npm pack runs it on 6.9.0) applies the
+              # patches/release-please+*.patch set with `git apply`; git is not
+              # in the default build PATH.
+              pkgs.git
               # @lydell/node-pty's pty.node and the prebuilt @tsrs platform
               # binary are the ELF objects in the shipped tree; they need
               # libstdc++/libgcc from buildInputs below.

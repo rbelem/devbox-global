@@ -15,7 +15,7 @@
       forAllSystems =
         f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-      version = "0.4.2";
+      version = "0.5.0";
 
       # Rust target-triple naming; musl preferred on Linux (static-pie, no patchelf).
       systemToTarget = {
@@ -25,12 +25,12 @@
         "aarch64-darwin" = "aarch64-apple-darwin";
       };
 
-      # From GitHub release API assets[].digest (cli-v0.3.3).
+      # From GitHub release API assets[].digest (cli-v0.5.0).
       systemToHash = {
-        "x86_64-linux" = "sha256-UobM3BBOUiAMR7SkksbgQwaeW/HmONuP295iqdSTmXk=";
-        "aarch64-linux" = "sha256-+WVHTYrWHPuBm1Ej9DVRNe4q+pxPdCu76eT0Y9x9X6M=";
-        "x86_64-darwin" = "sha256-nqwAnEa2ynjILKCOJir8lGzBwNVRuFPMLA8oOBJflqY=";
-        "aarch64-darwin" = "sha256-+IOJUPgQbsxp9+RCZ6i2+gdbHtZkmqI6yX2F/B1mBZg=";
+        "x86_64-linux" = "sha256-Tk8UGDUR+NA0h8rZNUnJ246hA2CsAamqNYdrGEvD6gc=";
+        "aarch64-linux" = "sha256-fbBmWivcDJKH+IBqtXKiV//PuEnicpGxFAvUbiGmo0o=";
+        "x86_64-darwin" = "sha256-nyeDdnQfKXKhMBRGO99kUEugk4dzZKTBICzu48veR1Y=";
+        "aarch64-darwin" = "sha256-oWtmq502KQRdZj9kX9LCuPVEEWrDzJ77lLNIZ/z+F1Y=";
       };
     in
     {
