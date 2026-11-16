@@ -1,0 +1,10 @@
+{
+ "default_branch": "main",
+ "releases": [],
+ "repo": "cloudflare/kitesurf",
+ "tag_dates": {},
+ "tags": [
+  "2026.11.9",
+  "2026.11.8"
+ ]
+}

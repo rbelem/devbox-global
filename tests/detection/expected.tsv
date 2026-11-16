@@ -42,6 +42,11 @@ hunk	modem-dev/hunk	asset	v	0	0.25.0	0.25.0	✓
 impeccable	pbakaus/impeccable	source	cli-v	4	4.8.2	4.8.2	✓
 jev-review	rbelem/jev-review	source	v	0	0.1.1-p1	unknown	??
 jev-ultrafast	rbelem/jev-ultrafast	source	v	0	0.1.0	unknown	??
+# kitesurf's calver tags carry no prefix ("2026.11.9"), and the detection has
+# no way to express an empty release line prefix, so the tags are invisible to
+# it: latest "unknown", status "??". Bump by hand with `update-flake` verified
+# against the tag, or pin via a fork with v-prefixed tags.
+kitesurf	cloudflare/kitesurf	source	v	2026	2026.11.9	unknown	??
 llm-verifier	llm-as-a-verifier/llm-as-a-verifier	registry	v	0	0.3.0	0.3.0	✓
 neovim	nix-community/neovim-nightly-overlay	none	v	0	unknown	unknown	??
 open-code-review	alibaba/open-code-review	asset	v	1	1.13.8	1.13.8	✓

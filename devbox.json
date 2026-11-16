@@ -104,6 +104,7 @@
     "path:devbox.d/steel-takeoff":        {},
     "path:devbox.d/rea":                  {},
     "path:devbox.d/hex":                  {},
+    "path:devbox.d/kitesurf":             {},
     "ast-grep":                           "latest"
   },
   "env": {

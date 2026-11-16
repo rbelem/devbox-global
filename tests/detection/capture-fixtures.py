@@ -33,6 +33,7 @@ REPOS = [
     "Andyyyy64/whichllm",
     "browser-use/browser-harness",
     "colbymchenry/codegraph",
+    "cloudflare/kitesurf",
     "deepseek-ai/deepseek-harness",
     "Dicklesworthstone/destructive_command_guard",
     "Dicklesworthstone/skillranker",
