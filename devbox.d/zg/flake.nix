@@ -12,7 +12,7 @@
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "0.3.0";
+      version = "0.3.1";
     in
     {
       packages = forAllSystems (
@@ -24,7 +24,7 @@
             owner = "zvec-ai";
             repo = "zvec-grep";
             rev = "v${version}";
-            hash = "sha256-m+EshRJznj27l4wFh8CxKJVH5eaIJKUEZylDEKd0BuU=";
+            hash = "sha256-9Knxg5TEDpQj1iRViga/EkAKsrTJioBRj9TjkmWOTeA=";
           };
 
           # Get the real npmDepsHash:

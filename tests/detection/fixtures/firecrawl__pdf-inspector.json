@@ -5,6 +5,20 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-11-16T23:57:10Z",
+   "tag_name": "v1.26.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-14T07:44:12Z",
+   "tag_name": "v1.26.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-09-28T07:14:32Z",
    "tag_name": "v1.25.2"
   },
@@ -103,6 +117,8 @@
  "repo": "firecrawl/pdf-inspector",
  "tag_dates": {},
  "tags": [
+  "v1.26.1",
+  "v1.26.0",
   "v1.25.2",
   "v1.25.1",
   "v1.25.0",

@@ -4,66 +4,73 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/LICENSE",
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/LICENSE",
      "name": "LICENSE"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/NOTICE",
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/NOTICE",
      "name": "NOTICE"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/release-manifest.json",
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/release-manifest.json",
      "name": "release-manifest.json"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-aarch64-apple-darwin",
-     "name": "rustxng-v0.31.2-aarch64-apple-darwin"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-aarch64-apple-darwin",
+     "name": "rustxng-v0.32.0-aarch64-apple-darwin"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-aarch64-apple-darwin.sha256",
-     "name": "rustxng-v0.31.2-aarch64-apple-darwin.sha256"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-aarch64-apple-darwin.sha256",
+     "name": "rustxng-v0.32.0-aarch64-apple-darwin.sha256"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-aarch64-unknown-linux-gnu",
-     "name": "rustxng-v0.31.2-aarch64-unknown-linux-gnu"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-aarch64-unknown-linux-gnu",
+     "name": "rustxng-v0.32.0-aarch64-unknown-linux-gnu"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-aarch64-unknown-linux-gnu.sha256",
-     "name": "rustxng-v0.31.2-aarch64-unknown-linux-gnu.sha256"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-aarch64-unknown-linux-gnu.sha256",
+     "name": "rustxng-v0.32.0-aarch64-unknown-linux-gnu.sha256"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-x86_64-apple-darwin",
-     "name": "rustxng-v0.31.2-x86_64-apple-darwin"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-x86_64-apple-darwin",
+     "name": "rustxng-v0.32.0-x86_64-apple-darwin"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-x86_64-apple-darwin.sha256",
-     "name": "rustxng-v0.31.2-x86_64-apple-darwin.sha256"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-x86_64-apple-darwin.sha256",
+     "name": "rustxng-v0.32.0-x86_64-apple-darwin.sha256"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-x86_64-pc-windows-msvc.exe",
-     "name": "rustxng-v0.31.2-x86_64-pc-windows-msvc.exe"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-x86_64-pc-windows-msvc.exe",
+     "name": "rustxng-v0.32.0-x86_64-pc-windows-msvc.exe"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-x86_64-pc-windows-msvc.exe.sha256",
-     "name": "rustxng-v0.31.2-x86_64-pc-windows-msvc.exe.sha256"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-x86_64-pc-windows-msvc.exe.sha256",
+     "name": "rustxng-v0.32.0-x86_64-pc-windows-msvc.exe.sha256"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-x86_64-unknown-linux-gnu",
-     "name": "rustxng-v0.31.2-x86_64-unknown-linux-gnu"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-x86_64-unknown-linux-gnu",
+     "name": "rustxng-v0.32.0-x86_64-unknown-linux-gnu"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-x86_64-unknown-linux-gnu.sha256",
-     "name": "rustxng-v0.31.2-x86_64-unknown-linux-gnu.sha256"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-x86_64-unknown-linux-gnu.sha256",
+     "name": "rustxng-v0.32.0-x86_64-unknown-linux-gnu.sha256"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-x86_64-unknown-linux-musl",
-     "name": "rustxng-v0.31.2-x86_64-unknown-linux-musl"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-x86_64-unknown-linux-musl",
+     "name": "rustxng-v0.32.0-x86_64-unknown-linux-musl"
     },
     {
-     "browser_download_url": "https://github.com/sahenjp/RustXNG/releases/download/v0.31.2/rustxng-v0.31.2-x86_64-unknown-linux-musl.sha256",
-     "name": "rustxng-v0.31.2-x86_64-unknown-linux-musl.sha256"
+     "browser_download_url": "https://github.com/RustXNG/RustXNG/releases/download/v0.32.0/rustxng-v0.32.0-x86_64-unknown-linux-musl.sha256",
+     "name": "rustxng-v0.32.0-x86_64-unknown-linux-musl.sha256"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-17T00:16:28Z",
+   "tag_name": "v0.32.0"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-11T09:36:33Z",
@@ -388,6 +395,7 @@
  "repo": "sahenjp/RustXNG",
  "tag_dates": {},
  "tags": [
+  "v0.32.0",
   "v0.31.2",
   "v0.31.1",
   "v0.31.0",

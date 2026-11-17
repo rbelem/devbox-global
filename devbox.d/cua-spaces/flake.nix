@@ -12,7 +12,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      version = "0.34.6";
+      version = "0.38.6";
 
       systemToTarget = {
         "x86_64-linux" = "amd64";
@@ -22,8 +22,8 @@
       # Literal SRI hashes only. This map sits OUTSIDE pkgs scope, so
       # pkgs.lib.fakeHash does not evaluate and a bump can reset them.
       systemToHash = {
-        "x86_64-linux" = "sha256-tEg36TSXF3mEpye9jHkhZYHVKoDxPNBbfkRbj0VZUww=";
-        "aarch64-linux" = "sha256-ZQ2dkdKBDHLI0cFJZzaHewPok7pSkkUEsaRLnXcz6Tg=";
+        "x86_64-linux" = "sha256-IAPXgkdm613X38l6GmTDPw0jFG+QASTIFvuvnfWGfC4=";
+        "aarch64-linux" = "sha256-Lf+vINuAJASEKAE1WhiVEC9N708SAGzLgzP0fwhbv1Q=";
       };
     in
     {

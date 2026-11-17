@@ -77,6 +77,7 @@ REPOS = [
     "usestrix/strix",
     "valkey-io/valkey-search",
     "vercel-labs/agent-browser",
+    "vercel-labs/agent-desktop",
     "vercel-labs/deepsec",
     "vercel-labs/skills",
     "zvec-ai/zvec-grep",

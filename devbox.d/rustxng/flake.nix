@@ -16,10 +16,10 @@
       systems = [ "x86_64-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs systems (s: f nixpkgs.legacyPackages.${s});
 
-      version = "0.31.2";
+      version = "0.32.0";
       # Upstream publishes a .sha256 sidecar next to every release asset; this
       # is that sidecar for the musl asset, converted with `nix hash to-sri`.
-      srcHash = "sha256-cKyU5M7BtZjP+/WoZ/Rz08UfPXBwqxsmFC/tG6gnqno=";
+      srcHash = "sha256-zwXVrMGCy3AsxEeteOZeEEAUwF+9wRoAxh2XXU+2MO8=";
     in
     {
       packages = forAllSystems (pkgs: rec {

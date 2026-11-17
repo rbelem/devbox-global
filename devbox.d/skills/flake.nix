@@ -14,12 +14,12 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          version = "1.8.1";
+          version = "1.9.0";
           src = pkgs.fetchFromGitHub {
             owner = "vercel-labs";
             repo = "skills";
             rev = "v${version}";
-            hash = "sha256-K4xCSpt8jnkTx8FDEa2cXrzMjpRkYOwTiFqPap6iCYU=";
+            hash = "sha256-/Zz/qAxdWz1OhgqHAFjgZoLY59G7ixgNA5C07nlkMFo=";
           };
 
         in

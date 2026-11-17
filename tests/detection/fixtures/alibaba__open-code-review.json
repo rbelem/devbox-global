@@ -4,34 +4,55 @@
   {
    "assets": [
     {
-     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.8/opencodereview-darwin-amd64",
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.11/opencodereview-darwin-amd64",
      "name": "opencodereview-darwin-amd64"
     },
     {
-     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.8/opencodereview-darwin-arm64",
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.11/opencodereview-darwin-arm64",
      "name": "opencodereview-darwin-arm64"
     },
     {
-     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.8/opencodereview-linux-amd64",
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.11/opencodereview-linux-amd64",
      "name": "opencodereview-linux-amd64"
     },
     {
-     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.8/opencodereview-linux-arm64",
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.11/opencodereview-linux-arm64",
      "name": "opencodereview-linux-arm64"
     },
     {
-     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.8/opencodereview-windows-amd64.exe",
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.11/opencodereview-windows-amd64.exe",
      "name": "opencodereview-windows-amd64.exe"
     },
     {
-     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.8/opencodereview-windows-arm64.exe",
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.11/opencodereview-windows-arm64.exe",
      "name": "opencodereview-windows-arm64.exe"
     },
     {
-     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.8/sha256sum.txt",
+     "browser_download_url": "https://github.com/alibaba/open-code-review/releases/download/v1.13.11/sha256sum.txt",
      "name": "sha256sum.txt"
     }
    ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-17T05:30:06Z",
+   "tag_name": "v1.13.11"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-15T02:56:09Z",
+   "tag_name": "v1.13.10"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-13T09:47:57Z",
+   "tag_name": "v1.13.9"
+  },
+  {
+   "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-12T05:44:04Z",
@@ -1056,6 +1077,9 @@
  "repo": "alibaba/open-code-review",
  "tag_dates": {},
  "tags": [
+  "v1.13.11",
+  "v1.13.10",
+  "v1.13.9",
   "v1.13.8",
   "v1.13.7",
   "v1.13.6",

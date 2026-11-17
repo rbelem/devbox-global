@@ -5,6 +5,13 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-11-16T10:28:13Z",
+   "tag_name": "v1.9.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-11-10T23:59:25Z",
    "tag_name": "v1.8.1"
   },
@@ -390,6 +397,7 @@
  "repo": "vercel-labs/skills",
  "tag_dates": {},
  "tags": [
+  "v1.9.0",
   "v1.8.1",
   "v1.8.0",
   "v1.7.6",

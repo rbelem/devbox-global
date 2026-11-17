@@ -1,0 +1,208 @@
+{
+ "default_branch": "main",
+ "releases": [
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-ffi-v1.3.1-aarch64-apple-darwin.tar.gz",
+     "name": "agent-desktop-ffi-v1.3.1-aarch64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-ffi-v1.3.1-aarch64-pc-windows-msvc.zip",
+     "name": "agent-desktop-ffi-v1.3.1-aarch64-pc-windows-msvc.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-ffi-v1.3.1-aarch64-unknown-linux-gnu.tar.gz",
+     "name": "agent-desktop-ffi-v1.3.1-aarch64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-ffi-v1.3.1-x86_64-apple-darwin.tar.gz",
+     "name": "agent-desktop-ffi-v1.3.1-x86_64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-ffi-v1.3.1-x86_64-pc-windows-msvc.zip",
+     "name": "agent-desktop-ffi-v1.3.1-x86_64-pc-windows-msvc.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-ffi-v1.3.1-x86_64-unknown-linux-gnu.tar.gz",
+     "name": "agent-desktop-ffi-v1.3.1-x86_64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-v1.3.1-aarch64-apple-darwin.tar.gz",
+     "name": "agent-desktop-v1.3.1-aarch64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-v1.3.1-aarch64-pc-windows-msvc.tar.gz",
+     "name": "agent-desktop-v1.3.1-aarch64-pc-windows-msvc.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-v1.3.1-aarch64-unknown-linux-gnu.tar.gz",
+     "name": "agent-desktop-v1.3.1-aarch64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-v1.3.1-x86_64-apple-darwin.tar.gz",
+     "name": "agent-desktop-v1.3.1-x86_64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-v1.3.1-x86_64-pc-windows-msvc.tar.gz",
+     "name": "agent-desktop-v1.3.1-x86_64-pc-windows-msvc.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/agent-desktop-v1.3.1-x86_64-unknown-linux-gnu.tar.gz",
+     "name": "agent-desktop-v1.3.1-x86_64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v1.3.1/checksums.txt",
+     "name": "checksums.txt"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-13T21:02:21Z",
+   "tag_name": "v1.3.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-12T22:31:39Z",
+   "tag_name": "v1.3.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-05T02:43:54Z",
+   "tag_name": "v1.2.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-03T04:13:45Z",
+   "tag_name": "v1.1.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-30T21:17:30Z",
+   "tag_name": "v1.0.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-28T03:36:57Z",
+   "tag_name": "v1.0.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-28T01:15:24Z",
+   "tag_name": "v1.0.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-ffi-v0.11.1-aarch64-apple-darwin.tar.gz",
+     "name": "agent-desktop-ffi-v0.11.1-aarch64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-ffi-v0.11.1-aarch64-pc-windows-msvc.zip",
+     "name": "agent-desktop-ffi-v0.11.1-aarch64-pc-windows-msvc.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-ffi-v0.11.1-aarch64-unknown-linux-gnu.tar.gz",
+     "name": "agent-desktop-ffi-v0.11.1-aarch64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-ffi-v0.11.1-x86_64-apple-darwin.tar.gz",
+     "name": "agent-desktop-ffi-v0.11.1-x86_64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-ffi-v0.11.1-x86_64-pc-windows-msvc.zip",
+     "name": "agent-desktop-ffi-v0.11.1-x86_64-pc-windows-msvc.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-ffi-v0.11.1-x86_64-unknown-linux-gnu.tar.gz",
+     "name": "agent-desktop-ffi-v0.11.1-x86_64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-v0.11.1-aarch64-apple-darwin.tar.gz",
+     "name": "agent-desktop-v0.11.1-aarch64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-v0.11.1-aarch64-pc-windows-msvc.tar.gz",
+     "name": "agent-desktop-v0.11.1-aarch64-pc-windows-msvc.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-v0.11.1-aarch64-unknown-linux-gnu.tar.gz",
+     "name": "agent-desktop-v0.11.1-aarch64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-v0.11.1-x86_64-apple-darwin.tar.gz",
+     "name": "agent-desktop-v0.11.1-x86_64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-v0.11.1-x86_64-pc-windows-msvc.tar.gz",
+     "name": "agent-desktop-v0.11.1-x86_64-pc-windows-msvc.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/agent-desktop-v0.11.1-x86_64-unknown-linux-gnu.tar.gz",
+     "name": "agent-desktop-v0.11.1-x86_64-unknown-linux-gnu.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/v0.11.1/checksums.txt",
+     "name": "checksums.txt"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-25T19:52:00Z",
+   "tag_name": "v0.11.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-18T09:26:41Z",
+   "tag_name": "v0.10.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/agent-desktop-v0.1.2/agent-desktop-v0.1.2-aarch64-apple-darwin.tar.gz",
+     "name": "agent-desktop-v0.1.2-aarch64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/agent-desktop-v0.1.2/agent-desktop-v0.1.2-x86_64-apple-darwin.tar.gz",
+     "name": "agent-desktop-v0.1.2-x86_64-apple-darwin.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/vercel-labs/agent-desktop/releases/download/agent-desktop-v0.1.2/checksums.txt",
+     "name": "checksums.txt"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-02-23T09:04:28Z",
+   "tag_name": "agent-desktop-v0.1.2"
+  }
+ ],
+ "repo": "vercel-labs/agent-desktop",
+ "tag_dates": {},
+ "tags": [
+  "v1.3.1",
+  "v1.3.0",
+  "v1.2.0",
+  "v1.1.0",
+  "v1.0.2",
+  "v1.0.1",
+  "v1.0.0",
+  "v0.11.1",
+  "v0.11.0",
+  "agent-desktop-v0.1.2"
+ ]
+}

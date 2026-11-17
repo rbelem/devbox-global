@@ -16,7 +16,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      version = "0.1.20";
+      version = "0.1.21";
 
       systemToTarget = {
         "x86_64-linux" = "linux-x86_64";
@@ -28,8 +28,8 @@
       # Upstream publishes them as hex sha256 in the manifest:
       #   nix hash convert --hash-algo sha256 --to sri <hex>
       systemToHash = {
-        "x86_64-linux" = "sha256-rGuGiQxFGjdYRiCqpDi3G8DQvUMKLnwdfglfBSxBTnQ=";
-        "aarch64-linux" = "sha256-XzA3N50VzHbPxy0v0aQmLqHFsk3yeL98/Yrc/3uRSGI=";
+        "x86_64-linux" = "sha256-eEJHVcEKQN3jigvbVcIKwZcG6a4F7Wj8Ks8fz/DZQcE=";
+        "aarch64-linux" = "sha256-6ESiv6tIoiYJdnnQdryDBC/lf8zvU4fvgC5bJOeLUpo=";
       };
     in
     {
