@@ -20,6 +20,7 @@ openspec
 pi
 playwright-chromium-deps
 prime-agent
+tokeneconomizer
 tree-sitter-perl
 valkey-search
 wigolo
