@@ -1,0 +1,372 @@
+{
+ "default_branch": "main",
+ "releases": [
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-18T00:49:11Z",
+   "tag_name": "v0.3.42"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-17T21:20:41Z",
+   "tag_name": "v0.3.41"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-17T20:42:08Z",
+   "tag_name": "v0.3.40"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-17T06:52:01Z",
+   "tag_name": "v0.3.39"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-17T04:43:38Z",
+   "tag_name": "v0.3.38"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-17T02:15:22Z",
+   "tag_name": "v0.3.37"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T19:58:54Z",
+   "tag_name": "v0.3.36"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T17:50:32Z",
+   "tag_name": "v0.3.35"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T14:50:56Z",
+   "tag_name": "v0.3.34"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T14:05:13Z",
+   "tag_name": "v0.3.33"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T12:21:45Z",
+   "tag_name": "v0.3.32"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T11:23:23Z",
+   "tag_name": "v0.3.31"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T09:51:45Z",
+   "tag_name": "v0.3.30"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T08:33:33Z",
+   "tag_name": "v0.3.29"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T06:48:09Z",
+   "tag_name": "v0.3.28"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T05:50:26Z",
+   "tag_name": "v0.3.27"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T04:49:26Z",
+   "tag_name": "v0.3.26"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T03:48:52Z",
+   "tag_name": "v0.3.25"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-16T00:51:56Z",
+   "tag_name": "v0.3.24"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-15T20:23:35Z",
+   "tag_name": "v0.3.23"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-15T19:20:26Z",
+   "tag_name": "v0.3.22"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-15T11:05:31Z",
+   "tag_name": "v0.3.21"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-15T06:47:40Z",
+   "tag_name": "v0.3.20"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-15T03:50:49Z",
+   "tag_name": "v0.3.19"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-14T23:20:23Z",
+   "tag_name": "v0.3.18"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-14T22:03:42Z",
+   "tag_name": "v0.3.17"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-14T20:44:30Z",
+   "tag_name": "v0.3.16"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-14T19:40:09Z",
+   "tag_name": "v0.3.15"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-13T23:58:41Z",
+   "tag_name": "v0.3.14"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-13T21:40:41Z",
+   "tag_name": "v0.3.13"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-13T19:47:15Z",
+   "tag_name": "v0.3.12"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-13T07:01:37Z",
+   "tag_name": "v0.3.11"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-13T05:09:55Z",
+   "tag_name": "v0.3.10"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-13T00:05:28Z",
+   "tag_name": "v0.3.9"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-12T21:09:46Z",
+   "tag_name": "v0.3.8"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-12T04:46:46Z",
+   "tag_name": "v0.3.7"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-11T23:59:48Z",
+   "tag_name": "v0.3.6"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-11T17:10:03Z",
+   "tag_name": "v0.3.5"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-11T09:21:30Z",
+   "tag_name": "v0.3.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-11T03:04:23Z",
+   "tag_name": "v0.3.1"
+  }
+ ],
+ "repo": "FrigadeHQ/yogurt",
+ "tag_dates": {},
+ "tags": [
+  "v0.3.42",
+  "v0.3.41",
+  "v0.3.40",
+  "v0.3.39",
+  "v0.3.38",
+  "v0.3.37",
+  "v0.3.36",
+  "v0.3.35",
+  "v0.3.34",
+  "v0.3.33",
+  "v0.3.32",
+  "v0.3.31",
+  "v0.3.30",
+  "v0.3.29",
+  "v0.3.28",
+  "v0.3.27",
+  "v0.3.26",
+  "v0.3.25",
+  "v0.3.24",
+  "v0.3.23",
+  "v0.3.22",
+  "v0.3.21",
+  "v0.3.20",
+  "v0.3.19",
+  "v0.3.18",
+  "v0.3.17",
+  "v0.3.16",
+  "v0.3.15",
+  "v0.3.14",
+  "v0.3.13",
+  "v0.3.12",
+  "v0.3.11",
+  "v0.3.10",
+  "v0.3.9",
+  "v0.3.8",
+  "v0.3.7",
+  "v0.3.6",
+  "v0.3.5",
+  "v0.3.4",
+  "v0.3.3",
+  "v0.3.2",
+  "v0.3.1"
+ ]
+}

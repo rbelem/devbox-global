@@ -47,6 +47,7 @@ REPOS = [
     "firecrawl/anydoc",
     "firecrawl/cli",
     "firecrawl/pdf-inspector",
+    "FrigadeHQ/yogurt",
     "getagentseal/codeburn",
     "google/highwayhash",
     "herdrdev/herdr-app",
