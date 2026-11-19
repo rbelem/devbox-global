@@ -107,6 +107,7 @@
     "path:devbox.d/yogurt":               {},
     "path:devbox.d/hex":                  {},
     "path:devbox.d/kitesurf":             {},
+    "path:devbox.d/kitesurf#kitesurf-engine": {},
     "ast-grep":                           "latest"
   },
   "env": {
