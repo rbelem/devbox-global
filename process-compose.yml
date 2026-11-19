@@ -44,6 +44,27 @@ processes:
     availability:
       restart: "always"
 
+  kitesurf-engine:
+    # Local cloudflare/kitesurf CDP engine on :8787, from the kitesurf flake's
+    # `kitesurf-engine` package. First start copies the staged engine into
+    # ~/.cache/kitesurf-engine and installs its pnpm deps there (needs network
+    # once); later starts reuse that directory. /health is the engine's own
+    # readiness endpoint — Playwright/wigolo connect to
+    # ws://127.0.0.1:8787/devtools/browser.
+    command: kitesurf-engine
+    environment:
+      - "KITESURF_PORT=8787"
+    readiness_probe:
+      http_get:
+        host: 127.0.0.1
+        port: 8787
+        path: /health
+      initial_delay_seconds: 15
+      period_seconds: 10
+      failure_threshold: 60
+    availability:
+      restart: "always"
+
   wigolo:
     # REST + remote MCP on :3333. Wigolo's built-in webfetch/websearch route
     # through this daemon, so a connection-level webfetch failure is a daemon
@@ -102,6 +123,11 @@ processes:
       # tells wigolo not to download its own sidecar.
       - "WIGOLO_SEARCH=searxng"
       - "WIGOLO_SEARXNG_URL=http://127.0.0.1:29483"
+      # Kitesurf as a first-class browser type (see the local wigolo patch;
+      # stock releases ignore an unknown type and fall back to chromium).
+      # The engine service above owns ws://127.0.0.1:8787/devtools/browser.
+      - "WIGOLO_BROWSER_TYPES=kitesurf"
+      - "WIGOLO_KITESURF_CDP_URL=ws://127.0.0.1:8787/devtools/browser"
     depends_on:
       rustxng:
         condition: process_healthy
