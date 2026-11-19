@@ -59,9 +59,11 @@ processes:
         host: 127.0.0.1
         port: 8787
         path: /health
+      # First start compiles the engine with Bazel (~20 min on this host);
+      # give the probe enough headroom before declaring it unhealthy.
       initial_delay_seconds: 15
-      period_seconds: 10
-      failure_threshold: 60
+      period_seconds: 15
+      failure_threshold: 180
     availability:
       restart: "always"
 
