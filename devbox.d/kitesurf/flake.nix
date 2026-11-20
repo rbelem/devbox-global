@@ -78,6 +78,11 @@
               # rules_js npm lifecycle hooks (esbuild postinstall) also run
               # with an empty env; give them the same PATH and default shell
               # env so they can find uname/sh/node.
+              # repos.bzl otherwise probes /usr/bin:/bin for GNU tar; NixOS
+              # has no tar there, so put the store path first explicitly.
+              substituteInPlace bazel/rust/repos.bzl \
+                --replace 'for candidate in ["/opt/homebrew/bin/gtar", "/usr/local/bin/gtar"]:' \
+                  'for candidate in ["${pkgs.gnutar}/bin/tar", "/opt/homebrew/bin/gtar", "/usr/local/bin/gtar"]:'
               substituteInPlace MODULE.bazel \
                 --replace '    pnpm_lock = "//:pnpm-lock.yaml",' \
                   '    pnpm_lock = "//:pnpm-lock.yaml",
