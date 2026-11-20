@@ -168,8 +168,15 @@
                 touch "\$STATE/.source"
               fi
               cd "\$STATE/packages/engine"
-              export PATH="\$STATE/tools/bin:\$PATH"
-              exec pnpm dev "\$@"
+              # The package's own `dev` script runs `pnpm run prebuild`
+              # (Bazel) first; call wrangler directly so the prebuilt engine
+              # starts with no compilation.
+              export PATH="${pkgs.nodejs_22}/bin:\$STATE/tools/bin:\$PATH"
+              exec "\$STATE/packages/engine/node_modules/.bin/wrangler" dev \
+                --env local -c wrangler.jsonc \
+                -c test/fixtures-worker/wrangler.jsonc \
+                --port "\''${KITESURF_PORT:-8787}" \
+                --inspector-port "\''${KITESURF_INSPECTOR_PORT:-9229}" "\$@"
               EOF
               chmod +x "$out/bin/kitesurf-engine"
               runHook postInstall
