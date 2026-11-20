@@ -14,7 +14,7 @@
       # GitHub releases; the tags are the only source of versions.
       version = "2026.11.9";
 
-      # Hash capture workflow:
+      # Hash capture workflow for the CLI source:
       #   1. set srcHash to pkgs.lib.fakeHash
       #   2. nix build "path:devbox.d/kitesurf#default"
       #   3. paste the sha256-... value from the error message
@@ -50,13 +50,35 @@
             ]
           ) + ":/usr/bin:/bin";
 
-          # Pure, small derivation: upstream source with the two NixOS PATH
-          # fixes applied. The heavy Bazel build happens on first engine run.
+          # The engine is a Bazel/WASM Cloudflare Worker. Its build downloads
+          # Rust nightly, crates and npm packages, so this derivation needs
+          # network at build time (devbox global sets NIX_CONFIG sandbox=false
+          # for that reason). Everything is built and installed here, so the
+          # service can start immediately with no compilation on first run.
+          #
+          # A fixed-output derivation was tried and rejected: wasm-bindgen is
+          # not reproducible (two identical builds emitted 5270 vs 5269 shims),
+          # so no stable output hash can be pinned. A normal derivation has no
+          # such requirement.
           engineSource = pkgs.stdenv.mkDerivation {
             pname = "kitesurf-engine-source";
             inherit version src;
 
-            phases = [ "unpackPhase" "patchPhase" "installPhase" ];
+            nativeBuildInputs = with pkgs; [
+              bash
+              coreutils
+              gnused
+              gnugrep
+              gnutar
+              util-linux
+              perl
+              gcc
+              nodejs_22
+              bazelisk
+              python3
+            ];
+
+            phases = [ "unpackPhase" "patchPhase" "buildPhase" "installPhase" ];
 
             unpackPhase = ''
               runHook preUnpack
@@ -67,28 +89,49 @@
 
             patchPhase = ''
               runHook prePatch
-              # std.bzl builds wasm32 std with a hardcoded /usr/bin:/bin PATH
-              # and /usr/bin/perl. Use Nix tools; the temp dir is a placeholder
-              # the launcher rewrites to its own writable cache on first run.
               substituteInPlace bazel/rust/std.bzl \
                 --replace 'PATH=/usr/bin:/bin' 'PATH=${bazelPath}' \
-                --replace '"PATH": "/usr/bin:/bin"' '"PATH": "${bazelPath}", "TMPDIR": "__KITESURF_TMPDIR__"' \
+                --replace '"PATH": "/usr/bin:/bin"' '"PATH": "${bazelPath}", "TMPDIR": "$TMPDIR"' \
                 --replace '/usr/bin/perl' '${pkgs.perl}/bin/perl' \
                 --replace 'B=/tmp/kitesurf-wasm-std' 'B=$TMPDIR/kitesurf-wasm-std'
-              # rules_js npm lifecycle hooks (esbuild postinstall) also run
-              # with an empty env; give them the same PATH and default shell
-              # env so they can find uname/sh/node.
               # repos.bzl otherwise probes /usr/bin:/bin for GNU tar; NixOS
               # has no tar there, so put the store path first explicitly.
               substituteInPlace bazel/rust/repos.bzl \
                 --replace 'for candidate in ["/opt/homebrew/bin/gtar", "/usr/local/bin/gtar"]:' \
                   'for candidate in ["${pkgs.gnutar}/bin/tar", "/opt/homebrew/bin/gtar", "/usr/local/bin/gtar"]:'
+              # rules_js npm lifecycle hooks (esbuild postinstall) also run
+              # with an empty env; give them the same PATH and default shell
+              # env so they can find uname/sh/node.
               substituteInPlace MODULE.bazel \
                 --replace '    pnpm_lock = "//:pnpm-lock.yaml",' \
                   '    pnpm_lock = "//:pnpm-lock.yaml",
     lifecycle_hooks_use_default_shell_env = {"*": "1"},
     lifecycle_hooks_envs = {"*": ["PATH=${bazelPath}"]},'
               runHook postPatch
+            '';
+
+            buildPhase = ''
+              runHook preBuild
+              export HOME=$TMPDIR
+              mkdir -p "$TMPDIR/tools/bin"
+              ln -s "$(command -v bazelisk)" "$TMPDIR/tools/bin/bazel"
+              export PATH="$TMPDIR/tools/bin:$PATH"
+              bazel --output_base="$TMPDIR/bazel-out" run \
+                --repo_contents_cache= \
+                --noincompatible_strict_action_env \
+                --repo_env=PATH="${bazelPath}" \
+                --action_env=PATH="${bazelPath}" \
+                --shell_executable="$(command -v bash)" \
+                //packages/engine:dev_build
+
+              # Install pnpm + all workspace node_modules into the output so
+              # the service needs no network and no npm install at start.
+              export NPM_CONFIG_PREFIX="$PWD/tools"
+              ${pkgs.nodejs_22}/bin/npm install -g pnpm@9.15.4 >/dev/null
+              unset NPM_CONFIG_PREFIX
+              export PATH="$PWD/tools/bin:$PATH"
+              pnpm install --frozen-lockfile
+              runHook postBuild
             '';
 
             installPhase = ''
@@ -99,12 +142,6 @@
             '';
           };
 
-          # The engine is a Bazel/WASM Cloudflare Worker. Building it inside a
-          # Nix derivation would need a fixed output hash, but wasm-bindgen
-          # emits build-dependent symbol hashes, so the result is not stable.
-          # Instead this package ships a launcher that builds once into a
-          # writable cache dir on first start (needs network for Bazel's Rust
-          # toolchain, crates and npm), then runs `wrangler dev` from there.
           engine = pkgs.stdenv.mkDerivation {
             pname = "kitesurf-engine";
             inherit version;
@@ -119,46 +156,14 @@
               #!/bin/sh
               set -eu
               STATE="\''${XDG_CACHE_HOME:-\$HOME/.cache}/kitesurf-engine-${version}"
-              CACHE="\$STATE/cache"
-              if [ ! -f "\$STATE/.built" ]; then
-                echo "kitesurf-engine: first run: copying source and building with Bazel (this takes a while)" >&2
-                if [ ! -f "\$STATE/.source" ]; then
-                  # Nix store files/dirs are read-only; a partial previous copy
-                  # would block every retry. Start clean and make it writable.
-                  chmod -R u+w "\$STATE" 2>/dev/null || true
-                  rm -rf "\$STATE"
-                  mkdir -p "\$STATE"
-                  cp -a "$out/share/kitesurf-engine/." "\$STATE/"
-                  chmod -R u+w "\$STATE"
-                  touch "\$STATE/.source"
-                fi
+              if [ ! -f "\$STATE/.source" ]; then
+                echo "kitesurf-engine: preparing runtime cache" >&2
                 chmod -R u+w "\$STATE" 2>/dev/null || true
-                mkdir -p "\$CACHE/tmp" "\$STATE/home"
-                sed -i "s|__KITESURF_TMPDIR__|\$CACHE/tmp|g" "\$STATE/bazel/rust/std.bzl"
-                mkdir -p "\$STATE/tools/bin"
-                ln -sf "${pkgs.bazelisk}/bin/bazelisk" "\$STATE/tools/bin/bazel"
-                export HOME="\$STATE/home"
-                export TMPDIR="\$CACHE/tmp"
-                export PATH="\$STATE/tools/bin:${bazelPath}:\$PATH"
-                export SSL_CERT_FILE="${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
-                cd "\$STATE"
-                bazel --output_base="\$CACHE/bazel-out" run \
-                  --repo_contents_cache= \
-                  --noincompatible_strict_action_env \
-                  --repo_env=PATH="${bazelPath}" \
-                  --action_env=PATH="${bazelPath}" \
-                  --shell_executable="${pkgs.bash}/bin/bash" \
-                  //packages/engine:dev_build
-                touch "\$STATE/.built"
-              fi
-              cd "\$STATE"
-              if [ ! -d node_modules ]; then
-                echo "kitesurf-engine: installing pnpm deps" >&2
-                export NPM_CONFIG_PREFIX="\$STATE/tools"
-                "${pkgs.nodejs_22}/bin/npm" install -g pnpm@9.15.4 >/dev/null
-                unset NPM_CONFIG_PREFIX
-                export PATH="\$STATE/tools/bin:\$PATH"
-                pnpm install --frozen-lockfile
+                rm -rf "\$STATE"
+                mkdir -p "\$STATE"
+                cp -a "$out/share/kitesurf-engine/." "\$STATE/"
+                chmod -R u+w "\$STATE"
+                touch "\$STATE/.source"
               fi
               cd "\$STATE/packages/engine"
               export PATH="\$STATE/tools/bin:\$PATH"
@@ -169,7 +174,7 @@
             '';
 
             meta = with pkgs.lib; {
-              description = "Local cloudflare/kitesurf CDP engine (built on first run)";
+              description = "Local cloudflare/kitesurf CDP engine (prebuilt)";
               homepage = "https://github.com/cloudflare/kitesurf";
               license = licenses.asl20;
               mainProgram = "kitesurf-engine";
