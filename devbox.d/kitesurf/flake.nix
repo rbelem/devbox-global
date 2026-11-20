@@ -126,6 +126,8 @@
 
               # Install pnpm + all workspace node_modules into the output so
               # the service needs no network and no npm install at start.
+              export SSL_CERT_FILE="${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
+              export NODE_EXTRA_CA_CERTS="$SSL_CERT_FILE"
               export NPM_CONFIG_PREFIX="$PWD/tools"
               ${pkgs.nodejs_22}/bin/npm install -g pnpm@9.15.4 >/dev/null
               unset NPM_CONFIG_PREFIX
