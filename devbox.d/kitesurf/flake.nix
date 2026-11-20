@@ -115,13 +115,20 @@
               set -eu
               STATE="\''${XDG_CACHE_HOME:-\$HOME/.cache}/kitesurf-engine-${version}"
               CACHE="\$STATE/cache"
-              mkdir -p "\$CACHE/tmp" "\$STATE/home"
               if [ ! -f "\$STATE/.built" ]; then
                 echo "kitesurf-engine: first run: copying source and building with Bazel (this takes a while)" >&2
                 if [ ! -f "\$STATE/.source" ]; then
+                  # Nix store files/dirs are read-only; a partial previous copy
+                  # would block every retry. Start clean and make it writable.
+                  chmod -R u+w "\$STATE" 2>/dev/null || true
+                  rm -rf "\$STATE"
+                  mkdir -p "\$STATE"
                   cp -a "$out/share/kitesurf-engine/." "\$STATE/"
+                  chmod -R u+w "\$STATE"
                   touch "\$STATE/.source"
                 fi
+                chmod -R u+w "\$STATE" 2>/dev/null || true
+                mkdir -p "\$CACHE/tmp" "\$STATE/home"
                 sed -i "s|__KITESURF_TMPDIR__|\$CACHE/tmp|g" "\$STATE/bazel/rust/std.bzl"
                 mkdir -p "\$STATE/tools/bin"
                 ln -sf "${pkgs.bazelisk}/bin/bazelisk" "\$STATE/tools/bin/bazel"
