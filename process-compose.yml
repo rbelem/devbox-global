@@ -54,6 +54,9 @@ processes:
     command: kitesurf-engine
     environment:
       - "KITESURF_PORT=8787"
+      # workerd's TLS stack needs the Nix CA bundle to fetch target pages.
+      - "SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt"
+      - "NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-bundle.crt"
     readiness_probe:
       http_get:
         host: 127.0.0.1
