@@ -3,7 +3,7 @@
 
   inputs = {
     # Pinned to stable wigolo's nixpkgs: newer libcs need GLIBC_2.43, ambient profile ships 2.42 — bump together
-    nixpkgs.url = "github:NixOS/nixpkgs/241313f4e8e508cb9b13278c2b0fa25b9ca27163";
+    nixpkgs.url = "github:NixOS/nixpkgs/88c4c23f3d6e5a4116ee19e148df5a0f2004f861";
   };
 
   outputs =
@@ -26,15 +26,15 @@
       # release yet; re-pin to upstream once they are.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "6a748dae7b56e8b6588c9668375ed47d4193a81d";
-      version = "0.3.1-git.6a748dae";
+      rev = "8e9e9db6b2900267a16fb32c207c7e301de56b86";
+      version = "0.3.1-git.8e9e9db";
 
       # Get the real hashes:
       #   1. Set srcHash/npmDepsHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash first — copy the "got" hash
       #   4. Then it will fail for npmDepsHash — copy that too
-      srcHash = "sha256-vsSDRxN/HWDAHb+5CAzVKup9uN/2N6/RpzvquecO0Z0=";
+      srcHash = "sha256-zR4zRPMDRG4JWMjPxb4KQpgm+qnyFx+uEr0TvkotOJU=";
       npmDepsHash = "sha256-p1L8ohMXZlRuGbgK0TUgycc8LLaYr8CtaCcbMLMUZxs=";
 
       systems = [ "x86_64-linux" ];
