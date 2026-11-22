@@ -5,6 +5,27 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-11-20T12:55:41Z",
+   "tag_name": "v0.10.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-19T14:58:42Z",
+   "tag_name": "v0.10.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-19T08:50:58Z",
+   "tag_name": "v0.9.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-10-30T13:17:36Z",
    "tag_name": "v0.9.0"
   },
@@ -82,6 +103,9 @@
  "repo": "doclang-project/doclang",
  "tag_dates": {},
  "tags": [
+  "v0.10.1",
+  "v0.10.0",
+  "v0.9.1",
   "v0.9.0",
   "v0.8.1",
   "v0.8.0",

@@ -4,6 +4,94 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.1/openspec-darwin-arm64.tar.gz",
+     "name": "openspec-darwin-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.1/openspec-darwin-x64.tar.gz",
+     "name": "openspec-darwin-x64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.1/openspec-linux-arm64-musl.tar.gz",
+     "name": "openspec-linux-arm64-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.1/openspec-linux-arm64.tar.gz",
+     "name": "openspec-linux-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.1/openspec-linux-x64-musl.tar.gz",
+     "name": "openspec-linux-x64-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.1/openspec-linux-x64.tar.gz",
+     "name": "openspec-linux-x64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.1/openspec-windows-arm64.zip",
+     "name": "openspec-windows-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.1/openspec-windows-x64.zip",
+     "name": "openspec-windows-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.1/SHA256SUMS",
+     "name": "SHA256SUMS"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-19T22:26:58Z",
+   "tag_name": "v2.1.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.0/openspec-darwin-arm64.tar.gz",
+     "name": "openspec-darwin-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.0/openspec-darwin-x64.tar.gz",
+     "name": "openspec-darwin-x64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.0/openspec-linux-arm64-musl.tar.gz",
+     "name": "openspec-linux-arm64-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.0/openspec-linux-arm64.tar.gz",
+     "name": "openspec-linux-arm64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.0/openspec-linux-x64-musl.tar.gz",
+     "name": "openspec-linux-x64-musl.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.0/openspec-linux-x64.tar.gz",
+     "name": "openspec-linux-x64.tar.gz"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.0/openspec-windows-arm64.zip",
+     "name": "openspec-windows-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.0/openspec-windows-x64.zip",
+     "name": "openspec-windows-x64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.1.0/SHA256SUMS",
+     "name": "SHA256SUMS"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-17T01:12:49Z",
+   "tag_name": "v2.1.0"
+  },
+  {
+   "assets": [
+    {
      "browser_download_url": "https://github.com/Fission-AI/OpenSpec/releases/download/v2.0.0/openspec-darwin-arm64.tar.gz",
      "name": "openspec-darwin-arm64.tar.gz"
     },
@@ -603,6 +691,8 @@
  "repo": "Fission-AI/OpenSpec",
  "tag_dates": {},
  "tags": [
+  "v2.1.1",
+  "v2.1.0",
   "v2.0.0",
   "v1.17.0",
   "v1.16.1",
@@ -662,6 +752,8 @@
   "v0.3.0",
   "v0.2.0",
   "v0.1.0",
+  "@fission-ai/openspec@2.1.1",
+  "@fission-ai/openspec@2.1.0",
   "@fission-ai/openspec@2.0.0",
   "@fission-ai/openspec@1.17.0",
   "@fission-ai/openspec@1.16.1",

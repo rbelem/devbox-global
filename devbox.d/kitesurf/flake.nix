@@ -37,18 +37,20 @@
           # /usr/bin:/bin in its WASM std builder and npm lifecycle hooks;
           # both are absent on NixOS, so we substitute this PATH into the
           # source below. These are all Nix store paths, so the patch is pure.
-          bazelPath = pkgs.lib.concatStringsSep ":" (
-            map (p: "${p}/bin") [
-              pkgs.bash
-              pkgs.coreutils
-              pkgs.gnused
-              pkgs.gnugrep
-              pkgs.gnutar
-              pkgs.util-linux
-              pkgs.perl
-              pkgs.gcc
-            ]
-          ) + ":/usr/bin:/bin";
+          bazelPath =
+            pkgs.lib.concatStringsSep ":" (
+              map (p: "${p}/bin") [
+                pkgs.bash
+                pkgs.coreutils
+                pkgs.gnused
+                pkgs.gnugrep
+                pkgs.gnutar
+                pkgs.util-linux
+                pkgs.perl
+                pkgs.gcc
+              ]
+            )
+            + ":/usr/bin:/bin";
 
           # The engine is a Bazel/WASM Cloudflare Worker. Its build downloads
           # Rust nightly, crates and npm packages, so this derivation needs
@@ -78,7 +80,12 @@
               python3
             ];
 
-            phases = [ "unpackPhase" "patchPhase" "buildPhase" "installPhase" ];
+            phases = [
+              "unpackPhase"
+              "patchPhase"
+              "buildPhase"
+              "installPhase"
+            ];
 
             unpackPhase = ''
               runHook preUnpack
@@ -88,26 +95,26 @@
             '';
 
             patchPhase = ''
-              runHook prePatch
-              substituteInPlace bazel/rust/std.bzl \
-                --replace 'PATH=/usr/bin:/bin' 'PATH=${bazelPath}' \
-                --replace '"PATH": "/usr/bin:/bin"' '"PATH": "${bazelPath}", "TMPDIR": "$TMPDIR"' \
-                --replace '/usr/bin/perl' '${pkgs.perl}/bin/perl' \
-                --replace 'B=/tmp/kitesurf-wasm-std' 'B=$TMPDIR/kitesurf-wasm-std'
-              # repos.bzl otherwise probes /usr/bin:/bin for GNU tar; NixOS
-              # has no tar there, so put the store path first explicitly.
-              substituteInPlace bazel/rust/repos.bzl \
-                --replace 'for candidate in ["/opt/homebrew/bin/gtar", "/usr/local/bin/gtar"]:' \
-                  'for candidate in ["${pkgs.gnutar}/bin/tar", "/opt/homebrew/bin/gtar", "/usr/local/bin/gtar"]:'
-              # rules_js npm lifecycle hooks (esbuild postinstall) also run
-              # with an empty env; give them the same PATH and default shell
-              # env so they can find uname/sh/node.
-              substituteInPlace MODULE.bazel \
-                --replace '    pnpm_lock = "//:pnpm-lock.yaml",' \
-                  '    pnpm_lock = "//:pnpm-lock.yaml",
-    lifecycle_hooks_use_default_shell_env = {"*": "1"},
-    lifecycle_hooks_envs = {"*": ["PATH=${bazelPath}"]},'
-              runHook postPatch
+                        runHook prePatch
+                        substituteInPlace bazel/rust/std.bzl \
+                          --replace 'PATH=/usr/bin:/bin' 'PATH=${bazelPath}' \
+                          --replace '"PATH": "/usr/bin:/bin"' '"PATH": "${bazelPath}", "TMPDIR": "$TMPDIR"' \
+                          --replace '/usr/bin/perl' '${pkgs.perl}/bin/perl' \
+                          --replace 'B=/tmp/kitesurf-wasm-std' 'B=$TMPDIR/kitesurf-wasm-std'
+                        # repos.bzl otherwise probes /usr/bin:/bin for GNU tar; NixOS
+                        # has no tar there, so put the store path first explicitly.
+                        substituteInPlace bazel/rust/repos.bzl \
+                          --replace 'for candidate in ["/opt/homebrew/bin/gtar", "/usr/local/bin/gtar"]:' \
+                            'for candidate in ["${pkgs.gnutar}/bin/tar", "/opt/homebrew/bin/gtar", "/usr/local/bin/gtar"]:'
+                        # rules_js npm lifecycle hooks (esbuild postinstall) also run
+                        # with an empty env; give them the same PATH and default shell
+                        # env so they can find uname/sh/node.
+                        substituteInPlace MODULE.bazel \
+                          --replace '    pnpm_lock = "//:pnpm-lock.yaml",' \
+                            '    pnpm_lock = "//:pnpm-lock.yaml",
+              lifecycle_hooks_use_default_shell_env = {"*": "1"},
+              lifecycle_hooks_envs = {"*": ["PATH=${bazelPath}"]},'
+                        runHook postPatch
             '';
 
             buildPhase = ''

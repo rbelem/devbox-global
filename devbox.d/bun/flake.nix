@@ -11,7 +11,7 @@
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.4.4";
+      version = "1.4.5";
 
       # Bun publishes pre-compiled release zips at this URL. The
       # "baseline" variant targets Nehalem (2008) ISA — no AVX/AVX2 —

@@ -6,7 +6,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     codegraph-src = {
-      url = "github:colbymchenry/codegraph/v1.6.2";
+      url = "github:colbymchenry/codegraph/v1.6.4";
       flake = false;
     };
   };
@@ -26,7 +26,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "1.6.2";
+      version = "1.6.4";
     in
     {
       packages = forAllSystems (
@@ -45,7 +45,7 @@
             #   1. Set to pkgs.lib.fakeHash
             #   2. Run: nix build "path:...#default"
             #   3. Replace with the hash from the error message
-            npmDepsHash = "sha256-J8viY38M/loCoJmpxEOIApN6cpf6sU2aa80knVNRSvI=";
+            npmDepsHash = "sha256-8Jj2u885Qsv/FOwxJbIovFWcMVkOQl2ata+CN1qs/m4=";
 
             nodejs = pkgs.nodejs_22;
 

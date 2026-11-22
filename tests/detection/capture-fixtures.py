@@ -27,8 +27,10 @@ FIXTURES = os.path.join(HERE, "fixtures")
 # devbox.d/opencode is not here: the package is disabled in devbox.json, so
 # the detection table does not cover it.
 REPOS = [
+    "akitaonrails/ai-memory",
     "alibaba/open-code-review",
     "anomalyco/hex",
+    "oven-sh/bun",
     "akinomyoga/ble.sh",
     "Andyyyy64/whichllm",
     "browser-use/browser-harness",

@@ -4,6 +4,1062 @@
   {
    "assets": [
     {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.64/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.64/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.64/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.64/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.64/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.64/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.64/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.64/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.64/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.64/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-22T02:59:32Z",
+   "tag_name": "v0.3.64"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.63/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.63/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.63/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.63/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.63/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.63/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.63/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.63/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.63/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.63/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-21T23:17:48Z",
+   "tag_name": "v0.3.63"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.62/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.62/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.62/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.62/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.62/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.62/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.62/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.62/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.62/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.62/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-21T08:11:49Z",
+   "tag_name": "v0.3.62"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.61/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.61/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.61/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.61/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.61/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.61/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.61/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.61/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.61/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.61/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-21T06:03:54Z",
+   "tag_name": "v0.3.61"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.60/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.60/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.60/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.60/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.60/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.60/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.60/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.60/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.60/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.60/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-21T00:56:10Z",
+   "tag_name": "v0.3.60"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.59/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.59/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.59/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.59/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.59/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.59/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.59/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.59/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.59/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.59/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-20T19:49:16Z",
+   "tag_name": "v0.3.59"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.58/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.58/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.58/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.58/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.58/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.58/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.58/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.58/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.58/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.58/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-20T18:11:12Z",
+   "tag_name": "v0.3.58"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.57/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.57/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.57/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.57/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.57/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.57/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.57/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.57/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.57/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.57/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-20T16:50:03Z",
+   "tag_name": "v0.3.57"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.56/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.56/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.56/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.56/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.56/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.56/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.56/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.56/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.56/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.56/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-20T12:22:16Z",
+   "tag_name": "v0.3.56"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.55/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.55/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.55/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.55/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.55/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.55/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.55/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.55/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.55/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.55/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-20T10:34:53Z",
+   "tag_name": "v0.3.55"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.54/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.54/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.54/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.54/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.54/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.54/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.54/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.54/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.54/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.54/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-20T08:11:59Z",
+   "tag_name": "v0.3.54"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.53/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.53/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.53/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.53/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.53/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.53/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.53/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.53/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.53/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.53/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-20T03:29:19Z",
+   "tag_name": "v0.3.53"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.52/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.52/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.52/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.52/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.52/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.52/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.52/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.52/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.52/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.52/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-20T01:12:30Z",
+   "tag_name": "v0.3.52"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.51/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.51/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.51/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.51/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.51/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.51/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.51/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.51/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.51/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.51/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-20T00:08:08Z",
+   "tag_name": "v0.3.51"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.50/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.50/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.50/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.50/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.50/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.50/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.50/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.50/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.50/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.50/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-19T19:50:49Z",
+   "tag_name": "v0.3.50"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.49/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.49/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.49/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.49/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.49/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.49/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.49/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.49/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.49/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.49/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-19T17:45:03Z",
+   "tag_name": "v0.3.49"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.48/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.48/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.48/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.48/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.48/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.48/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.48/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.48/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.48/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.48/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-19T00:28:51Z",
+   "tag_name": "v0.3.48"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.47/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.47/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.47/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.47/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.47/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.47/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.47/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.47/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.47/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.47/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-18T23:17:21Z",
+   "tag_name": "v0.3.47"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.46/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.46/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.46/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.46/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.46/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.46/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.46/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.46/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.46/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.46/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-18T19:09:23Z",
+   "tag_name": "v0.3.46"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.45/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.45/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.45/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.45/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.45/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.45/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.45/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.45/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.45/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.45/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-18T16:05:11Z",
+   "tag_name": "v0.3.45"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.44/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.44/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.44/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.44/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.44/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.44/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.44/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.44/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.44/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.44/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-18T09:20:49Z",
+   "tag_name": "v0.3.44"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.43/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.43/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.43/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.43/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.43/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.43/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.43/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.43/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.43/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.43/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-18T05:13:53Z",
+   "tag_name": "v0.3.43"
+  },
+  {
+   "assets": [
+    {
      "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.42/latest-linux.yml",
      "name": "latest-linux.yml"
     },
@@ -50,273 +1106,1872 @@
    "tag_name": "v0.3.42"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.41/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.41/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.41/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.41/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.41/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.41/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.41/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.41/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.41/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.41/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-17T21:20:41Z",
    "tag_name": "v0.3.41"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.40/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.40/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.40/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.40/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.40/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.40/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.40/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.40/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.40/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.40/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-17T20:42:08Z",
    "tag_name": "v0.3.40"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.39/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.39/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.39/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.39/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.39/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.39/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.39/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.39/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.39/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.39/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-17T06:52:01Z",
    "tag_name": "v0.3.39"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.38/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.38/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.38/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.38/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.38/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.38/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.38/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.38/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.38/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.38/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-17T04:43:38Z",
    "tag_name": "v0.3.38"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.37/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.37/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.37/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.37/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.37/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.37/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.37/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.37/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.37/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.37/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-17T02:15:22Z",
    "tag_name": "v0.3.37"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.36/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.36/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.36/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.36/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.36/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.36/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.36/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.36/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.36/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.36/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T19:58:54Z",
    "tag_name": "v0.3.36"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.35/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.35/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.35/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.35/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.35/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.35/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.35/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.35/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.35/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.35/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T17:50:32Z",
    "tag_name": "v0.3.35"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.34/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.34/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.34/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.34/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.34/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.34/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.34/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.34/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.34/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.34/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T14:50:56Z",
    "tag_name": "v0.3.34"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.33/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.33/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.33/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.33/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.33/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.33/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.33/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.33/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.33/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.33/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T14:05:13Z",
    "tag_name": "v0.3.33"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.32/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.32/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.32/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.32/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.32/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.32/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.32/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.32/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.32/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.32/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T12:21:45Z",
    "tag_name": "v0.3.32"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.31/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.31/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.31/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.31/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.31/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.31/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.31/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.31/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.31/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.31/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T11:23:23Z",
    "tag_name": "v0.3.31"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.30/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.30/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.30/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.30/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.30/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.30/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.30/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.30/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.30/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.30/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T09:51:45Z",
    "tag_name": "v0.3.30"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.29/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.29/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.29/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.29/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.29/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.29/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.29/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.29/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.29/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.29/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T08:33:33Z",
    "tag_name": "v0.3.29"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.28/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.28/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.28/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.28/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.28/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.28/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.28/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.28/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.28/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.28/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T06:48:09Z",
    "tag_name": "v0.3.28"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.27/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.27/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.27/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.27/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.27/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.27/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.27/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.27/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.27/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.27/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T05:50:26Z",
    "tag_name": "v0.3.27"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.26/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.26/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.26/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.26/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.26/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.26/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.26/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.26/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.26/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.26/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T04:49:26Z",
    "tag_name": "v0.3.26"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.25/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.25/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.25/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.25/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.25/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.25/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.25/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.25/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.25/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.25/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T03:48:52Z",
    "tag_name": "v0.3.25"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.24/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.24/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.24/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.24/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.24/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.24/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.24/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.24/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.24/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.24/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T00:51:56Z",
    "tag_name": "v0.3.24"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.23/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.23/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.23/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.23/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.23/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.23/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.23/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.23/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.23/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.23/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-15T20:23:35Z",
    "tag_name": "v0.3.23"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.22/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.22/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.22/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.22/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.22/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.22/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.22/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.22/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.22/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.22/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-15T19:20:26Z",
    "tag_name": "v0.3.22"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.21/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.21/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.21/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.21/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.21/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.21/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.21/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.21/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.21/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.21/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-15T11:05:31Z",
    "tag_name": "v0.3.21"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.20/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.20/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.20/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.20/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.20/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.20/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.20/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.20/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.20/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.20/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-15T06:47:40Z",
    "tag_name": "v0.3.20"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.19/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.19/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.19/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.19/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.19/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.19/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.19/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.19/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.19/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.19/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-15T03:50:49Z",
    "tag_name": "v0.3.19"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.18/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.18/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.18/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.18/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.18/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.18/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.18/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.18/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.18/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.18/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-14T23:20:23Z",
    "tag_name": "v0.3.18"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.17/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.17/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.17/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.17/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.17/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.17/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.17/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.17/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.17/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.17/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-14T22:03:42Z",
    "tag_name": "v0.3.17"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.16/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.16/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.16/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.16/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.16/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.16/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.16/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.16/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.16/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.16/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-14T20:44:30Z",
    "tag_name": "v0.3.16"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.15/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.15/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.15/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.15/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.15/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.15/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.15/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.15/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.15/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.15/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-14T19:40:09Z",
    "tag_name": "v0.3.15"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.14/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.14/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.14/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.14/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.14/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.14/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.14/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.14/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.14/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.14/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-13T23:58:41Z",
    "tag_name": "v0.3.14"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.13/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.13/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.13/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.13/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.13/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.13/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.13/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.13/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.13/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.13/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-13T21:40:41Z",
    "tag_name": "v0.3.13"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.12/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.12/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.12/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.12/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.12/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.12/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.12/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.12/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.12/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.12/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-13T19:47:15Z",
    "tag_name": "v0.3.12"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.11/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.11/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.11/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.11/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.11/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.11/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.11/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.11/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.11/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.11/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-13T07:01:37Z",
    "tag_name": "v0.3.11"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.10/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.10/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.10/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.10/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.10/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.10/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.10/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.10/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.10/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.10/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-13T05:09:55Z",
    "tag_name": "v0.3.10"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.9/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.9/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.9/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.9/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.9/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.9/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.9/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.9/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.9/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.9/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-13T00:05:28Z",
    "tag_name": "v0.3.9"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.8/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.8/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.8/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.8/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.8/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.8/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.8/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.8/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.8/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.8/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-12T21:09:46Z",
    "tag_name": "v0.3.8"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.7/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.7/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.7/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.7/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.7/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.7/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.7/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.7/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.7/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.7/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-12T04:46:46Z",
    "tag_name": "v0.3.7"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.6/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.6/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.6/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.6/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.6/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.6/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.6/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.6/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.6/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.6/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-11T23:59:48Z",
    "tag_name": "v0.3.6"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.5/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.5/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.5/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.5/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.5/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.5/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.5/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.5/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.5/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.5/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-11T17:10:03Z",
    "tag_name": "v0.3.5"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.2/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.2/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.2/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.2/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.2/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.2/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.2/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.2/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.2/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.2/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-11T09:21:30Z",
    "tag_name": "v0.3.2"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.1/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.1/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.1/latest.yml",
+     "name": "latest.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.1/Yogurt-linux-x86_64.AppImage",
+     "name": "Yogurt-linux-x86_64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.1/Yogurt-mac-arm64.dmg",
+     "name": "Yogurt-mac-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.1/Yogurt-mac-arm64.dmg.blockmap",
+     "name": "Yogurt-mac-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.1/Yogurt-mac-arm64.zip",
+     "name": "Yogurt-mac-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.1/Yogurt-mac-arm64.zip.blockmap",
+     "name": "Yogurt-mac-arm64.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.1/Yogurt-windows-x64.exe",
+     "name": "Yogurt-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/FrigadeHQ/yogurt/releases/download/v0.3.1/Yogurt-windows-x64.exe.blockmap",
+     "name": "Yogurt-windows-x64.exe.blockmap"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-11T03:04:23Z",
@@ -326,6 +2981,28 @@
  "repo": "FrigadeHQ/yogurt",
  "tag_dates": {},
  "tags": [
+  "v0.3.64",
+  "v0.3.63",
+  "v0.3.62",
+  "v0.3.61",
+  "v0.3.60",
+  "v0.3.59",
+  "v0.3.58",
+  "v0.3.57",
+  "v0.3.56",
+  "v0.3.55",
+  "v0.3.54",
+  "v0.3.53",
+  "v0.3.52",
+  "v0.3.51",
+  "v0.3.50",
+  "v0.3.49",
+  "v0.3.48",
+  "v0.3.47",
+  "v0.3.46",
+  "v0.3.45",
+  "v0.3.44",
+  "v0.3.43",
   "v0.3.42",
   "v0.3.41",
   "v0.3.40",

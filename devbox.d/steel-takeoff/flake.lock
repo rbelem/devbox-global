@@ -3,16 +3,16 @@
     "ezdwg-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1794878782,
-        "narHash": "sha256-+5wrdbTkoUtkpjYLYBbFpemU8XsrKgs7IRObGHeqsyw=",
+        "lastModified": 1795162634,
+        "narHash": "sha256-/zMzoT+hEP0uFERADNV4+AO5ifoFfQEuOUomUy1lPx4=",
         "owner": "monozukuri-ai",
         "repo": "ezdwg",
-        "rev": "c7d79599601575f0413981db7332c4fe1bfcfb9b",
+        "rev": "59ad1b030a24616a5e666eef552417b07c7f5326",
         "type": "github"
       },
       "original": {
         "owner": "monozukuri-ai",
-        "ref": "v0.21.0",
+        "ref": "v0.21.3",
         "repo": "ezdwg",
         "type": "github"
       }

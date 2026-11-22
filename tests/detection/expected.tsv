@@ -18,31 +18,32 @@
 # status     the status the table must show
 agent-browser	vercel-labs/agent-browser	asset	v	0	0.43.0	0.43.0	✓
 agent-desktop	vercel-labs/agent-desktop	asset	v	1	1.3.1	1.3.1	✓
-anydoc	firecrawl/anydoc	registry	v	0	0.2.4	0.2.4	✓
+ai-memory	akitaonrails/ai-memory	source	v	3	3.5.1	3.5.1	✓
+anydoc	firecrawl/anydoc	registry	v	0	0.2.5	0.2.5	✓
 blesh	akinomyoga/ble.sh	asset	v	0	0.4.0-devel3	0.4.0-devel3	✓
 browser-harness	browser-use/browser-harness	registry	v	0	0.1.13	0.1.13	✓
 bsk	Tencent/BrowserSkill	asset	cli-v	0	0.5.0	0.5.0	✓
-bun	oven-sh/bun	asset	bun-v	1	1.4.4	1.4.4	✓
+bun	oven-sh/bun	asset	bun-v	1	1.4.5	1.4.5	✓
 codeburn	getagentseal/codeburn	source	v	0	0.9.28	0.9.28	✓
-codegraph	colbymchenry/codegraph	source	v	1	1.6.2	1.6.2	✓
-cua	trycua/cua	asset	cua-sdk-v	0	0.28.1	0.28.1	✓
-cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.52.13	0.52.13	✓ (pre)
-cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.38.6	0.38.6	✓
-cua-spacesd	trycua/cua	asset	cua-spacesd-v	0	0.16.1	0.16.1	✓
-dcg	Dicklesworthstone/destructive_command_guard	asset	v	0	0.16.0	0.16.0	✓
+codegraph	colbymchenry/codegraph	source	v	1	1.6.4	1.6.4	✓
+cua	trycua/cua	asset	cua-sdk-v	0	0.31.0	0.31.0	✓
+cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.57.0	0.57.0	✓ (pre)
+cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.41.1	0.41.1	✓
+cua-spacesd	trycua/cua	asset	cua-spacesd-v	0	0.17.4	0.17.4	✓
+dcg	Dicklesworthstone/destructive_command_guard	asset	v	0	0.17.0	0.17.0	✓
 deepsec	vercel-labs/deepsec	source	v	2	2.3.9	unknown	??
-deepseek-harness	deepseek-ai/deepseek-harness	source	dsh-v	0	0.2.1-alpha.1	0.2.2-rc.2	?? (sha-pinned)
-firecrawl	firecrawl/cli	asset	v	1	1.29.0	1.29.0	✓
+deepseek-harness	deepseek-ai/deepseek-harness	source	dsh-v	0	0.2.1-alpha.1	0.2.2-rc.5	?? (sha-pinned)
+firecrawl	firecrawl/cli	asset	v	1	1.30.0	1.30.0	✓
 herdr	ogulcancelik/herdr	asset	v	0	0.9.5	0.9.5	✓
-herdr-core	herdrdev/herdr-core	manifest	v	0	0.1.21	0.1.21	✓
 herdr-app	herdrdev/herdr-app	manifest	v	0	0.1.16	0.1.16	✓
-hermes-agent	NousResearch/hermes-agent	source	v	0	0.23.2	0.23.2	✓
-hermes-agent#desktop	NousResearch/hermes-agent	source	v	0	0.23.2	0.23.2	✓
-hermes-canary	NousResearch/hermes-agent	source	v	0	0.23.2+canary.20261118T064620Z	0.23.2+canary.20261118T064620Z	✓ (pre)
-hermes-canary#desktop	NousResearch/hermes-agent	source	v	0	0.23.2+canary.20261118T064620Z	0.23.2+canary.20261118T064620Z	✓ (pre)
+herdr-core	herdrdev/herdr-core	manifest	v	0	0.1.21	0.1.21	✓
+hermes-agent	NousResearch/hermes-agent	source	v	0	0.23.3	0.23.3	✓
+hermes-agent#desktop	NousResearch/hermes-agent	source	v	0	0.23.3	0.23.3	✓
+hermes-canary	NousResearch/hermes-agent	source	v	0	0.23.3+canary.20261120T064609Z	0.23.3+canary.20261120T064609Z	✓ (pre)
+hermes-canary#desktop	NousResearch/hermes-agent	source	v	0	0.23.3+canary.20261120T064609Z	0.23.3+canary.20261120T064609Z	✓ (pre)
 hex	anomalyco/hex	asset	v	3	3.4.0	3.4.0	✓
 hunk	modem-dev/hunk	asset	v	0	0.25.0	0.25.0	✓
-impeccable	pbakaus/impeccable	source	cli-v	4	4.9.2	4.9.2	✓
+impeccable	pbakaus/impeccable	source	cli-v	4	4.10.0	4.10.0	✓
 jev-review	rbelem/jev-review	source	v	0	0.1.1-p1	unknown	??
 jev-ultrafast	rbelem/jev-ultrafast	source	v	0	0.1.0	unknown	??
 # kitesurf's calver tags carry no prefix ("2026.11.9"), and the detection has
@@ -50,21 +51,22 @@ jev-ultrafast	rbelem/jev-ultrafast	source	v	0	0.1.0	unknown	??
 # it: latest "unknown", status "??". Bump by hand with `update-flake` verified
 # against the tag, or pin via a fork with v-prefixed tags.
 kitesurf	cloudflare/kitesurf	source	v	2026	2026.11.9	unknown	??
+kitesurf#kitesurf-engine	cloudflare/kitesurf	source	v	2026	2026.11.9	unknown	??
 llm-verifier	llm-as-a-verifier/llm-as-a-verifier	registry	v	0	0.3.0	0.3.0	✓
 neovim	nix-community/neovim-nightly-overlay	none	v	0	unknown	unknown	??
-open-code-review	alibaba/open-code-review	asset	v	1	1.13.11	1.13.11	✓
-pdf-inspector	firecrawl/pdf-inspector	source	v	1	1.26.1	1.26.1	✓
-playwright-cli	microsoft/playwright-cli	source	v	0	0.1.24	0.1.24	✓
-rea	morluto/rea	source	rea-agents-	6	6.9.0	6.9.0	✓
-rtk	rtk-ai/rtk	source	v	1	1.2.0	1.2.0	✓
-rustxng	sahenjp/RustXNG	asset	v	0	0.32.0	0.32.0	✓
+open-code-review	alibaba/open-code-review	asset	v	1	1.14.0	1.14.0	✓
+pdf-inspector	firecrawl/pdf-inspector	source	v	1	1.27.0	1.27.0	✓
+playwright-cli	microsoft/playwright-cli	source	v	0	0.1.25	0.1.25	✓
+rea	morluto/rea	source	rea-agents-	6	6.10.1	6.10.1	✓
+rtk	rtk-ai/rtk	source	v	1	1.2.1	1.2.1	✓
+rustxng	sahenjp/RustXNG	asset	v	0	0.32.0	unknown	??
 skillranker	Dicklesworthstone/skillranker	source	v	0	dynamic	unknown	?? (dynamic-version)
 skills	vercel-labs/skills	source	v	1	1.9.0	1.9.0	✓
 skillspector	NVIDIA/SkillSpector	source	v	2	2.13.6	2.13.6	✓
-steel-takeoff	monozukuri-ai/ezdwg	source	v	0	0.21.0	0.21.0	✓
+steel-takeoff	monozukuri-ai/ezdwg	source	v	0	0.21.3	0.21.3	✓
 strix	usestrix/strix	source	v	1	1.7.0	1.7.1	?? (sha-pinned)
 vela	unknown	none	v	0	0.1.6	unknown	??
-whichllm	Andyyyy64/whichllm	source	v	0	0.6.8	0.6.8	✓
-wigolo-git	rbelem/wigolo	source	v	0	0.3.1-git.6a748dae	unknown	??
+whichllm	Andyyyy64/whichllm	source	v	0	0.6.9	0.6.9	✓
+wigolo-git	rbelem/wigolo	source	v	0	0.3.1-git.8e9e9db	unknown	??
+yogurt	FrigadeHQ/yogurt	asset	v	0	0.3.64	0.3.64	✓
 zg	zvec-ai/zvec-grep	source	v	0	0.3.1	0.3.1	✓
-yogurt	FrigadeHQ/yogurt	asset	v	0	0.3.42	0.3.42	✓

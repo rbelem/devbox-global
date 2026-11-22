@@ -16,7 +16,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      version = "4.9.2";
+      version = "4.10.0";
     in
     {
       packages = forAllSystems (
@@ -28,7 +28,7 @@
             owner = "pbakaus";
             repo = "impeccable";
             rev = "cli-v${version}";
-            hash = "sha256-tuWXPh4rLTWmOQYui64zLIdKufG4WcbYZij71F1PszI=";
+            hash = "sha256-OBUTS/v+6KlGzighPkiNpdw4Mx4h0Tmd0QJgYVAgHfU=";
           };
 
           # Inject the package-lock.json into source.

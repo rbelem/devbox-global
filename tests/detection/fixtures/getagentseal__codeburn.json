@@ -9,167 +9,6 @@
    "tag_name": "v0.9.28"
   },
   {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-11T07:43:26Z",
-   "tag_name": "v0.9.27"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-10T22:30:43Z",
-   "tag_name": "v0.9.26"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-21T17:01:10Z",
-   "tag_name": "v0.9.25"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-04T09:18:20Z",
-   "tag_name": "v0.9.24"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-29T08:40:14Z",
-   "tag_name": "v0.9.23"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-25T17:15:01Z",
-   "tag_name": "v0.9.22"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-24T18:31:07Z",
-   "tag_name": "v0.9.21"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-08-10T22:45:33Z",
-   "tag_name": "v0.9.20"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-20T16:43:57Z",
-   "tag_name": "v0.9.19"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-17T02:24:17Z",
-   "tag_name": "v0.9.16"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-07-02T04:32:09Z",
-   "tag_name": "v0.9.15"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-06-22T01:56:00Z",
-   "tag_name": "v0.9.14"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-06-09T23:02:46Z",
-   "tag_name": "v0.9.12"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-27T13:12:54Z",
-   "tag_name": "v0.9.11"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-20T11:24:48Z",
-   "tag_name": "v0.9.10"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-17T09:48:23Z",
-   "tag_name": "v0.9.9"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-11T00:16:39Z",
-   "tag_name": "v0.9.8"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-07T06:16:47Z",
-   "tag_name": "v0.9.7"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-03T19:17:24Z",
-   "tag_name": "v0.9.6"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-05-01T15:17:07Z",
-   "tag_name": "v0.9.5"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-19T10:40:32Z",
-   "tag_name": "v0.7.4"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-17T12:10:55Z",
-   "tag_name": "v0.7.1"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-04-16T23:34:10Z",
-   "tag_name": "v0.7.0"
-  },
-  {
    "assets": [
     {
      "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.28/CodeBurn.Menubar_0.9.28_x64_en-US.msi",
@@ -186,13 +25,6 @@
    "tag_name": "windows-v0.9.28"
   },
   {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-11T07:56:05Z",
-   "tag_name": "windows-v0.9.27"
-  },
-  {
    "assets": [
     {
      "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.28/CodeBurnMenubar-v0.9.28.zip",
@@ -207,13 +39,6 @@
    "prerelease": false,
    "published_at": "2026-11-08T01:57:01Z",
    "tag_name": "mac-v0.9.28"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-11T07:46:50Z",
-   "tag_name": "mac-v0.9.27"
   },
   {
    "assets": [
@@ -291,8 +116,223 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-10-11T07:43:26Z",
+   "tag_name": "v0.9.27"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.27/CodeBurn.Menubar_0.9.27_x64_en-US.msi",
+     "name": "CodeBurn.Menubar_0.9.27_x64_en-US.msi"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.27/CodeBurn.Menubar_0.9.27_x64_en-US.msi.sha256",
+     "name": "CodeBurn.Menubar_0.9.27_x64_en-US.msi.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-11T07:56:05Z",
+   "tag_name": "windows-v0.9.27"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.27/CodeBurnMenubar-v0.9.27.zip",
+     "name": "CodeBurnMenubar-v0.9.27.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.27/CodeBurnMenubar-v0.9.27.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.27.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-11T07:46:50Z",
+   "tag_name": "mac-v0.9.27"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-0.9.27-arm64-mac.zip",
+     "name": "CodeBurn-0.9.27-arm64-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-0.9.27-arm64-mac.zip.blockmap",
+     "name": "CodeBurn-0.9.27-arm64-mac.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-0.9.27-arm64.dmg",
+     "name": "CodeBurn-0.9.27-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-0.9.27-arm64.dmg.blockmap",
+     "name": "CodeBurn-0.9.27-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-0.9.27-mac.zip",
+     "name": "CodeBurn-0.9.27-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-0.9.27-mac.zip.blockmap",
+     "name": "CodeBurn-0.9.27-mac.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-0.9.27.AppImage",
+     "name": "CodeBurn-0.9.27.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-0.9.27.dmg",
+     "name": "CodeBurn-0.9.27.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-0.9.27.dmg.blockmap",
+     "name": "CodeBurn-0.9.27.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/codeburn-desktop-0.9.27.x86_64.rpm",
+     "name": "codeburn-desktop-0.9.27.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/codeburn-desktop_0.9.27_amd64.deb",
+     "name": "codeburn-desktop_0.9.27_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-Setup-0.9.27.exe",
+     "name": "CodeBurn-Setup-0.9.27.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/CodeBurn-Setup-0.9.27.exe.blockmap",
+     "name": "CodeBurn-Setup-0.9.27.exe.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.27/latest.yml",
+     "name": "latest.yml"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-10-11T08:19:50Z",
    "tag_name": "desktop-v0.9.27"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-10T22:30:43Z",
+   "tag_name": "v0.9.26"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.26/CodeBurn.Menubar_0.9.26_x64_en-US.msi",
+     "name": "CodeBurn.Menubar_0.9.26_x64_en-US.msi"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.26/CodeBurn.Menubar_0.9.26_x64_en-US.msi.sha256",
+     "name": "CodeBurn.Menubar_0.9.26_x64_en-US.msi.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-10T22:54:26Z",
+   "tag_name": "windows-v0.9.26"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.26/CodeBurnMenubar-v0.9.26.zip",
+     "name": "CodeBurnMenubar-v0.9.26.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.26/CodeBurnMenubar-v0.9.26.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.26.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-10T22:23:56Z",
+   "tag_name": "mac-v0.9.26"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-0.9.26-arm64-mac.zip",
+     "name": "CodeBurn-0.9.26-arm64-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-0.9.26-arm64-mac.zip.blockmap",
+     "name": "CodeBurn-0.9.26-arm64-mac.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-0.9.26-arm64.dmg",
+     "name": "CodeBurn-0.9.26-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-0.9.26-arm64.dmg.blockmap",
+     "name": "CodeBurn-0.9.26-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-0.9.26-mac.zip",
+     "name": "CodeBurn-0.9.26-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-0.9.26-mac.zip.blockmap",
+     "name": "CodeBurn-0.9.26-mac.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-0.9.26.AppImage",
+     "name": "CodeBurn-0.9.26.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-0.9.26.dmg",
+     "name": "CodeBurn-0.9.26.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-0.9.26.dmg.blockmap",
+     "name": "CodeBurn-0.9.26.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/codeburn-desktop-0.9.26.x86_64.rpm",
+     "name": "codeburn-desktop-0.9.26.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/codeburn-desktop_0.9.26_amd64.deb",
+     "name": "codeburn-desktop_0.9.26_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-Setup-0.9.26.exe",
+     "name": "CodeBurn-Setup-0.9.26.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/CodeBurn-Setup-0.9.26.exe.blockmap",
+     "name": "CodeBurn-Setup-0.9.26.exe.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/latest-linux.yml",
+     "name": "latest-linux.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/latest-mac.yml",
+     "name": "latest-mac.yml"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.26/latest.yml",
+     "name": "latest.yml"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-10T22:54:25Z",
+   "tag_name": "desktop-v0.9.26"
   },
   {
    "assets": [
@@ -321,6 +361,1154 @@
    "prerelease": true,
    "published_at": "2026-10-10T22:23:59Z",
    "tag_name": "update-feeds"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-21T17:01:10Z",
+   "tag_name": "v0.9.25"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.25/CodeBurn.Menubar_0.9.25_x64_en-US.msi",
+     "name": "CodeBurn.Menubar_0.9.25_x64_en-US.msi"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.25/CodeBurn.Menubar_0.9.25_x64_en-US.msi.sha256",
+     "name": "CodeBurn.Menubar_0.9.25_x64_en-US.msi.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-21T17:13:01Z",
+   "tag_name": "windows-v0.9.25"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.25/CodeBurnMenubar-v0.9.25.zip",
+     "name": "CodeBurnMenubar-v0.9.25.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.25/CodeBurnMenubar-v0.9.25.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.25.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-21T17:29:45Z",
+   "tag_name": "mac-v0.9.25"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/CodeBurn-0.9.25-arm64-mac.zip",
+     "name": "CodeBurn-0.9.25-arm64-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/CodeBurn-0.9.25-arm64.dmg",
+     "name": "CodeBurn-0.9.25-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/CodeBurn-0.9.25-arm64.dmg.blockmap",
+     "name": "CodeBurn-0.9.25-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/CodeBurn-0.9.25-mac.zip",
+     "name": "CodeBurn-0.9.25-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/CodeBurn-0.9.25.AppImage",
+     "name": "CodeBurn-0.9.25.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/CodeBurn-0.9.25.dmg",
+     "name": "CodeBurn-0.9.25.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/CodeBurn-0.9.25.dmg.blockmap",
+     "name": "CodeBurn-0.9.25.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/codeburn-desktop-0.9.25.x86_64.rpm",
+     "name": "codeburn-desktop-0.9.25.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/codeburn-desktop_0.9.25_amd64.deb",
+     "name": "codeburn-desktop_0.9.25_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/CodeBurn-Setup-0.9.25.exe",
+     "name": "CodeBurn-Setup-0.9.25.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.25/CodeBurn-Setup-0.9.25.exe.blockmap",
+     "name": "CodeBurn-Setup-0.9.25.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-21T17:28:32Z",
+   "tag_name": "desktop-v0.9.25"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-04T09:18:20Z",
+   "tag_name": "v0.9.24"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.24/CodeBurn.Menubar_0.9.24_x64_en-US.msi",
+     "name": "CodeBurn.Menubar_0.9.24_x64_en-US.msi"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.24/CodeBurn.Menubar_0.9.24_x64_en-US.msi.sha256",
+     "name": "CodeBurn.Menubar_0.9.24_x64_en-US.msi.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-04T09:32:43Z",
+   "tag_name": "windows-v0.9.24"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.24/CodeBurnMenubar-v0.9.24.zip",
+     "name": "CodeBurnMenubar-v0.9.24.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.24/CodeBurnMenubar-v0.9.24.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.24.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-04T09:22:23Z",
+   "tag_name": "mac-v0.9.24"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-0.9.24-arm64-mac.zip",
+     "name": "CodeBurn-0.9.24-arm64-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-0.9.24-arm64-mac.zip.blockmap",
+     "name": "CodeBurn-0.9.24-arm64-mac.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-0.9.24-arm64.dmg",
+     "name": "CodeBurn-0.9.24-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-0.9.24-arm64.dmg.blockmap",
+     "name": "CodeBurn-0.9.24-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-0.9.24-mac.zip",
+     "name": "CodeBurn-0.9.24-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-0.9.24-mac.zip.blockmap",
+     "name": "CodeBurn-0.9.24-mac.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-0.9.24.AppImage",
+     "name": "CodeBurn-0.9.24.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-0.9.24.dmg",
+     "name": "CodeBurn-0.9.24.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-0.9.24.dmg.blockmap",
+     "name": "CodeBurn-0.9.24.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/codeburn-desktop-0.9.24.x86_64.rpm",
+     "name": "codeburn-desktop-0.9.24.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/codeburn-desktop_0.9.24_amd64.deb",
+     "name": "codeburn-desktop_0.9.24_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-Setup-0.9.24.exe",
+     "name": "CodeBurn-Setup-0.9.24.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.24/CodeBurn-Setup-0.9.24.exe.blockmap",
+     "name": "CodeBurn-Setup-0.9.24.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-04T09:41:31Z",
+   "tag_name": "desktop-v0.9.24"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-29T08:40:14Z",
+   "tag_name": "v0.9.23"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.23/CodeBurn.Menubar_0.9.23_x64_en-US.msi",
+     "name": "CodeBurn.Menubar_0.9.23_x64_en-US.msi"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.23/CodeBurn.Menubar_0.9.23_x64_en-US.msi.sha256",
+     "name": "CodeBurn.Menubar_0.9.23_x64_en-US.msi.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-29T08:47:04Z",
+   "tag_name": "windows-v0.9.23"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.23/CodeBurnMenubar-v0.9.23.zip",
+     "name": "CodeBurnMenubar-v0.9.23.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.23/CodeBurnMenubar-v0.9.23.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.23.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-29T08:41:24Z",
+   "tag_name": "mac-v0.9.23"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-0.9.23-arm64-mac.zip",
+     "name": "CodeBurn-0.9.23-arm64-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-0.9.23-arm64-mac.zip.blockmap",
+     "name": "CodeBurn-0.9.23-arm64-mac.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-0.9.23-arm64.dmg",
+     "name": "CodeBurn-0.9.23-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-0.9.23-arm64.dmg.blockmap",
+     "name": "CodeBurn-0.9.23-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-0.9.23-mac.zip",
+     "name": "CodeBurn-0.9.23-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-0.9.23-mac.zip.blockmap",
+     "name": "CodeBurn-0.9.23-mac.zip.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-0.9.23.AppImage",
+     "name": "CodeBurn-0.9.23.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-0.9.23.dmg",
+     "name": "CodeBurn-0.9.23.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-0.9.23.dmg.blockmap",
+     "name": "CodeBurn-0.9.23.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/codeburn-desktop-0.9.23.x86_64.rpm",
+     "name": "codeburn-desktop-0.9.23.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/codeburn-desktop_0.9.23_amd64.deb",
+     "name": "codeburn-desktop_0.9.23_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-Setup-0.9.23.exe",
+     "name": "CodeBurn-Setup-0.9.23.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.23/CodeBurn-Setup-0.9.23.exe.blockmap",
+     "name": "CodeBurn-Setup-0.9.23.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-29T08:49:50Z",
+   "tag_name": "desktop-v0.9.23"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-25T17:15:01Z",
+   "tag_name": "v0.9.22"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.22/CodeBurnMenubar-v0.9.22.zip",
+     "name": "CodeBurnMenubar-v0.9.22.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.22/CodeBurnMenubar-v0.9.22.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.22.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-25T17:38:49Z",
+   "tag_name": "mac-v0.9.22"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.22/CodeBurn-0.9.22-arm64-mac.zip",
+     "name": "CodeBurn-0.9.22-arm64-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.22/CodeBurn-0.9.22-arm64.dmg",
+     "name": "CodeBurn-0.9.22-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.22/CodeBurn-0.9.22-arm64.dmg.blockmap",
+     "name": "CodeBurn-0.9.22-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.22/CodeBurn-0.9.22-mac.zip",
+     "name": "CodeBurn-0.9.22-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.22/CodeBurn-0.9.22.AppImage",
+     "name": "CodeBurn-0.9.22.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.22/CodeBurn-0.9.22.dmg",
+     "name": "CodeBurn-0.9.22.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.22/CodeBurn-0.9.22.dmg.blockmap",
+     "name": "CodeBurn-0.9.22.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.22/codeburn-desktop-0.9.22.x86_64.rpm",
+     "name": "codeburn-desktop-0.9.22.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.22/codeburn-desktop_0.9.22_amd64.deb",
+     "name": "codeburn-desktop_0.9.22_amd64.deb"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-25T17:46:33Z",
+   "tag_name": "desktop-v0.9.22"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-24T18:31:07Z",
+   "tag_name": "v0.9.21"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.21/CodeBurn.Menubar_0.9.21_x64_en-US.msi",
+     "name": "CodeBurn.Menubar_0.9.21_x64_en-US.msi"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.21/CodeBurn.Menubar_0.9.21_x64_en-US.msi.sha256",
+     "name": "CodeBurn.Menubar_0.9.21_x64_en-US.msi.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-24T18:39:48Z",
+   "tag_name": "windows-v0.9.21"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.21/CodeBurnMenubar-v0.9.21.zip",
+     "name": "CodeBurnMenubar-v0.9.21.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.21/CodeBurnMenubar-v0.9.21.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.21.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-24T18:33:24Z",
+   "tag_name": "mac-v0.9.21"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/CodeBurn-0.9.21-arm64-mac.zip",
+     "name": "CodeBurn-0.9.21-arm64-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/CodeBurn-0.9.21-arm64.dmg",
+     "name": "CodeBurn-0.9.21-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/CodeBurn-0.9.21-arm64.dmg.blockmap",
+     "name": "CodeBurn-0.9.21-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/CodeBurn-0.9.21-mac.zip",
+     "name": "CodeBurn-0.9.21-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/CodeBurn-0.9.21.AppImage",
+     "name": "CodeBurn-0.9.21.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/CodeBurn-0.9.21.dmg",
+     "name": "CodeBurn-0.9.21.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/CodeBurn-0.9.21.dmg.blockmap",
+     "name": "CodeBurn-0.9.21.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/codeburn-desktop-0.9.21.x86_64.rpm",
+     "name": "codeburn-desktop-0.9.21.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/codeburn-desktop_0.9.21_amd64.deb",
+     "name": "codeburn-desktop_0.9.21_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/CodeBurn-Setup-0.9.21.exe",
+     "name": "CodeBurn-Setup-0.9.21.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.21/CodeBurn-Setup-0.9.21.exe.blockmap",
+     "name": "CodeBurn-Setup-0.9.21.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-24T18:34:18Z",
+   "tag_name": "desktop-v0.9.21"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.20/CodeBurn.Menubar_0.9.20_x64_en-US.msi",
+     "name": "CodeBurn.Menubar_0.9.20_x64_en-US.msi"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/windows-v0.9.20/CodeBurn.Menubar_0.9.20_x64_en-US.msi.sha256",
+     "name": "CodeBurn.Menubar_0.9.20_x64_en-US.msi.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-18T11:54:26Z",
+   "tag_name": "windows-v0.9.20"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-10T22:45:33Z",
+   "tag_name": "v0.9.20"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.20/CodeBurnMenubar-v0.9.20.zip",
+     "name": "CodeBurnMenubar-v0.9.20.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.20/CodeBurnMenubar-v0.9.20.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.20.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-10T22:46:49Z",
+   "tag_name": "mac-v0.9.20"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.20/CodeBurn-0.9.20-arm64.dmg",
+     "name": "CodeBurn-0.9.20-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.20/CodeBurn-0.9.20.AppImage",
+     "name": "CodeBurn-0.9.20.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.20/CodeBurn-0.9.20.dmg",
+     "name": "CodeBurn-0.9.20.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.20/codeburn-desktop-0.9.20.x86_64.rpm",
+     "name": "codeburn-desktop-0.9.20.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.20/codeburn-desktop_0.9.20_amd64.deb",
+     "name": "codeburn-desktop_0.9.20_amd64.deb"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-10T22:49:04Z",
+   "tag_name": "desktop-v0.9.20"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-20T16:43:57Z",
+   "tag_name": "v0.9.19"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.19/CodeBurnMenubar-v0.9.19.zip",
+     "name": "CodeBurnMenubar-v0.9.19.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.19/CodeBurnMenubar-v0.9.19.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.19.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-20T17:22:34Z",
+   "tag_name": "mac-v0.9.19"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/CodeBurn-0.9.19-arm64-mac.zip",
+     "name": "CodeBurn-0.9.19-arm64-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/CodeBurn-0.9.19-arm64.dmg",
+     "name": "CodeBurn-0.9.19-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/CodeBurn-0.9.19-arm64.dmg.blockmap",
+     "name": "CodeBurn-0.9.19-arm64.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/CodeBurn-0.9.19-mac.zip",
+     "name": "CodeBurn-0.9.19-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/CodeBurn-0.9.19.AppImage",
+     "name": "CodeBurn-0.9.19.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/CodeBurn-0.9.19.dmg",
+     "name": "CodeBurn-0.9.19.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/CodeBurn-0.9.19.dmg.blockmap",
+     "name": "CodeBurn-0.9.19.dmg.blockmap"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/codeburn-desktop-0.9.19.x86_64.rpm",
+     "name": "codeburn-desktop-0.9.19.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/codeburn-desktop_0.9.19_amd64.deb",
+     "name": "codeburn-desktop_0.9.19_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/CodeBurn-Setup-0.9.19.exe",
+     "name": "CodeBurn-Setup-0.9.19.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.19/CodeBurn-Setup-0.9.19.exe.blockmap",
+     "name": "CodeBurn-Setup-0.9.19.exe.blockmap"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-20T21:03:03Z",
+   "tag_name": "desktop-v0.9.19"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-17T02:24:17Z",
+   "tag_name": "v0.9.16"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.16/CodeBurnMenubar-v0.9.16.zip",
+     "name": "CodeBurnMenubar-v0.9.16.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.16/CodeBurnMenubar-v0.9.16.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.16.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-17T02:24:30Z",
+   "tag_name": "mac-v0.9.16"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.17/CodeBurn-0.9.17-arm64-mac.zip",
+     "name": "CodeBurn-0.9.17-arm64-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.17/CodeBurn-0.9.17-arm64.AppImage",
+     "name": "CodeBurn-0.9.17-arm64.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.17/CodeBurn-0.9.17-arm64.dmg",
+     "name": "CodeBurn-0.9.17-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.17/CodeBurn-0.9.17-mac.zip",
+     "name": "CodeBurn-0.9.17-mac.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.17/CodeBurn-0.9.17.AppImage",
+     "name": "CodeBurn-0.9.17.AppImage"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.17/CodeBurn-0.9.17.dmg",
+     "name": "CodeBurn-0.9.17.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.17/codeburn-desktop-0.9.17.x86_64.rpm",
+     "name": "codeburn-desktop-0.9.17.x86_64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.17/codeburn-desktop_0.9.17_amd64.deb",
+     "name": "codeburn-desktop_0.9.17_amd64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.17/codeburn-desktop_0.9.17_arm64.deb",
+     "name": "codeburn-desktop_0.9.17_arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/desktop-v0.9.17/CodeBurn-Setup-0.9.17.exe",
+     "name": "CodeBurn-Setup-0.9.17.exe"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-17T21:02:53Z",
+   "tag_name": "desktop-v0.9.17"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-07-17T02:31:18Z",
+   "tag_name": "desktop-v0.9.16"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-07-16T22:52:05Z",
+   "tag_name": "desktop-v0.9.15"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-02T04:32:09Z",
+   "tag_name": "v0.9.15"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.15/CodeBurnMenubar-v0.9.15.zip",
+     "name": "CodeBurnMenubar-v0.9.15.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.15/CodeBurnMenubar-v0.9.15.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.15.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-02T04:32:26Z",
+   "tag_name": "mac-v0.9.15"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-22T01:56:00Z",
+   "tag_name": "v0.9.14"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.14/CodeBurnMenubar-v0.9.14.zip",
+     "name": "CodeBurnMenubar-v0.9.14.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.14/CodeBurnMenubar-v0.9.14.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.14.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-22T01:53:21Z",
+   "tag_name": "mac-v0.9.14"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.13/CodeBurnMenubar-v0.9.13.zip",
+     "name": "CodeBurnMenubar-v0.9.13.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.13/CodeBurnMenubar-v0.9.13.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.13.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-14T08:36:23Z",
+   "tag_name": "mac-v0.9.13"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-09T23:02:46Z",
+   "tag_name": "v0.9.12"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.12/CodeBurnMenubar-v0.9.12.zip",
+     "name": "CodeBurnMenubar-v0.9.12.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.12/CodeBurnMenubar-v0.9.12.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.12.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-09T23:04:28Z",
+   "tag_name": "mac-v0.9.12"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-27T13:12:54Z",
+   "tag_name": "v0.9.11"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.11/CodeBurnMenubar-v0.9.11.zip",
+     "name": "CodeBurnMenubar-v0.9.11.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.11/CodeBurnMenubar-v0.9.11.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.11.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-27T13:13:11Z",
+   "tag_name": "mac-v0.9.11"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-20T11:24:48Z",
+   "tag_name": "v0.9.10"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.10/CodeBurnMenubar-v0.9.10.zip",
+     "name": "CodeBurnMenubar-v0.9.10.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.10/CodeBurnMenubar-v0.9.10.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.10.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-20T11:25:02Z",
+   "tag_name": "mac-v0.9.10"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/v0.9.9/CodeBurnMenubar-0.9.9.zip",
+     "name": "CodeBurnMenubar-0.9.9.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-17T09:48:23Z",
+   "tag_name": "v0.9.9"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.9/CodeBurnMenubar-0.9.9.zip",
+     "name": "CodeBurnMenubar-0.9.9.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.9/CodeBurnMenubar-v0.9.9.zip",
+     "name": "CodeBurnMenubar-v0.9.9.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.9/CodeBurnMenubar-v0.9.9.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.9.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-17T09:44:16Z",
+   "tag_name": "mac-v0.9.9"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-11T00:16:39Z",
+   "tag_name": "v0.9.8"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.8/CodeBurnMenubar-v0.9.8.zip",
+     "name": "CodeBurnMenubar-v0.9.8.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.8/CodeBurnMenubar-v0.9.8.zip.sha256",
+     "name": "CodeBurnMenubar-v0.9.8.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-11T00:16:59Z",
+   "tag_name": "mac-v0.9.8"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-07T06:16:47Z",
+   "tag_name": "v0.9.7"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.7/CodeBurnMenubar-0.9.7.zip",
+     "name": "CodeBurnMenubar-0.9.7.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.7/CodeBurnMenubar-0.9.7.zip.sha256",
+     "name": "CodeBurnMenubar-0.9.7.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-07T06:17:33Z",
+   "tag_name": "mac-v0.9.7"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-03T19:17:24Z",
+   "tag_name": "v0.9.6"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.6/CodeBurnMenubar-0.9.6.zip",
+     "name": "CodeBurnMenubar-0.9.6.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.6/CodeBurnMenubar-0.9.6.zip.sha256",
+     "name": "CodeBurnMenubar-0.9.6.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-03T19:17:51Z",
+   "tag_name": "mac-v0.9.6"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.5/CodeBurnMenubar-0.9.5.zip",
+     "name": "CodeBurnMenubar-0.9.5.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-02T17:18:03Z",
+   "tag_name": "mac-v0.9.5"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/v0.9.5/CodeBurnMenubar-0.9.5.zip",
+     "name": "CodeBurnMenubar-0.9.5.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-01T15:17:07Z",
+   "tag_name": "v0.9.5"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.4/CodeBurnMenubar-v0.9.4.zip",
+     "name": "CodeBurnMenubar-v0.9.4.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-30T16:25:46Z",
+   "tag_name": "mac-v0.9.4"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.3/CodeBurnMenubar-v0.9.3.zip",
+     "name": "CodeBurnMenubar-v0.9.3.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-28T03:22:36Z",
+   "tag_name": "mac-v0.9.3"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.9.0/CodeBurnMenubar-v0.9.0.zip",
+     "name": "CodeBurnMenubar-v0.9.0.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-25T00:01:08Z",
+   "tag_name": "mac-v0.9.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.8.9/CodeBurnMenubar-v0.8.9.zip",
+     "name": "CodeBurnMenubar-v0.8.9.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-24T11:50:48Z",
+   "tag_name": "mac-v0.8.9"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.8.8/CodeBurnMenubar-v0.8.8.zip",
+     "name": "CodeBurnMenubar-v0.8.8.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-22T20:01:32Z",
+   "tag_name": "mac-v0.8.8"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.8.7/CodeBurnMenubar-v0.8.7.zip",
+     "name": "CodeBurnMenubar-v0.8.7.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-21T20:46:47Z",
+   "tag_name": "mac-v0.8.7"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.8.6/CodeBurnMenubar-v0.8.6.zip",
+     "name": "CodeBurnMenubar-v0.8.6.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-21T14:45:38Z",
+   "tag_name": "mac-v0.8.6"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.8.5/CodeBurnMenubar-v0.8.5.zip",
+     "name": "CodeBurnMenubar-v0.8.5.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-21T12:29:40Z",
+   "tag_name": "mac-v0.8.5"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.8.4/CodeBurnMenubar-v0.8.4.zip",
+     "name": "CodeBurnMenubar-v0.8.4.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-21T01:36:38Z",
+   "tag_name": "mac-v0.8.4"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/v0.7.4/CodeBurnMenubar-v0.7.4.zip",
+     "name": "CodeBurnMenubar-v0.7.4.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-19T10:40:32Z",
+   "tag_name": "v0.7.4"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.8.2/CodeBurnMenubar-v0.8.2.zip",
+     "name": "CodeBurnMenubar-v0.8.2.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-19T23:34:55Z",
+   "tag_name": "mac-v0.8.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.8.1/CodeBurnMenubar-v0.8.1.zip",
+     "name": "CodeBurnMenubar-v0.8.1.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-19T20:01:12Z",
+   "tag_name": "mac-v0.8.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.8.0/CodeBurnMenubar-v0.8.0.zip",
+     "name": "CodeBurnMenubar-v0.8.0.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-19T16:57:32Z",
+   "tag_name": "mac-v0.8.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.7.5/CodeBurnMenubar-v0.7.5.zip",
+     "name": "CodeBurnMenubar-v0.7.5.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-18T20:42:39Z",
+   "tag_name": "mac-v0.7.5"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.7.4/CodeBurnMenubar-v0.7.4.zip",
+     "name": "CodeBurnMenubar-v0.7.4.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-18T20:14:11Z",
+   "tag_name": "mac-v0.7.4"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.7.3/CodeBurnMenubar-v0.7.3.zip",
+     "name": "CodeBurnMenubar-v0.7.3.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-18T14:24:32Z",
+   "tag_name": "mac-v0.7.3"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/getagentseal/codeburn/releases/download/mac-v0.7.2/CodeBurnMenubar-v0.7.2.zip",
+     "name": "CodeBurnMenubar-v0.7.2.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-18T00:19:47Z",
+   "tag_name": "mac-v0.7.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-17T12:10:55Z",
+   "tag_name": "v0.7.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-16T23:34:10Z",
+   "tag_name": "v0.7.0"
   }
  ],
  "repo": "getagentseal/codeburn",
@@ -328,6 +1516,12 @@
  "tags": [
   "windows-v0.9.28",
   "windows-v0.9.27",
+  "windows-v0.9.26",
+  "windows-v0.9.25",
+  "windows-v0.9.24",
+  "windows-v0.9.23",
+  "windows-v0.9.21",
+  "windows-v0.9.20",
   "v0.9.28",
   "v0.9.27",
   "v0.9.26",
@@ -385,8 +1579,55 @@
   "update-feeds",
   "mac-v0.9.28",
   "mac-v0.9.27",
+  "mac-v0.9.26",
+  "mac-v0.9.25",
+  "mac-v0.9.24",
+  "mac-v0.9.23",
+  "mac-v0.9.22",
+  "mac-v0.9.21",
+  "mac-v0.9.20",
+  "mac-v0.9.19",
+  "mac-v0.9.16",
+  "mac-v0.9.15",
+  "mac-v0.9.14",
+  "mac-v0.9.13",
+  "mac-v0.9.12",
+  "mac-v0.9.11",
+  "mac-v0.9.10",
+  "mac-v0.9.9",
+  "mac-v0.9.8",
+  "mac-v0.9.7",
+  "mac-v0.9.6",
+  "mac-v0.9.5",
+  "mac-v0.9.4",
+  "mac-v0.9.3",
+  "mac-v0.9.0",
+  "mac-v0.8.9",
+  "mac-v0.8.8",
+  "mac-v0.8.7",
+  "mac-v0.8.6",
+  "mac-v0.8.5",
+  "mac-v0.8.4",
+  "mac-v0.8.2",
+  "mac-v0.8.1",
+  "mac-v0.8.0",
+  "mac-v0.7.5",
+  "mac-v0.7.4",
+  "mac-v0.7.3",
+  "mac-v0.7.2",
   "desktop-v0.9.28",
   "desktop-v0.9.27",
+  "desktop-v0.9.26",
+  "desktop-v0.9.25",
+  "desktop-v0.9.24",
+  "desktop-v0.9.23",
+  "desktop-v0.9.22",
+  "desktop-v0.9.21",
+  "desktop-v0.9.20",
+  "desktop-v0.9.19",
+  "desktop-v0.9.17",
+  "desktop-v0.9.16",
+  "desktop-v0.9.15",
   "backup-pre-pr59-merge"
  ]
 }

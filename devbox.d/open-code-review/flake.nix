@@ -22,7 +22,7 @@
         aarch64-darwin = "darwin-arm64";
       };
 
-      version = "1.13.11";
+      version = "1.14.0";
 
       # Hashes via API asset digests / nix store prefetch-file — never build-capture
       # for this repo (its CDN serves stale release bytes; see skill pitfall 12).

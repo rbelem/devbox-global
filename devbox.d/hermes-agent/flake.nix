@@ -5,7 +5,7 @@
     # the input URL and detect updates. Upstream builds via uv2nix and
     # exports packages.default (full build), minimal, messaging, tui, web
     # and desktop.
-    hermes-agent.url = "github:NousResearch/hermes-agent/v0.23.2";
+    hermes-agent.url = "github:NousResearch/hermes-agent/v0.23.3";
     # The tree deliberately does not build against the nixos-unstable
     # branch: upstream's flake.lock at v0.23.2 pins nixpkgs at
     # 02c087f3fe673c9e317f206a627cb6b910336dbe (patchelf 0.19.2). Their pm
@@ -41,7 +41,7 @@
           # placeholder and its update notifier always report an update.
           # Thread the tag's version through; update-flake rewrites both
           # spellings.
-          upstreamAgent = upstream.default.override { version = "0.23.2"; };
+          upstreamAgent = upstream.default.override { version = "0.23.3"; };
           # Scrub host python env: an inherited PYTHONPATH from a different
           # python minor (e.g. the devbox profile's python3.14 site-packages)
           # shadows the bundled pydantic_core cpython-312 .so and crashes

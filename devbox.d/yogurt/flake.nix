@@ -10,7 +10,7 @@
       forAllSystems =
         f: nixpkgs.lib.genAttrs supportedSystems (system: f nixpkgs.legacyPackages.${system});
 
-      version = "0.3.42";
+      version = "0.3.64";
     in
     {
       packages = forAllSystems (pkgs: rec {
@@ -24,7 +24,7 @@
           # the standard appimage FHS env instead.
           src = pkgs.fetchurl {
             url = "https://github.com/FrigadeHQ/yogurt/releases/download/v${version}/Yogurt-linux-x86_64.AppImage";
-            hash = "sha256-qx/EHfbLXq0KJ4Euzd8nKyEbDJ883oDMKRgno/QH+p8=";
+            hash = "sha256-5iTgAc5b06MDoheGXD91Y+8lxM1+T0yyrHUGELZ5oRw=";
           };
 
           # The AppImage bundles chromium/electron but not the GTK side; the

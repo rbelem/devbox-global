@@ -17,14 +17,14 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # release line: rea-agents-<version> (no leading "v")
-      version = "6.9.0";
+      version = "6.10.1";
 
       # Hash capture workflow:
       #   1. set srcHash / npmDepsHash to the fake hash
       #   2. nix build "path:devbox.d/rea#default"
       #   3. paste the sha256-... values from the error messages
-      srcHash = "sha256-n96fXl7OKRIlQ/nKGBDjN8kT4RIr2atgrQAU379lsoQ=";
-      npmDepsHash = "sha256-xFNYn2vxfk8unZyJQ3YWOO3fFb3iJVU6Alav0A+TiSI=";
+      srcHash = "sha256-2ulhZ2GXe1xOHKLNuJo9mTivy4OTiWP9VLHEXnpn5YI=";
+      npmDepsHash = "sha256-cXQSwTmmu0sDcnFjpmdmaj01PU6gB0UZ+kp0T8EHKH4=";
     in
     {
       packages = forAllSystems (

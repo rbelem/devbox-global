@@ -26,14 +26,14 @@
       packages = forAllSystems (
         pkgs:
         let
-          version = "0.2.4";
+          version = "0.2.5";
           main = pkgs.fetchurl {
             url = "https://registry.npmjs.org/@firecrawl/anydoc/-/anydoc-${version}.tgz";
-            hash = "sha256-Ylv2zcJMyR7uj7/ghMH6VscbF/A0NB1KI7yN8P3uMb0=";
+            hash = "sha256-EHEFEwDbITzdam6U6teQebfpktdICicALiXtZoCM/50=";
           };
           addon = pkgs.fetchurl {
             url = "https://registry.npmjs.org/@firecrawl/anydoc-linux-x64-gnu/-/anydoc-linux-x64-gnu-${version}.tgz";
-            hash = "sha256-yoIuo60pqbnKa39tKms9UxEVOvJabDWn9b3weR/n8sk=";
+            hash = "sha256-+APoRmcXjPaAbejiODZKNNPgDj6FaDSW8f8WoG+yZxM=";
           };
         in
         rec {

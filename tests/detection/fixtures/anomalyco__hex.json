@@ -2,6 +2,823 @@
  "default_branch": "dev",
  "releases": [
   {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-22T00:42:46Z",
+   "tag_name": "ios-beta-a5adb4c23b5c"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-22T02:30:26Z",
+   "tag_name": "ios-beta-742516b5801e"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T14:11:57Z",
+   "tag_name": "ios-beta-ff9aeec98994"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T13:49:38Z",
+   "tag_name": "ios-beta-fbcec374645d"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T15:38:21Z",
+   "tag_name": "ios-beta-fad11cbfc80e"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T11:11:23Z",
+   "tag_name": "ios-beta-f11913272ec9"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T22:09:22Z",
+   "tag_name": "ios-beta-efd5cea0a388"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T07:26:32Z",
+   "tag_name": "ios-beta-efbc618b2c48"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T08:46:40Z",
+   "tag_name": "ios-beta-edeccfcdeb95"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T01:15:51Z",
+   "tag_name": "ios-beta-e90d9b4b8258"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T00:29:53Z",
+   "tag_name": "ios-beta-e6319e98bed6"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T03:13:17Z",
+   "tag_name": "ios-beta-e3c32b92a4d5"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T06:44:31Z",
+   "tag_name": "ios-beta-e0e8b2258b03"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T15:10:46Z",
+   "tag_name": "ios-beta-e02a488b69f3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T04:44:16Z",
+   "tag_name": "ios-beta-d65f5f76f091"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T04:31:57Z",
+   "tag_name": "ios-beta-cc3074bd5c6e"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T02:52:51Z",
+   "tag_name": "ios-beta-c930f1e9cd3a"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T15:42:05Z",
+   "tag_name": "ios-beta-c8444c06015a"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T13:29:45Z",
+   "tag_name": "ios-beta-c0f15f7689a4"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T07:54:51Z",
+   "tag_name": "ios-beta-bb50edc03494"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T14:29:42Z",
+   "tag_name": "ios-beta-b849b63f0170"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T13:48:20Z",
+   "tag_name": "ios-beta-b719d45e5361"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T14:56:21Z",
+   "tag_name": "ios-beta-b4f7606e2091"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T03:46:28Z",
+   "tag_name": "ios-beta-ae6eca79ed02"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T13:39:37Z",
+   "tag_name": "ios-beta-acf0f2b77a09"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T13:26:59Z",
+   "tag_name": "ios-beta-a76d240c5aa3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T06:59:16Z",
+   "tag_name": "ios-beta-a5de693a2c86"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T14:59:49Z",
+   "tag_name": "ios-beta-976267e6a1cd"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T19:46:50Z",
+   "tag_name": "ios-beta-96b4f365d4a3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T03:28:03Z",
+   "tag_name": "ios-beta-9427d069bf11"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T05:24:57Z",
+   "tag_name": "ios-beta-8c93f6f59372"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-22T00:05:05Z",
+   "tag_name": "ios-beta-8ad758c3c502"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T07:19:55Z",
+   "tag_name": "ios-beta-8878c0a200b8"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T22:06:37Z",
+   "tag_name": "ios-beta-87ab5fd85f8d"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T12:41:11Z",
+   "tag_name": "ios-beta-83717ce6a262"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T00:39:04Z",
+   "tag_name": "ios-beta-82f1c473df28"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T17:21:13Z",
+   "tag_name": "ios-beta-811881e98ee1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T10:40:10Z",
+   "tag_name": "ios-beta-7ff7a0504530"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T03:01:49Z",
+   "tag_name": "ios-beta-71b5a8ecf0ea"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T18:24:08Z",
+   "tag_name": "ios-beta-667f77182542"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T07:41:58Z",
+   "tag_name": "ios-beta-64c028c5194b"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T08:32:24Z",
+   "tag_name": "ios-beta-62f2064db18c"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T03:17:08Z",
+   "tag_name": "ios-beta-5552df8a3f0c"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T04:11:26Z",
+   "tag_name": "ios-beta-4aa8418bfe56"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T07:55:41Z",
+   "tag_name": "ios-beta-43cd82d6d9a6"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T13:37:56Z",
+   "tag_name": "ios-beta-361978579da9"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T10:41:35Z",
+   "tag_name": "ios-beta-33c2a4ed3a88"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T06:13:34Z",
+   "tag_name": "ios-beta-3302fb4c0bef"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T20:15:55Z",
+   "tag_name": "ios-beta-2a7b12bfa602"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T11:34:02Z",
+   "tag_name": "ios-beta-2a023f9122a5"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T14:22:48Z",
+   "tag_name": "ios-beta-2863cd650767"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T14:14:39Z",
+   "tag_name": "ios-beta-25a96a8f835c"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T02:30:53Z",
+   "tag_name": "ios-beta-24918c69fae6"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T06:24:50Z",
+   "tag_name": "ios-beta-1b44779efbb7"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T17:43:46Z",
+   "tag_name": "ios-beta-197471781ba2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T17:12:27Z",
+   "tag_name": "ios-beta-0e7a1030a904"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T03:25:23Z",
+   "tag_name": "ios-beta-05849318bdee"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T14:32:16Z",
+   "tag_name": "ios-beta-0226b1667d63"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-21T01:13:45Z",
+   "tag_name": "ios-beta-00c8790109bf"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/ios-model-cleanup-tagger-1/HexCleanupTagger-1.mlpackage.zip",
+     "name": "HexCleanupTagger-1.mlpackage.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T01:28:06Z",
+   "tag_name": "ios-model-cleanup-tagger-1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T13:49:21Z",
+   "tag_name": "ios-beta-f82adb826fa2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T20:05:04Z",
+   "tag_name": "ios-beta-f78d6c948a3d"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T20:10:56Z",
+   "tag_name": "ios-beta-f3118747a044"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T01:30:18Z",
+   "tag_name": "ios-beta-efb7dcafb53c"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T18:16:19Z",
+   "tag_name": "ios-beta-e8d82f7101cf"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T13:51:17Z",
+   "tag_name": "ios-beta-deb84b6082b6"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T02:13:44Z",
+   "tag_name": "ios-beta-dcc8479cc248"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T12:48:14Z",
+   "tag_name": "ios-beta-d21699b8966e"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T15:53:53Z",
+   "tag_name": "ios-beta-cc752905516a"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T21:29:02Z",
+   "tag_name": "ios-beta-cc1672f71f51"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T17:45:29Z",
+   "tag_name": "ios-beta-c5400a4686e7"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T12:44:49Z",
+   "tag_name": "ios-beta-c2cae93d61e1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T16:42:13Z",
+   "tag_name": "ios-beta-b6024b2001c7"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T16:58:34Z",
+   "tag_name": "ios-beta-appstore-0.2.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T13:22:01Z",
+   "tag_name": "ios-beta-9d26cbdb873a"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T16:43:50Z",
+   "tag_name": "ios-beta-9a06976d0e1e"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T11:47:53Z",
+   "tag_name": "ios-beta-8c7d01672ea9"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T14:46:16Z",
+   "tag_name": "ios-beta-8b8b6fc0ef6d"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T23:05:04Z",
+   "tag_name": "ios-beta-7894cac95151"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T22:20:02Z",
+   "tag_name": "ios-beta-71264ba1d06b"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T16:26:49Z",
+   "tag_name": "ios-beta-6d2035eca2da"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T14:33:43Z",
+   "tag_name": "ios-beta-6ab53fff1ec9"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T17:54:09Z",
+   "tag_name": "ios-beta-65a2e04e3de2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T12:00:07Z",
+   "tag_name": "ios-beta-635a6c5a2ede"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T11:54:33Z",
+   "tag_name": "ios-beta-5ce7cf836293"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T20:40:06Z",
+   "tag_name": "ios-beta-5b35eb98f55b"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T14:13:00Z",
+   "tag_name": "ios-beta-550eccd970a3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T20:09:41Z",
+   "tag_name": "ios-beta-51f0c483dd49"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T22:08:39Z",
+   "tag_name": "ios-beta-503459ed085a"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T21:47:35Z",
+   "tag_name": "ios-beta-46eba3d70d28"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T13:58:53Z",
+   "tag_name": "ios-beta-42e6e8e12d24"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T17:56:15Z",
+   "tag_name": "ios-beta-415cbf63730c"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T20:18:05Z",
+   "tag_name": "ios-beta-392bf0f9c276"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T21:26:37Z",
+   "tag_name": "ios-beta-35cea0ed311d"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T13:36:29Z",
+   "tag_name": "ios-beta-33727933b099"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T23:54:00Z",
+   "tag_name": "ios-beta-2ef08aa491a5"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T17:00:33Z",
+   "tag_name": "ios-beta-2e7fc060ed2d"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T13:28:06Z",
+   "tag_name": "ios-beta-221b6a45fc82"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T14:40:05Z",
+   "tag_name": "ios-beta-1ede7bb79283"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T16:04:54Z",
+   "tag_name": "ios-beta-1e353d53b090"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T20:07:04Z",
+   "tag_name": "ios-beta-1856f0435bf9"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T15:05:27Z",
+   "tag_name": "ios-beta-178c16fdc52e"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T13:45:37Z",
+   "tag_name": "ios-beta-15965d562568"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T12:37:07Z",
+   "tag_name": "ios-beta-15186d041978"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T20:27:06Z",
+   "tag_name": "ios-beta-0e0a9bc5e3ca"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T13:42:07Z",
+   "tag_name": "ios-beta-0aa6fb8fea08"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-20T22:31:25Z",
+   "tag_name": "ios-beta-08cd058df870"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-19T21:07:15Z",
+   "tag_name": "ios-beta-d02d8515d643"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-19T19:54:56Z",
+   "tag_name": "ios-beta-b786299a7b9b"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-19T16:54:09Z",
+   "tag_name": "ios-beta-8bc6e45a6b28"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-19T18:31:02Z",
+   "tag_name": "ios-beta-366ebc725ddc"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-19T17:25:42Z",
+   "tag_name": "ios-beta-359b7c4d9e81"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-19T21:20:52Z",
+   "tag_name": "ios-beta-2c80cd400dc1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-19T23:58:34Z",
+   "tag_name": "ios-beta-232be8ce4b6f"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-19T21:12:47Z",
+   "tag_name": "ios-beta-0c9fa9cddf87"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-19T21:17:21Z",
+   "tag_name": "ios-beta-011da1b38c1b"
+  },
+  {
    "assets": [
     {
      "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.4.0/hex-3.4.0-linux-arm64",
@@ -66,42 +883,336 @@
    "tag_name": "v3.4.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-arm64",
+     "name": "hex-3.3.0-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-arm64.deb",
+     "name": "hex-3.3.0-linux-arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-arm64.rpm",
+     "name": "hex-3.3.0-linux-arm64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-x64",
+     "name": "hex-3.3.0-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-x64.deb",
+     "name": "hex-3.3.0-linux-x64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-linux-x64.rpm",
+     "name": "hex-3.3.0-linux-x64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-macos-arm64.dmg",
+     "name": "hex-3.3.0-macos-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-macos-arm64.zip",
+     "name": "hex-3.3.0-macos-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-windows-arm64.exe",
+     "name": "hex-3.3.0-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-3.3.0-windows-x64.exe",
+     "name": "hex-3.3.0-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-setup-3.3.0-windows-arm64.exe",
+     "name": "hex-setup-3.3.0-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.3.0/hex-setup-3.3.0-windows-x64.exe",
+     "name": "hex-setup-3.3.0-windows-x64.exe"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-02T16:43:16Z",
    "tag_name": "v3.3.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-3.2.0-linux-arm64",
+     "name": "hex-3.2.0-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-3.2.0-linux-arm64.deb",
+     "name": "hex-3.2.0-linux-arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-3.2.0-linux-arm64.rpm",
+     "name": "hex-3.2.0-linux-arm64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-3.2.0-linux-x64",
+     "name": "hex-3.2.0-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-3.2.0-linux-x64.deb",
+     "name": "hex-3.2.0-linux-x64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-3.2.0-linux-x64.rpm",
+     "name": "hex-3.2.0-linux-x64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-3.2.0-macos-arm64.dmg",
+     "name": "hex-3.2.0-macos-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-3.2.0-macos-arm64.zip",
+     "name": "hex-3.2.0-macos-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-3.2.0-windows-arm64.exe",
+     "name": "hex-3.2.0-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-3.2.0-windows-x64.exe",
+     "name": "hex-3.2.0-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-setup-3.2.0-windows-arm64.exe",
+     "name": "hex-setup-3.2.0-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.2.0/hex-setup-3.2.0-windows-x64.exe",
+     "name": "hex-setup-3.2.0-windows-x64.exe"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-01T22:43:34Z",
    "tag_name": "v3.2.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-3.1.2-linux-arm64",
+     "name": "hex-3.1.2-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-3.1.2-linux-arm64.deb",
+     "name": "hex-3.1.2-linux-arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-3.1.2-linux-arm64.rpm",
+     "name": "hex-3.1.2-linux-arm64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-3.1.2-linux-x64",
+     "name": "hex-3.1.2-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-3.1.2-linux-x64.deb",
+     "name": "hex-3.1.2-linux-x64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-3.1.2-linux-x64.rpm",
+     "name": "hex-3.1.2-linux-x64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-3.1.2-macos-arm64.dmg",
+     "name": "hex-3.1.2-macos-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-3.1.2-macos-arm64.zip",
+     "name": "hex-3.1.2-macos-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-3.1.2-windows-arm64.exe",
+     "name": "hex-3.1.2-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-3.1.2-windows-x64.exe",
+     "name": "hex-3.1.2-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-setup-3.1.2-windows-arm64.exe",
+     "name": "hex-setup-3.1.2-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.2/hex-setup-3.1.2-windows-x64.exe",
+     "name": "hex-setup-3.1.2-windows-x64.exe"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-01T16:56:08Z",
    "tag_name": "v3.1.2"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-3.1.1-linux-arm64",
+     "name": "hex-3.1.1-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-3.1.1-linux-arm64.deb",
+     "name": "hex-3.1.1-linux-arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-3.1.1-linux-arm64.rpm",
+     "name": "hex-3.1.1-linux-arm64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-3.1.1-linux-x64",
+     "name": "hex-3.1.1-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-3.1.1-linux-x64.deb",
+     "name": "hex-3.1.1-linux-x64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-3.1.1-linux-x64.rpm",
+     "name": "hex-3.1.1-linux-x64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-3.1.1-macos-arm64.dmg",
+     "name": "hex-3.1.1-macos-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-3.1.1-macos-arm64.zip",
+     "name": "hex-3.1.1-macos-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-3.1.1-windows-arm64.exe",
+     "name": "hex-3.1.1-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-3.1.1-windows-x64.exe",
+     "name": "hex-3.1.1-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-setup-3.1.1-windows-arm64.exe",
+     "name": "hex-setup-3.1.1-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.1/hex-setup-3.1.1-windows-x64.exe",
+     "name": "hex-setup-3.1.1-windows-x64.exe"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-01T05:43:55Z",
    "tag_name": "v3.1.1"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-3.1.0-linux-arm64",
+     "name": "hex-3.1.0-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-3.1.0-linux-arm64.deb",
+     "name": "hex-3.1.0-linux-arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-3.1.0-linux-arm64.rpm",
+     "name": "hex-3.1.0-linux-arm64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-3.1.0-linux-x64",
+     "name": "hex-3.1.0-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-3.1.0-linux-x64.deb",
+     "name": "hex-3.1.0-linux-x64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-3.1.0-linux-x64.rpm",
+     "name": "hex-3.1.0-linux-x64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-3.1.0-macos-arm64.dmg",
+     "name": "hex-3.1.0-macos-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-3.1.0-macos-arm64.zip",
+     "name": "hex-3.1.0-macos-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-3.1.0-windows-arm64.exe",
+     "name": "hex-3.1.0-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-3.1.0-windows-x64.exe",
+     "name": "hex-3.1.0-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-setup-3.1.0-windows-arm64.exe",
+     "name": "hex-setup-3.1.0-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.1.0/hex-setup-3.1.0-windows-x64.exe",
+     "name": "hex-setup-3.1.0-windows-x64.exe"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-01T01:39:49Z",
    "tag_name": "v3.1.0"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-arm64",
+     "name": "hex-3.0.0-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-arm64.deb",
+     "name": "hex-3.0.0-linux-arm64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-arm64.rpm",
+     "name": "hex-3.0.0-linux-arm64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-x64",
+     "name": "hex-3.0.0-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-x64.deb",
+     "name": "hex-3.0.0-linux-x64.deb"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/hex-3.0.0-linux-x64.rpm",
+     "name": "hex-3.0.0-linux-x64.rpm"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-3.0.0-macos-arm64.dmg",
+     "name": "Hex-3.0.0-macos-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-3.0.0-macos-arm64.zip",
+     "name": "Hex-3.0.0-macos-arm64.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-3.0.0-windows-arm64.exe",
+     "name": "Hex-3.0.0-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-3.0.0-windows-x64.exe",
+     "name": "Hex-3.0.0-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-Setup-3.0.0-windows-arm64.exe",
+     "name": "Hex-Setup-3.0.0-windows-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/v3.0.0/Hex-Setup-3.0.0-windows-x64.exe",
+     "name": "Hex-Setup-3.0.0-windows-x64.exe"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-31T00:38:49Z",
@@ -132,11 +1243,76 @@
    "tag_name": "app-v2.3.1"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.3.0/HEX-2.3.0-arm64.dmg",
+     "name": "HEX-2.3.0-arm64.dmg"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.3.0/HEX-2.3.0-x86_64-linux",
+     "name": "HEX-2.3.0-x86_64-linux"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.3.0/HEX-Setup-2.3.0-arm64.exe",
+     "name": "HEX-Setup-2.3.0-arm64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.3.0/HEX-Setup-2.3.0-x64.exe",
+     "name": "HEX-Setup-2.3.0-x64.exe"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-10-19T20:23:43Z",
    "tag_name": "app-v2.3.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.2.0/HEX-2.2.0-arm64.dmg",
+     "name": "HEX-2.2.0-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-16T21:47:17Z",
+   "tag_name": "app-v2.2.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.1.25/HEX-2.1.25-arm64.dmg",
+     "name": "HEX-2.1.25-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-07T20:36:06Z",
+   "tag_name": "app-v2.1.25"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.1.24/HEX-2.1.24-arm64.dmg",
+     "name": "HEX-2.1.24-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-03T20:17:27Z",
+   "tag_name": "app-v2.1.24"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.1.23/HEX-2.1.23-arm64.dmg",
+     "name": "HEX-2.1.23-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-02T22:32:38Z",
+   "tag_name": "app-v2.1.23"
   },
   {
    "assets": [],
@@ -146,11 +1322,116 @@
    "tag_name": "@kitlangton/hex@0.3.1"
   },
   {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.1.22/HEX-2.1.22-arm64.dmg",
+     "name": "HEX-2.1.22-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-23T04:36:11Z",
+   "tag_name": "app-v2.1.22"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.1.21/HEX-2.1.21-arm64.dmg",
+     "name": "HEX-2.1.21-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-23T00:12:28Z",
+   "tag_name": "app-v2.1.21"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.1.20/HEX-2.1.20-arm64.dmg",
+     "name": "HEX-2.1.20-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-19T19:40:35Z",
+   "tag_name": "app-v2.1.20"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.1.19/HEX-2.1.19-arm64.dmg",
+     "name": "HEX-2.1.19-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-18T20:46:21Z",
+   "tag_name": "app-v2.1.19"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.1.18/HEX-2.1.18-arm64.dmg",
+     "name": "HEX-2.1.18-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-15T03:53:28Z",
+   "tag_name": "app-v2.1.18"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.1.17/HEX-2.1.17-arm64.dmg",
+     "name": "HEX-2.1.17-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-11T19:06:26Z",
+   "tag_name": "app-v2.1.17"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/anomalyco/hex/releases/download/app-v2.1.16/HEX-2.1.16-arm64.dmg",
+     "name": "HEX-2.1.16-arm64.dmg"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-11T18:43:26Z",
+   "tag_name": "app-v2.1.16"
+  },
+  {
    "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-31T23:12:44Z",
    "tag_name": "@kitlangton/hex@0.3.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-28T20:27:24Z",
+   "tag_name": "@kitlangton/hex@0.2.2"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-27T23:42:01Z",
+   "tag_name": "@kitlangton/hex@0.2.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-07T00:11:35Z",
+   "tag_name": "@kitlangton/hex@0.2.0"
   }
  ],
  "repo": "anomalyco/hex",
@@ -165,7 +1446,142 @@
   "v3.0.0",
   "@kitlangton/hex@0.3.1",
   "@kitlangton/hex@0.3.0",
+  "@kitlangton/hex@0.2.2",
+  "@kitlangton/hex@0.2.1",
+  "@kitlangton/hex@0.2.0",
+  "ios-model-cleanup-tagger-1",
+  "ios-beta-ff9aeec98994",
+  "ios-beta-fbcec374645d",
+  "ios-beta-fad11cbfc80e",
+  "ios-beta-f11913272ec9",
+  "ios-beta-f3118747a044",
+  "ios-beta-f82adb826fa2",
+  "ios-beta-f78d6c948a3d",
+  "ios-beta-efd5cea0a388",
+  "ios-beta-efbc618b2c48",
+  "ios-beta-efb7dcafb53c",
+  "ios-beta-edeccfcdeb95",
+  "ios-beta-e6319e98bed6",
+  "ios-beta-e90d9b4b8258",
+  "ios-beta-e8d82f7101cf",
+  "ios-beta-e3c32b92a4d5",
+  "ios-beta-e02a488b69f3",
+  "ios-beta-e0e8b2258b03",
+  "ios-beta-deb84b6082b6",
+  "ios-beta-dcc8479cc248",
+  "ios-beta-d21699b8966e",
+  "ios-beta-d65f5f76f091",
+  "ios-beta-d02d8515d643",
+  "ios-beta-cc752905516a",
+  "ios-beta-cc3074bd5c6e",
+  "ios-beta-cc1672f71f51",
+  "ios-beta-c8444c06015a",
+  "ios-beta-c5400a4686e7",
+  "ios-beta-c930f1e9cd3a",
+  "ios-beta-c2cae93d61e1",
+  "ios-beta-c0f15f7689a4",
+  "ios-beta-bba07c640b05",
+  "ios-beta-bb50edc03494",
+  "ios-beta-b786299a7b9b",
+  "ios-beta-b6024b2001c7",
+  "ios-beta-b849b63f0170",
+  "ios-beta-b719d45e5361",
+  "ios-beta-b4f7606e2091",
+  "ios-beta-appstore-1.0.2",
+  "ios-beta-appstore-1.0.1",
+  "ios-beta-appstore-1.0.0",
+  "ios-beta-appstore-0.2.2",
+  "ios-beta-appstore-0.2.1",
+  "ios-beta-ae6eca79ed02",
+  "ios-beta-acf0f2b77a09",
+  "ios-beta-a76d240c5aa3",
+  "ios-beta-a5de693a2c86",
+  "ios-beta-a5adb4c23b5c",
+  "ios-beta-361978579da9",
+  "ios-beta-197471781ba2",
+  "ios-beta-33727933b099",
+  "ios-beta-05849318bdee",
+  "ios-beta-976267e6a1cd",
+  "ios-beta-811881e98ee1",
+  "ios-beta-742516b5801e",
+  "ios-beta-503459ed085a",
+  "ios-beta-83717ce6a262",
+  "ios-beta-71264ba1d06b",
+  "ios-beta-24918c69fae6",
+  "ios-beta-15965d562568",
+  "ios-beta-15186d041978",
+  "ios-beta-9427d069bf11",
+  "ios-beta-8878c0a200b8",
+  "ios-beta-7894cac95151",
+  "ios-beta-5552df8a3f0c",
+  "ios-beta-3302fb4c0bef",
+  "ios-beta-2863cd650767",
+  "ios-beta-1856f0435bf9",
+  "ios-beta-667f77182542",
+  "ios-beta-635a6c5a2ede",
+  "ios-beta-550eccd970a3",
+  "ios-beta-415cbf63730c",
+  "ios-beta-392bf0f9c276",
+  "ios-beta-366ebc725ddc",
+  "ios-beta-359b7c4d9e81",
+  "ios-beta-232be8ce4b6f",
+  "ios-beta-0226b1667d63",
+  "ios-beta-221b6a45fc82",
+  "ios-beta-178c16fdc52e",
+  "ios-beta-96b4f365d4a3",
+  "ios-beta-87ab5fd85f8d",
+  "ios-beta-82f1c473df28",
+  "ios-beta-71b5a8ecf0ea",
+  "ios-beta-65a2e04e3de2",
+  "ios-beta-64c028c5194b",
+  "ios-beta-62f2064db18c",
+  "ios-beta-51f0c483dd49",
+  "ios-beta-46eba3d70d28",
+  "ios-beta-43cd82d6d9a6",
+  "ios-beta-42e6e8e12d24",
+  "ios-beta-35cea0ed311d",
+  "ios-beta-33c2a4ed3a88",
+  "ios-beta-25a96a8f835c",
+  "ios-beta-011da1b38c1b",
+  "ios-beta-9d26cbdb873a",
+  "ios-beta-9a06976d0e1e",
+  "ios-beta-08cd058df870",
+  "ios-beta-8c93f6f59372",
+  "ios-beta-8c7d01672ea9",
+  "ios-beta-8bc6e45a6b28",
+  "ios-beta-8b8b6fc0ef6d",
+  "ios-beta-8ad758c3c502",
+  "ios-beta-7ff7a0504530",
+  "ios-beta-6d2035eca2da",
+  "ios-beta-6ab53fff1ec9",
+  "ios-beta-5ce7cf836293",
+  "ios-beta-5b35eb98f55b",
+  "ios-beta-4aa8418bfe56",
+  "ios-beta-2ef08aa491a5",
+  "ios-beta-2e7fc060ed2d",
+  "ios-beta-2c80cd400dc1",
+  "ios-beta-2a023f9122a5",
+  "ios-beta-2a7b12bfa602",
+  "ios-beta-1ede7bb79283",
+  "ios-beta-1e353d53b090",
+  "ios-beta-1b44779efbb7",
+  "ios-beta-0e7a1030a904",
+  "ios-beta-0e0a9bc5e3ca",
+  "ios-beta-00c8790109bf",
+  "ios-beta-0c9fa9cddf87",
+  "ios-beta-0aa6fb8fea08",
   "app-v2.3.1",
-  "app-v2.3.0"
+  "app-v2.3.0",
+  "app-v2.2.0",
+  "app-v2.1.25",
+  "app-v2.1.24",
+  "app-v2.1.23",
+  "app-v2.1.22",
+  "app-v2.1.21",
+  "app-v2.1.20",
+  "app-v2.1.19",
+  "app-v2.1.18",
+  "app-v2.1.17",
+  "app-v2.1.16"
  ]
 }

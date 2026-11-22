@@ -2,116 +2,146 @@
  "default_branch": "main",
  "releases": [
   {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.10.0/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.10.0/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-18T22:26:52Z",
+   "tag_name": "skill-v4.10.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.28/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.28/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.28/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.28/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.28/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.28/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.28/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.28/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.28/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.28/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-19T18:16:28Z",
+   "tag_name": "engine-v0.1.28"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.27/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.27/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.27/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.27/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.27/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.27/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.27/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.27/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.27/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.27/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-18T20:54:38Z",
+   "tag_name": "engine-v0.1.27"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-18T21:27:49Z",
+   "tag_name": "cli-v4.10.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/loop-v0.2.0/impeccable-loop-0.2.0.zip",
+     "name": "impeccable-loop-0.2.0.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/loop-v0.2.0/impeccable-loop-0.2.0.zip.sha256",
+     "name": "impeccable-loop-0.2.0.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-18T21:08:51Z",
+   "tag_name": "loop-v0.2.0"
+  },
+  {
    "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-11-16T00:40:46Z",
    "tag_name": "cli-v4.9.2"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-11-14T00:07:01Z",
-   "tag_name": "cli-v4.9.1"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-11-13T06:19:07Z",
-   "tag_name": "cli-v4.9.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-11-09T19:55:58Z",
-   "tag_name": "cli-v4.8.2"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-11-08T02:53:09Z",
-   "tag_name": "cli-v4.8.1"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-26T23:41:55Z",
-   "tag_name": "cli-v4.8.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-19T17:53:30Z",
-   "tag_name": "cli-v4.7.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-15T22:19:18Z",
-   "tag_name": "cli-v4.6.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-10-09T04:22:22Z",
-   "tag_name": "cli-v4.5.2"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-08T23:28:55Z",
-   "tag_name": "cli-v4.1.0"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-08T19:15:23Z",
-   "tag_name": "cli-v4.0.5"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-06T22:43:26Z",
-   "tag_name": "cli-v4.0.4"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-05T23:35:24Z",
-   "tag_name": "cli-v4.0.3"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-05T17:47:46Z",
-   "tag_name": "cli-v4.0.2"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-04T22:00:53Z",
-   "tag_name": "cli-v4.0.1"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-09-04T20:29:05Z",
-   "tag_name": "cli-v4.0.0"
   },
   {
    "assets": [
@@ -128,13 +158,6 @@
    "prerelease": false,
    "published_at": "2026-11-15T21:33:48Z",
    "tag_name": "loop-v0.1.3"
-  },
-  {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-11-12T20:10:19Z",
-   "tag_name": "loop-v0.1.2"
   },
   {
    "assets": [
@@ -185,13 +208,6 @@
    "tag_name": "engine-v0.1.25"
   },
   {
-   "assets": [],
-   "draft": false,
-   "prerelease": false,
-   "published_at": "2026-11-13T22:55:53Z",
-   "tag_name": "engine-v0.1.24"
-  },
-  {
    "assets": [
     {
      "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.9.1/universal.zip",
@@ -211,8 +227,1544 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-11-14T00:07:01Z",
+   "tag_name": "cli-v4.9.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.9.0/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.9.0/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-11-13T06:18:33Z",
    "tag_name": "skill-v4.9.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.24/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.24/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.24/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.24/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.24/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.24/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.24/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.24/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.24/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.24/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-13T22:55:53Z",
+   "tag_name": "engine-v0.1.24"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-13T06:19:07Z",
+   "tag_name": "cli-v4.9.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.23/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.23/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.23/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.23/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.23/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.23/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.23/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.23/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.23/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.23/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-12T20:08:48Z",
+   "tag_name": "engine-v0.1.23"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/loop-v0.1.2/impeccable-loop-0.1.2.zip",
+     "name": "impeccable-loop-0.1.2.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/loop-v0.1.2/impeccable-loop-0.1.2.zip.sha256",
+     "name": "impeccable-loop-0.1.2.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-12T20:10:19Z",
+   "tag_name": "loop-v0.1.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/loop-v0.1.1/impeccable-loop-0.1.1.zip",
+     "name": "impeccable-loop-0.1.1.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/loop-v0.1.1/impeccable-loop-0.1.1.zip.sha256",
+     "name": "impeccable-loop-0.1.1.zip.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-11T20:05:58Z",
+   "tag_name": "loop-v0.1.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.8.2/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.8.2/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-09T19:55:30Z",
+   "tag_name": "skill-v4.8.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.22/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.22/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.22/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.22/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.22/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.22/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.22/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.22/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.22/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.22/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-09T22:38:56Z",
+   "tag_name": "engine-v0.1.22"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.21/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.21/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.21/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.21/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.21/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.21/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.21/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.21/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.21/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.21/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-09T03:44:52Z",
+   "tag_name": "engine-v0.1.21"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.20/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.20/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.20/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.20/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.20/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.20/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.20/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.20/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.20/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.20/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-09T02:46:59Z",
+   "tag_name": "engine-v0.1.20"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-09T19:55:58Z",
+   "tag_name": "cli-v4.8.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/loop-v0.1.0/impeccable-loop-0.1.0.zip",
+     "name": "impeccable-loop-0.1.0.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": true,
+   "published_at": "2026-11-10T00:46:53Z",
+   "tag_name": "loop-v0.1.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.8.1/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.8.1/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-08T02:47:12Z",
+   "tag_name": "skill-v4.8.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-08T02:53:09Z",
+   "tag_name": "cli-v4.8.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.19/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.19/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.19/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.19/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.19/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.19/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.19/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.19/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.19/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.19/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-11-07T03:03:19Z",
+   "tag_name": "engine-v0.1.19"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.8.0/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.8.0/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-26T23:41:42Z",
+   "tag_name": "skill-v4.8.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.18/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-26T20:26:39Z",
+   "tag_name": "engine-v0.1.18"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-26T23:41:55Z",
+   "tag_name": "cli-v4.8.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.17/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.17/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.17/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.17/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.17/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.17/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.17/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.17/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.17/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.17/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-23T23:26:28Z",
+   "tag_name": "engine-v0.1.17"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.7.0/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.7.0/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-19T17:52:59Z",
+   "tag_name": "skill-v4.7.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.16/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.16/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.16/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.16/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.16/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.16/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.16/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.16/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.16/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.16/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-19T17:30:38Z",
+   "tag_name": "engine-v0.1.16"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-19T17:53:30Z",
+   "tag_name": "cli-v4.7.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.6.0/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.6.0/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-15T22:18:39Z",
+   "tag_name": "skill-v4.6.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.15/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-15T14:57:38Z",
+   "tag_name": "engine-v0.1.15"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-15T22:19:18Z",
+   "tag_name": "cli-v4.6.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.5.2/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.5.2/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-09T15:30:51Z",
+   "tag_name": "skill-v4.5.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.14/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-09T02:54:26Z",
+   "tag_name": "engine-v0.1.14"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-09T04:22:22Z",
+   "tag_name": "cli-v4.5.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.5.1/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.5.1/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-08T19:31:10Z",
+   "tag_name": "skill-v4.5.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.13/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.13/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.13/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.13/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.13/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.13/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.13/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.13/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.13/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.13/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-09T00:23:36Z",
+   "tag_name": "engine-v0.1.13"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.12/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.12/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.12/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.12/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.12/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.12/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.12/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.12/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.12/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.12/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-07T22:42:43Z",
+   "tag_name": "engine-v0.1.12"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.5.0/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.5.0/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-02T02:35:11Z",
+   "tag_name": "skill-v4.5.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.11/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.11/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.11/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.11/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.11/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.11/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.11/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.11/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.11/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.11/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-02T02:12:01Z",
+   "tag_name": "engine-v0.1.11"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.4.0/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.4.0/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-01T20:34:21Z",
+   "tag_name": "skill-v4.4.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.10/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.10/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.10/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.10/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.10/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.10/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.10/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.10/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.10/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.10/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-10-01T17:43:53Z",
+   "tag_name": "engine-v0.1.10"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.9/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.9/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.9/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.9/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.9/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.9/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.9/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.9/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.9/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.9/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-30T23:46:03Z",
+   "tag_name": "engine-v0.1.9"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.8/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.8/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.8/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.8/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.8/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.8/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.8/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.8/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.8/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.8/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-29T21:52:43Z",
+   "tag_name": "engine-v0.1.8"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.7/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.7/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.7/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.7/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.7/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.7/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.7/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.7/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.7/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.7/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-29T00:31:56Z",
+   "tag_name": "engine-v0.1.7"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.6/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.6/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.6/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.6/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.6/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.6/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.6/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.6/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.6/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.6/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-25T00:23:08Z",
+   "tag_name": "engine-v0.1.6"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.3.1/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.3.1/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-09T02:24:39Z",
+   "tag_name": "skill-v4.3.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.3.0/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.3.0/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-08T23:29:43Z",
+   "tag_name": "skill-v4.3.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.2.3/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.2.3/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-08T19:15:53Z",
+   "tag_name": "skill-v4.2.3"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.5/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.5/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.5/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.5/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.5/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.5/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.5/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.5/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.5/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.5/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-08T23:17:42Z",
+   "tag_name": "engine-v0.1.5"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.4/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.4/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.4/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.4/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.4/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.4/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.4/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.4/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.4/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.4/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-08T17:02:06Z",
+   "tag_name": "engine-v0.1.4"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-08T23:28:55Z",
+   "tag_name": "cli-v4.1.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-08T19:15:23Z",
+   "tag_name": "cli-v4.0.5"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.2.2/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.2.2/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-06T22:44:13Z",
+   "tag_name": "skill-v4.2.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.3/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.3/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.3/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.3/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.3/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.3/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.3/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.3/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.3/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.3/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-06T22:36:18Z",
+   "tag_name": "engine-v0.1.3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-06T22:43:26Z",
+   "tag_name": "cli-v4.0.4"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.2.1/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.2.1/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-05T23:36:12Z",
+   "tag_name": "skill-v4.2.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.2/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.2/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.2/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.2/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.2/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.2/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.2/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.2/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.2/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.2/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-05T22:58:30Z",
+   "tag_name": "engine-v0.1.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.1/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.1/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.1/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.1/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.1/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.1/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.1/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.1/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.1/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.1/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-05T17:36:25Z",
+   "tag_name": "engine-v0.1.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-05T23:35:24Z",
+   "tag_name": "cli-v4.0.3"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-05T17:47:46Z",
+   "tag_name": "cli-v4.0.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.2.0/universal.zip",
+     "name": "universal.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.2.0/universal.zip.sig.json",
+     "name": "universal.zip.sig.json"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-04T20:28:37Z",
+   "tag_name": "skill-v4.2.0"
   },
   {
    "assets": [
@@ -231,7 +1783,102 @@
    "tag_name": "ext-v1.4.0"
   },
   {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.0/impeccable-darwin-arm64",
+     "name": "impeccable-darwin-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.0/impeccable-darwin-arm64.sha256",
+     "name": "impeccable-darwin-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.0/impeccable-darwin-x64",
+     "name": "impeccable-darwin-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.0/impeccable-darwin-x64.sha256",
+     "name": "impeccable-darwin-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.0/impeccable-linux-arm64",
+     "name": "impeccable-linux-arm64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.0/impeccable-linux-arm64.sha256",
+     "name": "impeccable-linux-arm64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.0/impeccable-linux-x64",
+     "name": "impeccable-linux-x64"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.0/impeccable-linux-x64.sha256",
+     "name": "impeccable-linux-x64.sha256"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.0/impeccable-windows-x64.exe",
+     "name": "impeccable-windows-x64.exe"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/engine-v0.1.0/impeccable-windows-x64.exe.sha256",
+     "name": "impeccable-windows-x64.exe.sha256"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-04T17:26:05Z",
+   "tag_name": "engine-v0.1.0"
+  },
+  {
    "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-04T22:00:53Z",
+   "tag_name": "cli-v4.0.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-04T20:29:05Z",
+   "tag_name": "cli-v4.0.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.1.3/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-09-02T00:29:54Z",
+   "tag_name": "skill-v4.1.3"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.1.2/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-26T06:04:22Z",
+   "tag_name": "skill-v4.1.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.3.3/extension-firefox.zip",
+     "name": "extension-firefox.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.3.3/extension.zip",
+     "name": "extension.zip"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-26T06:04:41Z",
@@ -245,11 +1892,171 @@
    "tag_name": "cli-v3.6.1"
   },
   {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.1.1/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-14T12:59:39Z",
+   "tag_name": "skill-v4.1.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.1.0/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-14T04:31:52Z",
+   "tag_name": "skill-v4.1.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.3.2/extension-firefox.zip",
+     "name": "extension-firefox.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.3.2/extension.zip",
+     "name": "extension.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-08-14T04:33:01Z",
+   "tag_name": "ext-v1.3.2"
+  },
+  {
    "assets": [],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-08-14T04:32:18Z",
    "tag_name": "cli-v3.6.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.0.4/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-30T03:18:11Z",
+   "tag_name": "skill-v4.0.4"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.3.1/extension-firefox.zip",
+     "name": "extension-firefox.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.3.1/extension.zip",
+     "name": "extension.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-30T03:18:54Z",
+   "tag_name": "ext-v1.3.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-30T03:18:24Z",
+   "tag_name": "cli-v3.5.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.0.3/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-28T02:18:04Z",
+   "tag_name": "skill-v4.0.3"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.3.0/extension-firefox.zip",
+     "name": "extension-firefox.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.3.0/extension.zip",
+     "name": "extension.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-28T02:18:30Z",
+   "tag_name": "ext-v1.3.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-28T02:18:17Z",
+   "tag_name": "cli-v3.4.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.0.2/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-23T17:35:58Z",
+   "tag_name": "skill-v4.0.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.0.1/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-22T19:23:34Z",
+   "tag_name": "skill-v4.0.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v4.0.0/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-22T07:09:24Z",
+   "tag_name": "skill-v4.0.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-22T20:14:25Z",
+   "tag_name": "cli-v3.3.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-07-22T07:10:22Z",
+   "tag_name": "cli-v3.3.0"
   },
   {
    "assets": [
@@ -264,7 +2071,12 @@
    "tag_name": "skill-v3.9.1"
   },
   {
-   "assets": [],
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.9.0/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
    "draft": false,
    "prerelease": false,
    "published_at": "2026-07-01T08:55:11Z",
@@ -274,8 +2086,142 @@
    "assets": [],
    "draft": false,
    "prerelease": false,
+   "published_at": "2026-07-01T08:55:22Z",
+   "tag_name": "cli-v3.2.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.8.0/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-21T20:41:57Z",
+   "tag_name": "skill-v3.8.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-21T20:42:08Z",
+   "tag_name": "cli-v3.1.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.2.1/extension-firefox.zip",
+     "name": "extension-firefox.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.2.1/extension.zip",
+     "name": "extension.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-19T05:09:13Z",
+   "tag_name": "ext-v1.2.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-17T02:54:03Z",
+   "tag_name": "cli-v3.0.3"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.7.1/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-16T13:53:50Z",
+   "tag_name": "skill-v3.7.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.7.0/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-16T04:10:52Z",
+   "tag_name": "skill-v3.7.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-16T04:11:13Z",
+   "tag_name": "cli-v3.0.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.6.0/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-14T12:52:04Z",
+   "tag_name": "skill-v3.6.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.2.0/extension-firefox.zip",
+     "name": "extension-firefox.zip"
+    },
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.2.0/extension.zip",
+     "name": "extension.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-14T12:52:33Z",
+   "tag_name": "ext-v1.2.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-15T04:31:28Z",
+   "tag_name": "cli-v3.0.1"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-06-15T04:06:24Z",
+   "tag_name": "cli-v3.0.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
    "published_at": "2026-05-30T01:33:40Z",
    "tag_name": "cli-v2.3.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.5.0/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-29T04:25:17Z",
+   "tag_name": "skill-v3.5.0"
   },
   {
    "assets": [],
@@ -283,21 +2229,232 @@
    "prerelease": false,
    "published_at": "2026-05-29T04:22:19Z",
    "tag_name": "cli-v2.3.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.1.0/extension.zip",
+     "name": "extension.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-28T21:30:16Z",
+   "tag_name": "ext-v1.1.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-28T22:08:43Z",
+   "tag_name": "cli-v2.3.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-28T21:26:49Z",
+   "tag_name": "cli-v2.2.0"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.1.1/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-14T22:53:18Z",
+   "tag_name": "skill-v3.1.1"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.1.0/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-13T07:42:57Z",
+   "tag_name": "skill-v3.1.0"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-13T07:30:02Z",
+   "tag_name": "cli-v2.1.9"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.0.7/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-05-04T15:38:15Z",
+   "tag_name": "skill-v3.0.7"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.0.6/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-30T15:32:25Z",
+   "tag_name": "skill-v3.0.6"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.0.5/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-29T00:45:47Z",
+   "tag_name": "skill-v3.0.5"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.0.3/extension.zip",
+     "name": "extension.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-29T18:52:06Z",
+   "tag_name": "ext-v1.0.3"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/ext-v1.0.2/extension.zip",
+     "name": "extension.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-29T18:32:54Z",
+   "tag_name": "ext-v1.0.2"
+  },
+  {
+   "assets": [
+    {
+     "browser_download_url": "https://github.com/pbakaus/impeccable/releases/download/skill-v3.0.4/universal.zip",
+     "name": "universal.zip"
+    }
+   ],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-28T17:42:07Z",
+   "tag_name": "skill-v3.0.4"
+  },
+  {
+   "assets": [],
+   "draft": false,
+   "prerelease": false,
+   "published_at": "2026-04-28T17:52:23Z",
+   "tag_name": "cli-v2.1.8"
   }
  ],
  "repo": "pbakaus/impeccable",
  "tag_dates": {},
  "tags": [
+  "skill-v4.10.0",
   "skill-v4.9.1",
   "skill-v4.9.0",
+  "skill-v4.8.2",
+  "skill-v4.8.1",
+  "skill-v4.8.0",
+  "skill-v4.7.0",
+  "skill-v4.6.0",
+  "skill-v4.5.2",
+  "skill-v4.5.1",
+  "skill-v4.5.0",
+  "skill-v4.4.0",
+  "skill-v4.3.1",
+  "skill-v4.3.0",
+  "skill-v4.2.3",
+  "skill-v4.2.2",
+  "skill-v4.2.1",
+  "skill-v4.2.0",
+  "skill-v4.1.3",
+  "skill-v4.1.2",
+  "skill-v4.1.1",
+  "skill-v4.1.0",
+  "skill-v4.0.4",
+  "skill-v4.0.3",
+  "skill-v4.0.2",
+  "skill-v4.0.1",
+  "skill-v4.0.0",
   "skill-v3.9.1",
   "skill-v3.9.0",
+  "skill-v3.8.0",
+  "skill-v3.7.1",
+  "skill-v3.7.0",
+  "skill-v3.6.0",
+  "skill-v3.5.0",
+  "skill-v3.1.1",
+  "skill-v3.1.0",
+  "skill-v3.0.7",
+  "skill-v3.0.6",
+  "skill-v3.0.5",
+  "skill-v3.0.4",
+  "loop-v0.2.0",
   "loop-v0.1.3",
   "loop-v0.1.2",
+  "loop-v0.1.1",
+  "loop-v0.1.0",
   "ext-v1.4.0",
   "ext-v1.3.3",
+  "ext-v1.3.2",
+  "ext-v1.3.1",
+  "ext-v1.3.0",
+  "ext-v1.2.1",
+  "ext-v1.2.0",
+  "ext-v1.1.0",
+  "ext-v1.0.3",
+  "ext-v1.0.2",
+  "engine-v0.1.28",
+  "engine-v0.1.27",
+  "engine-v0.1.26",
   "engine-v0.1.25",
   "engine-v0.1.24",
+  "engine-v0.1.23",
+  "engine-v0.1.22",
+  "engine-v0.1.21",
+  "engine-v0.1.20",
+  "engine-v0.1.19",
+  "engine-v0.1.18",
+  "engine-v0.1.17",
+  "engine-v0.1.16",
+  "engine-v0.1.15",
+  "engine-v0.1.14",
+  "engine-v0.1.13",
+  "engine-v0.1.12",
+  "engine-v0.1.11",
+  "engine-v0.1.10",
+  "engine-v0.1.9",
+  "engine-v0.1.8",
+  "engine-v0.1.7",
+  "engine-v0.1.6",
+  "engine-v0.1.5",
+  "engine-v0.1.4",
+  "engine-v0.1.3",
+  "engine-v0.1.2",
+  "engine-v0.1.1",
+  "engine-v0.1.0",
+  "cli-v4.10.0",
   "cli-v4.9.2",
   "cli-v4.9.1",
   "cli-v4.9.0",
@@ -316,7 +2473,21 @@
   "cli-v4.0.0",
   "cli-v3.6.1",
   "cli-v3.6.0",
+  "cli-v3.5.0",
+  "cli-v3.4.0",
+  "cli-v3.3.1",
+  "cli-v3.3.0",
+  "cli-v3.2.0",
+  "cli-v3.1.0",
+  "cli-v3.0.3",
+  "cli-v3.0.2",
+  "cli-v3.0.1",
+  "cli-v3.0.0",
   "cli-v2.3.2",
-  "cli-v2.3.1"
+  "cli-v2.3.1",
+  "cli-v2.3.0",
+  "cli-v2.2.0",
+  "cli-v2.1.9",
+  "cli-v2.1.8"
  ]
 }

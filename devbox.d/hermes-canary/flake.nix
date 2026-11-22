@@ -8,13 +8,15 @@
   # deliberate copy of hermes-agent/flake.nix, self-contained like every
   # devbox.d flake.
   #
-  # Pinned to a tag (not a branch) so update-flake can parse the version
-  # from the input URL and bump the canary like any other flake.
+  # Pinned to a canary tag, but bumped by hand: update-flake sees the
+  # newest stable release in the v0 line and would move this flake off
+  # the canary track. Pick the latest vX.Y.Z+canary.<timestamp> tag and
+  # update every version spelling, then refresh the flake.lock input.
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    hermes-canary.url = "github:NousResearch/hermes-agent/v0.23.2+canary.20261118T064620Z";
+    hermes-canary.url = "github:NousResearch/hermes-agent/v0.23.3+canary.20261120T064609Z";
     # The tree deliberately does not build against the nixos-unstable
-    # branch: upstream's flake.lock at v0.23.2+canary.20261118T064620Z
+    # branch: upstream's flake.lock at v0.23.3+canary.20261120T064609Z
     # pins nixpkgs at 02c087f3fe673c9e317f206a627cb6b910336dbe (patchelf
     # 0.19.2). Their pm artifacts (ffmpeg, node, pnpm, python prebuilts)
     # are patchelf'd with a NixOS/patchelf#672 fix that only applies to
@@ -48,7 +50,7 @@
           # placeholder and its update notifier always report an update.
           # Thread the tag's version through; update-flake rewrites both
           # spellings.
-          upstreamAgent = upstream.default.override { version = "0.23.2+canary.20261118T064620Z"; };
+          upstreamAgent = upstream.default.override { version = "0.23.3+canary.20261120T064609Z"; };
           # Scrub host python env: an inherited PYTHONPATH from a different
           # python minor (e.g. the devbox profile's python3.14 site-packages)
           # shadows the bundled pydantic_core cpython-312 .so and crashes
