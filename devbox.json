@@ -51,6 +51,7 @@
     "xxd":                                "latest",
     "nodejs":                             "latest",
     "file":                               "latest",
+    "path:devbox.d/ai-memory":            {},
     "path:devbox.d/neovim":               {},
     "path:devbox.d/anydoc":               {},
     "path:devbox.d/blesh":                {},
