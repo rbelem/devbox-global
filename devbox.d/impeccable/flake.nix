@@ -57,7 +57,7 @@
           npmDeps = pkgs.fetchNpmDeps {
             name = "impeccable-npm-deps";
             src = npmDepsSrc;
-            hash = "sha256-CX2ANpWD2l3K0Yft/sTtJ7Pq1J4W/MaC0DDx/MTqfSI=";
+            hash = "sha256-SGeKqvsmH84D108IOeu9l4PLEu2U8n1mkdbaQp9fb0U=";
             # npmDepsFetcherVersion 2 skips optional deps (which would otherwise
             # be fetched from the lockfile metadata and fail on transient
             # registry errors). Required because 3.3.1+ pulls in platform-specific
