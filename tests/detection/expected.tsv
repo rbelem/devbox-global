@@ -54,7 +54,7 @@ kitesurf	cloudflare/kitesurf	source	v	2026	2026.11.9	unknown	??
 kitesurf#kitesurf-engine	cloudflare/kitesurf	source	v	2026	2026.11.9	unknown	??
 llm-verifier	llm-as-a-verifier/llm-as-a-verifier	registry	v	0	0.3.0	0.3.0	✓
 neovim	nix-community/neovim-nightly-overlay	none	v	0	unknown	unknown	??
-open-code-review	alibaba/open-code-review	asset	v	1	1.14.0	1.14.0	✓
+open-code-review	alibaba/open-code-review	asset	v	1	1.14.1	1.14.1	✓
 pdf-inspector	firecrawl/pdf-inspector	source	v	1	1.27.0	1.27.0	✓
 playwright-cli	microsoft/playwright-cli	source	v	0	0.1.25	0.1.25	✓
 rea	morluto/rea	source	rea-agents-	6	6.10.1	6.10.1	✓
