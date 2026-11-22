@@ -4,6 +4,7 @@
     "fzf":                                "latest",
     "starship":                           "latest",
     "ripgrep":                            "latest",
+    "rclone":                             "latest",
     "gh":                                 "latest",
     "zoxide":                             "latest",
     "tmux":                               "latest",
