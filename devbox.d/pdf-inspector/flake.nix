@@ -33,6 +33,9 @@
           # Repo doesn't commit Cargo.lock; ship generated one (postPatch copies it into src).
           postPatch = ''
             cp ${./Cargo.lock} Cargo.lock
+            # The fetched source tree is read-only, so the copied lock file is
+            # too; cargo needs to rewrite it during the build.
+            chmod +w Cargo.lock
           '';
           cargoLock = {
             lockFile = ./Cargo.lock;
