@@ -63,8 +63,12 @@ bin/disable-package open-design --dry-run  # show what would change
 ## The rule the contract encodes
 
 A flake tracks one *line* of upstream versions: a tag prefix plus a major
-version (`v` + `0` for `bsk` is `cli-v` + `0`, `v` + `2026` for
-`hermes-agent`). The newest version in that line is:
+version (`cli-v` + `0` for `bsk`, `v` + `0` for `hermes-agent`, and
+`v` + `0` for `hermes-canary`, the canary track with its own
+pre-release packages; upstream re-versioned there from the calver
+`v2026` line to semver `v0` in November 2026, and the flake was bumped
+across the scheme boundary by hand - the detector only ever sees the
+line it is pinned to). The newest version in that line is:
 
 1. The newest **release** in the line, preferring a stable one over a
    pre-release. A release published before the installed version is not a

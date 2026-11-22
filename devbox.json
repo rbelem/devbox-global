@@ -85,6 +85,8 @@
     "path:devbox.d/herdr-app":            {},
     "path:devbox.d/hermes-agent":         {},
     "path:devbox.d/hermes-agent#desktop": {},
+    "path:devbox.d/hermes-canary":        {},
+    "path:devbox.d/hermes-canary#desktop": {},
     //"path:devbox.d/pi":                   {},
     "path:devbox.d/firecrawl":            {},
     "path:devbox.d/zg":                   {},

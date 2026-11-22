@@ -36,8 +36,10 @@ firecrawl	firecrawl/cli	asset	v	1	1.29.0	1.29.0	✓
 herdr	ogulcancelik/herdr	asset	v	0	0.9.5	0.9.5	✓
 herdr-core	herdrdev/herdr-core	manifest	v	0	0.1.21	0.1.21	✓
 herdr-app	herdrdev/herdr-app	manifest	v	0	0.1.16	0.1.16	✓
-hermes-agent	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
-hermes-agent#desktop	NousResearch/hermes-agent	source	v	2026	2026.9.24	2026.9.24	✓
+hermes-agent	NousResearch/hermes-agent	source	v	0	0.23.2	0.23.2	✓
+hermes-agent#desktop	NousResearch/hermes-agent	source	v	0	0.23.2	0.23.2	✓
+hermes-canary	NousResearch/hermes-agent	source	v	0	0.23.2+canary.20261118T064620Z	0.23.2+canary.20261118T064620Z	✓ (pre)
+hermes-canary#desktop	NousResearch/hermes-agent	source	v	0	0.23.2+canary.20261118T064620Z	0.23.2+canary.20261118T064620Z	✓ (pre)
 hex	anomalyco/hex	asset	v	3	3.4.0	3.4.0	✓
 hunk	modem-dev/hunk	asset	v	0	0.25.0	0.25.0	✓
 impeccable	pbakaus/impeccable	source	cli-v	4	4.9.2	4.9.2	✓
