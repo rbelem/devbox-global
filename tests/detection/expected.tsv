@@ -27,8 +27,8 @@ bun	oven-sh/bun	asset	bun-v	1	1.4.5	1.4.5	✓
 codeburn	getagentseal/codeburn	source	v	0	0.9.28	0.9.28	✓
 codegraph	colbymchenry/codegraph	source	v	1	1.6.4	1.6.4	✓
 cua	trycua/cua	asset	cua-sdk-v	0	0.31.0	0.31.0	✓
-cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.57.0	0.57.0	✓ (pre)
-cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.41.1	0.41.1	✓
+cua-driver	trycua/cua	asset	cua-driver-rs-v	0	0.59.1	0.59.1	✓ (pre)
+cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.41.4	0.41.4	✓
 cua-spacesd	trycua/cua	asset	cua-spacesd-v	0	0.17.4	0.17.4	✓
 dcg	Dicklesworthstone/destructive_command_guard	asset	v	0	0.17.0	0.17.0	✓
 deepsec	vercel-labs/deepsec	source	v	2	2.3.9	unknown	??
