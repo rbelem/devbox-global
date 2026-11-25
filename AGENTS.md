@@ -24,6 +24,10 @@ changing `bin/flake-detect.py` or the contract in
 
 ## Working on a flake
 
+- **Read this section before touching ANY flake.** Two copies exist (repo and
+  the live global dir); editing only one leaves the profile pointing at the old
+  store path even when install reports success. The sync rules below apply to
+  both manual edits and `bin/update-flake`.
 - **Bump a version** with `bin/update-flake <name>` - it writes the version,
   the hashes and the lock. The `update-flake-workflow` skill has the
   procedure, the hash fields per package and the recovery recipes.
