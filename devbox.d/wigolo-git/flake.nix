@@ -12,30 +12,28 @@
       # Re-point these four to track a new rev (e.g. the rbelem PR
       # branch), then refresh the hashes via the fakeHash loop below.
       #
-      # Tracks the fork's main, rebased onto upstream v0.3.1 and carrying 22
-      # commits on top: the key-gated DeepSeek engine, the resident-memory work
-      # (gzipped cache, cache compaction, hosted inference), installed-browser
-      # support (Flatpak Chrome/Brave), the review round that moved hosted
-      # reranking off the fetch path and made credentials env/keychain-only, and
-      # the browser-PROCESS idle close (upstream only reaps contexts), an
+      # Tracks the fork's main, rebased onto upstream v0.3.4 (2026-11-25) and
+      # carrying the fork's commits on top: the key-gated DeepSeek engine, the
+      # resident-memory work (gzipped cache, cache compaction, hosted
+      # inference), installed-browser support (Flatpak Chrome/Brave), hosted
+      # reranking off the fetch path with env/keychain-only credentials, the
+      # browser-PROCESS idle close (upstream only reaps contexts), an
       # init/warmup that detects an installed browser and writes through a
-      # same-directory config symlink, and OpenCode skill installation
-      # (.opencode/skills in a project, ~/.agents/skills globally). The
-      # embedder/reranker idle release is upstream's own now, so this branch no
-      # longer carries a second copy. None of the fork's commits are in a
-      # release yet; re-pin to upstream once they are.
+      # same-directory config symlink, OpenCode skill installation, and the
+      # Kitesurf CDP-backed browser type with Chromium fallback. None of the
+      # fork's commits are in a release yet; re-pin to upstream once they are.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "8e9e9db6b2900267a16fb32c207c7e301de56b86";
-      version = "0.3.1-git.8e9e9db";
+      rev = "cb69fb7f5a7493748049cdf88ed2a4b0b516943d";
+      version = "0.3.4-git.cb69fb7";
 
       # Get the real hashes:
       #   1. Set srcHash/npmDepsHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash first — copy the "got" hash
       #   4. Then it will fail for npmDepsHash — copy that too
-      srcHash = "sha256-zR4zRPMDRG4JWMjPxb4KQpgm+qnyFx+uEr0TvkotOJU=";
-      npmDepsHash = "sha256-p1L8ohMXZlRuGbgK0TUgycc8LLaYr8CtaCcbMLMUZxs=";
+      srcHash = "sha256-z/9c7zgKWRR1GsjijkDyJk0e91rT//rzNwdBeN5KRgA=";
+      npmDepsHash = "sha256-f7fKyAPntKbH9pg1usYrLY2YS+KM1epx6+a6mHtMakU=";
 
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
