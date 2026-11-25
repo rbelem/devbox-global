@@ -5,6 +5,7 @@ beads
 bifrost
 codecanary
 compiledb
+deepseek-harness
 docling
 fx
 goose
@@ -20,6 +21,7 @@ openspec
 pi
 playwright-chromium-deps
 prime-agent
+strix
 tokeneconomizer
 tree-sitter-perl
 valkey-search

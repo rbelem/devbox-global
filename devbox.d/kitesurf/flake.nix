@@ -10,15 +10,15 @@
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
-      # Release line: upstream tags plain calver (2026.11.9), no prefix and no
+      # Release line: upstream tags plain calver (2026.11.12), no prefix and no
       # GitHub releases; the tags are the only source of versions.
-      version = "2026.11.9";
+      version = "2026.11.12";
 
       # Hash capture workflow for the CLI source:
       #   1. set srcHash to pkgs.lib.fakeHash
       #   2. nix build "path:devbox.d/kitesurf#default"
       #   3. paste the sha256-... value from the error message
-      srcHash = "sha256-GIJuGlLqycvWp8bMmNX/QtE9JVpmwSaNDmY0hyLJvJY=";
+      srcHash = "sha256-/wt1W6h/OczkA9JpI/oKoFFzxosJInpO6rZQ73GpSxM=";
     in
     {
       packages = forAllSystems (

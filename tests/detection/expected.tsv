@@ -32,7 +32,6 @@ cua-spaces	trycua/cua	asset	cua-spaces-v	0	0.41.4	0.41.4	✓
 cua-spacesd	trycua/cua	asset	cua-spacesd-v	0	0.17.4	0.17.4	✓
 dcg	Dicklesworthstone/destructive_command_guard	asset	v	0	0.17.0	0.17.0	✓
 deepsec	vercel-labs/deepsec	source	v	2	2.3.9	unknown	??
-deepseek-harness	deepseek-ai/deepseek-harness	source	dsh-v	0	0.2.1-alpha.1	0.2.2-rc.5	?? (sha-pinned)
 firecrawl	firecrawl/cli	asset	v	1	1.30.0	1.30.0	✓
 herdr	ogulcancelik/herdr	asset	v	0	0.9.5	0.9.5	✓
 herdr-app	herdrdev/herdr-app	manifest	v	0	0.1.16	0.1.16	✓
@@ -50,8 +49,8 @@ jev-ultrafast	rbelem/jev-ultrafast	source	v	0	0.1.0	unknown	??
 # no way to express an empty release line prefix, so the tags are invisible to
 # it: latest "unknown", status "??". Bump by hand with `update-flake` verified
 # against the tag, or pin via a fork with v-prefixed tags.
-kitesurf	cloudflare/kitesurf	source	v	2026	2026.11.9	unknown	??
-kitesurf#kitesurf-engine	cloudflare/kitesurf	source	v	2026	2026.11.9	unknown	??
+kitesurf	cloudflare/kitesurf	source	v	2026	2026.11.12	unknown	??
+kitesurf#kitesurf-engine	cloudflare/kitesurf	source	v	2026	2026.11.12	unknown	??
 llm-verifier	llm-as-a-verifier/llm-as-a-verifier	registry	v	0	0.3.0	0.3.0	✓
 neovim	nix-community/neovim-nightly-overlay	none	v	0	unknown	unknown	??
 open-code-review	alibaba/open-code-review	asset	v	1	1.14.1	1.14.1	✓
@@ -64,9 +63,8 @@ skillranker	Dicklesworthstone/skillranker	source	v	0	dynamic	unknown	?? (dynamic
 skills	vercel-labs/skills	source	v	1	1.9.0	1.9.0	✓
 skillspector	NVIDIA/SkillSpector	source	v	2	2.13.6	2.13.6	✓
 steel-takeoff	monozukuri-ai/ezdwg	source	v	0	0.21.3	0.21.3	✓
-strix	usestrix/strix	source	v	1	1.7.0	1.7.1	?? (sha-pinned)
 vela	unknown	none	v	0	0.1.6	unknown	??
 whichllm	Andyyyy64/whichllm	source	v	0	0.6.9	0.6.9	✓
-wigolo-git	rbelem/wigolo	source	v	0	0.3.1-git.8e9e9db	unknown	??
+wigolo-git	rbelem/wigolo	source	v	0	0.3.4-git.cb69fb7	unknown	??
 yogurt	FrigadeHQ/yogurt	asset	v	0	0.3.65	0.3.65	✓
 zg	zvec-ai/zvec-grep	source	v	0	0.3.1	0.3.1	✓
