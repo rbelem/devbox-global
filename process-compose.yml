@@ -88,11 +88,18 @@ processes:
       # Zen gateway (OpenAI-compatible): alias the Go key as OPENAI_API_KEY.
       # Do NOT let the real OpenAI key leak in here — zen rejects it.
       - "OPENAI_BASE_URL=https://opencode.ai/zen/go/v1"
-      - "OPENAI_API_KEY=${OPENCODE_GO_API_KEY}"
+      - "OPENAI_API_KEY=${OPENCODE_API_KEY}"
       # Zen gateway session routing: x-opencode-session header (uuid mirrors
       # bifrost providers.opencode-go.network_config.extra_headers; rotates
       # per opencode session — refresh from ~/.config/bifrost/config.json).
       - 'WIGOLO_OPENAI_EXTRA_HEADERS={"x-opencode-session":"c5f025e7-1536-4971-a0ca-66976ef8a634"}'
+      # Embeddings -> OpenCode Go (OpenAI-compatible /embeddings). Wigolo
+      # appends the suffix itself, so both the API base and the documented
+      # full endpoint resolve to one /embeddings request.
+      - "WIGOLO_EMBEDDING_PROVIDER=openai-compatible"
+      - "WIGOLO_EMBEDDING_BASE_URL=https://opencode.ai/inference/go/openai/v1/embeddings"
+      - "WIGOLO_EMBEDDING_API_KEY=${OPENCODE_API_KEY}"
+      - "WIGOLO_EMBEDDING_MODEL=text-embedding-3-small"
       # Node must not see a foreign libsqlite3 (e.g. shuttle's LD_LIBRARY_PATH);
       # its nix wrapper re-prepends its own playwright deps after this clears it.
       - "LD_LIBRARY_PATH="

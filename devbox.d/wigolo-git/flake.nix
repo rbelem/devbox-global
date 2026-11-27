@@ -22,14 +22,14 @@
       # custom commits. Re-pin to upstream once they are released.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "b788856121d87cf7a3c0b42e430dc31f12474d08";
-      version = "0.3.4-git.b7888561";
+      rev = "d50412c4b5341d8c2a8053666c58fe8d9fcd07aa";
+      version = "0.3.4-git.d50412c4";
 
       # Get the real hashes:
       #   1. Set srcHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash — copy the "got" hash
-      srcHash = "sha256-ncP1U+mBvEyv3HAia8ibQ0uCFj/IE6SJ83C7MooKfgI=";
+      srcHash = "sha256-bAV52rEM9qKp01eKUylMOCwqzkmazuE+/9qKhgHRD48=";
 
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
