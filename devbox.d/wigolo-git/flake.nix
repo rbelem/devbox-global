@@ -4,36 +4,32 @@
   inputs = {
     # Pinned to stable wigolo's nixpkgs: newer libcs need GLIBC_2.43, ambient profile ships 2.42 — bump together
     nixpkgs.url = "github:NixOS/nixpkgs/88c4c23f3d6e5a4116ee19e148df5a0f2004f861";
+    # Bun 1.4.4 is the newest Bun packaged in nixpkgs as of 2026-11-27. The
+    # official release (and oven/bun image) is 1.4.5; nixpkgs has not caught
+    # up. Keep this input separate so the runtime libs nixpkgs pin stays on
+    # glibc 2.42.
+    bunPkgs.url = "github:NixOS/nixpkgs/1eb11bb1e8b58b3de37332a744665ec5b9fc023e";
   };
 
   outputs =
-    { self, nixpkgs }:
+    {
+      self,
+      nixpkgs,
+      bunPkgs,
+    }:
     let
-      # Re-point these four to track a new rev (e.g. the rbelem PR
-      # branch), then refresh the hashes via the fakeHash loop below.
-      #
-      # Tracks the fork's main, rebased onto upstream v0.3.4 (2026-11-25) and
-      # carrying the fork's commits on top: the key-gated DeepSeek engine, the
-      # resident-memory work (gzipped cache, cache compaction, hosted
-      # inference), installed-browser support (Flatpak Chrome/Brave), hosted
-      # reranking off the fetch path with env/keychain-only credentials, the
-      # browser-PROCESS idle close (upstream only reaps contexts), an
-      # init/warmup that detects an installed browser and writes through a
-      # same-directory config symlink, OpenCode skill installation, and the
-      # Kitesurf CDP-backed browser type with Chromium fallback. None of the
-      # fork's commits are in a release yet; re-pin to upstream once they are.
+      # Tracks the fork's main, carrying the Bun migration and the fork's
+      # custom commits. Re-pin to upstream once they are released.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "cb69fb7f5a7493748049cdf88ed2a4b0b516943d";
-      version = "0.3.4-git.cb69fb7";
+      rev = "b788856121d87cf7a3c0b42e430dc31f12474d08";
+      version = "0.3.4-git.b7888561";
 
       # Get the real hashes:
-      #   1. Set srcHash/npmDepsHash to pkgs.lib.fakeHash
+      #   1. Set srcHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
-      #   3. It will fail for srcHash first — copy the "got" hash
-      #   4. Then it will fail for npmDepsHash — copy that too
-      srcHash = "sha256-z/9c7zgKWRR1GsjijkDyJk0e91rT//rzNwdBeN5KRgA=";
-      npmDepsHash = "sha256-f7fKyAPntKbH9pg1usYrLY2YS+KM1epx6+a6mHtMakU=";
+      #   3. It will fail for srcHash — copy the "got" hash
+      srcHash = "sha256-ncP1U+mBvEyv3HAia8ibQ0uCFj/IE6SJ83C7MooKfgI=";
 
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -43,54 +39,15 @@
         system:
         let
           sysPkgs = nixpkgs.legacyPackages.${system};
+          bun = bunPkgs.legacyPackages.${system}.bun;
 
           githubSrc = sysPkgs.fetchFromGitHub {
             inherit owner repo rev;
             hash = srcHash;
           };
 
-          src = githubSrc;
-
-          # Runtime libs for Playwright's bundled Chromium on NixOS.
-          # Derived by `ldd chrome | grep 'not found'` against a bare NixOS env.
-          # Re-check when bumping wigolo's playwright version (rare).
-          #
-          # DUPLICATED ON PURPOSE — one list, two literal copies. Keep in sync.
-          #
-          # The other copy is the wigolo checkout's
-          # `devbox.d/playwright-libs/flake.nix`:
-          #   /home/rodrigo/Workspace/github.com/KnockOutEZ/wigolo
-          # Neither file can own the list for the other: this flake builds a
-          # FETCHED wigolo source instead of that checkout's tree (and cannot
-          # import a file of ours from `src` either — the pinned rev predates
-          # one), while that flake has to evaluate with no network fetch. So:
-          # one list, one owner (the wigolo checkout — its package.json
-          # Playwright version drives `ldd`), two literal copies.
-          #
-          # TRIGGER is a Playwright bump: the version in package.json pulls a
-          # new chrome-headless-shell, and that is the only thing that changes
-          # the set. In ONE change: re-run
-          # `ldd chrome-headless-shell | grep 'not found'` against a bare NixOS
-          # env, edit BOTH lists, update BOTH attestation hashes below, and keep
-          # both flakes' nixpkgs pins equal (see the input comment at the top:
-          # same rev, GLIBC_2.43 boundary).
-          #
-          # BEGIN ATTESTED SET — sha256
-          # 2ee112dd9b920ed96127e37d476a1182631408832b3b5527d4c3659ba4f17e63
-          # sha256 of the sorted attribute names, one per line, trailing newline
-          # included. The string is identical in both copies, so a hash that no
-          # longer matches its own list — or two hashes that differ — is drift.
-          #   alsa-lib, at-spi2-core, cairo, cups.lib, dbus.lib, expat,
-          #   glib.out, libgbm, libx11, libxcb, libxcomposite, libxdamage,
-          #   libxext, libxfixes, libxkbcommon, libxrandr, nspr, nss,
-          #   pango.out, systemdMinimal
-          # END ATTESTED SET
-          #
-          # Compare the two copies without reading them (empty = in sync):
-          #   diff <(sed -n '/BEGIN ATTESTED SE[T]/,/END ATTESTED SE[T]/p' \
-          #           devbox.d/wigolo-git/flake.nix) \
-          #        <(sed -n '/BEGIN ATTESTED SE[T]/,/END ATTESTED SE[T]/p' \
-          #           /home/rodrigo/Workspace/github.com/KnockOutEZ/wigolo/devbox.d/playwright-libs/flake.nix)
+          # Playwright Chromium runtime libs (see the wigolo checkout's
+          # devbox.d/playwright-libs/flake.nix for the attested set).
           chromiumDeps = sysPkgs.buildEnv {
             name = "playwright-chromium-deps";
             paths = with sysPkgs; [
@@ -106,8 +63,6 @@
               libgbm
               pango.out
               systemdMinimal
-              # Non-output-prefixed attributes: the `xorg.*` aliases are
-              # deprecated in current nixpkgs and warn on every evaluation.
               libx11
               libxcb
               libxcomposite
@@ -122,15 +77,16 @@
           };
         in
         {
-          default = sysPkgs.buildNpmPackage {
+          default = sysPkgs.stdenv.mkDerivation {
             pname = "wigolo-git";
-            inherit version src npmDepsHash;
+            inherit version;
+            src = githubSrc;
 
             nativeBuildInputs = with sysPkgs; [
               python3
               pkg-config
-              nodejs_22
               makeWrapper
+              bun
             ];
 
             buildInputs = with sysPkgs; [
@@ -139,63 +95,37 @@
               libsecret
             ];
 
-            npmFlags = [ "--ignore-scripts" ];
+            # bun install runs native postinstall scripts (better-sqlite3,
+            # onnxruntime-node, etc.) via the repo's trustedDependencies.
+            # Skip the ONNX CUDA blob download as documented in .npmrc; Bun
+            # does not export .npmrc keys as npm_config_* env vars.
+            ONNXRUNTIME_NODE_INSTALL_CUDA = "skip";
 
-            # Run the real upstream build (`tsup && tsc -p
-            # tsconfig.build.json`). No npm dist tarball exists for
-            # main, so dontNpmBuild stays off.
-            npmBuildScript = "build";
+            buildPhase = ''
+              runHook preBuild
+              bun install --frozen-lockfile
+              # Bun's install cache uses symlinks into the ephemeral build dir.
+              # Drop it so the Nix closure has no dangling symlinks.
+              rm -rf node_modules/.cache
+              bun run build
+              runHook postBuild
+            '';
 
             installPhase = ''
               runHook preInstall
-
-              # Compile native modules from source. We use nodejs_22's own
-              # bundled node-gyp (not pkgs.node-gyp, which is built against
-              # Node 24 and embeds Node 24 headers — produces .node bindings
-              # that throw `undefined symbol` V8 ABI errors under Node 22).
-              # The bundled copy runs under nodejs_22 and resolves headers
-              # from the matching include/node dir, so the binding matches
-              # the runtime.
-              export npm_config_nodedir=${sysPkgs.nodejs_22}
-              node_gyp="${sysPkgs.nodejs_22}/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js"
-              (cd node_modules/better-sqlite3 && node "$node_gyp" rebuild 2>&1)
-              (cd node_modules/sqlite-vec && node "$node_gyp" rebuild 2>&1) || true
-
-              # Replace stub modules in dist/node_modules/ with full copies
-              # from root node_modules/. Bundlers may ship only stubs
-              # (package.json only); syncing avoids runtime ERR_MODULE_NOT_FOUND
-              # from dynamic imports.
-              for mod in $(cd "$PWD/dist/node_modules" 2>/dev/null && find . -maxdepth 1 -mindepth 1 -type d -exec basename {} \; && find . -maxdepth 2 -mindepth 2 -path './@*/*' -type d 2>/dev/null | sed 's|^\./||'); do
-                rootDir="$PWD/node_modules/$mod"
-                distDir="$PWD/dist/node_modules/$mod"
-                if [ -d "$rootDir" ] && [ -d "$distDir" ]; then
-                  distFiles=$(find "$distDir" -maxdepth 1 -type f 2>/dev/null | wc -l)
-                  if [ "$distFiles" -le 1 ]; then
-                    echo "[nix] Syncing stub module: $mod"
-                    rm -rf "$distDir"
-                    cp -r "$rootDir" "$distDir"
-                  fi
-                fi
-              done
-
-              # Copy the package to $out
               mkdir -p $out/lib/node_modules/wigolo
               cp -r . $out/lib/node_modules/wigolo/
-
-              # Create bin wrapper
               mkdir -p $out/bin
-              makeWrapper ${sysPkgs.nodejs_22}/bin/node \
+              makeWrapper ${bun}/bin/bun \
                 $out/bin/wigolo \
                 --add-flags "$out/lib/node_modules/wigolo/dist/index.js" \
                 --set NODE_PATH "$out/lib/node_modules" \
-                --prefix PATH : ${sysPkgs.nodejs_22}/bin \
                 --prefix LD_LIBRARY_PATH : ${chromiumDeps}/lib
-
               runHook postInstall
             '';
 
             meta = with sysPkgs.lib; {
-              description = "Local-first web intelligence MCP server for AI coding agents (main branch build)";
+              description = "Local-first web intelligence MCP server (main branch, Bun build)";
               homepage = "https://github.com/KnockOutEZ/wigolo";
               license = licenses.agpl3Only;
               mainProgram = "wigolo";
