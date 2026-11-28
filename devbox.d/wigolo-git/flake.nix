@@ -22,14 +22,14 @@
       # custom commits. Re-pin to upstream once they are released.
       owner = "rbelem";
       repo = "wigolo";
-      rev = "d50412c4b5341d8c2a8053666c58fe8d9fcd07aa";
-      version = "0.3.4-git.d50412c4";
+      rev = "3f85951b1b32617c6a09f87172a2142021d57b42";
+      version = "0.3.4-git.3f85951b";
 
       # Get the real hashes:
       #   1. Set srcHash to pkgs.lib.fakeHash
       #   2. Run: nix build ./devbox.d/wigolo-git#default
       #   3. It will fail for srcHash — copy the "got" hash
-      srcHash = "sha256-bAV52rEM9qKp01eKUylMOCwqzkmazuE+/9qKhgHRD48=";
+      srcHash = "sha256-50OUZIG1GvwFxS7j9S5KWPfG+E+IRu0lP45NmQuz6DI=";
 
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -48,6 +48,17 @@
 
           # Playwright Chromium runtime libs (see the wigolo checkout's
           # devbox.d/playwright-libs/flake.nix for the attested set).
+          # BEGIN ATTESTED SET — sha256
+          # 2ee112dd9b920ed96127e37d476a1182631408832b3b5527d4c3659ba4f17e63
+          # sha256 of the sorted attribute names, one per line, trailing newline
+          # included. The string is identical in both copies, so a hash that no
+          # longer matches its own list — or two hashes that differ — is drift.
+          #   alsa-lib, at-spi2-core, cairo, cups.lib, dbus.lib, expat,
+          #   glib.out, libgbm, libx11, libxcb, libxcomposite, libxdamage,
+          #   libxext, libxfixes, libxkbcommon, libxrandr, nspr, nss,
+          #   pango.out, systemdMinimal
+          # END ATTESTED SET
+
           chromiumDeps = sysPkgs.buildEnv {
             name = "playwright-chromium-deps";
             paths = with sysPkgs; [
