@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "bunPkgs": {
-      "locked": {
-        "lastModified": 1795794415,
-        "narHash": "sha256-O3OdyTvsx0NpKo8UT/z8asTErWq4pu2ZnFDJ15rx0gk=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "1eb11bb1e8b58b3de37332a744665ec5b9fc023e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "1eb11bb1e8b58b3de37332a744665ec5b9fc023e",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1790553024,
@@ -34,7 +18,6 @@
     },
     "root": {
       "inputs": {
-        "bunPkgs": "bunPkgs",
         "nixpkgs": "nixpkgs"
       }
     }

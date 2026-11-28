@@ -32,7 +32,7 @@
 
             src = pkgs.fetchurl {
               url = releaseUrl;
-              sha256 = "sha256-4ERutVmVdy65iUvrrppr42jZhai5Jx7hJEhvmUbu3XY=";
+              sha256 = "sha256-3LI6GKHC//EtV7zvaW27tC62f94p9DgW7LWVRZokxGM=";
             };
 
             nativeBuildInputs = [

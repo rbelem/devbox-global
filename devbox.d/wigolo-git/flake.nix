@@ -4,19 +4,10 @@
   inputs = {
     # Pinned to stable wigolo's nixpkgs: newer libcs need GLIBC_2.43, ambient profile ships 2.42 — bump together
     nixpkgs.url = "github:NixOS/nixpkgs/88c4c23f3d6e5a4116ee19e148df5a0f2004f861";
-    # Bun 1.4.4 is the newest Bun packaged in nixpkgs as of 2026-11-27. The
-    # official release (and oven/bun image) is 1.4.5; nixpkgs has not caught
-    # up. Keep this input separate so the runtime libs nixpkgs pin stays on
-    # glibc 2.42.
-    bunPkgs.url = "github:NixOS/nixpkgs/1eb11bb1e8b58b3de37332a744665ec5b9fc023e";
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      bunPkgs,
-    }:
+    { self, nixpkgs }:
     let
       # Tracks the fork's main, carrying the Bun migration and the fork's
       # custom commits. Re-pin to upstream once they are released.
@@ -39,7 +30,44 @@
         system:
         let
           sysPkgs = nixpkgs.legacyPackages.${system};
-          bun = bunPkgs.legacyPackages.${system}.bun;
+
+          # Bun 1.4.5, duplicated from devbox.d/bun/flake.nix. Kept inline
+          # instead of as a flake input: devbox copies this flake into the
+          # store before evaluating it, so a relative path input resolves
+          # against the store instead of this directory. Bump both copies
+          # together, including the sha256 below.
+          bunVersion = "1.4.5";
+          bunBin = sysPkgs.stdenvNoCC.mkDerivation {
+            pname = "bun";
+            version = bunVersion;
+            src = sysPkgs.fetchurl {
+              url = "https://github.com/oven-sh/bun/releases/download/bun-v${bunVersion}/bun-linux-x64-baseline.zip";
+              sha256 = "sha256-3LI6GKHC//EtV7zvaW27tC62f94p9DgW7LWVRZokxGM=";
+            };
+            nativeBuildInputs = [
+              sysPkgs.unzip
+              sysPkgs.makeWrapper
+            ]
+            ++ sysPkgs.lib.optionals sysPkgs.stdenv.hostPlatform.isLinux [ sysPkgs.autoPatchelfHook ];
+            buildInputs = sysPkgs.lib.optionals sysPkgs.stdenv.hostPlatform.isLinux [
+              sysPkgs.zlib
+              sysPkgs.gcc.cc.lib
+            ];
+            dontConfigure = true;
+            dontBuild = true;
+            installPhase = ''
+              runHook preInstall
+              install -Dm 755 bun $out/bin/bun
+              ln -s $out/bin/bun $out/bin/bunx
+              runHook postInstall
+            '';
+            meta = with sysPkgs.lib; {
+              description = "Bun ${bunVersion} (official release, x64 baseline)";
+              homepage = "https://bun.sh";
+              license = licenses.mit;
+              platforms = systems;
+            };
+          };
 
           githubSrc = sysPkgs.fetchFromGitHub {
             inherit owner repo rev;
@@ -97,7 +125,7 @@
               python3
               pkg-config
               makeWrapper
-              bun
+              bunBin
             ];
 
             buildInputs = with sysPkgs; [
@@ -127,7 +155,7 @@
               mkdir -p $out/lib/node_modules/wigolo
               cp -r . $out/lib/node_modules/wigolo/
               mkdir -p $out/bin
-              makeWrapper ${bun}/bin/bun \
+              makeWrapper ${bunBin}/bin/bun \
                 $out/bin/wigolo \
                 --add-flags "$out/lib/node_modules/wigolo/dist/index.js" \
                 --set NODE_PATH "$out/lib/node_modules" \
